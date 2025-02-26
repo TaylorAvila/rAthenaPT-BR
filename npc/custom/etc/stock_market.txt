@@ -21,14 +21,14 @@
 	end;
 OnInit:
 	// Sets the names of the shares //
-	set $S1N$,"JIN";
-	set $S2N$,"VNG";
-	set $S3N$,"SHA";
-	set $S4N$,"RGC";
+	set $S1N$,"Sentir";
+	set $S2N$,"Vng";
+	set $S3N$,"BEBIDA";
+	set $S4N$,"Rgc";
 	set $S5N$,"PSC";
-	set $S6N$,"GNG";
+	set $S6N$,"Sra.";
 	set $S7N$,"XRO";
-	set $S8N$,"GRM";
+	set $S8N$,"Grm";
 	set $S9N$,"DOP";
 	set $S10N$,"POR";
 
@@ -176,15 +176,15 @@ prontera,140,181,5	script	Stock Market::stockmarket	109,{
 	// Ensures no trading when default prices have not been set //
 	set @stotal,$S1+$S2+$S3+$S4+$S5+$S6+$S7+$S8+$S9+$S10;
 	if (@stotal > 0) goto S_Start;
-	mes "[Stock Market]";
-	mes "Trading is currently closed.";
+	mes "[Mercado de ações]";
+	mes "A negociação está atualmente fechada.";
 	if (getgmlevel() > 90) goto GM_Open;
 	close;
 
 	// Begining of interface //
 S_Start:
-	mes "[Stock Market]";
-	mes "Last fluctuation: " + $S_LastUpd$;
+	mes "[Mercado de ações]";
+	mes "Última flutuação:" + $S_LastUpd$;
 
 	// Loss/Gain in price //
 	set @S1Update,$S1-$S1B;
@@ -240,40 +240,40 @@ S_Start:
 	if (@S10Update == 0) set @S10Update$,@S10Update;
 
 	// Displays shares & prices //
-	mes "^21698F"+$S1N$+"^000000" + " " + $S1 + "z (" + @S1Update$ + ")";
-	mes "^21698F"+$S2N$+"^000000" + " " + $S2 + "z (" + @S2Update$ + ")";
-	mes "^21698F"+$S3N$+"^000000" + " " + $S3 + "z (" + @S3Update$ + ")";
-	mes "^21698F"+$S4N$+"^000000" + " " + $S4 + "z (" + @S4Update$ + ")";
-	mes "^21698F"+$S5N$+"^000000" + " " + $S5 + "z (" + @S5Update$ + ")";
-	mes "^21698F"+$S6N$+"^000000" + " " + $S6 + "z (" + @S6Update$ + ")";
-	mes "^21698F"+$S7N$+"^000000" + " " + $S7 + "z (" + @S7Update$ + ")";
-	mes "^21698F"+$S8N$+"^000000" + " " + $S8 + "z (" + @S8Update$ + ")";
-	mes "^21698F"+$S9N$+"^000000" + " " + $S9 + "z (" + @S9Update$ + ")";
-	mes "^21698F"+$S10N$+"^000000" + " " + $S10 + "z (" + @S10Update$ + ")";
+	mes "^21698 f"+$S1N$+"^000000" + "" + $S1 + "Com (" + @S1Update$ + ")";
+	mes "^21698 f"+$S2N$+"^000000" + "" + $S2 + "Com (" + @S2Update$ + ")";
+	mes "^21698 f"+$S3N$+"^000000" + "" + $S3 + "Com (" + @S3Update$ + ")";
+	mes "^21698 f"+$S4N$+"^000000" + "" + $S4 + "Com (" + @S4Update$ + ")";
+	mes "^21698 f"+$S5N$+"^000000" + "" + $S5 + "Com (" + @S5Update$ + ")";
+	mes "^21698 f"+$S6N$+"^000000" + "" + $S6 + "Com (" + @S6Update$ + ")";
+	mes "^21698 f"+$S7N$+"^000000" + "" + $S7 + "Com (" + @S7Update$ + ")";
+	mes "^21698 f"+$S8N$+"^000000" + "" + $S8 + "Com (" + @S8Update$ + ")";
+	mes "^21698 f"+$S9N$+"^000000" + "" + $S9 + "Com (" + @S9Update$ + ")";
+	mes "^21698 f"+$S10N$+"^000000" + "" + $S10 + "Com (" + @S10Update$ + ")";
 	next;
 
 	// GM Menu link //
 	if (getgmlevel() > 90) goto GM_subMenu;
-	menu "Portfolio",S_Port,"Buy Shares",S_Buy,"Sell Shares",S_Sell,"Cancel",S_Quit;
+	menu "Portfólio",S_Port,"Comprar ações",S_Buy,"Vender ações",S_Sell,"Cancelar",S_Quit;
 
 GM_subMenu:
-	menu "Portfolio",S_Port,"Buy Shares",S_Buy,"Sell Shares",S_Sell,"GM Menu",GM_Menu,"Cancel",S_Quit;
+	menu "Portfólio",S_Port,"Comprar ações",S_Buy,"Vender ações",S_Sell,"Menu GM",GM_Menu,"Cancelar",S_Quit;
 
 	// Selling Shares //
 S_Sell:
-	mes "[Stock Market]";
-	mes "Enter the name of the share you wish to sell.";
-	mes "Transaction fee of ^FF0000" + $S_Trans + "z^000000 will apply.";
-	if (#S1 > 0) mes "^0000FF"+$S1N$+"^FF0000" + " x " + #S1 + " [" + $S1 + "z]";
-	if (#S2 > 0) mes "^0000FF"+$S2N$+"^FF0000" + " x " + #S2 + " [" + $S2 + "z]";
-	if (#S3 > 0) mes "^0000FF"+$S3N$+"^FF0000" + " x " + #S3 + " [" + $S3 + "z]";
-	if (#S4 > 0) mes "^0000FF"+$S4N$+"^FF0000" + " x " + #S4 + " [" + $S4 + "z]";
-	if (#S5 > 0) mes "^0000FF"+$S5N$+"^FF0000" + " x " + #S5 + " [" + $S5 + "z]";
-	if (#S6 > 0) mes "^0000FF"+$S6N$+"^FF0000" + " x " + #S6 + " [" + $S6 + "z]";
-	if (#S7 > 0) mes "^0000FF"+$S7N$+"^FF0000" + " x " + #S7 + " [" + $S7 + "z]";
-	if (#S8 > 0) mes "^0000FF"+$S8N$+"^FF0000" + " x " + #S8 + " [" + $S8 + "z]";
-	if (#S9 > 0) mes "^0000FF"+$S9N$+"^FF0000" + " x " + #S9 + " [" + $S9 + "z]";
-	if (#S10 > 0) mes "^0000FF"+$S10N$+"^FF0000" + " x " + #S10 + " [" + $S10 + "z]";
+	mes "[Mercado de ações]";
+	mes "Digite o nome do compartilhamento que você deseja vender.";
+	mes "Taxa de transação de ^ff0000" + $S_Trans + "Z^000000 será aplicado.";
+	if (#S1 > 0) mes "^0000FF"+$S1N$+"^FF0000" + "x" + #S1 + "[" + $S1 + "Com]";
+	if (#S2 > 0) mes "^0000FF"+$S2N$+"^FF0000" + "x" + #S2 + "[" + $S2 + "Com]";
+	if (#S3 > 0) mes "^0000FF"+$S3N$+"^FF0000" + "x" + #S3 + "[" + $S3 + "Com]";
+	if (#S4 > 0) mes "^0000FF"+$S4N$+"^FF0000" + "x" + #S4 + "[" + $S4 + "Com]";
+	if (#S5 > 0) mes "^0000FF"+$S5N$+"^FF0000" + "x" + #S5 + "[" + $S5 + "Com]";
+	if (#S6 > 0) mes "^0000FF"+$S6N$+"^FF0000" + "x" + #S6 + "[" + $S6 + "Com]";
+	if (#S7 > 0) mes "^0000FF"+$S7N$+"^FF0000" + "x" + #S7 + "[" + $S7 + "Com]";
+	if (#S8 > 0) mes "^0000FF"+$S8N$+"^FF0000" + "x" + #S8 + "[" + $S8 + "Com]";
+	if (#S9 > 0) mes "^0000FF"+$S9N$+"^FF0000" + "x" + #S9 + "[" + $S9 + "Com]";
+	if (#S10 > 0) mes "^0000FF"+$S10N$+"^FF0000" + "x" + #S10 + "[" + $S10 + "Com]";
 	set @sellname$,"0";
 	input @sellname$;
 	set @sellamount,0;
@@ -289,8 +289,8 @@ SELLS1:
 	set #S1,#S1-@sellamount;
 	set Zeny, Zeny+@price;
 	next;
-	mes "Sold " + @sellamount + " " + $S1N$ + " shares.";
-	mes "Earned ^0000FF"+@price+"z^000000.";
+	mes "Vendido" + @sellamount + "" + $S1N$ + "ações.";
+	mes "Ganhou ^0000ff"+@price+"Z^000000.";
 	next;
 	goto S_Start;
 
@@ -301,8 +301,8 @@ SELLS2:
 	set #S2,#S2-@sellamount;
 	set Zeny, Zeny+@price;
 	next;
-	mes "Sold " + @sellamount + " " + $S2N$ + " shares.";
-	mes "Earned ^0000FF"+@price+"z^000000.";
+	mes "Vendido" + @sellamount + "" + $S2N$ + "ações.";
+	mes "Ganhou ^0000ff"+@price+"Z^000000.";
 	next;
 	goto S_Start;
 
@@ -313,8 +313,8 @@ SELLS3:
 	set #S3,#S3-@sellamount;
 	set Zeny, Zeny+@price;
 	next;
-	mes "Sold " + @sellamount + " " + $S3N$ + " shares.";
-	mes "Earned ^0000FF"+@price+"z^000000.";
+	mes "Vendido" + @sellamount + "" + $S3N$ + "ações.";
+	mes "Ganhou ^0000ff"+@price+"Z^000000.";
 	next;
 	goto S_Start;
 
@@ -325,8 +325,8 @@ SELLS4:
 	set #S4,#S4-@sellamount;
 	set Zeny, Zeny+@price;
 	next;
-	mes "Sold " + @sellamount + " " + $S4N$ + " shares.";
-	mes "Earned ^0000FF"+@price+"z^000000.";
+	mes "Vendido" + @sellamount + "" + $S4N$ + "ações.";
+	mes "Ganhou ^0000ff"+@price+"Z^000000.";
 	next;
 	goto S_Start;
 
@@ -337,8 +337,8 @@ SELLS5:
 	set #S5,#S5-@sellamount;
 	set Zeny, Zeny+@price;
 	next;
-	mes "Sold " + @sellamount + " " + $S5N$ + " shares.";
-	mes "Earned ^0000FF"+@price+"z^000000.";
+	mes "Vendido" + @sellamount + "" + $S5N$ + "ações.";
+	mes "Ganhou ^0000ff"+@price+"Z^000000.";
 	next;
 	goto S_Start;
 
@@ -349,8 +349,8 @@ SELLS6:
 	set #S6,#S6-@sellamount;
 	set Zeny, Zeny+@price;
 	next;
-	mes "Sold " + @sellamount + " " + $S6N$ + " shares.";
-	mes "Earned ^0000FF"+@price+"z^000000.";
+	mes "Vendido" + @sellamount + "" + $S6N$ + "ações.";
+	mes "Ganhou ^0000ff"+@price+"Z^000000.";
 	next;
 	goto S_Start;
 
@@ -361,8 +361,8 @@ SELLS7:
 	set #S7,#S7-@sellamount;
 	set Zeny, Zeny+@price;
 	next;
-	mes "Sold " + @sellamount + " " + $S7N$ + " shares.";
-	mes "Earned ^0000FF"+@price+"z^000000.";
+	mes "Vendido" + @sellamount + "" + $S7N$ + "ações.";
+	mes "Ganhou ^0000ff"+@price+"Z^000000.";
 	next;
 	goto S_Start;
 
@@ -373,8 +373,8 @@ SELLS8:
 	set #S8,#S8-@sellamount;
 	set Zeny, Zeny+@price;
 	next;
-	mes "Sold " + @sellamount + " " + $S8N$ + " shares.";
-	mes "Earned ^0000FF"+@price+"z^000000.";
+	mes "Vendido" + @sellamount + "" + $S8N$ + "ações.";
+	mes "Ganhou ^0000ff"+@price+"Z^000000.";
 	next;
 	goto S_Start;
 
@@ -385,8 +385,8 @@ SELLS9:
 	set #S9,#S9-@sellamount;
 	set Zeny, Zeny+@price;
 	next;
-	mes "Sold " + @sellamount + " " + $S9N$ + " shares.";
-	mes "Earned ^0000FF"+@price+"z^000000.";
+	mes "Vendido" + @sellamount + "" + $S9N$ + "ações.";
+	mes "Ganhou ^0000ff"+@price+"Z^000000.";
 	next;
 	goto S_Start;
 
@@ -397,30 +397,30 @@ SELLS10:
 	set #S10,#S10-@sellamount;
 	set Zeny, Zeny+@price;
 	next;
-	mes "Sold " + @sellamount + " " + $S10N$ + " shares.";
-	mes "Earned ^0000FF"+@price+"z^000000.";
+	mes "Vendido" + @sellamount + "" + $S10N$ + "ações.";
+	mes "Ganhou ^0000ff"+@price+"Z^000000.";
 	next;
 	goto S_Start;
 
 SELLS11:
-	mes "^FF0000Invalid Share Name.^000000";
+	mes "^Ff0000InValid Share Nome.^000000";
 	next;
 	goto S_Start;
 
 S_SellTooHigh:
-	mes "^FF0000You don't have that many shares.^000000";
+	mes "^Ff0000 Você não tem tantos compartilhamentos.^000000";
 	next;
 	goto S_Start;
 
 S_SellInv:
-	mes "^FF0000Invalid integer.^000000";
+	mes "^Ff0000InValid Integer.^000000";
 	next;
 	goto S_Start;
 
 	// Buying Shares //
 S_Buy:
-	mes "[Stock Market]";
-	mes "Available shares:";
+	mes "[Mercado de ações]";
+	mes "Ações disponíveis:";
 	mes $S1N$;
 	mes $S2N$;
 	mes $S3N$;
@@ -432,10 +432,10 @@ S_Buy:
 	mes $S9N$;
 	mes $S10N$;
 	next;
-	menu "Continue",-,"Cancel",S_Start;
+	menu "Continuar",-,"Cancelar",S_Start;
 	
-	mes "Enter the name of the share company";
-	mes "Transaction fee of ^FF0000" + $S_Trans + "z^000000 will apply.";
+	mes "Digite o nome da empresa de ações";
+	mes "Taxa de transação de ^ff0000" + $S_Trans + "Z^000000 será aplicado.";
 	set @buyname$,"0";
 	input @buyname$;
 
@@ -456,8 +456,8 @@ PURS1:
 	set #S1,#S1+@buyamount;
 	set @price,@buyamount*$S1;
 	set Zeny, Zeny-@price;
-	mes "Bought " + @buyamount + " " + $S1N$ + " shares.";
-	mes "Lost ^0000FF"+@price+"z^000000.";
+	mes "Comprado" + @buyamount + "" + $S1N$ + "ações.";
+	mes "Perdido ^0000ff"+@price+"Z^000000.";
 	next;
 	goto S_Start;
 
@@ -467,8 +467,8 @@ PURS2:
 	if (Zeny < @price) goto S_NoZeny;
 	set #S2,#S2+@buyamount;
 	set Zeny, Zeny-@price;
-	mes "Bought " + @buyamount + " " + $S2N$ + " shares.";
-	mes "Lost ^0000FF"+@price+"z^000000.";
+	mes "Comprado" + @buyamount + "" + $S2N$ + "ações.";
+	mes "Perdido ^0000ff"+@price+"Z^000000.";
 	next;
 	goto S_Start;
 
@@ -478,8 +478,8 @@ PURS3:
 	if (Zeny < @price) goto S_NoZeny;
 	set #S3,#S3+@buyamount;
 	set Zeny, Zeny-@price;
-	mes "Bought " + @buyamount + " " + $S3N$ + " shares.";
-	mes "Lost ^0000FF"+@price+"z^000000.";
+	mes "Comprado" + @buyamount + "" + $S3N$ + "ações.";
+	mes "Perdido ^0000ff"+@price+"Z^000000.";
 	next;
 	goto S_Start;
 
@@ -489,8 +489,8 @@ PURS4:
 	if (Zeny < @price) goto S_NoZeny;
 	set #S4,#S4+@buyamount;
 	set Zeny, Zeny-@price;
-	mes "Bought " + @buyamount + " " + $S4N$ + " shares.";
-	mes "Lost ^0000FF"+@price+"z^000000.";
+	mes "Comprado" + @buyamount + "" + $S4N$ + "ações.";
+	mes "Perdido ^0000ff"+@price+"Z^000000.";
 	next;
 	goto S_Start;
 
@@ -500,8 +500,8 @@ PURS5:
 	if (Zeny < @price) goto S_NoZeny;
 	set #S5,#S5+@buyamount;
 	set Zeny, Zeny-@price;
-	mes "Bought " + @buyamount + " " + $S5N$ + " shares.";
-	mes "Lost ^0000FF"+@price+"z^000000.";
+	mes "Comprado" + @buyamount + "" + $S5N$ + "ações.";
+	mes "Perdido ^0000ff"+@price+"Z^000000.";
 	next;
 	goto S_Start;
 
@@ -511,8 +511,8 @@ PURS6:
 	if (Zeny < @price) goto S_NoZeny;
 	set #S6,#S6+@buyamount;
 	set Zeny, Zeny-@price;
-	mes "Bought " + @buyamount + " " + $S6N$ + " shares.";
-	mes "Lost ^0000FF"+@price+"z^000000.";
+	mes "Comprado" + @buyamount + "" + $S6N$ + "ações.";
+	mes "Perdido ^0000ff"+@price+"Z^000000.";
 	next;
 	goto S_Start;
 
@@ -522,8 +522,8 @@ PURS7:
 	if (Zeny < @price) goto S_NoZeny;
 	set #S7,#S7+@buyamount;
 	set Zeny, Zeny-@price;
-	mes "Bought " + @buyamount + " " + $S7N$ + " shares.";
-	mes "Lost ^0000FF"+@price+"z^000000.";
+	mes "Comprado" + @buyamount + "" + $S7N$ + "ações.";
+	mes "Perdido ^0000ff"+@price+"Z^000000.";
 	next;
 	goto S_Start;
 
@@ -533,8 +533,8 @@ PURS8:
 	if (Zeny < @price) goto S_NoZeny;
 	set #S8,#S8+@buyamount;
 	set Zeny, Zeny-@price;
-	mes "Bought " + @buyamount + " " + $S8N$ + " shares.";
-	mes "Lost ^0000FF"+@price+"z^000000.";
+	mes "Comprado" + @buyamount + "" + $S8N$ + "ações.";
+	mes "Perdido ^0000ff"+@price+"Z^000000.";
 	next;
 	goto S_Start;
 
@@ -544,8 +544,8 @@ PURS9:
 	if (Zeny < @price) goto S_NoZeny;
 	set #S9,#S9+@buyamount;
 	set Zeny, Zeny-@price;
-	mes "Bought " + @buyamount + " " + $S9N$ + " shares.";
-	mes "Lost ^0000FF"+@price+"z^000000.";
+	mes "Comprado" + @buyamount + "" + $S9N$ + "ações.";
+	mes "Perdido ^0000ff"+@price+"Z^000000.";
 	next;
 	goto S_Start;
 
@@ -555,8 +555,8 @@ PURS10:
 	if (Zeny < @price) goto S_NoZeny;
 	set #S10,#S10+@buyamount;
 	set Zeny, Zeny-@price;
-	mes "Bought " + @buyamount + " " + $S10N$ + " shares.";
-	mes "Lost ^0000FF"+@price+"z^000000.";
+	mes "Comprado" + @buyamount + "" + $S10N$ + "ações.";
+	mes "Perdido ^0000ff"+@price+"Z^000000.";
 	next;
 	goto S_Start;
 
@@ -565,94 +565,94 @@ PURS11:
 
 	// Number too low //
 S_TooLow:
-	mes "^FF0000Minimum of " + $S_BuyMin + " shares can be bought at a time.^000000";
+	mes "^Ff0000Minimum of" + $S_BuyMin + "as ações podem ser compradas por vez.^000000";
 	next;
 	goto S_Start;
 
 	// Number too high //
 S_TooHigh:
-	mes "^FF0000Maximum number of " + $S_BuyMax + " shares can be bought at a time.^000000";
+	mes "^FF0000MaMum Número de" + $S_BuyMax + "as ações podem ser compradas por vez.^000000";
 	next;
 	goto S_Start;
 
 S_NoZeny:
-	mes "^FF0000You do not have enough zeny.^000000";
+	mes "^Ff0000 Você não tem zeny suficiente.^000000";
 	next;
 	goto S_Start;
 
 	// Sends user to start if name invalid //
 S_InvName:
-	mes "^FF0000Invalid share name.^000000";
+	mes "^Ff0000InValid Share Nome.^000000";
 	next;
 	goto S_Start;
 
 	// Displays your total amount //
 S_Port:
-	mes "[Stock Market]";
+	mes "[Mercado de ações]";
 
 ACCS1:
 	if (#S1 < 1) goto ACCS2;
 	set @S1,#S1*$S1;
-	mes $S1N$ + ": " + #S1 + " x " + $S1 + "z = " + @S1 + "z";
+	mes $S1N$ + ":" + #S1 + "x" + $S1 + "Z =" + @S1 + "Com";
 
 ACCS2:
 	if (#S2 < 1) goto ACCS3;
 	set @S2,#S2*$S2;
-	mes $S2N$ + ": " + #S2 + " x " + $S2 + "z = " + @S2 + "z";
+	mes $S2N$ + ":" + #S2 + "x" + $S2 + "Z =" + @S2 + "Com";
 
 ACCS3:
 	if (#S3 < 1) goto ACCS4;
 	set @S3,#S3*$S3;
-	mes $S3N$ + ": " + #S3 + " x " + $S3 + "z = " + @S3 + "z";
+	mes $S3N$ + ":" + #S3 + "x" + $S3 + "Z =" + @S3 + "Com";
 
 ACCS4:
 	if (#S4 < 1) goto ACCS5;
 	set @S4,#S4*$S4;
-	mes $S4N$ + ": " + #S4 + " x " + $S4 + "z = " + @S4 + "z";
+	mes $S4N$ + ":" + #S4 + "x" + $S4 + "Z =" + @S4 + "Com";
 
 ACCS5:
 	if (#S5 < 1) goto ACCS6;
 	set @S5,#S5*$S5;
-	mes $S5N$ + ": " + #S5 + " x " + $S5 + "z = " + @S5 + "z";
+	mes $S5N$ + ":" + #S5 + "x" + $S5 + "Z =" + @S5 + "Com";
 
 ACCS6:
 	if (#S6 < 1) goto ACCS7;
 	set @S6,#S6*$S6;
-	mes $S6N$ + ": " + #S6 + " x " + $S6 + "z = " + @S6 + "z";
+	mes $S6N$ + ":" + #S6 + "x" + $S6 + "Z =" + @S6 + "Com";
 
 ACCS7:
 	if (#S7 < 1) goto ACCS8;
 	set @S7,#S7*$S7;
-	mes $S7N$ + ": " + #S7 + " x " + $S7 + "z = " + @S7 + "z";
+	mes $S7N$ + ":" + #S7 + "x" + $S7 + "Z =" + @S7 + "Com";
 
 ACCS8:
 	if (#S8 < 1) goto ACCS9;
 	set @S8,#S8*$S8;
-	mes $S8N$ + ": " + #S8 + " x " + $S8 + "z = " + @S8 + "z";
+	mes $S8N$ + ":" + #S8 + "x" + $S8 + "Z =" + @S8 + "Com";
 
 ACCS9:
 	if (#S9 < 1) goto ACCS10;
 	set @S9,#S9*$S9;
-	mes $S9N$ + ": " + #S9 + " x " + $S9 + "z = " + @S9 + "z";
+	mes $S9N$ + ":" + #S9 + "x" + $S9 + "Z =" + @S9 + "Com";
 
 ACCS10:
 	if (#S10 < 1) goto ACCS11;
 	set @S10,#S10*$S10;
-	mes $S10N$ + ": " + #S10 + " x " + $S10 + "z = " + @S10 + "z";
+	mes $S10N$ + ":" + #S10 + "x" + $S10 + "Z =" + @S10 + "Com";
 
 	// Total //
 ACCS11:
 	set @total,@S1 + @S2 + @S3 + @S4 + @S5 + @S6 + @S7 + @S8 + @S9 + @S10;
-	mes "Total value: "+@total+"z";
+	mes "Valor total:"+@total+"Com";
 	next;
 	goto S_Start;
 
 
 	// GM MENU //
 GM_Menu:
-	mes "[Stock Market]";
-	mes "Master, do you require anything?";
-	menu "Fluctuate Market",S_Fluc,"Reset Prices",GM_Open,"Nothing",S_Start;
+	mes "[Mercado de ações]";
+	mes "Mestre, você precisa de alguma coisa?";
+	menu "Mercado flutuante",S_Fluc,"Redefinir preços",GM_Open,"Nada",S_Start;
 
 S_Fluc:
 	set $fluc,rand (-6,6);
@@ -745,20 +745,20 @@ S_Fluc:
 	if ($S10 > 175) set $S10,$S10-3;
 	if ($S10 < 1) set $S10,1;
 
-	set $S_LastUpd$,"GM Fluctuation";
-	mes "Market fluctuated.";
+	set $S_LastUpd$,"Flutuação da GM";
+	mes "O mercado flutuou.";
 	close;
 
 GM_Open:
-	menu "Set prices to...",GM_Set,"Cancel",-;
-	mes "Farewell.";
+	menu "Defina preços para ...",GM_Set,"Cancelar",-;
+	mes "Até a próxima.";
 	close;
 
 GM_Set:
-	mes "Are you sure you want to reset?";
-	mes "^FF0000All share values will become the same.^000000";
+	mes "Tem certeza de que deseja redefinir?";
+	mes "^FF0000All Share Valores se tornarão os mesmos.^000000";
 	next;
-	menu "Yes",-,"No",GM_Menu;
+	menu "Sim",-,"No",GM_Menu;
 	set @gmset,0;
 	input @gmset;
 	set $S1,@gmset;
@@ -781,11 +781,11 @@ GM_Set:
 	set $S8B,@gmset;
 	set $S9B,@gmset;
 	set $S10B,@gmset;
-	mes "All prices changed to " + @gmset + "z.";
+	mes "Todos os preços mudaram para" + @gmset + "Com.";
 	close;
 
 S_Quit:
-	mes "[Stock Market]";
-	mes "Goodbye.";
+	mes "[Mercado de ações]";
+	mes "Adeus.";
 	close;
 }

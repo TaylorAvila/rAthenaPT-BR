@@ -12,7 +12,7 @@
 //===== Additional Comments: =================================
 //= 1.0 Fully working
 //= 1.1 optimized [Lupus]
-//= 1.2 Changed "battle_trace" to "Trace of Battle". [L0ne_W0lf]
+//= 1.2 Changed "Battle_trace" to "Traço de batalha". [L0ne_W0lf]
 //= 1.3 Misc. updates. [L0ne_W0lf]
 //= 2.0 Clean-up. [Capuche]
 //============================================================
@@ -23,58 +23,58 @@ moc_fild12,166,369,0	script	Trace of Battle#1	CLEAR_NPC,{
 	.@class_thief = ( BaseClass == Job_Thief );
 	.@class_mage = ( BaseClass == Job_Mage );
 	if ((.@class_thief == 0 && .@class_mage == 0) || (eaclass()&EAJL_BABY)) {
-		mes "^3355FFThere are signs that show";
-		mes "that some violent scuffle";
+		mes "^3355ffthere são sinais que mostram";
+		mes "que alguma briga violenta";
 		mes "might have occurred here,";
-		mes "but you can't tell what had";
-		mes "happened exactly...^000000";
+		mes "Mas você não pode dizer o que tinha";
+		mes "aconteceu exatamente ...^000000";
 	} else if ((tu_thief01 < 5 && .@class_thief) || (.@class_mage && tu_magician01 < 8)) {
-		mes "^3355FFYou find traces of poison";
-		mes "used in a battle. You sense";
-		mes "its potency and decide not";
-		mes "to get too close to it.^000000";
+		mes "^3355ffyou encontra vestígios de veneno";
+		mes "usado em uma batalha. Você sente";
+		mes "sua potência e decidir não";
+		mes "para chegar muito perto disso.^000000";
 		if (.@class_mage)
 			specialeffect EF_VENOMDUST2;
 	} else if (tu_thief01 == 5 && .@class_thief) {
-		mes "^3355FFYou find traces of poison";
-		mes "used in a battle. A feeling";
-		mes "of acute dizziness overcomes";
-		mes "you after examining the scene.^000000";
+		mes "^3355ffyou encontra vestígios de veneno";
+		mes "usado em uma batalha. Um sentimento";
+		mes "de tontura aguda supera";
+		mes "você depois de examinar a cena.^000000";
 		tu_thief01 = 6;
 		sc_start SC_Poison,60000,0;
 		specialeffect EF_VENOMDUST2;
 	} else if (tu_thief01 == 6 && .@class_thief) {
-		mes "^3355FFYou find traces of poison";
-		mes "used in a battle. A feeling";
-		mes "of acute dizziness overcomes";
-		mes "you after examining the scene.^000000";
+		mes "^3355ffyou encontra vestígios de veneno";
+		mes "usado em uma batalha. Um sentimento";
+		mes "de tontura aguda supera";
+		mes "você depois de examinar a cena.^000000";
 		sc_start SC_Poison,60000,0;
 		specialeffect EF_VENOMDUST2;
 	} else if (tu_thief01 == 7 && .@class_thief) {
-		mes "^3355FFYou find traces of poison";
-		mes "used in a battle. You sense";
-		mes "its potency and decide not";
-		mes "to get too close to it.^000000";
+		mes "^3355ffyou encontra vestígios de veneno";
+		mes "usado em uma batalha. Você sente";
+		mes "sua potência e decidir não";
+		mes "para chegar muito perto disso.^000000";
 	} else if ((.@class_thief && tu_thief01 == 8) || (.@class_mage && tu_magician01 == 8)) {
-		mes "^3355FFThere are traces of a battle";
-		mes "that seem to be leading in";
-		mes "different directions. From the";
-		mes "peculiar smell that permeates";
-		mes "the area, it seems that some";
-		mes "kind of lethal poison was used.^000000";
+		mes "^3355ffhere são traços de uma batalha";
+		mes "que parecem estar liderando";
+		mes "direções diferentes. Do";
+		mes "cheiro peculiar que permeia";
+		mes "a área, parece que alguns";
+		mes "Tipo de veneno letal foi usado.^000000";
 		next;
-		mes "^3355FFStill...";
-		mes "The trail of this";
-		mes "battle decidedly";
-		mes "heads southward.^000000";
+		mes "^3355ffstill ...";
+		mes "A trilha deste";
+		mes "batalha decididamente";
+		mes "cabeças para o sul.^000000";
 		if (tu_magician01 == 8)
 			tu_magician01 = 9;
 		else
 			tu_thief01 = 9;
 	} else {
-		mes "^3355FFYou find signs of";
-		mes "a heated pursuit";
-		mes "that head south.";
+		mes "^3355ffyou encontra sinais de";
+		mes "uma busca acalorada";
+		mes "aquela cabeça para o sul.";
 	}
 	close;
 }
@@ -85,28 +85,28 @@ moc_fild12,173,215,0	script	Trace of Battle#2	CLEAR_NPC,{
 	.@class_thief = ( BaseClass == Job_Thief );
 	.@class_mage = ( BaseClass == Job_Mage );
 	if ((.@class_thief == 0 && .@class_mage == 0) || (eaclass()&EAJL_BABY)) {
-		mes "^3355FFThere are signs that show";
-		mes "that some violent scuffle";
-		mes "might have occurred here,";
-		mes "but you can't tell what had";
-		mes "happened exactly...^000000";
+		mes "^3355ffthere são sinais que mostram";
+		mes "que alguma briga violenta";
+		mes "Pode ter ocorrido aqui,";
+		mes "Mas você não pode dizer o que tinha";
+		mes "aconteceu exatamente ...^000000";
 	} else if ((tu_thief01 < 9 && .@class_thief) || (tu_magician01 < 9 && .@class_mage)) {
-		mes "^3355FFThere are signs";
-		mes "that many people";
-		mes "have traveled through";
-		mes "this particular area.^000000";
+		mes "^3355ffthere são sinais";
+		mes "tantas pessoas";
+		mes "viajaram";
+		mes "Esta área específica.^000000";
 	} else if ((tu_thief01 == 9 && .@class_thief) || (tu_magician01 == 9 && .@class_mage)) {
-		mes "^3355FFYou've found traces";
-		mes "of the pursuit which";
-		mes "continue eastward.^000000";
+		mes "^3355ffyou encontrou traços";
+		mes "da busca que";
+		mes "Continue para o leste.^000000";
 		if (tu_magician01 == 9)
 			tu_magician01 = 10;
 		else
 			tu_thief01 = 10;
 	} else {
-		mes "^3355FFThese traces of";
-		mes "the pursuit lead";
-		mes "towards the east.^000000";
+		mes "^3355 e esses traços de";
+		mes "o líder de busca";
+		mes "em direção ao leste.^000000";
 	}
 	close;
 }
@@ -117,29 +117,29 @@ moc_fild12,276,165,0	script	Trace of Battle#3	CLEAR_NPC,{
 	.@class_thief = ( BaseClass == Job_Thief );
 	.@class_mage = ( BaseClass == Job_Mage );
 	if ((.@class_thief == 0 && .@class_mage == 0) || (eaclass()&EAJL_BABY)) {
-		mes "^3355FFThese look like";
-		mes "traces of some kind";
-		mes "of pursuit or battle, but";
-		mes "you can't really tell for sure.^000000";
+		mes "^3355ffis, é assim";
+		mes "traços de algum tipo";
+		mes "de perseguição ou batalha, mas";
+		mes "você realmente não pode ter certeza.^000000";
 	} else if ((tu_thief01 < 10 && .@class_thief) || (tu_magician01 < 10 && .@class_mage)) {
-		mes "^3355FFThere are signs";
-		mes "that many people";
-		mes "have traveled through";
-		mes "this particular area.^000000";
+		mes "^3355ffthere são sinais";
+		mes "tantas pessoas";
+		mes "viajaram";
+		mes "Esta área específica.^000000";
 	} else if ((tu_thief01 == 10 && .@class_thief) || (tu_magician01 == 10 && .@class_mage)) {
-		mes "^3355FFYou examine these traces";
-		mes "and notice that one set of";
-		mes "footprints looks almost too";
-		mes "pronounced, as if it had been";
-		mes "made for somebody to find.^000000";
+		mes "^3355ffyou examinam esses traços";
+		mes "e observe que um conjunto de";
+		mes "pegadas parecem quase também";
+		mes "pronunciado, como se tivesse sido";
+		mes "feito para alguém encontrar.^000000";
 		if (tu_magician01 == 10)
 			tu_magician01 = 11;
 		else
 			tu_thief01 = 11;
 	} else {
-		mes "^3355FFIt's a very";
-		mes "strange looking";
-		mes "set of footprints.^000000";
+		mes "^3355ffit é muito";
+		mes "aparência estranha";
+		mes "Conjunto de pegadas.^000000";
 	}
 	close;
 }
@@ -150,33 +150,33 @@ moc_fild11,39,163,0	script	Trace of Battle#4	CLEAR_NPC,{
 	.@class_thief = ( BaseClass == Job_Thief );
 	.@class_mage = ( BaseClass == Job_Mage );
 	if ((.@class_thief == 0 && .@class_mage == 0) || (eaclass()&EAJL_BABY)) {
-		mes "^3355FFThere are signs that show";
-		mes "that some violent scuffle";
-		mes "might have occurred here,";
-		mes "but you can't tell what had";
-		mes "happened exactly...^000000";
+		mes "^3355ffthere são sinais que mostram";
+		mes "que alguma briga violenta";
+		mes "Pode ter ocorrido aqui,";
+		mes "Mas você não pode dizer o que tinha";
+		mes "aconteceu exatamente ...^000000";
 	} else if ((tu_thief01 < 11 && .@class_thief) || (tu_magician01 < 11 && .@class_mage)) {
-		mes "^3355FFThere are signs";
-		mes "that many people";
-		mes "have traveled through";
-		mes "this particular area.^000000";
+		mes "^3355ffthere são sinais";
+		mes "tantas pessoas";
+		mes "viajaram";
+		mes "Esta área específica.^000000";
 	} else if ((tu_thief01 == 11 && .@class_thief) || (tu_magician01 == 11 && .@class_mage)) {
-		mes "^3355FFFrom these traces,";
-		mes "you see that another";
-		mes "set of footprints has";
-		mes "been added. It looks like";
-		mes "someone else got involved.";
-		mes "These prints are distinctly";
-		mes "clearer and much smaller.^000000";
+		mes "^3355fffrom desses traços,";
+		mes "você vê isso outro";
+		mes "Conjunto de pegadas tem";
+		mes "foi adicionado. Parece";
+		mes "Alguém se envolveu.";
+		mes "Essas impressões são distintamente";
+		mes "mais claro e muito menor.^000000";
 		if (tu_magician01 == 11)
 			tu_magician01 = 12;
 		else
 			tu_thief01 = 12;
 	} else {
-		mes "^3355FFFrom these traces,";
-		mes "you see that another";
-		mes "person has gotten involved";
-		mes "in this heated scuffle.^000000";
+		mes "^3355fffrom desses traços,";
+		mes "você vê isso outro";
+		mes "pessoa se envolveu";
+		mes "Nesta briga aquecida.^000000";
 	}
 	close;
 }
@@ -187,77 +187,77 @@ moc_fild11,205,52,0	script	Trace of Battle#5	CLEAR_NPC,{
 	.@class_thief = ( BaseClass == Job_Thief );
 	.@class_mage = ( BaseClass == Job_Mage );
 	if ((.@class_thief == 0 && .@class_mage == 0) || (eaclass()&EAJL_BABY)) {
-		mes "^3355FFThese look like";
-		mes "traces of some kind";
-		mes "of pursuit or battle, but";
-		mes "you can't really tell for sure.^000000";
+		mes "^3355ffis, é assim";
+		mes "traços de algum tipo";
+		mes "de perseguição ou batalha, mas";
+		mes "você realmente não pode ter certeza.^000000";
 	} else if ((tu_thief01 < 12 && .@class_thief) || (tu_magician01 < 12 && .@class_mage)) {
-		mes "^3355FFThere are signs";
-		mes "that many people";
-		mes "have traveled through";
-		mes "this particular area.^000000";
+		mes "^3355ffthere são sinais";
+		mes "tantas pessoas";
+		mes "viajaram";
+		mes "Esta área específica.^000000";
 	} else if ((tu_thief01 == 12 && .@class_thief) || (tu_magician01 == 12 && .@class_mage)) {
-		mes "^3355FFThe traces of the battle";
-		mes "now split and head towards";
-		mes "the north and south. However,^000000";
+		mes "^3355ff os traços da batalha";
+		mes "agora dividido e siga em direção";
+		mes "o norte e o sul. No entanto,^000000";
 		if (countitem(506) == 0) {// Green_Potion
-			mes "^3355FFthere is a puddle of strong poison that you must neutralize before you can investigate this scene.^000000";
+			mes "^3355ffthere é uma poça de veneno forte que você deve neutralizar antes de investigar esta cena.^000000";
 			close;
 		}
-		mes "^3355FFthere is a puddle of strong poison that you must neutralize before you can investigate this scene.^000000";
+		mes "^3355ffthere é uma poça de veneno forte que você deve neutralizar antes de investigar esta cena.^000000";
 		next;
-		mes "^3355FFFortunately, you can";
-		mes "temporarily nullify the";
-		mes "poison by using one";
-		mes "of your Green Potions.^000000";
+		mes "^3355Ffortunately, você pode";
+		mes "nulificar temporariamente o";
+		mes "veneno usando um";
+		mes "de suas poções verdes.^000000";
 		next;
-		switch(select("Use Green Potion.:Don't use it.")) {
+		switch(select("Use Poção Verde.: Não use -a.")) {
 		case 1:
-			mes "^3355FFThe poison weakens";
-			mes "and some of it evaporates,";
-			mes "revealing a piece of cloth that";
-			mes "was hidden in that puddle.^000000";
+			mes "^3355ff O veneno enfraquece";
+			mes "e alguns dele evaporados,";
+			mes "revelando um pedaço de pano que";
+			mes "estava escondido naquela poça.^000000";
 			next;
-			switch(select("Don't investigate.:Investigate.")) {
+			switch(select("Não investiga.: Investigate.")) {
 			case 1:
 				mes "["+strcharinfo(0)+"]";
-				mes "A piece of cloth";
-				mes "is nothing to be";
-				mes "concerned about.";
+				mes "Um pedaço de pano";
+				mes "não é nada para ser";
+				mes "preocupado com.";
 				close;
 			case 2:
 				mes "["+strcharinfo(0)+"]";
-				mes "Hey... There's";
-				mes "blood on this cloth";
-				mes "and some writing on";
-				mes "it that I can't recognize.";
-				mes "Hopefully, this'll provide";
-				mes "some sort of clue to all this?";
+				mes "Ei ... há";
+				mes "sangue neste pano";
+				mes "e alguns escrevendo sobre";
+				mes "Não consigo reconhecer.";
+				mes "Felizmente, isso fornecerá";
+				mes "algum tipo de pista de tudo isso?";
 				if (tu_thief01 == 12)
 					tu_thief01 = 13;
 				else
 					tu_magician01 = 13;
 				next;
-				mes "^3355FFYou take the piece";
-				mes "of cloth from the puddle";
-				mes "of poison and keep it with you.^000000";
+				mes "^3355ffyou pegue a peça";
+				mes "de pano da poça";
+				mes "de veneno e mantenha -o com você.^000000";
 				close;
 			}
 		case 2:
 			mes "["+strcharinfo(0)+"]";
-			mes "Hmm...";
-			mes "It'll probably be";
-			mes "faster if I follow this";
-			mes "trail, rather than stop to";
-			mes "investigate this scene.";
+			mes "Hum...";
+			mes "Provavelmente será";
+			mes "mais rápido se eu seguir isso";
+			mes "trilha, em vez de parar para";
+			mes "Investigue esta cena.";
 			close;
 		}
 	} else {
-		mes "^3355FFYou can't find";
-		mes "anything else here,";
-		mes "aside from the traces";
-		mes "that split and lead both";
-		mes "northward and southward.^000000";
+		mes "^3355ffyou não consegue encontrar";
+		mes "qualquer outra coisa aqui,";
+		mes "Além dos traços";
+		mes "aquela divisão e liderar os dois";
+		mes "para o norte e para o sul.^000000";
 	}
 	close;
 }
@@ -268,22 +268,22 @@ moc_fild11,226,235,0	script	Trace of Battle#6	CLEAR_NPC,{
 	.@class_thief = ( BaseClass == Job_Thief );
 	.@class_mage = ( BaseClass == Job_Mage );
 	if ((.@class_thief == 0 && .@class_mage == 0) || (eaclass()&EAJL_BABY)) {
-		mes "^3355FFThese look like";
-		mes "traces of some kind";
-		mes "of pursuit or battle, but";
-		mes "you can't really tell for sure.^000000";
+		mes "^3355ffis, é assim";
+		mes "traços de algum tipo";
+		mes "de perseguição ou batalha, mas";
+		mes "você realmente não pode ter certeza.^000000";
 	} else if ((tu_thief01 < 13 && .@class_thief) || (tu_magician01 < 13 && .@class_mage)) {
-		mes "^3355FFThere are signs";
-		mes "that many people";
-		mes "have traveled through";
-		mes "this particular area.^000000";
+		mes "^3355ffthere são sinais";
+		mes "tantas pessoas";
+		mes "viajaram";
+		mes "Esta área específica.^000000";
 	} else {
-		mes "^3355FFThese footprints";
-		mes "look like they're";
-		mes "heading towards the";
-		mes "north from the south.";
-		mes "But you can't really";
-		mes "be sure just yet.^000000";
+		mes "^3355 Essas pegadas";
+		mes "parece que eles estão";
+		mes "indo em direção ao";
+		mes "norte do sul.";
+		mes "Mas você realmente não pode";
+		mes "certifique -se ainda.^000000";
 	}
 	close;
 }
@@ -294,21 +294,21 @@ moc_fild11,184,342,0	script	Trace of Battle#7	CLEAR_NPC,{
 	.@class_thief = ( BaseClass == Job_Thief );
 	.@class_mage = ( BaseClass == Job_Mage );
 	if ((.@class_thief == 0 && .@class_mage == 0) || (eaclass()&EAJL_BABY)) {
-		mes "^3355FFThese look like";
-		mes "traces of some kind";
-		mes "of pursuit or battle, but";
-		mes "you can't really tell for sure.^000000";
+		mes "^3355ffis, é assim";
+		mes "traços de algum tipo";
+		mes "de perseguição ou batalha, mas";
+		mes "você realmente não pode ter certeza.^000000";
 	} else if ((tu_thief01 < 13 && .@class_thief) || (tu_magician01 < 13 && .@class_mage)) {
-		mes "^3355FFThere are signs";
-		mes "that many people";
-		mes "have traveled through";
-		mes "this particular area.^000000";
+		mes "^3355ffthere são sinais";
+		mes "tantas pessoas";
+		mes "viajaram";
+		mes "Esta área específica.^000000";
 	} else {
-		mes "^3355FFThe trail here looks pretty";
-		mes "muddled, since it looks like";
-		mes "they battled here for quite a";
-		mes "while. But the footprints are";
-		mes "definitely heading south.^000000";
+		mes "^3355ff a trilha aqui está bonita";
+		mes "confuso, já que parece";
+		mes "Eles lutaram aqui por um bastante";
+		mes "enquanto. Mas as pegadas são";
+		mes "definitivamente em direção ao sul.^000000";
 	}
 	close;
 }
@@ -319,33 +319,33 @@ moc_fild17,213,358,0	script	Trace of Battle#8	CLEAR_NPC,{
 	.@class_thief = ( BaseClass == Job_Thief );
 	.@class_mage = ( BaseClass == Job_Mage );
 	if ((.@class_thief == 0 && .@class_mage == 0) || (eaclass()&EAJL_BABY)) {
-		mes "^3355FFThese look like";
-		mes "traces of some kind";
-		mes "of pursuit or battle, but";
-		mes "you can't really tell for sure.^000000";
+		mes "^3355ffis, é assim";
+		mes "traços de algum tipo";
+		mes "de perseguição ou batalha, mas";
+		mes "você realmente não pode ter certeza.^000000";
 	} else if ((tu_thief01 < 13 && .@class_thief) || (tu_magician01 < 13 && .@class_mage)) {
-		mes "^3355FFThere are two";
-		mes "distinct sets of";
-		mes "footprints in this";
-		mes "area, but they don't";
-		mes "hold any significance";
-		mes "right about now.^000000";
+		mes "^3355ffthere são dois";
+		mes "conjuntos distintos de";
+		mes "pegadas nisso";
+		mes "área, mas eles não";
+		mes "manter qualquer significado";
+		mes "Bem agora.^000000";
 	} else if ((tu_thief01 == 13 && .@class_thief) || (tu_magician01 == 13 && .@class_mage)) {
-		mes "^3355FFAround here, it";
-		mes "looks like there are";
-		mes "only two sets of footprints.";
-		mes "What happened to the other";
-		mes "set that you found earlier?^000000";
+		mes "^3355fFaround aqui, é";
+		mes "Parece que existem";
+		mes "Apenas dois conjuntos de pegadas.";
+		mes "O que aconteceu com o outro";
+		mes "Conjunto que você encontrou anteriormente?^000000";
 		if (tu_magician01 == 13)
 			tu_magician01 = 14;
 		else
 			tu_thief01 = 14;
 	} else {
-		mes "^3355FFFrom the evidence";
-		mes "that you've found here,";
-		mes "it looks like the battle";
-		mes "involves only two people";
-		mes "from this point onward.^000000";
+		mes "^3355fff da evidência";
+		mes "que você encontrou aqui,";
+		mes "parece a batalha";
+		mes "envolve apenas duas pessoas";
+		mes "A partir deste ponto.^000000";
 	}
 	close;
 }
@@ -356,50 +356,50 @@ moc_fild17,228,274,0	script	Trace of Battle#9	CLEAR_NPC,{
 	.@class_thief = ( BaseClass == Job_Thief );
 	.@class_mage = ( BaseClass == Job_Mage );
 	if ((.@class_thief == 0 && .@class_mage == 0) || (eaclass()&EAJL_BABY)) {
-		mes "^3355FFThese look like";
-		mes "traces of some kind";
-		mes "of pursuit or battle, but";
-		mes "you can't really tell for sure.^000000";
+		mes "^3355ffis, é assim";
+		mes "traços de algum tipo";
+		mes "de perseguição ou batalha, mas";
+		mes "você realmente não pode ter certeza.^000000";
 	} else if ((tu_thief01 < 14 && .@class_thief) || (tu_magician01 < 14 && .@class_mage)) {
-		mes "^3355FFTraces of some";
-		mes "sort of battle are";
-		mes "scattered all over";
-		mes "this particular area.^000000";
+		mes "^3355fftraces de alguns";
+		mes "tipo de batalha são";
+		mes "espalhado por toda parte";
+		mes "Esta área específica.^000000";
 	} else if ((tu_thief01 == 14 && .@class_thief) || (tu_magician01 == 14 && .@class_mage)) {
-		mes "^3355FFYou follow the trail";
-		mes "and although traces from";
-		mes "the north and southeast mix";
-		mes "together, it looks like the battle continues towards the east.";
-		mes "But you should check this";
-		mes "spot a little bit more...^000000";
+		mes "^3355ffYou Siga a trilha";
+		mes "e embora traços de";
+		mes "a mistura norte e sudeste";
+		mes "Juntos, parece que a batalha continua em direção ao Oriente.";
+		mes "Mas você deve verificar isso";
+		mes "Spot um pouco mais ...^000000";
 		if (tu_magician01 == 14)
 			tu_magician01 = 15;
 		else
 			tu_thief01 = 15;
 	} else if ((tu_thief01 == 15 && .@class_thief) || (tu_magician01 == 15 && .@class_mage)) {
 		if (rand(1,10) == 7) {
-			mes "^3355FFAfter investigating this";
-			mes "area more thoroughly,";
-			mes "you find another piece of";
-			mes "cloth stained with blood.";
-			mes "You decide to keep it with";
-			mes "you, hoping that it will";
-			mes "provide more clues.^000000";
+			mes "^3355fffter Investigando isso";
+			mes "área mais bem,";
+			mes "você encontra outro pedaço de";
+			mes "pano manchado de sangue.";
+			mes "Você decide mantê -lo com";
+			mes "você, esperando que isso";
+			mes "Forneça mais pistas.^000000";
 			if (tu_magician01 == 15)
 				tu_magician01 = 16;
 			else
 				tu_thief01 = 16;
 		} else {
-			mes "^3355FFYou don't find anything,";
-			mes "but you still can't shake";
-			mes "the feeling that there is";
-			mes "some important clue that";
-			mes "you have to find here. It won't hurt to keep investigating here.^000000";
+			mes "^3355ffyou não encontra nada,";
+			mes "Mas você ainda não pode tremer";
+			mes "a sensação de que existe";
+			mes "alguma pista importante que";
+			mes "Você tem que encontrar aqui. Não vai doer continuar investigando aqui.^000000";
 		}
 	} else {
-		mes "^3355FFYou better continue";
-		mes "following this trail";
-		mes "which leads westward.^000000";
+		mes "^3355ffyU é melhor continuar";
+		mes "seguindo esta trilha";
+		mes "que leva para o oeste.^000000";
 	}
 	close;
 }
@@ -410,29 +410,29 @@ moc_fild17,34,292,0	script	Trace of Battle#10	CLEAR_NPC,{
 	.@class_thief = ( BaseClass == Job_Thief );
 	.@class_mage = ( BaseClass == Job_Mage );
 	if ((.@class_thief == 0 && .@class_mage == 0) || (eaclass()&EAJL_BABY)) {
-		mes "^3355FFThese look like";
-		mes "traces of some kind";
-		mes "of pursuit or battle, but";
-		mes "you can't really tell for sure.^000000";
+		mes "^3355ffis, é assim";
+		mes "traços de algum tipo";
+		mes "de perseguição ou batalha, mas";
+		mes "você realmente não pode ter certeza.^000000";
 	} else if ((tu_thief01 < 16 && .@class_thief) || (tu_magician01 < 16 && .@class_mage)) {
-		mes "^3355FFThere are signs";
-		mes "showing that a lot";
-		mes "of people were in";
-		mes "this area earlier.^000000";
+		mes "^3355ffthere são sinais";
+		mes "mostrando muito";
+		mes "de pessoas estavam em";
+		mes "esta área mais cedo.^000000";
 	} else if ((tu_thief01 == 16 && .@class_thief) || (tu_magician01 == 16 && .@class_mage)) {
-		mes "^3355FFThe lead set of footprints,";
-		mes "probably belonging to the one";
-		mes "who was being pursued, look";
-		mes "more erratic, as if exhaustion";
-		mes "and desperation were setting in. These traces lead to the west.^000000";
+		mes "^3355ff o conjunto de pegadas de pegadas,";
+		mes "provavelmente pertencente ao";
+		mes "quem estava sendo perseguido, olhe";
+		mes "mais irregular, como se exaustão";
+		mes "e o desespero estava se instalando. Esses traços levam ao oeste.^000000";
 		if (tu_magician01 == 16)
 			tu_magician01 = 17;
 		else
 			tu_thief01 = 17;
 	} else {
-		mes "^3355FFThe trail from";
-		mes "this point heads";
-		mes "towards the west.^000000";
+		mes "^3355ff a trilha de";
+		mes "Este ponto cabe";
+		mes "em direção ao oeste.^000000";
 	}
 	close;
 }
@@ -443,31 +443,31 @@ moc_fild18,346,296,0	script	Trace of Battle#11	CLEAR_NPC,{
 	.@class_thief = ( BaseClass == Job_Thief );
 	.@class_mage = ( BaseClass == Job_Mage );
 	if ((.@class_thief == 0 && .@class_mage == 0) || (eaclass()&EAJL_BABY)) {
-		mes "^3355FFThese look like";
-		mes "traces of some kind";
-		mes "of pursuit or battle, but";
-		mes "you can't really tell for sure.^000000";
+		mes "^3355ffis, é assim";
+		mes "traços de algum tipo";
+		mes "de perseguição ou batalha, mas";
+		mes "você realmente não pode ter certeza.^000000";
 	} else if ((tu_thief01 < 17 && .@class_thief) || (tu_magician01 < 17 && .@class_mage)) {
-		mes "^3355FFThere are signs";
-		mes "showing that a lot";
-		mes "of people were in";
-		mes "this area earlier.^000000";
+		mes "^3355ffthere são sinais";
+		mes "mostrando muito";
+		mes "de pessoas estavam em";
+		mes "esta área mais cedo.^000000";
 	} else if ((tu_thief01 == 17 && .@class_thief) || (tu_magician01 == 17 && .@class_mage)) {
-		mes "^3355FFFollowing the";
-		mes "trail, you see signs";
-		mes "that blood was spilled";
-		mes "in this area. It looks like";
-		mes "someone was injured";
-		mes "pretty badly around here.^000000";
+		mes "^3355ff, seguindo o";
+		mes "trilha, você vê sinais";
+		mes "Esse sangue foi derramado";
+		mes "Nesta área. Parece";
+		mes "Alguém ficou ferido";
+		mes "muito mal por aqui.^000000";
 		if (tu_magician01 == 17)
 			tu_magician01 = 18;
 		else
 			tu_thief01 = 18;
 	} else {
-		mes "^3355FFSince someone involved";
-		mes "in this conflict was bleeding,";
-		mes "further traces of this pursuit";
-		mes "might be easier to find now.^000000";
+		mes "^3355ffs desde alguém envolvido";
+		mes "Neste conflito estava sangrando,";
+		mes "Outros vestígios desta busca";
+		mes "Pode ser mais fácil de encontrar agora.^000000";
 	}
 	close;
 }
@@ -478,29 +478,29 @@ moc_fild18,309,257,0	script	Trace of Battle#12	CLEAR_NPC,{
 	.@class_thief = ( BaseClass == Job_Thief );
 	.@class_mage = ( BaseClass == Job_Mage );
 	if ((.@class_thief == 0 && .@class_mage == 0) || (eaclass()&EAJL_BABY)) {
-		mes "^3355FFThese look like";
-		mes "traces of some kind";
-		mes "of pursuit or battle, but";
-		mes "you can't really tell for sure.^000000";
+		mes "^3355ffis, é assim";
+		mes "traços de algum tipo";
+		mes "de perseguição ou batalha, mas";
+		mes "você realmente não pode ter certeza.^000000";
 	} else if ((tu_thief01 < 18 && .@class_thief) || (tu_magician01 < 18 && .@class_mage)) {
-		mes "^3355FFThere are signs";
-		mes "showing that a lot";
-		mes "of people were in";
-		mes "this area earlier.^000000";
+		mes "^3355ffthere são sinais";
+		mes "mostrando muito";
+		mes "de pessoas estavam em";
+		mes "esta área mais cedo.^000000";
 	} else if ((tu_thief01 == 18 && .@class_thief) || (tu_magician01 == 18 && .@class_mage)) {
-		mes "^3355FFThese traces lead";
-		mes "northward and it looks";
-		mes "like whoever is doing";
-		mes "the chasing is getting";
-		mes "much closer to his prey.^000000";
+		mes "^3355, esses traços de lixo";
+		mes "para o norte e parece";
+		mes "Como quem está fazendo";
+		mes "A perseguição está recebendo";
+		mes "muito mais perto de sua presa.^000000";
 		if (tu_magician01 == 18)
 			tu_magician01 = 19;
 		else
 			tu_thief01 = 19;
 	} else {
-		mes "^3355FFThe trail of this";
-		mes "pursuit now leads";
-		mes "towards the north.^000000";
+		mes "^3355ff a trilha deste";
+		mes "A perseguição agora lidera";
+		mes "em direção ao norte.^000000";
 	}
 	close;
 }
@@ -511,33 +511,33 @@ moc_fild18,177,333,0	script	Trace of Battle#13	CLEAR_NPC,{
 	.@class_thief = ( BaseClass == Job_Thief );
 	.@class_mage = ( BaseClass == Job_Mage );
 	if ((.@class_thief == 0 && .@class_mage == 0) || (eaclass()&EAJL_BABY)) {
-		mes "^3355FFThese look like";
-		mes "traces of some kind";
-		mes "of pursuit or battle, but";
-		mes "you can't really tell for sure.^000000";
+		mes "^3355ffis, é assim";
+		mes "traços de algum tipo";
+		mes "de perseguição ou batalha, mas";
+		mes "você realmente não pode ter certeza.^000000";
 	} else if (tu_thief01 < 19 && .@class_thief) {
-		mes "^3355FFThere are signs";
-		mes "showing that a lot";
-		mes "of people were in";
-		mes "this area earlier.^000000";
+		mes "^3355ffthere são sinais";
+		mes "mostrando muito";
+		mes "de pessoas estavam em";
+		mes "esta área mais cedo.^000000";
 	} else if (tu_magician01 < 19 && .@class_mage) {
-		mes "A large group of people seem to have gone by.";
+		mes "Um grande grupo de pessoas parece ter passado.";
 	} else if ((tu_thief01 == 19 && .@class_thief) || (tu_magician01 == 19 && .@class_mage)) {
-		mes "^3355FFJudging from these";
-		mes "traces, it looks like";
-		mes "even more people have";
-		mes "joined the battle which";
-		mes "now seems to be leading";
-		mes "in the southwest direction.^000000";
+		mes "^3355ff gesting destes";
+		mes "traços, parece";
+		mes "Ainda mais pessoas têm";
+		mes "juntou -se à batalha que";
+		mes "agora parece estar liderando";
+		mes "na direção sudoeste.^000000";
 		if (tu_magician01 == 19)
 			tu_magician01 = 20;
 		else
 			tu_thief01 = 20;
 	} else {
-		mes "^3355FFIt looks like";
-		mes "the battle heads";
-		mes "towards the southwest";
-		mes "from this particular point.^000000";
+		mes "^3355ffit parece";
+		mes "as cabeças de batalha";
+		mes "em direção ao sudoeste";
+		mes "A partir deste ponto em particular.^000000";
 	}
 	close;
 }
@@ -548,29 +548,29 @@ moc_fild18,111,303,0	script	Trace of Battle#14	CLEAR_NPC,{
 	.@class_thief = ( BaseClass == Job_Thief );
 	.@class_mage = ( BaseClass == Job_Mage );
 	if ((.@class_thief == 0 && .@class_mage == 0) || (eaclass()&EAJL_BABY)) {
-		mes "^3355FFThese look like";
-		mes "traces of some kind";
-		mes "of pursuit or battle, but";
-		mes "you can't really tell for sure.^000000";
+		mes "^3355ffis, é assim";
+		mes "traços de algum tipo";
+		mes "de perseguição ou batalha, mas";
+		mes "você realmente não pode ter certeza.^000000";
 	} else if ((tu_thief01 < 20 && .@class_thief) || (tu_magician01 < 20 && .@class_mage)) {
-		mes "^3355FFThere are signs";
-		mes "showing that a lot";
-		mes "of people were in";
-		mes "this area earlier.^000000";
+		mes "^3355ffthere são sinais";
+		mes "mostrando muito";
+		mes "de pessoas estavam em";
+		mes "esta área mais cedo.^000000";
 	} else if ((tu_thief01 == 20 && .@class_thief) || (tu_magician01 == 20 && .@class_mage)) {
-		mes "^3355FFIn this area, it looks";
-		mes "like even more people";
-		mes "joined in this battle and";
-		mes "the pursuit clearly heads";
-		mes "towards the south.^000000";
+		mes "^3355ffin nesta área, parece";
+		mes "Como ainda mais pessoas";
+		mes "juntou -se a esta batalha e";
+		mes "A perseguição claramente chefia";
+		mes "em direção ao sul.^000000";
 		if (tu_magician01 == 20)
 			tu_magician01 = 21;
 		else
 			tu_thief01 = 21;
 	} else {
-		mes "^3355FFThe trail of";
-		mes "this battle heads";
-		mes "towards the south.^000000";
+		mes "^3355ff a trilha de";
+		mes "Esta batalha cabeças";
+		mes "em direção ao sul.^000000";
 	}
 	close;
 }
@@ -581,39 +581,39 @@ moc_fild18,109,197,0	script	Trace of Battle#15	CLEAR_NPC,{
 	.@class_thief = ( BaseClass == Job_Thief );
 	.@class_mage = ( BaseClass == Job_Mage );
 	if ((.@class_thief == 0 && .@class_mage == 0) || (eaclass()&EAJL_BABY)) {
-		mes "^3355FFThese look like";
-		mes "traces of some kind";
-		mes "of pursuit or battle, but";
-		mes "you can't really tell for sure.^000000";
+		mes "^3355ffis, é assim";
+		mes "traços de algum tipo";
+		mes "de perseguição ou batalha, mas";
+		mes "você realmente não pode ter certeza.^000000";
 	} else if (tu_thief01 < 21 && .@class_thief) {
-		mes "^3355FFThere are signs";
-		mes "showing that a lot";
-		mes "of people were in";
-		mes "this area earlier.^000000";
+		mes "^3355ffthere são sinais";
+		mes "mostrando muito";
+		mes "de pessoas estavam em";
+		mes "esta área mais cedo.^000000";
 	} else if (tu_magician01 < 21 && .@class_mage)
-		mes "A large group of people seem to have gone by.";
+		mes "Um grande grupo de pessoas parece ter passado.";
 	else if ((tu_thief01 == 21 && .@class_thief) || (tu_magician01 == 21 && .@class_mage)) {
-		mes "^3355FFThis area is clearly";
-		mes "marked with signs";
-		mes "of a violent battle, with";
-		mes "traces of poison strewn";
-		mes "all over the ground.^000000";
+		mes "^3355ffhis A área é claramente";
+		mes "marcado com sinais";
+		mes "de uma batalha violenta, com";
+		mes "vestígios de veneno espalhados";
+		mes "em todo o solo.^000000";
 		next;
-		switch(select("Continue following the traces.:Further investigate the area.")) {
+		switch(select("Continue seguindo os traços.")) {
 		case 1:
-			mes "^3355FFYou examine the";
-			mes "trail, but can't really";
-			mes "discern the direction";
-			mes "in which the battle";
-			mes "continues...^000000";
+			mes "^3355ffyou examina o";
+			mes "trilha, mas não posso realmente";
+			mes "discernir a direção";
+			mes "em que a batalha";
+			mes "continua ...^000000";
 			close;
 		case 2:
-			mes "^3355FFYou find a bunch of";
-			mes "traps that use different";
-			mes "kinds of poison. The ones";
-			mes "that have been set off are";
-			mes "mixed with the ones which";
-			mes "haven't been triggered.^000000";
+			mes "^3355ffyou encontra um monte de";
+			mes "armadilhas que usam diferente";
+			mes "tipos de veneno. Os outros";
+			mes "que foram desencadeados são";
+			mes "misturado com os que";
+			mes "não foram acionados.^000000";
 			if (tu_thief01 == 21)
 				tu_thief01 = 22;
 			else
@@ -622,27 +622,27 @@ moc_fild18,109,197,0	script	Trace of Battle#15	CLEAR_NPC,{
 		}
 	} else if ((tu_thief01 == 22 && .@class_thief) || (tu_magician01 == 22 && .@class_mage)) {
 		if (rand(1,3) == 3) {
-			mes "^3355FFOne trap in particular";
-			mes "stands out to you more";
-			mes "than the rest. Perhaps";
-			mes "you should pour some";
-			mes "Green Potion on it to";
-			mes "neutralize it first.^000000";
+			mes "^3355ffone Trap em particular";
+			mes "destaca -se mais para você";
+			mes "do que o resto. Talvez";
+			mes "Você deveria derramar alguns";
+			mes "Poção verde nele";
+			mes "neutralizá -lo primeiro.^000000";
 			next;
-			switch(select("Pour Green Potion.:Don't use Green Potion.")) {
+			switch(select("Despeje a poção verde .: Não use poção verde.")) {
 			case 1:
 				if (countitem(506) < 1) {// Green_Potion
-					mes "^3355FFUnfortunately, you";
-					mes "don't have a Green";
-					mes "Potion that you can";
-					mes "use to pour on this trap...^000000";
+					mes "^3355ffnfortunately, você";
+					mes "Não tem um verde";
+					mes "Poção que você pode";
+					mes "Use para derramar nesta armadilha ...^000000";
 					close;
 				} else {
-					mes "^3355FFPouring that";
-					mes "Green Potion didn't";
-					mes "really make anything";
-					mes "happen. Perhaps you";
-					mes "should try something else.^000000";
+					mes "^3355ffpouring isso";
+					mes "Poção verde não";
+					mes "realmente faça qualquer coisa";
+					mes "acontecer. Talvez você";
+					mes "deve tentar outra coisa.^000000";
 					delitem 506,1; //Green_Potion
 					if (tu_thief01 == 22)
 						tu_thief01 = 23;
@@ -652,36 +652,36 @@ moc_fild18,109,197,0	script	Trace of Battle#15	CLEAR_NPC,{
 				}
 			case 2:
 				mes "["+strcharinfo(0)+"]";
-				mes "I guess...";
-				mes "I'll try investigating";
-				mes "this area a little more?";
+				mes "Eu acho...";
+				mes "Vou tentar investigar";
+				mes "esta área um pouco mais?";
 				close;
 			}
 		} else {
-			mes "^3355FFBy sheer accident,";
-			mes "you set off one of";
-			mes "the traps in the area.^000000";
+			mes "^3355ffbby puro acidente,";
+			mes "você desencadeia um de";
+			mes "as armadilhas na área.^000000";
 			sc_start SC_Poison,60000,0;
 			specialeffect EF_VENOMDUST2;
 			percentheal -30,0;
 		}
 	} else if ((tu_thief01 == 23 && .@class_thief) || (tu_magician01 == 23 && .@class_mage)) {
 		if (countitem(511) > 0 && countitem(716) > 0) {
-			mes "^3355FFYou try grinding";
-			mes "a Green Herb and";
-			mes "sprinkling it on the";
-			mes "trap and then place";
-			mes "a Red Gemstone on it.";
-			mes "The gem glows and";
-			mes "slowly melts away...^000000";
+			mes "^3355ffyou Tente moer";
+			mes "uma erva verde e";
+			mes "borrifando -o no";
+			mes "armadilha e depois coloque";
+			mes "uma pedra preciosa vermelha nela.";
+			mes "A jóia brilha e";
+			mes "derrete lentamente ...^000000";
 			next;
-			mes "^3355FFAlthough you don't";
-			mes "fully understand the";
-			mes "science of using poisons";
-			mes "or antidotes, you managed";
-			mes "to successfully dismantle";
-			mes "the trap. Now you can safely";
-			mes "check what might be inside.^000000";
+			mes "^3355ffal, embora você não";
+			mes "entender completamente o";
+			mes "ciência de usar venenos";
+			mes "ou antídotos, você conseguiu";
+			mes "para desmantelar com sucesso";
+			mes "a armadilha. Agora você pode com segurança";
+			mes "Verifique o que pode estar dentro.^000000";
 			delitem 511,1; //Green_Herb
 			delitem 716,1; //Red_Gemstone
 			if (tu_thief01 == 23)
@@ -689,60 +689,60 @@ moc_fild18,109,197,0	script	Trace of Battle#15	CLEAR_NPC,{
 			else
 				tu_magician01 = 24;
 		} else if (countitem(511) > 0) {
-			mes "^3355FFYou should try to";
-			mes "dismantle this trap";
-			mes "by using other catalysts";
-			mes "related to the curing or";
-			mes "use of poison. You do have";
-			mes "a Green Herb on you, so you";
-			mes "try sprinkling it on the trap.^000000";
+			mes "^3355ffyou deveria tentar";
+			mes "desmontar essa armadilha";
+			mes "usando outros catalisadores";
+			mes "relacionado à cura ou";
+			mes "uso de veneno. Você tem";
+			mes "uma erva verde em você, então você";
+			mes "tente espalhar na armadilha.^000000";
 			next;
-			mes "^3355FFHowever, nothing";
-			mes "happens. It seems that";
-			mes "you need another catalyst";
-			mes "in addition to the Green Herb";
-			mes "that you have in order to";
-			mes "dismantle this trap.^000000";
+			mes "^3355FF, no entanto, nada";
+			mes "acontece. Parece isso";
+			mes "você precisa de outro catalisador";
+			mes "Além da erva verde";
+			mes "que você tem para";
+			mes "Desmontagem desta armadilha.^000000";
 		} else if (countitem(716) > 0) {
-			mes "^3355FFYou should try to";
-			mes "dismantle this trap";
-			mes "by using other catalysts";
-			mes "related to the curing or use";
-			mes "of poison. You do have a";
-			mes "Red Gemstone, so you grind";
-			mes "it and sprinkle it on the trap.^000000";
+			mes "^3355ffyou deveria tentar";
+			mes "desmontar essa armadilha";
+			mes "usando outros catalisadores";
+			mes "relacionado à cura ou uso";
+			mes "de veneno. Você tem um";
+			mes "Pedra preciosa vermelha, então você moa";
+			mes "e polvilhe na armadilha.^000000";
 			next;
-			mes "^3355FFHowever, nothing";
-			mes "happens. It seems that";
-			mes "you need another catalyst to";
-			mes "use with the Red Gemstone";
-			mes "that you have in order to";
-			mes "dismantle this trap.^000000";
+			mes "^3355FF, no entanto, nada";
+			mes "acontece. Parece isso";
+			mes "você precisa de outro catalisador para";
+			mes "Use com a pedra preciosa vermelha";
+			mes "que você tem para";
+			mes "Desmontagem desta armadilha.^000000";
 		} else {
-			mes "^3355FFYou should try to";
-			mes "dismantle this trap";
-			mes "by using other catalysts";
-			mes "related to the curing or";
-			mes "use of poison. But what";
-			mes "items should you bring?^000000";
+			mes "^3355ffyou deveria tentar";
+			mes "desmontar essa armadilha";
+			mes "usando outros catalisadores";
+			mes "relacionado à cura ou";
+			mes "uso de veneno. Mas o que";
+			mes "itens você deve trazer?^000000";
 		}
 	} else if ((tu_thief01 == 24 && .@class_thief) || (tu_magician01 == 24 && .@class_mage)) {
-		mes "^3355FFInside the dismantled";
-		mes "trap, you find another";
-		mes "piece of strange cloth";
-		mes "that's stained with blood.";
-		mes "You take it with you in";
-		mes "hopes that it provides";
-		mes "some kind of evidence.^000000";
+		mes "^3355ffinside o desmantelado";
+		mes "armadilha, você encontra outro";
+		mes "pedaço de pano estranho";
+		mes "Isso é manchado de sangue.";
+		mes "Você leva isso com você em";
+		mes "esperanças de que isso forneça";
+		mes "algum tipo de evidência.^000000";
 		if (tu_thief01 == 24)
 			tu_thief01 = 25;
 		else
 			tu_magician01 = 25;
 	} else {
-		mes "^3355FFYou examine the area";
-		mes "a little further and guess";
-		mes "that the battle might head";
-		mes "towards the south.^000000";
+		mes "^3355ffyou examinando a área";
+		mes "um pouco mais adiante e adivinhe";
+		mes "que a batalha pode ir";
+		mes "em direção ao sul.^000000";
 	}
 	close;
 }
@@ -753,44 +753,44 @@ moc_fild18,156,96,0	script	Trace of Battle#16	CLEAR_NPC,{
 	.@class_thief = ( BaseClass == Job_Thief );
 	.@class_mage = ( BaseClass == Job_Mage );
 	if ((.@class_thief == 0 && .@class_mage == 0) || (eaclass()&EAJL_BABY)) {
-		mes "^3355FFThese look like";
-		mes "traces of some kind";
-		mes "of pursuit or battle, but";
-		mes "you can't really tell for sure.^000000";
+		mes "^3355ffis, é assim";
+		mes "traços de algum tipo";
+		mes "de perseguição ou batalha, mas";
+		mes "você realmente não pode ter certeza.^000000";
 	} else if ((tu_thief01 < 25 && .@class_thief) || (tu_magician01 < 25 && .@class_mage)) {
-		mes "^3355FFThere are signs";
-		mes "that a large group";
-		mes "of people have been in";
-		mes "this area for some reason.^000000";
+		mes "^3355ffthere são sinais";
+		mes "que um grande grupo";
+		mes "de pessoas estão em";
+		mes "esta área por algum motivo.^000000";
 	} else if ((tu_thief01 == 25 && .@class_thief) || (tu_magician01 == 25 && .@class_mage)) {
-		mes "^3355FFThese traces lead";
-		mes "to the edge of the cliff.";
-		mes "marking the end of the trail.";
-		mes "Apparently, the one who was";
-		mes "being chased met his fate here.^000000";
+		mes "^3355, esses traços de lixo";
+		mes "até a borda do penhasco.";
+		mes "marcando o fim da trilha.";
+		mes "Aparentemente, aquele que era";
+		mes "sendo perseguido encontrou seu destino aqui.^000000";
 		next;
-		mes "^3355FFThere are many footprints";
-		mes "leading to the edge of the";
-		mes "cliff and all of them leave";
-		mes "this scene, save for the set";
-		mes "of footprints that distinctly";
-		mes "belong to the person who";
-		mes "was pursued all this time...^3355FF";
+		mes "^3355ffthere são muitas pegadas";
+		mes "levando à borda do";
+		mes "Cliff e todos eles saem";
+		mes "Esta cena, exceto o conjunto";
+		mes "de pegadas tão distintamente";
+		mes "pertencem à pessoa que";
+		mes "foi perseguido todo esse tempo ...^3355ff";
 		next;
-		mes "^3355FFIt looks like you've";
-		mes "learned all that you can";
-		mes "from this investigation. You";
-		mes "better return and report your";
-		mes "findings to Yierhan soon.^000000";
+		mes "^3355ffit parece que você";
+		mes "Aprendi tudo o que você pode";
+		mes "a partir desta investigação. Você";
+		mes "melhor retornar e relatar seu";
+		mes "descobertas para Yierhan em breve.^000000";
 		if (tu_magician01 == 25)
 			tu_magician01 = 26;
 		else
 			tu_thief01 = 26;
 	} else {
-		mes "^3355FFThis is the end";
-		mes "of the trail. There";
-		mes "aren't any more traces";
-		mes "of the battle left to find.^000000";
+		mes "^3355ffhThis é o fim";
+		mes "da trilha. Lá";
+		mes "não são mais traços";
+		mes "da batalha restante para encontrar.^000000";
 	}
 	close;
 }

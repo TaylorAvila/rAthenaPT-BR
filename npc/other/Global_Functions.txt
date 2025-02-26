@@ -12,10 +12,10 @@
 //= 1.5 Added clear of Bard Quest variables. 1.5a updated [Lupus]
 //= 1.6 Added F_RandMes, F_SexMes, F_Hi, F_Bye functions [Lupus]
 //=     Moved here useful function 'getJobName'
-//= 1.7 Added "F_ItemName" function, added a great sample for "F_ItemName"
+//= 1.7 Added "F_itemname" function, added a great sample for "F_itemname"
 //= 1.8 Added Job Vars clear for Extended classes: TK,SL,SG [Lupus]
-//= 1.9 Added "F_ClearGarbage" func that clears outdated, wasted variables [Lupus]
-//= 1.91 Added "F_SaveQuestSkills","F_Load?Skills" functions [Lupus]
+//= 1.9 Added "F_cleargarbage" func that clears outdated, wasted variables [Lupus]
+//= 1.91 Added "F_saveQuestskills","F_load? Habilidades" functions [Lupus]
 //= 2.0 Fixed F_Save/LoadQuestSkills functions. Had to split in into 2 vars [Lupus]
 //= 2.01 Added $talk to F_ClearGarbage [Evera]
 //= 2.02 Added $dtsglobalelig and $dts|(1<<6) to F_ClearGarbage [Evera]
@@ -36,17 +36,17 @@
 //= 2.16 Added F_GetWeaponType, and F_GetArmorType. [L0ne_W0lf]
 //= 2.17 Renamed 'F_RandMes' to 'F_Rand'. [Euphy]
 //= 2.18 Removed useless 'getJobName' function. [Euphy]
-//= 2.2 Added "F_GetPlural", "F_InsertPlural", "F_InsertArticle", "F_InsertComma", "F_GetNumSuffix". [Euphy]
+//= 2.2 Added "F_getplural", "F_insertplural", "F_inserTarticle", "F_insertComma", "F_getnumsuffix". [Euphy]
 //=     Standardized descriptions, updated 'F_GetArmorType'.
-//= 2.21 Added format string to "F_InsertPlural" and more checks to "F_GetPlural". [Euphy]
-//= 2.22 Further improvements to "F_GetPlural". [Euphy]
-//= 2.23 Completed article function and added "F_GetArticle". [Euphy]
+//= 2.21 Added format string to "F_insertplural" and more checks to "F_getplural". [Euphy]
+//= 2.22 Further improvements to "F_getplural". [Euphy]
+//= 2.23 Completed article function and added "F_ntarticle". [Euphy]
 //= 2.24 Added functions to check for equipment swap hacks. [Euphy]
-//= 2.25 Added "F_CanOpenStorage" and "F_CanChangeJob". [secretdataz]
-//= 2.26 Added "F_getpositionname". [Capuche]
-//= 2.27 Added "F_GetPlatinumSkills". [mazvi]
-//= 2.28 Added "close3". [Capuche]
-//= 2.29 Updated "F_IsCharm" to support all latest enchants [Everade]
+//= 2.25 Added "F_CANOPENSTORAGEL" and "F_CanchangeJob". [secretdataz]
+//= 2.26 Added "Nome da posição f_get". [Capuche]
+//= 2.27 Added "F_getplatinumskills". [mazvi]
+//= 2.28 Added "Close3". [Capuche]
+//= 2.29 Updated "F_isCharm" to support all latest enchants [Everade]
 //============================================================ 
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -140,7 +140,7 @@ function	script	F_ClearGarbage	{
 //////////////////////////////////////////////////////////////////////////////////
 function	script	Job_Change	{
 	jobchange getarg(0),Upper;
-//	logmes "CLASS CHANGE: " +strcharinfo(0)+ " become a "+jobname(Class);
+//	logmes "Mudança de classe:" +strcharinfo(0)+ "tornar -se um"+jobname(Class);
 	return;
 }
 
@@ -173,7 +173,7 @@ function	script	F_SexMes	{
 
 
 //////////////////////////////////////////////////////////////////////////////////
-// Returns random "hello" and "goodbye" messages.
+// Returns random "olá" and "adeus" messages.
 // -- callfunc "F_Hi"
 // -- callfunc "F_Bye"
 //////////////////////////////////////////////////////////////////////////////////
@@ -190,26 +190,26 @@ function	script	F_Bye	{
 // -- callfunc "F_ItemName",<item ID>,{<element>{,<VVS meter 0..3>{,<refine rate>}}}
 //    Elements: 0=none, 1=Ice, 2=Earth, 3=Fire, 4=Wind
 // Example:
-//    // Displays "Show me your ^000090+5 VVS Fire Knife^000000..."
+//    // Displays "Mostre -me o seu ^000090+5 VVS Fire Fire ^000000 ..."
 //    mes "Show me your "+callfunc("F_ItemName",1201,1,2,5)+"...";
 //////////////////////////////////////////////////////////////////////////////////
 function	script	F_ItemName	{
 	if (getarg(3,0))
-		set .@t$,"+"+getarg(3)+" ";
+		set .@t$,"+"+getarg(3)+"";
 	switch (getarg(2,0)) {
 		case 0: break;
-		case 1: set .@t$,.@t$+"VS "; break;
-		case 2: set .@t$,.@t$+"VVS "; break;
-		case 3: set .@t$,.@t$+"VVVS "; break;
-		default: set .@t$,.@t$+getarg(2)+"xVS "; break;
+		case 1: set .@t$,.@t$+"Vs."; break;
+		case 2: set .@t$,.@t$+"Encanamento"; break;
+		case 3: set .@t$,.@t$+"VVVs"; break;
+		default: set .@t$,.@t$+getarg(2)+"xvs"; break;
 	}
 	switch (getarg(1,0)) {
 		case 0: break;
-		case 1: set .@t$,.@t$+"Ice "; break;
-		case 2: set .@t$,.@t$+"Earth "; break;
-		case 3: set .@t$,.@t$+"Fire "; break;
-		case 4: set .@t$,.@t$+"Wind "; break;
-		default: set .@t$,.@t$+"Strange "; break;
+		case 1: set .@t$,.@t$+"Gelo"; break;
+		case 2: set .@t$,.@t$+"Terra"; break;
+		case 3: set .@t$,.@t$+"Fogo"; break;
+		case 4: set .@t$,.@t$+"Vento"; break;
+		default: set .@t$,.@t$+"Estranho"; break;
 	}
 	return "^000090"+.@t$+getitemname(getarg(0))+"^000000";
 }
@@ -262,78 +262,78 @@ function	script	F_Load2Skills	{
 //////////////////////////////////////////////////////////////////////////////////
 function	script	F_GetWeaponType	{
 	switch(getiteminfo(getarg(0), ITEMINFO_VIEW)) {
-		case 1: return "Dagger"; break;
-		case 2: return "One-handed Sword"; break;
-		case 3: return "Two-handed Sword"; break;
-		case 4: return "One-handed Spear"; break;
-		case 5: return "Two-handed Spear"; break;
-		case 6: return "One-handed Axe"; break;
-		case 7: return "Two-handed Axe"; break;
-		case 8: return "Mace"; break;
-		//case 9: return "Unused"; break;
-		case 10: return "Staff"; break;
-		case 11: return "Bow"; break;
-		case 12: return "Knuckle"; break;
-		case 13: return "Instrument"; break;
-		case 14: return "Whip"; break;
-		case 15: return "Book"; break;
-		case 16: return "Katar"; break;
-		case 17: return "Revolver"; break;
+		case 1: return "Punhal"; break;
+		case 2: return "Espada de uma mão"; break;
+		case 3: return "Espada de duas mãos"; break;
+		case 4: return "Lança com uma mão"; break;
+		case 5: return "Lança de duas mãos"; break;
+		case 6: return "Machado de uma mão"; break;
+		case 7: return "Machado de duas mãos"; break;
+		case 8: return "Mulher"; break;
+		//case 9: return "Não utilizado"; break;
+		case 10: return "Funcionários"; break;
+		case 11: return "Arco"; break;
+		case 12: return "Junta"; break;
+		case 13: return "Instrumento"; break;
+		case 14: return "Chicote"; break;
+		case 15: return "Livro"; break;
+		case 16: return "Trem"; break;
+		case 17: return "Revólver"; break;
 		case 18: return "Rifle"; break;
-		case 19: return "Gatling gun"; break;
-		case 20: return "Shotgun"; break;
-		case 21: return "Grenade Launcher"; break;
+		case 19: return "Gatling Gun"; break;
+		case 20: return "Espingarda"; break;
+		case 21: return "Lançador de granadas"; break;
 		case 22: return "Shuriken"; break;
-		default: return "Unknown Weapon"; break;
+		default: return "Arma desconhecida"; break;
 	}
 	end;
 }
 function	script	F_GetArmorType	{
 	switch(getiteminfo(getarg(0), ITEMINFO_LOCATIONS)) {
 		case EQP_HEAD_LOW:
-			return "Lower Headgear";
+			return "Capacapo inferior";
 		case EQP_HAND_R:
 			return callfunc("F_GetWeaponType",getarg(0));
 		case EQP_GARMENT:
-			return "Garment";
+			return "Vestuário";
 		case EQP_ACC_L:
 		case EQP_ACC_R:
 		case EQP_ACC_RL:
-			return "Accessory";
+			return "Acessório";
 		case EQP_ARMOR:
-			return "Armor";
+			return "Armadura";
 		case EQP_HAND_L:
-			return "Shield";
+			return "Escudo";
 		case EQP_SHOES:
-			return "Shoes";
+			return "Sapato";
 		case EQP_HEAD_TOP:
-			return "Upper Headgear";
+			return "Capacear superior";
 		case EQP_HEAD_MID:
-			return "Middle Headgear";
+			return "Capéu médio";
 		case EQP_COSTUME_HEAD_TOP:
-			return "Costume Upper Headgear";
+			return "Capéu superior do traje";
 		case EQP_COSTUME_HEAD_MID:
-			return "Costume Midle Headgear";
+			return "Capacete médio de fantasia";
 		case EQP_COSTUME_HEAD_LOW:
-			return "Costume Lower Headgear";
+			return "Capacear mais baixo";
 		case EQP_COSTUME_GARMENT:
-			return "Costume Garment";
+			return "Vestuário de figurinos";
 		case EQP_AMMO:
-			return "Ammo";
+			return "No entanto";
 		case EQP_SHADOW_ARMOR:
-			return "Shadow Armor";
+			return "Armadura de sombra";
 		case EQP_SHADOW_WEAPON:
-			return "Shadow Weapon";
+			return "Arma de Sombra";
 		case EQP_SHADOW_SHIELD:
-			return "Shadow Shield";
+			return "Shield Shield";
 		case EQP_SHADOW_SHOES:
-			return "Shadow Shoes";
+			return "Sapatos de sombra";
 		case EQP_SHADOW_ACC_R:
 		case EQP_SHADOW_ACC_L:
 		case EQP_SHADOW_ACC_RL:
-			return "Shadow Accessory";
+			return "Acessório de sombra";
 		default:
-			return "Unknown Equip";
+			return "Equipamento desconhecido";
 	}
 }
 
@@ -343,7 +343,7 @@ function	script	F_GetArmorType	{
 // The argument is subtracted from UNIX epoch time, or 'gettimetick(2)'.
 // -- callfunc "Time2Str",<tick in UNIX epoch time>
 // Example:
-//    // Displays "Time left: 1 day, 1 hour, 8 minutes, 20 seconds"
+//    // Displays "Tempo restante: 1 dia, 1 hora, 8 minutos, 20 segundos"
 //    set .@Timer, gettimetick(2) + 90500;
 //    mes "Time left: " + callfunc("Time2Str",.@Timer);
 //////////////////////////////////////////////////////////////////////////////////
@@ -359,24 +359,24 @@ function	script	Time2Str	{
 	
 	set .@Time$, "";
 	if( .@Days > 1 )
-		set .@Time$, .@Time$ + .@Days + " days, ";
+		set .@Time$, .@Time$ + .@Days + "dias,";
 	else if( .@Days > 0 )
-		set .@Time$, .@Time$ + .@Days + " day, ";
+		set .@Time$, .@Time$ + .@Days + "dia,";
 
 	if( .@Hours > 1 )
-		set .@Time$, .@Time$ + .@Hours + " hours, ";
+		set .@Time$, .@Time$ + .@Hours + "horas,";
 	else if( .@Hours > 0 )
-		set .@Time$, .@Time$ + .@Hours + " hour, ";
+		set .@Time$, .@Time$ + .@Hours + "hora,";
 
 	if( .@Minutes > 1 )
-		set .@Time$, .@Time$ + .@Minutes + " minutes, ";
+		set .@Time$, .@Time$ + .@Minutes + "minutos,";
 	else if( .@Minutes > 0 )
-		set .@Time$, .@Time$ + .@Minutes + " minute, ";
+		set .@Time$, .@Time$ + .@Minutes + "minuto,";
 
 	if( .@Time_Left > 1 || .@Time_Left == 0 )
-		set .@Time$, .@Time$ + .@Time_Left + " seconds";
+		set .@Time$, .@Time$ + .@Time_Left + "segundos";
 	else if( .@Time_Left == 1 )
-		set .@Time$, .@Time$ + .@Time_Left + " second";
+		set .@Time$, .@Time$ + .@Time_Left + "segundo";
 	
 	return .@Time$;
 }
@@ -395,7 +395,7 @@ function	script	F_IsEquipIDHack	{
 	set .@id_chk, getequipid(getarg(0));
 	set .@id, getarg(1);
 	if (.@id != .@id_chk) {
-		logmes "Hack: Tried to swap equip " + getitemname(.@id) + " for " + getitemname(.@id_chk) + ".";
+		logmes "Hack: tentei trocar o equipamento" + getitemname(.@id) + "para" + getitemname(.@id_chk) + ".";
 		return 1;
 	}
 	return 0;
@@ -404,7 +404,7 @@ function	script	F_IsEquipRefineHack	{
 	set .@refine_chk, getequiprefinerycnt(getarg(0));
 	set .@refine, getarg(1);
 	if (.@refine != .@refine_chk) {
-		logmes "Hack: Tried to swap equip with refine +" + .@refine + " for +" + .@refine_chk + ".";
+		logmes "Hack: Tentei trocar equipamento com Refine +" + .@refine + "para +" + .@refine_chk + ".";
 		return 1;
 	}
 	return 0;
@@ -415,7 +415,7 @@ function	script	F_IsEquipCardHack	{
 		set .@card, getarg(.@i + 1);
 		set .@card_chk, getequipcardid(.@pos, .@i);
 		if (.@card != .@card_chk) {
-			logmes "Hack: Tried to swap card " + getitemname(.@card) + " for " + getitemname(.@card_chk) + ".";
+			logmes "Hack: tentei trocar o cartão" + getitemname(.@card) + "para" + getitemname(.@card_chk) + ".";
 			return 1;
 		}
 	}
@@ -442,20 +442,20 @@ function	script	F_IsEquipCardHack	{
 // Examples:
 //    callfunc("F_InsertPlural",1,"dog")    // returns "1 dog"
 //    callfunc("F_InsertPlural",3,"fox",1)  // returns "3 FOXES"
-//    // returns "^FF00005^000000 knives"
+//    // returns "^FF00005^000000 FACAÇÕES"
 //    callfunc("F_InsertPlural",5,"knife",0,"^FF0000%d^000000 %s")
 //////////////////////////////////////////////////////////////////////////////////
 function	script	F_GetPlural	{
 	set .@str$, getarg(0);
 
-	if (countstr(.@str$," ")) {  // multiple words
-		explode(.@tmp$,.@str$," ");
+	if (countstr(.@str$,"")) {  // multiple words
+		explode(.@tmp$,.@str$,"");
 		set .@size, getarraysize(.@tmp$);
 
-		// if format is "... of|in|on ...", pluralize preceding word; else pluralize last word
-		if (compare(.@str$," of ") || compare(.@str$," in ") || compare(.@str$," on ")) {
+		// if format is "... de | in | on ...", pluralize preceding word; else pluralize last word
+		if (compare(.@str$,"de") || compare(.@str$,"em") || compare(.@str$,"sobre")) {
 			for (set .@i,1; .@i<.@size; set .@i,.@i+1) {
-				if (getstrlen(.@tmp$[.@i]) == 2 && compare("of|in|on",.@tmp$[.@i]))
+				if (getstrlen(.@tmp$[.@i]) == 2 && compare("de | in | on",.@tmp$[.@i]))
 					break;
 				set .@index, .@index + 1;
 			}
@@ -464,7 +464,7 @@ function	script	F_GetPlural	{
 
 		set .@str$, .@tmp$[.@index];
 		set .@tmp$[.@index],"%s";
-		set .@format$, implode(.@tmp$," ");
+		set .@format$, implode(.@tmp$,"");
 	} else
 		set .@format$, "%s";
 
@@ -478,33 +478,33 @@ function	script	F_GetPlural	{
 	}
 
 	// common exceptions --> singular form == plural form
-	else if (compare("fish|glasses|sunglasses|clothes|boots|shoes|greaves|sandals|wings|ears",.@str$)) {
+	else if (compare("Peixes | Vicos | Óculos de sol | Roupas | BOTAS | SAPATOS | GREAVES | SANDALS | AS AS QUEIROS | OURS",.@str$)) {
 		set .@result$, .@str$;
 	}
 
 	// ends in -s, -x, -z, -ch, -sh --> add -es
-	else if (.@suffix$[0] == "s" || .@suffix$[0] == "x" || .@suffix$[0] == "z" ||
-	    .@suffix$[1] == "ch" || .@suffix$[1] == "sh") {
-		set .@result$, .@str$ + "es";
+	else if (.@suffix$[0] == "s" || .@suffix$[0] == "x" || .@suffix$[0] == "Com" ||
+	    .@suffix$[1] == "cap" || .@suffix$[1] == "sh") {
+		set .@result$, .@str$ + "é";
 	}
 
 	// ends in -f, -fe --> remove -f, -fe --> add -ves
-	else if ((.@suffix$[0] == "f" || .@suffix$[1] == "fe") && .@suffix$[1] != "ff") {
-		if (compare("belief|cliff|chief|dwarf|grief|gulf|proof|roof",.@str$))
+	else if ((.@suffix$[0] == "f" || .@suffix$[1] == "Fe") && .@suffix$[1] != "ff") {
+		if (compare("Crença | Cliff | Chefe | Dwarf | Soff | Gulf | Prova | telhado",.@str$))
 			set .@result$, .@str$ + "s";  // exceptions --> add -s
 		else
-			set .@result$, substr(.@str$,0,.@strlen - 2 - (.@suffix$[1] == "fe")) + "ves";
+			set .@result$, substr(.@str$,0,.@strlen - 2 - (.@suffix$[1] == "Fe")) + "todo";
 	}
 	
 	// ends in consonant + -y --> remove -y --> add -ies
-	else if (.@suffix$[0] == "y" && !compare("aeiou",charat(.@suffix$[1],0))) {
+	else if (.@suffix$[0] == "e" && !compare("aeuou",charat(.@suffix$[1],0))) {
 		set .@result$, delchar(.@str$,.@strlen - 1) + "ies";
 	}
 
 	// ends in -o --> exceptions --> add -es
 	else if (.@suffix$[0] == "o" &&
-	         compare("buffalo|domino|echo|grotto|halo|hero|mango|mosquito|potato|tomato|tornado|torpedo|veto|volcano",.@str$)) {
-		set .@result$, .@str$ + "es";
+	         compare("Buffalo | Domino | Echo | Grotto | Halo | Hero | Mango | Mosquito | Batata | Tomato | Tornado | Torpedo | Veto | Volcão",.@str$)) {
+		set .@result$, .@str$ + "é";
 	}
 
 	// default --> add -s
@@ -537,43 +537,43 @@ function	script	F_GetArticle	{
 
 	// not a word
 	if (!charisalpha(.@str$,0))
-		return "a";
+		return "um";
 
 	// 1-letter words
 	if (getstrlen(.@str$) == 1) {
 		if (strpos("aefhilmnorsx",.@str$) > -1)
-			return "an";
+			return "um";
 		else
-			return "a";
+			return "um";
 	}
 
 	// special cases
-	if (preg_match("(euler|hour(?!i)|heir|honest|hono)",.@str$))
-		return "an";
+	if (preg_match("(Euler | hora (?! i) | herdeiro | honesto | hono)",.@str$))
+		return "um";
 
 	// consonants
 	if (preg_match("^[^aeiouy]",.@str$))
-		return "a";
+		return "um";
 
 	// special vowel forms
-	if (preg_match("^e[uw]",.@str$) || preg_match("^onc?e\b",.@str$) || preg_match("^uni([^nmd]|mo)",.@str$) || preg_match("^u[bcfhjkqrst][aeiou]",.@str$))
-		return "a";
-	if (preg_match("^ut[th]",.@str$))
-		return "an";
+	if (preg_match("^e [seu]",.@str$) || preg_match("^onc? e \ b",.@str$) || preg_match("^un ([^nmd] | mo)",.@str$) || preg_match("^ Nós [bcfhjkqrstnrst] [aiii]",.@str$))
+		return "um";
+	if (preg_match("^ut [th]",.@str$))
+		return "um";
 
 	// special capitals (rare)
-	//if (preg_match("^U[NK][AIEO]?",getarg(0)))
-	//	return "a";
+	//if (preg_match("^ A [nk] [oo]?",getarg(0)))
+	//	return "um";
 
 	// vowels
-	if (preg_match("^[aeiou]",.@str$))
-		return "an";
+	if (preg_match("^ [A Sim:",.@str$))
+		return "um";
 
 	// y... (rare)
-	//if (preg_match("^(y(b[lor]|cl[ea]|fere|gg|p[ios]|rou|tt))",.@str$))
-	//	return "an";
+	//if (preg_match("^(yb [eor] | Plean",.@str$))
+	//	return "um";
 
-	return "a";
+	return "um";
 }
 function	script	F_InsertArticle	{
 	set .@article$, callfunc("F_GetArticle",getarg(0));
@@ -616,7 +616,7 @@ function	script	F_GetNumSuffix	{
 // Indicate if attached player can open storage
 //////////////////////////////////////////////////////////////////////////////////
 function	script	F_CanOpenStorage	{
-	return (!basicskillcheck() || !(getskilllv("NV_BASIC") < 6 && getskilllv("SU_BASIC_SKILL") < 1));
+	return (!basicskillcheck() || !(getskilllv("Nv_basic") < 6 && getskilllv("Su_basic_skill") < 1));
 }
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -624,7 +624,7 @@ function	script	F_CanOpenStorage	{
 // basic skill level 9.
 //////////////////////////////////////////////////////////////////////////////////
 function	script	F_CanChangeJob	{
-	return (!basicskillcheck() || getskilllv("NV_BASIC") > 8);
+	return (!basicskillcheck() || getskilllv("Nv_basic") > 8);
 }
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -632,29 +632,29 @@ function	script	F_CanChangeJob	{
 //////////////////////////////////////////////////////////////////////////////////
 function	script	F_getpositionname	{
 	switch( getarg(0,999) ) {
-		case EQI_ACC_L:		return "Accessory 1";
-		case EQI_ACC_R:		return "Accessory 2";
-		case EQI_SHOES:		return "Shoes";
-		case EQI_GARMENT:	return "Robe";
-		case EQI_HEAD_LOW:	return "Head 3";
-		case EQI_HEAD_MID:	return "Head 2";
-		case EQI_HEAD_TOP:	return "Head";
-		case EQI_ARMOR:		return "Body";
-		case EQI_HAND_L:	return "Left hand";
-		case EQI_HAND_R:	return "Right hand";
-		case EQI_COSTUME_HEAD_TOP:	return "Upper Costume Headgear";
-		case EQI_COSTUME_HEAD_MID:	return "Middle Costume Headgear";
-		case EQI_COSTUME_HEAD_LOW:	return "Lower Costume Headgear";
-		case EQI_COSTUME_GARMENT:	return "Costume Garment";
-		case EQI_AMMO:			return "Arrow/Ammunition";
-		case EQI_SHADOW_ARMOR:	return "Shadow Armor";
-		case EQI_SHADOW_WEAPON:	return "Shadow Weapon";
-		case EQI_SHADOW_SHIELD:	return "Shadow Shield";
-		case EQI_SHADOW_SHOES:	return "Shadow Shoes";
-		case EQI_SHADOW_ACC_R:	return "Shadow Accessory 2";
-		case EQI_SHADOW_ACC_L:	return "Shadow Accessory 1";
+		case EQI_ACC_L:		return "Acessório 1";
+		case EQI_ACC_R:		return "Acessório 2";
+		case EQI_SHOES:		return "Sapato";
+		case EQI_GARMENT:	return "Manto";
+		case EQI_HEAD_LOW:	return "Cabeça 3";
+		case EQI_HEAD_MID:	return "Cabeça 2";
+		case EQI_HEAD_TOP:	return "Cabeça";
+		case EQI_ARMOR:		return "Corpo";
+		case EQI_HAND_L:	return "Mão esquerda";
+		case EQI_HAND_R:	return "Mão direita";
+		case EQI_COSTUME_HEAD_TOP:	return "Capacapo de fantasia superior";
+		case EQI_COSTUME_HEAD_MID:	return "Capacete de traje média";
+		case EQI_COSTUME_HEAD_LOW:	return "Capacapo mais baixo";
+		case EQI_COSTUME_GARMENT:	return "Vestuário de figurinos";
+		case EQI_AMMO:			return "Arrow/munição";
+		case EQI_SHADOW_ARMOR:	return "Armadura de sombra";
+		case EQI_SHADOW_WEAPON:	return "Arma de Sombra";
+		case EQI_SHADOW_SHIELD:	return "Shield Shield";
+		case EQI_SHADOW_SHOES:	return "Sapatos de sombra";
+		case EQI_SHADOW_ACC_R:	return "Sombra Acessório 2";
+		case EQI_SHADOW_ACC_L:	return "Acessório de sombra 1";
 		default:
-			return "Unknown";
+			return "Desconhecido";
 	}
 }
 
@@ -666,35 +666,35 @@ function	script	F_GetPlatinumSkills	{
 	switch (BaseClass) {
 	case Job_Novice:
 		if (Class != Job_Super_Novice)
-			skill "NV_TRICKDEAD",1,SKILL_PERM;
+			skill "Nv_trickdead",1,SKILL_PERM;
 		break;
 	case Job_Swordman:
-		skill "SM_MOVINGRECOVERY",1,SKILL_PERM;
-		skill "SM_FATALBLOW",1,SKILL_PERM;
+		skill "Sm_movingrecovery",1,SKILL_PERM;
+		skill "Sm_fatalblow",1,SKILL_PERM;
 		skill "SM_AUTOBERSERK",1,SKILL_PERM;
 		break;
 	case Job_Mage:
-		skill "MG_ENERGYCOAT",1,SKILL_PERM;
+		skill "Mg_energyCoat",1,SKILL_PERM;
 		break;
 	case Job_Archer:
-		skill "AC_MAKINGARROW",1,SKILL_PERM;
+		skill "Ac_makingarrow",1,SKILL_PERM;
 		skill "AC_CHARGEARROW",1,SKILL_PERM;
 		break;
 	case Job_Acolyte:
-		skill "AL_HOLYLIGHT",1,SKILL_PERM;
+		skill "Al_HolyLight",1,SKILL_PERM;
 		break;
 	case Job_Merchant:
-		skill "MC_CARTREVOLUTION",1,SKILL_PERM;
+		skill "MC_CARTROVOLUÇÃO",1,SKILL_PERM;
 		skill "MC_CHANGECART",1,SKILL_PERM;
-		skill "MC_LOUD",1,SKILL_PERM;
+		skill "Mc_loud",1,SKILL_PERM;
 		if(PACKETVER >= 20150826)
-			skill "MC_CARTDECORATE",1,SKILL_PERM;
+			skill "Mc_cartDecorate",1,SKILL_PERM;
 		break;
 	case Job_Thief:
-		skill "TF_SPRINKLESAND",1,SKILL_PERM;
-		skill "TF_BACKSLIDING",1,SKILL_PERM;
-		skill "TF_PICKSTONE",1,SKILL_PERM;
-		skill "TF_THROWSTONE",1,SKILL_PERM;
+		skill "Tf_sprinkles e",1,SKILL_PERM;
+		skill "Tf_backsliding",1,SKILL_PERM;
+		skill "Tf_pickstone",1,SKILL_PERM;
+		skill "Tf_hrowstone",1,SKILL_PERM;
 		break;
 	default:
 		break;
@@ -704,34 +704,34 @@ function	script	F_GetPlatinumSkills	{
 		skill "KN_CHARGEATK",1,SKILL_PERM;
 		break;
 	case Job_Priest:
-		skill "PR_REDEMPTIO",1,SKILL_PERM;
+		skill "Pr_ReDeptio",1,SKILL_PERM;
 		break;
 	case Job_Wizard:
-		skill "WZ_SIGHTBLASTER",1,SKILL_PERM;
+		skill "Wz_sightblaster",1,SKILL_PERM;
 		break;
 	case Job_Blacksmith:
-		skill "BS_UNFAIRLYTRICK",1,SKILL_PERM;
+		skill "Bs_unfairlytrick",1,SKILL_PERM;
 		skill "BS_GREED",1,SKILL_PERM;
 		break;
 	case Job_Hunter:
-		skill "HT_PHANTASMIC",1,SKILL_PERM;
+		skill "Ht_phantasmic",1,SKILL_PERM;
 		break;
 	case Job_Assassin:
-		skill "AS_SONICACCEL",1,SKILL_PERM;
+		skill "As_sonicAccel",1,SKILL_PERM;
 		skill "AS_VENOMKNIFE",1,SKILL_PERM;
 		break;
 	case Job_Crusader:
-		skill "CR_SHRINK",1,SKILL_PERM;
+		skill "Cr_shrink",1,SKILL_PERM;
 		break;
 	case Job_Monk:
-		skill "MO_KITRANSLATION",1,SKILL_PERM;
-		skill "MO_BALKYOUNG",1,SKILL_PERM;
+		skill "Mo_nitraharation",1,SKILL_PERM;
+		skill "Mo_balkyoung",1,SKILL_PERM;
 		break;
 	case Job_Sage:
-		skill "SA_CREATECON",1,SKILL_PERM;
-		skill "SA_ELEMENTWATER",1,SKILL_PERM;
-		skill "SA_ELEMENTGROUND",1,SKILL_PERM;
-		skill "SA_ELEMENTFIRE",1,SKILL_PERM;
+		skill "CreateCon",1,SKILL_PERM;
+		skill "Sa_ementwater",1,SKILL_PERM;
+		skill "Sa_elementground",1,SKILL_PERM;
+		skill "SA_EMENTFIRE",1,SKILL_PERM;
 		skill "SA_ELEMENTWIND",1,SKILL_PERM;
 		break;
 	case Job_Rogue:
@@ -741,10 +741,10 @@ function	script	F_GetPlatinumSkills	{
 		skill "AM_BIOETHICS",1,SKILL_PERM;
 		break;
 	case Job_Bard:
-		skill "BA_PANGVOICE",1,SKILL_PERM;
+		skill "Ba_pangvoice",1,SKILL_PERM;
 		break;
 	case Job_Dancer:
-		skill "DC_WINKCHARM",1,SKILL_PERM;
+		skill "Dc_winkcharm",1,SKILL_PERM;
 		break;
 	default:
 		break;

@@ -31,31 +31,31 @@ wolfvill,79,260,4	script(CLOAKED)	Aira#con	4_M_BRZ_JACI,{
 	case 0:
 	case 1:
 		mes "[Aira]";
-		mes "Please wait the end of the quest delay.";
+		mes "Por favor, aguarde o final do atraso da missão.";
 		close;
 	case 2:
 		erasequest 12522;
-		mes "^0000ff All the aftereffects of access are gone.^000000";
+		mes "^0000FF Todos os efeitos posteriores do acesso desapareceram.^000000";
 		close;
 	}
 	mes "[Aira]";
-	mes "" + strcharinfo(0) + "Thanks to Mr. I arrived safely in the village.";
-	mes "But it seems that something has been revived in the villa. I think I need to get help one more time.";
+	mes "" + strcharinfo(0) + "Graças ao Sr., cheguei em segurança na vila.";
+	mes "Mas parece que algo foi revivido na vila. Eu acho que preciso obter ajuda mais uma vez.";
 	next;
-	.@md_name_normal$ = "Villa of Deception";
+	.@md_name_normal$ = "Vila de engano";
 	.@md_name_hard$ = "Villa of Deception Advanced";
 
 	if (is_party_leader() == true) {
-		.@create_normal$ = "^000044Create " + .@md_name_normal$ + "^000000";
+		.@create_normal$ = "^000044create" + .@md_name_normal$ + "^000000";
 		if (countitem(1000471) > 0)
-			.@create_hard$ = "^000044Create " + .@md_name_hard$ + "^000000";
+			.@create_hard$ = "^000044create" + .@md_name_hard$ + "^000000";
 	}
-	switch( select( "Entry", .@create_normal$, .@create_hard$ ) ) {
+	switch( select( "Entrada", .@create_normal$, .@create_hard$ ) ) {
 	case 1:
 		if (select( .@md_name_normal$, .@md_name_hard$ ) == 1) {
 			if (BaseLevel < 170) {
 				mes "[Aira]";
-				mes "You must be at least BaseLevel 170 to enter.";
+				mes "Você deve estar pelo menos BaseEvel 170 para entrar.";
 				close;
 			}
 			.@enter_to$ = .@md_name_normal$;
@@ -63,7 +63,7 @@ wolfvill,79,260,4	script(CLOAKED)	Aira#con	4_M_BRZ_JACI,{
 		else {
 			if (BaseLevel < 200) {
 				mes "[Aira]";
-				mes "You must be at least BaseLevel 200 to enter.";
+				mes "Você deve ser pelo menos Baselevel 200 para entrar.";
 				close;
 			}
 			.@enter_to$ = .@md_name_hard$;
@@ -71,16 +71,16 @@ wolfvill,79,260,4	script(CLOAKED)	Aira#con	4_M_BRZ_JACI,{
 
 		switch( instance_enter(.@enter_to$) ) {
 		case IE_OTHER:
-			mes "^ff0000An unknown error occurred.^000000";
+			mes "^ff0000ENO Ocorreu um erro desconhecido.^000000";
 			close;
 		case IE_NOINSTANCE:
-			mes "^0000ff The dungeon has not been created or you are trying to enter a dungeon different from the party leader.^000000";
+			mes "^0000FF A masmorra não foi criada ou você está tentando entrar em uma masmorra diferente do líder do partido.^000000";
 			close;
 		case IE_NOMEMBER:
-			mes "^ff0000Only a member of the party can enter the Memorial Dungeon.^000000";
+			mes "^ff0000ONO Um membro da parte pode entrar na masmorra memorial.^000000";
 			close;
 		case IE_OK:
-			mapannounce "wolfvill", "" + strcharinfo(0) + " of the party, " + getpartyname( getcharid(1) ) + ", is entering " + .@enter_to$ + ".",bc_map,"0x00ff99",FW_NORMAL,12;
+			mapannounce "Wolfvill", "" + strcharinfo(0) + "da festa," + getpartyname( getcharid(1) ) + ", está entrando" + .@enter_to$ + ".",bc_map,"0 buceta 00",FW_NORMAL,12;
 			if (.@enter_to$ == .@md_name_normal$)
 				setquest 12520;
 			else
@@ -93,31 +93,31 @@ wolfvill,79,260,4	script(CLOAKED)	Aira#con	4_M_BRZ_JACI,{
 	case 2:
 		if (BaseLevel < 170) {
 			mes "[Aira]";
-			mes "You must be at least BaseLevel 170 to create the instance.";
+			mes "Você deve ser pelo menos Baseevel 170 para criar a instância.";
 			close;
 		}
 		if (instance_create(.@md_name_normal$) < 0) {
-			mes "Party: " + getpartyname(getcharid(1)) + "";
-			mes "Leader: " + strcharinfo(0) + "";
-			mes "^0000ff" + .@md_name_normal$ + " ^000000- Unknown error";
+			mes "Festa:" + getpartyname(getcharid(1)) + "";
+			mes "Líder:" + strcharinfo(0) + "";
+			mes "^0000FF" + .@md_name_normal$ + "^000000- Erro desconhecido";
 			close;
 		}
 		end;
 	case 3:
 		if (BaseLevel < 200) {
 			mes "[Aira]";
-			mes "You must be at least BaseLevel 200 to create the instance.";
+			mes "Você deve ser pelo menos Baseevel 200 para criar a instância.";
 			close;
 		}
 		if (countitem(1000471) < 1) {
 			mes "[Aira]";
-			mes "Where is the " + getitemname(1000471) + "?";
+			mes "Onde está o" + getitemname(1000471) + "?";
 			close;
 		}
 		if (instance_create(.@md_name_hard$) < 0) {
-			mes "Party: " + getpartyname(getcharid(1)) + "";
-			mes "Leader: " + strcharinfo(0) + "";
-			mes "^0000ff" + .@md_name_hard$ + " ^000000- Unknown error";
+			mes "Festa:" + getpartyname(getcharid(1)) + "";
+			mes "Líder:" + strcharinfo(0) + "";
+			mes "^0000FF" + .@md_name_hard$ + "^000000- Erro desconhecido";
 			close;
 		}
 		delitem 1000471,1;
@@ -316,7 +316,7 @@ OnMobDead:
 OnTimer2000:
 	stopnpctimer;
 	.@alive = mobcount('map_advs$, instance_npcname("#advs_step_1") + "::OnMobDead");
-	mapannounce 'map_advs$, "Number of monsters left: " + .@alive, bc_map, 0xAAAAFF;
+	mapannounce 'map_advs$, "Número de monstros restantes:" + .@alive, bc_map, 0xAAAAFF;
 	end;
 S_Spawn:
 	.@label$ = instance_npcname("#advs_step_1") + "::OnMobDead";
@@ -326,11 +326,11 @@ S_Spawn:
 		.@mob_id = 'sanare_id;
 	.@r = rand(3);
 	if (.@r == 0)
-		areamonster 'map_advs$,63,89,72,182,"--en--",.@mob_id,1, .@label$;
+		areamonster 'map_advs$,63,89,72,182,"--em--",.@mob_id,1, .@label$;
 	else if (.@r == 1)
-		areamonster 'map_advs$,63,89,184,101,"--en--",.@mob_id,1, .@label$;
+		areamonster 'map_advs$,63,89,184,101,"--em--",.@mob_id,1, .@label$;
 	else
-		areamonster 'map_advs$,184,89,174,182,"--en--",.@mob_id,1, .@label$;
+		areamonster 'map_advs$,184,89,174,182,"--em--",.@mob_id,1, .@label$;
 	unitskilluseid $@mobid[0], 771, 'monster_relieve;	// NPC_RELIEVE_ON
 	return;
 }
@@ -338,10 +338,10 @@ S_Spawn:
 1@advs,67,182,5	script	#sw_1	4_NFWISP,1,1,{
 	if ('advs_step != 0)
 		end;
-	mes "[Unidentified grudge]";
-	mes "Are you here to set me free?";
+	mes "[GRATO NÃO IDENTIFICADO]";
+	mes "Você está aqui para me libertar?";
 	next;
-	if (select( "Stop", "Do it" ) == 1)
+	if (select( "Parar", "Faça isso" ) == 1)
 		end;
 	if ('advs_step != 0)
 		end;
@@ -357,10 +357,10 @@ OnTouch_:
 1@advs,180,182,5	script	#sw_2	4_NFWISP,1,1,{
 	if ('advs_step != 0)
 		end;
-	mes "[Unidentified grudge]";
-	mes "Are you here to set me free?";
+	mes "[GRATO NÃO IDENTIFICADO]";
+	mes "Você está aqui para me libertar?";
 	next;
-	if (select( "Stop", "Do it" ) == 1)
+	if (select( "Parar", "Faça isso" ) == 1)
 		end;
 	if ('advs_step != 0)
 		end;
@@ -394,12 +394,12 @@ OnTimer3000:
 		'sw[1] = 0;
 		npctalk "Ah... my half soul beyond this hallway is still unfulfilled...", instance_npcname("#sw_1");
 		npctalk "Ah... my half soul beyond this hallway is still unfulfilled...", instance_npcname("#sw_2");
-		mapannounce 'map_advs$, "You must free both souls on the left and right of the hallway at the same time.", bc_map, 0xAAAAFF;
+		mapannounce 'map_advs$, "Você deve libertar as duas almas à esquerda e à direita do corredor ao mesmo tempo.", bc_map, 0xAAAAFF;
 		end;
 	}
 	if ('advs_step != 0)
 		end;
-	mapannounce 'map_advs$, "Two souls are simultaneously liberated, opening the door to the center.", bc_map, 0xAAAAFF;
+	mapannounce 'map_advs$, "Duas almas são libertadas simultaneamente, abrindo a porta para o centro.", bc_map, 0xAAAAFF;
 	donpcevent instance_npcname("#advs_step_2") + "::OnStart";
 	end;
 }
@@ -501,7 +501,7 @@ OnMobDead:
 OnTimer2000:
 	stopnpctimer;
 	.@alive = mobcount('map_advs$, instance_npcname("#advs_step_2") + "::OnMobDead");
-	mapannounce 'map_advs$, "Number of monsters left: " + .@alive, bc_map, 0xAAAAFF;
+	mapannounce 'map_advs$, "Número de monstros restantes:" + .@alive, bc_map, 0xAAAAFF;
 	if ('advs_step == 1 && 'mob_to_respawn == 0 && .@alive == 0)
 		donpcevent instance_npcname("#advs_step_3_A") + "::OnStart";
 	end;
@@ -513,18 +513,18 @@ S_Spawn:
 		.@mob_id = 'sanare_id;
 	.@r = rand(3);
 	if (.@r == 0)
-		areamonster 'map_advs$,76,145,171,139,"--en--",.@mob_id,1, .@label$;
+		areamonster 'map_advs$,76,145,171,139,"--em--",.@mob_id,1, .@label$;
 	else if (.@r == 1)
-		areamonster 'map_advs$,113,205,135,125,"--en--",.@mob_id,1, .@label$;
+		areamonster 'map_advs$,113,205,135,125,"--em--",.@mob_id,1, .@label$;
 	else
-		areamonster 'map_advs$,113,205,135,125,"--en--",.@mob_id,1, .@label$;
+		areamonster 'map_advs$,113,205,135,125,"--em--",.@mob_id,1, .@label$;
 	unitskilluseid $@mobid[0], 771, 'monster_relieve;	// NPC_RELIEVE_ON
 	return;
 }
 
 1@advs,101,159,5	script	#food1	4_EP16_FOOD,1,1,{
 	if ('max_food <= 0) {
-		mapannounce 'map_advs$, "??? : You really don't know how to cook well, you deserve a casual tour of my garden.", bc_map, 0xAAAAFF;
+		mapannounce 'map_advs$, "??? : Você realmente não sabe como cozinhar bem, você merece um tour casual pelo meu jardim.", bc_map, 0xAAAAFF;
 		end;
 	}
 	progressbar "",4;
@@ -575,7 +575,7 @@ OnEvent:
 	for ( .@i = 0; .@i < 'total_reaper; ++.@i ) {
 		.@r = rand(.@size);
 		
-		monster 'map_advs$,.@x[.@r],.@y[.@r],"--en--",20846,1, .@label$;	// MD_HIDDEN_GROUND01
+		monster 'map_advs$,.@x[.@r],.@y[.@r],"--em--",20846,1, .@label$;	// MD_HIDDEN_GROUND01
 		deletearray .@x[.@r],1;
 		deletearray .@y[.@r],1;
 		.@size--;
@@ -613,7 +613,7 @@ OnMobDead:
 OnTimer2000:
 	stopnpctimer;
 	.@alive = mobcount('map_advs$, instance_npcname("#advs_step_3_B") + "::OnMobDead");
-	mapannounce 'map_advs$, "Number of monsters left: " + .@alive, bc_map, 0xAAAAFF;
+	mapannounce 'map_advs$, "Número de monstros restantes:" + .@alive, bc_map, 0xAAAAFF;
 	if ('advs_step == 2 && 'mob_to_respawn == 0 && .@alive == 0)
 		donpcevent instance_npcname("#boss1_advs") + "::OnStart";
 	end;
@@ -625,13 +625,13 @@ S_Spawn:
 		.@mob_id = 'sanare_id;
 	.@r = rand(4);
 	if (.@r == 0)
-		areamonster 'map_advs$,109,238,119,248,"--en--",.@mob_id,1, .@label$;
+		areamonster 'map_advs$,109,238,119,248,"--em--",.@mob_id,1, .@label$;
 	else if (.@r == 1)
-		areamonster 'map_advs$,109,219,119,229,"--en--",.@mob_id,1, .@label$;
+		areamonster 'map_advs$,109,219,119,229,"--em--",.@mob_id,1, .@label$;
 	else if (.@r == 2)
-		areamonster 'map_advs$,128,238,138,248,"--en--",.@mob_id,1, .@label$;
+		areamonster 'map_advs$,128,238,138,248,"--em--",.@mob_id,1, .@label$;
 	else
-		areamonster 'map_advs$,128,219,138,229,"--en--",.@mob_id,1, .@label$;
+		areamonster 'map_advs$,128,219,138,229,"--em--",.@mob_id,1, .@label$;
 	unitskilluseid $@mobid[0], 771, 'monster_relieve;	// NPC_RELIEVE_ON
 	return;
 }
@@ -667,7 +667,7 @@ OnMobDead:
 	if (is_party_leader() == false)
 		end;
 	'advs_step = 4;
-	npctalk "That's all human.";
+	npctalk "Isso é tudo humano.";
 	unitwalk getnpcid(0), 124,290, instance_npcname("#boss1") + "::OnMove";
 	end;
 
@@ -676,8 +676,8 @@ OnMove:
 	monster 'map_advs$,124,290,"--en--",'schulang_id,1, instance_npcname("#boss1_advs") + "::OnMobDead";
 	'schulang_gid = $@mobid[0];
 	unitskilluseid $@mobid[0], 771, 1;	// NPC_RELIEVE_ON
-	unittalk 'schulang_gid, "I'm in a bit of trouble if I approach this more than that!!!";
-	monster 'map_advs$,123,285,"--en--",21319,1;	// EP18_MD_HEARTHUNTER_R2
+	unittalk 'schulang_gid, "Estou com um pouco de problemas se me aproximar disso mais do que isso !!!";
+	monster 'map_advs$,123,285,"--em--",21319,1;	// EP18_MD_HEARTHUNTER_R2
 	unitskilluseid $@mobid[0], 771, 'monster_relieve;	// NPC_RELIEVE_ON
 	donpcevent instance_npcname("#boss1_advs_skill_1") + "::OnStart";
 	end;
@@ -715,15 +715,15 @@ OnTimer3000:
 S_Skill:
 	.@dxy = getarg(0);
 	if ('ignore_column != 0)
-		unitskillusepos 'schulang_gid,"MG_THUNDERSTORM",4, ('x_sch_event - 8), ('y_sch_event + .@dxy), -50;
+		unitskillusepos 'schulang_gid,"MG_THUNDERSTM",4, ('x_sch_event - 8), ('y_sch_event + .@dxy), -50;
 	if ('ignore_column != 1)
-		unitskillusepos 'schulang_gid,"MG_THUNDERSTORM",4, ('x_sch_event - 4), ('y_sch_event + .@dxy), -50;
+		unitskillusepos 'schulang_gid,"MG_THUNDERSTM",4, ('x_sch_event - 4), ('y_sch_event + .@dxy), -50;
 	if ('ignore_column != 2)
-		unitskillusepos 'schulang_gid,"MG_THUNDERSTORM",4, 'x_sch_event, ('y_sch_event + .@dxy), -50;
+		unitskillusepos 'schulang_gid,"MG_THUNDERSTM",4, 'x_sch_event, ('y_sch_event + .@dxy), -50;
 	if ('ignore_column != 3)
-		unitskillusepos 'schulang_gid,"MG_THUNDERSTORM",4, ('x_sch_event + 4), ('y_sch_event + .@dxy), -50;
+		unitskillusepos 'schulang_gid,"MG_THUNDERSTM",4, ('x_sch_event + 4), ('y_sch_event + .@dxy), -50;
 	if ('ignore_column != 4)
-		unitskillusepos 'schulang_gid,"MG_THUNDERSTORM",4, ('x_sch_event + 8), ('y_sch_event + .@dxy), -50;
+		unitskillusepos 'schulang_gid,"MG_THUNDERSTM",4, ('x_sch_event + 8), ('y_sch_event + .@dxy), -50;
 	return;
 OnStop:
 	stopnpctimer;
@@ -760,7 +760,7 @@ OnMove:
 	'freyja_gid = $@mobid[0];
 	donpcevent instance_npcname("#advs_boss_relieve") + "::OnStart";
 	sleep 3000;
-	mapannounce 'map_advs$, "Tip: Twisted God Freyja is weaken as it get closer to the chandelier.", bc_map, 0xFFCC;
+	mapannounce 'map_advs$, "Dica: Deus torcido Freyja está enfraquecido à medida que se aproxima do lustre.", bc_map, 0xFFCC;
 	if ('advs_difficult == 1)
 		sleep 8000;
 	else
@@ -867,15 +867,15 @@ OnStop:
 
 // stop the circles from moving
 1@advs,108,358,4	script	#b_sw1	4_ENERGY_YELLOW,2,2,{
-	mes "Ddispel the circle ^ff0000requires your health and mana.^000000 During the process, you ^ff0000becomes immobile and defenseless.^000000 Are you sure you want to start dispelling?";
+	mes "Ddispel O círculo ^ff0000Rencapra sua saúde e mana.";
 	next;
-	if (select( "Cancel", "Proceed" ) == 1)
+	if (select( "Cancelar", "Prosseguir" ) == 1)
 		end;
 	if ('freyja_gid == 0)
 		end;
 	// this part need to be checked when more information are available
 	.@success = callsub( S_Venom );
-	mes "^0000ffThe magic stone that absorbed your stamina and magic resonates. The magic circle that has been wandering disappears.^000000";
+	mes "^0000ff A pedra mágica que absorveu sua resistência e mágica ressoa. O círculo mágico que está vagando desaparece.^000000";
 	specialeffect EF_BASH3D6;
 	if (.@success == true && 'circle_move == 1) {
 		disablenpc();
@@ -930,14 +930,14 @@ OnTouch:	// effect ?
 	.@is_hard = (instance_live_info(ILI_NAME) == "Villa of Deception Advanced");
 	if (isbegin_quest(12520) == 1 && !.@is_hard || isbegin_quest(12521) == 1 && .@is_hard) {
 		if (checkweight(1000405,10, 1000471,1) == 0) {
-			mes "- Wait a minute !! -";
-			mes "- Currently you're carrying -";
-			mes "- too many items with you. -";
-			mes "- Please try again -";
-			mes "- after you loose some weight. -";
+			mes "- Espere um minuto !! -";
+			mes "- Atualmente você está carregando -";
+			mes "- Muitos itens com você. -";
+			mes "- Por favor, tente novamente -";
+			mes "- Depois de perder algum peso. -";
 			close;
 		}
-		mes "^0000ffFound something in a bright glowing halo.^000000";
+		mes "^0000fffound algo em um halo brilhante e brilhante.^000000";
 		if (get_reputation_points(3) >= 5000)
 			.@bonus = 2;
 		getitem 1000405,8+.@bonus;	// Ep18_Amethyst_Fragment
@@ -949,9 +949,9 @@ OnTouch:	// effect ?
 			getitem 1000471,1;
 		close;
 	}
-	mes "^0000ffI think you can get out now.^000000";
+	mes "^0000ffi acho que você pode sair agora.^000000";
 	next;
-	if (select( "Cancel", "Exit" ) == 1)
+	if (select( "Cancelar", "Saída" ) == 1)
 		end;
 	warp "wolfvill",77,258;
 	end;

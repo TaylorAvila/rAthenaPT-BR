@@ -14,29 +14,29 @@
 
 prt_in,212,169,3	script	Guild Clerk	4_M_04,{
 	if (gettime(DT_DAYOFWEEK) >= 1 && gettime(DT_DAYOFWEEK) <= 6 && gettime(DT_HOUR) >= 18 && gettime(DT_HOUR) <= 23) {
-		mes "[Guild Clerk]";
-		mes "The Emperium to be distributed to the guild office today has arrived. If you want to purchase, please put as many as you want~";
+		mes "[Clerk da guilda]";
+		mes "Chegou o Empeio a ser distribuído ao escritório da guilda. Se você quiser comprar, coloque quantos quiser ~";
 		next;
-		mes "[Guild Clerk]";
-		mes "It seems that many people are looking for Emperium today. It's just a personal feeling.";
+		mes "[Clerk da guilda]";
+		mes "Parece que muitas pessoas estão procurando empeio hoje. É apenas um sentimento pessoal.";
 		close2;                                                                                                         
-		callshop "emp_seller#slo";
+		callshop "EMP_SELLER#SLO";
 		end;
 	}
-	mes "[Guild Clerk]";
-	mes "Our guild office actively supports the smooth gathering of adventurers.";
+	mes "[Clerk da guilda]";
+	mes "Nosso escritório da Guild apóia ativamente a reunião suave de aventureiros.";
 	next;
-	mes "[Guild Clerk]";
-	mes "As part of that,";
-	mes "we are selling a limited quantity of 100 " + mesitemlink( 714, false ) + " every day";
-	mes "from ^0000ff18:00 to 23:59^000000 from ^0000ffMonday to Saturday^000000.";
+	mes "[Clerk da guilda]";
+	mes "Como parte disso,";
+	mes "Estamos vendendo uma quantidade limitada de 100" + mesitemlink( 714, false ) + "diariamente";
+	mes "De ^0000FF18: 00 a 23: 59 ^000000 De ^0000FFMONDAY A SAÍDA ^000000.";
 	next;
-	mes "[Guild Clerk]";
-	mes "Please note that our guild office does not sell all the time because we have to run around to supply Emperium outside of the hours.";
+	mes "[Clerk da guilda]";
+	mes "Observe que nosso escritório da Guild não vende o tempo todo, porque temos que correr para fornecer o Empeium fora do horário.";
 	close;
 
 OnHour00:
-	npcshopupdate "emp_seller#slo",714,0,100;
+	npcshopupdate "EMP_SELLER#SLO",714,0,100;
 	end;
 }
 -	marketshop	emp_seller#slo	FAKE_NPC,714:1000000:100

@@ -26,29 +26,29 @@ OnStart:
 		end;
 
 	// create Battleground and teams
-	.red = waitingroom2bg( "guild_vs3", 13,50, strnpcinfo(0)+"::OnRedQuit", strnpcinfo(0)+"::OnRedDead", .rednpcname$ );
-	.blue = waitingroom2bg( "guild_vs3", 86,50, strnpcinfo(0)+"::OnBlueQuit", strnpcinfo(0)+"::OnBlueDead", .bluenpcname$ );
+	.red = waitingroom2bg( "Guild_vs3", 13,50, strnpcinfo(0)+":: onredQuit", strnpcinfo(0)+":: Desleread", .rednpcname$ );
+	.blue = waitingroom2bg( "Guild_vs3", 86,50, strnpcinfo(0)+":: onBlueQuit", strnpcinfo(0)+":: onbluedead", .bluenpcname$ );
 	delwaitingroom .rednpcname$;
 	delwaitingroom .bluenpcname$;
 	bg_warp .red, "guild_vs3", 13,50;
 	bg_warp .blue, "guild_vs3", 86,50;
 	.red_score = .blue_score = .minplayer2start;
-	bg_updatescore "guild_vs3", .red_score, .blue_score;
+	bg_updatescore "Guild_vs3", .red_score, .blue_score;
 
 	// match duration
 	sleep .eventlasting * 1000;
 
 	// end match, destroy Battleground, reset NPCs
 	if ( .red_score > .blue_score ) {
-		mapannounce "guild_vs3", "- Red Team is victorious! -", bc_map;
+		mapannounce "Guild_vs3", "- A equipe vermelha é vitoriosa! -", bc_map;
 		callsub L_Reward, .red;
 	}
 	else if ( .blue_score > .red_score ) {
-		mapannounce "guild_vs3", "- Blue Team is victorious! -", bc_map;
+		mapannounce "Guild_vs3", "- A equipe azul é vitoriosa! -", bc_map;
 		callsub L_Reward, .blue;
 	}
 	else
-		mapannounce "guild_vs3", "- The match has ended in a draw! -", bc_map;
+		mapannounce "Guild_vs3", "- A partida terminou em empate! -", bc_map;
 	bg_warp .red, "prontera",152,178;
 	bg_warp .blue, "prontera",154,178;
 	bg_destroy .red;
@@ -63,12 +63,12 @@ L_Reward:
 		getitem .rewarditem[0], .rewarditem[1], $@arenamembers[.@i];
 	return;
 
-// "OnDeath" event
+// "ONDEATH" event
 OnRedDead:  callsub L_Dead, .red_score;
 OnBlueDead: callsub L_Dead, .blue_score;
 L_Dead:
 	set getarg(0), getarg(0) -1;
-	bg_updatescore "guild_vs3", .red_score, .blue_score;
+	bg_updatescore "Guild_vs3", .red_score, .blue_score;
 	bg_leave;
 	if ( !getarg(0) )
 		awake strnpcinfo(0);
@@ -76,12 +76,12 @@ L_Dead:
 	percentheal 100,100;
 	end;
 
-// "OnQuit" event
+// "Onquit" event
 OnRedQuit:  callsub L_Quit, .red_score;
 OnBlueQuit: callsub L_Quit, .blue_score;
 L_Quit:
 	set getarg(0), getarg(0) -1;
-	bg_updatescore "guild_vs3", .red_score, .blue_score;
+	bg_updatescore "Guild_vs3", .red_score, .blue_score;
 	percentheal 100, 100;
 	if ( !getarg(0) )
 		awake strnpcinfo(0);

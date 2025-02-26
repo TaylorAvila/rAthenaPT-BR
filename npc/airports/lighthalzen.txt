@@ -13,20 +13,20 @@
 //============================================================ 
 
 lhz_airport,143,43,5	script	Airport Staff#lhz_air1a::lhz_airport1	90,{
-	mes "[Airport Staff]";
-	mes "Welcome to the";
-	mes "Lighthalzen Airport,";
-	mes "where we offer nonstop";
-	mes "flights to Einbroch, Juno and Hugel.";
+	mes "[Equipe do aeroporto]";
+	mes "Bem -vindo ao";
+	mes "Aeroporto Lighthalzen,";
+	mes "onde oferecemos sem parar";
+	mes "Voos para Einbroch, Juno e Hugel.";
 	next;
-	if (select("Board the Airship.:Cancel.") == 1) {
-		mes "[Airport Staff]";
-		mes "The boarding fee is";
-		mes "1,200 zeny, but you can";
-		mes "waive the fee if you redeem";
-		mes "a Free Ticket for Airship.";
+	if (select("Embarque no dirigível .: Cancel.") == 1) {
+		mes "[Equipe do aeroporto]";
+		mes "A taxa de embarque é";
+		mes "1.200 Zeny, mas você pode";
+		mes "renunciar à taxa se você resgatar";
+		mes "um ingresso gratuito para dirigir.";
 		next;
-		if (select("Yes:No") == 1) {
+		if (select("Sim: Não") == 1) {
 			if (countitem(7311) > 0) {
 				delitem 7311,1; //Free_Flying_Ship_Ticket
 				warp "lhz_airport",148,51;
@@ -37,17 +37,17 @@ lhz_airport,143,43,5	script	Airport Staff#lhz_air1a::lhz_airport1	90,{
 				warp "lhz_airport",148,51;
 				end;
 			}
-			mes "[Airship Staff]";
-			mes "I'm sorry, but you don't";
-			mes "have 1,200 zeny to pay";
-			mes "for the boarding fee.";
+			mes "[Funcionário do dirigível]";
+			mes "Sinto muito, mas você não";
+			mes "Tenha 1.200 Zeny para pagar";
+			mes "para a taxa de embarque.";
 			close;
 		}
 	}
-	mes "[Airport Staff]";
-	mes "Thank you and";
-	mes "please come again.";
-	mes "Have a good day~";
+	mes "[Equipe do aeroporto]";
+	mes "Obrigado e";
+	mes "Por favor, venha novamente.";
+	mes "Tenha um bom dia ~";
 	close;
 }
 
@@ -55,29 +55,29 @@ lhz_airport,158,43,5	duplicate(lhz_airport1)	Airship Staff#lhz_air1b	90
 lhz_airport,126,43,5	duplicate(lhz_airport1)	Airship Staff#lhz_air1c	90
 
 lhz_airport,143,49,3	script	Arrival Staff#lhz_air2a::lhz_airport2	90,{
-	mes "[Arrival Staff]";
-	mes "Welcome to Lighthalzen Airport.";
-	mes "Please let me guide you to the";
-	mes "main terminal if you are arriving from your flight. Otherwise, please";
-	mes "board the departing Airship to reach your intended destination.";
+	mes "[Equipe de chegada]";
+	mes "Bem -vindo ao aeroporto Lighthalzen.";
+	mes "Por favor, deixe -me guiá -lo para o";
+	mes "Terminal principal se você estiver chegando do seu voo. Caso contrário, por favor";
+	mes "embarque no dirigível que partiu para chegar ao destino pretendido.";
 	next;
-	if (select("Exit to main terminal.:Cancel.") == 1) {
-		mes "[Arrival Staff]";
-		mes "Once you're in the main terminal, you will need to pay the fee again";
-		mes "to board an Airship. You should";
-		mes "only exit if Lighthalzen is your intended destination. Shall we";
-		mes "proceed to the main terminal?";
+	if (select("Saia para o terminal principal .: Cancel.") == 1) {
+		mes "[Equipe de chegada]";
+		mes "Quando estiver no terminal principal, você precisará pagar a taxa novamente";
+		mes "Para embarcar em um dirigível. Você deve";
+		mes "Somente saia se o Lighthalzen for o seu destino pretendido. Devemos nós";
+		mes "prosseguir para o terminal principal?";
 		next;
-		if (select("Yes:No") == 1) {
+		if (select("Sim: Não") == 1) {
 			warp "lhz_airport",142,40;
 			end;
 		}
 	}
-	mes "[Arrival Staff]";
-	mes "Alright, thank you";
-	mes "for your patronage";
-	mes "and I hope you have";
-	mes "a pleasant flight~";
+	mes "[Equipe de chegada]";
+	mes "Tudo bem, obrigado";
+	mes "para o seu patrocínio";
+	mes "E eu espero que você tenha";
+	mes "um voo agradável ~";
 	close;
 }
 

@@ -21,35 +21,35 @@ pvp_y_room,77,85,4	script	Guild Battle Guide	105,{
 	setarray .@mapY[1],49,49,50,49,50;
 
 	mes "[Guild Battle Guide]";
-	mes "How are you doing?";
-	mes "I'm the Guild Battle Guide";
-	mes "for the new PvP maps.";
-	mes "Let me know to which map";
-	mes "you want me to move you.";
+	mes "Como vai?";
+	mes "Eu sou o guia de batalha da guilda";
+	mes "Para os novos mapas PVP.";
+	mes "Deixe -me saber qual mapa";
+	mes "Você quer que eu mova você.";
 	next;
-	set .@i, select("Map 1:Map 2:Map 3:Map 4:Map 5");
+	set .@i, select("Mapa 1: Mapa 2: Mapa 3: Mapa 4: Mapa 5");
 	mes "[Guild Battle Guide]";
-	mes "You've chosen Map "+.@i+".";
-	mes "Now, which team are";
-	mes "you on? You can choose";
-	mes "either Team 1 or Team 2.";
+	mes "Você escolheu mapa"+.@i+".";
+	mes "Agora, qual equipe é";
+	mes "você está ligado? Você pode escolher";
+	mes "Equipe 1 ou equipe 2.";
 	next;
-	set .@j, select("Team 1:Team 2");
+	set .@j, select("Equipe 1: Equipe 2");
 	mes "[Guild Battle Guide]";
-	mes "Alright, I'll move you";
-	mes "to Map "+.@i+" as a member";
-	mes "of Team "+.@j+". Are you ready";
-	mes "to be transported there now?";
+	mes "Tudo bem, eu vou te mover";
+	mes "para mapear"+.@i+"como membro";
+	mes "de equipe"+.@j+". Você está pronto";
+	mes "para ser transportado para lá agora?";
 	next;
-	if(select("Yes:No") == 2) {
+	if(select("Sim: Não") == 2) {
 		mes "[Guild Battle Guide]";
-		mes "Alright, I hope to";
-		mes "see you again on";
-		mes "the PvP fields!";
+		mes "Tudo bem, espero";
+		mes "Vejo você de novo em";
+		mes "Os campos PVP!";
 		close;
 	}
 	mes "[Guild Battle Guide]";
-	mes "Great! Have a good time~";
+	mes "Ótimo! Tenha um bom tempo ~";
 	close2;
 	warp "guild_vs"+.@i,getd(".@map"+.@j+"X["+.@i+"]"),.@mapY[.@i];
 	end;

@@ -15,162 +15,162 @@ OnInit:
 	setarray .blackList[0],0;	//Array of black listed item ID
 
 	if(!.HP_Option && !.SP_Option){
-		debugmes "Warning: @autopot both hp and sp are Disabled";
-		debugmes "Warning: @autopot script has been Disabled!";
+		debugmes "Aviso: @Autopot HP e SP estão desativados";
+		debugmes "Aviso: o script @Autopot foi desativado!";
 		end;
 	}
 	bindatcmd("autopot",strnpcinfo(0)+"::OnCommand",0,99);
 end;
 
 L_Help:
-	dispbottom "Available commands:";
+	dispbottom "Comandos disponíveis:";
 	if(.HP_Option && .SP_Option){
-		dispbottom "    @autopot <hp|sp> <item id> {<min hp|sp % [1..100]> {<delay [" + .MinDelay + ".."+.MaxDelay+"]>}}";
-		dispbottom "    @autopot <hp|sp> list";
-		dispbottom "    @autopot <hp|sp> <on|off>";
+		dispbottom "@AUPOPOT <hp | sp> <item id> {<min hp | sp % [1..100]> {<atraso" + .MinDelay + ".."+.MaxDelay+"]>}}";
+		dispbottom "@AUTOPOT <hp | sp> lista";
+		dispbottom "@Autopot <hp | sp> <on | off>";
 	}else{
-		dispbottom "    @autopot <" + (.HP_Option?"hp":"sp") + "> <item id> {<min " + (.HP_Option?"hp":"sp") + " % [1..100]> {<delay [" + .MinDelay + ".."+.MaxDelay+"]>}}";
-		dispbottom "    @autopot <" + (.HP_Option?"hp":"sp") + "> list";
-		dispbottom "    @autopot <" + (.HP_Option?"hp":"sp") + "> <on|off>";
+		dispbottom "@Autopot <" + (.HP_Option?"HP":"sp") + "> <item id> {<min" + (.HP_Option?"HP":"sp") + "% [1..100]> {<Atraso [" + .MinDelay + ".."+.MaxDelay+"]>}}";
+		dispbottom "@Autopot <" + (.HP_Option?"HP":"sp") + "> lista";
+		dispbottom "@Autopot <" + (.HP_Option?"HP":"sp") + "> <On | Off>";
 	}
-	dispbottom "    @autopot info";
-	dispbottom "    @autopot help";
-	dispbottom "    @autopot blacklist";
+	dispbottom "@Autopot Info";
+	dispbottom "@autopot ajuda";
+	dispbottom "@Autopot Blacklist";
 	return;
 
 L_Info:
-	dispbottom "----------Auto-Potion Information-----------";
+	dispbottom "---------- Informações sobre Potion Auto -----------";
 	if(.HP_Option){
-		dispbottom "HP POTION:  " + getitemname(@autopot_hp_ID) + " (" + @autopot_hp_ID + ")";
-		dispbottom "MIN HP:   " + @autopot_hp_Min + " %";
+		dispbottom "Poção HP:" + getitemname(@autopot_hp_ID) + "(" + @autopot_hp_ID + ")";
+		dispbottom "Min HP:" + @autopot_hp_Min + "%";
 	}
 	if(.SP_Option){
-		dispbottom "SP POTION:  " + getitemname(@autopot_sp_ID) + " (" + @autopot_sp_ID + ")";
-		dispbottom "MIN SP:   " + @autopot_sp_Min + " %";
+		dispbottom "SP POTION:" + getitemname(@autopot_sp_ID) + "(" + @autopot_sp_ID + ")";
+		dispbottom "MIN SP:" + @autopot_sp_Min + "%";
 	}
-	dispbottom "DELAY:    " + @autopot_delay + " ms";
+	dispbottom "ATRASO:" + @autopot_delay + "EM";
 	dispbottom "---------------------------------------------";
 	return;
 
 L_Start:
-	deltimer strnpcinfo(3) + "::OnStart";
+	deltimer strnpcinfo(3) + ":: OnStart";
 	.@type$  = getarg(0,0);
 	.@potion = getarg(1,0);
-	setd "@autopot_" + .@type$ + "_Min",getarg(2,0);
+	setd "@Autopot_" + .@type$ + "_Min",getarg(2,0);
 	@autopot_delay = getarg(3,.MinDelay);
 
-	if (getd("@autopot_" + .@type$ + "_Min")   < 1  || getd("@autopot_" + .@type$ + "_Min") > 100)  setd "@autopot_" + .@type$ + "_Min",90;
+	if (getd("@Autopot_" + .@type$ + "_Min")   < 1  || getd("@Autopot_" + .@type$ + "_Min") > 100)  setd "@Autopot_" + .@type$ + "_Min",90;
 	if (@autopot_delay < .MinDelay) @autopot_delay = .MinDelay;
 	if (@autopot_delay > .MaxDelay) @autopot_delay = .MaxDelay;
 	if (getiteminfo(.@potion, ITEMINFO_TYPE) != IT_HEALING) {
-		dispbottom getitemname(.@potion) + " is not a healing item.";
+		dispbottom getitemname(.@potion) + "não é um item de cura.";
 		end;
 	}
 	if(inarray(.blackList[0],.@potion) != -1){
-		message strcharinfo(0), "'" + getitemname(.@potion) + "' is black listed and cannot be used.";
+		message strcharinfo(0), "'" + getitemname(.@potion) + "'está listado preto e não pode ser usado.";
 		end;
 	}
 	if (BaseLevel < getiteminfo(.@potion, ITEMINFO_EQUIPLEVELMIN)) {
-		message strcharinfo(0), "Your base level is too low to use '" + getitemname(.@potion) + "'.";
+		message strcharinfo(0), "Seu nível base é muito baixo para usar '" + getitemname(.@potion) + "'.";
 		end;
 	}
-	setd "@autopot_" + .@type$ + "_ID",.@potion;
-	setd "@autopot_" + .@type$ + "_Active",true;
-	addtimer @autopot_delay,strnpcinfo(3) + "::OnStart";
-	message strcharinfo(0), "Auto-Potion " + strtoupper(.@type$) + " enabled.";
+	setd "@Autopot_" + .@type$ + "_EU IA",.@potion;
+	setd "@Autopot_" + .@type$ + "_Active",true;
+	addtimer @autopot_delay,strnpcinfo(3) + ":: OnStart";
+	message strcharinfo(0), "Potion automático" + strtoupper(.@type$) + "habilitado.";
 	callsub L_Info;
 	return;
 
 OnCommand:
 	if (!getarraysize(.@atcmd_parameters$)) {
-		message strcharinfo(0), "Invalid syntax.";
+		message strcharinfo(0), "Sintaxe inválida.";
 		callsub L_Help;
 		end;
 	}
 	.@command$[0] = strtolower(.@atcmd_parameters$[0]);
 	.@command$[1] = strtolower(.@atcmd_parameters$[1]);
 	
-	if(.@command$[0] == "hp" || .@command$[0] == "sp"){
-		if((!.HP_Option && .@command$[0] == "hp") || (!.SP_Option && .@command$[0] == "sp")){
-			message strcharinfo(0), "Auto-Potion " + strtoupper(.@command$[0]) + " is Disabled from The Server.";
+	if(.@command$[0] == "HP" || .@command$[0] == "sp"){
+		if((!.HP_Option && .@command$[0] == "HP") || (!.SP_Option && .@command$[0] == "sp")){
+			message strcharinfo(0), "Potion automático" + strtoupper(.@command$[0]) + "está desativado do servidor.";
 			end;
 		}
-		if(.@command$[1] == "on"){
-			if(getd("@autopot_" + .@command$[0] + "_Active")){
-				message strcharinfo(0), "Auto-Potion " + strtoupper(.@command$[0]) + " is already on.";
+		if(.@command$[1] == "sobre"){
+			if(getd("@Autopot_" + .@command$[0] + "_Active")){
+				message strcharinfo(0), "Potion automático" + strtoupper(.@command$[0]) + "já está ligado.";
 				end;
 			}
-			if(!getd("@autopot_" + .@command$[0] + "_ID")){
-				dispbottom "You need to set a " + strtoupper(.@command$[0]) + " Potion to be used.";
+			if(!getd("@Autopot_" + .@command$[0] + "_EU IA")){
+				dispbottom "Você precisa definir um" + strtoupper(.@command$[0]) + "Poção a ser usada.";
 				callsub L_Help;
 				end;
 			}
-			callsub L_Start,.@command$[0],getd("@autopot_" + .@command$[0] + "_ID");
+			callsub L_Start,.@command$[0],getd("@Autopot_" + .@command$[0] + "_EU IA");
 			end;
 		}
-		if(.@command$[1] == "off"){
-			message strcharinfo(0), "Auto-Potion " + strtoupper(.@command$[0]) + " disabled.";
-			setd "@autopot_" + .@command$[0] + "_Active",false;
+		if(.@command$[1] == "desligado"){
+			message strcharinfo(0), "Potion automático" + strtoupper(.@command$[0]) + "desabilitado.";
+			setd "@Autopot_" + .@command$[0] + "_Active",false;
 			if(!@autopot_hp_Active || !@autopot_sp_Active)
-				deltimer strnpcinfo(3) + "::OnStart";
+				deltimer strnpcinfo(3) + ":: OnStart";
 			end;
 		}
-		if(.@command$[1] == "list"){
+		if(.@command$[1] == "lista"){
 			getinventorylist;
 			for(.@i = 0;.@i < @inventorylist_count;.@i++){
 				if (getiteminfo(@inventorylist_id[.@i], ITEMINFO_TYPE) == IT_HEALING) {
 					.@items[.@count] = @inventorylist_id[.@i];
-					.@menu$ = .@menu$ + sprintf("~ ^0055FF%s^000000 (%dx)" + (inarray(.blackList[0],@inventorylist_id[.@i]) != -1? " ^364022Black Listed^000000":"") + (BaseLevel < getiteminfo(@inventorylist_id[.@i], ITEMINFO_EQUIPLEVELMIN)? " ^E82C0CNeed Higher Level^000000":"") + ":", getitemname(@inventorylist_id[.@i]), countitem(@inventorylist_id[.@i]));
+					.@menu$ = .@menu$ + sprintf("~ ^0055ff%s ^000000 (%dx)" + (inarray(.blackList[0],@inventorylist_id[.@i]) != -1? "^364022black listado^000000":"") + (BaseLevel < getiteminfo(@inventorylist_id[.@i], ITEMINFO_EQUIPLEVELMIN)? "^E82C0CNEED Nível mais alto^000000":"") + ":", getitemname(@inventorylist_id[.@i]), countitem(@inventorylist_id[.@i]));
 					.@count++;
 				}
 			}
 			if(.@count){
-				mes "[ Auto-Potion ]";
-				mes "Select a " + strtoupper(.@command$[0]) + " item.";
-				.@select = select(.@menu$ + "   ^777777Cancel^000000") - 1;
+				mes "[Potion automático]";
+				mes "Selecione a" + strtoupper(.@command$[0]) + "item.";
+				.@select = select(.@menu$ + "^Hahakknak^000") - 1;
 				if (.@select != .@count)
 					callsub L_Start,.@command$[0],.@items[.@select];
 				close2;
 			}else{
-				message strcharinfo(0), "There are no healing items in your inventory.";
+				message strcharinfo(0), "Não há itens de cura em seu inventário.";
 			}
 			end;
 		}
 		.@potion = atoi(.@command$[1]);
 		.@percent = atoi(.@atcmd_parameters$[2]);
 		.@delay = atoi(.@atcmd_parameters$[3]);
-		if(getitemname(.@potion) != "null"){
+		if(getitemname(.@potion) != "nulo"){
 			callsub L_Start,.@command$[0],.@potion,.@percent,.@delay;
 			end;
 		}
-		message strcharinfo(0), "Auto-Potion : something went wrong!";
+		message strcharinfo(0), "Auto-Potion: Algo deu errado!";
 		callsub L_Help;
 		end;
 	}
-	if(.@command$[0] == "blacklist"){
-		dispbottom "--------------Black Listed Items--------------";
+	if(.@command$[0] == "Lista negra"){
+		dispbottom "-------------- Itens listados em preto ----------------";
 		for(.@i=0;.@i<getarraysize(.blackList);.@i++){
-			dispbottom "    " + getitemname(.blackList[.@i]) + " (" + .blackList[.@i] + ")";
+			dispbottom "" + getitemname(.blackList[.@i]) + "(" + .blackList[.@i] + ")";
 		}
 		dispbottom "---------------------------------------------";
 		end;
 	}
-	if(.@command$[0] == "info"){
+	if(.@command$[0] == "informações"){
 		if(@autopot_hp_Active || @autopot_sp_Active){
-			message strcharinfo(0), "Auto-Potion information is displayed below.";
+			message strcharinfo(0), "As informações de pós automáticas são exibidas abaixo.";
 			callsub L_Info;
 		}else{
-			message strcharinfo(0), "Auto-Potion is not enabled.";
+			message strcharinfo(0), "O Potion Auto não está ativado.";
 		}
 		end;
 	}
-	if(.@command$[0] == "help"){
-		message strcharinfo(0), "List of commands is displayed below.";
+	if(.@command$[0] == "ajuda"){
+		message strcharinfo(0), "A lista de comandos é exibida abaixo.";
 		callsub L_Help;
 		end;
 	}
 	
-	message strcharinfo(0), "Invalid syntax.";
+	message strcharinfo(0), "Sintaxe inválida.";
 	callsub L_Help;
 end;
 
@@ -198,6 +198,6 @@ OnStart:
 		}
 	}
 	if(@autopot_hp_Active || @autopot_sp_Active)
-		addtimer @autopot_delay,strnpcinfo(3) + "::OnStart";
+		addtimer @autopot_delay,strnpcinfo(3) + ":: OnStart";
 end;
 }

@@ -16,85 +16,85 @@
 //= Each 1 BaseLv need 20.000 Zeny, so be careful to use skill.
 //============================================================
 yuno,138,187,4	script	Hypnotist Teacher	124,{
-	set @npcname$,"[^D5A500Hypnotist^000000]";
+	set @npcname$,"[^D5a500hypnotist^000000]";
 	mes @npcname$;
 
 	if(MISC_QUEST & 1024){
-		mes "I already told you that you may only complete this event once.";
+		mes "Eu já lhe disse que você pode concluir apenas este evento uma vez.";
 		close;
 	}
 	if(BaseLevel < 60) {
-		mes "Please return when you reach BaseLv 60 or higher.";
+		mes "Por favor, volte quando chegar à Baselv 60 ou superior.";
 		close;
 	}
 	if(SkillPoint != 0) {
-		mes "You will need to use up all of your skill points if you want me to continue.";
-		mes "Please come again soon!";
+		mes "Você precisará usar todos os seus pontos de habilidade se quiser que eu continue.";
+		mes "Por favor, venha de novo em breve!";
 		close;
 	}
 	if(Weight || checkfalcon() || checkcart() || checkriding()) {
-		mes "Would you like to reset skills?";
-		mes "I'm sorry, but...";
+		mes "Você gostaria de redefinir habilidades?";
+		mes "Sinto muito, mas ...";
 		next;
 		mes @npcname$;
 		if(Weight) {
-			mes "You cannot reset skills";
-			mes "when you keep";
-			mes "any items.";
+			mes "Você não pode redefinir habilidades";
+			mes "Quando você mantém";
+			mes "quaisquer itens.";
 		} else if(checkcart())
-			mes "Please, drop your cart and we'll continue.";
+			mes "Por favor, solte seu carrinho e continuaremos.";
 		else if(checkfalcon())
-			mes "Please, free your Falcon and we'll continue.";
+			mes "Por favor, liberte seu Falcon e continuaremos.";
 		else if(checkriding())
-			mes "Please, free your PecoPeco and we'll continue.";
+			mes "Por favor, liberte seu PECOPECO e continuaremos.";
 		next;
 		mes @npcname$;
-		mes "Come back soon!";
+		mes "Volte em breve!";
 		close;
 	}
-	mes "Hello, I am the Skill Resetter.";
-	mes "Your name is ^0080FF"+strcharinfo(0)+"^000000.";
-	mes "How can I help you?";
+	mes "Olá, eu sou o reinicializador de habilidades.";
+	mes "Seu nome é ^0080ff"+strcharinfo(0)+"^000000.";
+	mes "Como posso ajudá-lo?";
 	next;
-	menu "^009500Information about Reset skills.^000000",L_Info,"^00B6FFReset skills.^000000",L_Reset,"^000088Nevermind^000000",-;
+	menu "^009500 Informação sobre as habilidades de redefinição.^000000",L_Info,"^00b6ffreset Habilidades.^000000",L_Reset,"^000088NeverMind^000000",-;
 
 	mes @npcname$;
-	mes "You know where to find me,";
-	mes "if you ever want a reset!!"; 
+	mes "Você sabe onde me encontrar,";
+	mes "Se você quer uma redefinição !!"; 
 	close;
 
 L_Info:
 	mes @npcname$;
-	mes "This skill reset is not FREE OF CHARGE!!";
-	mes "Expense for the reset of skill is ^D5A50020000 Zeny x BaseLv^000000.";
-	mes "Yeah ...each One BaseLv costs 20000 Zeny to reset skill.";
+	mes "Esta redefinição de habilidade não é gratuita !!";
+	mes "A despesa para a redefinição da habilidade é ^D5A50020000 Zeny x Baselv ^000000.";
+	mes "Sim ... Cada Baselv custa 20000 Zeny para redefinir a habilidade.";
 	next;
 	mes @npcname$;
-	mes "Oh yeah, one more thing!";
-	mes "Any carts, falcons or pecos you have equiped";
-	mes "will be removed if you reset your skills.";
+	mes "Ah, sim, mais uma coisa!";
+	mes "Quaisquer carrinhos, falcões ou pecos que você equipou";
+	mes "será removido se você redefinir suas habilidades.";
 	next;
 	mes @npcname$;
-	mes "Just one time does again to shake the skill point";
-	mes "Careful with your skills from here on.";
+	mes "Apenas uma vez faz novamente para sacudir o ponto de habilidade";
+	mes "Cuidado com suas habilidades daqui em diante.";
 	close;
 	
 L_Reset:
 	mes @npcname$;
-	mes "Before skill reset in starting.";
-	mes "You shall have to first tell me your Base Level."; 
+	mes "Antes da redefinição da habilidade para começar.";
+	mes "Você deve primeiro me dizer seu nível base."; 
 	next;
-	mes "^D5A500[" + strcharinfo(0) + "]^000000";
-	mes "My Base level is ^AA00AALevel " + BaseLevel + "BaseLv.^000000"; 
+	mes "^D5a500 [" + strcharinfo(0) + "]^000000";
+	mes "Meu nível base é ^aa00Aalevel" + BaseLevel + "Basileia.^000000"; 
 	next;
 	set @zeny,BaseLevel*20000;
 	mes @npcname$;
-	mes "Total zeny to the reset of skill amount ^529DFF" + @zeny + "Zeny^000000  for the skill reset service.";
+	mes "Zeny total para a redefinição da quantidade de habilidade ^529dff" + @zeny + "Zeny^000000 para o serviço de redefinição de habilidades.";
 	next;
 	if(Zeny < @zeny) {
 		mes @npcname$;
-		mes "It seems that you don't have enough money.";
-		mes "In addition we wait for the opportunity.";
+		mes "Parece que você não tem dinheiro suficiente.";
+		mes "Além disso, esperamos a oportunidade.";
 		emotion ET_SCRATCH;
 		close;
 	}
@@ -102,8 +102,8 @@ L_Reset:
 	set MISC_QUEST,MISC_QUEST | 1024;
 	resetskill;
 	mes @npcname$;
-	mes "Thank you.";
+	mes "Obrigado.";
 	emotion ET_THANKS;
-//	logmes "SKILL RESET EVENT";
+//	logmes "Evento de redefinição de habilidades";
 	close;
 }

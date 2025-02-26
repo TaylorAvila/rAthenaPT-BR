@@ -17,12 +17,12 @@
 
 que_ng,187,149,3	script	Magazine Dealer Kenny::mdk	4_M_01,{
 	mes "[Kenny]";
-	mes "Bullet bags will help you carry bullets much more easily.";
-	mes "Come take a look~";
+	mes "As sacolas de bala ajudarão você a carregar balas com muito mais facilidade.";
+	mes "Venha dar uma olhada ~";
 	next;
-	switch(select("Various Bullet Cases:Sphere Exchange:Old Sphere Exchange:Slug Exchange:Cancel")) {
+	switch(select("Vários casos de bala: troca de esferas: troca antiga de esfera: troca de slug: cancelar")) {
 	case 1:
-		switch(select("Bullet Case:Bloody Bullet Case:Silver Bullet Case:Ammo AP Bullet Case:Ammo Blazing Bullet Case:Ammo Freezing Bullet Case:Ammo Lightning Bullet Case:Ammo Magic Stone Bullet Case:Ammo Purifying Bullet Case:Flare Bullet Case:Lightning Bullet Case:Ice Bullet Case:Poison Bullet Case:Blind Bullet Case:Cancel")) {
+		switch(select("Caso da bala: Caso de bala sangrento: Caso de bala de prata: munição AP Bullet Caso: Munção Caso da bala de munição: Caso de bala congelando de munição: Caso de bala de raio de munição: Caso de bala de pedra mágica: Caso da bala de raio: Caso de marcadores: Lightning: Lightning Bullet: Caso da bala de gelo: Caso de bala de veneno: Caso de bala cega: Cancelar")) {
 			case 1: callsub S_Casing,13200,12149;
 			case 2: callsub S_Casing,13222,22737;
 			case 3: callsub S_Casing,13221,22738;
@@ -40,7 +40,7 @@ que_ng,187,149,3	script	Magazine Dealer Kenny::mdk	4_M_01,{
 			case 15: callsub S_Close;
 		}
 	case 2:
-		switch(select("Fire Bullet:Wind Bullet:Freezing Bullet:Poison Bullet:Blind Bullet:Cancel")) {
+		switch(select("Bullet de Fogo: Wind Bullet: Bullet congelante: Poison Bullet: Black Bullet: Cancelar")) {
 		case 1: callsub S_Sphere_Exchange,13223,13228;
 		case 2: callsub S_Sphere_Exchange,13224,13229;
 		case 3: callsub S_Sphere_Exchange,13227,13230;
@@ -49,7 +49,7 @@ que_ng,187,149,3	script	Magazine Dealer Kenny::mdk	4_M_01,{
 		case 6: callsub S_Close;
 		}
 	case 3:
-		switch(select("Fire Sphere:Wind Sphere:Freezing Sphere:Poison Sphere:Blind Sphere:Cancel")) {
+		switch(select("Esfera de fogo: Esfera do vento: Esfera congelante: Esfera de veneno: Esfera cega: Cancelar")) {
 		case 1: callsub S_Old_Sphere_Exchange,13203,13228;
 		case 2: callsub S_Old_Sphere_Exchange,13204,13229;
 		case 3: callsub S_Old_Sphere_Exchange,13207,13230;
@@ -58,7 +58,7 @@ que_ng,187,149,3	script	Magazine Dealer Kenny::mdk	4_M_01,{
 		case 6: callsub S_Close;
 		}
 	case 4:
-		switch(select("Slug Ammunition L:Slug Ammunition M:Slug Ammunition H:Slug Ammunition SH:Slug Ammunition XH:Cancel")) {
+		switch(select("Munição de lesma L: munição de lesma m: munição de lesma H: munição de lesma: munição de lesma XH: Cancelar")) {
 		case 1: callsub S_Slug_Exchange,13210,24;
 		case 2: callsub S_Slug_Exchange,13211,12;
 		case 3: callsub S_Slug_Exchange,13212,8;
@@ -80,36 +80,36 @@ S_Casing:
 
 	if (.@bullet_count < 500 || getequipid(EQI_AMMO) != -1 || BaseClass != Job_Gunslinger) {
 		mes "[Kenny]";
-		mes "Hey~ You need the exact amount of items to exchange. Go get some more.";
-		mes "You must have 500 or more of ^FF0000" + .@bullet_str$ + "^000000, ok? Also, make sure not to ^FF0000wear^000000 them if you want to exchange.";
+		mes "Ei ~ você precisa da quantidade exata de itens para trocar. Vá buscar um pouco mais.";
+		mes "Você deve ter 500 ou mais de ^ff0000" + .@bullet_str$ + "^000000, ok? Além disso, certifique -se de não ter ^ff0000wear ^000000 se você quiser trocar.";
 		close;
 	}
 
 	mes "[Kenny]";
-	mes "You've chosen ^FF0000" + .@pack_str$ + "^000000.";
-	mes "You need 500 ^3131FF" + .@bullet_str$ + "^000000 to make 1 ^3131FF" + .@bullet_str$ + "^000000 item, and it will cost ^3131FF500^000000 zeny.";
-	mes "How many do you want to exchange?";
+	mes "Você escolheu ^ff0000" + .@pack_str$ + "^000000.";
+	mes "Você precisa de 500 ^3131ff" + .@bullet_str$ + "^000000 para fazer 1 ^3131ff" + .@bullet_str$ + "^000000 Item e custará ^3131FF500 ^000000 Zeny.";
+	mes "Quantos você quer trocar?";
 	next;
-	switch(select("Exchange all:Make only 1:Cancel")) {
+	switch(select("Trocar tudo: faça apenas 1: Cancelar")) {
 		case 1:
 			mes "[Kenny]";
-			mes "Bullet count: ^3131FF" + .@bullet_count;
-			mes "Combination of bullet bags: ^3131FF" + .@pack_count;
-			mes "Zeny required: ^3131FF" + .@pack_count * 500;
+			mes "Contagem de balas: ^3131ff" + .@bullet_count;
+			mes "Combinação de sacos de bala: ^3131ff" + .@pack_count;
+			mes "Zeny necessário: ^3131ff" + .@pack_count * 500;
 			next;
-			mes "Do you want to exchange?";
+			mes "Você quer trocar?";
 			next;
-			switch(select("Exchange:Cancel")) {
+			switch(select("Exchange: Cancelar")) {
 				case 1:
 					if (Zeny < .@pack_count * 500) {
 						mes "[Kenny]";
-						mes "Hey~ You need the exact amount of Zeny to exchange. Go get some more.";
-						mes "You must have ^FF0000" + .@pack_count * 500 + "^000000, ok?";
+						mes "Ei ~ você precisa da quantidade exata de Zeny para trocar. Vá buscar um pouco mais.";
+						mes "Você deve ter ^ff0000" + .@pack_count * 500 + "^000000, ok?";
 						close;
 					}
 					mes "[Kenny]";
-					mes "All done.";
-					mes "The bag is useless when the weight of inventory gets over 70%. Please be careful.";
+					mes "Tudo feito.";
+					mes "A bolsa é inútil quando o peso do inventário termina mais de 70%. Por favor, tenha cuidado.";
 					Zeny -= .@pack_count * 500;
 					delitem .@bullet_id, .@pack_count * 500;
 					getitem .@pack_id, .@pack_count;
@@ -120,13 +120,13 @@ S_Casing:
 		case 2:
 			if (Zeny < 500) {
 				mes "[Kenny]";
-				mes "Hey~ You need the exact amount of Zeny to exchange. Go get some more.";
-				mes "You must have ^FF0000500^000000, ok?";
+				mes "Ei ~ você precisa da quantidade exata de Zeny para trocar. Vá buscar um pouco mais.";
+				mes "Você deve ter ^ff0000500 ^000000, ok?";
 				close;
 			}
 			mes "[Kenny]";
-			mes "All done.";
-			mes "The bag is useless when the weight of inventory gets over 70%. Please be careful.";
+			mes "Tudo feito.";
+			mes "A bolsa é inútil quando o peso do inventário termina mais de 70%. Por favor, tenha cuidado.";
 			Zeny -= 500;
 			delitem .@bullet_id, 500;
 			getitem .@pack_id, 1;
@@ -145,28 +145,28 @@ S_Sphere_Exchange:
 
 	if (.@old_count < 10 || getequipid(EQI_AMMO) != -1 || BaseClass != Job_Gunslinger) {
 		mes "[Kenny]";
-		mes "Hey~ You need the exact amount of items to exchange. Go get some more.";
-		mes "You must have 10 or more of ^FF0000" + .@old_str$ + "^000000, ok? Also, make sure not to ^FF0000wear^000000 them if you want to exchange.";
+		mes "Ei ~ você precisa da quantidade exata de itens para trocar. Vá buscar um pouco mais.";
+		mes "Você deve ter 10 ou mais de ^ff0000" + .@old_str$ + "^000000, ok? Além disso, certifique -se de não ter ^ff0000wear ^000000 se você quiser trocar.";
 		close;
 	}
 
 	mes "[Kenny]";
-	mes "You've chosen ^FF0000" + .@old_str$ + "^000000.";
-	mes "You need 10 ^3131FF" + .@old_str$ + "^000000 to make 1 ^3131FF" + .@new_str$ + "^000000 item.";
-	mes "How many do you want to exchange?";
+	mes "Você escolheu ^ff0000" + .@old_str$ + "^000000.";
+	mes "Você precisa de 10 ^3131ff" + .@old_str$ + "^000000 para fazer 1 ^3131ff" + .@new_str$ + "^000000 Item.";
+	mes "Quantos você quer trocar?";
 	next;
-	switch(select("Exchange all:Make only 1:Cancel")) {
+	switch(select("Trocar tudo: faça apenas 1: Cancelar")) {
 		case 1:
 			mes "[Kenny]";
-			mes .@old_str$ + " count: ^3131FF" + .@old_count;
-			mes .@new_str$ + " count: ^3131FF" + .@new_count;
+			mes .@old_str$ + "CONTA: ^3131FF" + .@old_count;
+			mes .@new_str$ + "CONTA: ^3131FF" + .@new_count;
 			next;
-			mes "Do you want to exchange?";
+			mes "Você quer trocar?";
 			next;
-			switch(select("Exchange:Cancel")) {
+			switch(select("Exchange: Cancelar")) {
 				case 1:
 					mes "[Kenny]";
-					mes "All done.";
+					mes "Tudo feito.";
 					delitem .@old_id, .@new_count * 10;
 					getitem .@new_id, .@new_count;
 					close;
@@ -175,7 +175,7 @@ S_Sphere_Exchange:
 			}
 		case 2:
 			mes "[Kenny]";
-			mes "All done.";
+			mes "Tudo feito.";
 			delitem .@old_id, 10;
 			getitem .@new_id, 1;
 			close;
@@ -192,28 +192,28 @@ S_Old_Sphere_Exchange:
 
 	if (.@old_count < 1 || getequipid(EQI_AMMO) != -1 || BaseClass != Job_Gunslinger) {
 		mes "[Kenny]";
-		mes "Hey~ You need the exact amount of items to exchange. Go get some more.";
-		mes "You must have 1 or more of ^FF0000" + .@old_str$ + "^000000, ok? Also, make sure not to ^FF0000wear^000000 them if you want to exchange.";
+		mes "Ei ~ você precisa da quantidade exata de itens para trocar. Vá buscar um pouco mais.";
+		mes "Você deve ter 1 ou mais de ^ff0000" + .@old_str$ + "^000000, ok? Além disso, certifique -se de não ter ^ff0000wear ^000000 se você quiser trocar.";
 		close;
 	}
 
 	mes "[Kenny]";
-	mes "You've chosen ^FF0000" + .@old_str$ + "^000000.";
-	mes "You need 1 ^3131FF" + .@old_str$ + "^000000 to make 1 ^3131FF" + .@new_str$ + "^000000 item.";
-	mes "How many do you want to exchange?";
+	mes "Você escolheu ^ff0000" + .@old_str$ + "^000000.";
+	mes "Você precisa de 1 ^3131ff" + .@old_str$ + "^000000 para fazer 1 ^3131ff" + .@new_str$ + "^000000 Item.";
+	mes "Quantos você quer trocar?";
 	next;
-	switch(select("Exchange all:Make only 1:Cancel")) {
+	switch(select("Trocar tudo: faça apenas 1: Cancelar")) {
 		case 1:
 			mes "[Kenny]";
-			mes .@old_str$ + " count: ^3131FF" + .@old_count;
-			mes .@new_str$ + " count: ^3131FF" + .@old_count;
+			mes .@old_str$ + "CONTA: ^3131FF" + .@old_count;
+			mes .@new_str$ + "CONTA: ^3131FF" + .@old_count;
 			next;
-			mes "Do you want to exchange?";
+			mes "Você quer trocar?";
 			next;
-			switch(select("Exchange:Cancel")) {
+			switch(select("Exchange: Cancelar")) {
 				case 1:
 					mes "[Kenny]";
-					mes "All done.";
+					mes "Tudo feito.";
 					delitem .@old_id, .@old_count;
 					getitem .@new_id, .@old_count;
 					close;
@@ -222,7 +222,7 @@ S_Old_Sphere_Exchange:
 			}
 		case 2:
 			mes "[Kenny]";
-			mes "All done.";
+			mes "Tudo feito.";
 			delitem .@old_id, 1;
 			getitem .@new_id, 1;
 			close;
@@ -240,28 +240,28 @@ S_Slug_Exchange:
 
 	if (.@count < .@req_count || getequipid(EQI_AMMO) != -1 || BaseClass != Job_Gunslinger) {
 		mes "[Kenny]";
-		mes "Hey~ You need the exact amount of items to exchange. Go get some more.";
-		mes "You must have " + .@req_count + " or more of ^FF0000" + .@slug_str$ + "^000000, ok? Also, make sure not to ^FF0000wear^000000 them if you want to exchange.";
+		mes "Ei ~ você precisa da quantidade exata de itens para trocar. Vá buscar um pouco mais.";
+		mes "Você deve ter" + .@req_count + "ou mais de ^ff0000" + .@slug_str$ + "^000000, ok? Além disso, certifique -se de não ter ^ff0000wear ^000000 se você quiser trocar.";
 		close;
 	}
 
 	mes "[Kenny]";
-	mes "You've chosen ^FF0000" + .@slug_str$ + "^000000.";
-	mes "You need " + .@req_count + " ^3131FF" + .@slug_str$ + "^000000 to make 1 ^3131FF" + .@new_slug_str$ + "^000000 item.";
-	mes "How many do you want to exchange?";
+	mes "Você escolheu ^ff0000" + .@slug_str$ + "^000000.";
+	mes "Você precisa" + .@req_count + "^3131 ss" + .@slug_str$ + "^000000 para fazer 1 ^3131ff" + .@new_slug_str$ + "^000000 Item.";
+	mes "Quantos você quer trocar?";
 	next;
-	switch(select("Exchange all:Make only 1:Cancel")) {
+	switch(select("Trocar tudo: faça apenas 1: Cancelar")) {
 		case 1:
 			mes "[Kenny]";
-			mes .@slug_str$ + " count: ^3131FF" + .@count;
-			mes .@new_slug_str$ + " count: ^3131FF" + .@new_count;
+			mes .@slug_str$ + "CONTA: ^3131FF" + .@count;
+			mes .@new_slug_str$ + "CONTA: ^3131FF" + .@new_count;
 			next;
-			mes "Do you want to exchange?";
+			mes "Você quer trocar?";
 			next;
-			switch(select("Exchange:Cancel")) {
+			switch(select("Exchange: Cancelar")) {
 				case 1:
 					mes "[Kenny]";
-					mes "All done.";
+					mes "Tudo feito.";
 					delitem .@slug_id, .@new_count * .@req_count;
 					getitem 25187, .@new_count;
 					close;
@@ -270,7 +270,7 @@ S_Slug_Exchange:
 			}
 		case 2:
 			mes "[Kenny]";
-			mes "All done.";
+			mes "Tudo feito.";
 			delitem .@slug_id, .@req_count;
 			getitem 25187, 1;
 			close;
@@ -280,9 +280,9 @@ S_Slug_Exchange:
 
 S_Close:
 	mes "[Kenny]";
-	mes "Okay.";
-	mes "If you need anything";
-	mes "please come back.";
+	mes "OK.";
+	mes "Se você precisar de alguma coisa";
+	mes "Por favor, volte.";
 	close;
 }
 

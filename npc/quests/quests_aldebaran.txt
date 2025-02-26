@@ -18,45 +18,45 @@
 // 'Doctor Band', 'Feather Bonnet', 'Opera Masque', 'Sakkat Hat' Quest
 //============================================================
 aldeba_in,152,166,4	script	Trader#01	86,{
-	mes "[Trader]";
-	mes "Who is this mysterious man?";
-	mes "I, the enigmatic and debonair 'Trader?'";
+	mes "[Comerciante]";
+	mes "Quem é esse homem misterioso?";
+	mes "Eu, o enigmático e o Debonair 'Trader?'";
 	next;
-	mes "[Trader]";
-	mes "Traveling about the Midgard Continent, with all of his wonderful hats? Nobody knows...";
+	mes "[Comerciante]";
+	mes "Viajando pelo continente Midgard, com todos os seus maravilhosos chapéus? Ninguém sabe ...";
 	next;
-	mes "[Trader]";
-	mes "For what purpose do I collect and trade these hats from all around the world? Choose a hat, get closer to unraveling the mystery...";
+	mes "[Comerciante]";
+	mes "Para que finalidade eu coleciono e troco esses chapéus de todo o mundo? Escolha um chapéu, aproxime -se de desvendar o mistério ...";
 	next;
-	mes " (1) ^3355FFDoctor Band^000000:";
-	mes "1 Red Bandana + 50 Irons + 1 Cracked Diamond + 3500 Zeny";
-	mes " (2)^3355FFFeather Bonnet^000000:";
-	mes "1 Romantic Gent + 300 Feather of Birds + 500 Zeny";
-	mes " (3) ^3355FFPhantom of Opera^000000:";
-	mes "20 Iron + 1 Singing Plant + 5000 Zeny ";
-	mes " (4) ^3355FFSakkat^000000:";
-	mes "120 Trunks + 10000 Zeny ";
+	mes "(1) ^3355ffdoctor Band ^000000:";
+	mes "1 bandana vermelha + 50 ferros + 1 diamante rachado + 3500 zeny";
+	mes "(2)^3355fffeather capô^000000:";
+	mes "1 gent romântico + 300 penas de pássaros + 500 zeny";
+	mes "(3) ^3355ffhantom of Opera ^000000:";
+	mes "20 Iron + 1 Planta de canto + 5000 Zeny";
+	mes "(4) ^akhshabka ^000.000:";
+	mes "120 troncos + 10000 zena";
 	next;
-	switch(select(" Doctor Band : Feather Bonnet : Phantom of Opera : Sakkat ")) {
+	switch(select("Doctor Band: Feather Capuz: Phantom of Opera: Sakkat")) {
 	case 1:
 		if ((countitem(2275) > 0) && (countitem(998) > 49) && (countitem(733) > 0) && (Zeny > 3499)) {
 			delitem 2275,1; //Red_Bandana
 			delitem 998,50; //Iron
 			delitem 733,1; //Crystal_Jewel___
 			set Zeny, Zeny-3500;
-			mes "[Trader]";
-			mes "Hm! You don't have a medical license, do you? It's alright, I've heard about a rogue, unlicensed physician who performed medical miracles! But... That might have been a comic book.";
+			mes "[Comerciante]";
+			mes "HM! Você não tem uma licença médica, não é? Está tudo bem, ouvi falar de um médico desonesto e não licenciado que realizou milagres médicos! Mas ... isso pode ter sido uma história em quadrinhos.";
 			next;
-			mes "[Trader]";
-			mes "Oh whatever. Just don't get caught.";
+			mes "[Comerciante]";
+			mes "Oh, seja o que for. Só não seja pego.";
 			getitem 2273,1; //Doctor_Cap
 			close;
 		}
 		else {
-			mes "[Trader]";
-			mes "You guy~";
-			mes "Check the requirements again.";
-			mes "You don't look like an idiot though. So c'mon man, get real.";
+			mes "[Comerciante]";
+			mes "Seu cara ~";
+			mes "Verifique os requisitos novamente.";
+			mes "Você não parece um idiota. Então vamos lá cara, fique real.";
 			close;
 		}
 	case 2:
@@ -64,15 +64,15 @@ aldeba_in,152,166,4	script	Trader#01	86,{
 			delitem 2247,1; //Oldman's_Romance
 			delitem 916,300; //Feather_Of_Birds
 			set Zeny, Zeny-500;
-			mes "[Trader]";
-			mes "Ooh~! You have good fashion sense. I know you've had a hard time collecting this stuff, but this hat is worth it. Take it. All you need now is a fur coat and a cane!";
+			mes "[Comerciante]";
+			mes "Ooh ~! Você tem bom senso de moda. Eu sei que você teve dificuldade em coletar essas coisas, mas esse chapéu vale a pena. Pegue. Tudo o que você precisa agora é um casaco de pele e uma bengala!";
 			getitem 5018,1; //Feather_Bonnet
 			close;
 		}
 		else {
-			mes "[Trader]";
-			mes "You guy~";
-			mes "Go check my requirements again. You don't look like an idiot though. C'mon man, get real.";
+			mes "[Comerciante]";
+			mes "Seu cara ~";
+			mes "Vá verificar meus requisitos novamente. Você não parece um idiota. Vamos cara, fique real.";
 			close;
 		}
 	case 3:
@@ -80,31 +80,31 @@ aldeba_in,152,166,4	script	Trader#01	86,{
 			delitem 998,20; //Iron
 			delitem 707,1; //Singing_Plant
 			set Zeny, Zeny-5000;
-			mes "[Trader]";
-			mes "This one? It's a little bit scary, though it has some sort of romantic quality. What do you think? You like it? Alright, take it, it's yours!";
+			mes "[Comerciante]";
+			mes "Este? É um pouco assustador, embora tenha algum tipo de qualidade romântica. O que você acha? Você gosta disso? Tudo bem, pegue, é seu!";
 			getitem 2281,1; //Phantom_Of_Opera
 			close;
 		}
 		else {
-			mes "[Trader]";
-			mes "Buffoon. Go check the requirements again. ^3355FFPhantom of Opera^000000 isn't easy to come by. So c'mon man, get real.";
+			mes "[Comerciante]";
+			mes "Palhaço. Vá verificar os requisitos novamente. ^3355ffhantom of Opera^000000 não é fácil de encontrar. Então vamos lá cara, fique real.";
 			close;
 		}
 	case 4:
 		if ((countitem(1019) > 119) && (Zeny > 9999)){ //Wooden_Block 
 			delitem 1019,120; //Wooden_Block
 			set Zeny, Zeny-10000;
-			mes "[Trader]";
-			mes "If you have a chance to visit the Uplander Village, Payon, please go and meet the Sakkat Craftsman.";
+			mes "[Comerciante]";
+			mes "Se você tiver a chance de visitar a vila de Uplander, Payon, vá conhecer o Sakkat Craftsman.";
 			next;
-			mes "[Trader]";
-			mes "He's never sold Sakkat to Traders other than me, since only I can recognize its quality. Due to its rarity, Sakkat has become a very unique and exceptional product. Okay! Take it, it's yours!";
+			mes "[Comerciante]";
+			mes "Ele nunca vendeu Sakkat para comerciantes além de mim, já que só posso reconhecer sua qualidade. Devido à sua raridade, a Sakkat se tornou um produto muito único e excepcional. OK! Pegue, é seu!";
 			getitem 2280,1; //Sahkkat
 			close;
 		}
 		else {
-			mes "[Trader]";
-			mes "MORON~ Check my requirements again. C'mon man, you don't look like an idiot, so get real~";
+			mes "[Comerciante]";
+			mes "Idiota ~ verifique meus requisitos novamente. Vamos cara, você não se parece com um idiota, então seja real ~";
 			close;
 		}
 	}

@@ -39,7 +39,7 @@ OnHour06:
 	end;
 
 OnHour01:
-	if ($@UNEASY_MOB > 0) mapannounce "prontera","[Mother Mathana]: In the name of Odin, please finish these roaming undead leftovers!",0;
+	if ($@UNEASY_MOB > 0) mapannounce "Prontera","[Mãe Mathana]: Em nome de Odin, termine essas sobras de mortos -vivos!",0;
 	end;
 
 OnZombieDead:
@@ -47,8 +47,8 @@ OnZombieDead:
 	if ($@UNEASY_MOB>0) end;
 	set $UNEASY_DL,0;
 	set $UNEASY_H$,strcharinfo(0);
-	if (Sex==SEX_MALE) mapannounce "prontera","[Mother Mathana]: Brave "+$UNEASY_H$+" has just killed the last undead in Prontera!",0;
-	else mapannounce "prontera","[Mother Mathana]: Lady "+$UNEASY_H$+" has just killed the last undead in Prontera!",0;
+	if (Sex==SEX_MALE) mapannounce "Prontera","[Mãe Mathana]: Brave"+$UNEASY_H$+"Acabou de matar os últimos mortos -vivos em Protera!",0;
+	else mapannounce "Prontera","[Mãe Mathana]: senhora"+$UNEASY_H$+"Acabou de matar os últimos mortos -vivos em Protera!",0;
 	set JobExp,JobExp+100;
 	set BaseExp,BaseExp+50;
 	end;
@@ -58,31 +58,31 @@ L_Start_Undead:
 	enablenpc "Mother Mathana";
 //call some monsters in the city
 	set $@UNEASY_MOB, 65;
-	areamonster "prontera",0,0,0,0,"Zombie",1015,30,"Uneasy_Check::OnZombieDead";
+	areamonster "Prontera",0,0,0,0,"Zumbi",1015,30,"UNEASY_CHECK :: OnZombiedead";
 //in the Cemetery
-	monster "prontera",268,349,"Zombie",1015,30,"Uneasy_Check::OnZombieDead";
-	monster "prontera",269,350,"Ghoul",1036,5,"Uneasy_Check::OnZombieDead";
+	monster "Prontera",268,349,"Zumbi",1015,30,"UNEASY_CHECK :: OnZombiedead";
+	monster "Prontera",269,350,"Ghoul",1036,5,"UNEASY_CHECK :: OnZombiedead";
 //announce
-	mapannounce "prontera","[Mother Mathana]: The cemetery has become restless!  In the name of Odin, hurry to the Sanctuary! Save the city of Prontera!",0;
+	mapannounce "Prontera","[Mãe Mathana]: O cemitério ficou inquieto!  Em nome de Odin, corra para o santuário! Salve a cidade de Protera!",0;
 }
 
 prontera,257,313,5	script	Mother Mathana	79,{
-	mes "[Mother Mathana]";
+	mes "[Mãe Madana]";
 	if ($UNEASY_DL <= 0) goto L_Undead_Walk;
-	mes "I'm afraid there's something wrong with our old cemetery...";
-	if ($UNEASY_H$==strcharinfo(0)) mes "But thanks to you, "+$UNEASY_H$+", we'll be able to sleep " + $UNEASY_DL + " nights!";
-	if ($UNEASY_H$!=strcharinfo(0)) mes "But thanks to "+$UNEASY_H$+"'s support, we've got " + $UNEASY_DL + " easy nights!";
+	mes "Receio que haja algo errado com nosso antigo cemitério ...";
+	if ($UNEASY_H$==strcharinfo(0)) mes "Mas graças a você,"+$UNEASY_H$+", poderemos dormir" + $UNEASY_DL + "Noites!";
+	if ($UNEASY_H$!=strcharinfo(0)) mes "Mas graças a"+$UNEASY_H$+"O apoio, nós temos" + $UNEASY_DL + "Noites fáceis!";
 	emotion ET_SURPRISE;
 	close;
 
 L_Undead_Walk:
-	if ($UNEASY_DL == 0) mes "THEY could return tomorrow's night again!";
-	if ($UNEASY_DL == 0 && $UNEASY_H$==strcharinfo(0)) mes "Thank you, "+$UNEASY_H$+"! Now we'll manage to rest till the next midnight!";
-	if ($UNEASY_DL == 0 && $UNEASY_H$!=strcharinfo(0)) mes "But due to "+$UNEASY_H$+"'s help we'll manage to rest till the next midnight!";
-	mes "To calm down the restless cemetery, we should pour all these graves with the Holy Water. But our sisters and brothers have run out of it.";
-	mes "Could you supply us with Holy Water?";
+	if ($UNEASY_DL == 0) mes "Eles poderiam voltar a noite de amanhã!";
+	if ($UNEASY_DL == 0 && $UNEASY_H$==strcharinfo(0)) mes "Obrigado,"+$UNEASY_H$+"! Agora vamos descansar até a próxima meia -noite!";
+	if ($UNEASY_DL == 0 && $UNEASY_H$!=strcharinfo(0)) mes "Mas devido a"+$UNEASY_H$+"A ajuda vamos descansar até a próxima meia -noite!";
+	mes "Para acalmar o cemitério inquieto, devemos derramar todas essas sepulturas com a água benta. Mas nossas irmãs e irmãos ficaram sem isso.";
+	mes "Você poderia nos fornecer água benta?";
 	next;
-	menu "Yes, have all my Holy Water!",-, "Nope, I need it.",M_NO, "I don't have any.",M_DONT_HAVE;
+	menu "Sim, tenha toda a minha água benta!",-, "Não, eu preciso disso.",M_NO, "Eu não tenho nenhum.",M_DONT_HAVE;
 
 	if ( countitem(523)<1 ) goto M_DONT_HAVE;
 	set $UNEASY_BL,$UNEASY_BL-countitem(523);
@@ -92,42 +92,42 @@ L_Undead_Walk:
 //set quiet days!!! no more undead for this period!
 	set $UNEASY_DL,5+((0-$UNEASY_BL)/30);
 	set $UNEASY_H$,strcharinfo(0);
-	mes "[Mother Mathana]";
-	mes "Thank you, "+$UNEASY_H$+"! Now we've got enough Holy Water!";
+	mes "[Mãe Madana]";
+	mes "Obrigado,"+$UNEASY_H$+"! Agora temos água benta suficiente!";
 	next;
-	mes "[Mother Mathana]";
-	mes "Upon pouring the cemetery with that water we'll get " + $UNEASY_DL + " safe nights!";
+	mes "[Mãe Madana]";
+	mes "Ao derramar o cemitério com aquela água, teremos" + $UNEASY_DL + "Noites seguras!";
 	next;
 	killmonsterall "prontera";	//kills any left monsters
-	mes "[Mother Mathana]";
-	mes "See, "+ $UNEASY_H$ +"? They all are gone now!";
+	mes "[Mãe Madana]";
+	mes "Ver,"+ $UNEASY_H$ +"? Todos eles se foram agora!";
 	next;
-	mes "[Mother Mathana]";
-	mes "Our Church is going to thank you personally...";
+	mes "[Mãe Madana]";
+	mes "Nossa igreja vai agradecer pessoalmente ...";
 	next;
-	if (Sex==SEX_MALE) mapannounce "prontera","[Mother Mathana]: In the name of Odin we declare handsome "+$UNEASY_H$+" as a Prontera savior!",0;
-	else mapannounce "prontera","[Mother Mathana]: In the name of Odin we declare beautiful "+$UNEASY_H$+" as a Prontera savior!",0;
-	mes "[Mother Mathana]";
-	mes "In the name of Odin we bless you and decently present a modest gift just from Mareusis' wine-cellar.";
+	if (Sex==SEX_MALE) mapannounce "Prontera","[Mãe Mathana]: Em nome de Odin, declaramos bonito"+$UNEASY_H$+"as a Prontera savior!",0;
+	else mapannounce "Prontera","[Mãe Mathana]: Em nome de Odin, declaramos lindos"+$UNEASY_H$+"as a Prontera savior!",0;
+	mes "[Mãe Madana]";
+	mes "Em nome de Odin, abençoamos você e, decentemente, apresentamos um presente modesto apenas do Cellar Wine-Cellar da Mareusis.";
 	getitem 505,1; //Blue_Potion
 	set JobExp,JobExp+100;
 	set BaseExp,BaseExp+50;
 	close;
 
 L_NEED_MORE:
-	mes "[Mother Mathana]";
-	mes "Thank you, good "+strcharinfo(0)+", but we still need " + $UNEASY_BL + " more Holy Water bottles.";
+	mes "[Mãe Madana]";
+	mes "Obrigado, bom"+strcharinfo(0)+", mas ainda precisamos" + $UNEASY_BL + "mais garrafas de água benta.";
 	close;
 
 M_NO:
-	mes "[Mother Mathana]";
-	mes "I'm afraid the old cemetery is going out of control soon... Please, get us all the Holy Water you can get.";
+	mes "[Mãe Madana]";
+	mes "Receio que o antigo cemitério esteja saindo de controle em breve ... por favor, pegue -nos toda a água benta que você pode obter.";
 	close;
 
 M_DONT_HAVE:
-	mes "[Mother Mathana]";
-	mes "Alas! We still need " + $UNEASY_BL + " more bottles of Holy Water...  Why don't you go and ask other people for some extra Holy Water?";
-	mes "The old cemetery is going out of control soon...";
-	mes "Please, in the name of Odin, help Prontera city.";
+	mes "[Mãe Madana]";
+	mes "Infelizmente! Nós ainda precisamos" + $UNEASY_BL + "Mais garrafas de água benta ... Por que você não vai pedir a outras pessoas uma água benta extra?";
+	mes "O antigo cemitério está saindo de controle em breve ...";
+	mes "Por favor, em nome de Odin, ajude a cidade de Pronntera.";
 	close;
 }

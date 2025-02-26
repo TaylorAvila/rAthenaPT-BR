@@ -17,113 +17,113 @@ geffen_in,164,124,4	script	Mage Guildsman#mage	123,{
 		if (ADVJOB == Job_High_Wizard || ADVJOB == Job_Professor) {
 			if (Class == Job_Novice_High) {
 				mes "[Mage Guildsman]";
-				mes "Whoa, long time no see! But weren't you supposed to be dead?";
+				mes "Uau, muito tempo sem ver! Mas você não deveria estar morto?";
 				next;
 				mes "[Mage Guildsman]";
-				mes "Ah, you must have been reborn. Well, I'm glad to have you back.";
+				mes "Ah, você deve ter renascido. Bem, estou feliz por tê -lo de volta.";
 				next;
 				if (!callfunc("F_CanChangeJob")) {
 					mes "[Mage Guildsman]";
-					mes "I'm sorry, but I don't think you're ready to learn magic yet. Why don't you go finish learning the Basic Skills first?";
+					mes "Sinto muito, mas acho que você ainda não está pronto para aprender magia. Por que você não termina de aprender as habilidades básicas primeiro?";
 					next;
 					mes "[Mage Guildsman]";
-					mes "Take your time. The more you learn, the more ready you'll be to learn magic again.";
+					mes "Sem pressa. Quanto mais você aprende, mais pronto estará para aprender magia novamente.";
 					close;
 				}
 				mes "[Mage Guildsman]";
-				mes "Well, since you have passed the Mage test once, I will not question your qualification. You want to have your magic skills back immediately, don't you?";
+				mes "Bem, desde que você passou no teste de mago uma vez, não questionarei sua qualificação. Você quer ter suas habilidades mágicas de volta imediatamente, não é?";
 				next;
-				skill "NV_TRICKDEAD",0,SKILL_PERM;
+				skill "Nv_trickdead",0,SKILL_PERM;
 				jobchange Job_Mage_High;
-				skill "MG_ENERGYCOAT",1,SKILL_PERM;
+				skill "Mg_energyCoat",1,SKILL_PERM;
 				mes "[Mage Guildsman]";
-				mes "Wow, for some reason, you look way better than you did before. Anyway, I believe you will do a better job being a Mage as well.";
+				mes "Uau, por algum motivo, você parece muito melhor do que antes. De qualquer forma, acredito que você também fará um trabalho melhor como um mago.";
 				close;
 			}else{
 				mes "[Mage Guildsman]";
-				mes "Is there anything more I can help you with? If not, why don't you go test your skills? The world is waiting for you~!";
+				mes "Existe mais alguma coisa que eu possa ajudá -lo? Caso contrário, por que você não vai testar suas habilidades? O mundo está esperando por você ~!";
 				close;
 			}
 		}else{
 			mes "[Mage Guildsman]";
-			mes "What, are you interested in the Mage guild? I didn't want to tell you this, but you don't belong here.";
+			mes "O que você está interessado no Mage Guild? Eu não queria te dizer isso, mas você não pertence aqui.";
 			next;
 			mes "[Mage Guildsman]";
-			mes "I am not sure why you're still standing in front of me, but I can tell that you're not meant to be a Mage.";
+			mes "Não sei por que você ainda está na minha frente, mas posso dizer que você não deve ser um mago.";
 			close;
 		}
 	}
 	mes "[Mage Guildsman]";
 	if(BaseJob != Job_Novice) {
 		if(BaseJob == Job_Mage) {
-			mes "Hey, haven't you realized? You're already a Mage, silly!";
-			mes "One of these days you'll realize the power inside of you when you can make Fire with your mind!";
+			mes "Ei, você não percebeu? Você já é um mago, bobo!";
+			mes "Um dia desses você perceberá o poder de você quando puder fazer fogo com sua mente!";
 		} else
-			mes "Hey~ C'mon. Quit playing games. You can't be a Mage because you already have another Job.";
+			mes "Ei ~ vamos. Pare de jogar. Você não pode ser um mago porque já tem outro emprego.";
 		close;
 	}else{
-		mes "Hey?";
+		mes "Ei?";
 		next;
-		switch(select("I want to be a Mage:What are the requirements to be a Mage?:Nothing, thanks.")) {
+		switch(select("Eu quero ser um mago: Quais são os requisitos para ser um mago ?: Nada, obrigado.")) {
 		case 1:
 			mes "[Mage Guildsman]";
-			mes "Wanna be a Mage? Eh...";
+			mes "Quer ser um mago? Eh...";
 			next;
 			mes "[Mage Guildsman]";
 			if (Sex == SEX_MALE) {
-				mes "Hey, look at you! You're kinda cute~! Not my type though...";
+				mes "Ei, olhe para você! Você é meio fofo ~! Não é o meu tipo ...";
 			}else{
-				mes "Oooh, you're such a hot babe~!";
-				mes "I like girls like you~";
+				mes "Oooh, você é uma gata tão gostosa ~!";
+				mes "Eu gosto de garotas como você ~";
 			}
-			mes "Right, you said that you wanna be a Mage?";
+			mes "Certo, você disse que quer ser um mago?";
 			next;
-			if(select("I want to be a Mage.:Nothing, thanks.") == 2) {
+			if(select("Eu quero ser um mago.") == 2) {
 				mes "[Mage Guildsman]";
-				mes "Whaaaaat~?! Right after you tell me that you wanna become a Mage, you change your mind?! Be a bit more decisive!";
+				mes "O que ~?! Logo depois de me dizer que você quer se tornar um mago, você muda de idéia?! Seja um pouco mais decisivo!";
 				close;
 			}
 			mes "[Mage Guildsman]";
 			if (!callfunc("F_CanChangeJob")) {
-				mes "Oh, man your Basic Skill Level doesn't reach enough to be a Mage.";
-				mes "Go back and level up your Basic Skill.";
+				mes "Oh, cara, seu nível básico de habilidade não atinge o suficiente para ser um mago.";
+				mes "Volte e suba sua habilidade básica.";
 				close;
 			}
-			mes "Alright.. sign the application form.... Wow~ you have good handwriting! Ahh, okay. That's enough.";
-			mes "You are... "+strcharinfo(0)+".";
+			mes "Tudo bem .. assine o formulário de inscrição .... uau ~ você tem uma boa caligrafia! Ahh, ok. Isso é suficiente.";
+			mes "Você é..."+strcharinfo(0)+".";
 			next;
 			mes "[Mage Guildsman]";
-			mes "Hmm I can see that you've tried hard in your own way. Though it seems to be a little clumsy, but well I think it's okay!";
-			mes "Good! Always sticking to the basics is the best! I will transform you right away.";
+			mes "Hmm eu posso ver que você se esforçou do seu jeito. Embora pareça um pouco desajeitado, mas bem, acho que está tudo bem!";
+			mes "Bom! Sempre aderir ao básico é o melhor! Vou transformá -lo imediatamente.";
 			next;
 			mes "[Mage Guildsman]";
-			mes "Hahh..! You are now a Mage, one of our colleagues!";
-			mes "We welcome you to the Mage Guild, our new friend!";
+			mes "Hahh ..! Você agora é um mago, um dos nossos colegas!";
+			mes "Congratulamo -nos com o Mage Guild, nosso novo amigo!";
 			next;
 			mes "[Mage Guildsman]";
-			mes "'Welcome to the Mage Guild~'";
-			mes "Congratulations on becoming a member of the Mage Guild! Go for it!";
+			mes "'Bem -vindo ao Mage Guild ~'";
+			mes "Parabéns por se tornar um membro do Mage Guild! Vá em frente!";
 			callfunc "Job_Change",Job_Mage;
 			getitem 1639,1;	// N_Rod
 			close;
 		case 2:
 			mes "[Mage Guildsman]";
-			mes "Wanna be a Mage, eh?";
-			mes "I'd be happy to explain the requirements for a pretty girl like you!";
+			mes "Quer ser um mago, hein?";
+			mes "Eu ficaria feliz em explicar os requisitos para uma garota bonita como você!";
 			next;
 			mes "[Mage Guildsman]";
-			mes "First of all, you have to reach Novice Job Level 10 and learn all of the Basic Skills.";
+			mes "Primeiro de tudo, você deve alcançar o nível de trabalho iniciante 10 e aprender todas as habilidades básicas.";
 			next;
 			mes "[Mage Guildsman]";
-			mes "In the past, there was a complicated potion making test. Because of that, we'd lost an aplicant slowly.";
-			mes "So, we decided to accept all aplicants who meet the basic requirements.";
+			mes "No passado, havia um teste complicado de fazer. Por causa disso, perdemos um applicante lentamente.";
+			mes "Então, decidimos aceitar todos os candidatos que atendem aos requisitos básicos.";
 			next;
 			mes "[Mage Guildsman]";
-			mes "Don't hesitate. Just be a magician!";
+			mes "Não hesite. Apenas seja um mágico!";
 			close;
 		case 3:
 			mes "[Mage Guildsman]";
-			mes "Nothing...?";
+			mes "Nada...?";
 			close;
 		}
 	}

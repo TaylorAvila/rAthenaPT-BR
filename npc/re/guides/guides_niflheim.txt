@@ -16,55 +16,55 @@
 //============================================================ 
 
 niflheim,201,187,3	script	Niflheim Guide#01nif	849,{
-	mes "[Niflheim Guide]";
-	mes "Welcome to.. ^8B4513Niflheim^000000...";
-	mes "the Realm of the Dead...";
-	mes "Do you need help navigating the realm...?";
+	mes "[Guia Niflheim]";
+	mes "Bem -vindo a .. ^8b4513niflHeim ^000000 ...";
+	mes "o reino dos mortos ...";
+	mes "Você precisa de ajuda para navegar no reino ...?";
 	if (F_Navi() == 0) {
 		next;
-		mes "[Niflheim Guide]";
-		mes "When you click on the.. ^B9062F[location name]^000000... you'll receive the most advanced ^B9062FNavigation^000000 services...!";
+		mes "[Guia Niflheim]";
+		mes "Quando você clica no .. ^B9062F [Nome da localização] ^000000 ... você receberá os serviços mais avançados ^B9062FNAVigation ^000000 ...!";
 	}
 	while (1) {
 		next;
-		switch(select("[ Tool Shop ]:[ Pub ]:[ Weapon Shop ]:[ Witch's Castle ]:Remove Marks from Mini-Map:Cancel")) {
+		switch(select("[Shop Tool Shop]: [Pub]: [loja de armas]: [Castelo da bruxa]: Remova as marcas do mini-mapa: Cancelar")) {
 		case 1:
-			callsub L_Mark, F_Navi("Tool Shop","niflheim,218,196","^0000FF");
+			callsub L_Mark, F_Navi("Loja de ferramentas","Niflheim, 218.196","^0000FF");
 			viewpoint 1,218,196,0,0x0A82FF;
 			break;
 		case 2:
-			callsub L_Mark, F_Navi("Pub","niflheim,189,208","^006400");
+			callsub L_Mark, F_Navi("Pub","Niflheim, 189.208","^006400");
 			viewpoint 1,189,208,1,0xAAFF00;
 			break;
 		case 3:
-			callsub L_Mark, F_Navi("Weapon Shop","niflheim,218,170","^800080");
+			callsub L_Mark, F_Navi("Loja de armas","Niflheim, 218.170","^800080");
 			viewpoint 1,218,170,2,0xDA70D6;
 			break;
 		case 4:
-			callsub L_Mark, F_Navi("Witch's Castle","niflheim,255,195","^FF1493");
+			callsub L_Mark, F_Navi("Castelo da bruxa","Niflheim, 255.195","^F -1493");
 			viewpoint 1,255,195,3,0xFF1493;
 			break;
 		case 5:
-			mes "[Niflheim Guide]";
-			mes "Sure, I'll remove all marks from your mini-map...";
-			mes "Is there anything else I can do for you...?";
+			mes "[Guia Niflheim]";
+			mes "Claro, vou remover todas as marcas do seu mini-mapa ...";
+			mes "Há mais alguma coisa que eu possa fazer por você ...?";
 			viewpoint 2,1,1,0,0xFFFFFF;
 			viewpoint 2,1,1,1,0xFFFFFF;
 			viewpoint 2,1,1,2,0xFFFFFF;
 			viewpoint 2,1,1,3,0xFFFFFF;
 			break;
 		case 6:
-			mes "[Niflheim Guide]";
-			mes "......Bye~!..";
+			mes "[Guia Niflheim]";
+			mes "...... tchau ~! ..";
 			close;
 		}
 	}
 	end;
 L_Mark:
-	mes "[Niflheim Guide]";
-	mes "Let me mark the location of the";
+	mes "[Guia Niflheim]";
+	mes "Deixe -me marcar a localização do";
 	mes getarg(0)+"^000000...";
-	mes "on your mini-map.";
-	mes "Would you like to check any other locations?";
+	mes "em seu mini-mapa.";
+	mes "Você gostaria de verificar outros locais?";
 	return;
 }

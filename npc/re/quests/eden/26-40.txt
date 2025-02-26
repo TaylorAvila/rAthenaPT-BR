@@ -18,56 +18,56 @@
 
 moc_para01,38,38,3	script	Mission [26 - 40]	857,{
 	if (!callfunc("F_HasEdenGroupMark")) {
-		mes "You are not a qualified member. You can not use the bulletin board.";
+		mes "Você não é um membro qualificado. Você não pode usar o quadro de avisos.";
 		close;
 	}
-	mes "[26 ~ 40 Lv. Mission Board]";
-	mes "- Many missions are -";
-	mes "- on the bulletin board. -";
+	mes "[26 ~ 40 LV. Conselho de Missão]";
+	mes "- Muitas missões são -";
+	mes "- No quadro de avisos. -";
 	next;
 	if ((BaseLevel < 26) || (BaseLevel > 40)) {
-		mes "Your level is not qualified. You can not use the bulletin board.";
+		mes "Seu nível não está qualificado. Você não pode usar o quadro de avisos.";
 		close;
 	}
-	switch(select("Hunting Mission:Delivery Mission:Gathering Mission:Escort Mission")) {
+	switch(select("Missão de caça: Missão de Entrega: Missão de Reunião: Missão de Escorte")) {
 	case 1:
-		mes "[Hunting Mission Board]";
-		mes "- Hunting Mission details -";
-		mes "- are on the board. -";
+		mes "[Conselho de Missão de Caça]";
+		mes "- Detalhes da missão de caça -";
+		mes "- estão no quadro. -";
 		next;
-		switch(select("Hunting Poison Spore:Hunting Smokie:Hunting Elder Willow(Above Lv.30):Hunting Coco(Above Lv.35):Hunting Thara Frog(Above Lv.38)")) {
-			case 1: callsub L_Quest,8266,0,"Hunting Poison Spore","Sponiac","Geffen","Hunt 10 Poison Spores";
-			case 2: callsub L_Quest,8267,0,"Hunting Smokie","Sponiac","Geffen","Hunt 10 Smokies";
-			case 3: callsub L_Quest,8268,30,"Hunting Elder Willow","Sponiac","Geffen","Hunt 10 Elder Willows";
-			case 4: callsub L_Quest,8269,35,"Hunting Coco","Sponiac","Geffen","Hunt 10 Cocos";
-			case 5: callsub L_Quest,8270,38,"Hunting Thara Frog","Sponiac","Geffen","Hunt 10 Thara Frogs";
+		switch(select("Hunting Poison Spore: Hunting Smokie: Hunting Elder Willow (acima de Lv.30): Caçando Coco (acima de Lv.35): Hunting Thara Frog (acima de Lv.38)")) {
+			case 1: callsub L_Quest,8266,0,"Caça esporo venenoso","Esponíaco","Se encaixa","Caça 10 esporos de veneno";
+			case 2: callsub L_Quest,8267,0,"Caça fumante","Esponíaco","Se encaixa","Hunt 10 Smokies";
+			case 3: callsub L_Quest,8268,30,"Caçando o Élder Willow","Esponíaco","Se encaixa","Caça 10 salgueiros de anciãos";
+			case 4: callsub L_Quest,8269,35,"Caçando coco","Esponíaco","Se encaixa","Hunt 10 Cocos";
+			case 5: callsub L_Quest,8270,38,"Caça thara sapo","Esponíaco","Se encaixa","Hunt 10 Thara Frogs";
 		}
 	case 2:
-		mes "[Delivery Mission Board]";
-		mes "- Delivery Mission details -";
-		mes "- are on the board. -";
+		mes "[Conselho da Missão de Entrega]";
+		mes "- Detalhes da missão de entrega -";
+		mes "- estão no quadro. -";
 		next;
-		switch(select("Deliver an Insecticide:Deliver Honey:Deliver Blanket(Above Lv.35)")) {
-			case 1: callsub L_Quest,8271,0,"Deliver an Insecticide","Dieshin Man","Morocc Ruins","Get an 'Insecticide' from Dieshin Man and deliver it south east of Payon";
-			case 2: callsub L_Quest,8272,0,"Deliver Honey","Dieshin Man","Morocc Ruins","Get 'Honey' from Dieshin Man and deliver it west of St. Capitolina Abbey";
-			case 3: callsub L_Quest,8273,35,"Deliver Blanket","Dieshin Man","Morocc Ruins","Get Blankets from Dieshin Man and deliver to the field south of Lutie";
+		switch(select("Entregue um inseticida: Entregue mel: entregue cobertor (acima do LV.35)")) {
+			case 1: callsub L_Quest,8271,0,"Entregar um inseticida","Dieshin Man","Mrocc ruins","Obtenha um 'inseticida' de Dieshin Man e entregue -o a sudeste de Payon";
+			case 2: callsub L_Quest,8272,0,"Entregar mel","Dieshin Man","Mrocc ruins","Get 'Honey' de Dieshin Man e entregue -o a oeste da abadia de St. Capitolina";
+			case 3: callsub L_Quest,8273,35,"Entregar o cobertor","Dieshin Man","Mrocc ruins","Obtenha cobertores de Dieshin Man e entregue ao campo ao sul de Lutie";
 		}
 	case 3:
-		mes "[Gathering Mission Board]";
-		mes "- Gathering Mission details -";
-		mes "- are on the board. -";
+		mes "[Conselho de Missão de Gatina]";
+		mes "- Reunir detalhes da missão -";
+		mes "- estão no quadro. -";
 		next;
-		switch(select("Gather Bones:Gather Animal Skins:Gather Peelings(Above Lv.30):Gather Tails(Above Lv.32):Gather Cookies(Above Lv.35):Gather Mustaches(Above Lv.35)")) {
-			case 1: callsub L_Quest,8274,0,"Gather Bones","Dashia","Payon","Gather '10 Skel-Bones' and give them to Dashia";
-			case 2: callsub L_Quest,8275,0,"Gather Animal Skins","Dashia","Payon","Gather '10 Bear's Footskins' and '5 Animal Skins' and give them to Dashia";
-			case 3: callsub L_Quest,8276,30,"Gather Peelings","Dashia","Payon","Gather '20 Worm Peelings' and '20 Garlets' and give them to Dashia";
-			case 4: callsub L_Quest,8277,32,"Gather Tails","Dashia","Payon","Gather '10 Yoyo Tails', '10 Acorns' and '10 Raccon Leafs' and give them to Dashia";
-			case 5: callsub L_Quest,8278,35,"Gather Cookies","Dashia","Payon","Gather '5 Well-baked Cookies' and '1 Piece of Cake' and give them to Dashia";
-			case 6: callsub L_Quest,8279,35,"Gather Mustaches","Dashia","Payon","Gather '5 Mole Whiskers' and '3 Mole Claws' and give them to Dashia";
+		switch(select("Reúna ossos: reunir peles de animais: reunir cascas (acima de LV.30): Reúna caudas (acima de Lv.32): Reúna biscoitos (acima de Lv.35): Reúna bigodes (acima de Lv.35)")) {
+			case 1: callsub L_Quest,8274,0,"Reúna ossos","Dasia","Teto","Reúna '10 Skel-Bones 'e dê-os a Dashia";
+			case 2: callsub L_Quest,8275,0,"Reúna peles de animais","Dasia","Teto","Reúna '10 Bear's Footskins 'e' 5 Animal Skins 'e dê -lhes a Dashia";
+			case 3: callsub L_Quest,8276,30,"Reúna descasques","Dasia","Teto","Reúna '20 peelings de minhocas 'e '20 garagens' e dê -as a Dashia";
+			case 4: callsub L_Quest,8277,32,"Reúna as caudas","Dasia","Teto","Reúna '10 yoyo cauds ', '10 liquidras' e '10 folhas de rapazes e dê -lhes a Dashia";
+			case 5: callsub L_Quest,8278,35,"Reúna biscoitos","Dasia","Teto","Reúna '5 biscoitos bem cozidos' e '1 pedaço de bolo' e dê-os a Dashia";
+			case 6: callsub L_Quest,8279,35,"Reunir bigodes","Dasia","Teto","Reúna '5 bigodes mole' e '3 garras de toupeira' e dê -lhes a Dashia";
 		}
 	case 4:
-		mes "[Escort Mission Board]";
-		mes "There are currently no Escort Missions registered on the board.";
+		mes "[Conselho de Missão de Escorta]";
+		mes "Atualmente, não há missões de acompanhantes registradas no conselho.";
 		close;
 	}
 	end;
@@ -75,66 +75,66 @@ L_Quest:
 	//QuestID,ReqLvl,Quest,Client,Loc,Desc
 	.@string$ = getarg(2);
 	if (BaseLevel < getarg(1,26)) {
-		mes "Your level doesn't meet the requirements. You can't take the '"+ .@string$ +"' mission.";
+		mes "Seu nível não atende aos requisitos. Você não pode tomar o '"+ .@string$ +"missão.";
 		close;
 	}
-	mes "["+ .@string$ +" !!]";
-	mes "Client : "+getarg(3);
-	mes "Client Location : "+getarg(4);
-	mes "Requested Mission : "+getarg(5);
-	mes " ";
-	mes "Will you accept this mission?";
+	mes "["+ .@string$ +"!!]";
+	mes "Cliente:"+getarg(3);
+	mes "Localização do cliente:"+getarg(4);
+	mes "Missão solicitada:"+getarg(5);
+	mes "";
+	mes "Você vai aceitar esta missão?";
 	next;
-	if(select("No, I won't accept it.:Yes, I will accept it.") == 1) {
-		mes "You have declined the "+ .@string$ +" mission.";
+	if(select("Não, não vou aceitar.") == 1) {
+		mes "Você recusou o"+ .@string$ +"missão.";
 		close;
 	}
-	if (checkquest(getarg(0)) > -1) mes "You are already doing this mission.";
+	if (checkquest(getarg(0)) > -1) mes "Você já está fazendo esta missão.";
 	else {
 		setquest getarg(0);
-		mes "You have accepted the "+ .@string$ +" mission.";
+		mes "Você aceitou o"+ .@string$ +"missão.";
 	}
-	mes "You can get a reward from the client after you finish the mission.";
+	mes "Você pode receber uma recompensa do cliente depois de terminar a missão.";
 	next;
-	mes "For more details, please press 'Alt + U', to get more information from the Quest Window.";
+	mes "Para mais detalhes, pressione 'alt + u', para obter mais informações da janela da missão.";
 	close;
 }
 
 geffen,103,42,5	script	Sponiac	99,{
 	if (checkweight(1201,1) == 0 || (MaxWeight - Weight) < 3500) {
-		mes "[Sponiac]";
-		mes "Why are you carrying so many items?";
-		mes "Are you in a training course or something?";
+		mes "[Esponíaco]";
+		mes "Por que você está carregando tantos itens?";
+		mes "Você está em um curso de treinamento ou algo assim?";
 		close;
 	}
-	mes "[Sponiac]";
-	mes "Lu~lu~lu~lu~";
-	mes "Lu~ Huh?";
+	mes "[Esponíaco]";
+	mes "L U ~ ROAD ~ ESTRADA ~ ESTRADA ~";
+	mes "Lu ~ huh?";
 	next;
-	mes "[Sponiac]";
-	mes "Wow, you must be a beginner, right?";
-	mes "What an innocent face! Ha~ hahaha.";
+	mes "[Esponíaco]";
+	mes "Uau, você deve ser iniciante, certo?";
+	mes "Que cara inocente! Ha ~ hahaha.";
 	emotion ET_KIK;
 	next;
-	mes "[Sponiac]";
-	mes "Why don't you do some hunting outside instead of walking around and wasting your time?";
+	mes "[Esponíaco]";
+	mes "Por que você não faz uma caça lá fora, em vez de andar por aí e perder seu tempo?";
 	next;
-	if(select("I am about to leave now.:I've got a Hunting Mission.") == 1) {
-		mes "[Sponiac]";
-		mes "Oh, well. Then, go figure.";
-		mes "Bye~ bye.";
+	if(select("Estou prestes a sair agora .: Eu tenho uma missão de caça.") == 1) {
+		mes "[Esponíaco]";
+		mes "Ah bem. Então, vá imaginar.";
+		mes "Tchau ~ tchau.";
 		close;
 	}
-	mes "[Sponiac]";
-	mes "Oh, you are from the Eden Group?";
-	mes "What mission do you have?";
+	mes "[Esponíaco]";
+	mes "Oh, você é do grupo Eden?";
+	mes "Que missão você tem?";
 	next;
-	switch(select("Hunting Poison Spore:Hunting Smokie:Hunting Elder Willow:Hunting Coco:Hunting Thara Frog")) {
-		case 1: callsub L_Quest,8266,"Hunting Poison Spore",1000,0,100,"You can find Poison Spores on the Geffen Dungeon 1F or northeast of Prontera. There are other spots but I'll leave it up to you to find out.";
-		case 2: callsub L_Quest,8267,"Hunting Smokie",1000,0,100,"You can find Smokies northeast and northwest of Geffen. Oh, also the field east of Ayothaya is good spot to find them.";
-		case 3: callsub L_Quest,8268,"Hunting Elder Willow",1000,100,110,"You can find Elder Willows northeast of Geffen, east of payon and southwest of Prontera.";
-		case 4: callsub L_Quest,8269,"Hunting Coco",1000,200,150,"You can find Cocos around the east of Payon, southwest of Prontera and the field east of Ayothaya.";
-		case 5: callsub L_Quest,8270,"Hunting Thara Frog",1500,300,200,"You can find Thara Frogs in the Cave east of Comodo or on Turtle Island.";
+	switch(select("Hunting Poison Spore: Hunting Smokie: Hunting Elder Willow: Caçando Coco: Hunting Thara Frog")) {
+		case 1: callsub L_Quest,8266,"Caça esporo venenoso",1000,0,100,"Você pode encontrar esporos de veneno na masmorra de Geffen 1f ou nordeste de Protera. Existem outros pontos, mas vou deixar você descobrir.";
+		case 2: callsub L_Quest,8267,"Caça fumante",1000,0,100,"Você pode encontrar Smokies a nordeste e a noroeste de Geffen. Ah, também o campo a leste de Ayothaya é um bom local para encontrá -los.";
+		case 3: callsub L_Quest,8268,"Caçando o Élder Willow",1000,100,110,"Você pode encontrar Willows idosos a nordeste de Geffen, a leste de Payon e a sudoeste de Protera.";
+		case 4: callsub L_Quest,8269,"Caçando coco",1000,200,150,"Você pode encontrar Cocos ao redor do leste de Payon, a sudoeste de Protera e o campo a leste de Ayothaya.";
+		case 5: callsub L_Quest,8270,"Caça thara sapo",1500,300,200,"Você pode encontrar sapos Thara na caverna a leste de Comodo ou na ilha de Turtle.";
 	}
 	end;
 L_Quest:
@@ -142,73 +142,73 @@ L_Quest:
 	.@quest_id = getarg(0);
 	if (checkquest(.@quest_id) == 1) {
 		if (checkquest(.@quest_id,HUNTING) == 2) {
-			mes "[Sponiac]";
+			mes "[Esponíaco]";
 			mes getarg(1)+"!";
-			mes "Wow, I didn't expect you would do that mission. I was just about to give up. But you did good job. I appreciate it!";
+			mes "Uau, eu não esperava que você fizesse essa missão. Eu estava prestes a desistir. Mas você fez um bom trabalho. Eu agradeço!";
 			next;
-			mes "[Sponiac]";
-			mes "Well, I requested the mission and you did an excellent job.";
-			mes "I will give you a reward as I promised.";
+			mes "[Esponíaco]";
+			mes "Bem, eu solicitei a missão e você fez um excelente trabalho.";
+			mes "Vou te dar uma recompensa como prometi.";
 			next;
-			mes "[Sponiac]";
-			mes "Here it is. Thank you very much. God bless you!";
+			mes "[Esponíaco]";
+			mes "Aqui está. Muito obrigado. Deus o abençoe!";
 			getitem 569,getarg(4); //Novice_Potion
 			getexp getarg(2),getarg(3);
 			erasequest .@quest_id;
 			close;
 		}
-		mes "[Sponiac]";
-		mes "Oh, you are right.";
+		mes "[Esponíaco]";
+		mes "Oh, você está certo.";
 		next;
-		mes "[Sponiac]";
-		mes "But, you haven't done the mission yet. Why did you come to me now? You haven't completed the mission!";
-		mes "I will give you a reward if you complete the mission. Ok? Are we good?";
+		mes "[Esponíaco]";
+		mes "Mas você ainda não fez a missão. Por que você veio até mim agora? Você não completou a missão!";
+		mes "Vou lhe dar uma recompensa se você concluir a missão. OK? Somos bons?";
 		next;
-		mes "[Sponiac]";
+		mes "[Esponíaco]";
 		mes getarg(5);
-		mes "You can check the world map by pressing 'ctrl + ~' key.";
+		mes "Você pode verificar o mapa do mundo pressionando a tecla 'Ctrl + ~'.";
 		next;
-		mes "[Sponiac]";
-		mes "Anyway, I will be here waiting for you. Please come back when you finish the mission!";
+		mes "[Esponíaco]";
+		mes "Enfim, estarei aqui esperando por você. Por favor, volte quando terminar a missão!";
 		close;
 	}
-	mes "[Sponiac]";
-	mes "Huh? Are you sure? Something is wrong...";
+	mes "[Esponíaco]";
+	mes "Huh? Tem certeza? Algo está errado ...";
 	next;
-	mes "[Sponiac]";
-	mes "It is weird.";
-	mes "Please check your Quest Window by pressing 'alt + u'.";
+	mes "[Esponíaco]";
+	mes "É estranho.";
+	mes "Por favor, verifique sua janela de missão pressionando 'Alt + U'.";
 	close;
 }
 
 moc_ruins,173,55,3	script	Dieshin Man	89,{
 	if (checkweight(1201,1) == 0 || (MaxWeight - Weight) < 3500) {
 		mes "[Dieshin Man]";
-		mes "Why are you carrying so many items?";
-		mes "Are you in a training course or something?";
+		mes "Por que você está carregando tantos itens?";
+		mes "Você está em um curso de treinamento ou algo assim?";
 		close;
 	}
 	mes "[Dieshin Man]";
-	mes "Hu hu~~ we are delivery men~";
-	mes "We are faster than any flight~!";
+	mes "Hu hu ~~ somos entregadores ~";
+	mes "Somos mais rápidos do que qualquer voo ~!";
 	next;
 	mes "[Dieshin Man]";
-	mes "Welcome~ welcome!";
-	mes "We are the fastest delivery company, Dieshin Corperation.";
+	mes "Bem -vindo ~ Bem -vindo!";
+	mes "Somos a empresa de entrega mais rápida, a Dieshin Corporation.";
 	next;
 	mes "[Dieshin Man]";
-	mes "How can I help you?";
+	mes "Como posso ajudá-lo?";
 	next;
-	if(select("I don't need help.:I've got a Delivery Mission.") == 1) {
+	if(select("Não preciso de ajuda .: Eu tenho uma missão de entrega.") == 1) {
 		mes "[Dieshin Man]";
-		mes "Oh, well. Then, go figure. Bye~!";
+		mes "Ah bem. Então, vá imaginar. Tchau ~!";
 		close;
 	}
 	mes "[Dieshin Man]";
-	mes "Oh, you are from the Eden Group?";
-	mes "What mission do you have?";
+	mes "Oh, você é do grupo Eden?";
+	mes "Que missão você tem?";
 	next;
-	switch(select("Deliver an Insecticide.:Deliver Honey.:Deliver Blankets.")) {
+	switch(select("Entregue um inseticida.: Deliver Mel.:deliver Cobertores.")) {
 		case 1: callsub L_Quest,8271;
 		case 2: callsub L_Quest,8272;
 		case 3: callsub L_Quest,8273;
@@ -217,278 +217,278 @@ moc_ruins,173,55,3	script	Dieshin Man	89,{
 L_Quest:
 	if (checkquest(getarg(0)) != 1) {
 		mes "[Dieshin Man]";
-		mes "Huh? Are you sure? Something is wrong...";
+		mes "Huh? Tem certeza? Algo está errado ...";
 		next;
 		mes "[Dieshin Man]";
-		mes "It is weird.";
-		mes "Please check your Quest Window by pressing 'alt + u'.";
+		mes "É estranho.";
+		mes "Por favor, verifique sua janela de missão pressionando 'Alt + U'.";
 		close;
 	}
 	if (countitem(6218) > 0) {
 		mes "[Dieshin Man]";
-		mes "Wait, but you already have a delivery box.";
+		mes "Espere, mas você já tem uma caixa de entrega.";
 		next;
 		mes "[Dieshin Man]";
-		mes "We can't allow you to deliver two boxes at once. So, please finish your delivery first.";
+		mes "Não podemos permitir que você entregue duas caixas de uma só vez. Então, por favor, termine sua entrega primeiro.";
 		next;
 		mes "[Dieshin Man]";
-		mes "If you forgot where to deliver, then please check Quest Window by pressing 'alt + u'.";
+		mes "Se você esqueceu onde entregar, verifique a janela da missão pressionando 'alt + u'.";
 		close;
 	}
 	switch(getarg(0)) {
 	case 8271:
 		mes "[Dieshin Man]";
-		mes "Ah ha! I got it!";
-		mes "The insecticide? It must be the Zoologist on the southeast of Payon who ordered the Insecticide.";
+		mes "Ah ha! Eu entendi!";
+		mes "O inseticida? Deve ser o zoólogo no sudeste de Payon que ordenou o inseticida.";
 		break;
 	case 8272:
 		mes "[Dieshin Man]";
-		mes "Ah ha! I got it!";
-		mes "Honey? It must be the Entomologist at the west of St. Capitolina Abbey, wich is northeast of Prontera who ordered the Honey.";
+		mes "Ah ha! Eu entendi!";
+		mes "Mel? Deve ser o entomologista no oeste da Abadia de São Capitolina, o que é a nordeste de Pronntera que ordenou o mel.";
 		break;
 	case 8273:
 		mes "[Dieshin Man]";
-		mes "Oh, Right!";
-		mes "The blankets! It must be the biologist in the south of Lutie field who ordered the blankets.";
+		mes "Oh, certo!";
+		mes "Os cobertores! Deve ser o biólogo no sul de Lutie Field que ordenou os cobertores.";
 		next;
 		mes "[Dieshin Man]";
-		mes "You can can go to Lutie by asking Mr. Claus in the northeastern part of Al De Baran.";
+		mes "Você pode ir a Lutie pedindo ao Sr. Claus na parte nordeste de Al de Baran.";
 		break;
 	}
 	next;
 	mes "[Dieshin Man]";
-	mes "Dieshin's cooperation motive is to give the fastest and credited delivery. So please deliver it now without any delay.";
+	mes "O motivo da cooperação de Dieshin é fornecer a entrega mais rápida e creditada. Então, entregue agora sem demora.";
 	next;
 	mes "[Dieshin Man]";
-	mes "If you forgot where to make the delivery, then please check the Quest Window by pressing 'alt + u'.";
+	mes "Se você esqueceu onde fazer a entrega, verifique a janela da missão pressionando 'Alt + U'.";
 	getitem 6218,1; //Disin_Delivery_Box
 	close;
 }
 
 pay_fild07,83,89,7	script	Zoologist	89,{
 	if (checkweight(1201,1) == 0 || (MaxWeight - Weight) < 3500) {
-		mes "[Zoologist]";
-		mes "Why are you carrying so many items?";
-		mes "Are you in a training course or something?";
+		mes "[Zoólogo]";
+		mes "Por que você está carregando tantos itens?";
+		mes "Você está em um curso de treinamento ou algo assim?";
 		close;
 	}
-	mes "[Zoologist]";
-	mes "Have you heard of a monster named Bigfoot?";
-	mes "It looks like a bear with red fur and has a 'X' shape scar on his shoulder.";
+	mes "[Zoólogo]";
+	mes "Você já ouviu falar de um monstro chamado Bigfoot?";
+	mes "Parece um urso com pêlo vermelho e tem uma cicatriz de forma 'X' no ombro.";
 	next;
-	mes "[Zoologist]";
-	mes "According to the recent research, flies and Bigfoot monsters have a symbiotic relationship.";
+	mes "[Zoólogo]";
+	mes "De acordo com a pesquisa recente, moscas e monstros do Bigfoot têm uma relação simbiótica.";
 	next;
-	mes "[Zoologist]";
-	mes "I am currently studying about it and try to prove the theory. So I plan to kill the flies around Bigfoot and observe his reaction.";
+	mes "[Zoólogo]";
+	mes "Atualmente, estou estudando sobre isso e tento provar a teoria. Então, pretendo matar as moscas em torno de Bigfoot e observar sua reação.";
 	next;
-	if(select("...I am not interested.:Here is the Insecticide.") == 1) {
-		mes "[Zoologist]";
-		mes "Oh, I need an Insecticide to continue the study.";
+	if(select("... Eu não estou interessado .: Aqui está o inseticida.") == 1) {
+		mes "[Zoólogo]";
+		mes "Oh, eu preciso de um inseticida para continuar o estudo.";
 		close;
 	}
 	if (checkquest(8271) != 1) {
-		mes "[Zoologist]";
+		mes "[Zoólogo]";
 		mes "Huh?";
-		mes "You are not Dieshin's delivery man?";
+		mes "Você não é entregador de Dieshin?";
 		next;
-		mes "[Zoologist]";
-		mes "I am waiting for a special delivery.";
+		mes "[Zoólogo]";
+		mes "Estou esperando por uma entrega especial.";
 		close;
 	}
 	if (countitem(6218) > 0) {
-		mes "[Zoologist]";
-		mes "Oh ho! Yes! That one!";
+		mes "[Zoólogo]";
+		mes "Oh Ho! Sim! Aquele!";
 		next;
-		mes "[Zoologist]";
-		mes "That is the Insecticide that I ordered! You were sent by Dieshin right?";
+		mes "[Zoólogo]";
+		mes "Esse é o inseticida que eu pedi! Você foi enviado por Dieshin, certo?";
 		next;
-		mes "[Zoologist]";
-		mes "I have been waiting for this!";
-		mes "Give it to me!";
+		mes "[Zoólogo]";
+		mes "Eu estive esperando por isso!";
+		mes "Dê para mim!";
 		next;
-		mes "[Zoologist]";
-		mes "It arrived much faster than I thought. I want to test it right away!";
+		mes "[Zoólogo]";
+		mes "Chegou muito mais rápido do que eu pensava. Eu quero testá -lo imediatamente!";
 		next;
-		mes "[Zoologist]";
-		mes "Well done. Good Job! Thank you so much! Here is a little gift for you.";
+		mes "[Zoólogo]";
+		mes "Bom trabalho. Bom trabalho! Muito obrigado! Aqui está um pequeno presente para você.";
 		delitem 6218,1; //Disin_Delivery_Box
 		erasequest 8271;
 		getitem 569,100; //Novice_Potion
 		getexp 1000,0;
 		close;
 	}
-	mes "[Zoologist]";
-	mes "I appreciate your kindness.";
-	mes "But, what did you bring?";
+	mes "[Zoólogo]";
+	mes "Agradeço sua gentileza.";
+	mes "Mas o que você trouxe?";
 	next;
-	mes "[Zoologist]";
-	mes "Hmm, I thought that Dieshin was fast and accurate, but you brought me an empty box. How disappointing.";
+	mes "[Zoólogo]";
+	mes "Hmm, eu pensei que Dieshin era rápido e preciso, mas você me trouxe uma caixa vazia. Quão decepcionante.";
 	next;
-	mes "[Zoologist]";
-	mes "Please bring my order. Dieshin will give you my product.";
+	mes "[Zoólogo]";
+	mes "Por favor, traga meu pedido. Dieshin lhe dará meu produto.";
 	close;
 }
 
 prt_fild03,30,254,3	script	Entomologist	83,{
 	if (checkweight(1201,1) == 0 || (MaxWeight - Weight) < 3500) {
-		mes "[Entomologist]";
-		mes "Why are you carrying so many items?";
-		mes "Are you in a training course or something?";
+		mes "[Entomologista]";
+		mes "Por que você está carregando tantos itens?";
+		mes "Você está em um curso de treinamento ou algo assim?";
 		close;
 	}
-	mes "[Entomologist]";
-	mes "Have you heard about the Horn monster?";
-	mes "It's shaped like an insect with black sleek skin and it has a giant horn it's head.";
+	mes "[Entomologista]";
+	mes "Você já ouviu falar sobre o monstro da buzina?";
+	mes "Está em forma de inseto com pele preta e elegante e tem uma buzina gigante.";
 	next;
-	mes "[Entomologist]";
-	mes "Recent research came out and showed that this monster can be tamed and trained by Honey.";
+	mes "[Entomologista]";
+	mes "Pesquisas recentes foram lançadas e mostraram que esse monstro pode ser domado e treinado pelo mel.";
 	next;
-	mes "[Entomologist]";
-	mes "I am currently studying about it and trying to prove the theory. So I plan to set a Honey trap on the places he usually passes and observe his reaction.";
+	mes "[Entomologista]";
+	mes "Atualmente, estou estudando sobre isso e tentando provar a teoria. Por isso, pretendo definir uma armadilha de mel nos lugares que ele geralmente passa e observar sua reação.";
 	next;
-	if(select("...I am not interested.:Here is the Honey.") == 1) {
-		mes "[Entomologist]";
-		mes "Oh, I need Honey to continue the study.";
+	if(select("... Eu não estou interessado .: Aqui está o mel.") == 1) {
+		mes "[Entomologista]";
+		mes "Oh, eu preciso de mel para continuar o estudo.";
 		close;
 	}
 	if (checkquest(8272) != 1) {
-		mes "[Entomologist]";
+		mes "[Entomologista]";
 		mes "Huh?";
-		mes "You are not Dieshin's delivery man?";
+		mes "Você não é entregador de Dieshin?";
 		next;
-		mes "[Entomologist]";
-		mes "I am waiting for a special delivery.";
+		mes "[Entomologista]";
+		mes "Estou esperando por uma entrega especial.";
 		close;
 	}
 	if (countitem(6218) > 0) {
-		mes "[Entomologist]";
-		mes "Oh ho! Yes! That one!";
+		mes "[Entomologista]";
+		mes "Oh Ho! Sim! Aquele!";
 		next;
-		mes "[Entomologist]";
-		mes "That is the Honey that I ordered! You were sent by Dieshin right?";
+		mes "[Entomologista]";
+		mes "Esse é o mel que eu pedi! Você foi enviado por Dieshin, certo?";
 		next;
-		mes "[Entomologist]";
-		mes "I have been waiting for this!";
-		mes "Give it to me!";
+		mes "[Entomologista]";
+		mes "Eu estive esperando por isso!";
+		mes "Dê para mim!";
 		next;
-		mes "[Entomologist]";
-		mes "It arrived much faster than I thought. I want to test it right away!";
+		mes "[Entomologista]";
+		mes "Chegou muito mais rápido do que eu pensava. Eu quero testá -lo imediatamente!";
 		next;
-		mes "[Entomologist]";
-		mes "Well done. Good Job! Thank you so much! Here is a little gift for you.";
+		mes "[Entomologista]";
+		mes "Bom trabalho. Bom trabalho! Muito obrigado! Aqui está um pequeno presente para você.";
 		delitem 6218,1; //Disin_Delivery_Box
 		erasequest 8272;
 		getitem 569,100; //Novice_Potion
 		getexp 1000,0;
 		close;
 	}
-	mes "[Entomologist]";
-	mes "I appreciate your kindness.";
-	mes "But, what did you bring?";
+	mes "[Entomologista]";
+	mes "Agradeço sua gentileza.";
+	mes "Mas o que você trouxe?";
 	next;
-	mes "[Entomologist]";
-	mes "Hmm, I thought that Dieshin was fast and accurate, but you brought me an empty box. How disappointing.";
+	mes "[Entomologista]";
+	mes "Hmm, eu pensei que Dieshin era rápido e preciso, mas você me trouxe uma caixa vazia. Quão decepcionante.";
 	next;
-	mes "[Entomologist]";
-	mes "Please bring my order. Dieshin will give you my product.";
+	mes "[Entomologista]";
+	mes "Por favor, traga meu pedido. Dieshin lhe dará meu produto.";
 	close;
 }
 
 xmas_fild01,92,57,3	script	Biologist	97,{
 	if (checkweight(1201,1) == 0 || (MaxWeight - Weight) < 3500) {
-		mes "[Biologist]";
-		mes "Why are you carrying so many items?";
-		mes "Are you in a training course or something?";
+		mes "[Biólogo]";
+		mes "Por que você está carregando tantos itens?";
+		mes "Você está em um curso de treinamento ou algo assim?";
 		close;
 	}
-	mes "[Biologist]";
-	mes "Have you heard about the Marin monster?";
-	mes "It does look like the usual poring, but it has unique characteristic.";
+	mes "[Biólogo]";
+	mes "Você já ouviu falar sobre o Marin Monster?";
+	mes "Parece o alimento habitual, mas tem características únicas.";
 	next;
-	mes "[Biologist]";
-	mes "Porings steal items if they see them on the ground. However, Marin has no interest in dropped items. So I was wondering, how come Marin doesn't pay attention to gathering items even though they are the same kind of monster as Porings.";
+	mes "[Biólogo]";
+	mes "Porings roubam itens se os virem no chão. No entanto, Marin não tem interesse em cair itens. Então, eu estava me perguntando, como é que Marin não presta atenção à coleta de itens, mesmo que eles sejam o mesmo tipo de monstro que Porings.";
 	next;
-	mes "[Biologist]";
-	mes "But, this place is freaking cold.";
+	mes "[Biólogo]";
+	mes "Mas, este lugar está enlouquecendo.";
 	next;
-	if(select("...I am not interested.:Here are the blankets.") == 1) {
-		mes "[Biologist]";
-		mes "Huh, whatever. But be careful! It's very slippery here.";
+	if(select("... Eu não estou interessado .: Aqui estão os cobertores.") == 1) {
+		mes "[Biólogo]";
+		mes "Huh, tanto faz. Mas tenha cuidado! É muito escorregadio aqui.";
 		close;
 	}
 	if (checkquest(8273) != 1) {
-		mes "[Biologist]";
+		mes "[Biólogo]";
 		mes "Huh?";
-		mes "You are not Dieshin's delivery man?";
+		mes "Você não é entregador de Dieshin?";
 		next;
-		mes "[Biologist]";
-		mes "I am waiting for a special delivery.";
+		mes "[Biólogo]";
+		mes "Estou esperando por uma entrega especial.";
 		close;
 	}
 	if (countitem(6218) > 0) {
-		mes "[Biologist]";
-		mes "Oh ho! Yes! That one!";
+		mes "[Biólogo]";
+		mes "Oh Ho! Sim! Aquele!";
 		next;
-		mes "[Biologist]";
-		mes "Those are the Blankets that I ordered! You were sent by Dieshin right?";
+		mes "[Biólogo]";
+		mes "Esses são os cobertores que eu pedi! Você foi enviado por Dieshin, certo?";
 		next;
-		mes "[Biologist]";
-		mes "I have been waiting for this!";
-		mes "Give it to me!";
+		mes "[Biólogo]";
+		mes "Eu estive esperando por isso!";
+		mes "Dê para mim!";
 		next;
-		mes "[Biologist]";
-		mes "It arrived much faster than I thought. I want to test them right away!";
+		mes "[Biólogo]";
+		mes "Chegou muito mais rápido do que eu pensava. Eu quero testá -los imediatamente!";
 		next;
-		mes "[Biologist]";
-		mes "Well done. Good Job! Thank you so much! Here is a little gift for you.";
+		mes "[Biólogo]";
+		mes "Bom trabalho. Bom trabalho! Muito obrigado! Aqui está um pequeno presente para você.";
 		delitem 6218,1; //Disin_Delivery_Box
 		erasequest 8273;
 		getitem 569,100; //Novice_Potion
 		getexp 1000,0;
 		close;
 	}
-	mes "[Biologist]";
-	mes "I appreciate your kindness.";
-	mes "But, what did you bring?";
+	mes "[Biólogo]";
+	mes "Agradeço sua gentileza.";
+	mes "Mas o que você trouxe?";
 	next;
-	mes "[Biologist]";
-	mes "Hmm, I thought that Dieshin was fast and accurate, but you brought me an empty box. How disappointing.";
+	mes "[Biólogo]";
+	mes "Hmm, eu pensei que Dieshin era rápido e preciso, mas você me trouxe uma caixa vazia. Quão decepcionante.";
 	next;
-	mes "[Biologist]";
-	mes "Please bring my order. Dieshin will give you my product.";
+	mes "[Biólogo]";
+	mes "Por favor, traga meu pedido. Dieshin lhe dará meu produto.";
 	close;
 }
 
 payon,179,66,3	script	Dashia	931,{
 	if (checkweight(1201,1) == 0 || (MaxWeight - Weight) < 3500) {
-		mes "[Dashia]";
-		mes "Why are you carrying so many items?";
-		mes "Are you in a training course or something?";
+		mes ""Dasia"";
+		mes "Por que você está carregando tantos itens?";
+		mes "Você está em um curso de treinamento ou algo assim?";
 		close;
 	}
-	mes "[Dashia]";
-	mes "Here is some hair~ a broken clock~!";
+	mes ""Dasia"";
+	mes "Aqui está um pouco de cabelo ~ um relógio quebrado ~!";
 	next;
-	mes "[Dashia]";
-	mes "Broken clock..? Hu hu..";
+	mes ""Dasia"";
+	mes "Relógio quebrado ..? Hu hu ..";
 	next;
-	mes "[Dashia]";
-	mes "Hey~! Dude! You look like a very rich adventurer.";
+	mes ""Dasia"";
+	mes "Ei ~! Cara! Você parece um aventureiro muito rico.";
 	next;
-	if(select("I am a poor adventurer.:I have a gathering mission.") == 1) {
-		mes "[Dashia]";
-		mes "Really? Hmm, oh right. You don't look sophisticated.";
+	if(select("Eu sou um aventureiro pobre .: Eu tenho uma missão de reunião.") == 1) {
+		mes ""Dasia"";
+		mes "Realmente? Hmm, oh certo. Você não parece sofisticado.";
 		next;
-		mes "[Dashia]";
-		mes "You are a poor adventurer~! Good luck!";
+		mes ""Dasia"";
+		mes "Você é um aventureiro pobre ~! Boa sorte!";
 		close;
 	}
-	mes "[Dashia]";
-	mes "Oh, you are from the Eden Group?";
-	mes "What mission do you have?";
+	mes ""Dasia"";
+	mes "Oh, você é do grupo Eden?";
+	mes "Que missão você tem?";
 	next;
-	switch(select("Gather Bones:Gather Animal Skin:Gather Peelings:Gather Tails:Gather Cookies:Gather Mustaches")) {
+	switch(select("Reúna ossos: Reúna a pele de animais: reunir descasques: reunir caudas: Reúna biscoitos: Reúna bigodes")) {
 	case 1:
 		callsub L_Quest,8274;
 		if (countitem(932) > 9) {
@@ -499,18 +499,18 @@ payon,179,66,3	script	Dashia	931,{
 			erasequest 8274;
 			close;
 		}
-		mes "[Dashia]";
-		mes "I can see that you have a gathering mission.";
-		mes "But, where are the Skel-Bones?";
+		mes ""Dasia"";
+		mes "Eu posso ver que você tem uma missão de encontro.";
+		mes "Mas, onde estão os ossos do skel?";
 		next;
-		mes "[Dashia]";
-		mes "You haven't done the mission yet. Why did you come back here?";
+		mes ""Dasia"";
+		mes "Você ainda não fez a missão. Por que você voltou aqui?";
 		next;
-		mes "[Dashia]";
-		mes "You don't have enough 'Skel-Bones'... You can find it when you hunt Skeletons.";
+		mes ""Dasia"";
+		mes "Você não tem 'ossos de skel' suficientes ... você pode encontrá-lo quando caça esqueletos.";
 		next;
-		mes "[Dashia]";
-		mes "To find Skeletons, you better check Payon Dungeon 1F, which is located in Archer Village, north of Payon.";
+		mes ""Dasia"";
+		mes "Para encontrar esqueletos, é melhor você verificar o Payon Dungeon 1F, localizado em Archer Village, ao norte de Payon.";
 		break;
 	case 2:
 		callsub L_Quest,8275;
@@ -523,19 +523,19 @@ payon,179,66,3	script	Dashia	931,{
 			erasequest 8275;
 			close;
 		}
-		mes "[Dashia]";
-		mes "I can see that you have a gathering mission.";
-		mes "But, where is the Bear's Footskins and Animal Skins?";
+		mes ""Dasia"";
+		mes "Eu posso ver que você tem uma missão de encontro.";
+		mes "Mas, onde estão os pés do urso e as peles de animais?";
 		next;
-		mes "[Dashia]";
-		mes "You haven't done the mission yet. Why did you come back here?";
+		mes ""Dasia"";
+		mes "Você ainda não fez a missão. Por que você voltou aqui?";
 		next;
-		mes "[Dashia]";
-		mes "You have to bring 10 Bear's Footskins' and '5 Animal Skins!";
-		mes "You can find Bear's Footskin from Bigfoot and Animal Skin from Animals.";
+		mes ""Dasia"";
+		mes "Você tem que trazer 10 peles de pé de Bear 'e 5 peles de animais!";
+		mes "Você pode encontrar a pele de Bear de Bigfoot e a pele de animais de animais.";
 		next;
-		mes "[Dashia]";
-		mes "Bigfoot is around the north of Geffen field or the southeast of Payon field.";
+		mes ""Dasia"";
+		mes "Bigfoot fica ao redor do norte de Geffen Field ou do Sudeste de Payon Field.";
 		break;
 	case 3:
 		callsub L_Quest,8276;
@@ -548,21 +548,21 @@ payon,179,66,3	script	Dashia	931,{
 			erasequest 8276;
 			close;
 		}
-		mes "[Dashia]";
-		mes "I can see that you have a gathering mission.";
-		mes "But, where are the Worm Peelings and Garlets?";
+		mes ""Dasia"";
+		mes "Eu posso ver que você tem uma missão de encontro.";
+		mes "Mas, onde estão as cascas de vermes e as almas?";
 		next;
-		mes "[Dashia]";
-		mes "You have to bring '20 Worm Peelings' and '20 Garlets' to complete the mission.";
+		mes ""Dasia"";
+		mes "Você tem que trazer '20 peelings' e '20 guardas' para concluir a missão.";
 		next;
-		mes "[Dashia]";
-		mes "You can get those items from 'Piere', 'Andre', 'Deniro', 'Vitata', 'Thief Bug', 'Female Thief Bug' and 'Male Thief Bug'.";
+		mes ""Dasia"";
+		mes "Você pode obter esses itens de 'Pierre', 'Andre', 'De Niro', 'Vitara', 'Thief Bug', 'Female Thief Bug' e 'Male Thief Bug'.";
 		next;
-		mes "[Dashia]";
-		mes "'Piere', 'Andre', 'Deniro' and 'Vitata' are in Ant Hell which is located near the Saint Darmain Fortress soutwest of Morocc.";
+		mes ""Dasia"";
+		mes "'Piere', 'Andre', 'De Niro' e 'Vitara' estão em Ant Hell, localizado perto da fortaleza de São Darmain, a sudoeste de Marrocos.";
 		next;
-		mes "[Dashia]";
-		mes "'Thief Bug', 'Female Thief Bug' and 'Male Thief Bug' are int he Prontere Culvert. To get there, you need to be a volunteer of the Prontera Culvert's punitive force.";
+		mes ""Dasia"";
+		mes "'Ladrão Bug', 'Feminino Bug' e 'Bug do ladrão masculino' estão no Culvert Pronntera. Para chegar lá, você precisa ser um voluntário da força punitiva do Protera Culvert.";
 		break;
 	case 4:
 		callsub L_Quest,8277;
@@ -576,22 +576,22 @@ payon,179,66,3	script	Dashia	931,{
 			erasequest 8277;
 			close;
 		}
-		mes "[Dashia]";
-		mes "I can see that you have a gathering mission.";
-		mes "But, where are the Yoyo Tails, Acorns and Raccoon Leafs?";
+		mes ""Dasia"";
+		mes "Eu posso ver que você tem uma missão de encontro.";
+		mes "Mas, onde estão as caudas do Yoyo, bolotas e folhas de guaxinim?";
 		next;
-		mes "[Dashia]";
-		mes "You haven't done the mission yet. Why did you come back here?";
-		mes "You have to bring '10 Yoyo Tails,' '10 Acorns' and '10 Raccoon Leafs' to complete the mission.";
+		mes ""Dasia"";
+		mes "Você ainda não fez a missão. Por que você voltou aqui?";
+		mes "Você tem que trazer '10 yoyo caudas '' '10 Bolas 'e '10 Leafs de guaxinim' para completar a missão.";
 		next;
-		mes "[Dashia]";
-		mes "You can get Yoyo Tails from 'Yoyo's', Acorn from 'Coco's' and Raccoon Leaf from 'Smokies'.";
+		mes ""Dasia"";
+		mes "Você pode obter o Yoyo Tails de 'Yoyo's', Bolta de 'Coco's' e Folhe de Raccoon de 'Smokies'.";
 		next;
-		mes "[Dashia]";
-		mes "You can find them easily around fields, but the field east of Ayothaya is the best spot for hunting all 3 monsters.";
+		mes ""Dasia"";
+		mes "Você pode encontrá -los facilmente em torno de campos, mas o campo a leste de Ayothaya é o melhor local para caçar todos os três monstros.";
 		next;
-		mes "[Dashia]";
-		mes "To get to Ayothaya, you better go to 'Aibakthing' in Alberta and pay his fare.";
+		mes ""Dasia"";
+		mes "Para chegar a Ayothaya, é melhor você ir ao 'Aibakthing' em Alberta e pagar sua tarifa.";
 		break;
 	case 5:
 		callsub L_Quest,8278;
@@ -604,20 +604,20 @@ payon,179,66,3	script	Dashia	931,{
 			erasequest 8278;
 			close;
 		}
-		mes "[Dashia]";
-		mes "I can see that you have a gathering mission.";
-		mes "But, where are the Well-baked Cookies and the Piece of Cake?";
+		mes ""Dasia"";
+		mes "Eu posso ver que você tem uma missão de encontro.";
+		mes "Mas, onde estão os biscoitos bem cozidos e o pedaço de bolo?";
 		next;
-		mes "[Dashia]";
-		mes "You haven't done the mission yet. Why did you come back here?";
-		mes "You have to bring '5 Well-baked Cookies' and '1 Piece of Cake' to complete the mission.";
+		mes ""Dasia"";
+		mes "Você ainda não fez a missão. Por que você voltou aqui?";
+		mes "Você tem que trazer '5 biscoitos bem cozidos' e '1 pedaço de bolo' para completar a missão.";
 		next;
-		mes "[Dashia]";
-		mes "You can get Well-baked Cookie from 'Cookies' who wears red or green shirts.";
-		mes "For getting Piece of Cake, you should look for 'Mystcases'.";
+		mes ""Dasia"";
+		mes "Você pode obter biscoitos bem cozidos de 'biscoitos' que usam camisas vermelhas ou verdes.";
+		mes "Para obter um pedaço de bolo, você deve procurar 'mystcases'.";
 		next;
-		mes "[Dashia]";
-		mes "Both monsters canbe found in the Toy Factory Warehouse or Toy Monitoring Room. To get there, ask Mr. Claus in the northeastern part of Al De Baran.";
+		mes ""Dasia"";
+		mes "Ambos os monstros podem ser encontrados no armazém de fábrica de brinquedos ou na sala de monitoramento de brinquedos. Para chegar lá, pergunte ao Sr. Claus na parte nordeste de Al de Baran.";
 		break;
 	case 6:
 		callsub L_Quest,8279;
@@ -630,47 +630,47 @@ payon,179,66,3	script	Dashia	931,{
 			erasequest 8279;
 			close;
 		}
-		mes "[Dashia]";
-		mes "I can see that you have a gathering mission.";
-		mes "But, where are the Mole Whiskerss and Mole Claws??";
+		mes ""Dasia"";
+		mes "Eu posso ver que você tem uma missão de encontro.";
+		mes "Mas, onde estão os bigodes de toupeira e garras toupeiras ??";
 		next;
-		mes "[Dashia]";
-		mes "You haven't done the mission yet. Why did you come back here?";
-		mes "You have to bring '5 Mole Whiskers' and '3 Mole Claws' to complete the mission.";
+		mes ""Dasia"";
+		mes "Você ainda não fez a missão. Por que você voltou aqui?";
+		mes "Você tem que trazer '5 bigodes de toupeira' e '3 garras molares' para concluir a missão.";
 		next;
-		mes "[Dashia]";
-		mes "You can get those items from 'Martins'.";
-		mes "Martins can be found in the Mjolnir Dead Pit, but the second floor is dangerous, so be careful!";
+		mes ""Dasia"";
+		mes "Você pode obter esses itens de 'Martins'.";
+		mes "Martins pode ser encontrado no poço morto de Mjolnir, mas o segundo andar é perigoso, então tenha cuidado!";
 		next;
-		mes "[Dashia]";
+		mes ""Dasia"";
 		mes "To get there, ask a Kafra Employee in Geffen, they can warp you there.";
 		break;
 	}
 	next;
-	mes "[Dashia]";
-	mes "Anyway, I will be here waiting for you. Please come back when you finish the mission!";
+	mes ""Dasia"";
+	mes "Enfim, estarei aqui esperando por você. Por favor, volte quando terminar a missão!";
 	close;
 L_Quest:
 	if (checkquest(getarg(0)) != 1) {
-		mes "[Dashia]";
-		mes "Huh? Are you sure? Something is wrong...";
+		mes ""Dasia"";
+		mes "Huh? Tem certeza? Algo está errado ...";
 		next;
-		mes "[Dashia]";
-		mes "It is weird.";
-		mes "Please check your Quest Window by pressing 'alt + u'.";
+		mes ""Dasia"";
+		mes "É estranho.";
+		mes "Por favor, verifique sua janela de missão pressionando 'Alt + U'.";
 		close;
 	}
 	return;
 L_Reward:
-	mes "[Dashia]";
-	mes "Wow~ you did an excellent job!";
+	mes ""Dasia"";
+	mes "Uau ~ você fez um excelente trabalho!";
 	next;
-	mes "[Dashia]";
-	mes "Thank you very much. God bless you!";
+	mes ""Dasia"";
+	mes "Muito obrigado. Deus o abençoe!";
 	emotion ET_SMILE;
 	next;
-	mes "[Dashia]";
-	mes "Ha~! Ha~!";
-	mes "I will give you a reward as promised.";
+	mes ""Dasia"";
+	mes "Tem ~! Tem ~!";
+	mes "Vou lhe dar uma recompensa conforme prometido.";
 	return;
 }

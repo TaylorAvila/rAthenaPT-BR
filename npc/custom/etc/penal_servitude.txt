@@ -19,75 +19,75 @@
 sec_pri,36,58,1	script	Chief Warder	105,{ 
 	mes "[Saddeus]";
 	emotion ET_QUESTION;
-	mes (Sex==SEX_MALE?"Mr.":"Ms.")+" Prisoner #"+BaseLevel+JobLevel+",";
-	mes "what's the noise over there?";
+	mes (Sex==SEX_MALE?"Senhor.":"EM.")+"Prisioneiro #"+BaseLevel+JobLevel+",";
+	mes "Qual é o barulho ali?";
 	next;
-	menu "Let me free, I'll pay!",-, "Let me to work off my freedom!",M_Q1, "Nothing",M_NO_THANKS;
+	menu "Deixe -me livre, eu vou pagar!",-, "Deixe -me trabalhar com minha liberdade!",M_Q1, "Nada",M_NO_THANKS;
 
 M_PAY:
 	mes "[Saddeus]";
 	set .@MUSTPAY,(PRISON+1)*1000000;
 	if (.@MUSTPAY<1000000) set .@MUSTPAY,1000000;
 	if (.@MUSTPAY>100000000) set .@MUSTPAY,100000000;
-	if (PRISON==0) mes "I can't remember you. Is it your 1st time?";
-	if (PRISON>0) mes "You again? Somebody hasn't grown wiser from the very first visit...";
-	mes "OK, we could release you for ^FF0000"+.@MUSTPAY+"z^000000.";
+	if (PRISON==0) mes "Não me lembro de você. É a sua primeira vez?";
+	if (PRISON>0) mes "Você de novo? Alguém não ficou mais sábio desde a primeira visita ...";
+	mes "Ok, poderíamos libertá -lo para ^ff0000"+.@MUSTPAY+"Z^000000.";
 	next;
-	menu "I pay cash!",M_PAYCASH,"Do you accept cheques?",M_PAYBANK,"I've changed my mind.",-;
+	menu "Eu pago em dinheiro!",M_PAYCASH,"Você aceita cheques?",M_PAYBANK,"Eu mudei de idéia.",-;
 
 	mes "[Saddeus]";
-	mes "You've got some time to think about...";
+	mes "Você tem algum tempo para pensar ...";
 	close;
 
 M_PAYCASH:
 	if (.@MUSTPAY>Zeny) goto L_NOCASH;
 	set Zeny,Zeny-.@MUSTPAY;
 	mes "[Saddeus]";
-	mes "OK, sing here and there.";
+	mes "Ok, cante aqui e ali.";
 	goto L_RELEASE;
 
 L_NOCASH:
 	mes "[Saddeus]";
-	mes "What's this? It's not enough!";
+	mes "O que é isso? Não é suficiente!";
 	close;
 
 M_PAYBANK:
 	if (.@MUSTPAY>#kafrabank) goto L_NOBANK;
 	set #kafrabank,#kafrabank-.@MUSTPAY;
 	mes "[Saddeus]";
-	mes "OK, sign your cheque. And put down your name in my book.";
+	mes "OK, assine seu cheque. E abaixe seu nome no meu livro.";
 	goto L_RELEASE;
 
 L_NOBANK:
 	mes "[Saddeus]";
-	if (#kafrabank==0) mes "Your case says nothing about your bank accounts.";
-	if (#kafrabank!=0) mes "Alas, there's your bank account info... ^FF0000"+#kafrabank+"z^000000... in the case. It's not enough.";
-	mes "Stop your silly games now!";
+	if (#kafrabank==0) mes "Seu caso não diz nada sobre suas contas bancárias.";
+	if (#kafrabank!=0) mes "Infelizmente, aí está as informações da sua conta bancária ... ^FF0000"+#kafrabank+"Z^000000 ... No caso. Não é suficiente.";
+	mes "Pare seus jogos bobos agora!";
 	close;
 
 L_RELEASE:
 	set PRISON,PRISON+1;
 	next;
 	mes "[Saddeus]";
-	mes "You are free now!";
+	mes "Você está livre agora!";
 	next;
-	savepoint "izlude",105,112;
+	savepoint "chocado",105,112;
 	warp "izlude",105,112;
 	close;
 
 M_Q1:
 	mes "[Saddeus]";
-	mes "Our stocks are short of toadstools.  Remember your morning's skilly?  What about some work at our sponsored mushroom farm?";
+	mes "Nossas ações estão com falta de saques.  Lembra -se da habilidade da sua manhã?  Que tal algum trabalho em nossa fazenda de cogumelos patrocinados?";
 	next;
-	menu "OK, I'll work off!",-, "I love this prison!",M_NO_THANKS;
+	menu "Ok, vou trabalhar!",-, "Eu amo essa prisão!",M_NO_THANKS;
 
 	mes "[Saddeus]";
 	if(checkcart() || checkfalcon() || checkriding()){
 		emotion ET_SCRATCH;
-		mes "I'm sorry, you should release your Cart, PecoPeco or Falcon!";
+		mes "Sinto muito, você deveria liberar seu carrinho, PECEPECO ou FALCON!";
 		close;
 	}
-	mes "Talk to our overseer, Oliver.";
+	mes "Fale com o nosso superintendente, Oliver.";
 	next;
 
 	nude;
@@ -119,8 +119,8 @@ L_W4:
 
 M_NO_THANKS:
 	mes "[Saddeus]";  
-	if (rand(2)) mes "Is today X-Mas time, huh?";
-	mes "Now shut up and back off!";
+	if (rand(2)) mes "Hoje é o X-Mas Time, hein?";
+	mes "Agora cale a boca e o retorno!";
 	if (rand(2)) emotion ET_HUK;
 	close;  
 }
@@ -135,36 +135,36 @@ sec_in02,137,57,1	script	Overseer	708,{
 	
 	if (PRISON_Q <= 0 ) goto L_GET_Q;
 
-	mes "I want you to gather ^FF0000"+PRISON_Q+" Orange Net Mushroom^000000.";
+	mes "Eu quero que você se reúna ^ff0000"+PRISON_Q+"Cogumelo da rede laranja^000000.";
 	if ( countitem(1069)<PRISON_Q ) close;//Items: Orange_Net_Mushroom,
-	mes "OK... hand me all the shrooms...";
-	mes "Let me see... "+countitem(1069)+" of almost edible ones...";//Items: Orange_Net_Mushroom,
-	mes "And "+countitem(1070)+" useless deadly ones.";//Items: Orange_Gooey_Mushroom_,
+	mes "Ok ... me entregue todos os cogumelos ...";
+	mes "Deixe-me ver..."+countitem(1069)+"de quase comestíveis ...";//Items: Orange_Net_Mushroom,
+	mes "E"+countitem(1070)+"inúteis mortais.";//Items: Orange_Gooey_Mushroom_,
 	next;
 	mes "[Oliver]";
-	mes "Thank you. You are free!";
+	mes "Obrigado. Você é grátis!";
 	set PRISON_Q,0;
 	delitem 1069,countitem(1069);//Items: Orange_Net_Mushroom,
 	delitem 1070,countitem(1070);//Items: Orange_Gooey_Mushroom_,
 	next;
-	savepoint "izlude",105,112;
+	savepoint "chocado",105,112;
 	warp "izlude",105,112;
 	close;
 
 L_GET_Q:
 	set PRISON,PRISON+1;
-	if (PRISON > 1) mes "Hmm... You've been here already... Well-well...";
+	if (PRISON > 1) mes "Hmm ... você já esteve aqui ... bem bem ...";
 
-	if ( countitem(1069) || countitem(1070) ) mes "Drop these mushrooms!! They are poisonous!";//Items: Orange_Net_Mushroom, Orange_Gooey_Mushroom_,
+	if ( countitem(1069) || countitem(1070) ) mes "Solte esses cogumelos !! Eles são venenosos!";//Items: Orange_Net_Mushroom, Orange_Gooey_Mushroom_,
 	delitem 1069,countitem(1069);//Items: Orange_Net_Mushroom,
 	delitem 1070,countitem(1070);//Items: Orange_Gooey_Mushroom_,
 
 	set PRISON_Q, PRISON*3 + BaseLevel/3;
 	set PRISON_Q, PRISON_Q * (readparam(bAspd)/55 + 1);
 	set PRISON_Q, PRISON_Q+rand(50,60);
-	mes "OK, you must bring me ^FF0000"+PRISON_Q+"^000000 edible ^FF0000Orange Net Mushroom^000000 toadstoo.. shrooms.";
-	if(readparam(bAspd)>=100) mes "You're a fast fella! You'll have to get more shrooms, then.";
-	if (rand(10)<4) mes "And you may eat the deadly ones for breakfast.";
+	mes "Ok, você deve me trazer ^ff0000"+PRISON_Q+"^000000 comestível ^ff0000RANECE COMUMO DE LENTA ^000000 TOADSTOO.";
+	if(readparam(bAspd)>=100) mes "Você é um cara rápido! Você terá que obter mais cogumelos, então.";
+	if (rand(10)<4) mes "E você pode comer os mortais no café da manhã.";
 	close;
 }
 

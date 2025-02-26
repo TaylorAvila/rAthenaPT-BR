@@ -21,28 +21,28 @@ OnStart:
 		end;
 
 	// create Battleground and teams
-	.red = waitingroom2bg( "-", 0,0, strnpcinfo(0)+"::OnRedQuit", strnpcinfo(0)+"::OnRedDead", .rednpcname$ );
-	.blue = waitingroom2bg( "-", 0,0, strnpcinfo(0)+"::OnBlueQuit", strnpcinfo(0)+"::OnBlueDead", .bluenpcname$ );
+	.red = waitingroom2bg( "-", 0,0, strnpcinfo(0)+":: onredQuit", strnpcinfo(0)+":: Desleread", .rednpcname$ );
+	.blue = waitingroom2bg( "-", 0,0, strnpcinfo(0)+":: onBlueQuit", strnpcinfo(0)+":: onbluedead", .bluenpcname$ );
 	delwaitingroom .rednpcname$;
 	delwaitingroom .bluenpcname$;
-	setwall "bat_a01", 164,347, 6, 4, 0, "bg_emp_town_red";
-	setwall "bat_a01", 154,51, 6, 4, 0, "bg_emp_town_blue";
+	setwall "Conversa_ 01", 164,347, 6, 4, 0, "bg_emp_town_red";
+	setwall "Conversa_ 01", 154,51, 6, 4, 0, "bg_emp_town_blue";
 	bg_warp .red, "bat_a01", 171,346;
 	bg_warp .blue, "bat_a01", 162,50;
 
 	// delay before match begins
 	sleep 6000;
-	mapannounce "bat_a01", "The rules are simple. The first team to break the opponent's Emperium wins!", bc_map;
+	mapannounce "Conversa_ 01", "As regras são simples. O primeiro time a quebrar o Emperium do oponente vence!", bc_map;
 	sleep 3000;
 	for ( .@i = 5; .@i > 0; --.@i ) {
-		mapannounce "bat_a01", "["+ .@i +"]", bc_map;
+		mapannounce "Conversa_ 01", "["+ .@i +"]", bc_map;
 		sleep 1000;
 	}
-	mapannounce "bat_a01", "Start!", bc_map;
+	mapannounce "Conversa_ 01", "Começar!", bc_map;
 
 	// spawn Emperiums
-	bg_monster .red,"bat_a01",171,346, "--ja--",1915, strnpcinfo(3)+"::OnRedDown";
-	bg_monster .blue,"bat_a01",162,50, "--ja--",1914, strnpcinfo(3)+"::OnBlueDown";
+	bg_monster .red,"Conversa_ 01",171,346, "--- e--",1915, strnpcinfo(3)+":: Onreddown";
+	bg_monster .blue,"Conversa_ 01",162,50, "--- e--",1914, strnpcinfo(3)+":: Onbledwn";
 	delwall "bg_emp_town_red";
 	delwall "bg_emp_town_blue";
 
@@ -53,12 +53,12 @@ OnStart:
 	killmonster "bat_a01", strnpcinfo(3)+"::OnRedDown";
 	killmonster "bat_a01", strnpcinfo(3)+"::OnBlueDown";
 	if ( .winside ) {
-		mapannounce "bat_a01", "- "+( (.winside == .red)? "Red" : "Blue" )+" Team is victorious! -", bc_map;
+		mapannounce "Conversa_ 01", "-"+( (.winside == .red)? "Vermelho" : "Azul" )+"A equipe é vitoriosa! -", bc_map;
 		bg_get_data .winside, 1;
 		for ( .@i = 0; .@i < $@arenamemberscount; ++.@i )
 			getitem .rewarditem[0], .rewarditem[1], $@arenamembers[.@i];
 	} else
-		mapannounce "bat_a01", "- The match has ended in a draw! -", bc_map;
+		mapannounce "Conversa_ 01", "- A partida terminou em empate! -", bc_map;
 	sleep 5000;
 	bg_warp .red, "prontera", 155,182;
 	bg_warp .blue, "prontera", 158,182;
@@ -70,15 +70,15 @@ OnStart:
 	end;
 
 // Emperium destroyed
-OnRedDown:  callsub L_EmpDown, "Red", .blue;
-OnBlueDown: callsub L_EmpDown, "Blue", .red;
+OnRedDown:  callsub L_EmpDown, "Vermelho", .blue;
+OnBlueDown: callsub L_EmpDown, "Azul", .red;
 L_EmpDown:
-	mapannounce "bat_a01", strcharinfo(0) +" has destroyed "+ getarg(0) +" Team's Emperium.", bc_map;
+	mapannounce "Conversa_ 01", strcharinfo(0) +"destruiu"+ getarg(0) +"Empeio da equipe.", bc_map;
 	.winside = getarg(1);
 	awake strnpcinfo(0);
 	end;
 
-// "OnDeath" event
+// "ONDEATH" event
 OnRedDead:  callsub L_Dead, 157,347;
 OnBlueDead: callsub L_Dead, 142,51;
 L_Dead:
@@ -86,13 +86,13 @@ L_Dead:
 	percentheal 100,100;
 	end;
 
-// "OnQuit" event
-OnRedQuit:  callsub L_Quit, .red, "Red";
-OnBlueQuit: callsub L_Quit, .blue, "Blue";
+// "Onquit" event
+OnRedQuit:  callsub L_Quit, .red, "Vermelho";
+OnBlueQuit: callsub L_Quit, .blue, "Azul";
 L_Quit:
 	percentheal 100, 100;
 	if ( !bg_get_data( getarg(0), 0 ) )
-		mapannounce "bat_a01", "All "+ getarg(1) +" team members have quit!", bc_map, 0xff3333;
+		mapannounce "Conversa_ 01", "Todos"+ getarg(1) +"Os membros da equipe desistiram!", bc_map, 0xff3333;
 	end;
 }
 

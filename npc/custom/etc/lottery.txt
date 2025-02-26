@@ -65,9 +65,9 @@ Pick6:
 
 	// BROADCASTS DRAW
 L_Broadcast:
-	Announce "Lottery: Welcome to tonight's lotto draw!",8;
-	Announce "The numbers are as follows: [" + $LW1 + "] [" + $LW2 + "] [" + $LW3 + "] [" + $LW4 + "] [" + $LW5 + "] [" + $LW6 + "]",8;
-	Announce "Congratulations to the winners of tonight!",8;
+	Announce "Loteria: Bem -vindo ao sorteio de hoje à noite!",8;
+	Announce "Os números são os seguintes: [" + $LW1 + "] [" + $LW2 + "] [" + $LW3 + "] [" + $LW4 + "] [" + $LW5 + "] [" + $LW6 + "]",8;
+	Announce "Parabéns aos vencedores de hoje à noite!",8;
 
 	// GENERATES DRAW ID CODE
 L_GenID:
@@ -90,30 +90,30 @@ L_Rigged_Draw:
 
 prontera,141,182,5	script	Lottery	76,{
 L_Begin:
-	mes "[Lottery]";
-	mes "Winning Lotto Numbers ("+$LID2+"):";
-	mes "^0000FF[" + $LW1 + "] [" + $LW2 + "] [" + $LW3 + "] [" + $LW4 + "] [" + $LW5 + "] [" + $LW6 + "]^000000";
-	if ($LID > 99999) mes "Your Ticket ("+#LID+"):";
-	if ($LID > 99999) mes "^FF0000[" + #LW1 + "] [" + #LW2 + "] [" + #LW3 + "] [" + #LW4 + "] [" + #LW5 + "] [" + #LW6 + "]^000000";
-	mes "Next Draw-ID: ^FF0000" + $LID + "^000000.";
+	mes "[Loteria]";
+	mes "Números de loteria vencedores ("+$LID2+"):";
+	mes "^0000ff [" + $LW1 + "] [" + $LW2 + "] [" + $LW3 + "] [" + $LW4 + "] [" + $LW5 + "] [" + $LW6 + "]^000000";
+	if ($LID > 99999) mes "Seu ingresso ("+#LID+"):";
+	if ($LID > 99999) mes "^Ff0000 [" + #LW1 + "] [" + #LW2 + "] [" + #LW3 + "] [" + #LW4 + "] [" + #LW5 + "] [" + #LW6 + "]^000000";
+	mes "Próximo Draw-ID: ^FF0000" + $LID + "^000000.";
 	next;
 	if (getgmlevel() > 90) goto L_GM;
-	menu "Claim Prize",L_Claim,"Buy New Ticket",L_Buy,"Cancel",L_Cancel;
+	menu "Prêmio de reivindicação",L_Claim,"Compre um novo ingresso",L_Buy,"Cancelar",L_Cancel;
 
 // PURCHASE TICKET
 L_Buy:
 	if (#LID == $LID && #L1 != 0) goto L_DoubleTicket;
-	mes "[Lottery]";
-	mes "Tickets cost ^0000FF" + $L_TicketPrice + "z^000000.";
-	mes "The Jackpot is ^FF0000" + $L_Prize_Money + "z^000000.";
+	mes "[Loteria]";
+	mes "Os ingressos custam ^0000ff" + $L_TicketPrice + "Z^000000.";
+	mes "O jackpot é ^ff0000" + $L_Prize_Money + "Z^000000.";
 	next;
-	menu "Buy Ticket",-,"Cancel",L_Cancel;
+	menu "Compre bilhete",-,"Cancelar",L_Cancel;
 	if (Zeny < $L_TicketPrice) goto L_NoZeny;
 	set Zeny, Zeny-$L_TicketPrice;
-	mes "[Lottery]";
-	mes "Would you like your numbers hand picked or computer generated?";
+	mes "[Loteria]";
+	mes "Você gostaria que seus números escolham a mão ou gerado por computador?";
 	next;
-	menu "Computer Generated",L_ComputerGen,"Hand Picked",L_HandPick,"Renew Ticket",L_Renew;
+	menu "Computador gerado",L_ComputerGen,"Escolhido à mão",L_HandPick,"Renovar o bilhete",L_Renew;
 
 // RENEW LAST TICKET
 L_Renew:
@@ -156,16 +156,16 @@ Pick6:
 	if (@L6 == @L3) goto Pick6;
 	if (@L6 == @L4) goto Pick6;
 	if (@L6 == @L5) goto Pick6;
-	mes "[Lottery]";
-	mes "The computer has selected the following numbers:";
-	mes "^0000FF" + @L1 + " " + @L2 + " " + @L3 + " " + @L4 + " " + @L5 + " " + @L6 + "^000000";
+	mes "[Loteria]";
+	mes "O computador selecionou os seguintes números:";
+	mes "^0000FF" + @L1 + "" + @L2 + "" + @L3 + "" + @L4 + "" + @L5 + "" + @L6 + "^000000";
 	next;
-	menu "Confirm",L_Confirm,"Re-Generate",L_ComputerGen;
+	menu "Confirmar",L_Confirm,"Regenerado",L_ComputerGen;
 
 // HAND PICK LOTTERY NUMBERS
 L_HandPick:
-	mes "[Lottery]";
-	mes "Please pick your numbers (1-40):";
+	mes "[Loteria]";
+	mes "Escolha seus números (1-40):";
 	set @L1,0;
 	set @L2,0;
 	set @L3,0;
@@ -212,11 +212,11 @@ Input6:
 	if (@L6 == @L5) goto Input6;
 	mes @L6;
 	next;
-	mes "[Lottery]";
-	mes "Your numbers are:";
-	mes "^0000FF" + @L1 + " " + @L2 + " " + @L3 + " " + @L4 + " " + @L5 + " " + @L6 + "^000000";
+	mes "[Loteria]";
+	mes "Seus números são:";
+	mes "^0000FF" + @L1 + "" + @L2 + "" + @L3 + "" + @L4 + "" + @L5 + "" + @L6 + "^000000";
 	next;
-	menu "Confirm",L_Confirm,"Re-Pick",L_HandPick;
+	menu "Confirmar",L_Confirm,"Redirecionar",L_HandPick;
 
 L_Confirm:
 	set #LW1,@L1;
@@ -227,12 +227,12 @@ L_Confirm:
 	set #LW6,@L6;
 	set #LID,$LID;
 L_Confirm2:
-	mes "[Lottery]";
-	mes "The live broadcasted draw is at 9pm.";
-	mes "You can claim your ticket between then and the next draw.";
+	mes "[Loteria]";
+	mes "O sorteio transmitido ao vivo é às 21:00.";
+	mes "Você pode reivindicar seu ingresso entre então e o próximo sorteio.";
 	next;
-	mes "[Lottery]";
-	mes "Good luck!";
+	mes "[Loteria]";
+	mes "Boa sorte!";
 	close;
 
 L_Claim:
@@ -281,61 +281,61 @@ L_Claim:
 	if (@LPrize > 3 && @LPrize < 6) goto LWinSmall;
 
 // NO WINNER
-	mes "[Lottery]";
-	mes "Bad luck, it appears you do not hold a winning ticket.";
+	mes "[Loteria]";
+	mes "Má sorte, parece que você não possui um bilhete vencedor.";
 	next;
-	mes "[Lottery]";
-	mes "Better luck next time!.";
+	mes "[Loteria]";
+	mes "Melhor sorte da próxima vez!.";
 	close;
 
 // MATCHED ALL SIX
 LWinBig:
-	mes "[Lottery]";
-	mes "You have matched all six numbers!";
+	mes "[Loteria]";
+	mes "Você correspondeu a todos os seis números!";
 	mes "Jackpot!";
-	mes "You've won ^0000FF" + $L_Prize_Money + "z^000000.";
+	mes "Você ganhou ^0000ff" + $L_Prize_Money + "Z^000000.";
 	set Zeny, Zeny+$L_Prize_Money;
-	Announce "Lottery: " + strcharinfo(0) + " has won the JACKPOT of " + $L_Prize_Money + "z!",8;
+	Announce "Loteria:" + strcharinfo(0) + "ganhou o jackpot de" + $L_Prize_Money + "Com!",8;
 	set #LID,0;
 	close;
 
 // MATCHED AT LEAST 4
 LWinSmall:
-	mes "[Lottery]";
-	mes "You have matched at least 4 numbers!";
-	mes "You've won ^0000FF" + $L_Prize_Money_Small + "z^000000.";
+	mes "[Loteria]";
+	mes "Você correspondeu a pelo menos 4 números!";
+	mes "Você ganhou ^0000ff" + $L_Prize_Money_Small + "Z^000000.";
 	set Zeny, Zeny+$L_Prize_Money_Small;
-	Announce "Lottery: " + strcharinfo(0) + " has won a prize of " + $L_Prize_Money_Small + "z!",8;
+	Announce "Loteria:" + strcharinfo(0) + "ganhou um prêmio de" + $L_Prize_Money_Small + "Com!",8;
 	set #LID,0;
 	close;
 
 // NO ZENY
 L_NoZeny:
-	mes "[Lottery]";
-	mes "You can't afford a lottery ticket.";
+	mes "[Loteria]";
+	mes "Você não pode pagar um bilhete de loteria.";
 	close;
 
 // INVALID TICKET
 L_Invalid:
-	mes "[Lottery]";
-	mes "I'm sorry but it appears that you have an invalid ticket.";
+	mes "[Loteria]";
+	mes "Sinto muito, mas parece que você tem um bilhete inválido.";
 	close;
 
 // DOUBLE TICKET
 L_DoubleTicket:
-	mes "[Lottery]";
-	mes "It appears that you already have a ticket for today.";
-	mes "You may only purchase one ticket per draw.";
+	mes "[Loteria]";
+	mes "Parece que você já tem um ingresso para hoje.";
+	mes "Você pode comprar apenas um ingresso por sorteio.";
 	close;
 
 L_Cancel:
-	mes "[Lottery]";
-	mes "Come back soon!";
+	mes "[Loteria]";
+	mes "Volte em breve!";
 	close;
 
 // GM MENU (Lets you manually do draws)
 L_GM:
-	menu "Claim Prize",L_Claim,"Buy New Ticket",L_Buy,"[GM]Do Draw Now",-,"[GM]Rig the Lottery",L_GM_Rig,"Cancel",L_Cancel;
+	menu "Prêmio de reivindicação",L_Claim,"Compre um novo ingresso",L_Buy,"[GM] Desenhe agora",-,"[GM] Rigam a loteria",L_GM_Rig,"Cancelar",L_Cancel;
 
 	// CHECKS IF LOTTERY IS RIGGED
 	if ($L_Rigged == 1) goto L_Rigged_Draw;
@@ -375,9 +375,9 @@ GMPick6:
 
 // BROADCASTS DRAW
 L_Broadcast:
-	Announce "Lottery: Welcome to the special GM's lotto draw!",8;
-	Announce "The numbers are as follows: [" + $LW1 + "] [" + $LW2 + "] [" + $LW3 + "] [" + $LW4 + "] [" + $LW5 + "] [" + $LW6 + "]",8;
-	Announce "Congratulations to the winners!",8;
+	Announce "Loteria: Bem -vindo ao sorteio do Lotto da GM especial!",8;
+	Announce "Os números são os seguintes: [" + $LW1 + "] [" + $LW2 + "] [" + $LW3 + "] [" + $LW4 + "] [" + $LW5 + "] [" + $LW6 + "]",8;
+	Announce "Parabéns aos vencedores!",8;
 
 // GENERATES DRAW ID CODE
 L_GenID:
@@ -399,8 +399,8 @@ L_Rigged_Draw:
 
 // ALLOWS GM TO DO A RIGGED DRAW
 L_GM_Rig:
-	mes "[Lottery]";
-	mes "Please pick your numbers (1-40):";
+	mes "[Loteria]";
+	mes "Escolha seus números (1-40):";
 	set $LR1,0;
 	set $LR2,0;
 	set $LR3,0;
@@ -447,8 +447,8 @@ GMInput6:
 	if ($LR6 == $LR5) goto GMInput6;
 	mes $LR6;
 	next;
-	mes "[Lottery]";
-	mes "Lottery rigged for next draw.";
+	mes "[Loteria]";
+	mes "Loteria equipada para o próximo empate.";
 	set $L_Rigged,1;
 	close;
 }

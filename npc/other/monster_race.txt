@@ -38,27 +38,27 @@ OnInit:
 	end;
 
 OnTimer10000:
-	mapannounce "hugel","The Single Monster Race will soon begin. We hope to see many of you participate!",bc_map,"0x87ceeb";
+	mapannounce "Hugel","A corrida de monstro única começará em breve. Esperamos ver muitos de vocês participarem!",bc_map,"0x87ob";
 	end;
 OnTimer30000:
-	mapannounce "hugel","The Single Monster Race Arena has just opened.",bc_map,"0x87ceeb";
+	mapannounce "Hugel","A única arena de corrida de monstros acaba de abrir.",bc_map,"0x87ob";
 	$@mon_time_1_1 = 1;
 	donpcevent "Race Progress Timer::OnEnable";
 	end;
 OnTimer90000:
-	mapannounce "hugel","The Single Monster Race arena is now open. Participants should enter the Arena as soon as they can.",bc_map,"0x87ceeb";
+	mapannounce "Hugel","A única arena de corrida de monstros está agora aberta. Os participantes devem entrar na arena o mais rápido possível.",bc_map,"0x87ob";
 	end;
 OnTimer210000:
-	mapannounce "hugel","The entrance to the Single Monster Race Arena will close shortly. Participants, please enter the arena now.",bc_map,"0x87ceeb";
+	mapannounce "Hugel","A entrada para a única arena de corrida de monstros será fechada em breve. Participantes, entre na arena agora.",bc_map,"0x87ob";
 	end;
 OnTimer270000:
-	mapannounce "hugel","The Single Monster Race Arena's entrance will soon close.",bc_map,"0x87ceeb";
+	mapannounce "Hugel","A entrada da Single Monster Race Arena será fechada em breve.",bc_map,"0x87ob";
 	end;
 OnTimer272000:
-	mapannounce "hugel","Participants, please enter the Arena before the doors close.",bc_map,"0x87ceeb";
+	mapannounce "Hugel","Participantes, entre na arena antes das portas fecharem.",bc_map,"0x87ob";
 	end;
 OnTimer330000:
-	mapannounce "hugel","The race is now starting. If you missed your chance to enter this race, please try again next time~!",bc_map,"0x87ceeb";
+	mapannounce "Hugel","A corrida agora está começando. Se você perdeu a chance de entrar nesta corrida, tente novamente na próxima vez ~!",bc_map,"0x87ob";
 	$@mon_time_1_1 = 0;
 	disablenpc "#race_timer1-1";
 	stopnpctimer;
@@ -108,7 +108,7 @@ OnEnable:
 				enablenpc "Tire"+.@c+"#"+.@i;
 			if (.@tired < 10) enablenpc "Tire"+.@c+"#6";
 		}
-		setd "$@mr_1_luk"+.@c, .@line;
+		setd "$ @ M mr_1"+.@c, .@line;
 		setd "$@mr_1_tire"+.@c, .@tired;
 	}
 	end;
@@ -116,25 +116,25 @@ OnTimer1000:
 	enablenpc "Ticket Helper#single";
 	end;
 OnTimer7000:
-	mapannounce "p_track01","Welcome to the Monster Race Arena.",bc_map,"0xffb6c1";
+	mapannounce "p_track01","Bem -vindo à arena de raça de monstros.",bc_map,"0xFFB6C1";
 	end;
 OnTimer10000:
-	mapannounce "p_track01","Feel free to inquire at the help desk whenever you have questions.",bc_map,"0xffb6c1";
+	mapannounce "p_track01","Sinta -se à vontade para perguntar no suporte técnico sempre que tiver dúvidas.",bc_map,"0xFFB6C1";
 	end;
 OnTimer120000:
-	mapannounce "p_track01","The Single Monster Race will start in 3 minutes.",bc_map,"0xffb6c1";
+	mapannounce "p_track01","A corrida de monstro única começará em 3 minutos.",bc_map,"0xFFB6C1";
 	end;
 OnTimer123000:
-	mapannounce "p_track01","Please ask a Ticket Helper if you wish to wager on the race.",bc_map,"0xffb6c1";
+	mapannounce "p_track01","Por favor, pergunte a um ajudante de ingressos se deseja apostar na corrida.",bc_map,"0xFFB6C1";
 	end;
 OnTimer240000:
-	mapannounce "p_track01","The Single Monster Race will start shortly.",bc_map,"0xffb6c1";
+	mapannounce "p_track01","A corrida de monstro única começará em breve.",bc_map,"0xFFB6C1";
 	end;
 OnTimer243000:
-	mapannounce "p_track01","Please ask a Ticket Helper if you wish to wager on the race.",bc_map,"0xffb6c1";
+	mapannounce "p_track01","Por favor, pergunte a um ajudante de ingressos se deseja apostar na corrida.",bc_map,"0xFFB6C1";
 	end;
 OnTimer300000:
-	mapannounce "p_track01","The Monster Race has already begun. Good luck to all the participants.",bc_map,"0xffb6c1";
+	mapannounce "p_track01","A corrida de monstros já começou. Boa sorte para todos os participantes.",bc_map,"0xFFB6C1";
 	$@monster_race = 0;
 	disablenpc "Ticket Helper#single";
 	for ( .@i = 1; .@i <= 6; .@i++ )
@@ -149,54 +149,54 @@ OnInit:
 }
 
 p_track01,73,22,1	script	Ticket Helper#single	899,{
-	mes "[Ticket Helper]";
-	mes "Welcome to the";
+	mes "[Auxiliar de ingressos]";
+	mes "Bem -vindo ao";
 	mes "Monster Race Arena.";
-	mes "If you'd like to participate";
-	mes "in the ^3131FFSingle Monster Race^000000,";
-	mes "then please select 1 out of";
-	mes "the 6 monsters from the list.";
+	mes "Se você quiser participar";
+	mes "na corrida de monstros ^3131ffsingle ^000000,";
+	mes "Em seguida, selecione 1 de";
+	mes "Os 6 monstros da lista.";
 	next;
 	if (!checkweight("Spawn",200)) {
-		mes "[Ticket Helper]";
-		mes "Wait, wait...";
-		mes "I can't give you";
-		mes "anything right now.";
-		mes "You're carrying way";
-		mes "too many things...";
+		mes "[Auxiliar de ingressos]";
+		mes "Espere, espere ...";
+		mes "Eu não posso te dar";
+		mes "qualquer coisa agora.";
+		mes "Você está carregando caminho";
+		mes "Muitas coisas ...";
 		close;
 	}
-	.@m = select ("Monster Status", "Monster 1", "Monster 2", "Monster 3", "Monster 4", "Monster 5", "Monster 6") - 1;
+	.@m = select ("Status de monstro", "Monstro 1", "Monstro 2", "Monstro 3", "Monstro 4", "Monstro 5", "Monstro 6") - 1;
 	if (.@m == 0) {
 		for ( .@i = 1; .@i <= 6; .@i++ )
-			mes "Monster "+.@i+" [^CC6600Luck^000000: " + getd("$@mr_1_luk"+.@i) + "] [^EE0000HP^000000: " + getd("$@mr_1_tire"+.@i) + "]";
+			mes "Monstro"+.@i+"[^CC6600LUCK^000000:" + getd("$ @ M mr_1"+.@i) + "] [ ^ EE000000HP ^ 000000:" + getd("$@mr_1_tire"+.@i) + "]";
 		close;
 	} else {
 		if ($@mon_time_1_1 == 1) {
 			if (monster_race_1) {
-				mes "[Ticket Helper]";
-				mes "You have selected";
-				mes "Monster ^FF0000"+ monster_race_1 +"^000000 for the";
-				mes "Single Monster Race.";
-				mes "The start of the race";
-				mes "will be announced soon,";
-				mes "so please wait. Thank you.";
+				mes "[Auxiliar de ingressos]";
+				mes "Você selecionou";
+				mes "Monstro ^ff0000"+ monster_race_1 +"^000000 para o";
+				mes "Corrida de monstro único.";
+				mes "O início da corrida";
+				mes "será anunciado em breve,";
+				mes "Então, por favor, espere. Obrigado.";
 				close;
 			}
-			mes "[Ticket Helper]";
-			mes "You've chosen Monster "+.@m+"?";
-			mes "Alright then, please wait";
-			mes "until the start of the race is";
-			mes "announced. If the monster you";
-			mes "picked wins, then please use this ticket to redeem your prize.";
+			mes "[Auxiliar de ingressos]";
+			mes "Você escolheu monstro"+.@m+"?";
+			mes "Tudo bem então, por favor espere";
+			mes "até o início da corrida ser";
+			mes "anunciado. Se o monstro você";
+			mes "Vitadas escolhidas e, em seguida, use este ticket para resgatar seu prêmio.";
 			getitem 7514,1; //Monster_Ticket
 			monster_race_1 = .@m;
 			close;
 		}
-		mes "[Ticket Helper]";
-		mes "I'm sorry, but a Monster";
-		mes "Race is now in progress.";
-		mes "If you'd like to participate, then please wait for the next race.";
+		mes "[Auxiliar de ingressos]";
+		mes "Sinto muito, mas um monstro";
+		mes "A raça está agora em andamento.";
+		mes "Se você quiser participar, aguarde a próxima corrida.";
 		close;
 	}
 
@@ -228,13 +228,13 @@ OnTouchNPC:
 		donpcevent "Runner No. "+.@i+"#"+.@i+"::OnDisable";
 	}
 	sleep 1000;
-	mapannounce "p_track01","We have a winner...!",bc_map,"0x33FF66";
+	mapannounce "p_track01","Temos um vencedor ...!",bc_map,"0x33ff66";
 	sleep 1000;
-	mapannounce "p_track01","Monster "+.@n+" is the winner of this race!",bc_map,"0x33FF66";
+	mapannounce "p_track01","Monstro"+.@n+"é o vencedor desta corrida!",bc_map,"0x33ff66";
 	sleep 4000;
-	mapannounce "p_track01","If you wagered on Monster "+.@n+" in this race, talk to the Medal Distributor to receive your prize!",bc_map,"0x33FF66";
+	mapannounce "p_track01","Se você apostou em monstro"+.@n+"Nesta corrida, converse com o distribuidor de medalhas para receber seu prêmio!",bc_map,"0x33ff66";
 	sleep 2000;
-	mapannounce "p_track01","Please remember that we can distribute Prize Medals for only 5 minutes after each race.",bc_map,"0x33FF66";
+	mapannounce "p_track01","Lembre -se de que podemos distribuir medalhas de prêmios por apenas 5 minutos após cada corrida.",bc_map,"0x33ff66";
 	sleep 1000;
 	donpcevent "Medal Distributor#single::OnEnable";
 	donpcevent strnpcinfo(0)+"::OnDisable";
@@ -255,128 +255,128 @@ p_track01,30,28,0	duplicate(Runner_main)	Runner No. 6#6	-1,1,0
 
 p_track01,67,45,5	script	Medal Distributor#single	845,{
 	if (!checkweight("Spawn",200)) {
-		mes "[Medal Distributor]";
-		mes "I'm sorry, but I can't";
-		mes "reward you with any medals";
-		mes "until you make more space";
-		mes "available in your Inventory.";
+		mes "[Distribuidor de medalhas]";
+		mes "Sinto muito, mas não posso";
+		mes "recompensá -lo com qualquer medalha";
+		mes "Até você criar mais espaço";
+		mes "Disponível em seu inventário.";
 		close;
 	}
-	if (countitem("Monster_Ticket")) {// 7514
-		mes "[Medal Distributor]";
-		mes "Hello there~";
-		mes "If you've wagered on the";
-		mes "winning monster in a recent";
-		mes "race, then you can exchange";
-		mes "your game ticket here for";
-		mes "some Prize Medals.";
+	if (countitem("Monster_ticket")) {// 7514
+		mes "[Distribuidor de medalhas]";
+		mes "Olá ~";
+		mes "Se você apostou no";
+		mes "MONSTRO VENCEDOR EM UM";
+		mes "corrida, então você pode trocar";
+		mes "Seu bilhete de jogo aqui para";
+		mes "Algumas medalhas de prêmios.";
 		next;
-		mes "[Medal Distributor]";
-		mes "Please remember that you can";
-		mes "only exchange winning Game";
-		mes "Tickets for Prize Medals right";
-		mes "after the race finishes. Prize";
-		mes "Medals may be given to Wayne";
-		mes "in Hugel in exchange for items.";
+		mes "[Distribuidor de medalhas]";
+		mes "Lembre -se de que você pode";
+		mes "Apenas o jogo vencedor do troca";
+		mes "Ingressos para medalhas de prêmios certos";
+		mes "Depois que a corrida terminar. Prêmio";
+		mes "Medalhas podem ser dadas a Wayne";
+		mes "em Hugel em troca de itens.";
 		next; 
 		if ($@monster_race) {
 			if (monster_race_1 == $@monster_race) {
-				mes "[Medal Distributor]";
-				mes "Oh, congratulations, you";
-				mes "have a winning ticket for";
-				mes "a Single Monster Race! So ";
-				mes "would you like to exchange your";
-				mes "Racing Ticket for Prize Medals?";
+				mes "[Distribuidor de medalhas]";
+				mes "Oh, parabéns, você";
+				mes "tem um bilhete vencedor para";
+				mes "Uma única corrida de monstro! Então";
+				mes "Você gostaria de trocar seu";
+				mes "Bilhete de corrida para medalhas de prêmios?";
 				next;
-				if (select("Yes, please.:No, thanks.") == 2) {
-					mes "[Medal Distributor]";
-					mes "Um, are you sure? You ";
-					mes "can only exchange a winning";
-					mes "Racing Ticket for Prize Medals";
-					mes "for a short time after the race. If you made a mistake, you";
-					mes "should ask me again quickly.";
+				if (select("Sim, por favor.") == 2) {
+					mes "[Distribuidor de medalhas]";
+					mes "Hum, tem certeza? Você";
+					mes "só pode trocar uma vitória";
+					mes "Bilhete de corrida para medalhas de prêmios";
+					mes "por um curto período de tempo após a corrida. Se você cometeu um erro, você";
+					mes "deve me perguntar novamente rapidamente.";
 					close;
 				}
-				mes "[Medal Distributor]";
-				mes "Let me see your ticket...";
-				mes "Oh! Congratulations, you";
-				mes "won! May I have your name?";
+				mes "[Distribuidor de medalhas]";
+				mes "Deixe -me ver seu ingresso ...";
+				mes "Oh! Parabéns, você";
+				mes "ganho! Posso ter seu nome?";
 				next;
 				input .@input$;
 				if (.@input$ == strcharinfo(0)) {
 					.@insa = rand(1,1000);
-					mes "[Medal Distributor]";
-					mes "Ah, "+strcharinfo(0)+".";
-					mes "You can exchange this";
-					mes "ticket for a Prize Medal by";
-					mes "entering your ticket exchange";
-					mes "number now. Your ticket";
-					mes "exchange number is ^FF0000" + .@insa + "^000000.";
+					mes "[Distribuidor de medalhas]";
+					mes "De,"+strcharinfo(0)+".";
+					mes "Você pode trocar isso";
+					mes "bilhete para uma medalha de prêmio por";
+					mes "Entrando na sua troca de ingressos";
+					mes "número agora. Seu ingresso";
+					mes "O número da troca é ^ff0000" + .@insa + "^000000.";
 					next;
 					input .@input;
 					if (!.@input) {
-						mes "[Medal Distributor]";
-						mes "Oh? You don't want";
-						mes "to exchange your";
-						mes "winning ticket?";
+						mes "[Distribuidor de medalhas]";
+						mes "Oh? Você não quer";
+						mes "para trocar seu";
+						mes "bilhete premiado?";
 						close;
 					} else if (.@input == .@insa) {
-						mes "[Medal Distributor]";
-						mes "Thank you! You entered";
-						mes "the correct number...";
-						mes "Everything seems to";
-						mes "be in order. Alright!";
+						mes "[Distribuidor de medalhas]";
+						mes "Obrigado! Você entrou";
+						mes "O número correto ...";
+						mes "Tudo parece";
+						mes "estar em ordem. Tudo bem!";
 						next;
-						mes "[Medal Distributor]";
-						mes "Now please accept your";
-						mes "Prize Medals! You can";
-						mes "exchange these with";
-						mes "Wayne in Hugel for some";
-						mes "interesting items. Thank you~";
+						mes "[Distribuidor de medalhas]";
+						mes "Agora, por favor, aceite o seu";
+						mes "Medalhas de prêmios! Você pode";
+						mes "trocá -los com";
+						mes "Wayne em Hugel para alguns";
+						mes "Itens interessantes. Obrigado ~";
 						delitem 7514,1; //Monster_Ticket
 						monster_race_1 = 0;
 						getitem 7515,4; //Marvelous_Medal
 						close;
 					}
-					mes "[Medal Distributor]";
-					mes "I'm sorry, but it seems";
-					mes "that you entered the";
-					mes "incorrect ticket number.";
-					mes "Would you mind coming";
-					mes "back again in a while?";
+					mes "[Distribuidor de medalhas]";
+					mes "Sinto muito, mas parece";
+					mes "que você entrou no";
+					mes "Número incorreto do ticket.";
+					mes "Você se importaria de vir";
+					mes "de volta em um tempo?";
 					close;
 				}
-				mes "[Medal Distributor]";
-				mes "What's this...?";
-				mes "I think there's a problem...";
-				mes "Did you enter your name";
-				mes "incorrectly? Please check";
-				mes "your name, and then try again.";
+				mes "[Distribuidor de medalhas]";
+				mes "O que é isso ...?";
+				mes "Eu acho que há um problema ...";
+				mes "Você entrou no seu nome";
+				mes "incorretamente? por favor, verifique";
+				mes "Seu nome e depois tente novamente.";
 				close;
 			}
-			mes "[Medal Distributor]";
-			mes "You may not have wagered";
-			mes "on the winning monster in";
-			mes "the last race, but I hope that";
-			mes "you get lucky next time~";
+			mes "[Distribuidor de medalhas]";
+			mes "Você pode não ter apostado";
+			mes "no monstro vencedor em";
+			mes "a última corrida, mas espero que";
+			mes "Você tem sorte na próxima vez ~";
 			close;
 		}
 	}
-	mes "[Medal Distributor]";
-	mes "Hello there~";
-	mes "If you've wagered on the";
-	mes "winning monster in a recent";
-	mes "race, then you can exchange";
-	mes "your game ticket here for";
-	mes "some Prize Medals.";
+	mes "[Distribuidor de medalhas]";
+	mes "Olá ~";
+	mes "Se você apostou no";
+	mes "MONSTRO VENCEDOR EM UM";
+	mes "corrida, então você pode trocar";
+	mes "Seu bilhete de jogo aqui para";
+	mes "Algumas medalhas de prêmios.";
 	next;
-	mes "[Medal Distributor]";
-	mes "Please remember that you can";
-	mes "only exchange winning Game";
-	mes "Tickets for Prize Medals right";
-	mes "after the race finishes. Prize";
-	mes "Medals may be given to Wayne";
-	mes "in Hugel in exchange for items.";
+	mes "[Distribuidor de medalhas]";
+	mes "Lembre -se de que você pode";
+	mes "Apenas o jogo vencedor do troca";
+	mes "Ingressos para medalhas de prêmios certos";
+	mes "Depois que a corrida terminar. Prêmio";
+	mes "Medalhas podem ser dadas a Wayne";
+	mes "em Hugel em troca de itens.";
 	close;
 
 OnEnable:
@@ -386,34 +386,34 @@ OnEnable:
 	end;
 
 OnTimer1000:
-	mapannounce "p_track01","The Monster Race is finished! Congratulations to all the winners!",bc_map,"0xFFFF00";
+	mapannounce "p_track01","A corrida de monstros acabou! Parabéns a todos os vencedores!",bc_map,"0xffff00";
 	end;
 OnTimer4000:
-	mapannounce "p_track01","Please give your Racing Ticket to the Medal Distributor if you bet on the winning monster.",bc_map,"0xFFFF00";
+	mapannounce "p_track01","Por favor, dê seu ingresso para o distribuidor de medalhas se você apostar no monstro vencedor.",bc_map,"0xffff00";
 	end;
 OnTimer7000:
-	mapannounce "p_track01","You have 5 minutes to exchange a winning ticket for Prize Medals from the Medal Distributor.",bc_map,"0xFFFF00";
+	mapannounce "p_track01","Você tem 5 minutos para trocar um bilhete vencedor por medalhas de prêmios do distribuidor de medalhas.",bc_map,"0xffff00";
 	end;
 OnTimer10000:
-	mapannounce "p_track01","All tickets become void after this 5 minute period, so winners should claim their prize now.",bc_map,"0xFFFF00";
+	mapannounce "p_track01","Todos os ingressos ficam nulos após esse período de 5 minutos, para que os vencedores devem reivindicar seu prêmio agora.",bc_map,"0xffff00";
 	end;
 OnTimer13000:
-	mapannounce "p_track01","Please leave the Race Arena before this 5 minute period elapses. Thank you.",bc_map,"0xFFFF00";
+	mapannounce "p_track01","Deixe a arena da corrida antes que este período de 5 minutos decorre. Obrigado.",bc_map,"0xffff00";
 	end;
 OnTimer240000:
-	mapannounce "p_track01","Attention. We will being preparing for the next race shortly...",bc_map,"0xFFFF00";
+	mapannounce "p_track01","Atenção. Estaremos nos preparando para a próxima corrida em breve ...",bc_map,"0xffff00";
 	end;
 OnTimer243000:
-	mapannounce "p_track01","We will close the Racing Arena in 1 minute to prepare for the next race.",bc_map,"0xFFFF00";
+	mapannounce "p_track01","Fecharemos a arena de corrida em 1 minuto para nos preparar para a próxima corrida.",bc_map,"0xffff00";
 	end;
 OnTimer246000:
-	mapannounce "p_track01","Participants in the last race should leave the arena as soon as possible.",bc_map,"0xFFFF00";
+	mapannounce "p_track01","Os participantes da última corrida devem deixar a arena o mais rápido possível.",bc_map,"0xffff00";
 	end;
 OnTimer249000:
-	mapannounce "p_track01","Thank you for your cooperation.",bc_map,"0xFFFF00";
+	mapannounce "p_track01","Obrigado por sua cooperação.",bc_map,"0xffff00";
 	end;
 OnTimer252000:
-	mapannounce "p_track01","We hope that you enjoyed the Monster Race arena. Come back again soon~",bc_map,"0xFFFF00";
+	mapannounce "p_track01","Esperamos que você tenha gostado da arena de corrida de monstros. Volte novamente em breve ~",bc_map,"0xffff00";
 	$@mr_1_luk1 = $@mr_1_tire1 = 0;
 	for ( .@i = 1; .@i <= 6; .@i++ ) {
 		for ( .@j = 1; .@j <= 6; .@j++ ) {
@@ -422,7 +422,7 @@ OnTimer252000:
 		}
 		enablenpc "Luk1#"+.@i;
 		enablenpc "Tire1#"+.@i;
-		setd "$@mr_1_luk"+.@i,0;
+		setd "$ @ M mr_1"+.@i,0;
 		setd "$@mr_1_tire"+.@i,0;
 	}
 	end;
@@ -440,41 +440,41 @@ OnInit:
 }
 
 p_track01,76,36,1	script	Exit Guide#single	798,{
-	mes "[Exit Guide]";
-	mes "If you have a winning Racing";
-	mes "Ticket, please make sure that";
-	mes "you redeem it for Prize Medals";
-	mes "now. All Racing Tickets become";
-	mes "void once the next race begins.";
+	mes "[Guia de saída]";
+	mes "Se você tem uma corrida vencedora";
+	mes "Bilhete, por favor, certifique -se de que";
+	mes "Você o resgata por medalhas de prêmios";
+	mes "agora. Todos os ingressos para corrida se tornam";
+	mes "anular quando a próxima corrida começa.";
 	next;
-	mes "[Exit Guide]";
-	mes "If you wish to leave";
-	mes "the arena, then I can guide";
-	mes "you outside. Would you like";
-	mes "to leave the arena right now?";
+	mes "[Guia de saída]";
+	mes "Se você deseja sair";
+	mes "A arena, então eu posso guiar";
+	mes "você lá fora. Você gostaria";
+	mes "Para deixar a arena agora?";
 	next;
-	if (select("Yes:No") == 2) {
-		mes "[Exit Guide]";
-		mes "Alright, then.";
-		mes "Just let me know";
-		mes "whenever you're";
-		mes "ready to leave.";
+	if (select("Sim: Não") == 2) {
+		mes "[Guia de saída]";
+		mes "Tudo bem, então.";
+		mes "Apenas me avise";
+		mes "sempre que você está";
+		mes "pronto para sair.";
 		close;
 	}
 	if (!countitem(7514)) {
-		mes "[Exit Guide]";
-		mes "Thank you for";
-		mes "your patronage, and";
-		mes "I hope that you come";
-		mes "visit us again soon~";
+		mes "[Guia de saída]";
+		mes "Obrigado por";
+		mes "Seu patrocínio e";
+		mes "Espero que você venha";
+		mes "Visite -nos novamente em breve ~";
 	} else {
-		mes "[Exit Guide]";
-		mes "In accordance with our";
-		mes "policies, I must take your";
-		mes "Racing Ticket before you leave.";
-		mes "Thank you for your patronage,";
-		mes "and I hope you enjoy your time";
-		mes "here in the Monster Race Arena.";
+		mes "[Guia de saída]";
+		mes "De acordo com o nosso";
+		mes "políticas, devo levar o seu";
+		mes "Bilhete de corrida antes de você sair.";
+		mes "Obrigado pelo seu patrocínio,";
+		mes "E espero que você aproveite seu tempo";
+		mes "Aqui na arena de raça de monstros.";
 		delitem 7514,1; //Monster_Ticket
 	}
 	monster_race_1 = 0;
@@ -485,111 +485,111 @@ p_track01,76,36,1	script	Exit Guide#single	798,{
 
 hugel,58,72,6	script	Eckar Ellebird#single	798,{
 	mes "[Eckar Ellebird]";
-	mes "Welcome to the biggest";
-	mes "attraction in Hugel, the";
+	mes "Bem -vindo ao maior";
+	mes "atração em hugel, o";
 	mes "Monster Race Arena.";
-	mes "How may I help you today?";
+	mes "Como posso ajudá -lo hoje?";
 	next;
-	if (select("Monster Race Info:Enter Monster Race") == 1) {
+	if (select("Informações sobre corrida de monstros: Entre na corrida monstro") == 1) {
 		mes "[Eckar Ellebird]";
-		mes "Monster Races originated from";
-		mes "simple children's games in which";
-		mes "Cute Pets would race against each other. This grew into an adult";
-		mes "pastime that is so popular, we've built a racing arena in Hugel.";
+		mes "Races de monstros se originaram de";
+		mes "Jogos infantis simples nos quais";
+		mes "Animais de estimação fofos corriam um contra o outro. Isso se transformou em um adulto";
+		mes "passatempo que é tão popular que construímos uma arena de corrida em Hugel.";
 		next;
 		mes "[Eckar Ellebird]";
-		mes "Our Monster Race Arena hosts";
-		mes "two types of monster races. First, we have the Single Monster Race,";
-		mes "in which those that wagered on the 1st place monster are rewarded.";
+		mes "Nossos hospedeiros de arena de raça monstros";
+		mes "Dois tipos de corridas de monstros. Primeiro, temos a única corrida de monstros,";
+		mes "em que aqueles que apostaram no 1º lugar monstro são recompensados.";
 		next;
 		mes "[Eckar Ellebird]";
-		mes "Then, we have the Dual Monster";
-		mes "Race in which the house odds and rewards are greater than in Single";
-		mes "Monster Races: you must wager on 2 monsters, and they must place in";
-		mes "1st and 2nd for you to win.";
+		mes "Então, temos o monstro duplo";
+		mes "Raça em que as chances e as recompensas da casa são maiores do que em solteiro";
+		mes "Monster Races: você deve apostar em 2 monstros, e eles devem colocar em";
+		mes "1º e 2º para você vencer.";
 		next;
 		mes "[Eckar Ellebird]";
-		mes "Although a small entrance";
-		mes "fee is required, we only use";
-		mes "the money to give rewards to";
-		mes "participants and maintain this";
-		mes "arena. Therefore, we're not";
-		mes "profiting from this enterprise.";
+		mes "Embora uma pequena entrada";
+		mes "a taxa é necessária, nós apenas usamos";
+		mes "o dinheiro para dar recompensas a";
+		mes "participantes e manter isso";
+		mes "arena. Portanto, não estamos";
+		mes "lucrando com esta empresa.";
 		next;
 		mes "[Eckar Ellebird]";
-		mes "Also, we prohibit others";
-		mes "from making personal bets";
-		mes "and wagers, using items and";
-		mes "zeny, based on the outcomes";
-		mes "of these races. That kind of";
-		mes "gambling is illegal here...";
+		mes "Além disso, proibimos os outros";
+		mes "de fazer apostas pessoais";
+		mes "e apostas, usando itens e";
+		mes "Zeny, com base nos resultados";
+		mes "dessas raças. Esse tipo de";
+		mes "O jogo é ilegal aqui ...";
 		next;
 		mes "[Eckar Ellebird]";
-		mes "Once you enter the Race Arena, you will receive a Racing Ticket.";
-		mes "Keep in mind that winning Racing Tickets can only be exchanged for";
-		mes "Prize Medals during a 5 minute window after the end of the race.";
+		mes "Depois de entrar na arena da corrida, você receberá uma passagem de corrida.";
+		mes "Lembre -se de que os ingressos vencedores de corrida só podem ser trocados por";
+		mes "Medalhas de prêmios durante uma janela de 5 minutos após o final da corrida.";
 		next;
 	}
 	mes "[Eckar Ellebird]";
-	mes "The entrance fee for all races";
-	mes "in the Monster Race Arena is";
-	mes "2,000 zeny. If you'd like to wager on a Dual Monster Race, then";
-	mes "please ask my brother Erenes,";
-	mes "and he will help you.";
+	mes "A taxa de entrada para todas as corridas";
+	mes "na arena de raça monstro é";
+	mes "2.000 Zeny. Se você quiser apostar em uma corrida de monstros dupla, então";
+	mes "Por favor, pergunte ao meu irmão Erenes,";
+	mes "E ele vai te ajudar.";
 	next;
 	mes "[Eckar Ellebird]";
-	mes "Otherwise, I'll help get you";
-	mes "started if you're interested";
-	mes "in a Single Monster Race.";
-	mes "Would you like wager on";
-	mes "a Single Monster Race?";
+	mes "Caso contrário, eu vou te ajudar a te pegar";
+	mes "Iniciado se você estiver interessado";
+	mes "em uma única corrida de monstros.";
+	mes "Você gostaria de apostar";
+	mes "uma única corrida de monstro?";
 	next;
-	if (select("Yes, please.:No, thanks.") == 2) {
+	if (select("Sim, por favor.") == 2) {
 		mes "[Eckar Ellebird]";
-		mes "Very well. I hope that";
-		mes "you enjoy your time here";
-		mes "in the Monster Race Arena~";
+		mes "Muito bem. Eu espero que isso";
+		mes "Você aproveita o seu tempo aqui";
+		mes "na arena de raça monstro ~";
 		close;
 	}
 	if (!checkweight("Spawn",700)) {
 		mes "[Eckar Ellebird]";
-		mes "Oh, wow. You're carrying";
-		mes "an awful lot of stuff... Yeah,";
-		mes "you better put some of it away";
-		mes "in Kafra Storage or something.";
+		mes "Oh, uau. Você está carregando";
+		mes "muitas coisas ... sim,";
+		mes "É melhor você guardar um pouco disso";
+		mes "no armazenamento de kafra ou algo assim.";
 		close;
 	}
 	if (Zeny < 2000) {
 		mes "[Eckar Ellebird]";
-		mes "I'm sorry, but you";
-		mes "don't have enough";
-		mes "money to pay the";
-		mes "2,000 zeny entrance fee. ";
+		mes "Sinto muito, mas você";
+		mes "não tem o suficiente";
+		mes "dinheiro para pagar o";
+		mes "2.000 Taxa de entrada Zeny.";
 		close;
 	}
-	if (countitem("Monster_Ticket")) {
+	if (countitem("Monster_ticket")) {
 		mes "[Eckar Ellebird]";
-		mes "Hm? What are you doing";
-		mes "with an expired Racing Ticket?";
-		mes "Well, I better get rid of it for you before it can get mixed up";
-		mes "with your new Racing Ticket.";
+		mes "HM? O que você está fazendo";
+		mes "Com um bilhete de corrida expirado?";
+		mes "Bem, é melhor eu me livrar disso para você antes que possa me misturar";
+		mes "com seu novo bilhete de corrida.";
 		delitem 7514,1; //Monster_Ticket
 		next;
 		if ($@mon_time_1_1 == 1) {
 			if (Zeny < 2000) {
 				mes "[Eckar Ellebird]";
-				mes "I'm sorry, but you";
-				mes "don't have enough";
-				mes "money to pay the";
-				mes "2,000 zeny entrance fee. ";
+				mes "Sinto muito, mas você";
+				mes "não tem o suficiente";
+				mes "dinheiro para pagar o";
+				mes "2.000 Taxa de entrada Zeny.";
 				close;
 			}
 			mes "[Eckar Ellebird]";
-			mes "Alright, I think you";
-			mes "should be all set. I hope";
-			mes "that you enjoy the race~";
-			mes "Let me guide you inside";
-			mes "the Monster Race Arena now.";
+			mes "Tudo bem, eu acho que você";
+			mes "deve estar tudo definido. Espero";
+			mes "que você gosta da corrida ~";
+			mes "Deixe -me guiar você dentro";
+			mes "A arena de raça monstro agora.";
 			Zeny -= 2000;
 			monster_race_1 = 0;
 			close2;
@@ -598,10 +598,10 @@ hugel,58,72,6	script	Eckar Ellebird#single	798,{
 		}
 	} else if ($@mon_time_1_1 == 1) {
 		mes "[Eckar Ellebird]";
-		mes "Thanks, I hope that";
-		mes "you enjoy this race.";
-		mes "Let me guide you now";
-		mes "to the Monster Race Arena.";
+		mes "Obrigado, espero que";
+		mes "Você gosta desta corrida.";
+		mes "Deixe -me guiá -lo agora";
+		mes "para a arena de corrida de monstros.";
 		Zeny -= 2000;
 		monster_race_1 = 0;
 		close2;
@@ -610,35 +610,35 @@ hugel,58,72,6	script	Eckar Ellebird#single	798,{
 	}
 	if ($@mon_time_1_1 == 2) {
 		mes "[Eckar Ellebird]";
-		mes "We're still finishing our";
-		mes "preparations for the next";
-		mes "Single Monster Race, so";
-		mes "we ask that you please";
-		mes "wait a little while longer...";
+		mes "Ainda estamos terminando nosso";
+		mes "preparativos para o próximo";
+		mes "Corrida de monstro único, então";
+		mes "Pedimos que você por favor";
+		mes "Espere um pouco mais ...";
 		close;
 	}
 	if ($@monster_race == 0) {
 		mes "[Eckar Ellebird]";
-		mes "Right now, a Monster Race";
-		mes "is in progress. It's too late to place a wager, but if you'd like";
-		mes "to watch, the fee is 500 zeny";
-		mes "for spectators. Would you like to enter the Monster Race Arena?";
+		mes "Agora, uma corrida de monstro";
+		mes "está em andamento. É tarde demais para colocar uma aposta, mas se você quiser";
+		mes "Para assistir, a taxa é 500 Zeny";
+		mes "para espectadores. Você gostaria de entrar na arena de corrida de monstros?";
 		next;
-		if (select("Enter:Cancel") == 2) {
+		if (select("Digite: Cancelar") == 2) {
 			mes "[Eckar Ellebird]";
-			mes "Alright, then. If you'd like";
-			mes "to wager on a monster";
-			mes "race, please wait for the";
-			mes "current race to finish. I hope";
-			mes "that you enjoy your time here";
-			mes "in the Monster Race Arena~";
+			mes "Tudo bem, então. Se você quiser";
+			mes "apostar em um monstro";
+			mes "corrida, por favor, espere pelo";
+			mes "corrida atual para terminar. Espero";
+			mes "que você aproveita seu tempo aqui";
+			mes "na arena de raça monstro ~";
 			close;
 		}
 		if (Zeny > 499) {
 			mes "[Eckar Ellebird]";
-			mes "Thank you~";
-			mes "I hope you enjoy";
-			mes "watching this race!";
+			mes "Obrigado ~";
+			mes "Espero que você goste";
+			mes "Assistindo a esta corrida!";
 			Zeny -= 500;
 			monster_race_1 = 0;
 			close2;
@@ -646,18 +646,18 @@ hugel,58,72,6	script	Eckar Ellebird#single	798,{
 			end;
 		}
 		mes "[Eckar Ellebird]";
-		mes "I'm sorry, but you don't";
-		mes "have enough money to pay";
-		mes "the 500 zeny spectator fee.";
+		mes "Sinto muito, mas você não";
+		mes "tem dinheiro suficiente para pagar";
+		mes "A taxa de 500 espectadores de Zeny.";
 		close;
 	}
 	mes "[Eckar Ellebird]";
-	mes "I'm sorry, but a monster";
-	mes "race has just ended, so we're";
-	mes "having the 5 minute period in";
-	mes "which the winners can claim";
-	mes "their Prize Medals. The gate";
-	mes "will open soon, so please wait.";
+	mes "Sinto muito, mas um monstro";
+	mes "a raça acabou de terminar, então estamos";
+	mes "tendo o período de 5 minutos em";
+	mes "que os vencedores podem reivindicar";
+	mes "suas medalhas de prêmios. O portão";
+	mes "Abrirá em breve, então, por favor, espere.";
 	close;
 OnEnable:
 	enablenpc "Eckar Ellebird#single";
@@ -668,99 +668,99 @@ OnDisable:
 }
 
 p_track01,39,49,3	script	Game Guide#single	845,{
-	mes "[Game Guide]";
-	mes "Welcome to the";
+	mes "[Guia do jogo]";
+	mes "Bem -vindo ao";
 	mes "Monster Race Arena.";
-	mes "How can I help you?";
+	mes "Como posso ajudá-lo?";
 	next;
-	switch(select("Monster Race Info:Wager Info:Ticket Redemption Info")) {
+	switch(select("Informações sobre corrida de monstros: Aposta Informações: Informações sobre resgate de ingressos")) {
 	case 1:
-		mes "[Game Guide]";
-		mes "Monster Races originated from";
-		mes "simple children's games in which";
-		mes "Cute Pets would race against each other. This grew into an adult";
-		mes "pastime that is so popular, we've built a racing arena in Hugel.";
+		mes "[Guia do jogo]";
+		mes "Races de monstros se originaram de";
+		mes "Jogos infantis simples nos quais";
+		mes "Animais de estimação fofos corriam um contra o outro. Isso se transformou em um adulto";
+		mes "passatempo que é tão popular que construímos uma arena de corrida em Hugel.";
 		next;
-		mes "[Game Guide]";
-		mes "Our Monster Race Arena hosts";
-		mes "two types of monster races. First, we have the Single Monster Race,";
-		mes "in which those that wagered on the 1st place monster are rewarded.";
+		mes "[Guia do jogo]";
+		mes "Nossos hospedeiros de arena de raça monstros";
+		mes "Dois tipos de corridas de monstros. Primeiro, temos a única corrida de monstros,";
+		mes "em que aqueles que apostaram no 1º lugar monstro são recompensados.";
 		next;
-		mes "[Game Guide]";
-		mes "Then, we have the Dual Monster";
-		mes "Race in which the house odds and rewards are greater than in Single";
-		mes "Monster Races: you must wager on 2 monsters, and they must place in";
-		mes "1st and 2nd for you to win.";
+		mes "[Guia do jogo]";
+		mes "Então, temos o monstro duplo";
+		mes "Raça em que as chances e as recompensas da casa são maiores do que em solteiro";
+		mes "Monster Races: você deve apostar em 2 monstros, e eles devem colocar em";
+		mes "1º e 2º para você vencer.";
 		next;
-		mes "[Game Guide]";
-		mes "Although a small entrance";
-		mes "fee is required, we only use";
-		mes "the money to give rewards to";
-		mes "participants and maintain this";
-		mes "arena. Therefore, we're not";
-		mes "profiting from this enterprise.";
+		mes "[Guia do jogo]";
+		mes "Embora uma pequena entrada";
+		mes "a taxa é necessária, nós apenas usamos";
+		mes "o dinheiro para dar recompensas a";
+		mes "participantes e manter isso";
+		mes "arena. Portanto, não estamos";
+		mes "lucrando com esta empresa.";
 		next;
-		mes "[Game Guide]";
-		mes "Also, we prohibit others";
-		mes "from making personal bets";
-		mes "and wagers, using items and";
-		mes "zeny, based on the outcomes";
-		mes "of these races. That kind of";
-		mes "gambling is illegal here...";
+		mes "[Guia do jogo]";
+		mes "Além disso, proibimos os outros";
+		mes "de fazer apostas pessoais";
+		mes "e apostas, usando itens e";
+		mes "Zeny, com base nos resultados";
+		mes "dessas raças. Esse tipo de";
+		mes "O jogo é ilegal aqui ...";
 		next;
-		mes "[Game Guide]";
-		mes "Once you enter the Race Arena, you will receive a Racing Ticket.";
-		mes "Keep in mind that winning Racing Tickets can only be exchanged for";
-		mes "Prize Medals during a 5 minute window after the end of the race.";
+		mes "[Guia do jogo]";
+		mes "Depois de entrar na arena da corrida, você receberá uma passagem de corrida.";
+		mes "Lembre -se de que os ingressos vencedores de corrida só podem ser trocados por";
+		mes "Medalhas de prêmios durante uma janela de 5 minutos após o final da corrida.";
 		next;
 		break;
 	case 2:
-		mes "[Game Guide]";
-		mes "Before placing a wager, you";
-		mes "must get a free Racing Ticket";
-		mes "from the Ticket Helper. There,";
-		mes "I've marked the Ticket Helper";
-		mes "on your Mini-Map, so you can";
-		mes "find him pretty easily.";
+		mes "[Guia do jogo]";
+		mes "Antes de colocar uma aposta, você";
+		mes "Deve obter um bilhete de corrida grátis";
+		mes "do ajudante de ingressos. Lá,";
+		mes "Eu marquei o ajudante de ingressos";
+		mes "em seu mini-mapa, então você pode";
+		mes "encontre -o com muita facilidade.";
 		viewpoint 1,73,22,1,0xFF3355;
 		next;
 		break;
 	case 3:
-		mes "[Game Guide]";
-		mes "If you wagered on the winner";
-		mes "of a Single Monster Race, or";
-		mes "on the 1st or 2nd place winners";
-		mes "in a Dual Monster Race, then";
-		mes "you can exchange your Racing";
-		mes "Ticket for Prize Medals.";
+		mes "[Guia do jogo]";
+		mes "Se você apostou no vencedor";
+		mes "de uma única corrida de monstros, ou";
+		mes "no 1º ou 2º vencedor";
+		mes "em uma corrida de monstros dupla, então";
+		mes "Você pode trocar suas corridas";
+		mes "Bilhete para medalhas de prêmios.";
 		next;
-		mes "[Game Guide]";
-		mes "However, you must exchange";
-		mes "your Racing Ticket with the";
-		mes "Medal Distributor within the";
-		mes "5 minute window after the end";
-		mes "of the race. ^FF0000Your ticket becomes^FFFFFF ^FF0000 void after these 5 minutes.^000000";
+		mes "[Guia do jogo]";
+		mes "No entanto, você deve trocar";
+		mes "Seu bilhete de corrida com o";
+		mes "Distribuidor de medalhas dentro do";
+		mes "Janela de 5 minutos após o final";
+		mes "da corrida. ^Ff0000 seu ingresso se torna^ffffff^ff0000 vazio após esses 5 minutos.^000000";
 		next;
-		mes "[Game Guide]";
-		mes "When this 5 minute window";
-		mes "elapses, you will be teleported outside, and we will immediately";
-		mes "begin preparing for the next race. Make sure that you remember this";
-		mes "information when you wager.";
+		mes "[Guia do jogo]";
+		mes "Quando esta janela de 5 minutos";
+		mes "Declases, você será teletransportado para fora, e nós iremos imediatamente";
+		mes "Comece a se preparar para a próxima corrida. Certifique -se de se lembrar disso";
+		mes "informação quando você apostou.";
 		next;
-		mes "[Game Guide]";
-		mes "If you haven't received";
-		mes "your free Racing Ticket,";
-		mes "then please visit the Ticket";
-		mes "Helper. There, I've just marked";
-		mes "his location on your Mini-Map.";
+		mes "[Guia do jogo]";
+		mes "Se você não recebeu";
+		mes "Seu bilhete de corrida gratuito,";
+		mes "Então, por favor, visite o ingresso";
+		mes "Ajudante. Lá, acabei de marcar";
+		mes "Sua localização em seu mini-mapa.";
 		viewpoint 1,67,45,2,0xCE6300;
 		next;
 		break;
 	}
-	mes "[Game Guide]";
-	mes "Thank you, and";
-	mes "I hope you enjoy";
-	mes "your time here in the";
+	mes "[Guia do jogo]";
+	mes "Obrigado e";
+	mes "Espero que você goste";
+	mes "Seu tempo aqui no";
 	mes "Monster Racing Arena.";
 	close;
 }
@@ -926,11 +926,11 @@ OnInit:
 	end;
 
 OnTimer10000:
-	mapannounce "hugel","The Dual Monster Race will soon begin. We hope to see many of you participate!",bc_map,"0xffb6c1";
+	mapannounce "Hugel","A corrida de monstros dupla começará em breve. Esperamos ver muitos de vocês participarem!",bc_map,"0xFFB6C1";
 	end;
 
 OnTimer30000:
-	mapannounce "hugel","The Dual Monster Race Arena has just opened.",bc_map,"0xffb6c1";
+	mapannounce "Hugel","A arena de corrida de monstros dupla acaba de abrir.",bc_map,"0xFFB6C1";
 	$@mon_time_2_1 = 1;
 	donpcevent "#race_timer2-2::OnEnable";
 	donpcevent "TrapGlobal#race02::OnEnable";
@@ -938,23 +938,23 @@ OnTimer30000:
 	end;
 
 OnTimer90000:
-	mapannounce "hugel","The Dual Monster Race arena is now open. Participants should enter the Arena as soon as they can.",bc_map,"0xffb6c1";
+	mapannounce "Hugel","A arena de corrida de monstros dupla agora está aberta. Os participantes devem entrar na arena o mais rápido possível.",bc_map,"0xFFB6C1";
 	end;
 
 OnTimer210000:
-	mapannounce "hugel","The entrance to the Dual Monster Race Arena will close shortly. Participants, please enter the arena now.",bc_map,"0xffb6c1";
+	mapannounce "Hugel","A entrada da Dual Monster Race Arena fechará em breve. Participantes, entre na arena agora.",bc_map,"0xFFB6C1";
 	end;
 
 OnTimer270000:
-	mapannounce "hugel","The Dual Monster Race Arena's entrance will soon close.",bc_map,"0xffb6c1";
+	mapannounce "Hugel","A entrada da Dual Monster Race Arena será fechada em breve.",bc_map,"0xFFB6C1";
 	end;
 
 OnTimer272000:
-	mapannounce "hugel","Participants, please enter the Arena before the doors close.",bc_map,"0xffb6c1";
+	mapannounce "Hugel","Participantes, entre na arena antes das portas fecharem.",bc_map,"0xFFB6C1";
 	end;
 
 OnTimer330000:
-	mapannounce "hugel","The race is now starting. If you missed your chance to enter this race, please try again next time~!",bc_map,"0xffb6c1";
+	mapannounce "Hugel","A corrida agora está começando. Se você perdeu a chance de entrar nesta corrida, tente novamente na próxima vez ~!",bc_map,"0xFFB6C1";
 	$@mon_time_2_1 = 0;
 	disablenpc "#race_timer2-1";
 	stopnpctimer;
@@ -969,31 +969,31 @@ OnEnable:
 	end;
 
 OnTimer5000:
-	mapannounce "p_track02","Welcome to the Monster Race Arena.",bc_map,"0x87ceeb";
+	mapannounce "p_track02","Bem -vindo à arena de raça de monstros.",bc_map,"0x87ob";
 	end;
 
 OnTimer7000:
-	mapannounce "p_track02","Feel free to inquire at the help desk whenever you have questions.",bc_map,"0x87ceeb";
+	mapannounce "p_track02","Sinta -se à vontade para perguntar no suporte técnico sempre que tiver dúvidas.",bc_map,"0x87ob";
 	end;
 
 OnTimer120000:
-	mapannounce "p_track02","The Dual Monster Race will start in 3 minutes.",bc_map,"0x87ceeb";
+	mapannounce "p_track02","A corrida de monstros dupla começará em 3 minutos.",bc_map,"0x87ob";
 	end;
 
 OnTimer122000:
-	mapannounce "p_track02","Please ask a Ticket Helper if you wish to wager on the race.",bc_map,"0x87ceeb";
+	mapannounce "p_track02","Por favor, pergunte a um ajudante de ingressos se deseja apostar na corrida.",bc_map,"0x87ob";
 	end;
 
 OnTimer240000:
-	mapannounce "p_track02","The Dual Monster Race will start shortly.",bc_map,"0x87ceeb";
+	mapannounce "p_track02","A corrida de monstros dupla começará em breve.",bc_map,"0x87ob";
 	end;
 
 OnTimer242000:
-	mapannounce "p_track02","Please ask a Ticket Helper if you wish to wager on the race.",bc_map,"0x87ceeb";
+	mapannounce "p_track02","Por favor, pergunte a um ajudante de ingressos se deseja apostar na corrida.",bc_map,"0x87ob";
 	end;
 
 OnTimer300000:
-	mapannounce "p_track02","The Monster Race is starting now. Good luck, everybody!",bc_map,"0x87ceeb";
+	mapannounce "p_track02","A corrida de monstros está começando agora. Boa sorte, pessoal!",bc_map,"0x87ob";
 	$@mon_time_2_2 = 1;
 	disablenpc "Ticket Helper#2";
 	donpcevent "#poring1::OnEnable";
@@ -1019,43 +1019,43 @@ OnEnable:
 	end;
 
 OnTimer3000:
-	mapannounce "p_track02","The Monster Race is finished! Congratulations to all the winners!",bc_map,"0xFFFF00";
+	mapannounce "p_track02","A corrida de monstros acabou! Parabéns a todos os vencedores!",bc_map,"0xffff00";
 	end;
 
 OnTimer6000:
-	mapannounce "p_track02","Please give your Racing Ticket to the Medal Distributor if you bet on the winning monster.",bc_map,"0xFFFF00";
+	mapannounce "p_track02","Por favor, dê seu ingresso para o distribuidor de medalhas se você apostar no monstro vencedor.",bc_map,"0xffff00";
 	end;
 
 OnTimer9000:
-	mapannounce "p_track02","You have 5 minutes to exchange a winning ticket for Prize Medals from the Medal Distributor.",bc_map,"0xFFFF00";
+	mapannounce "p_track02","Você tem 5 minutos para trocar um bilhete vencedor por medalhas de prêmios do distribuidor de medalhas.",bc_map,"0xffff00";
 	end;
 
 OnTimer12000:
-	mapannounce "p_track02","All tickets become void after this 5 minute period, so winners should claim their prize now.",bc_map,"0xFFFF00";
+	mapannounce "p_track02","Todos os ingressos ficam nulos após esse período de 5 minutos, para que os vencedores devem reivindicar seu prêmio agora.",bc_map,"0xffff00";
 	end;
 
 OnTimer15000:
-	mapannounce "p_track02","Please leave the Race Arena before this 5 minute period elapses. Thank you.",bc_map,"0xFFFF00";
+	mapannounce "p_track02","Deixe a arena da corrida antes que este período de 5 minutos decorre. Obrigado.",bc_map,"0xffff00";
 	end;
 
 OnTimer240000:
-	mapannounce "p_track02","Attention. We will being preparing for the next race shortly...",bc_map,"0xFFFF00";
+	mapannounce "p_track02","Atenção. Estaremos nos preparando para a próxima corrida em breve ...",bc_map,"0xffff00";
 	end;
 
 OnTimer243000:
-	mapannounce "p_track02","We will close the Racing Arena in 1 minute to prepare for the next race.",bc_map,"0xFFFF00";
+	mapannounce "p_track02","Fecharemos a arena de corrida em 1 minuto para nos preparar para a próxima corrida.",bc_map,"0xffff00";
 	end;
 
 OnTimer246000:
-	mapannounce "p_track02","Participants in the last race should leave the arena as soon as possible.",bc_map,"0xFFFF00";
+	mapannounce "p_track02","Os participantes da última corrida devem deixar a arena o mais rápido possível.",bc_map,"0xffff00";
 	end;
 
 OnTimer249000:
-	mapannounce "p_track02","Thank you for your cooperation.",bc_map,"0xFFFF00";
+	mapannounce "p_track02","Obrigado por sua cooperação.",bc_map,"0xffff00";
 	end;
 
 OnTimer252000:
-	mapannounce "p_track02","We hope that you enjoyed the Monster Race arena. Come back again soon~",bc_map,"0xFFFF00";
+	mapannounce "p_track02","Esperamos que você tenha gostado da arena de corrida de monstros. Volte novamente em breve ~",bc_map,"0xffff00";
 	end;
 
 OnTimer300000:
@@ -1071,106 +1071,106 @@ OnInit:
 
 hugel,62,69,1	script	Eckar Erenes#double	798,{
 	mes "[Eckar Erenes]";
-	mes "Welcome to the";
+	mes "Bem -vindo ao";
 	mes "Monster Race Arena,";
-	mes "the pride and joy of";
-	mes "the village of Hugel!";
-	mes "How may I help you?";
+	mes "o orgulho e a alegria de";
+	mes "A vila de Hugel!";
+	mes "Como posso ajudá -lo?";
 	next;
-	if (select("Monster Race Info:Enter Monster Race") == 1) {
+	if (select("Informações sobre corrida de monstros: Entre na corrida monstro") == 1) {
 		mes "[Eckar Erenes]";
-		mes "Monster Races originated from";
-		mes "simple children's games in which";
-		mes "Cute Pets would race against each other. This grew into an adult";
-		mes "pastime that is so popular, we've built a racing arena in Hugel.";
+		mes "Races de monstros se originaram de";
+		mes "Jogos infantis simples nos quais";
+		mes "Animais de estimação fofos corriam um contra o outro. Isso se transformou em um adulto";
+		mes "passatempo que é tão popular que construímos uma arena de corrida em Hugel.";
 		next;
 		mes "[Eckar Erenes]";
-		mes "Our Monster Race Arena hosts";
-		mes "two types of monster races. First, we have the Single Monster Race,";
-		mes "in which those that wagered on the 1st place monster are rewarded.";
+		mes "Nossos hospedeiros de arena de raça monstros";
+		mes "Dois tipos de corridas de monstros. Primeiro, temos a única corrida de monstros,";
+		mes "em que aqueles que apostaram no 1º lugar monstro são recompensados.";
 		next;
 		mes "[Eckar Erenes]";
-		mes "Then, we have the Dual Monster";
-		mes "Race in which the house odds and rewards are greater than in Single";
-		mes "Monster Races: you must wager on 2 monsters, and they must place in";
-		mes "1st and 2nd for you to win.";
+		mes "Então, temos o monstro duplo";
+		mes "Raça em que as chances e as recompensas da casa são maiores do que em solteiro";
+		mes "Monster Races: você deve apostar em 2 monstros, e eles devem colocar em";
+		mes "1º e 2º para você vencer.";
 		next;
 		mes "[Eckar Erenes]";
-		mes "Although a small entrance";
-		mes "fee is required, we only use";
-		mes "the money to give rewards to";
-		mes "participants and maintain this";
-		mes "arena. Therefore, we're not";
-		mes "profiting from this enterprise.";
+		mes "Embora uma pequena entrada";
+		mes "a taxa é necessária, nós apenas usamos";
+		mes "o dinheiro para dar recompensas a";
+		mes "participantes e manter isso";
+		mes "arena. Portanto, não estamos";
+		mes "lucrando com esta empresa.";
 		next;
 		mes "[Eckar Erenes]";
-		mes "Also, we prohibit others";
-		mes "from making personal bets";
-		mes "and wagers, using items and";
-		mes "zeny, based on the outcomes";
-		mes "of these races. That kind of";
-		mes "gambling is illegal here...";
+		mes "Além disso, proibimos os outros";
+		mes "de fazer apostas pessoais";
+		mes "e apostas, usando itens e";
+		mes "Zeny, com base nos resultados";
+		mes "dessas raças. Esse tipo de";
+		mes "O jogo é ilegal aqui ...";
 		next;
 		mes "[Eckar Erenes]";
-		mes "Once you enter the Race Arena, you will receive a Racing Ticket.";
-		mes "Keep in mind that winning Racing Tickets can only be exchanged for";
-		mes "Prize Medals during a 5 minute window after the end of the race.";
+		mes "Depois de entrar na arena da corrida, você receberá uma passagem de corrida.";
+		mes "Lembre -se de que os ingressos vencedores de corrida só podem ser trocados por";
+		mes "Medalhas de prêmios durante uma janela de 5 minutos após o final da corrida.";
 		next;
 	}
 	mes "[Eckar Erenes]";
-	mes "The entrance fee for all races";
-	mes "in the Monster Race Arena is";
-	mes "2,000 zeny. If you'd like to wager on a Single Monster Race,";
-	mes "then please ask my brother";
-	mes "Ellebird to help you.";
+	mes "A taxa de entrada para todas as corridas";
+	mes "na arena de raça monstro é";
+	mes "2.000 Zeny. Se você quiser apostar em uma única corrida de monstros,";
+	mes "Então por favor pergunte ao meu irmão";
+	mes "Ellebird para ajudá -lo.";
 	next;
 	mes "[Eckar Erenes]";
-	mes "Otherwise, I'll help get you";
-	mes "started if you're interested";
-	mes "in a Dual Monster Race.";
-	mes "Would you like to wager";
-	mes "on a Dual Monster Race?";
+	mes "Caso contrário, eu vou te ajudar a te pegar";
+	mes "Iniciado se você estiver interessado";
+	mes "em uma corrida dupla de monstros.";
+	mes "Você gostaria de apostar";
+	mes "em uma corrida de monstros dupla?";
 	next;
-	if (select("Yes, please.:No, thanks.") == 2) {
+	if (select("Sim, por favor.") == 2) {
 		mes "[Eckar Erenes]";
-		mes "Very well. I hope that";
-		mes "you enjoy your time here";
-		mes "in the Monster Race Arena~";
+		mes "Muito bem. Eu espero que isso";
+		mes "Você aproveita o seu tempo aqui";
+		mes "na arena de raça monstro ~";
 		close;
 	}
-	if (!checkweight("Jellopy",700)) {
+	if (!checkweight("Jelópica",700)) {
 		mes "[Eckar Erenes]";
-		mes "Hmm... You're toting";
-		mes "too many things with you";
-		mes "right now. You better put";
-		mes "some of your stuff away in";
-		mes "Kafra Storage before you can";
-		mes "wager on any monster races...";
+		mes "Hmm ... você está carregando";
+		mes "Muitas coisas com você";
+		mes "agora mesmo. É melhor você colocar";
+		mes "Algumas de suas coisas em";
+		mes "Armazenamento de kafra antes que você possa";
+		mes "Aposta em qualquer corrida de monstro ...";
 		close;
 	}
 	if (Zeny < 2000) {
 		mes "[Eckar Erenes]";
-		mes "I'm sorry, but you";
-		mes "don't have enough";
-		mes "money to pay the";
-		mes "2,000 zeny entrance fee. ";
+		mes "Sinto muito, mas você";
+		mes "não tem o suficiente";
+		mes "dinheiro para pagar o";
+		mes "2.000 Taxa de entrada Zeny.";
 		close;
 	}
 	if (countitem(7514)) {
 		mes "[Eckar Erenes]";
-		mes "Hm? What are you doing";
-		mes "with an expired Racing Ticket?";
-		mes "Well, I better get rid of it for you before it can get mixed up";
-		mes "with your new Racing Ticket.";
+		mes "HM? O que você está fazendo";
+		mes "Com um bilhete de corrida expirado?";
+		mes "Bem, é melhor eu me livrar disso para você antes que possa me misturar";
+		mes "com seu novo bilhete de corrida.";
 		delitem 7514,1; //Monster_Ticket
 		next;
 		if ($@mon_time_2_1 == 1) {
 			mes "[Eckar Erenes]";
-			mes "Alright, I think you";
-			mes "should be all set. I hope";
-			mes "that you enjoy the race~";
-			mes "Let me guide you inside";
-			mes "the Monster Race Arena now.";
+			mes "Tudo bem, eu acho que você";
+			mes "deve estar tudo definido. Espero";
+			mes "que você gosta da corrida ~";
+			mes "Deixe -me guiar você dentro";
+			mes "A arena de raça monstro agora.";
 			Zeny -= 2000;
 			monster_race_2_1 = monster_race_2_2 = 0;
 			close2;
@@ -1179,20 +1179,20 @@ hugel,62,69,1	script	Eckar Erenes#double	798,{
 		}
 		else if ($@mon_time_2_1 == 2) {
 			mes "[Eckar Erenes]";
-			mes "We're still finishing our";
-			mes "preparations for the next";
-			mes "Double Monster Race, so";
-			mes "we ask that you please";
-			mes "wait a little while longer...";
+			mes "Ainda estamos terminando nosso";
+			mes "preparativos para o próximo";
+			mes "Corrida de monstro duplo, então";
+			mes "Pedimos que você por favor";
+			mes "Espere um pouco mais ...";
 			close;
 		}
 	} else {
 		if ($@mon_time_2_1 == 1) {
 			mes "[Eckar Erenes]";
-			mes "Thanks, I hope that";
-			mes "you enjoy this race.";
-			mes "Let me guide you now";
-			mes "to the Monster Race Arena.";
+			mes "Obrigado, espero que";
+			mes "Você gosta desta corrida.";
+			mes "Deixe -me guiá -lo agora";
+			mes "para a arena de corrida de monstros.";
 			Zeny -= 2000;
 			monster_race_2_1 = monster_race_2_2 = 0;
 			close2;
@@ -1200,36 +1200,36 @@ hugel,62,69,1	script	Eckar Erenes#double	798,{
 			end;
 		} else if ($@mon_time_2_1 == 2) {
 			mes "[Eckar Erenes]";
-			mes "We're still finishing our";
-			mes "preparations for the next";
-			mes "Double Monster Race, so";
-			mes "we ask that you please";
-			mes "wait a little while longer...";
+			mes "Ainda estamos terminando nosso";
+			mes "preparativos para o próximo";
+			mes "Corrida de monstro duplo, então";
+			mes "Pedimos que você por favor";
+			mes "Espere um pouco mais ...";
 			close;
 		}
 	}
 	if ($@mon_time_2_2 == 1) {
 		mes "[Eckar Erenes]";
-		mes "Right now, a Monster Race";
-		mes "is in progress. It's too late to place a wager, but if you'd like";
-		mes "to watch, the fee is 500 zeny";
-		mes "for spectators. Would you like to enter the Monster Race Arena?";
+		mes "Agora, uma corrida de monstro";
+		mes "está em andamento. É tarde demais para colocar uma aposta, mas se você quiser";
+		mes "Para assistir, a taxa é 500 Zeny";
+		mes "para espectadores. Você gostaria de entrar na arena de corrida de monstros?";
 		next;
-		if (select("Enter:Cancel") == 2) {
+		if (select("Digite: Cancelar") == 2) {
 			mes "[Eckar Erenes]";
-			mes "Alright, then. If you'd like";
-			mes "to wager on a monster";
-			mes "race, please wait for the";
-			mes "current race to finish. I hope";
-			mes "that you enjoy your time here";
-			mes "in the Monster Race Arena~";
+			mes "Tudo bem, então. Se você quiser";
+			mes "apostar em um monstro";
+			mes "corrida, por favor, espere pelo";
+			mes "corrida atual para terminar. Espero";
+			mes "que você aproveita seu tempo aqui";
+			mes "na arena de raça monstro ~";
 			close;
 		}
 		if (Zeny > 499) {
 			mes "[Eckar Erenes]";
-			mes "Thank you~";
-			mes "I hope you enjoy";
-			mes "watching this race!";
+			mes "Obrigado ~";
+			mes "Espero que você goste";
+			mes "Assistindo a esta corrida!";
 			Zeny -= 500;
 			monster_race_2_1 = monster_race_2_2 = 0;
 			close2;
@@ -1237,18 +1237,18 @@ hugel,62,69,1	script	Eckar Erenes#double	798,{
 			end;
 		}
 		mes "[Eckar Erenes]";
-		mes "I'm sorry, but you don't";
-		mes "have enough money to pay";
-		mes "the 500 zeny spectator fee.";
+		mes "Sinto muito, mas você não";
+		mes "tem dinheiro suficiente para pagar";
+		mes "A taxa de 500 espectadores de Zeny.";
 		close;
 	}
 	mes "[Eckar Erenes]";
-	mes "I'm sorry, but a monster";
-	mes "race has just ended, so we're";
-	mes "having the 5 minute period in";
-	mes "which the winners can claim";
-	mes "their Prize Medals. The gate";
-	mes "will open soon, so please wait.";
+	mes "Sinto muito, mas um monstro";
+	mes "a raça acabou de terminar, então estamos";
+	mes "tendo o período de 5 minutos em";
+	mes "que os vencedores podem reivindicar";
+	mes "suas medalhas de prêmios. O portão";
+	mes "Abrirá em breve, então, por favor, espere.";
 	close;
 OnEnable:
 	enablenpc "Eckar Erenes#double";
@@ -1260,182 +1260,182 @@ OnDisable:
 
 p_track02,73,22,1	script	Ticket Helper#2	899,{
 	if (!checkweight("Spawn",200)) {
-		mes "[Ticket Helper]";
-		mes "Welcome to the";
+		mes "[Auxiliar de ingressos]";
+		mes "Bem -vindo ao";
 		mes "Monster Race Arena.";
-		mes "If you'd like to participate";
-		mes "in the ^3131FFDouble Monster Race^000000,";
-		mes "then please select 1 out of";
-		mes "the 6 monsters from the list.";
+		mes "Se você quiser participar";
+		mes "Na corrida de monstros ^3131ffDouble ^000000,";
+		mes "Em seguida, selecione 1 de";
+		mes "Os 6 monstros da lista.";
 		next;
-		mes "[Ticket Helper]";
-		mes "Wait, wait...";
-		mes "I can't give you";
-		mes "anything right now.";
-		mes "You're carrying way";
-		mes "too many things...";
+		mes "[Auxiliar de ingressos]";
+		mes "Espere, espere ...";
+		mes "Eu não posso te dar";
+		mes "qualquer coisa agora.";
+		mes "Você está carregando caminho";
+		mes "Muitas coisas ...";
 		close;
 	}
 	if (!monster_race_2_1 && !monster_race_2_2) {
-		mes "[Ticket Helper]";
-		mes "Hello there!";
-		mes "Interested in wagering on";
-		mes "the Dual Monster Race?";
-		mes "I'm here to help you if you've";
-		mes "got any questions, or if you";
-		mes "want to place your wager.";
+		mes "[Auxiliar de ingressos]";
+		mes "Olá!";
+		mes "Interessado em apostar";
+		mes "A corrida de monstros dupla?";
+		mes "Estou aqui para ajudá -lo se você";
+		mes "Tenho alguma dúvida, ou se você";
+		mes "quero colocar sua aposta.";
 		next;
-		switch(select("Check Monster Status:Wager on Race:Monster Race?:Cancel")) {
+		switch(select("Verifique o status do monstro: aposta na raça: monster Race ?: Cancelar")) {
 		case 1:
 			for ( .@i = 1; .@i <= 6; .@i++ )
-				mes "Monster "+.@i+" [^CC6600Luck^000000: " + getd("$@mon_r02_Luk"+.@i) + "] [^EE0000HP^000000: " + getd("$@mon_r02_tire"+.@i) + "]";
+				mes "Monstro"+.@i+"[^CC6600LUCK^000000:" + getd("$@MON_R02_LUK"+.@i) + "] [ ^ EE000000HP ^ 000000:" + getd("$@MON_R02_TIRE"+.@i) + "]";
 			close;
 		case 2:
-			mes "[Ticket Helper]";
-			mes "Alright, please choose which";
-			mes "two monsters that you think";
-			mes "will win 1st and 2nd place.";
-			mes "If both your monsters come";
-			mes "in 1st and 2nd, in any order,";
-			mes "you'll win the wager.";
+			mes "[Auxiliar de ingressos]";
+			mes "Tudo bem, por favor, escolha qual";
+			mes "Dois monstros que você pensa";
+			mes "vencerá o 1º e o 2º lugar.";
+			mes "Se seus dois monstros vier";
+			mes "em 1º e 2º, em qualquer ordem,";
+			mes "Você ganhará a aposta.";
 			next;
-			mes "[Ticket Helper]";
-			mes "Now, please tell me";
-			mes "your first choice for one";
-			mes "of the monsters that";
-			mes "will win this race.";
+			mes "[Auxiliar de ingressos]";
+			mes "Agora, por favor me diga";
+			mes "Sua primeira escolha para um";
+			mes "dos monstros que";
+			mes "Vai ganhar esta corrida.";
 			next;
 			for ( .@i = 1; .@i <= 6; .@i++ )
-				.@menu$ = .@menu$ + "Monster "+ .@i +":";
+				.@menu$ = .@menu$ + "Monstro"+ .@i +":";
 			while (1) {
 				if ( .@m1 > 0 )
 					.@menu$ = replacestr( .@menu$, "Monster "+ .@m1, "" );
 				.@m = select (.@menu$);
 				switch (.@m) {
-					case 1: setarray .@string$, "a friendly","Poring type monster"; break;
-					case 2: setarray .@string$, "an adorable","Lunatic type monster"; break;
-					case 3: setarray .@string$, "a darling","Savage Babe monster"; break;
-					case 4: setarray .@string$, "a gentle baby","Desert Wolf monster"; break;
-					case 5: setarray .@string$, "a small, yet","demonic, Deviruchi"; break;
-					case 6: setarray .@string$, "a naughty","Baphomet Jr. monster"; break;
+					case 1: setarray .@string$, "um amigável","Monstro do tipo poring"; break;
+					case 2: setarray .@string$, "um adorável","Monstro do tipo lunático"; break;
+					case 3: setarray .@string$, "um querido","Monstro selvagem gata"; break;
+					case 4: setarray .@string$, "um bebê gentil","Desert Wolf Monster"; break;
+					case 5: setarray .@string$, "um pequeno, ainda","Demonic, Deviruchi"; break;
+					case 6: setarray .@string$, "uma travesso","Baphomet Jr. Monster"; break;
 				}
-				mes "[Ticket Helper]";
-				mes "You've chosen";
-				mes "^0000FFMonster "+.@m+"^000000, "+.@string$[0];
+				mes "[Auxiliar de ingressos]";
+				mes "Você escolheu";
+				mes "^0000ffmonster"+.@m+"^000000,"+.@string$[0];
 				mes .@string$[1]+".";
-				mes "Are you sure you want";
-				mes "to choose this monster?";
+				mes "Tem certeza que você quer";
+				mes "escolher este monstro?";
 				next;
-				if (select("Yes:No") == 2) {
-					mes "[Ticket Helper]";
-					mes "You have canceled";
-					mes "your wager. Okay,";
-					mes "I understand. Perhaps";
-					mes "you'd feel more comfortable";
-					mes "checking the monsters first?";
+				if (select("Sim: Não") == 2) {
+					mes "[Auxiliar de ingressos]";
+					mes "Você cancelou";
+					mes "Sua aposta. OK,";
+					mes "Eu entendo. Talvez";
+					mes "você se sentiria mais confortável";
+					mes "Verificando os monstros primeiro?";
 					close;			
 				}
 				if (.@m1 == 0) {
-					mes "[Ticket Helper]";
-					mes "Now, please make";
-					mes "your second choice";
-					mes "for the monster that";
-					mes "you think will place";
-					mes "1st or 2nd in this race.";
+					mes "[Auxiliar de ingressos]";
+					mes "Agora, por favor, faça";
+					mes "Sua segunda escolha";
+					mes "para o monstro que";
+					mes "você acha que vai colocar";
+					mes "1º ou 2º nesta corrida.";
 					next;
 					.@m1 = .@m;
 				} else {
 					if (!$@mon_time_2_2) {
-						mes "[Ticket Helper]";
-						mes "You've wagered on";
-						mes "^0000FFMonster "+.@m1+"^000000 and ^0000FFMonster "+.@m+"^000000";
-						mes "to win this race. Good luck!";
-						mes "I really hope that the odds";
-						mes "work out in your favor~";
+						mes "[Auxiliar de ingressos]";
+						mes "Você apostou";
+						mes "^0000ffmonster"+.@m1+"^000000 e ^0000ffmonster"+.@m+"^000000";
+						mes "para vencer esta corrida. Boa sorte!";
+						mes "Eu realmente espero que as probabilidades";
+						mes "Trabalhe a seu favor ~";
 						emotion ET_CHUP;
 						monster_race_2_1 = .@m1;
 						monster_race_2_2 = .@m;
 						getitem 7514,1; //Monster_Ticket
 					} else {
-						mes "[Ticket Helper]";
-						mes "I'm very sorry, but a";
-						mes "monster race is underway.";
-						mes "Please wait, and then place";
-						mes "your wager for the next race.";
+						mes "[Auxiliar de ingressos]";
+						mes "Sinto muito, mas um";
+						mes "Monster Race está em andamento.";
+						mes "Por favor, espere e depois coloque";
+						mes "Sua aposta para a próxima corrida.";
 					}
 					close;
 				}
 			}
 		case 3:
-			mes "[Ticket Helper]";
-			mes "Monster Races originated from";
-			mes "simple children's games in which";
-			mes "Cute Pets would race against each other. This grew into an adult";
-			mes "pastime that is so popular, we've built a racing arena in Hugel.";
+			mes "[Auxiliar de ingressos]";
+			mes "Races de monstros se originaram de";
+			mes "Jogos infantis simples nos quais";
+			mes "Animais de estimação fofos corriam um contra o outro. Isso se transformou em um adulto";
+			mes "passatempo que é tão popular que construímos uma arena de corrida em Hugel.";
 			next;
-			mes "[Ticket Helper]";
-			mes "Our Monster Race Arena hosts";
-			mes "two types of monster races. First, we have the Single Monster Race,";
-			mes "in which those that wagered on the 1st place monster are rewarded.";
+			mes "[Auxiliar de ingressos]";
+			mes "Nossos hospedeiros de arena de raça monstros";
+			mes "Dois tipos de corridas de monstros. Primeiro, temos a única corrida de monstros,";
+			mes "em que aqueles que apostaram no 1º lugar monstro são recompensados.";
 			next;
 			mes "[Eclar Ellbird]";
-			mes "Then, we have the Dual Monster";
-			mes "Race in which those that wagered on the 1st and 2nd place monsters";
-			mes "are equally rewarded. The house";
-			mes "odds and wager rewards are greater in Dual Races than Single Races.";
+			mes "Então, temos o monstro duplo";
+			mes "Corrida em que aqueles que apostaram nos monstros 1º e 2º lugar";
+			mes "são igualmente recompensados. A casa";
+			mes "As probabilidades e as recompensas de aposta são maiores em corridas duplas do que as corridas únicas.";
 			next;
-			mes "[Ticket Helper]";
-			mes "Although a small entrance";
-			mes "fee is required, we only use";
-			mes "the money to give rewards to";
-			mes "participants and maintain this";
-			mes "arena. Therefore, we're not";
-			mes "profiting from this enterprise.";
+			mes "[Auxiliar de ingressos]";
+			mes "Embora uma pequena entrada";
+			mes "a taxa é necessária, nós apenas usamos";
+			mes "o dinheiro para dar recompensas a";
+			mes "participantes e manter isso";
+			mes "arena. Portanto, não estamos";
+			mes "lucrando com esta empresa.";
 			next;
-			mes "[Ticket Helper]";
-			mes "Also, we prohibit others";
-			mes "from making personal bets";
-			mes "and wagers, using items and";
-			mes "zeny, based on the outcomes";
-			mes "of these races. That kind of";
-			mes "gambling is illegal here...";
+			mes "[Auxiliar de ingressos]";
+			mes "Além disso, proibimos os outros";
+			mes "de fazer apostas pessoais";
+			mes "e apostas, usando itens e";
+			mes "Zeny, com base nos resultados";
+			mes "dessas raças. Esse tipo de";
+			mes "O jogo é ilegal aqui ...";
 			next;
-			mes "[Ticket Helper]";
-			mes "Once you enter the Race Arena, you will receive a Racing Ticket.";
-			mes "Keep in mind that winning Racing Tickets can only be exchanged for";
-			mes "Prize Medals during a 5 minute window after the end of the race.";
+			mes "[Auxiliar de ingressos]";
+			mes "Depois de entrar na arena da corrida, você receberá uma passagem de corrida.";
+			mes "Lembre -se de que os ingressos vencedores de corrida só podem ser trocados por";
+			mes "Medalhas de prêmios durante uma janela de 5 minutos após o final da corrida.";
 			next;
-			mes "[Ticket Helper]";
-			mes "You're already here";
-			mes "inside the Monster Race";
-			mes "Arena, so you may as well";
-			mes "try placing a wager. It's";
-			mes "more fun than you'd think~";
+			mes "[Auxiliar de ingressos]";
+			mes "Você já está aqui";
+			mes "Dentro da corrida de monstros";
+			mes "Arena, então você também pode";
+			mes "Tente colocar uma aposta. Isso é";
+			mes "mais diversão do que você pensaria ~";
 			close;
 		case 4:
-			mes "[Ticket Helper]";
-			mes "You have canceled";
-			mes "your wager. Okay,";
-			mes "I understand. Perhaps";
-			mes "you'd feel more comfortable";
-			mes "checking the monsters first?";
+			mes "[Auxiliar de ingressos]";
+			mes "Você cancelou";
+			mes "Sua aposta. OK,";
+			mes "Eu entendo. Talvez";
+			mes "você se sentiria mais confortável";
+			mes "Verificando os monstros primeiro?";
 			close;
 		}
 	} else {
 		if (countitem(7514)) {
-			mes "[Ticket Helper]";
-			mes "You've wagered on";
-			mes "^0000FFMonster " + monster_race_2_1 + "^000000 and ^0000FFMonster " + monster_race_2_2 + "^000000";
-			mes "for this Dual Monster Race.";
+			mes "[Auxiliar de ingressos]";
+			mes "Você apostou";
+			mes "^0000ffmonster" + monster_race_2_1 + "^000000 e ^0000ffmonster" + monster_race_2_2 + "^000000";
+			mes "Para esta corrida dupla de monstros.";
 			next;
 		} 
-		mes "[Ticket Helper]";
-		mes "The start of the race will be";
-		mes "announced through a broadcast.";
-		mes "You can refer to your Mini-Map";
-		mes "to track the monsters' race";
-		mes "positions. Thank you, and";
-		mes "have a good time!";
+		mes "[Auxiliar de ingressos]";
+		mes "O início da corrida será";
+		mes "anunciado através de uma transmissão.";
+		mes "Você pode se referir ao seu mini-mapa";
+		mes "Para rastrear a corrida dos monstros";
+		mes "posições. Obrigado e";
+		mes "Divirta-se!";
 		viewpoint 1,43,35,0,0xFF0000;
 		close;	
 	}
@@ -1446,187 +1446,187 @@ OnInit:
 }
 
 p_track02,39,49,3	script	Game Guide#double	845,{
-	mes "[Game Guide]";
-	mes "Welcome to the";
+	mes "[Guia do jogo]";
+	mes "Bem -vindo ao";
 	mes "Monster Race Arena.";
-	mes "How can I help you?";
+	mes "Como posso ajudá-lo?";
 	next;
-	switch(select("Monster Race Info:Wager Info:Ticket Redemption Info")) {
+	switch(select("Informações sobre corrida de monstros: Aposta Informações: Informações sobre resgate de ingressos")) {
 	case 1:
-		mes "[Game Guide]";
-		mes "Monster Races originated from";
-		mes "simple children's games in which";
-		mes "Cute Pets would race against each other. This grew into an adult";
-		mes "pastime that is so popular, we've built a racing arena in Hugel.";
+		mes "[Guia do jogo]";
+		mes "Races de monstros se originaram de";
+		mes "Jogos infantis simples nos quais";
+		mes "Animais de estimação fofos corriam um contra o outro. Isso se transformou em um adulto";
+		mes "passatempo que é tão popular que construímos uma arena de corrida em Hugel.";
 		next;
-		mes "[Game Guide]";
-		mes "Our Monster Race Arena hosts";
-		mes "two types of monster races. First, we have the Single Monster Race,";
-		mes "in which those that wagered on the 1st place monster are rewarded.";
+		mes "[Guia do jogo]";
+		mes "Nossos hospedeiros de arena de raça monstros";
+		mes "Dois tipos de corridas de monstros. Primeiro, temos a única corrida de monstros,";
+		mes "em que aqueles que apostaram no 1º lugar monstro são recompensados.";
 		next;
-		mes "[Game Guide]";
-		mes "Then, we have the Dual Monster";
-		mes "Race in which the house odds and rewards are greater than in Single";
-		mes "Monster Races: you must wager on 2 monsters, and they must place in";
-		mes "1st and 2nd for you to win.";
+		mes "[Guia do jogo]";
+		mes "Então, temos o monstro duplo";
+		mes "Raça em que as chances e as recompensas da casa são maiores do que em solteiro";
+		mes "Monster Races: você deve apostar em 2 monstros, e eles devem colocar em";
+		mes "1º e 2º para você vencer.";
 		next;
-		mes "[Game Guide]";
-		mes "Although a small entrance";
-		mes "fee is required, we only use";
-		mes "the money to give rewards to";
-		mes "participants and maintain this";
-		mes "arena. Therefore, we're not";
-		mes "profiting from this enterprise.";
+		mes "[Guia do jogo]";
+		mes "Embora uma pequena entrada";
+		mes "a taxa é necessária, nós apenas usamos";
+		mes "o dinheiro para dar recompensas a";
+		mes "participantes e manter isso";
+		mes "arena. Portanto, não estamos";
+		mes "lucrando com esta empresa.";
 		next;
-		mes "[Game Guide]";
-		mes "Also, we prohibit others";
-		mes "from making personal bets";
-		mes "and wagers, using items and";
-		mes "zeny, based on the outcomes";
-		mes "of these races. That kind of";
-		mes "gambling is illegal here...";
+		mes "[Guia do jogo]";
+		mes "Além disso, proibimos os outros";
+		mes "de fazer apostas pessoais";
+		mes "e apostas, usando itens e";
+		mes "Zeny, com base nos resultados";
+		mes "dessas raças. Esse tipo de";
+		mes "O jogo é ilegal aqui ...";
 		next;
-		mes "[Game Guide]";
-		mes "Once you enter the Race Arena, you will receive a Racing Ticket.";
-		mes "Keep in mind that winning Racing Tickets can only be exchanged for";
-		mes "Prize Medals during a 5 minute window after the end of the race.";
+		mes "[Guia do jogo]";
+		mes "Depois de entrar na arena da corrida, você receberá uma passagem de corrida.";
+		mes "Lembre -se de que os ingressos vencedores de corrida só podem ser trocados por";
+		mes "Medalhas de prêmios durante uma janela de 5 minutos após o final da corrida.";
 		next;
 		break;
 	case 2:
-		mes "[Game Guide]";
-		mes "Before placing a wager, you";
-		mes "must get a free Racing Ticket";
-		mes "from the Ticket Helper. There,";
-		mes "I've marked the Ticket Helper";
-		mes "on your Mini-Map, so you can";
-		mes "find him pretty easily.";
+		mes "[Guia do jogo]";
+		mes "Antes de colocar uma aposta, você";
+		mes "Deve obter um bilhete de corrida grátis";
+		mes "do ajudante de ingressos. Lá,";
+		mes "Eu marquei o ajudante de ingressos";
+		mes "em seu mini-mapa, então você pode";
+		mes "encontre -o com muita facilidade.";
 		viewpoint 1,73,22,1,0xFF3355;
 		next;
 		break;
 	case 3:
-		mes "[Game Guide]";
-		mes "If you wagered on the winner";
-		mes "of a Single Monster Race, or";
-		mes "on the 1st or 2nd place winners";
-		mes "in a Dual Monster Race, then";
-		mes "you can exchange your Racing";
-		mes "Ticket for Prize Medals.";
+		mes "[Guia do jogo]";
+		mes "Se você apostou no vencedor";
+		mes "de uma única corrida de monstros, ou";
+		mes "no 1º ou 2º vencedor";
+		mes "em uma corrida de monstros dupla, então";
+		mes "Você pode trocar suas corridas";
+		mes "Bilhete para medalhas de prêmios.";
 		next;
-		mes "[Game Guide]";
-		mes "However, you must exchange";
-		mes "your Racing Ticket with the";
-		mes "Medal Distributor within the";
-		mes "5 minute window after the end";
-		mes "of the race. ^FF0000Your ticket becomes^FFFFFF ^FF0000 void after these 5 minutes.^000000";
+		mes "[Guia do jogo]";
+		mes "No entanto, você deve trocar";
+		mes "Seu bilhete de corrida com o";
+		mes "Distribuidor de medalhas dentro do";
+		mes "Janela de 5 minutos após o final";
+		mes "da corrida. ^Ff0000 seu ingresso se torna^ffffff^ff0000 vazio após esses 5 minutos.^000000";
 		next;
-		mes "[Game Guide]";
-		mes "When this 5 minute window";
-		mes "elapses, you will be teleported outside, and we will immediately";
-		mes "begin preparing for the next race. Make sure that you remember this";
-		mes "information when you wager.";
+		mes "[Guia do jogo]";
+		mes "Quando esta janela de 5 minutos";
+		mes "Declases, você será teletransportado para fora, e nós iremos imediatamente";
+		mes "Comece a se preparar para a próxima corrida. Certifique -se de se lembrar disso";
+		mes "informação quando você apostou.";
 		next;
-		mes "[Game Guide]";
-		mes "If you haven't received";
-		mes "your free Racing Ticket,";
-		mes "then please visit the Ticket";
-		mes "Helper. There, I've just marked";
-		mes "his location on your Mini-Map.";
+		mes "[Guia do jogo]";
+		mes "Se você não recebeu";
+		mes "Seu bilhete de corrida gratuito,";
+		mes "Então, por favor, visite o ingresso";
+		mes "Ajudante. Lá, acabei de marcar";
+		mes "Sua localização em seu mini-mapa.";
 		viewpoint 1,67,45,2,0xCE6300;
 		next;
 		break;
 	}
-	mes "[Game Guide]";
-	mes "Thank you, and";
-	mes "I hope you enjoy";
-	mes "your time here in the";
+	mes "[Guia do jogo]";
+	mes "Obrigado e";
+	mes "Espero que você goste";
+	mes "Seu tempo aqui no";
 	mes "Monster Racing Arena.";
 	close;
 }
 
 p_track02,67,45,5	script	Medal Distributor#medal	845,{
-	if (!checkweight("Jellopy",20)) {
-		mes "[Medal Distributor]";
-		mes "I'm sorry, but I can't";
-		mes "reward you with any medals";
-		mes "until you make more space";
-		mes "available in your Inventory.";
+	if (!checkweight("Jelópica",20)) {
+		mes "[Distribuidor de medalhas]";
+		mes "Sinto muito, mas não posso";
+		mes "recompensá -lo com qualquer medalha";
+		mes "Até você criar mais espaço";
+		mes "Disponível em seu inventário.";
 		close;
 	}
-	mes "[Medal Distributor]";
-	mes "Hello there~";
-	mes "If you've wagered on the";
-	mes "winning monster in a recent";
-	mes "race, then you can exchange";
-	mes "your game ticket here for";
-	mes "some Prize Medals.";
+	mes "[Distribuidor de medalhas]";
+	mes "Olá ~";
+	mes "Se você apostou no";
+	mes "MONSTRO VENCEDOR EM UM";
+	mes "corrida, então você pode trocar";
+	mes "Seu bilhete de jogo aqui para";
+	mes "Algumas medalhas de prêmios.";
 	next;
 	if (!countitem(7514)) {
-		mes "[Medal Distributor]";
-		mes "Please remember that you can";
-		mes "only exchange winning Game";
-		mes "Tickets for Prize Medals right";
-		mes "after the race finishes. Prize";
-		mes "Medals may be given to Wayne";
-		mes "in Hugel in exchange for items.";
+		mes "[Distribuidor de medalhas]";
+		mes "Lembre -se de que você pode";
+		mes "Apenas o jogo vencedor do troca";
+		mes "Ingressos para medalhas de prêmios certos";
+		mes "Depois que a corrida terminar. Prêmio";
+		mes "Medalhas podem ser dadas a Wayne";
+		mes "em Hugel em troca de itens.";
 		close;
 	}
-	mes "[Medal Distributor]";
-	mes "Please remember that you can";
-	mes "only exchange winning Game";
-	mes "Tickets for Prize Medals right";
-	mes "after the race finishes. Prize";
-	mes "Medals may be given to Wayne";
-	mes "in Hugel in exchange for items.";
+	mes "[Distribuidor de medalhas]";
+	mes "Lembre -se de que você pode";
+	mes "Apenas o jogo vencedor do troca";
+	mes "Ingressos para medalhas de prêmios certos";
+	mes "Depois que a corrida terminar. Prêmio";
+	mes "Medalhas podem ser dadas a Wayne";
+	mes "em Hugel em troca de itens.";
 	next;
 	if ((monster_race_2_1 == $@mon_race_2_1 && monster_race_2_2 == $@mon_race_2_2) || (monster_race_2_1 == $@mon_race_2_2 && monster_race_2_2 == $@mon_race_2_1)) {
-		mes "[Medal Distributor]";
-		mes "Congratulations! It's really";
-		mes "difficult to guess the winners";
-		mes "of a Dual Monster Race, so you";
-		mes "must be really lucky! Would you";
-		mes "like to exchange your winning";
-		mes "Racing Ticket for Prize Medals?";
+		mes "[Distribuidor de medalhas]";
+		mes "Parabéns! É realmente";
+		mes "difícil adivinhar os vencedores";
+		mes "de uma corrida de monstros dupla, então você";
+		mes "Deve ter muita sorte! Você faria";
+		mes "gostaria de trocar sua vitória";
+		mes "Bilhete de corrida para medalhas de prêmios?";
 		next;
-		if (select("Yes, please.:No, thanks.") == 1) {
-			mes "[Medal Distributor]";
-			mes "Okay, everything looks good,";
-			mes "so here's your Prize Medals~";
-			mes "If you want to trade these";
-			mes "medals for items, please";
-			mes "visit Wayne in Hugel. We hope";
-			mes "you enjoyed the Monster Race~";
+		if (select("Sim, por favor.") == 1) {
+			mes "[Distribuidor de medalhas]";
+			mes "Ok, tudo parece bom,";
+			mes "Então aqui estão suas medalhas de prêmios ~";
+			mes "Se você quiser trocar isso";
+			mes "Medalhas para itens, por favor";
+			mes "Visite Wayne em Hugel. Esperamos";
+			mes "Você gostou da corrida de monstros ~";
 			monster_race_2_1 = monster_race_2_2 = 7;
 			delitem 7514,1; //Monster_Ticket
 			getitem 7515,15; //Marvelous_Medal
 			close;
 		}
-		mes "[Medal Distributor]";
-		mes "Um, are you sure? You ";
-		mes "can only exchange a winning";
-		mes "Racing Ticket for Prize Medals";
-		mes "for a short time after the race. If you made a mistake, you";
-		mes "should ask me again quickly.";
+		mes "[Distribuidor de medalhas]";
+		mes "Hum, tem certeza? Você";
+		mes "só pode trocar uma vitória";
+		mes "Bilhete de corrida para medalhas de prêmios";
+		mes "por um curto período de tempo após a corrida. Se você cometeu um erro, você";
+		mes "deve me perguntar novamente rapidamente.";
 		close;
 	} else if (!monster_race_2_1 && !monster_race_2_2) {
-		mes "[Medal Distributor]";
-		mes "Well, better luck next time...";
-		mes "Although you can't always";
-		mes "be lucky, it's always fun to";
-		mes "wager on the monster races!";
+		mes "[Distribuidor de medalhas]";
+		mes "Bem, melhor sorte da próxima vez ...";
+		mes "Embora você não possa sempre";
+		mes "Tenha sorte, é sempre divertido";
+		mes "Aposta nas corridas de monstro!";
 		close;
 	} else if (monster_race_2_1 == 7 && monster_race_2_2 == 7) {
-		mes "[Medal Distributor]";
-		mes "Thanks for visiting the";
-		mes "Monster Race Arena, and";
-		mes "I hope you enjoy your time";
-		mes "here. I'll see you next time~";
+		mes "[Distribuidor de medalhas]";
+		mes "Obrigado por visitar o";
+		mes "Monster Race Arena, e";
+		mes "Espero que você aproveite seu tempo";
+		mes "aqui. Te vejo na próxima vez ~";
 		close;
 	} else if (monster_race_2_1 != $@mon_race_2_1 || monster_race_2_2 != $@mon_race_2_2) {
-		mes "[Medal Distributor]";
-		mes "You may not have wagered";
-		mes "on the winning monster in";
-		mes "the last race, but I hope that";
-		mes "you get lucky next time~";
+		mes "[Distribuidor de medalhas]";
+		mes "Você pode não ter apostado";
+		mes "no monstro vencedor em";
+		mes "a última corrida, mas espero que";
+		mes "Você tem sorte na próxima vez ~";
 		close;
 	}
 
@@ -1636,41 +1636,41 @@ OnInit:
 }
 
 p_track02,76,38,1	script	Exit Guide#double	798,{
-	mes "[Exit Guide]";
-	mes "If you have a winning Racing";
-	mes "Ticket, please make sure that";
-	mes "you redeem it for Prize Medals";
-	mes "now. All Racing Tickets become";
-	mes "void once the next race begins.";
+	mes "[Guia de saída]";
+	mes "Se você tem uma corrida vencedora";
+	mes "Bilhete, por favor, certifique -se de que";
+	mes "Você o resgata por medalhas de prêmios";
+	mes "agora. Todos os ingressos para corrida se tornam";
+	mes "anular quando a próxima corrida começa.";
 	next;
-	mes "[Exit Guide]";
-	mes "If you wish to leave";
-	mes "the arena, then I can guide";
-	mes "you outside. Would you like";
-	mes "to leave the arena right now?";
+	mes "[Guia de saída]";
+	mes "Se você deseja sair";
+	mes "A arena, então eu posso guiar";
+	mes "você lá fora. Você gostaria";
+	mes "Para deixar a arena agora?";
 	next;
-	if (select("Yes:No") == 2) {
-		mes "[Exit Guide]";
-		mes "Alright, then.";
-		mes "Just let me know";
-		mes "whenever you're";
-		mes "ready to leave.";
+	if (select("Sim: Não") == 2) {
+		mes "[Guia de saída]";
+		mes "Tudo bem, então.";
+		mes "Apenas me avise";
+		mes "sempre que você está";
+		mes "pronto para sair.";
 		close;
 	}
 	if (!countitem(7514)) {
-		mes "[Exit Guide]";
-		mes "Thank you for";
-		mes "your patronage, and";
-		mes "I hope that you come";
-		mes "visit us again soon~";
+		mes "[Guia de saída]";
+		mes "Obrigado por";
+		mes "Seu patrocínio e";
+		mes "Espero que você venha";
+		mes "Visite -nos novamente em breve ~";
 	} else {
-		mes "[Exit Guide]";
-		mes "In accordance with our";
-		mes "policies, I must take your";
-		mes "Racing Ticket before you leave.";
-		mes "Thank you for your patronage,";
-		mes "and I hope you enjoy your time";
-		mes "here in the Monster Race Arena.";
+		mes "[Guia de saída]";
+		mes "De acordo com o nosso";
+		mes "políticas, devo levar o seu";
+		mes "Bilhete de corrida antes de você sair.";
+		mes "Obrigado pelo seu patrocínio,";
+		mes "E espero que você aproveite seu tempo";
+		mes "Aqui na arena de raça de monstros.";
 		delitem 7514,1; //Monster_Ticket
 	}
 	monster_race_2_1 = monster_race_2_2 = 0;
@@ -1681,7 +1681,7 @@ p_track02,76,38,1	script	Exit Guide#double	798,{
 
 -	script	mob1#main	-1,{
 function	MN	{
-	setarray .@n$[1], "poring","lunatic","savagebebe","desertwolf","deviruchi","baphomet";
+	setarray .@n$[1], "poring","lunático","Savagebebe","Desertwolf","DeVirchi","Baphomet";
 	for ( .@i = 1; .@i <= 6; .@i++ ) {
 		if (compare(strnpcinfo(0),.@n$[.@i])) 
 			break;
@@ -1694,7 +1694,7 @@ OnEnable:
 	setarray .@n[1], 1725,1726,1727,1728,1730,1729;
 	getmapxy(.@m$,.@x,.@y,BL_NPC);
 	.@i = MN;
-	monster "p_track02",58,.@y,"Monster "+.@i,.@n[.@i],1,strnpcinfo(0)+"::OnMyMobDead";
+	monster "p_track02",58,.@y,"Monstro"+.@i,.@n[.@i],1,strnpcinfo(0)+":: onmymobdead";
 	end;
 
 OnTouchNPC:
@@ -1702,13 +1702,13 @@ OnTouchNPC:
 	if (!$@mon_race_2_1) {
 		emotion ET_THROB;
 		specialeffect EF_MVP;
-		mapannounce "p_track02","Monster "+.@i+" has reached the Finish Line!",bc_map,"0x66FFCC";
+		mapannounce "p_track02","Monstro"+.@i+"Atingiu a linha de chegada!",bc_map,"0x66ffcc";
 		$@mon_race_2_1 = .@i;
 		donpcevent strnpcinfo(0)+"::OnDisable";
 	} else {
 		emotion ET_THROB;
 		specialeffect EF_MVP;
-		mapannounce "p_track02","The race is over! Monster "+.@i+" has reached the Finish Line!",bc_map,"0x66FFCC";
+		mapannounce "p_track02","A corrida acabou! Monstro"+.@i+"Atingiu a linha de chegada!",bc_map,"0x66ffcc";
 		$@mon_race_2_2 = .@i;
 		donpcevent "#poring1::OnDisable";
 		donpcevent "#lunatic1::OnDisable";
@@ -1727,7 +1727,7 @@ OnDisable:
 	killmonster "p_track02",strnpcinfo(0)+"::OnMyMobDead";
 
 OnInit:
-	if ( strnpcinfo(2) != "main" )
+	if ( strnpcinfo(2) != "principal" )
 		disablenpc();
 	end;
 }
@@ -1780,8 +1780,8 @@ OnEnable:
 				enablenpc "Tire#race02_"+.@c+"_"+.@i;
 			if ( .@tired < 10 ) enablenpc "Tire#race02_"+.@c+"_6";
 		}
-		setd "$@mon_r02_luk"+.@c, .@line;
-		setd "$@mon_r02_tire"+.@c, .@tired;
+		setd "$@MON_R02_LUK"+.@c, .@line;
+		setd "$@MON_R02_TIRE"+.@c, .@tired;
 	}
 	end;
 
@@ -1793,8 +1793,8 @@ OnDisable:
 	
 OnInit:
 	for ( .@i = 1; .@i <= 6; .@i++ ) {
-		setd "$@mon_r02_luk"+.@i,0;
-		setd "$@mon_r02_tire"+.@i,0;
+		setd "$@MON_R02_LUK"+.@i,0;
+		setd "$@MON_R02_TIRE"+.@i,0;
 	}
 	end;
 }
@@ -1912,233 +1912,233 @@ p_track02,47,28,0	duplicate(Tire_1)	Tire#race02_6_6	-1,0,0
 //============================================================
 ein_in01,85,208,5	script	Ei'felle#repay01	854,{
 	if (!ein_medal01) {
-		mes "[Ei'felle]";
-		mes "Curses! We need to deliver";
-		mes "what our customers ordered,";
-		mes "but we've been making nothing";
-		mes "but shipshod products! If we";
-		mes "only had that metal, we could";
-		mes "pump up our product quality!";
+		mes "[No'felle]";
+		mes "Maldições! Precisamos entregar";
+		mes "O que nossos clientes pediram,";
+		mes "Mas não estamos fazendo nada";
+		mes "Mas produtos da Shipshod! Se nós";
+		mes "só tinha aquele metal, poderíamos";
+		mes "Aumente a qualidade do nosso produto!";
 		next;
-		select("What metal are you talking about?");
-		mes "[Ei'felle]";
-		mes "There's a small village";
-		mes "at the outskirts of the";
-		mes "Schwarzwald Republic that";
-		mes "gives these special medals";
-		mes "that are made of this metal";
-		mes "which we desperately need...";
+		select("De que metal você está falando?");
+		mes "[No'felle]";
+		mes "Há uma pequena vila";
+		mes "nos arredores do";
+		mes "República da Floresta Negra que";
+		mes "Dá essas medalhas especiais";
+		mes "que são feitos deste metal";
+		mes "que precisamos desesperadamente ...";
 		next;
-		mes "[Ei'felle]";
-		mes "We've sent one of our best";
-		mes "guildsmen to get some of those";
-		mes "medals for us, but he hasn't";
-		mes "reported back to us quite yet.";
-		mes "I'm getting pretty anxious...";
+		mes "[No'felle]";
+		mes "Enviamos um dos nossos melhores";
+		mes "Guildsmen para conseguir alguns desses";
+		mes "medalhas para nós, mas ele não";
+		mes "Relatou -nos ainda.";
+		mes "Estou ficando muito ansioso ...";
 		next;
-		mes "[Ei'felle]";
-		mes "I mean, we need a whole";
-		mes "lot of that metal to fill out";
-		mes "our orders and finish our";
-		mes "manufacturing research,";
-		mes "but so far, none of us have";
-		mes "been able to get any medals...";
+		mes "[No'felle]";
+		mes "Quero dizer, precisamos de um todo";
+		mes "muito desse metal para preencher";
+		mes "nossos pedidos e terminar nosso";
+		mes "pesquisa de fabricação,";
+		mes "Mas até agora, nenhum de nós tem";
+		mes "conseguiu obter medalhas ...";
 		next;
-		if (countitem("Marvelous_Medal")) {//7515
+		if (countitem("Marvelous_medal")) {//7515
 			mes "["+ strcharinfo(0) +"]";
-			mes "Oh! Are you talking";
-			mes "about the medals that";
-			mes "they give as rewards in";
-			mes "the Monster Race Arena?";
-			mes "I have some of those.";
+			mes "Oh! Você está falando";
+			mes "sobre as medalhas que";
+			mes "Eles dão como recompensas em";
+			mes "A arena de corrida de monstros?";
+			mes "Eu tenho alguns desses.";
 			next;
-			mes "[Ei'felle]";
-			mes "Huh? Show them to me...";
-			mes "Yes! That's exactly what";
-			mes "we need! Would you please";
-			mes "donate your medals so that we";
-			mes "can finally make some quality";
-			mes "products for our customers?";
+			mes "[No'felle]";
+			mes "Huh? Mostre -lhes para mim ...";
+			mes "Sim! Isso é exatamente o que";
+			mes "Nós precisamos! Você poderia, por favor";
+			mes "Doe suas medalhas para que nós";
+			mes "pode finalmente fazer alguma qualidade";
+			mes "produtos para nossos clientes?";
 			next;
 			callsub S_Reward;
 			end;
 		}
-		mes "[Ei'felle]";
-		mes "If you happen to obtain any";
-		mes "medals from the Monster";
-		mes "Race Arena in Hugel, then";
-		mes "please bring some of them";
-		mes "to me. I'll be sure to repay";
-		mes "you for your kindness...";
+		mes "[No'felle]";
+		mes "Se você obtiver algum";
+		mes "medalhas do monstro";
+		mes "Arena de corrida em Hugel, então";
+		mes "Por favor, traga alguns deles";
+		mes "para mim. Vou ter certeza de reembolsar";
+		mes "você pela sua gentileza ...";
 		close;
 	} else if (ein_medal01 < 500) {
-		mes "[Ei'felle]";
-		mes "Oh, how have you been?";
-		mes "Thank you so much for";
-		mes "donating so many medals,";
-		mes "they've been helpful in my";
-		mes "research. Still, I need more";
-		mes "and more of them everyday...";
+		mes "[No'felle]";
+		mes "Oh, como você está?";
+		mes "Muito obrigado por";
+		mes "doar tantas medalhas,";
+		mes "Eles foram úteis no meu";
+		mes "pesquisar. Ainda assim, preciso de mais";
+		mes "E mais deles todos os dias ...";
 		next;
-		if (countitem("Marvelous_Medal")) {
-			mes "[Ei'felle]";
-			mes "The other Blacksmith";
-			mes "Guildsmen are doing their";
-			mes "best to collect Prize Medals";
-			mes "in Hugel, but they keep failing";
-			mes "to win them! If you have any";
-			mes "medals, then may I have some?";
+		if (countitem("Marvelous_medal")) {
+			mes "[No'felle]";
+			mes "O outro ferreiro";
+			mes "Os guilds estão fazendo o seu";
+			mes "melhor para coletar medalhas de prêmios";
+			mes "em Hugel, mas eles continuam falhando";
+			mes "para conquistá -los! Se você tiver algum";
+			mes "Medalhas, então posso ter algumas?";
 			next;
 			callsub S_Reward;
 			end;
 		}
-		mes "[Ei'felle]";
-		mes "If you happen to obtain any";
-		mes "medals from the Monster";
-		mes "Race Arena in Hugel, then";
-		mes "please bring some of them";
-		mes "to me. I'll be sure to repay";
-		mes "you for your kindness...";
+		mes "[No'felle]";
+		mes "Se você obtiver algum";
+		mes "medalhas do monstro";
+		mes "Arena de corrida em Hugel, então";
+		mes "Por favor, traga alguns deles";
+		mes "para mim. Vou ter certeza de reembolsar";
+		mes "você pela sua gentileza ...";
 		close;
 	}
-	if (!checkweight("Knife",1)) {//1201
-		mes "[Ei'felle]";
-		mes "Goodness, you're carrying";
-		mes "so many things with you!";
-		mes "You'd better put some of";
-		mes "it away in Kafra Storage";
-		mes "before you're overwhelmed";
-		mes "by the bulk of your items!";
+	if (!checkweight("Faca",1)) {//1201
+		mes "[No'felle]";
+		mes "Deus, você está carregando";
+		mes "Tantas coisas com você!";
+		mes "É melhor você colocar um pouco de";
+		mes "Fora e armazenamento kafra";
+		mes "Antes de você ficar sobrecarregado";
+		mes "pela maior parte dos seus itens!";
 		close;
 	}
 	if (ein_medal01 > 499 && ein_medal01 < 1500) {
 		if (ein_medal01 < 1000) {
-			mes "[Ei'felle]";
-			mes "Ah, welcome back! I've finally";
-			mes "made a breakthrough in my";
-			mes "metal research! Look, I've";
-			mes "developed this Glittering";
-			mes "Jacket! It's lightweight and";
-			mes "very durable, you see?";
+			mes "[No'felle]";
+			mes "Ah, bem -vindo de volta! Eu finalmente";
+			mes "fez um avanço no meu";
+			mes "Pesquisa de metal! Olha, eu tenho";
+			mes "desenvolveu este brilho";
+			mes "Jaqueta! É leve e";
+			mes "Muito durável, você vê?";
 			next;
-			mes "[Ei'felle]";
-			mes "I wouldn't be able to have";
-			mes "completed this without your";
-			mes "help. Now, would you like to";
-			mes "receive this Glittering Jacket";
-			mes "as my way of repaying you?";
+			mes "[No'felle]";
+			mes "Eu não seria capaz de ter";
+			mes "completei isso sem o seu";
+			mes "ajuda. Agora, você gostaria de";
+			mes "Receba esta jaqueta brilhante";
+			mes "Como minha maneira de retribuir você?";
 			next;
-			if (select("Accept:Wait for Further Development") == 1) {
+			if (select("Aceite: Aguarde por um desenvolvimento adicional") == 1) {
 				callsub S_BonusReward,500,2319;//Glittering_Clothes
 				end;
 			}
-			mes "[Ei'felle]";
-			mes "Ah, I see. You'd rather wait";
-			mes "until we develop something";
-			mes "more to your liking. In that";
-			mes "case, would you please donate";
-			mes "more medals to my research?";
-			mes "We're always low on them...";
+			mes "[No'felle]";
+			mes "Ah, eu vejo. Você prefere esperar";
+			mes "Até desenvolvermos algo";
+			mes "mais ao seu gosto. Nisso";
+			mes "caso, você por favor doe";
+			mes "Mais medalhas para minha pesquisa?";
+			mes "Estamos sempre com pouca neles ...";
 			next;
 		} else if (ein_medal01 < 1500) {
-			mes "[Ei'felle]";
-			mes "Oh, you're back!";
-			mes "Thanks to all the medals";
-			mes "that you've donated, I'm now";
-			mes "able to manufacture a set";
-			mes "of slotted armor imbued";
-			mes "with a property of your choice.";
+			mes "[No'felle]";
+			mes "Oh, você está de volta!";
+			mes "Obrigado a todas as medalhas";
+			mes "que você doou, agora estou";
+			mes "capaz de fabricar um conjunto";
+			mes "de armadura com fenda imbuída";
+			mes "com uma propriedade de sua escolha.";
 			next;
-			mes "[Ei'felle]";
-			mes "If you'd like, I can repay you";
-			mes "now by creating a set of slotted elemental armor for you, or we";
-			mes "can wait for you to donate more";
-			mes "medals until I can develop";
-			mes "something else for you.";
+			mes "[No'felle]";
+			mes "Se você quiser, eu posso retribuir você";
+			mes "Agora, criando um conjunto de armaduras elementares com fenda para você, ou nós";
+			mes "Pode esperar que você doe mais";
+			mes "medalhas até que eu possa desenvolver";
+			mes "outra coisa para você.";
 			next;
-			switch(select("Accept Armor:Can I have something else?:Wait for Further Development")) {
+			switch(select("Aceite Armadura: Posso ter outra coisa ?: Espere por um desenvolvimento adicional")) {
 				case 1:
-					mes "[Ei'felle]";
-					mes "I can manufacture one set of";
-					mes "slotted Armor imbued with the";
-					mes "Fire, Earth, Wind, or Water";
-					mes "property. Which property would";
-					mes "you like your armor to have?";
+					mes "[No'felle]";
+					mes "Eu posso fabricar um conjunto de";
+					mes "armadura com fenda imbuída do";
+					mes "Fogo, terra, vento ou água";
+					mes "propriedade. Qual propriedade faria";
+					mes "Você gosta de sua armadura para ter?";
 					next;
-					switch(select("Fire Property:Earth Property:Wind Property:Water Property")) {
+					switch(select("Propriedade de incêndio: Propriedade da Terra: Propriedade do vento: Propriedade da água")) {
 						case 1: callsub S_BonusReward,1000,2345; end;// Flame_Sprits_Armor_
 						case 2: callsub S_BonusReward,1000,2351; end;// Earth_Sprits_Armor_
 						case 3: callsub S_BonusReward,1000,2349; end;// Wind_Sprits_Armor_
 						case 4: callsub S_BonusReward,1000,2347; end;// Water_Sprits_Armor_
 					}
 				case 2:
-					mes "[Ei'felle]";
-					mes "Something else...?";
-					mes "Oh, you must mean";
-					mes "the Glittering Jacket that";
-					mes "I developed earlier. After";
-					mes "all, I have any other items";
-					mes "to offer you for now...";
+					mes "[No'felle]";
+					mes "Outra coisa ...?";
+					mes "Oh, você deve significar";
+					mes "a jaqueta brilhante que";
+					mes "Eu desenvolvi anteriormente. Depois";
+					mes "Todos, eu tenho outros itens";
+					mes "Para oferecer a você por enquanto ...";
 					next;
 					callsub S_BonusReward,500,2319;
 					end;
 				case 3:
-					mes "[Ei'felle]";
-					mes "Ah, I see. You'd rather wait";
-					mes "until we develop something";
-					mes "more to your liking. In that";
-					mes "case, would you please donate";
-					mes "more medals to my research?";
-					mes "We're always low on them...";
+					mes "[No'felle]";
+					mes "Ah, eu vejo. Você prefere esperar";
+					mes "Até desenvolvermos algo";
+					mes "mais ao seu gosto. Nisso";
+					mes "caso, você por favor doe";
+					mes "Mais medalhas para minha pesquisa?";
+					mes "Estamos sempre com pouca neles ...";
 					next;
 					break;
 			}
 		}
-		if (countitem("Marvelous_Medal")) {
-			mes "[Ei'felle]";
-			mes "The other Blacksmith";
-			mes "Guildsmen are doing their";
-			mes "best to collect Prize Medals";
-			mes "in Hugel, but they keep failing";
-			mes "to win them! If you have any";
-			mes "medals, then may I have some?";
+		if (countitem("Marvelous_medal")) {
+			mes "[No'felle]";
+			mes "O outro ferreiro";
+			mes "Os guilds estão fazendo o seu";
+			mes "melhor para coletar medalhas de prêmios";
+			mes "em Hugel, mas eles continuam falhando";
+			mes "para conquistá -los! Se você tiver algum";
+			mes "Medalhas, então posso ter algumas?";
 			next;
 			callsub S_Reward;
 			end;
 		}
-		mes "[Ei'felle]";
-		mes "If you happen to obtain any";
-		mes "medals from the Monster";
-		mes "Race Arena in Hugel, then";
-		mes "please bring some of them";
-		mes "to me. I'll be sure to repay";
-		mes "you for your kindness...";
+		mes "[No'felle]";
+		mes "Se você obtiver algum";
+		mes "medalhas do monstro";
+		mes "Arena de corrida em Hugel, então";
+		mes "Por favor, traga alguns deles";
+		mes "para mim. Vou ter certeza de reembolsar";
+		mes "você pela sua gentileza ...";
 		close;
 	} else if (ein_medal01 > 1499) {
-		mes "[Ei'felle]";
-		mes "Ah, you're back! I've";
-		mes "extracted all the metal";
-		mes "from the medals you've";
-		mes "given me, and I think I have";
-		mes "enough to create a Level 4";
-		mes "Weapon. Isn't that incredible?";
+		mes "[No'felle]";
+		mes "Ah, você está de volta! Eu";
+		mes "extraiu todo o metal";
+		mes "das medalhas que você";
+		mes "me dado, e acho que tenho";
+		mes "o suficiente para criar um nível 4";
+		mes "Arma. Isso não é incrível?";
 		next;
-		mes "[Ei'felle]";
-		mes "If you like, I can create";
-		mes "one of these weapons for you";
-		mes "as my way of repaying you for";
-		mes "your help. What do you think?";
+		mes "[No'felle]";
+		mes "Se você quiser, eu posso criar";
+		mes "Uma dessas armas para você";
+		mes "Como minha maneira de reembolsá -lo por";
+		mes "Sua ajuda. O que você acha?";
 		next;
-		if (select("Yes, I want a Level 4 Weapon.:Can I have something else?") == 2) {
-			mes "[Ei'felle]";
-			mes "Something else?";
-			mes "Oh, alright then, would";
-			mes "you like to have a Glittering";
-			mes "Jacket, or a set of slotted";
-			mes "elemental Armor? Please go";
-			mes "ahead and make your choice~";
+		if (select("Sim, eu quero uma arma de nível 4 .: posso ter algo mais?") == 2) {
+			mes "[No'felle]";
+			mes "Algo mais?";
+			mes "Oh, tudo bem então, faria";
+			mes "Você gosta de ter um brilho";
+			mes "Jaqueta, ou um conjunto de fendas";
+			mes "Armadura Elementar? Por favor, vá";
+			mes "à frente e faça sua escolha ~";
 			next;
-			switch (select("Glittering Jacket:Fire Property Armor:Earth Property Armor:Wind Property Armor:Water Property Armor:Cancel")) {
+			switch (select("Jaqueta brilhante: Armadura de propriedade de incêndio: Armadura de propriedade da terra: Armadura de propriedade do vento: Armadura de propriedade da água: Cancelar")) {
 				case 1: callsub S_BonusReward,500,2319; end;
 				case 2: callsub S_BonusReward,1000,2345; end;
 				case 3: callsub S_BonusReward,1000,2351; end;
@@ -2147,68 +2147,68 @@ ein_in01,85,208,5	script	Ei'felle#repay01	854,{
 				case 6: end;
 			}
 		}
-		setarray .@type$, "Dagger","One Handed Sword","Two Handed Sword","Axe","Mace","Bow","Staff","Book","Spear","Katar","Knuckle","Whip","Musical Instrument";
+		setarray .@type$, "Punhal","Uma espada de uma mão","Espada de duas mãos","Machado","Mulher","Arco","Funcionários","Livro","Lança","Trem","Junta","Chicote","Instrumento musical";
 		.@m = select( implode(.@type$,":") ) - 1;
-		mes "[Ei'felle]";
-		mes "So you'd like to have a";
-		mes .@type$[.@m]+"? Please choose";
-		mes "which Level 4 Weapon";
-		mes "that you want me to create.";
+		mes "[No'felle]";
+		mes "Então você gostaria de ter um";
+		mes .@type$[.@m]+"? Por favor, escolha";
+		mes "Qual arma de nível 4";
+		mes "que você quer que eu crie.";
 		next;
 		switch(.@m) {
 			case 0:
-				.@weapon$ = "Ginnungagap:Grimtooth:Dragon Killer:Mail Breaker:Bazerald:Sword Breaker:Ice Pick:Sucsamad:Kitchen Knife:Azoth:Exorciser:Assassin Dagger:Moonlight Dagger:Weeder Knife:Cursed Dagger:Dagger of Counter:Combat Knife:Fortune Sword";
+				.@weapon$ = "Ginnungagap: Grimtooth: Dragon Killer: Mail Breaker: Bazerald: Breaker Sword: Pick Gelo: Sucksamad: Kitchen Knife: Azoth: Exorciser: Assassin Dagger: Luar Dagger: Faca de Weeder: DAGGER: DAGGER DAGAGEM: Faca de combate: Forte da Fortuna: Forte";
 				setarray .@weapon_id, 13002,1237,13001,1225,1231,1224,1230,1236,1229,1235,1233,1232,1234,1227,1241,1242,1228,1223;
 				break;
 			case 1:
-				.@weapon$ = "Nagan:Immaterial Sword:Mysteltainn:Byeollungum:Star Dust Blade:Caesar's Sword:Ice Falchion:Excalibur:Edge:Cutlus:Solar Sword:Tirfing:Fireblend";
+				.@weapon$ = "Nagan: Espada Imaterial: Mysteltainn: Byeollungum: Star Pox Blade: César's Sword: Ice Falchion: Excalibur: Edge: Cutlus: Solar Sword: Tirfing: FireBlend";
 				setarray .@weapon_id, 1130,1141,1138,1140,1148,1134,1131,1137,1132,1135,1136,1139,1133;
 				break;
 			case 2:	
-				.@weapon$ = "Dragon Slayer:Masamune:Muramasa:Schweizersabel:Executioner:Zweihander:Katzbalger";
+				.@weapon$ = "Dragon Slayer: Masamune: Muramasa: Swiss Sink: Executioner: Zweihander: Katzbalger";
 				setarray .@weapon_id, 1166,1165,1164,1167,1169,1168,1170;
 				break;
 			case 3:
-				.@weapon$ = "Great Axe:Guillotine:Light Epsilon:Bloody Axe:Sabbath:Slaughter:Cleaver:Tomahawk";
+				.@weapon$ = "Grande machado: Guilhotina: Light Epsilon: Machado Bloody: Sabbath: Slaughter: Cleaver: Tomahawk";
 				setarray .@weapon_id, 1364,1369,1366,1363,1365,1367,1305,1368;
 				break;
 			case 4:
-				.@weapon$ = "Golden Mace:Grand Cross:Long Mace:Spike:Slash:Quadrille";
+				.@weapon$ = "Golden Mace: Grand Cross: Long Mace: Spike: Slash: Quadrille";
 				setarray .@weapon_id, 1524,1528,1525,1523,1526,1527;
 				break;
 			case 5:
-				.@weapon$ = "Roguemaster's Bow:Dragon Wing:Rudra's Bow:Ballista";
+				.@weapon$ = "Arco do roguemaster: Dragão Wing: Rudra's Bow: Ballista";
 				setarray .@weapon_id, 1719,1724,1720,1722;
 				break;
 			case 6:
-				.@weapon$ = "Wing Staff:Wizardry Staff";
+				.@weapon$ = "Pessoal da ala: pessoal da magia";
 				setarray .@weapon_id, 1616,1473;
 			case 7:
-				.@weapon$ = "Legacy of Dragon:Book of the Apocalypse:Girl's Diary:Hardcover Book";
+				.@weapon$ = "Legacy of Dragon: Book of the Apocalypse: Girl's Diário: livro de capa dura";
 				setarray .@weapon_id, 1559,1557,1558,1561;
 				break;
 			case 8:
-				.@weapon$ = "Gae Bolg:Gelerdria:Gungnir:Skewer:Longinus's Spear:Brionac:Bill Guisarme:Zephyrus:Crescent Scythe:Tjungkuletti:Hellfire";
+				.@weapon$ = "Gae Bolg: Gungnir: Skewer: Brionac: Brionac: Bill: BRONEG: Helfire: Helfire: Hellfire";
 				setarray .@weapon_id, 1474,1414,1413,1415,1469,1470,1467,1468,1466,1416,1471;
 				break;
 			case 9:
-				.@weapon$ = "Infiltrator:Bloody Roar:Unholy Touch";
+				.@weapon$ = "Infiltrador: rugido sangrento: toque profano";
 				setarray .@weapon_id, 1261,1265,1263;
 				break;
 			case 10:
-				.@weapon$ = "Hatii Claw:Berserk:Kaiser Knuckle";
+				.@weapon$ = "Garra Hatii: Berserk: Kaiser Knuckle";
 				setarray .@weapon_id, 1815,1814,1813;
 				break;
 			case 11:
-				.@weapon$ = "Lariat:Rapture Rose:Blade Whip:Chemeti:Queen's Whip";
+				.@weapon$ = "Lariat: Rapture Rose: Blade Whip: Chemeti: Queen's Whip";
 				setarray .@weapon_id, 1962,1963,1969,1964,1970;
 				break;
 			case 12:
-				.@weapon$ = "Oriental Lute:Electric Guitar";
+				.@weapon$ = "Luta Oriental: guitarra elétrica";
 				setarray .@weapon_id, 1918,1913;
 				break;		
 		}
-		.@j = select (.@weapon$+":Cancel") - 1;
+		.@j = select (.@weapon$+":Cancelar") - 1;
 		explode(.@weapon$,.@weapon$,":");
 		if (.@j == getarraysize(.@weapon$)) close;
 		callsub S_BonusReward,1500,.@weapon_id[.@j];
@@ -2216,47 +2216,47 @@ ein_in01,85,208,5	script	Ei'felle#repay01	854,{
 	}
 	
 S_Reward:
-	if (select("Sure:No") == 2) {
-		mes "[Ei'felle]";
-		mes "Oh, alright...";
-		mes "Still, I really need";
-		mes "those medals, so if you";
-		mes "change your mind, please";
-		mes "come back as soon as you can.";
+	if (select("Claro: não") == 2) {
+		mes "[No'felle]";
+		mes "Oh, tudo bem ...";
+		mes "Ainda assim, eu realmente preciso";
+		mes "Essas medalhas, então se você";
+		mes "mude de idéia por favor";
+		mes "Volte o mais rápido possível.";
 		emotion ET_CRY;
 		close;
 	}
-	mes "[Ei'felle]";
-	mes "Oh, thank you so much!";
-	mes "I can use the metal in those";
-	mes "medals to produce some high";
-	mes "quality products. Now, how";
-	mes "shall I repay you for giving me";
-	mes "some of your Prize Medals?";
+	mes "[No'felle]";
+	mes "Oh, muito obrigado!";
+	mes "Eu posso usar o metal naqueles";
+	mes "medalhas para produzir um pouco de alta";
+	mes "produtos de qualidade. Agora, como";
+	mes "Devo pagar você por me dar";
+	mes "Algumas de suas medalhas de prêmios?";
 	next;
-	switch(select("Base Experience:Job Experience:No, I'm just glad to help.:How's your research progressing?")) {
+	switch(select("Experiência básica: Experiência no trabalho: Não, estou feliz em ajudar .: Como sua pesquisa está progredindo?")) {
 		case 1:
-			mes "[Ei'felle]";
-			mes "You just want to improve";
-			mes "yourself, huh? Well, I dunno";
-			mes "if you want to get stronger,";
-			mes "smarter, or faster, but I can";
-			mes "coach you on some visualization if you like. Now, relax with me~";
-			mes "physical development.";
+			mes "[No'felle]";
+			mes "Você só quer melhorar";
+			mes "você mesmo, hein? Bem, eu não sei";
+			mes "Se você quiser ficar mais forte,";
+			mes "mais inteligente ou mais rápido, mas eu posso";
+			mes "Treine você em alguma visualização, se quiser. Agora, relaxe comigo ~";
+			mes "Desenvolvimento físico.";
 			next;
-			mes "[Ei'felle]";
-			mes "Focus... and believe.";
-			mes "Believe that you are";
-			mes "becoming what you want";
-			mes "to be! B-believe... with";
-			mes "all of your freakin' heart!";
+			mes "[No'felle]";
+			mes "Foco ... e acredite.";
+			mes "Acredito que você é";
+			mes "tornando -se o que você quer";
+			mes "ser! Believe B ... com";
+			mes "Todo o seu coração maluco!";
 			emotion ET_HUK, playerattached();
 			emotion ET_HUK;
 			next;
-			mes "[Ei'felle]";
-			mes "*Phew* How's that?";
-			mes "Now do you see the";
-			mes "power of hope?";
+			mes "[No'felle]";
+			mes "* Ufa* Como é isso?";
+			mes "Agora você vê o";
+			mes "Poder da esperança?";
 			delitem 7515,1; //Marvelous_Medal
 			if (checkre(3)) {
 				if (BaseLevel < 21) getexp 110,0;
@@ -2295,30 +2295,30 @@ S_Reward:
 			}
 			close;
 		case 2:
-			mes "[Ei'felle]";
-			mes "You want to become more";
-			mes "competent in your job? Um...";
-			mes "Alright, we can do that. Just";
-			mes "meditate with me, and we'll go";
-			mes "do some imagery work together.";
-			mes "I'm real good at this you know.";
+			mes "[No'felle]";
+			mes "Você quer se tornar mais";
+			mes "competente em seu trabalho? Hum ...";
+			mes "Tudo bem, podemos fazer isso. Apenas";
+			mes "Medite comigo, e nós iremos";
+			mes "Faça algumas imagens trabalham juntas.";
+			mes "Eu sou muito bom nisso, você sabe.";
 			next;
-			mes "[Ei'felle]";
-			mes "J-just... visualize";
-			mes "yourself... being...";
-			mes "t-totally... awesome!";
-			mes "You've gotta see it, and";
-			mes "you've gotta feel it in your";
-			mes "freakin' heart and mind!";
+			mes "[No'felle]";
+			mes "J-Just ... Visualize";
+			mes "você mesmo ... sendo ...";
+			mes "T-Total ... incrível!";
+			mes "Você tem que ver, e";
+			mes "você tem que sentir isso em seu";
+			mes "Freakin 'Heart and Mind!";
 			emotion ET_HUK, playerattached();
 			emotion ET_HUK;
 			next;
-			mes "[Ei'felle]";
-			mes "Yeap, it doesn't matter";
-			mes "if it's real or imagined...";
-			mes "Your mind will work on";
-			mes "whatever you feed it.";
-			mes "Placebos and psychosomatic symptoms-- it all ties together.";
+			mes "[No'felle]";
+			mes "Sim, não importa";
+			mes "Se for real ou imaginado ...";
+			mes "Sua mente vai funcionar";
+			mes "tudo o que você alimenta.";
+			mes "Placebos e sintomas psicossomáticos- tudo se une.";
 			delitem 7515,1; //Marvelous_Medal
 			if (checkre(3)) {
 				if (Class == Job_Novice) {
@@ -2403,199 +2403,199 @@ S_Reward:
 			}
 			close;
 		case 3:
-			mes "[Ei'felle]";
-			mes "What th--?! You sure";
-			mes "you don't want anything?";
-			mes "Hm, well, I think it's kind";
-			mes "of bad karma if I don't give";
-			mes "you anything in return, so...";
-			mes "Think of something. Quick.";
+			mes "[No'felle]";
+			mes "O que THE?! Tem certeza que";
+			mes "Você não quer nada?";
+			mes "HM, bem, acho que é gentil";
+			mes "de karma ruim se eu não dar";
+			mes "você qualquer coisa em troca, então ...";
+			mes "Pense em algo. Rápido.";
 			next;
 			mes "["+ strcharinfo(0) +"]";
-			mes "Er, just use the medals";
-			mes "to further your manufacturing";
-			mes "research, and then you can";
-			mes "pay me back if your develop";
-			mes "something new. It's, um, like";
-			mes "an investment in your work!";
+			mes "Er, basta usar as medalhas";
+			mes "Para promover sua fabricação";
+			mes "pesquisa, e então você pode";
+			mes "pague -me de volta se você se desenvolver";
+			mes "algo novo. É, hum, como";
+			mes "Um investimento em seu trabalho!";
 			next;
-			mes "[Ei'felle]";
-			mes "Yeah... Yeah.";
-			mes "Okay, I see where";
-			mes "you're coming from.";
-			mes "That's pretty smart.";
-			mes "Okay, I'll repay you when";
-			mes "we develop something new!";
+			mes "[No'felle]";
+			mes "Yeah, yeah.";
+			mes "Ok, eu vejo onde";
+			mes "você está vindo.";
+			mes "Isso é muito inteligente.";
+			mes "Ok, vou pagar você quando";
+			mes "Nós desenvolvemos algo novo!";
 			next;
-			mes "[Ei'felle]";
-			mes "Anyway, I need as many";
-			mes "medals as I can get as";
-			mes "soon as I can. How many";
-			mes "medals do you think you";
-			mes "can give me right now?";
+			mes "[No'felle]";
+			mes "Enfim, eu preciso de tantos";
+			mes "medalhas como eu posso obter como";
+			mes "assim que eu puder. Quantos";
+			mes "medalhas você pensa que você";
+			mes "Pode me dar agora?";
 			next;
-			switch(select("Take them all.:How about this much?:No, I changed my mind.")) {
+			switch(select("Leve todos eles .: Como isso ?: Não, mudei de idéia.")) {
 			case 1:
-				mes "[Ei'felle]";
-				mes "Th-thank you!";
-				mes "Thank you so much!";
-				mes "Your help will greatly";
-				mes "advance my research,";
-				mes "and I promise to repay";
-				mes "you as soon as I can!";
-				.@medals = countitem("Marvelous_Medal");
+				mes "[No'felle]";
+				mes "Th-obrigado!";
+				mes "Muito obrigado!";
+				mes "Sua ajuda vai muito";
+				mes "Avançar minha pesquisa,";
+				mes "E eu prometo reembolsar";
+				mes "você assim que eu puder!";
+				.@medals = countitem("Marvelous_medal");
 				delitem 7515, .@medals; //Marvelous_Medal
 				ein_medal01 += .@medals;
 				close;
 			case 2:
-				mes "[Ei'felle]";
-				mes "Alright, please enter the";
-				mes "number of medals that";
-				mes "you're willing to give me.";
-				mes "Please don't enter any";
-				mes "number greater than 100.";
+				mes "[No'felle]";
+				mes "Tudo bem, por favor, digite o";
+				mes "Número de medalhas que";
+				mes "Você está disposto a me dar.";
+				mes "Por favor, não digite nenhum";
+				mes "número maior que 100.";
 				next;
 				while(1) {
 					input .@input;
 					if (!.@input) {
-						mes "[Ei'felle]";
-						mes "Aw, so you've decided";
-						mes "to cancel? Well, it's your";
-						mes "choice, but I'm still so";
-						mes "disappointed. Please come";
-						mes "back if you change your mind...";
+						mes "[No'felle]";
+						mes "Aw, então você decidiu";
+						mes "Para cancelar? Bem, é o seu";
+						mes "escolha, mas ainda estou tão";
+						mes "desapontado. Por favor venha";
+						mes "Voltar se você mudar de idéia ...";
 						close;
 					} else if (.@input < 1 || .@input > 100) {
-						mes "[Ei'felle]";
-						mes "Remember, you can only";
-						mes "enter a number from 1 to 100.";
-						mes "If you want to give me more";
-						mes "medals, then perhaps you";
-						mes "should just give them all to me~";
+						mes "[No'felle]";
+						mes "Lembre -se, você só pode";
+						mes "Digite um número de 1 a 100.";
+						mes "Se você quiser me dar mais";
+						mes "medalhas, então talvez você";
+						mes "deveria apenas dar tudo para mim ~";
 						next;
 					} else break;
 				}
-				if (countitem("Marvelous_Medal") < .@input) {
-					mes "[Ei'felle]";
-					mes "I'm sorry, but I don't";
-					mes "think you have that many";
-					mes "medals with you. Make sure";
-					mes "that you offer me an amount of";
-					mes "medals that you actually have.";
+				if (countitem("Marvelous_medal") < .@input) {
+					mes "[No'felle]";
+					mes "Sinto muito, mas eu não";
+					mes "acho que você tem tantos";
+					mes "medalhas com você. Certificar-se";
+					mes "que você me oferece uma quantidade de";
+					mes "Medalhas que você realmente tem.";
 					emotion ET_SMILE;
 					close;
 				} else {
-					mes "[Ei'felle]";
-					mes "Th-thank you!";
-					mes "Thank you so much!";
-					mes "Your help will greatly";
-					mes "advance my research,";
-					mes "and I promise to repay";
-					mes "you as soon as I can!";
+					mes "[No'felle]";
+					mes "Th-obrigado!";
+					mes "Muito obrigado!";
+					mes "Sua ajuda vai muito";
+					mes "Avançar minha pesquisa,";
+					mes "E eu prometo reembolsar";
+					mes "você assim que eu puder!";
 					delitem 7515, .@input; //Marvelous_Medal
 					ein_medal01 += .@input;
 					close;
 				}
 			case 3:
-				mes "[Ei'felle]";
-				mes "Oh, alright...";
-				mes "Still, I really need";
-				mes "those medals, so if you";
-				mes "change your mind, please";
-				mes "come back as soon as you can.";
+				mes "[No'felle]";
+				mes "Oh, tudo bem ...";
+				mes "Ainda assim, eu realmente preciso";
+				mes "Essas medalhas, então se você";
+				mes "mude de idéia por favor";
+				mes "Volte o mais rápido possível.";
 				close;
 			}
 		case 4:
-			mes "[Ei'felle]";
-			mes "Well, I've been able to";
-			mes "create a Glittering Jacket";
-			mes "using the medals that you've";
-			mes "brought to me. But I just know";
-			mes "I can make something better";
-			mes "if you'd bring me more!";
+			mes "[No'felle]";
+			mes "Bem, eu consegui";
+			mes "Crie uma jaqueta brilhante";
+			mes "usando as medalhas que você";
+			mes "trouxe para mim. Mas eu apenas sei";
+			mes "Eu posso fazer algo melhor";
+			mes "Se você me traga mais!";
 			next;
-			mes "[Ei'felle]";
-			mes "As of now, I have the metal";
-			mes "from ^FF0000"+ ein_medal01 +"^000000 Prizes Medals that";
-			mes "you've donated to me. The more";
-			mes "that you bring, the closer I can get to making a new breakthrough!";
+			mes "[No'felle]";
+			mes "A partir de agora, eu tenho o metal";
+			mes "De ^ff0000"+ ein_medal01 +"^000000 prêmios medalhas que";
+			mes "você doou para mim. Quanto mais";
+			mes "Que você traga, quanto mais perto eu puder chegar a fazer um novo avanço!";
 			close;
 	}
 
 S_BonusReward:
-	mes "[Ei'felle]";
+	mes "[No'felle]";
 	.@arg1 = getarg(1);
 	if (.@arg1 == 2319) {
-		mes "Do you really want";
-		mes "this "+getitemname(.@arg1)+"?";
-		mes "You may want to forego this";
-		mes "reward in favor of getting";
-		mes "something better later...";
+		mes "Você realmente quer";
+		mes "esse"+getitemname(.@arg1)+"?";
+		mes "Você pode querer renunciar a isso";
+		mes "recompensa em favor de obter";
+		mes "algo melhor depois ...";
 	} else if (.@arg1 == 2345 || .@arg1 == 2347 || .@arg1 == 2349 || .@arg1 == 2351) {
-		mes "Are you sure that you want";
-		mes "to accept this set of slotted";
-		if (.@arg1 == 2345) mes "Fire property Armor? If you do,";
-		else if (.@arg1 == 2351) mes "Earth property Armor? If you do,";
-		else if (.@arg1 == 2349) mes "Wind property Armor? If you do,";
-		else if (.@arg1 == 2347) mes "Water property Armor? If you do,";
-		mes "I'll need more medals from you";
-		mes "to make further advancements";
-		mes "in my manufacturing research.";
+		mes "Tem certeza que você quer";
+		mes "Para aceitar este conjunto de fendas";
+		if (.@arg1 == 2345) mes "Armadura de imóvel de fogo? Se você fizer,";
+		else if (.@arg1 == 2351) mes "Armadura da Propriedade da Terra? Se você fizer,";
+		else if (.@arg1 == 2349) mes "Armadura de propriedade do vento? Se você fizer,";
+		else if (.@arg1 == 2347) mes "Armadura de propriedade da água? Se você fizer,";
+		mes "Vou precisar de mais medalhas suas";
+		mes "Para fazer mais avanços";
+		mes "na minha pesquisa de fabricação.";
 	} else {
-		mes "So you wish to have a";
-		mes getitemname(.@arg1)+"? If you choose";
-		mes "to have this Level 4 Weapon,";
-		mes "I'll need to melt many of the";
-		mes "medals that you've donated";
-		mes "to me. Shall we proceed?";
+		mes "Então você deseja ter um";
+		mes getitemname(.@arg1)+"? Se você escolher";
+		mes "para ter esta arma de nível 4,";
+		mes "Vou precisar derreter muitos dos";
+		mes "Medalhas que você doou";
+		mes "para mim. Devemos proceder?";
 	}
 	next;
-	if (select("Decline:Accept") == 1) {
+	if (select("Declínio: aceite") == 1) {
 		mes "["+ strcharinfo(0) +"]";
-		mes "W-wait, I changed my";
-		mes "mind. Would it be fine";
-		mes "if I asked you to give";
-		mes "me a reward later?";
+		mes "W-Wait, eu mudei meu";
+		mes "mente. Ficaria bem";
+		mes "Se eu lhe pedisse para dar";
+		mes "eu uma recompensa mais tarde?";
 		next;
-		mes "[Ei'felle]";
+		mes "[No'felle]";
 		if (getiteminfo( .@arg1, ITEMINFO_TYPE ) == IT_ARMOR) {
-			mes "Of course, of course.";
-			mes "Remember, if you donate";
-			mes "more medals to me, then";
-			mes "I'll be able to create items";
-			mes "of higher quality for you~";
+			mes "Claro, é claro.";
+			mes "Lembre -se, se você doar";
+			mes "Mais medalhas para mim, então";
+			mes "Serei capaz de criar itens";
+			mes "de maior qualidade para você ~";
 		} else {
-			mes "I don't think I can develop";
-			mes "anything better than these Level 4 Weapons, but after making";
-			mes "such a big investment, you should decide on what you want carefully.";
+			mes "Eu não acho que posso desenvolver";
+			mes "qualquer coisa melhor do que essas armas de nível 4, mas depois de fazer";
+			mes "Um investimento tão grande, você deve decidir sobre o que deseja com cuidado.";
 		}
 		close;
 	}
-	mes "[Ei'felle]";
+	mes "[No'felle]";
 	if (.@arg1 == 2319) {
-		mes "Here you are, I trust that";
-		mes "this "+getitemname(.@arg1)+" will";
-		mes "serve you well. Thank you";
-		mes "for your help, and I hope that";
-		mes "you'll continue to donate your";
-		mes "medals for my metal research~";
+		mes "Aqui está, eu confio que";
+		mes "esse"+getitemname(.@arg1)+"vai";
+		mes "Sirva você bem. Obrigado";
+		mes "Para sua ajuda, e espero que";
+		mes "você continuará a doar seu";
+		mes "Medalhas para minha pesquisa de metal ~";
 	} else if (.@arg1 == 2345 || .@arg1 == 2347 || .@arg1 == 2349 || .@arg1 == 2351) {
-		mes "Great choice! I'm sure";
-		if (.@arg1 == 2345) mes "that this set of slotted Fire";
-		else if (.@arg1 == 2351) mes "that this set of slotted Earth";
-		else if (.@arg1 == 2349) mes "that this set of slotted Wind";
-		else if (.@arg1 == 2347) mes "that this set of slotted Water";
-		mes "property Armor will serve you";
-		mes "well. Thank you for your help,";
-		mes "and if you get more medals,";
-		mes "please donate them to me~";
+		mes "Ótima escolha! Tenho certeza";
+		if (.@arg1 == 2345) mes "que este conjunto de fogo com fenda";
+		else if (.@arg1 == 2351) mes "que este conjunto de terra com fenda";
+		else if (.@arg1 == 2349) mes "que este conjunto de vento com fenda";
+		else if (.@arg1 == 2347) mes "que este conjunto de água com fenda";
+		mes "A Armadura de Propriedade Servirá você";
+		mes "bem. Obrigado pela ajuda,";
+		mes "E se você receber mais medalhas,";
+		mes "Por favor, doe -os para mim ~";
 	} else {
-		mes "Once again, I'd like to";
-		mes "thank you for providing";
-		mes "me with all of those medals.";
-		mes "I imagine it must have been";
-		mes "difficult. In any case, I would";
-		mes "appreciate your continued help~";
+		mes "Mais uma vez, eu gostaria de";
+		mes "Obrigado por fornecer";
+		mes "eu com todas essas medalhas.";
+		mes "Eu imagino que deve ter sido";
+		mes "difícil. De qualquer forma, eu faria";
+		mes "Aprecie sua ajuda contínua ~";
 	}
 	ein_medal01 -= getarg(0);
 	getitem .@arg1,1;
@@ -2603,126 +2603,126 @@ S_BonusReward:
 }
 
 hugel,71,83,4	script	Wayne	900,{
-	if (!checkweight("Knife",1)) {
+	if (!checkweight("Faca",1)) {
 		mes "[Wayne]";
-		mes "Hold on a second...";
-		mes "If you want to exchange";
-		mes "your Prize Medals for items,";
-		mes "you'd better free up more space";
-		mes "in your Inventory first. Why don't you use your Kafra Storage?";
+		mes "Segure um segundo ...";
+		mes "Se você quiser trocar";
+		mes "suas medalhas de prêmio para itens,";
+		mes "É melhor você liberar mais espaço";
+		mes "em seu inventário primeiro. Por que você não usa seu armazenamento Kafra?";
 		close;
 	}
 	mes "[Wayne]";
-	mes "Hello, there! Ever wonder";
-	mes "what you could do with all";
-	mes "the Prize Medals you can win";
-	mes "in Monster Race Arena? You";
-	mes "can donate them in Einbroch";
-	mes "to the Blacksmith Guild...";
+	mes "Olá! Eu já me perguntou";
+	mes "O que você poderia fazer com todos";
+	mes "as medalhas de prêmios que você pode ganhar";
+	mes "Na Monster Race Arena? Você";
+	mes "pode doar -os em Einbroch";
+	mes "para a guilda do ferreiro ...";
 	next;
 	mes "[Wayne]";
-	mes "...Or you can exchange them";
-	mes "for items, right here and right";
-	mes "now, with me. As always, the";
-	mes "choice is really up to you.";
+	mes "... ou você pode trocá -los";
+	mes "Para itens, bem aqui e bem";
+	mes "Agora, comigo. Como sempre, o";
+	mes "A escolha depende de você.";
 	next;
-	if (select("Prize Medal Exchange:Cancel") == 2) {
+	if (select("Prêmio Medal Exchange: Cancelar") == 2) {
 		mes "[Wayne]";
-		mes "Well, just keep in mind";
-		mes "that you can always come";
-		mes "to me to trade in your Prize";
-		mes "Medals for consumable items.";
-		mes "That guy in Einbroch? Not sure";
-		mes "what he'd give you for them...";
+		mes "Bem, lembre -se";
+		mes "que você sempre pode vir";
+		mes "Para mim para negociar seu prêmio";
+		mes "Medalhas para itens consumíveis.";
+		mes "Aquele cara em Einbroch? Não tenho certeza";
+		mes "O que ele te daria para eles ...";
 		next;
 		mes "[Wayne]";
-		mes "All I know is that he";
-		mes "needs a whole lot of medals";
-		mes "for the work that he's doing.";
-		mes "Still, I hear that he just may";
-		mes "make your donations worth";
-		mes "all your effort, you know?";
+		mes "Tudo que eu sei é que ele";
+		mes "precisa de muitas medalhas";
+		mes "pelo trabalho que ele está fazendo.";
+		mes "Ainda assim, ouvi dizer que ele só pode";
+		mes "Faça suas doações valer";
+		mes "Todo o seu esforço, sabe?";
 		close;
 	}
-	if (!checkweight("Jellopy",550)) {
+	if (!checkweight("Jelópica",550)) {
 		mes "[Wayne]";
-		mes "Hold on a second...";
-		mes "If you want to exchange";
-		mes "your Prize Medals for items,";
-		mes "you'd better free up more space";
-		mes "in your Inventory first. Why don't you use your Kafra Storage?";
+		mes "Segure um segundo ...";
+		mes "Se você quiser trocar";
+		mes "suas medalhas de prêmio para itens,";
+		mes "É melhor você liberar mais espaço";
+		mes "em seu inventário primeiro. Por que você não usa seu armazenamento Kafra?";
 		close;
 	} else {
 		mes "[Wayne]";
-		mes "Now, how many Prize Medals";
-		mes "would you like to exchange?";
-		mes "It doesn't take a genius to";
-		mes "figure out that you can get";
-		mes "more valuable items by trading";
-		mes "more Prize Medals at a time.";
+		mes "Agora, quantas medalhas de prêmios";
+		mes "Você gostaria de trocar?";
+		mes "Não é preciso um gênio para";
+		mes "descobrir que você pode obter";
+		mes "itens mais valiosos negociando";
+		mes "Mais medalhas de prêmios de cada vez.";
 		next;
 		setarray .@pm, 1,3,7,8,16,25,42,59;
 		.@total_pm = getarraysize(.@pm);
 		for ( .@i = 0; .@i < .@total_pm; .@i++ )
-			.@menu$ = .@menu$ + .@pm[.@i] + " Prize medal:";
+			.@menu$ = .@menu$ + .@pm[.@i] + "Medalha de prêmio:";
 		.@m = select(.@menu$) - 1;
 		switch (.@m) {
 			case 0: 
-				.@items$ = "2 Hinale Leaflets:2 Aloe Leaflets:1 Mastela Fruit:5 Witch Starsands:4 Condensed Red Potions";
+				.@items$ = "2 folhetos de Hinale: 2 folhetos de aloe: 1 Mastela Fruit: 5 Witch Starsands: 4 Poções vermelhas condensadas";
 				setarray .@item_array, 520,2,521,2,522,1,1061,5,545,4;
 				break;
 			case 1:
-				.@items$ = "1 Royal Jelly:6 Holy Waters";
+				.@items$ = "1 geléia real: 6 águas sagradas";
 				setarray .@item_array, 526,1,523,6;
 				break;
 			case 2:
-				.@items$ = "1 Cookie Bag:1 First Aid Kit";
+				.@items$ = "1 bolsa de biscoito: 1 kit de primeiros socorros";
 				setarray .@item_array, 12130,1,12110,1;
 				break;
 			case 3:
-				.@items$ = "1 Gift Box";
+				.@items$ = "1 caixa de presente";
 				setarray .@item_array, 644,1;
 				break;
 			case 4:
-				.@items$ = "1 Old Blue Box";
+				.@items$ = "1 velha caixa azul";
 				setarray .@item_array, 603,1;
 				break;
 			case 5:
-				.@items$ = "1 Taming Gift Set";
+				.@items$ = "1 Conjunto de presentes de domesticação";
 				setarray .@item_array, 12105,1;
 				break;
 			case 6:
-				.@items$ = "1 Old Purple Box";
+				.@items$ = "1 velha caixa roxa";
 				setarray .@item_array, 617,1;
 				break;
 			case 7:
-				.@items$ = "1 Poring Box";
+				.@items$ = "1 caixa de poragem";
 				setarray .@item_array, 12109,1;
 				break;
 		}
 		mes "[Wayne]";
-		mes "Now, please choose";
-		mes "which of the following item";
-		mes "sets that you'd like to receive";
-		mes "in exchange for "+.@pm[.@m]+" Prize Medal."+((getarraysize(.@item_array)<3)?" Well, we have only 1 set, but...":"");
+		mes "Agora, por favor, escolha";
+		mes "Qual dos seguintes itens";
+		mes "Conjuntos que você gostaria de receber";
+		mes "em troca de"+.@pm[.@m]+"Medalha de prêmio."+((getarraysize(.@item_array)<3)?"Bem, temos apenas 1 conjunto, mas ...":"");
 		next;
 		.@m2 = ( select(.@items$) -1 ) *2;
-		if (countitem("Marvelous_Medal") < .@pm[.@m]) {
+		if (countitem("Marvelous_medal") < .@pm[.@m]) {
 			mes "[Wayne]";
-			mes "Hey, you don't have";
-			mes "enough Prize Medals with";
-			mes "you. Go and get some more";
-			mes "if you want to exchange";
-			mes "them with me for anything.";
+			mes "Ei, você não tem";
+			mes "Medalhas de prêmios suficientes com";
+			mes "você. Vá e pegue um pouco mais";
+			mes "Se você quiser trocar";
+			mes "eles comigo para qualquer coisa.";
 			close;
 		}
 		mes "[Wayne]";
-		mes "There you go~";
-		mes "Thanks for using my";
-		mes "service, and I hope that";
-		mes "you come visit me again";
-		mes "soon. Enjoy the monster";
-		mes "races, fair adventurer~";
+		mes "Lá vai você ~";
+		mes "Obrigado por usar meu";
+		mes "serviço, e espero que";
+		mes "você vem me visitar de novo";
+		mes "breve. Aproveite o monstro";
+		mes "Corridas, aventureiro justo ~";
 		delitem 7515,.@pm[.@m];// Marvelous_Medal
 		getitem .@item_array[.@m2], .@item_array[(.@m2+1)];
 		close;		
@@ -2733,80 +2733,80 @@ hugel,71,83,4	script	Wayne	900,{
 //============================================================
 airplane,246,47,1	script	Eocatt#decoy01	878,{
 	mes "[Eocatt]";
-	mes "There's an old, humble";
-	mes "village on the outskirts of";
-	mes "the Schwarzwald Republic.";
-	mes "It was just a tiny blip on the";
-	mes "map until they opened up";
-	mes "their Monster Race Arena!";
+	mes "Há um velho, humilde";
+	mes "vila nos arredores de";
+	mes "A República de Schwarzwald.";
+	mes "Foi apenas um pequeno pontinho no";
+	mes "Mapeie até que eles se abrissem";
+	mes "A arena da raça monstro!";
 	next;
 	mes "[Eocatt]";
-	mes "If you win wagers on the";
-	mes "monster race games, you'll";
-	mes "be rewarded with these Prize";
-	mes "Medals that are made of some";
-	mes "really rare metal. I hear this metal's in demand in Einbroch...";
+	mes "Se você ganhar apostas no";
+	mes "Jogos de corrida de monstros, você";
+	mes "ser recompensado com esse prêmio";
+	mes "Medalhas feitas de alguns";
+	mes "Metal realmente raro. Eu ouço esse metal em demanda em Einbroch ...";
 	next;
 	mes "[Eocatt]";
-	mes "Right, right...";
-	mes "I remember now, the";
-	mes "town was named Hugel.";
-	mes "I'm sure there's other fun";
-	mes "things to do there, but I'm sure that the Race Arena is a must!";
+	mes "Certo, certo ...";
+	mes "Eu me lembro agora, o";
+	mes "Town foi nomeado Hugel.";
+	mes "Tenho certeza que há outra diversão";
+	mes "Coisas para fazer lá, mas tenho certeza de que a arena da corrida é obrigatória!";
 	close;
 }
 
 hugel,85,93,5	script	Mudie#dummy01	866,{
 	mes "[Mudie]";
-	mes "The Monster Races";
-	mes "are probably the biggest";
-	mes "attraction here in Hugel.";
-	mes "We don't have much else";
-	mes "going on here, I'm afraid.";
+	mes "O monstro corre";
+	mes "são provavelmente os maiores";
+	mes "atração aqui em Hugel.";
+	mes "Nós não temos muito mais";
+	mes "Acendo aqui, tenho medo.";
 	next;
 	mes "[Mudie]";
-	mes "If you want to go visit";
-	mes "the Monster Race Arena,";
-	mes "just head towards the";
-	mes "7 'o clock direction on";
-	mes "your Mini-Map, and look for";
-	mes "the hill surrounded by a fence.";
+	mes "Se você quiser visitar";
+	mes "a arena de raça monstro,";
+	mes "Apenas siga em direção ao";
+	mes "7 'o Relógio da direção";
+	mes "seu mini-mapa, e procure";
+	mes "A colina cercada por uma cerca.";
 	next;
 	mes "[Mudie]";
-	mes "You should find the arena";
-	mes "somewhere around that area.";
-	mes "Anyway, if you want to wager";
-	mes "or just watch the races, just";
-	mes "ask one of the Eckar brothers. I hope you enjoy our little town~";
+	mes "Você deve encontrar a arena";
+	mes "em algum lugar nessa área.";
+	mes "Enfim, se você quiser apostar";
+	mes "ou apenas assista às corridas, apenas";
+	mes "Pergunte a um dos irmãos Eckar. Espero que você goste da nossa pequena cidade ~";
 	close;
 }
 
 p_track02,32,45,5	script	Eccentric Scholar#double	755,{
-	mes "[Eccentric Scholar]";
-	mes "Let's see now...";
-	mes "Monster 1's average speed";
-	mes "and luck, as affected by";
-	mes "wind resistance, fatigue...";
-	mes "What's the approximate";
-	mes "probability of winning...?";
+	mes "[Scholar excêntrico]";
+	mes "Vamos ver agora ...";
+	mes "Velocidade média do monstro 1";
+	mes "E sorte, conforme afetado por";
+	mes "Resistência ao vento, fadiga ...";
+	mes "Qual é o aproximado";
+	mes "Probabilidade de ganhar ...?";
 	next;
-	mes "[Eccentric Scholar]";
-	mes "Crunch it into my";
-	mes "algorithm... Carry the two...";
-	mes "Wait, how many significant";
-	mes "figures should I be using?";
-	mes "Ah, right, 7, to account for x,";
-	mes "a value representing--";
+	mes "[Scholar excêntrico]";
+	mes "Triturá -lo no meu";
+	mes "Algoritmo ... carregue os dois ...";
+	mes "Espere quantos significativos";
+	mes "números devo estar usando?";
+	mes "Ah, certo, 7, para explicar x,";
+	mes "Um valor representando--";
 	next;
 	mes "["+ strcharinfo(0) +"]";
-	mes "Excuse me, but";
-	mes "what are you doing?";
+	mes "Com licença, mas";
+	mes "O que você está fazendo?";
 	next;
-	mes "[Eccentric Scholar]";
-	mes "S-silence!";
-	mes "I must complete";
-	mes "my calculations!";
-	mes "Now, where was I...?";
+	mes "[Scholar excêntrico]";
+	mes "S-Silência!";
+	mes "Eu devo concluir";
+	mes "Meus cálculos!";
+	mes "Agora, onde eu estava ...?";
 	specialeffect EF_CLAYMORE;
 	emotion ET_FRET;
 	close;
@@ -2815,161 +2815,161 @@ p_track02,32,45,5	script	Eccentric Scholar#double	755,{
 p_track02,69,31,1	script	Blacksmith Guildsman#dou	726,{
 	if (!$@mon_time_2_2) {
 		mes "[Blacksmith Guildsman]";
-		mes "How many times must";
-		mes "I wager on these races?!";
-		mes "I haven't won even once!";
-		mes "Oh, I must have the worst";
-		mes "luck in wagering history!";
+		mes "Quantas vezes deve";
+		mes "Eu aposto nessas corridas?!";
+		mes "Eu não ganhei nem uma vez!";
+		mes "Oh, eu devo ter o pior";
+		mes "Sorte na história das apostas!";
 		emotion ET_CRY;
 		next;
 		mes "[Blacksmith Guildsman]";
-		mes "I've been assigned by my";
-		mes "guild to bring back some";
-		mes "Prize Medals to Einbroch...";
-		mes "They're apparently made";
-		mes "with some rare metal, but...";
-		mes "It's too hard for me to win~!";
+		mes "Fui designado pelo meu";
+		mes "guilda para trazer de volta alguns";
+		mes "Medalhas de prêmios para Einbroch ...";
+		mes "Eles são aparentemente feitos";
+		mes "com algum metal raro, mas ...";
+		mes "É muito difícil para mim ganhar ~!";
 		emotion ET_PROFUSELY_SWEAT;
 		close;
 	} 
 	mes "[Blacksmith Guildsman]";
-	mes "Run! Go go go!";
-	mes "I need to win some";
-	mes "medals! Otherwise, I'll";
-	mes "be too ashamed to return";
-	mes "home to Einbroch! F-faster!";
+	mes "Correr! Vai! Vai! Vai!";
+	mes "Eu preciso ganhar alguns";
+	mes "Medalhas! Caso contrário, eu vou";
+	mes "tenha vergonha demais para voltar";
+	mes "Lar para Einbroch! F-rápido!";
 	emotion ET_FLAG;
 	close;
 }
 
 p_track02,53,45,3	script	Valiant Knight#double	733,{
 	mes "[Valiant Knight]";
-	mes "Hey, have you been";
-	mes "wagering on the races?";
-	mes "If you've got a hot tip, then";
-	mes "would you share it with me?";
-	mes "I've won some wagers... But";
-	mes "I really wanna win more!";
+	mes "Ei, você tem sido";
+	mes "apostando nas corridas?";
+	mes "Se você tem uma dica quente, então";
+	mes "Você compartilharia comigo?";
+	mes "Eu ganhei algumas apostas ... mas";
+	mes "Eu realmente quero ganhar mais!";
 	next;
 	mes "[Valiant Knight]";
-	mes "Hah hah! It's like I tell";
-	mes "those Blacksmiths! If they";
-	mes "don't wanna lose all the time,";
-	mes "then they should just bet on the same monster. Me? I always";
-	mes "bet on the black Deviruchi~";
+	mes "Hah hah! É como eu digo";
+	mes "Aqueles ferreiros! Se eles";
+	mes "Não quero perder o tempo todo,";
+	mes "Então eles deveriam apostar no mesmo monstro. Meu? Eu sempre";
+	mes "Aposta no Black DeViruchi ~";
 	next;
 	mes "[Valiant Knight]";
-	mes "You too...!";
-	mes "Always bet";
-	mes "on Deviruchi!";
+	mes "Você também...!";
+	mes "Aposto sempre";
+	mes "em Deviruchi!";
 	emotion ET_BEST;
 	close;
 }
 
 p_track01,27,47,5	script	Drunkard#single	853,{
-	mes "[Familiar Drunkard]";
-	mes "Grrr...! ^333333*Hiccup*^000000";
-	mes "I just gotta win this";
-	mes "next game! I hafta do it!";
-	mes "Hey, you! Which number is";
-	mes "your lucky number? Huh?";
+	mes "[Bêbado familiar]";
+	mes "Grrr ...! ^3333333*Hiccup*^000000";
+	mes "Eu só tenho que ganhar isso";
+	mes "Próximo jogo! Eu tenho o que fazer isso!";
+	mes "Ei, você! Qual número é";
+	mes "Seu número de sorte? Huh?";
 	next;
 	mes "["+ strcharinfo(0) +"]";
-	mes "I, er...";
+	mes "Eu, é ...";
 	next;
-	mes "[Familiar Drunkard]";
-	mes "C'mon, I need your";
-	mes "lucky number cuz I ran";
-	mes "out of mine! Tell me!";
-	mes "Tell me! ^333333*Hiccup~*^000000";
+	mes "[Bêbado familiar]";
+	mes "Vamos, eu preciso do seu";
+	mes "Número da sorte porque eu corri";
+	mes "fora do meu! Diga-me!";
+	mes "Diga-me! ^3333333*Hiccup ~*^000000";
 	close;
 }
 
 p_track01,69,31,1	script	Blacksmith Guildsman#sin	107,{
 	mes "[Blacksmith Guildsman]";
-	mes "How can this be so hard?";
-	mes "Why can't I win at least";
-	mes "one of these races? Argh!";
-	mes "I can't go back until I get";
-	mes "at least one Prize Medal!";
+	mes "Como isso pode ser tão difícil?";
+	mes "Por que não posso ganhar pelo menos";
+	mes "Uma dessas raças? Argh!";
+	mes "Eu não posso voltar até ficar";
+	mes "Pelo menos uma medalha de prêmio!";
 	next;
 	mes "[Blacksmith Guildsman]";
-	mes "Yeah, I've been assigned";
-	mes "by the Einbroch Factory to";
-	mes "get some Prize Medals since";
-	mes "they're made of this rare medal. But it looks like they picked";
-	mes "the wrong guy for this job...";
+	mes "Sim, fui designado";
+	mes "pela fábrica de Einbroch para";
+	mes "Obtenha algumas medalhas de prêmios desde";
+	mes "Eles são feitos dessa medalha rara. Mas parece que eles escolheram";
+	mes "O cara errado para este trabalho ...";
 	next;
 	mes "[Blacksmith Guildsman]";
-	mes "I mean, I've been here";
-	mes "forever and I haven't won";
-	mes "anything yet! Hey, do me";
-	mes "a favor and give any extra";
-	mes "Prize Medals you might have";
-	mes "to the Einbroch Factory, okay?";
+	mes "Quero dizer, eu estive aqui";
+	mes "para sempre e eu não ganhei";
+	mes "Qualquer coisa ainda! Ei, faça -me";
+	mes "um favor e dê qualquer extra";
+	mes "Medalhas de prêmios que você pode ter";
+	mes "Para a fábrica de Einbroch, ok?";
 	close;
 }
 
 p_track01,45,42,3	script	Absent Minded Man#single	881,{
-	mes "[Absent Minded Man]";
-	mes "Say, are you here to bet";
-	mes "on the monster races? I've";
-	mes "come all the way here, just";
-	mes "because some strange man";
-	mes "asked me to win medals. It's";
-	mes "the only reason I'm in Hugel...";
+	mes "[Homem de mente intermediária]";
+	mes "Diga, você está aqui para apostar";
+	mes "nas corridas de monstro? Eu";
+	mes "Venha até aqui, apenas";
+	mes "Porque algum homem estranho";
+	mes "me pediu para ganhar medalhas. Isso é";
+	mes "A única razão pela qual estou em Hugel ...";
 	next;
-	mes "[Absent Minded Man]";
-	mes "But I've made more than";
-	mes "100 wagers, and haven't won";
-	mes "any of them! I mean, if I bet";
-	mes "on the same monster 6 times,";
-	mes "I should win at least once,";
-	mes "right? What's going on?!";
+	mes "[Homem de mente intermediária]";
+	mes "Mas eu fiz mais do que";
+	mes "100 apostas, e não ganhou";
+	mes "qualquer um deles! Quero dizer, se eu apostar";
+	mes "no mesmo monstro 6 vezes,";
+	mes "Eu deveria ganhar pelo menos uma vez,";
+	mes "certo? O que está acontecendo?!";
 	close;
 }
 
 hugel,5,5,3	script	Monster Race Manager	868,{
 	callfunc "F_GM_NPC";
-	mes "[Monster Race Manager]";
-	mes "I can activate and";
-	mes "deactivate the Arena";
-	mes "Entry NPCs for the Single";
-	mes "and Dual Monster Races.";
+	mes "[Gerente de corrida de monstros]";
+	mes "Eu posso ativar e";
+	mes "Desative a arena";
+	mes "NPCs de entrada para o único";
+	mes "e corridas de monstro duplo.";
 	next;
-	.@select = select("Single Race Entry - ON:Dual Race Entry - ON:Single Race Entry - OFF:Dual Race Entry - OFF");
-	mes "[Monster Race Manager]";
-	mes "Please enter";
-	mes "the password.";
+	.@select = select("Entrada de corrida única - On: Dual Race Entrada - On: Entrada de corrida única - OFF: Dual Race Entry - Off");
+	mes "[Gerente de corrida de monstros]";
+	mes "Por favor, digite";
+	mes "a senha.";
 	next;
 	.@i = callfunc("F_GM_NPC",1854,0,0,2000);
 	if (.@i == -2) {
-		mes "[Monster Race Manager]";
-		mes "Error.";
+		mes "[Gerente de corrida de monstros]";
+		mes "Erro.";
 	} else if (.@i == -1) {
-		mes "[Monster Race Manager]";
-		mes "Incorrect password.";
+		mes "[Gerente de corrida de monstros]";
+		mes "Senha incorreta.";
 	} else if (.@i == 1) {
-		mes "[Monster Race Manager]";
+		mes "[Gerente de corrida de monstros]";
 		switch(.@select) {
 		case 1:
-			mes "The Single Monster";
-			mes "Race Entry NPC is ON.";
+			mes "O único monstro";
+			mes "NPC de entrada de corrida está ligada.";
 			donpcevent "Eckar Ellebird#single::OnEnable";
 			close;
 		case 2:
-			mes "The Dual Monster";
-			mes "Race Entry NPC is ON.";
+			mes "O monstro duplo";
+			mes "NPC de entrada de corrida está ligada.";
 			donpcevent "Eckar Erenes#double::OnEnable";
 			close;
 		case 3:
-			mes "The Single Monster";
-			mes "Race Entry NPC is OFF.";
+			mes "O único monstro";
+			mes "NPC de entrada de corrida está desligada.";
 			donpcevent "Eckar Ellebird#single::OnDisable";
 			close;
 		case 4:
-			mes "The Dual Monster";
-			mes "Race Entry NPC is OFF.";
+			mes "O monstro duplo";
+			mes "NPC de entrada de corrida está desligada.";
 			donpcevent "Eckar Erenes#double::OnDisable";
 			close;
 		}

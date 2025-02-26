@@ -14,15 +14,15 @@
 prontera,155,177,5	script	Card Seller	100,{
 	.@menu$ = getvariableofnpc( .alphabet_menu$, "card_seller_creation" );
 	if (.@menu$ == "") {
-		mes "[Card Seller]";
-		mes "I am sorry, it seems like something went wrong.";
-		mes "I cannot find any cards in our database at the moment.";
-		mes "Please contact a game master.";
+		mes "[Vendedor de cartões]";
+		mes "Sinto muito, parece que algo deu errado.";
+		mes "Não consigo encontrar nenhum cartão em nosso banco de dados no momento.";
+		mes "Entre em contato com um mestre de jogo.";
 		close;
 	}
-	mes "[Card Seller]";
-	mes "Welcome!";
-	mes "I can sell you any normal monster card in the game. Would you like to have a look?";
+	mes "[Vendedor de cartões]";
+	mes "Bem-vindo!";
+	mes "Eu posso vender qualquer cartão de monstro normal no jogo. Você gostaria de dar uma olhada?";
 	next;
 	.@s = select(.@menu$) -1;
 	close2;
@@ -42,23 +42,23 @@ OnInit:
 	}
 	freeloop 1;
 	
-	.@string$ = "( `name_aegis` IN ( SELECT DISTINCT `drop1_item` FROM `" + .@mob_db$ + "` WHERE COALESCE(`mode_mvp`,0) = 0 ) " +
-		"OR `name_aegis` IN ( SELECT DISTINCT `drop2_item` FROM `" + .@mob_db$ + "` WHERE COALESCE(`mode_mvp`,0) = 0 ) " +
-		"OR `name_aegis` IN ( SELECT DISTINCT `drop3_item` FROM `" + .@mob_db$ + "` WHERE COALESCE(`mode_mvp`,0) = 0 ) " +
-		"OR `name_aegis` IN ( SELECT DISTINCT `drop4_item` FROM `" + .@mob_db$ + "` WHERE COALESCE(`mode_mvp`,0) = 0 ) " +
-		"OR `name_aegis` IN ( SELECT DISTINCT `drop5_item` FROM `" + .@mob_db$ + "` WHERE COALESCE(`mode_mvp`,0) = 0 ) " +
-		"OR `name_aegis` IN ( SELECT DISTINCT `drop6_item` FROM `" + .@mob_db$ + "` WHERE COALESCE(`mode_mvp`,0) = 0 ) " +
-		"OR `name_aegis` IN ( SELECT DISTINCT `drop7_item` FROM `" + .@mob_db$ + "` WHERE COALESCE(`mode_mvp`,0) = 0 ) " +
-		"OR `name_aegis` IN ( SELECT DISTINCT `drop8_item` FROM `" + .@mob_db$ + "` WHERE COALESCE(`mode_mvp`,0) = 0 ) " +
-		"OR `name_aegis` IN ( SELECT DISTINCT `drop9_item` FROM `" + .@mob_db$ + "` WHERE COALESCE(`mode_mvp`,0) = 0 ) " +
-		"OR `name_aegis` IN ( SELECT DISTINCT `drop10_item` FROM `" + .@mob_db$ + "` WHERE COALESCE(`mode_mvp`,0) = 0 ) )";
+	.@string$ = "(`name_aegis` in (selecione Distinct` Drop1_item` de `" + .@mob_db$ + "`Onde Coalesce (` mode_mvp`, 0) = 0)" +
+		"Ou `name_aegis` em (selecione Distinct` drop2_item` de `" + .@mob_db$ + "`Onde Coalesce (` mode_mvp`, 0) = 0)" +
+		"Ou `name_aegis` em (selecione Distinct 'Drop3_item` de`" + .@mob_db$ + "`Onde Coalesce (` mode_mvp`, 0) = 0)" +
+		"Ou `name_aegis` em (selecione Distinct` Drop4_item` de `" + .@mob_db$ + "`Onde Coalesce (` mode_mvp`, 0) = 0)" +
+		"Ou `name_aegis` em (selecione Distinct` Drop5_item` de `" + .@mob_db$ + "`Onde Coalesce (` mode_mvp`, 0) = 0)" +
+		"Ou `name_aegis` em (selecione Distinct` drop6_item` de `" + .@mob_db$ + "`Onde Coalesce (` mode_mvp`, 0) = 0)" +
+		"Ou `name_aegis` em (selecione Distinct` Drop7_item` de `" + .@mob_db$ + "`Onde Coalesce (` mode_mvp`, 0) = 0)" +
+		"Ou `name_aegis` em (selecione Distinct` drop8_item` de `" + .@mob_db$ + "`Onde Coalesce (` mode_mvp`, 0) = 0)" +
+		"Ou `name_aegis` em (selecione Distinct` drop9_item` de `" + .@mob_db$ + "`Onde Coalesce (` mode_mvp`, 0) = 0)" +
+		"Ou `name_aegis` em (selecione Distinct` Drop10_item` de `" + .@mob_db$ + "`Onde Coalesce (` mode_mvp`, 0) = 0))";
 
 	.@total = query_sql( "SELECT DISTINCT LEFT( `name_english`, 1 ) AS alphabets FROM `"+ .@item_db$ +"` WHERE `type` = 'Card' AND " + .@string$ + " ORDER BY alphabets;", .@alphabet$ );
 	for ( .@i = 0; .@i < .@total; .@i++ ) {
 		.@nb = query_sql( "SELECT `"+ .@item_db$ +"`.`id` FROM `"+ .@item_db$ +"` WHERE `type` = 'Card' AND LEFT( `name_english`, 1 ) = '"+ .@alphabet$[.@i] +"' AND " + .@string$ + " ORDER BY `name_english` LIMIT 128;", .@id );
 		if (.@nb > 0) {
 			.alphabet$[.@size_alphabet++] = .@alphabet$[.@i];
-			.alphabet_menu$ = .alphabet_menu$ + .@alphabet$[.@i] +" Cards:";
+			.alphabet_menu$ = .alphabet_menu$ + .@alphabet$[.@i] +"Cartões:";
 			npcshopdelitem "card_mob#"+ .@alphabet$[.@i], 501;
 			for ( .@j = 0; .@j < .@nb; .@j++ ) {
 				if (getiteminfo(.@id[.@j], ITEMINFO_SUBTYPE) == CARD_ENCHANT)// Skip enchants in case someone added them as card drop

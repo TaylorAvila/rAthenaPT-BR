@@ -9,7 +9,7 @@
 //===== Description: =========================================
 //= [Official Conversion]
 //= Turns arrows into Arrow Quivers.
-//= Breakdown of Subroutine "S_BuyQuiver"
+//= Breakdown of Subroutine "S_buyquiver"
 //= arg(0): Type of Arrow to be packaged (item ID).
 //= arg(1): How many of each 'getarg(0)' arrow per quiver.
 //= arg(2): The cost of making a 'getarg(0)' quiver.
@@ -24,62 +24,62 @@
 //============================================================
 mora,106,117,3	script	Quiver Maker#mora	4_M_RAFLE_GR,{
 	if (checkweight(1201,1) == 0) {
-		mes "[Quiver Maker]";
-		mes "You have too many things with you.";
-		mes "Make some space in your inventory and come back. I'll tell you something interesting.";
+		mes "[Fabricante de tremores]";
+		mes "Você tem muitas coisas com você.";
+		mes "Faça algum espaço em seu inventário e volte. Vou te dizer algo interessante.";
 		close;
 	}
 	if (MaxWeight - Weight < 2000) {
-		mes "[Quiver Maker]";
-		mes "You seem worn out with all that stuff.";
-		mes "Make some space in your inventory and come back. I'll tell you something interesting.";
+		mes "[Fabricante de tremores]";
+		mes "Você parece desgastado com todas essas coisas.";
+		mes "Faça algum espaço em seu inventário e volte. Vou te dizer algo interessante.";
 		close;
 	}
-	mes "[Quiver Maker]";
-	mes "Mora villagers ask what good quivers are. They just don't know how the world works.";
-	mes "No wonder they don't know a thing about quivers - spreading jam over leaves all day long.";
+	mes "[Fabricante de tremores]";
+	mes "Os moradores de Mora perguntam o que são bons afiadores. Eles simplesmente não sabem como o mundo funciona.";
+	mes "Não é de admirar que eles não saibam nada sobre afiadores - espalhando geléia sobre as folhas o dia inteiro.";
 	next;
-	if (getbattleflag("feature.barter")) {
-		.@menu$ = "I want arrows";
+	if (getbattleflag("Feeking.Barter")) {
+		.@menu$ = "Eu quero flechas";
 	}
-	switch( select("Please make me a quiver.", .@menu$, "What's a quiver?") ) {
+	switch( select("Por favor, faça -me uma aljava.", .@menu$, "O que é uma aljava?") ) {
 	case 1:
-		if (getbattleflag("feature.barter")) {
-			mes "[Quiver Maker]";
-			mes "Finally, someone has appeared who knows the true value of a quiver. I will do it for those who know its worth.";
+		if (getbattleflag("Feeking.Barter")) {
+			mes "[Fabricante de tremores]";
+			mes "Finalmente, alguém apareceu quem conhece o verdadeiro valor de uma aljava. Farei isso por quem sabe que vale a pena.";
 			close2;
-			callshop "Quiver_Archer", 1;
+			callshop "Quiver_archer", 1;
 			end;
 		}
-		mes "[Quiver Maker]";
-		mes "At last someone appreciates a quiver!";
-		mes "I can make Elven Quivers and Hunting Quivers.";
-		mes "Which do you need?";
+		mes "[Fabricante de tremores]";
+		mes "Por fim, alguém aprecia uma aljava!";
+		mes "Eu posso fazer altalheiros e elíneos e caçar altalhões.";
+		mes "Qual você precisa?";
 		next;
-		switch(select("An Elven Quiver:A Hunting Quiver:I don't need a quiver.")) {
+		switch(select("Uma aljava élfica: uma aljava de caça: não preciso de uma aljava.")) {
 		case 1: callsub S_BuyQuiver,1773,500,500,12575; //Arrow_Of_Elf_Cntr
 		case 2: callsub S_BuyQuiver,1774,500,500,12576; //Hunting_Arrow_Cntr
 		case 3:
-			mes "[Quiver Maker]";
-			mes "You can buy arrows off the tool merchant next to me.";
+			mes "[Fabricante de tremores]";
+			mes "Você pode comprar flechas do comerciante da ferramenta ao meu lado.";
 			close;
 		}
 		end;
 	case 2:
-		if (getbattleflag("feature.barter")) {
-			mes "[Quiver Maker]";
-			mes "I don't sell ordinary arrows. These are artisan arrows that can only be purchased here. Would you really recognize its worth, right?";
+		if (getbattleflag("Feeking.Barter")) {
+			mes "[Fabricante de tremores]";
+			mes "Eu não vendo setas comuns. São setas artesanais que só podem ser compradas aqui. Você realmente reconheceria seu valor, certo?";
 			close2;
-			callshop "Catch_Arrows", 1;
+			callshop "Catch_arrows", 1;
 		}
 		end;
 	case 3:
-		mes "[Quiver Maker]";
-		mes "An arrow may be thin and light, but carrying hundreds and thousands of arrows is like carrying a whole log.";
+		mes "[Fabricante de tremores]";
+		mes "Uma seta pode ser fina e leve, mas carregar centenas e milhares de flechas é como carregar um tronco inteiro.";
 		next;
-		mes "[Quiver Maker]";
-		mes "But when you have quivers, you can put arrows in them and save weight and space.";
-		mes "If you're interested in one, I'll stitch one up for you.";
+		mes "[Fabricante de tremores]";
+		mes "Mas quando você tem altades, pode colocar flechas nelas e economizar peso e espaço.";
+		mes "Se você estiver interessado em um, vou costurar um para você.";
 		close;
 	}
 	end;
@@ -88,30 +88,30 @@ S_BuyQuiver:
 	.@item_req = getarg(0);
 	.@req_amount = getarg(1);
 	if (countitem(getarg(0)) < .@req_amount) {
-		mes "[Quiver Maker]";
-		mes "Bring more than "+ .@req_amount +" "+ getitemname(.@item_req) +" and I'll make you a quiver.";
+		mes "[Fabricante de tremores]";
+		mes "Traga mais do que"+ .@req_amount +""+ getitemname(.@item_req) +"E vou fazer de você uma aljava.";
 		close;
 	}
-	mes "[Quiver Maker]";
-	mes "Oh, I see you have "+ getitemname(.@item_req) +" in your hand!";
-	mes "Are you interested in using a quiver? It's really convenient!";
-	mes "If you're interested, I can trade "+ .@req_amount +" of those arrows for one of these quivers for ^FF3131"+getarg(2)+" zeny^000000.";
+	mes "[Fabricante de tremores]";
+	mes "Oh, vejo que você tem"+ getitemname(.@item_req) +"na sua mão!";
+	mes "Você está interessado em usar uma aljava? É realmente conveniente!";
+	mes "Se você estiver interessado, eu posso negociar"+ .@req_amount +"Dessas flechas para um desses afiadores para ^ff3131"+getarg(2)+"Zeny^000000.";
 	next;
-	switch(select("Trade all the arrows you have:Get only one quiver:Don't trade")) {
+	switch(select("Negocie todas as flechas que você tem: obtenha apenas uma aljava: não negocie")) {
 	case 1:
 		set .@arrows, countitem(.@item_req);
 		set .@quiver, .@arrows / .@req_amount;
 		set .@arrows_used, .@quiver * .@req_amount;
 		set .@arrow_zeny01, .@quiver * getarg(2);
-		mes "The number of arrows you have : ^3131FF"+.@arrows+"^000000";
-		mes "The number of quivers available : ^3131FF"+.@quiver+"^000000";
-		mes "Zeny needed for trade : ^3131FF"+.@arrow_zeny01+" zeny^000000";
+		mes "O número de setas que você tem: ^3131ff"+.@arrows+"^000000";
+		mes "O número de afiadores disponíveis: ^3131ff"+.@quiver+"^000000";
+		mes "Zeny necessário para o comércio: ^3131ff"+.@arrow_zeny01+"Mulheres^000000";
 		next;
-		mes "Trade?";
+		mes "Troca?";
 		next;
-		if(select("Trade:Don't trade") == 2) {
-			mes "[Quiver Maker]";
-			mes "Hey, you don't doubt my skills, do you?";
+		if(select("Comércio: não comércio") == 2) {
+			mes "[Fabricante de tremores]";
+			mes "Ei, você não duvida das minhas habilidades, não é?";
 			close;
 		}
 		break;
@@ -122,23 +122,23 @@ S_BuyQuiver:
 		set .@zeny_mes,1;
 		break;
 	case 3:
-		mes "[Quiver Maker]";
-		mes "Hey, you don't doubt my skills, do you?";
+		mes "[Fabricante de tremores]";
+		mes "Ei, você não duvida das minhas habilidades, não é?";
 		close;
 	}
 	if (Zeny < .@arrow_zeny01) {
-		mes "[Quiver Maker]";
+		mes "[Fabricante de tremores]";
 		if (.@zeny_mes == 1)
-			mes "I said I'd accept human coins just for you, and you still don't want to spend the money?";
+			mes "Eu disse que aceitaria moedas humanas só para você, e você ainda não quer gastar o dinheiro?";
 		else
-			mes "You really don't expect to get your hands on a masterpiece for nothing, do you?";
+			mes "Você realmente não espera colocar suas mãos em uma obra -prima por nada, não é?";
 		close;
 	}
-	mes "[Quiver Maker]";
-	mes "Hey, here you are.";
-	mes "There is ^3131FFsomething you need to know^000000 - try to remember it.";
-	mes "^FF0000You can't use quivers when your encumbrance is over 70%.^000000";
-	mes "You'd better keep that in mind, or you might be in trouble later.";
+	mes "[Fabricante de tremores]";
+	mes "Ei, aqui está você.";
+	mes "Há ^3131ffsoming algo que você precisa conhecer ^000000 - tente se lembrar disso.";
+	mes "^Ff0000 Você não pode usar aljava quando seu ônus é superior a 70%.^000000";
+	mes "É melhor você ter isso em mente, ou pode estar com problemas mais tarde.";
 	set Zeny, Zeny-.@arrow_zeny01;
 	delitem .@item_req,.@arrows_used;
 	getitem getarg(3),.@quiver;

@@ -10,127 +10,127 @@
 //= Black Jack card game.  Gameplay based off standard casino
 //= black jack rules.  Dealer must have at least 17 to stay and will
 //= automatically stay at 17 and up.  Player must have at least
-//= 13 to stay.  Aces counted as 11 or 1.  Option to "Double Down".
-//= Currently does not allow for "insurance", or "splitting"
+//= 13 to stay.  Aces counted as 11 or 1.  Option to "Duplo para baixo".
+//= Currently does not allow for "seguro", or "dividindo"
 //= of pairs.
 //===== Additional Comments: =================================
 //= 1.0 First version.
 //============================================================
 
 cmd_in02,188,89,1	script	Black Jack Dealer	57,{
-	mes "[Dealer]";
-	mes "Hello there! Would you like to play a game of Black Jack?";
+	mes "[Distribuidor]";
+	mes "Olá! Você gostaria de jogar um jogo de Black Jack?";
 M_Menu:
 	next;
-	menu "What are the rules?",M_0, "I want to play.",L_Play, "No thanks.",M_End;
+	menu "Quais são as regras?",M_0, "Eu quero jogar.",L_Play, "Não, obrigado.",M_End;
 
 M_0:
-	mes "[Dealer]";
-	mes "What would you like to know?";
+	mes "[Distribuidor]";
+	mes "O que você gostaria de saber?";
 sM_Menu0:
 	next;
-	menu "The basics.",sM_0a, "Winning and loosing.",sM_0b, "'Double Down'.",sM_0c,
-	"Ace value.",sM_0d, "Nothing.",M_Menu;
+	menu "O básico.",sM_0a, "Ganhar e perder.",sM_0b, "'Double Down'.",sM_0c,
+	"Valor da ás.",sM_0d, "Nada.",M_Menu;
 
 sM_0a:
-	mes "[Dealer]";
-	mes "Black Jack is a card game in which the goal is to get 21, or as";
-	mes "close to 21 points as possible, without going over 21.";
+	mes "[Distribuidor]";
+	mes "Black Jack é um jogo de cartas no qual o objetivo é obter 21 ou como";
+	mes "Perto de 21 pontos possível, sem passar mais de 21 anos.";
 	next;
-	mes "[Dealer]";
-	mes "Before the game starts, the player must make a bet.  Once the bet";
-	mes "has been made, both the dealer and the player are dealt 2 cards";
-	mes "each.  Depending on what cards you have, you can choose to ^5533FF'stay'^000000,";
-	mes "or you can choose to ^5533FF'pull'^000000.";
+	mes "[Distribuidor]";
+	mes "Antes do início do jogo, o jogador deve fazer uma aposta.  Uma vez a aposta";
+	mes "foi feito, tanto o revendedor quanto o jogador recebem 2 cartas";
+	mes "cada.  Dependendo de quais cartões você tem, você pode optar por ^5533ff'Stay ' ^000000,";
+	mes "ou você pode optar por ^5533ff'pull ' ^000000.";
 	next;
-	mes "[Dealer]";
-	mes "When you choose to 'stay', you are telling the dealer that you don't";
-	mes "need anymore cards.  This allows the dealer to pull if he/she";
-	mes "wants to.  In order to stay, you must have ^FF3355at least 13 points^000000. The";
-	mes "dealer can only stay when he/she has^FF3355 17 points or more^000000.";
+	mes "[Distribuidor]";
+	mes "Quando você escolhe 'ficar', você está dizendo ao revendedor que não";
+	mes "Precisa de cartas mais.  Isso permite que o revendedor puxe se ele/ela/ela";
+	mes "quer.  Para ficar, você deve ter ^ff3355T pelo menos 13 pontos ^000000. O";
+	mes "O revendedor só pode ficar quando ele tem^ff3355 17 pontos ou mais^000000.";
 	next;
-	mes "[Dealer]";
-	mes "When you choose to 'pull', you are telling the dealer that you want";
-	mes "another card.  By pulling more cards you can increase your point";
-	mes "total.  As long has you have ^FF3355less than 21^000000 points you can pull a";
-	mes "card from the deck.";
+	mes "[Distribuidor]";
+	mes "Quando você escolhe 'puxar', você está dizendo ao revendedor que deseja";
+	mes "Outra carta.  Ao puxar mais cartas, você pode aumentar seu ponto";
+	mes "total.  Desde que você tenha ^ff3355 sem 21 ^000000 pontos, você pode puxar um";
+	mes "Cartão do baralho.";
 	goto sM_Menu0;
 sM_0b:
-	mes "[Dealer]";
-	mes "There are 3 ways to win and loose at Black Jack.";
+	mes "[Distribuidor]";
+	mes "Existem três maneiras de vencer e perder no Blackjack.";
 	next;
-	mes "[Dealer]";
-	mes "1.) At the end of a Black Jack round, if you have more points";
-	mes "than the dealer you will win the round.  Conversely if you have";
-	mes "less points than the dealer you will loose.";
+	mes "[Distribuidor]";
+	mes "1.) No final de uma rodada de Black Jack, se você tiver mais pontos";
+	mes "do que o revendedor você ganhará a rodada.  Por outro lado, se você tiver";
+	mes "Menos pontos do que o revendedor que você perderá.";
 	next;
-	mes "[Dealer]";
-	mes "2.) If you pull a card that makes your point total go over 21 you";
-	mes "will automatically loose the round.  This is called a ^5533FF'bust'^000000.  If";
-	mes "the dealer busts then you will win the round.";
+	mes "[Distribuidor]";
+	mes "2.) Se você puxar um cartão que torne seu ponto total, vá mais de 21 você";
+	mes "vai perder automaticamente a rodada.  Isso é chamado de ^5533ff'bust ' ^000000.  Se";
+	mes "O revendedor quebra então você ganhará a rodada.";
 	next;
-	mes "[Dealer]";
-	mes "3.) If you have a point total of 21 with the first 2 cards, you";
-	mes "will automatically win the round.  This is called a ^5533FF'Black Jack'^000000";
-	mes "and happens when you get an 'Ace' and a '10 valued' card. If the";
-	mes "dealer gets a Black Jack he/she will automatically win the round.";
+	mes "[Distribuidor]";
+	mes "3.) Se você tiver um total de 21 com os 2 primeiros cartões, você";
+	mes "Ganhará automaticamente a rodada.  Isso é chamado de ^5533ff'black jack ' ^000000";
+	mes "e acontece quando você recebe um cartão 'Ace' e um '10 valorizado '. Se o";
+	mes "O revendedor recebe um jack preto que ele/ela ganhará automaticamente a rodada.";
 	next;
-	mes "[Dealer]";
-	mes "4.) Besides winning and loosing, you can tie with the dealer.  If";
-	mes "both you and the dealer have the same point total at the end of a";
-	mes "round, this will result in a tie with no winner and no loss or gain";
-	mes "in money.";
+	mes "[Distribuidor]";
+	mes "4.) Além de ganhar e perder, você pode amarrar com o revendedor. Se";
+	mes "Tanto você quanto o revendedor têm o mesmo ponto total no final de um";
+	mes "Rodada, isso resultará em um empate sem vencedor e sem perda ou ganho";
+	mes "em dinheiro.";
 	next;
-	mes "[Dealer]";
-	mes "This is called a ^5533FF'push'^000000 with the dealer.  This also";
-	mes "applies to both you and the dealer having Black Jack at the same";
-	mes "time.";
+	mes "[Distribuidor]";
+	mes "Isso é chamado de ^5533ff'push ' ^000000 com o revendedor.  Isso também";
+	mes "aplica -se a você e ao revendedor";
+	mes "tempo.";
 	goto sM_Menu0;
 sM_0c:
-	mes "[Dealer]";
-	mes "The 'Double Down' option allows you to double your current bet,";
-	mes "but with the drawback that you will only be able to pull one";
-	mes "additional card.  This option is only available at the beginning of";
-	mes "each round.";
+	mes "[Distribuidor]";
+	mes "A opção 'Double Down' permite dobrar sua aposta atual,";
+	mes "Mas com a desvantagem de que você só poderá puxar um";
+	mes "cartão adicional.  Esta opção está disponível apenas no início de";
+	mes "cada rodada.";
 	next;
-	mes "[Dealer]";
-	mes "An example of when doubling down is useful, is when";
-	mes "your first 2 cards give you a point total of 11.  You have a good";
-	mes "chance of getting 21 or 20 with the next card that you draw.  This";
-	mes "would be a good hand to double down on.";
+	mes "[Distribuidor]";
+	mes "Um exemplo de quando dobrar é útil é quando";
+	mes "Seus dois primeiros cartões lhe dão um total de 11. Você tem um bom";
+	mes "chance de obter 21 ou 20 com o próximo cartão que você desenha.  Esse";
+	mes "Seria uma boa mão para dobrar.";
 	goto sM_Menu0;
 sM_0d:
-	mes "[Dealer]";
-	mes "The 'Ace' card is a unique card in the game of Black Jack because";
-	mes "it can have 2 values.  An Ace can be counted as either 11 points,";
-	mes "or just 1 point.  For example if you had an Ace and a 4, that would";
-	mes "give you either 15 or 5 points.";
+	mes "[Distribuidor]";
+	mes "A carta 'Ace' é uma carta única no jogo de Black Jack porque";
+	mes "Pode ter 2 valores.  Um ás pode ser contado como 11 pontos,";
+	mes "ou apenas 1 ponto.  Por exemplo, se você tivesse um ás e um 4, isso seria";
+	mes "Dê a você 15 ou 5 pontos.";
 	next;
-	mes "[Dealer]";
-	mes "If you decided to stay, the Ace would automatically be counted as";
-	mes "11 points to give you 15 points total.";
+	mes "[Distribuidor]";
+	mes "Se você decidisse ficar, o ás seria automaticamente contado como";
+	mes "11 pontos para dar a você 15 pontos no total.";
 	next;
-	mes "[Dealer]";
-	mes "If you had decided to pull and received a 9, the ace would";
-	mes "automatically be counted as 1 point to give you a total of 14";
-	mes "points.  If the Ace was counted as 11 points, you would have a";
-	mes "point total over 21 and would have lost.";
+	mes "[Distribuidor]";
+	mes "Se você tivesse decidido puxar e receber um 9, o ás";
+	mes "ser considerado automaticamente como 1 ponto para lhe dar um total de 14";
+	mes "pontos.  Se o ás fosse contado como 11 pontos, você teria um";
+	mes "Point Total acima de 21 e teria perdido.";
 	next;
-	mes "[Dealer]";
-	mes "It is because of the flexibility you have with the 'Ace' that makes";
-	mes "it the most powerful card in the game.";
+	mes "[Distribuidor]";
+	mes "É por causa da flexibilidade que você tem com o 'ás' que faz";
+	mes "É a carta mais poderosa do jogo.";
 	goto sM_Menu0;
 M_End:
-	mes "[Dealer]";
-	mes "Feel free to come back anytime";
+	mes "[Distribuidor]";
+	mes "Sinta -se à vontade para voltar a qualquer hora";
 	close;
 
 //================
 L_Play:
-	mes "[Dealer]";
-	mes "Please place your bets...";
+	mes "[Distribuidor]";
+	mes "Por favor, faça suas apostas ...";
 	next;
-	menu "2z",M_1a, "10z",M_1b, "20z",M_1c, "100z",M_1d, "Too rich for my blood....",M_End;
+	menu "2z",M_1a, "10z",M_1b, "20z",M_1c, "100z",M_1d, "Muito rico para o meu sangue ....",M_End;
 
 M_1a:
 	if(Zeny < 2) goto sL_NotEnuf;
@@ -150,12 +150,12 @@ M_1d:
 	goto L_Cont0;
 
 sL_NotEnuf:
-	mes "[Dealer]";
-	mes "I'm sorry but you don't have enough zeny to make that bet.";
+	mes "[Distribuidor]";
+	mes "Sinto muito, mas você não tem Zeny suficiente para fazer essa aposta.";
 	close;
 
 L_Cont0:
-	mes "(the cards are being dealt)";
+	mes "(os cartões estão sendo tratados)";
 	next;
 	deletearray $@card[0],13;
 	set @dealerTurn, 0;
@@ -172,42 +172,42 @@ L_Cont0:
 L_Start:
 	callsub sF_GetTot;
 
-	mes "- Here are the ^FF5533DEALER'S^000000 cards:";
+	mes "- Aqui estão os cartões ^000000 do ^ff55333Dealer:";
 	if (@numD==2) callsub sF_D2cards;
 	if (@numD==3) callsub sF_D3cards;
 	if (@numD==4) callsub sF_D4cards;
 	if (@numD==5) callsub sF_D5cards;
-	mes "    The DEALER has: ^FF5533"+@dealTot+"^000000";
-	mes " ";
-	mes "- Here are ^5533FFYOUR^000000 cards:";
+	mes "O revendedor tem: ^ff5533"+@dealTot+"^000000";
+	mes "";
+	mes "- Aqui estão ^5533ffyour ^000000 cartões:";
 	if (@numP==2) callsub sF_P2cards;
 	if (@numP==3) callsub sF_P3cards;
 	if (@numP==4) callsub sF_P4cards;
 	if (@numP==5) callsub sF_P5cards;
-	if(@pAce != 1 || @playTot == 21) mes "    YOU have: ^5533FF" +@playTot+ "^000000";
-	if(@pAce == 1 && @playTot != 21) mes "    You have: ^5533FF" +@playTot+ "^000000, or ^5533FF" +(@playTot-10)+ "^000000";
+	if(@pAce != 1 || @playTot == 21) mes "Você tem: ^5533ff" +@playTot+ "^000000";
+	if(@pAce == 1 && @playTot != 21) mes "Você tem: ^5533ff" +@playTot+ "^000000, ou ^5533ff" +(@playTot-10)+ "^000000";
 	next;
 	if(@playTot==21 && @dealTot==21) goto sL_Push;
 	if(@numP==2 && @playTot == 21) goto sL_Win;
 	if(@numD==2 && @dealTot == 21) goto sL_Lose;
 	if(@playTot > 21) goto sL_Lose;
 	if(@dealTot > 21) goto sL_Win;
-	if(@numP==2 && @dealerTurn==0) menu "Hit me(pull)",M_Hit, "Stay",M_Stay, "Double Down",M_Double;
-	if(@dealerTurn == 0) menu "Hit me(pull)",M_Hit, "Stay",M_Stay;
+	if(@numP==2 && @dealerTurn==0) menu "Bata em mim (puxe)",M_Hit, "Ficar",M_Stay, "Duplo para baixo",M_Double;
+	if(@dealerTurn == 0) menu "Bata em mim (puxe)",M_Hit, "Ficar",M_Stay;
 
 M_Stay:
-	mes "[Dealer]";
+	mes "[Distribuidor]";
 	if(@playTot < 13) goto sL_PlayToLow;
-	if(@dealTot > 16) mes "The Dealer stays.";
+	if(@dealTot > 16) mes "O revendedor fica.";
 	if(@dealTot > 16 || @numD == 5) goto L_Check;
-	mes "The Dealer is going to pull";
+	mes "O revendedor vai puxar";
 	next;
 	callsub sF_GetCards, @numD, @dealCard[@numD], @dealCard$[@numD], @dAce;
 	set @dealerTurn, 1;
 	goto L_Start;
 
 sL_PlayToLow:
-	mes "I'm sorry but you do not have a high enough total to stay.  You must pull.";
+	mes "Sinto muito, mas você não tem um total suficientemente alto para ficar.  Você deve puxar.";
 	next;
 	goto M_Hit;
 
@@ -216,9 +216,9 @@ M_Hit:
 	callsub sF_GetCards, @numP, @playCard[@numP], @playCard$[@numP], @pAce;
 	goto L_Start;
 M_Double:
-	mes "[Dealer]";
-	mes "Player has chosen to Double Down.  You're current bet will be";
-	mes "doubled, and you will only be able to pull 1 extra card.";
+	mes "[Distribuidor]";
+	mes "O jogador optou por dobrar.  Sua aposta atual será";
+	mes "dobrou, e você só poderá puxar 1 cartão extra.";
 	next;
 	set @dealerTurn, 1;
 	set @bet, @bet*2;
@@ -232,20 +232,20 @@ L_Check:
 	if(@playTot == @dealTot) goto sL_Push;
 
 sL_Win:
-	mes "[Dealer]";
-	mes "Congratulations, you've won!";
+	mes "[Distribuidor]";
+	mes "Parabéns, você ganhou!";
 	next;
 	set Zeny, Zeny + @bet;
 	goto L_Play;
 sL_Lose:
-	mes "[Dealer]";
-	mes "I'm sorry but you've lost.";
+	mes "[Distribuidor]";
+	mes "Sinto muito, mas você perdeu.";
 	set Zeny, Zeny - @bet;
 	next;
 	goto L_Play;
 sL_Push:
-	mes "[Dealer]";
-	mes "Its a push.  You tied with the Dealer.";
+	mes "[Distribuidor]";
+	mes "É um empurrão.  Você amarrou com o revendedor.";
 	next;
 	goto L_Play;
 
@@ -260,12 +260,12 @@ sF_GetCards:
 	if(getarg(1) > 10) set getarg(1), 10;
 	if(getarg(1) == 1 && getarg(3) < 1) set getarg(1), 11;
 	if(getarg(1) == 11) set getarg(3), 1;
-	set getarg(2), " " + getarg(1) + " ";
+	set getarg(2), "" + getarg(1) + "";
 	if(@rnd == 10) set getarg(2), getarg(1);
-	if(@rnd == 1) set getarg(2), " A ";
-	if(@rnd == 11) set getarg(2), " J ";
-	if(@rnd == 12) set getarg(2), " Q ";
-	if(@rnd == 13) set getarg(2), " K ";
+	if(@rnd == 1) set getarg(2), "UM";
+	if(@rnd == 11) set getarg(2), "J";
+	if(@rnd == 12) set getarg(2), "Q";
+	if(@rnd == 13) set getarg(2), "K";
 	set getarg(0), getarg(0) + 1;
 	return;
 
@@ -293,55 +293,55 @@ GetPlayTot:
 //=======================================
 	// Sub function for displaying the Cards
 sF_D2cards:
-	mes "    .-----.   .-----. ";
-	mes "    | "+@dealCard$[0]+" |   | "+@dealCard$[1]+" | ";
-	mes "    '-----'   '-----' ";
+	mes ".-----.   .-----.";
+	mes "|"+@dealCard$[0]+"|   |"+@dealCard$[1]+"|";
+	mes "'-----'   '-----'";
 	return;
 sF_P2cards:
-	mes "    .-----.   .-----. ";
-	mes "    | "+@playCard$[0]+" |   | "+@playCard$[1]+" | ";
-	mes "    '-----'   '-----' ";
+	mes ".-----.   .-----.";
+	mes "|"+@playCard$[0]+"|   |"+@playCard$[1]+"|";
+	mes "'-----'   '-----'";
 	return;
 sF_D3cards:
-	mes "    .-----.   .-----.   .-----. ";
-	mes "    | "+@dealCard$[0]+" |   | "+@dealCard$[1]+" |   | "+@dealCard$[2]+" | ";
-	mes "    '-----'   '-----'    '-----' ";
+	mes ".-----.   .-----.   .-----.";
+	mes "|"+@dealCard$[0]+"|   |"+@dealCard$[1]+"|   |"+@dealCard$[2]+"|";
+	mes "'-----'   '-----'    '-----'";
 	return;
 sF_P3cards:
-	mes "    .-----.   .-----.   .-----. ";
-	mes "    | "+@playCard$[0]+" |   | "+@playCard$[1]+" |   | "+@playCard$[2]+" | ";
-	mes "    '-----'   '-----'    '-----' ";
+	mes ".-----.   .-----.   .-----.";
+	mes "|"+@playCard$[0]+"|   |"+@playCard$[1]+"|   |"+@playCard$[2]+"|";
+	mes "'-----'   '-----'    '-----'";
 	return;
 sF_D4cards:
-	mes " .-----.  .-----.  .-----. ";
-	mes " | "+@dealCard$[0]+" |  | "+@dealCard$[1]+" |  | "+@dealCard$[2]+" | ";
-	mes " '-----'  '-----'   '-----' ";
-	mes "    .-----.  ";
-	mes "    | "+@dealCard$[3]+" |";
-	mes "    '-----'   ";
+	mes ".-----.  .-----.  .-----.";
+	mes "|"+@dealCard$[0]+"|  |"+@dealCard$[1]+"|  |"+@dealCard$[2]+"|";
+	mes "'-----'  '-----'   '-----'";
+	mes ".-----.";
+	mes "|"+@dealCard$[3]+"|";
+	mes "'-----'";
 	return;
 sF_P4cards:
-	mes " .-----.  .-----.  .-----. ";
-	mes " | "+@playCard$[0]+" |  | "+@playCard$[1]+" |  | "+@playCard$[2]+" |";
-	mes " '-----'  '-----'   '-----' ";
-	mes "    .-----.  ";
-	mes "    | "+@playCard$[3]+" |";
-	mes "    '-----'   ";
+	mes ".-----.  .-----.  .-----.";
+	mes "|"+@playCard$[0]+"|  |"+@playCard$[1]+"|  |"+@playCard$[2]+"|";
+	mes "'-----'  '-----'   '-----'";
+	mes ".-----.";
+	mes "|"+@playCard$[3]+"|";
+	mes "'-----'";
 	return;
 sF_D5cards:
-	mes " .-----.  .-----.  .-----. ";
-	mes " | "+@dealCard$[0]+" |  | "+@dealCard$[1]+" |  | "+@dealCard$[2]+" | ";
-	mes " '-----'  '-----'   '-----' ";
-	mes "    .-----.   .-----. ";
-	mes "    | "+@dealCard$[3]+" |   | "+@dealCard$[4]+" | ";
-	mes "    '-----'   '-----' ";
+	mes ".-----.  .-----.  .-----.";
+	mes "|"+@dealCard$[0]+"|  |"+@dealCard$[1]+"|  |"+@dealCard$[2]+"|";
+	mes "'-----'  '-----'   '-----'";
+	mes ".-----.   .-----.";
+	mes "|"+@dealCard$[3]+"|   |"+@dealCard$[4]+"|";
+	mes "'-----'   '-----'";
 	return;
 sF_P5cards:
-	mes " .-----.  .-----.  .-----. ";
-	mes " | "+@playCard$[0]+" |  | "+@playCard$[1]+" |  | "+@playCard$[2]+" | ";
-	mes " '-----'  '-----'   '-----' ";
-	mes "    .-----.   .-----. ";
-	mes "    | "+@playCard$[3]+" |   | "+@playCard$[4]+" | ";
-	mes "    '-----'   '-----' ";
+	mes ".-----.  .-----.  .-----.";
+	mes "|"+@playCard$[0]+"|  |"+@playCard$[1]+"|  |"+@playCard$[2]+"|";
+	mes "'-----'  '-----'   '-----'";
+	mes ".-----.   .-----.";
+	mes "|"+@playCard$[3]+"|   |"+@playCard$[4]+"|";
+	mes "'-----'   '-----'";
 	return;
 }

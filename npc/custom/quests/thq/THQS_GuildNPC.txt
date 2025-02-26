@@ -15,72 +15,72 @@
 
 yuno_in01,124,164,6	script	Guild Leader	108,{
 	mes "[Keegan]";
-	mes "What brings you here? Have something to say?";
+	mes "O que te traz aqui? Tem algo a dizer?";
 	next;
-	menu "I want to be a Treasure Hunter",-,"Take a New Quest.",N_NQuest,"Take me to the Official Shop.",N_OShop,"Never mind.",N_NVM;
+	menu "Eu quero ser um caçador de tesouros",-,"Faça uma nova missão.",N_NQuest,"Leve -me para a loja oficial.",N_OShop,"Deixa para lá.",N_NVM;
 	if(Event_THQS==1) goto N_AlreadyReg;
 	mes "[Keegan]";
-	mes "Well "+strcharinfo(0)+" if you want to be a Treasure Hunter first you must.";
-	mes " ";
-	mes "^FF00001.^000000 You well be changed ^FF000025,000z^000000 for basic training and your proof of being a member.";
-	mes " ";
-	mes "Umm... Well that is all you need to do. Hahaha.";
+	mes "Bem"+strcharinfo(0)+"Se você quer ser um caçador de tesouros primeiro, deve.";
+	mes "";
+	mes "^Ff00001.^000000 Você é bem alterado^FF000025.000Z^000000 para treinamento básico e sua prova de ser membro.";
+	mes "";
+	mes "Umm ... bem, isso é tudo o que você precisa fazer. Hahaha.";
 	next;
-	menu "Pay ^FF000025,000z^000000.",-,"Thats way to high!!",N_HighPrice;
+	menu "PAY ^FF000025.000Z ^000000.",-,"Isso é muito alto !!",N_HighPrice;
 	if (Zeny < 25000) goto N_NoZeny;
 	set Zeny,Zeny-25000;
 	//getitem 7950, 1;
 	//getitem 7951, 1;
 	set Event_THQS,1;
 	mes "[Keegan]";
-	mes "Congratulations!";
+	mes "Parabéns!";
 	emotion ET_CONGRATULATION;
 	next;
 	mes "[Keegan]";
-	mes "Welcome to the Guild of Treasure Hunters.";
-	mes "You may now take a Treasure Hunting Quest as you see fit.";
+	mes "Bem -vindo ao Guild of Treasure Hunters.";
+	mes "Agora você pode fazer uma missão de caça ao tesouro como achar melhor.";
 	close;
 N_NoZeny:
 	mes "[Keegan]";
-	mes "Hmmm you don't seem to have ^FF000025,000z^000000 "+strcharinfo(0)+". Please come back when you do.";
+	mes "Hmmm você parece não ter ^ff000025.000z ^000000"+strcharinfo(0)+". Por favor, volte quando o fizer.";
 	close;
 N_HighPrice:
 	mes "[Keegan]";
-	mes "Well if you can't afford a small ^FF000025,000z^000000 you shouldn't be a Treasure Hunter yet.";
+	mes "Bem, se você não pode pagar um pequeno ^FF000025.000Z ^000000, ainda não deve ser um caçador de tesouros.";
 	close;
 N_AlreadyReg:
 	mes "[Keegan]";
-	mes "Ha ha ha...you are already a member.";
+	mes "Ha ha ha ... você já é um membro.";
 	close;
 N_NQuest:
 	if (Event_THQS!=1) goto A_NeedReg;
 	mes "[Keegan]";
-	mes "Well "+strcharinfo(0)+" if you wish to take a quest go talk to the fellow Treasure Hunter in the other room there.";
+	mes "Bem"+strcharinfo(0)+"Se você deseja fazer uma missão, vá falar com o colega caçador de tesouros na outra sala lá.";
 	close;
 A_NeedReg:
 	mes "[Keegan]";
-	mes "Sorry you must be a member of the Treasure Hunter Guild if you wish to take a quest.";
-	mes " ";
-	mes "Also now that you are a member feel free to use our shops anytime you wish.They are all located on this floor.";
-	mes " ";
-	mes "We also have another shop for members only,in which we use little metal diamonds called Treasure Hunter Tokens to exchange for rare goods.";
-	mes " ";
-	mes "You will even have access to our exclusive personal Dungeon.";
+	mes "Desculpe, você deve ser um membro do Treasure Hunter Guild, se desejar fazer uma missão.";
+	mes "";
+	mes "Também agora que você é um membro, sinta -se à vontade para usar nossas lojas sempre que desejar. Eles estão todos localizados neste andar.";
+	mes "";
+	mes "Também temos outra loja apenas para membros, nos quais usamos pequenos diamantes de metal chamados Treasure Hunter Tokens para trocar bens raros.";
+	mes "";
+	mes "Você até terá acesso à nossa masmorra pessoal exclusiva.";
 	close;
 N_OShop:
 	if (Event_THQS!=1) goto N_NeedMem;
 	mes "[Keegan]";
-	mes "Yes "+strcharinfo(0)+" I will take you to our shop right away!";
+	mes "Sim"+strcharinfo(0)+"Vou levá -lo à nossa loja imediatamente!";
 	next;
 	warp "prt_in",166,171;
 	close;
 	end;
 N_NeedMem:
 	mes "[Keegan]";
-	mes "I'm sorry only members may visit our private shop.";
+	mes "Sinto muito, apenas os membros podem visitar nossa loja particular.";
 	close;
 N_NVM:
 	mes "[Keegan]";
-	mes "Alright come back when you have the free time to spare.";
+	mes "Tudo bem, volte quando você tiver tempo livre para sobrar.";
 	close;
 }

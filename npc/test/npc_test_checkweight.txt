@@ -25,11 +25,11 @@ L_TEST1: //basic backward chk
 	.@success = 0;
 	.@ret = checkweight(512,10);
 	set .@success,.@success+ChkResult(.@testid++,1,.@ret); //should be success
-	.@ret =	checkweight("Apple",10);
+	.@ret =	checkweight("Maçã",10);
 	set .@success,.@success+ChkResult(.@testid++,1,.@ret); //should be success
 	.@ret = checkweight(6320,33000);
 	set .@success,.@success+ChkResult(.@testid++,0,.@ret); //should be failure too many item amount item weight=0
-	.@ret = checkweight("Premium_Reset_Stone",33000);
+	.@ret = checkweight("Premium_reset_stone",33000);
 	set .@success,.@success+ChkResult(.@testid++,0,.@ret); //should be failure too many item amount
 	.@ret = checkweight(717,500);
 	set .@success,.@success+ChkResult(.@testid++,1,.@ret); //should be success weight based on max weight=2030
@@ -44,7 +44,7 @@ L_TEST1: //basic backward chk
 	.@ret = checkweight(512,0);
 	set .@success,.@success+ChkResult(.@testid++,0,.@ret); //should be failure invalid amount
 
-	debugmes "End backward test";
+	debugmes "Termine o teste para trás";
 	FinalReport(.@testid,.@success);
 
 L_TEST2: //update using list test
@@ -53,13 +53,13 @@ L_TEST2: //update using list test
 
 	.@ret = checkweight(512,10,513,10);
 	set .@success,.@success+ChkResult(.@testid++,1,.@ret); //should be success
-	.@ret =	checkweight("Apple",10,"Banana",10);
+	.@ret =	checkweight("Maçã",10,"Banana",10);
 	set .@success,.@success+ChkResult(.@testid++,1,.@ret); //should be success
 	.@ret = checkweight(512,80,513,33000);
 	set .@success,.@success+ChkResult(.@testid++,0,.@ret); //should be failure
-	.@ret = checkweight("Apple",80,"Banana",33000);
+	.@ret = checkweight("Maçã",80,"Banana",33000);
 	set .@success,.@success+ChkResult(.@testid++,0,.@ret); //should be failure too many item amount
-	.@ret = checkweight("Apple",10,"Banana",21,512);
+	.@ret = checkweight("Maçã",10,"Banana",21,512);
 	set .@success,.@success+ChkResult(.@testid++,0,.@ret); //should be failure invalid nb of args
 	.@ret = checkweight(717,500,716,100);
 	set .@success,.@success+ChkResult(.@testid++,1,.@ret); //should be succes weight 1800/2030
@@ -78,7 +78,7 @@ L_TEST2: //update using list test
 	.@ret = checkweight(512,1,513,1,514,1,515,1);
 	set .@success,.@success+ChkResult(.@testid++,1,.@ret); //should be success
 	
-	debugmes "End update by list tests";
+	debugmes "Atualização final por testes de lista";
 	FinalReport(.@testid,.@success);
 
 L_TEST3: //update using array tests
@@ -153,7 +153,7 @@ L_TEST3: //update using array tests
 	set MaxWeight, .@weight_limit;
 	set .@success,.@success+ChkResult(.@testid++,1,.@ret); //should be success, (test weight over 65k)
 
-	debugmes "End update by array tests";
+	debugmes "Atualização final por testes de matriz";
 	FinalReport(.@testid,.@success);
 
 L_FINAL:
@@ -164,15 +164,15 @@ L_FINAL:
 		.@expected = getarg(1);
 		.@ret = getarg(2);
 		.@success = (.@ret==.@expected);
-		debugmes "Test "+.@tid+" = "+(.@success?"Success":"Fail");
+		debugmes "Teste"+.@tid+"="+(.@success?"Sucesso":"Falhar");
 		return .@success;
 	}
 
 	function FinalReport {
 		.@tdone = getarg(0);
 		.@success = getarg(1);
-		debugmes "Results = Pass : "+.@success+"/"+.@tdone+" Fails : "+(.@tdone-.@success)+"/"+.@tdone;
-		if(.@success != .@tdone) { debugmes "One or more failures have occurred. Enable chkresult print to find failed tests."; }
+		debugmes "Resultados = PASS:"+.@success+"/"+.@tdone+"Falha:"+(.@tdone-.@success)+"/"+.@tdone;
+		if(.@success != .@tdone) { debugmes "Uma ou mais falhas ocorreram. Ative o CHKRESULT PRINT para encontrar testes com falha."; }
 		return;
 	}
 }

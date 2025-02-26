@@ -14,38 +14,38 @@
 //============================================================ 
 
 morocc,208,90,6	script	Turban Thief	58,{
-	mes "[Turban Thief]";
+	mes "[Ladrão turbante]";
 	if(event_umbala < 2) {
-		mes "What do you wan te withz me? Be gone!";
+		mes "O que você quer comigo? Se foi!";
 		close; }
 	if(sphmask_q) {
-		mes "You have no more business with me, go away!";
+		mes "Você não tem mais negócios comigo, vá embora!";
 		close; }
-	mes "E'llo mah frien, would I interesst tu with this rare mask? Its value I assure you is real mah frien. Tis manific!";
+	mes "Olá meu amigo, eu interessaria a essa máscara rara? Seu valor, garanto que você é verdadeiro Mah Frien. É manífico!";
 	next;
 	callsub L_Menu,1,"1,000,000",1000000;
 	callsub L_Menu,2,"750,000",750000;
 	callsub L_Menu,3,"500,000",500000;
 	next;
-	mes "[Turban Thief]";
-	mes "Ack! Forgez it! I can do bettaz en elsez where!";
+	mes "[Ladrão turbante]";
+	mes "ACK! Forgez IT! Eu posso fazer Bettaz en elsez onde!";
 	set sphmask_q,1;
 	close;
 
 L_Menu:
-	mes "[Turban Thief]";
+	mes "[Ladrão turbante]";
 	switch(getarg(0)) {
-		case 1: mes "Wah? O ho ho ho, so you know thaz I steal dis from those savages no? Well I won'tz give it back. But I will for a pricez... wat you say?"; break;
-		case 2: mes "Ahh a business man are you no?  Fine, how about..."; break;
-		case 3: mes "Hmmm... you drive a hard bargain, ok... my final offer..."; break; }
+		case 1: mes "Wah? Ó ho ho ho, então você sabe que eu roubo desses selvagens não? Bem, eu não vou devolver. Mas eu vou por um pricez ... o que você diz?"; break;
+		case 2: mes "Ahh um homem de negócios, você não é?  Tudo bem, que tal ..."; break;
+		case 3: mes "Hmmm ... você dirige uma pechincha, ok ... minha oferta final ..."; break; }
 	next;
-	if(select("Pay "+getarg(1)+"z:No deal")==2) return;
-	mes "[Turban Thief]";
+	if(select("Pagar"+getarg(1)+"Z: Sem negócio")==2) return;
+	mes "[Ladrão turbante]";
 	if (Zeny < getarg(2)) {
-		mes "Are youz playin wit me? You don't have ze money!";
+		mes "Você está brincando comigo? Você não tem dinheiro EZ!";
 		close; }
 	set Zeny, Zeny-getarg(2);
-	mes "O ho ho, it's a deal, then!";
+	mes "Ó ho ho, é um acordo, então!";
 	getitem 7114,1;
 	set sphmask_q,1;
 	close;

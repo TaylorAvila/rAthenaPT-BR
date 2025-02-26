@@ -15,33 +15,33 @@
 //============================================================ 
 
 prontera,142,228,6	script	Find the Mushroom	1084,{
-	mes "[ Find The Mushroom ]";
+	mes "[Encontre o cogumelo]";
 	if (.status == 1) {
-		.@count = mobcount( .event_map$, strnpcinfo(0) + "::OnMobKilled" );
+		.@count = mobcount( .event_map$, strnpcinfo(0) + ":: onMobkiled" );
 		if (.@count > 0) {
-			mes "There are " + .@count + " Mushrooms left in " + .event_map$ + "!";
-			mes "Find and kill the mushrooms to gain " + getitemname(.prize) + "!";
+			mes "Há" + .@count + "Cogumelos deixados para dentro" + .event_map$ + "!";
+			mes "Encontre e mate os cogumelos para ganhar" + getitemname(.prize) + "!";
 			close;
 		}
 		.event_map$ = "";
 		.status = 0;
-		mes "All the mushrooms are killed?";
+		mes "Todos os cogumelos são mortos?";
 	}
-	mes "There is no event at the moment!";
+	mes "Não há evento no momento!";
 	if (.status || getgmlevel() < .GM) close;
-	mes "Start the event?";
+	mes "Começar o evento?";
 	next;
-	if (select("- No:- Yes") == 1) close;
+	if (select("- Não:- Sim") == 1) close;
 	donpcevent strnpcinfo(0) + "::OnMinute10";
-	mes "[ Find The Mushroom ]";
-	mes "Event started!";
+	mes "[Encontre o cogumelo]";
+	mes "Evento começou!";
 	close;
 
 OnInit:
 	.prize = 512;	// Reward item ID
 	.amount = 10;	// Reward item amount
 	.GM = 60;		// GM level required to access NPC
-	setarray .maps_list$[0],"izlude","geffen","morocc","prontera"; // Possible maps
+	setarray .maps_list$[0],"chocado","Se encaixa","Marrocos","Prontera"; // Possible maps
 	end;
 
 OnMinute10:	// Start time (every hour)
@@ -49,23 +49,23 @@ OnMinute10:	// Start time (every hour)
 	.status = 1;
 	.@spawn = rand(1,10);	// How many Mushrooms should spawn?
 	.event_map$ = .maps_list$[ rand(getarraysize(.maps_list$)) ];
-	.@label$ = strnpcinfo(0) + "::OnMobKilled";
+	.@label$ = strnpcinfo(0) + ":: onMobkiled";
 	killmonster .event_map$, .@label$;
-	monster .event_map$,0,0,"Please don't kill me!",1084,.@spawn, .@label$;
-	announce "Find the Mushroom : Total of " + .@spawn + " Mushrooms have been spawned in " + .event_map$ + "!",0;
+	monster .event_map$,0,0,"Por favor, não me mate!",1084,.@spawn, .@label$;
+	announce "Encontre o cogumelo: total de" + .@spawn + "Cogumelos foram gerados em" + .event_map$ + "!",0;
 	sleep 2500;
-	announce "Find the Mushroom : Every Mushroom you kill will give you " + getitemname(.prize) + "!",0;
+	announce "Encontre o cogumelo: todo cogumelo que você matará vai te dar" + getitemname(.prize) + "!",0;
 	end;
 
 OnMobKilled:
 	if (playerattached() == 0)
 		end;
 	getitem .prize, .amount;
-	.@spawn = mobcount( .event_map$, strnpcinfo(0) + "::OnMobKilled" );
+	.@spawn = mobcount( .event_map$, strnpcinfo(0) + ":: onMobkiled" );
 	if (.@spawn > 0)
-		announce "[ " + strcharinfo(0) + " ] has killed a Mushroom. There are now " + .@spawn + " Mushroom(s) left.",bc_map;
+		announce "[" + strcharinfo(0) + "] matou um cogumelo. Existem agora" + .@spawn + "Cogumelos à esquerda.",bc_map;
 	else {
-		announce "The Find the Mushroom Event has ended. All the Mushrooms have been killed.",0;
+		announce "O evento Find the Mushroom terminou. Todos os cogumelos foram mortos.",0;
 		.status = 0;
 		.event_map$ = "";
 	}

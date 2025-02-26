@@ -13,19 +13,19 @@
 //============================================================ 
 
 y_airport,143,43,5	script	Airport Staff#y_air1a::y_airport1	90,{
-	mes "[Airport Staff]";
-	mes "Welcome to Juno Airport where we offer domestic flights to Einbroch, Lighthalzen and Hugel,";
-	mes "and international flights to Izlude and Rachel.";
-	mes "How may I be of service?";
+	mes "[Equipe do aeroporto]";
+	mes "Bem -vindo ao aeroporto de Juno, onde oferecemos voos domésticos para Einbroch, Lighthalzen e Hugel,";
+	mes "e vôos internacionais para Izlude e Rachel.";
+	mes "Como posso ser de serviço?";
 	next;
-	if (select("Board the Airship.:Cancel.") == 1) {
-		mes "[Airport Staff]";
-		mes "The boarding fee for all";
-		mes "flights is 1,200 zeny. If you";
-		mes "use a Free Ticket for Airship,";
-		mes "the boarding fee will be waived.So would you like to depart?";
+	if (select("Embarque no dirigível .: Cancel.") == 1) {
+		mes "[Equipe do aeroporto]";
+		mes "A taxa de embarque para todos";
+		mes "Os vôos são 1.200 Zeny. Se você";
+		mes "Use um bilhete gratuito para aeronave,";
+		mes "A taxa de embarque será dispensada. Então você gostaria de partir?";
 		next;
-		if (select("Yes:No") == 1) {
+		if (select("Sim: Não") == 1) {
 			if (countitem(7311) > 0) {
 				delitem 7311,1; //Free_Flying_Ship_Ticket
 				warp "y_airport",148,51;
@@ -36,16 +36,16 @@ y_airport,143,43,5	script	Airport Staff#y_air1a::y_airport1	90,{
 				warp "y_airport",148,51;
 				end;
 			}
-			mes "[Airport Staff]";
-			mes "I'm sorry, but you don't";
-			mes "have 1,200 zeny to pay";
-			mes "for the boarding fee.";
+			mes "[Equipe do aeroporto]";
+			mes "Sinto muito, mas você não";
+			mes "Tenha 1.200 Zeny para pagar";
+			mes "para a taxa de embarque.";
 			close;
 		}
 	}
-	mes "[Airport Staff]";
-	mes "Thank you and";
-	mes "have a nice day.";
+	mes "[Equipe do aeroporto]";
+	mes "Obrigado e";
+	mes "tenha um bom dia.";
 	close;
 }
 
@@ -53,28 +53,28 @@ y_airport,158,43,5	duplicate(y_airport1)	Airport Staff#y_air1b	90
 y_airport,126,43,5	duplicate(y_airport1)	Airport Staff#y_air1c	90
 
 y_airport,143,49,3	script	Arrival Staff#y_air2a::y_airport2	90,{
-	mes "[Airport Staff]";
-	mes "Welcome to Juno Airport. If you've just arrived from your";
-	mes "flight, let me guide you to the main terminal. Otherwise, please";
-	mes "board the departing Airship to reach your intended destination.";
+	mes "[Equipe do aeroporto]";
+	mes "Bem -vindo ao aeroporto de Juno. Se você acabou de chegar do seu";
+	mes "Voo, deixe -me guiá -lo para o terminal principal. Caso contrário, por favor";
+	mes "embarque no dirigível que partiu para chegar ao destino pretendido.";
 	next;
-	if (select("Exit to main terminal:Cancel") == 1) {
-		mes "[Airport Staff]";
-		mes "Once you're in the main terminal, you must pay the fee once again";
-		mes "to board a departing Airship. You should only exit if your intended";
-		mes "destination is Juno. Proceed to";
-		mes "exit to the main terminal?";
+	if (select("Saia para o Terminal Principal: Cancelar") == 1) {
+		mes "[Equipe do aeroporto]";
+		mes "Quando estiver no terminal principal, você deve pagar a taxa mais uma vez";
+		mes "Para embarcar em um dirigível que partiu. Você só deve sair se for o seu pretendido";
+		mes "Destino é Juno. Prosseguir para";
+		mes "Sair para o terminal principal?";
 		next;
-		if (select("Yes:No") == 1) {
+		if (select("Sim: Não") == 1) {
 			warp "y_airport",142,40;
 			end;
 		}
 	}
-	mes "[Airport Staff]";
-	mes "Alright, thank you";
-	mes "for your patronage";
-	mes "and I hope you have";
-	mes "a pleasant flight~";
+	mes "[Equipe do aeroporto]";
+	mes "Tudo bem, obrigado";
+	mes "para o seu patrocínio";
+	mes "E eu espero que você tenha";
+	mes "um voo agradável ~";
 	close;
 }
 
@@ -82,80 +82,80 @@ y_airport,126,51,3	duplicate(y_airport2)	Arrival Staff#y_air2b	90
 y_airport,158,50,3	duplicate(y_airport2)	Arrival Staff#y_air2c	90
 
 y_airport,145,63,5	script	Domestic Boarding	91,{
-	mes "[Boarding Staff]";
-	mes "Would you like to board the";
-	mes "Airship that flies to Einbroch,";
-	mes "Lighthalzen and Hugel? If so,";
-	mes "please let me guide you to that";
-	mes "Airship's boarding area.";
+	mes "[Equipe de embarque]";
+	mes "Você gostaria de embarcar no";
+	mes "Dirigir que voa para Einbroch,";
+	mes "Lighthalzen e Hugel? Se for assim,";
+	mes "Por favor, deixe -me guiá -lo para isso";
+	mes "Área de embarque da aeronave.";
 	next;
-	if (select("Yes:No") == 1) {
+	if (select("Sim: Não") == 1) {
 		warp "yuno",59,244;
 		end;
 	}
-	mes "[Boarding Staff]";
-	mes "Very well, then.";
-	mes "Thank you for your";
-	mes "patronage, and I hope";
-	mes "you enjoy your travels~";
+	mes "[Equipe de embarque]";
+	mes "Muito bem, então.";
+	mes "Obrigado pelo seu";
+	mes "patrocínio, e espero";
+	mes "você gosta de suas viagens ~";
 	close;
 }
 
 y_airport,140,63,5	script	International Boarding	91,{
-	mes "[Boarding Staff]";
-	mes "Would you like to board";
-	mes "the Airship which flies to";
-	mes "Juno, Izlude and Rachel?";
-	mes "If so, let me guide";
-	mes "you to the boarding area.";
+	mes "[Equipe de embarque]";
+	mes "Você gostaria de embarcar";
+	mes "o dirigível que voa para";
+	mes "Juno, Izlude e Rachel?";
+	mes "Se sim, deixe -me guiar";
+	mes "você para a área de embarque.";
 	next;
-	if (select("Yes:No") == 1) {
+	if (select("Sim: Não") == 1) {
 		warp "yuno",47,244;
 		end;
 	}
-	mes "[Boarding Staff]";
-	mes "Alright, then.";
-	mes "Thank you for flying";
-	mes "with us, and I hope you";
-	mes "enjoy your travels on our";
-	mes "state of the art Airships.";
+	mes "[Equipe de embarque]";
+	mes "Tudo bem, então.";
+	mes "Obrigado por voar";
+	mes "conosco, e espero que você";
+	mes "Aproveite suas viagens em nosso";
+	mes "aeronaves de última geração.";
 	close;
 }
 
 yuno,14,262,5	script	Airship Staff#yuno01	91,{
-	mes "[Airship Staff]";
-	mes "Welcome to Juno Airport.";
-	mes "Please use this door to";
-	mes "board the Airship that will";
-	mes "be flying all the way to Izlude";
-	mes "in the Rune-Midgarts Kingdom,";
-	mes "and to Rachel in the Arunafeltz";
-	mes "Republic.";
+	mes "[Funcionário do dirigível]";
+	mes "Bem -vindo ao aeroporto de Juno.";
+	mes "Por favor, use esta porta para";
+	mes "embarcar no dirigível que vai";
+	mes "estar voando até Izlude";
+	mes "no reino de Rune-Midgarts,";
+	mes "e para Rachel no Arunafeltz";
+	mes "República.";
 	next;
-	mes "[Airship Staff]";
-	mes "Otherwise, if Juno is";
-	mes "your intended destination,";
-	mes "please head down the stairs";
-	mes "and ask the Arrival Staff to lead";
-	mes "you to the main terminal. Thank";
-	mes "you, and enjoy your travels.";
+	mes "[Funcionário do dirigível]";
+	mes "Caso contrário, se Juno for";
+	mes "Seu destino pretendido,";
+	mes "Por favor, desça as escadas";
+	mes "e peça à equipe de chegada para liderar";
+	mes "você para o terminal principal. Agradecer";
+	mes "você e aproveite suas viagens.";
 	close;
 }
 
 yuno,88,263,3	script	Airship Staff#yuno02	91,{
-	mes "[Airship Staff]";
-	mes "Welcome to Juno Airport.";
-	mes "Please use this door to";
-	mes "board the Airship which stops";
-	mes "over Einbroch, Lighthalzen and";
-	mes "Hugel in the Schwarzwald Republic.";
+	mes "[Funcionário do dirigível]";
+	mes "Bem -vindo ao aeroporto de Juno.";
+	mes "Por favor, use esta porta para";
+	mes "embarcar no dirigível que para";
+	mes "sobre Einbroch, Lighthalzen e";
+	mes "Hugel na República de Schwarzwald.";
 	next;
-	mes "[Airship Staff]";
-	mes "Otherwise, if Juno is";
-	mes "your intended destination,";
-	mes "please head down the stairs";
-	mes "and ask the Arrival Staff to lead";
-	mes "you to the main terminal. Thank";
-	mes "you, and enjoy your travels.";
+	mes "[Funcionário do dirigível]";
+	mes "Caso contrário, se Juno for";
+	mes "Seu destino pretendido,";
+	mes "Por favor, desça as escadas";
+	mes "e peça à equipe de chegada para liderar";
+	mes "você para o terminal principal. Agradecer";
+	mes "você e aproveite suas viagens.";
 	close;
 }

@@ -18,132 +18,132 @@ slabw01,233,92,3	duplicate(dummy_cloaked_npc)	Scared researcher#ep162	4_M_ALCHE_
 // Werner Laboratory central room (solo instance)
 slabw01,236,91,3	script	Rookie#ep162_04	4_M_ROOKIE,{
 	if (terra_gloria_main == 20) {
-		mes "[Rookie]";
-		mes "Take a look at this.";
-		mes "According to the design drawing, this part is connected to the central room... But I only see a suspicious gate.";
+		mes "[Novato]";
+		mes "Dê uma olhada nisso.";
+		mes "De acordo com o desenho do design, esta parte está conectada à sala central ... mas eu só vejo um portão suspeito.";
 		next;
-		mes "[Rookie]";
-		mes "No wonder it looked like they had something to back them up.";
-		mes "Shall we use an explosive and blow it up?";
+		mes "[Novato]";
+		mes "Não é de admirar que parecia que eles tinham algo para apoiá -los.";
+		mes "Devemos usar um explosivo e explodir?";
 		next;
 		cloakoffnpc( "Skia#ep162_06", getcharid(0) );
 		cloakoffnpc( "Scared researcher#ep162", getcharid(0) );
-		npctalk "Wait!", "Skia#ep162_06", bc_self;
+		npctalk "Espere!", "Skia#ep162_06", bc_self;
 		mes "[Skia]";
-		mes "Not in such a crude way!";
-		mes "Well, I made a great decision when I came here.";
-		mes "Tell him to open this.";
+		mes "Não de uma maneira tão grosseira!";
+		mes "Bem, tomei uma ótima decisão quando cheguei aqui.";
+		mes "Diga a ele para abrir isso.";
 		next;
-		npctalk "Wow! This lady is quite smart!", "", bc_self;
-		npctalk "Why ... why are you doing this to me?!", "Scared researcher#ep162", bc_self;
+		npctalk "Uau! Esta senhora é bastante inteligente!", "", bc_self;
+		npctalk "Por que ... por que você está fazendo isso comigo?!", "Scared researcher#ep162", bc_self;
 		mes "[Skia]";
-		mes "I asked him whether he knows the paths here, and his answer was yes. So I brought him here.";
-		mes "He will activate the gate to the central room.";
+		mes "Perguntei -lhe se ele conhece os caminhos aqui, e sua resposta foi sim. Então eu o trouxe aqui.";
+		mes "Ele ativará o portão para a sala central.";
 		next;
-		npctalk "This ... is the way to do it.", "Scared researcher#ep162", bc_self;
-		mes "[Rookie]";
-		mes "Hmm, I see. That's the way to operate it.";
-		mes "Great, now I got it.";
-		mes "And we don't need him anymore.";
+		npctalk "Esta ... é a maneira de fazer isso.", "Scared researcher#ep162", bc_self;
+		mes "[Novato]";
+		mes "Hmm, eu vejo. Essa é a maneira de operá -lo.";
+		mes "Ótimo, agora entendi.";
+		mes "E não precisamos mais dele.";
 		next;
-		npctalk "Wh... what?! Please don't kill me!", "Scared researcher#ep162", bc_self;
+		npctalk "WH ... O quê?! Por favor, não me mate!", "Scared researcher#ep162", bc_self;
 		mes "[Skia]";
-		mes "Really? Then I will bring this researcher to the squadron outside.";
-		mes "About the central room, " + strcharinfo(0) + " I am counting on you!";
+		mes "Realmente? Então levarei esse pesquisador ao esquadrão para fora.";
+		mes "Sobre a sala central," + strcharinfo(0) + "Estou contando com você!";
 		next;
 		cloakonnpc( "Skia#ep162_06", getcharid(0) );
 		cloakonnpc( "Scared researcher#ep162", getcharid(0) );
-		mes "[Rookie]";
-		mes "Haha, they let us open the gate of the central room!";
-		mes "Please speak to me again once you are ready to go in here.";
+		mes "[Novato]";
+		mes "Haha, eles nos deixaram abrir o portão da sala central!";
+		mes "Por favor, fale comigo novamente quando estiver pronto para entrar aqui.";
 		next;
-		mes "[Rookie]";
-		mes "After activating the gate, we have to guard it from outside.";
-		mes "So I cannot go in there with you.";
+		mes "[Novato]";
+		mes "Depois de ativar o portão, temos que protegê -lo de fora.";
+		mes "Então eu não posso entrar lá com você.";
 		terra_gloria_main = 21;
 		close;
 	}
 	if (terra_gloria_main == 21) {
 		if (is_party_leader() == false) {
-			mes "^4d4dffThis event is proceeded to the Memorial.";
-			mes "Please try again after organizing a party.^000000";
+			mes "^4d4dffhis é prosseguido para o memorial.";
+			mes "Tente novamente depois de organizar uma festa.^000000";
 			close;
 		}
-		mes "[Rookie]";
-		mes "Are you ready?";
-		mes "If you are entering now, I will activate the gate.";
+		mes "[Novato]";
+		mes "Você está pronto?";
+		mes "Se você estiver entrando agora, vou ativar o portão.";
 		next;
-		if (select( "Enter now.", "Do not enter." ) == 2) {
-			mes "[Rookie]";
-			mes "We both know that we don't have time for this, don't we?";
+		if (select( "Entre agora.", "Não entre." ) == 2) {
+			mes "[Novato]";
+			mes "Nós dois sabemos que não temos tempo para isso, não é?";
 			close;
 		}
-		mes "[Rookie]";
-		mes "Wow! This is it! I always learn things quickly!";
-		mes "Well, please go in now!";
+		mes "[Novato]";
+		mes "Uau! É isso! Eu sempre aprendo as coisas rapidamente!";
+		mes "Bem, por favor, entre agora!";
 		cloakoffnpc( "Central_room#evt_gate01", getcharid(0) );
 		instance_create("Werner Laboratory central room#1");	// officially there is only one 'Werner Laboratory central room' instance
 		close;
 	}
 	if (terra_gloria_main == 22) {
-		mes "[Rookie]";
-		mes "Have you reclaimed the stuff?";
+		mes "[Novato]";
+		mes "Você recuperou as coisas?";
 		close;
 	}
 	switch( checkquest(7742,HUNTING) ) {
 	case -1:
-		mes "[Rookie]";
-		mes "We have found a strange phenomenon in the central room. We are not investigating it.";
-		mes "Perhaps there was a strong experimental subject left inside.";
+		mes "[Novato]";
+		mes "Encontramos um fenômeno estranho na sala central. Não estamos investigando.";
+		mes "Talvez houvesse um forte sujeito experimental deixado dentro.";
 		next;
-		mes "[Rookie]";
-		mes "What kind of facility is this?";
-		mes "Ssss.";
-		mes "Once it is identified appropriately, I might ask you for a settlement ...";
-		mes "I will have to guard the gate of the central room again.";
+		mes "[Novato]";
+		mes "Que tipo de instalação é essa?";
+		mes "SSSS.";
+		mes "Uma vez identificado adequadamente, posso pedir um acordo ...";
+		mes "Terei que guardar o portão da sala central novamente.";
 		close;
 	case 0:
 	case 1:
 		if (getcharid(1) < 1) {
-			mes "^4d4dffThis event is proceeded to the Memorial.";
-			mes "Please try again after organizing a party.^000000";
+			mes "^4d4dffhis é prosseguido para o memorial.";
+			mes "Tente novamente depois de organizar uma festa.^000000";
 			close;
 		}
 		if (is_party_leader() == false) {
-			mes "[Rookie]";
-			mes "If there is a gate that has already been activated, you can see it.";
+			mes "[Novato]";
+			mes "Se houver um portão que já tenha sido ativado, você pode vê -lo.";
 			next;
-			mes "[Rookie]";
-			mes "Otherwise, please ask your party leader for entrance.";
+			mes "[Novato]";
+			mes "Caso contrário, peça entrada ao seu líder do partido.";
 			close;
 		}
-		mes "[Rookie]";
-		mes "Are you ready?";
-		mes "If you are entering now, I will activate the gate.";
+		mes "[Novato]";
+		mes "Você está pronto?";
+		mes "Se você estiver entrando agora, vou ativar o portão.";
 		next;
-		if (select( "Enter now.", "Do not enter." ) == 2) {
-			mes "[Rookie]";
-			mes "We both know that we don't have time for this, don't we?";
+		if (select( "Entre agora.", "Não entre." ) == 2) {
+			mes "[Novato]";
+			mes "Nós dois sabemos que não temos tempo para isso, não é?";
 			close;
 		}
-		mes "[Rookie]";
-		mes "Wow! This is it! I always learn things quickly!";
-		mes "Well, please go in now!";
+		mes "[Novato]";
+		mes "Uau! É isso! Eu sempre aprendo as coisas rapidamente!";
+		mes "Bem, por favor, entre agora!";
 		cloakoffnpc( "Central_room#evt_gate01", getcharid(0) );
 		instance_create("Werner Laboratory central room#2");
 		close;
 	case 2:
-		mes "[Rookie]";
-		mes "We are not sure how many more experimental subjects are there that were made and abandoned by that Eisen Werner guy.";
+		mes "[Novato]";
+		mes "Não temos certeza de quantos assuntos mais experimentais existem que foram feitos e abandonados por aquele cara de Eisen Werner.";
 		next;
-		mes "[Rookie]";
-		mes "But let's call it a day.";
+		mes "[Novato]";
+		mes "Mas vamos chamá -lo um dia.";
 		close;
 	}
 	end;
 
 OnInit:
-	questinfo( QTYPE_QUEST, QMARK_YELLOW, " checkquest(7742,HUNTING) == 0 || checkquest(7742,HUNTING) == 1 " );
+	questinfo( QTYPE_QUEST, QMARK_YELLOW, "CheckQuest (7742, caça) == 0 || CheckQuest (7742, caça) == 1" );
 	end;
 }
 
@@ -151,33 +151,33 @@ slabw01,246,88,3	script	Central_room#evt_gate01	PORTAL,{
 	if (terra_gloria_main != 21 && terra_gloria_main < 23)
 		end;
 	if (getcharid(1) < 1 || (terra_gloria_main == 21 && is_party_leader() == false)) {
-		mes "^4d4dffMD Only the party leader can enter [Central room] now.^000000";
+		mes "^4d4dffmd apenas o líder do partido pode entrar [sala central] agora.^000000";
 		close;
 	}
-	mes "You can move to the central room.";
+	mes "Você pode se mudar para a sala central.";
 	next;
-	if (select( "Go in.", "Do not go in." ) == 2) {
-		mes "[Rookie]";
-		mes "Oh ... I have to turn it on every time. It's so inconvenient!";
+	if (select( "Entrar.", "Não entre." ) == 2) {
+		mes "[Novato]";
+		mes "Oh ... eu tenho que ativá -lo sempre. É tão inconveniente!";
 		close;
 	}
 	if (terra_gloria_main == 21)
-		.@md_name$ = "Werner Laboratory central room#1";
+		.@md_name$ = "Werner Laboratory Central Room#1";
 	else
-		.@md_name$ = "Werner Laboratory central room#2";	// officially player without the daily hunting quest can enter in the instance, allowing to spam the instance without delay
+		.@md_name$ = "Werner Laboratory Central Room#2";	// officially player without the daily hunting quest can enter in the instance, allowing to spam the instance without delay
 	switch( instance_enter(.@md_name$) ) {
 	case IE_NOMEMBER:
 		end;
 	case IE_NOINSTANCE:
-		mes "[Rookie]";
-		mes "The gate is malfunctioning now. It's dangerous like this ...";
-		mes "Please wait for a while.";
+		mes "[Novato]";
+		mes "O portão está com defeito agora. É perigoso assim ...";
+		mes "Por favor, espere um pouco.";
 		close;
 	case IE_OTHER:
-		mes "An unknown error has occurred.";
+		mes "Um erro desconhecido ocorreu.";
 		close;
 	case IE_OK:
-		mapannounce "slabw01", "" + strcharinfo(0) + " of the party, " + getpartyname( getcharid(1) ) + ", is entering the " + .@md_name$ + ".", bc_map, 0xFF99;
+		mapannounce "SLABW01", "" + strcharinfo(0) + "da festa," + getpartyname( getcharid(1) ) + ", está entrando no" + .@md_name$ + ".", bc_map, 0xFF99;
 		// warp "1@slw",187,24;
 		end;
 	}
@@ -250,21 +250,21 @@ OnInstanceInit:
 // * Samples and devices
 1@slw,174,145,3	script	Displayed sample#01	CLEAR_NPC,{
 	setarray .@sample$[0],
-		"^ff0000Purity^000000", "MT-Wxx0s57b",
-		"^4d4dffRose^000000", "MT-Wxx00b21",
-		"^4d4dffContradiction^000000", "MT-Wxx023-f1",
-		"^4d4dffJoy^000000", "OT-Wxx01-c",
-		"^4d4dffSea^000000", "MT-Wxc1c1b",
-		"^ff0000Eternity^000000", "MT-Wx267b",
-		"^4d4dffWay back home^000000", "OTM-Wxff01",
-		"^4d4dffLoneliness^000000", "MT-Wxx00c46",
-		"^4d4dffGlow^000000", "OT-Wxx4d4dff",
-		"^ff0000Dawn^000000", "MT-Wff_01v",
-		"^4d4dffTwilight^000000", "OT-Wxx00c3b",
-		"^4d4dffGirl^000000's ^ff0000dream^000000", "MT-Wxx0ax2-1";
+		"^ff0000Purity^000000", "MT-WXX0S57B",
+		"^4d4dffRose^000000", "MT-WXX00B21",
+		"^4d4dffContradiction^000000", "MT-WXX023-F1",
+		"^4d4dfffy^000000", "OT-WXX01-C",
+		"^4d4dffSea^000000", "MT-WXC1C1B",
+		"^ff0000ETERNITY^000000", "MT-WX267B",
+		"^4d4dffway em casa^000000", "OTM-WXFF01",
+		"^4d4dffloniness^000000", "MT-WXX00C46",
+		"^4d4dffglow^000000", "OT-WXX4D4DFF",
+		"^ff0000dawn^000000", "Mt-wff_01v",
+		"^4d4dfftwilight^000000", "OT-WXX00C3B",
+		"^4d4dffGirl^000000^ff0000DREAM^000000", "MT-WXX0AX2-1";
 	.@num = (atoi(strnpcinfo(2)) - 1) * 2;
 	mes "[" + .@sample$[.@num] + "]";
-	mes "Experiment_number: " + .@sample$[.@num+1] + "";
+	mes "Experiment_number:" + .@sample$[.@num+1] + "";
 	close;
 }
 1@slw,201,145,3	duplicate(Displayed sample#01)	Displayed sample#02	CLEAR_NPC
@@ -284,59 +284,59 @@ OnInstanceInit:
 	if (is_party_leader() == false)
 		end;
 	cutin "ep16_eisen01.bmp",1;
-	mes "[Eisen Werner]";
-	mes "Here comes the main character.";
-	mes "Honestly, I'm impressed. I never expected you would come all the way here.";
+	mes "[Werner de ferro]";
+	mes "Aí vem o personagem principal.";
+	mes "Honestamente, estou impressionado. Eu nunca esperava que você viesse até aqui.";
 	next;
-	mes "[Eisen Werner]";
-	mes "Well, whatever.";
-	mes "Welcome.";
-	mes "Welcome to Eisen Werner's world.";
+	mes "[Werner de ferro]";
+	mes "Bem, tanto faz.";
+	mes "Bem-vindo.";
+	mes "Bem -vindo ao mundo de Eisen Werner.";
 	next;
 	cutin "ep16_eisen02.bmp",1;
-	mes "[Eisen Werner]";
-	mes "I never imagined that it would be done all of a sudden like this.";
-	mes "Whatever. Who cares?";
+	mes "[Werner de ferro]";
+	mes "Eu nunca imaginei que isso seria feito de repente assim.";
+	mes "Qualquer que seja. Quem se importa?";
 	next;
 	cutin "ep16_eisen01.bmp",1;
-	mes "[Eisen Werner]";
-	mes "I've given up saving this laboratory anyway.";
-	mes "Would you like to take a look?";
+	mes "[Werner de ferro]";
+	mes "Eu desisti de salvar este laboratório de qualquer maneira.";
+	mes "Você gostaria de dar uma olhada?";
 	next;
-	mes "[Eisen Werner]";
-	mes "There were many things, including cracks in dimensions, etc.";
-	mes "In some worlds, the flow of time is twisted.";
+	mes "[Werner de ferro]";
+	mes "Havia muitas coisas, incluindo rachaduras em dimensões, etc.";
+	mes "Em alguns mundos, o fluxo do tempo é distorcido.";
 	next;
-	mes "[Eisen Werner]";
-	mes "Is it a parallel world?";
-	mes "Or has someone been to a certain point in the past?";
+	mes "[Werner de ferro]";
+	mes "É um mundo paralelo?";
+	mes "Ou alguém já esteve em um certo ponto no passado?";
 	next;
-	mes "[Eisen Werner]";
-	mes "What does time mean? Have you ever thought about it?";
-	mes "Its flow is relative.";
+	mes "[Werner de ferro]";
+	mes "O que significa tempo? Você já pensou sobre isso?";
+	mes "Seu fluxo é relativo.";
 	next;
-	mes "[Eisen Werner]";
-	mes "That guy has stopped now.";
-	mes "If time goes biologically, it means someone gets older.";
+	mes "[Werner de ferro]";
+	mes "Esse cara parou agora.";
+	mes "Se o tempo for biologicamente, significa que alguém envelhece.";
 	next;
-	mes "[Eisen Werner]";
-	mes "That was stopped by force.";
-	mes "In that case, we use an expression such as this.";
+	mes "[Werner de ferro]";
+	mes "Isso foi parado pela força.";
+	mes "Nesse caso, usamos uma expressão como essa.";
 	next;
 	cutin "ep16_eisen02.bmp",1;
-	mes "[Eisen Werner]";
-	mes "The time has stopped.";
+	mes "[Werner de ferro]";
+	mes "O tempo parou.";
 	next;
-	mes "[Eisen Werner]";
+	mes "[Werner de ferro]";
 	mes "....";
 	next;
 	cutin "ep16_eisen01.bmp",1;
-	mes "[Eisen Werner]";
-	mes "Would you like to take a look inside?";
-	mes "Take your time and look through the corridor.";
+	mes "[Werner de ferro]";
+	mes "Você gostaria de dar uma olhada dentro?";
+	mes "Tome seu tempo e olhe através do corredor.";
 	next;
-	mes "[Eisen Werner]";
-	mes "I will guide you.";
+	mes "[Werner de ferro]";
+	mes "Eu vou te guiar.";
 	close2;
 	cutin "",255;
 	if (is_party_leader() == true) {
@@ -350,41 +350,41 @@ OnInstanceInit:
 	if (is_party_leader() == false)
 		end;
 	cutin "ep16_eisen01.bmp",1;
-	mes "[Eisen Werner]";
-	mes "Did you enjoy my work?";
-	mes "I sent the silly guys back to start over.";
+	mes "[Werner de ferro]";
+	mes "Você gostou do meu trabalho?";
+	mes "Enviei os caras bobos de volta para começar de novo.";
 	next;
-	mes "[Eisen Werner]";
-	mes "Well, it wasn't easy at all.";
+	mes "[Werner de ferro]";
+	mes "Bem, não foi fácil.";
 	mes "......";
 	next;
 	cutin "ep16_eisen02.bmp",1;
-	mes "[Eisen Werner]";
-	mes "If only that kid had gone back, he would not have ended that way...";
+	mes "[Werner de ferro]";
+	mes "Se ao menos aquele garoto tivesse voltado, ele não teria terminado assim ...";
 	next;
-	mes "[Eisen Werner]";
-	mes "I mean, if only he stopped...";
+	mes "[Werner de ferro]";
+	mes "Quero dizer, se ele parasse ...";
 	next;
 	cutin "ep16_eisen01.bmp",1;
-	mes "[Eisen Werner]";
-	mes "The chairman... I mean, that person is obsessed with the past.";
-	mes "Thanks to the chairman, I can do my research as I want.";
+	mes "[Werner de ferro]";
+	mes "O presidente ... quero dizer, essa pessoa é obcecada pelo passado.";
+	mes "Graças ao presidente, posso fazer minha pesquisa como eu quiser.";
 	next;
-	mes "[Eisen Werner]";
-	mes "Aren't you curious about it?";
-	mes "Why is he so obsessed with the past?";
+	mes "[Werner de ferro]";
+	mes "Você não está curioso sobre isso?";
+	mes "Por que ele está tão obcecado com o passado?";
 	next;
-	mes "[Eisen Werner]";
-	mes "By the way, you have to operate the instruments on the right and left if you want to go beyond this.... Can you do it?";
+	mes "[Werner de ferro]";
+	mes "A propósito, você deve operar os instrumentos à direita e à esquerda, se quiser ir além disso ... você pode fazer isso?";
 	next;
-	mes "[Eisen Werner]";
-	mes "Since it's a simple device, I guess you can.";
-	mes "Change ^ff0000red^000000 to ^4d4dffblue^000000.";
-	mes "And change ^4d4dffblue^000000 to ^ff0000red^000000. That's it.";
+	mes "[Werner de ferro]";
+	mes "Como é um dispositivo simples, acho que você pode.";
+	mes "Alteração ^ff0000Red ^000000 para ^4d4dffBlue ^000000.";
+	mes "E alteração ^4d4dffBlue ^000000 para ^ff0000Red ^000000. É isso.";
 	next;
-	mes "[Eisen Werner]";
-	mes "If you looked at my work properly, you'll understand what I am saying.";
-	mes "Then I'll see you in the next zone.";
+	mes "[Werner de ferro]";
+	mes "Se você olhou para o meu trabalho corretamente, entenderá o que estou dizendo.";
+	mes "Então te vejo na próxima zona.";
 	close2;
 	cutin "",255;
 	if (is_party_leader() == true) {
@@ -402,29 +402,29 @@ OnInstanceInit:
 	.@type = (.@number < 10) ? 0 : 1;
 	.@npc_num = (.@number < 10) ? .@number : (.@number-10);
 	if ('device_state[.@type] & .@npc_num) {
-		mes "It is already activated.";
+		mes "Já está ativado.";
 		close;
 	}
 	callsub S_Code, .@string$, .@answer;
-	mes "There are security codes written down.";
+	mes "Existem códigos de segurança escritos.";
 	mes "[" + .@string$ + "]";
-	mes "What will you input?";
+	mes "O que você vai inserir?";
 	next;
-	if (select( "^ff0000" + .@string$ + "^000000", "^4d4dff" + .@string$ + "^000000" ) != .@answer) {
+	if (select( "^FF0000" + .@string$ + "^000000", "^4d4dff" + .@string$ + "^000000" ) != .@answer) {
 		'device_state[.@type] = 0;
-		mes "The device has been initialized.";
+		mes "O dispositivo foi inicializado.";
 		close;
 	}
 	if (is_party_leader() == false)
 		end;
 	'device_state[.@type] = 'device_state[.@type] | .@npc_num;
 	if ('device_state[.@type] != 3) {
-		mes "Operated the security device.";
-		mes "Seems like there is one more security device.";
+		mes "Operou o dispositivo de segurança.";
+		mes "Parece que há mais um dispositivo de segurança.";
 		close;
 	}
-	mes "Operated the security device.";
-	mes "The gate is now activated.";
+	mes "Operou o dispositivo de segurança.";
+	mes "O portão está agora ativado.";
 	switch( .@type ) {
 	case 0:
 		enablenpc instance_npcname("#slwwarp01");
@@ -448,17 +448,17 @@ OnInstanceInit:
 
 S_Code:
 	setarray .@sample$[0],
-		"Purity", 2,
-		"Eternity", 2,
-		"Dawn", 2,
-		"Rose", 1,
-		"Contradiction", 1,
-		"Joy", 1,
-		"Sea", 1,
-		"Way back home", 1,
-		"Loneliness", 1,
-		"Glow", 1,
-		"Twilight", 1;
+		"Pureza", 2,
+		"Eternidade", 2,
+		"Alvorecer", 2,
+		"Rosa", 1,
+		"Contradição", 1,
+		"Alegria", 1,
+		"Mar", 1,
+		"De volta para casa", 1,
+		"Solidão", 1,
+		"Brilho", 1,
+		"Crepúsculo", 1;
 	.@size = getarraysize(.@sample$) / 2;
 	.@r = rand(.@size) * 2;
 	set getarg(0), .@sample$[.@r];
@@ -478,43 +478,43 @@ OnTouch:
 	getmapxy .@map$,.@x,.@y, BL_NPC;
 	switch( .@num ) {
 	case 1:	// 2 spawn area
-		npctalk ".. Dang, how did you get in here?";
-		areamonster .@map$, 186,92,190,94, "Special Guard", 3622,3;	// EP16_2_MM_S_GUARDS
+		npctalk ".. Dang, como você entrou aqui?";
+		areamonster .@map$, 186,92,190,94, "Guarda especial", 3622,3;	// EP16_2_MM_S_GUARDS
 		.@mob_count = 3;
 		break;
 	case 2:	// 3 spawn area
-		npctalk ".. Dang, how did you get in here?";
-		areamonster .@map$, 186,142,190,143, "Special Guard", 3622,3;	// EP16_2_MM_S_GUARDS
-		areamonster .@map$, 186,160,190,162, "Special Guard", 3622,3;
+		npctalk ".. Dang, como você entrou aqui?";
+		areamonster .@map$, 186,142,190,143, "Guarda especial", 3622,3;	// EP16_2_MM_S_GUARDS
+		areamonster .@map$, 186,160,190,162, "Guarda especial", 3622,3;
 		.@mob_count = 3;
 		break;
 	case 5:
-		npctalk ".. Dang, how did you get in here?";
+		npctalk ".. Dang, como você entrou aqui?";
 		.@mob_count = 3;
 		break;
 	case 3:
-		npctalk ".. Dang, how did you get in here?";
+		npctalk ".. Dang, como você entrou aqui?";
 		.@mob_count = 1;
 		.@label$ = instance_npcname("#security_device_lab") + "::OnLeft1";
 		break;
 	case 4:
-		npctalk ".. Dang, how did you get in here?";
+		npctalk ".. Dang, como você entrou aqui?";
 		.@mob_count = 3;
 		.@label$ = instance_npcname("#security_device_lab") + "::OnRight1";
 		break;
 	case 6:
-		npctalk "Who's there?";
+		npctalk "Quem está aí?";
 		.@mob_count = 3;
 		.@label$ = instance_npcname("#security_device_lab") + "::OnLeft2";
 		break;
 	case 7:
-		npctalk "Let me finish you!";
+		npctalk "Deixe -me terminar você!";
 		.@mob_count = 3;
 		.@label$ = instance_npcname("#security_device_lab") + "::OnRight2";
 		break;
 	}
 	disablenpc();
-	areamonster .@map$, (.@x-2), (.@y-2), (.@x+2), (.@y+2), "Special Guard", 3622, .@mob_count, .@label$;	// EP16_2_MM_S_GUARDS
+	areamonster .@map$, (.@x-2), (.@y-2), (.@x+2), (.@y+2), "Guarda especial", 3622, .@mob_count, .@label$;	// EP16_2_MM_S_GUARDS
 	end;
 }
 1@slw,189,117,3	duplicate(Guard#gard01)	Guard#gard02	3622,4,4
@@ -528,25 +528,25 @@ OnTouch:
 	end;
 OnLeft1:
 	if (mobcount( 'map_slw$, instance_npcname("#security_device_lab") + "::OnLeft1" ) < 1) {
-		mapannounce 'map_slw$, "Security device L-01 has been activated.", bc_map,0xFF99;
+		mapannounce 'map_slw$, "O dispositivo de segurança L-01 foi ativado.", bc_map,0xFF99;
 		enablenpc instance_npcname("Security device#switch01");
 	}
 	end;
 OnRight1:
 	if (mobcount( 'map_slw$, instance_npcname("#security_device_lab") + "::OnRight1" ) < 1) {
-		mapannounce 'map_slw$, "Security device R-01 has been activated.", bc_map,0xFF99;
+		mapannounce 'map_slw$, "O dispositivo de segurança R-01 foi ativado.", bc_map,0xFF99;
 		enablenpc instance_npcname("Security device#switch02");
 	}
 	end;
 OnLeft2:
 	if (mobcount( 'map_slw$, instance_npcname("#security_device_lab") + "::OnLeft2" ) < 1) {
-		mapannounce 'map_slw$, "Security device L-02 has been activated.", bc_map,0xFF99;
+		mapannounce 'map_slw$, "O dispositivo de segurança L-02 foi ativado.", bc_map,0xFF99;
 		enablenpc instance_npcname("Security device#switch11");
 	}
 	end;
 OnRight2:
 	if (mobcount( 'map_slw$, instance_npcname("#security_device_lab") + "::OnRight2" ) < 1) {
-		mapannounce 'map_slw$, "Security device R-02 has been activated.", bc_map,0xFF99;
+		mapannounce 'map_slw$, "O dispositivo de segurança R-02 foi ativado.", bc_map,0xFF99;
 		enablenpc instance_npcname("Security device#switch12");
 	}
 	end;
@@ -559,50 +559,50 @@ OnRight2:
 	if (is_party_leader() == false)
 		end;
 	cutin "ep16_eisen01.bmp",1;
-	mes "[Eisen Werner]";
-	mes "Easier than you thought?";
-	mes "The next security devices are similar, so I won't have to explain again.";
+	mes "[Werner de ferro]";
+	mes "Mais fácil do que você pensou?";
+	mes "Os próximos dispositivos de segurança são semelhantes, então não terei que explicar novamente.";
 	next;
-	mes "[Eisen Werner]";
-	mes "After looking around here, what do you think?";
-	mes "Isn't it amazing?";
-	mes "Have you been to ^4d4dffVerus^000000?";
+	mes "[Werner de ferro]";
+	mes "Depois de olhar por aqui, o que você acha?";
+	mes "Não é incrível?";
+	mes "Você já esteve em ^4d4dffverus ^000000?";
 	next;
-	mes "[Eisen Werner]";
-	mes "That is the laboratory I built by referring to it.";
-	mes "It was my type.";
+	mes "[Werner de ferro]";
+	mes "Esse é o laboratório que eu construí referindo -se a ele.";
+	mes "Era o meu tipo.";
 	mes "......";
 	next;
-	mes "[Eisen Werner]";
-	mes "The technology was completely different from what we'd had until then.";
-	mes "We've used everything available.";
+	mes "[Werner de ferro]";
+	mes "A tecnologia era completamente diferente do que tínhamos até então.";
+	mes "Usamos tudo disponível.";
 	next;
-	mes "[Eisen Werner]";
-	mes "What do you say?";
-	mes "Does it look good?";
+	mes "[Werner de ferro]";
+	mes "O que você diz?";
+	mes "Parece bom?";
 	next;
-	select("Do you wonder why I'm saying these things?");
-	mes "[Eisen Werner]";
-	mes "Hmm, that's because you're going to die here anyway.";
-	mes "So I would like to promote my achievements.";
+	select("Você se pergunta por que estou dizendo essas coisas?");
+	mes "[Werner de ferro]";
+	mes "Hmm, é porque você vai morrer aqui de qualquer maneira.";
+	mes "Então, eu gostaria de promover minhas realizações.";
 	next;
-	select("Die here? Me?");
-	mes "[Eisen Werner]";
-	mes "Certainly. You'll die here.";
-	mes "Do you think I am just stupid enough to be left here alone?";
+	select("Morrer aqui? Meu?");
+	mes "[Werner de ferro]";
+	mes "Certamente. Você vai morrer aqui.";
+	mes "Você acha que sou estúpido o suficiente para ser deixado aqui sozinho?";
 	next;
-	mes "[Eisen Werner]";
-	mes "I know you've come here for the affair of Rune-Midgarts kingdom.";
-	mes "So I've prepared something.";
+	mes "[Werner de ferro]";
+	mes "Eu sei que você veio aqui para o caso do reino de Rune-Midgarts.";
+	mes "Então, eu preparei algo.";
 	next;
 	cutin "ep16_eisen02.bmp",1;
-	mes "[Eisen Werner]";
-	mes "With a huge sensation.";
-	mes "You shall die. Right here.";
+	mes "[Werner de ferro]";
+	mes "Com uma enorme sensação.";
+	mes "Você deve morrer. Bem aqui.";
 	next;
-	mes "[Eisen Werner]";
-	mes "Therefore, just be my guest.";
-	mes "Let's move to the next zone.";
+	mes "[Werner de ferro]";
+	mes "Portanto, apenas seja meu convidado.";
+	mes "Vamos mudar para a próxima zona.";
 	close2;
 	cutin "",255;
 	if (is_party_leader() == true) {
@@ -620,34 +620,34 @@ OnRight2:
 	if (is_party_leader() == false)
 		end;
 	cutin "ep16_eisen01.bmp",1;
-	mes "[Eisen Werner]";
-	mes "Beyond this wall, there will be something you have come to obtain.";
+	mes "[Werner de ferro]";
+	mes "Além dessa parede, haverá algo que você veio para obter.";
 	next;
-	mes "[Eisen Werner]";
-	mes "Right. That thing you carved into a gem and used as a decoration on the crown.";
-	mes "Do you even know what it is?";
+	mes "[Werner de ferro]";
+	mes "Certo. Aquela coisa que você entrou em uma jóia e usou como decoração na coroa.";
+	mes "Você ao menos sabe o que é?";
 	next;
-	mes "[Eisen Werner]";
-	mes "Although it is a scrap, it's the heart fragment of Ymir.";
-	mes "It cannot be compared to an imitation.";
+	mes "[Werner de ferro]";
+	mes "Embora seja um pedaço, é o fragmento de coração de Ymir.";
+	mes "Não pode ser comparado a uma imitação.";
 	next;
-	mes "[Eisen Werner]";
-	mes "... The fools in the kingdom cannot even utilize the power they already have.";
-	mes "What a pity.";
-	mes "So I decided to use it...";
+	mes "[Werner de ferro]";
+	mes "... Os tolos no reino não podem nem utilizar o poder que já têm.";
+	mes "Que pena.";
+	mes "Então eu decidi usá -lo ...";
 	next;
-	mes "[Eisen Werner]";
-	mes "You want to reclaim it? It's all up to your capability.";
-	mes "I haven't been waiting with empty hands.";
+	mes "[Werner de ferro]";
+	mes "Você quer recuperá -lo? Tudo depende da sua capacidade.";
+	mes "Eu não estava esperando com mãos vazias.";
 	next;
-	mes "[Eisen Werner]";
-	mes "Let me tell you once again. Don't be surprised.";
-	mes "No, I'd be glad if you were surprised.";
-	mes "Huhuhuhuhu....";
+	mes "[Werner de ferro]";
+	mes "Deixe -me dizer a você mais uma vez. Não se surpreenda.";
+	mes "Não, ficaria feliz se você estivesse surpreso.";
+	mes "Huhuhuhuhu ....";
 	next;
 	cutin "ep16_eisen03.bmp",1;
-	mes "[Eisen Werner]";
-	mes "Now, take a look at the gift I've prepared.";
+	mes "[Werner de ferro]";
+	mes "Agora, dê uma olhada no presente que preparei.";
 	close2;
 	cutin "",255;
 	if (is_party_leader() == true) {
@@ -674,7 +674,7 @@ OnTouch:
 	}
 	switch( 'event_final ) {
 	case 1:
-		mes "Replaying the story.";
+		mes "Reproduzindo a história.";
 		close2;
 		warp 'map_slw$,55,153;
 		end;
@@ -682,11 +682,11 @@ OnTouch:
 		warp 'map_slw$,55,153;
 		end;
 	}
-	mes "You have two choices in the next zone.";
-	mes "If you want to replay the story of Seyren Windsor, please select ^4d4dffProceed with the story^000000. If you want to see the masterpiece of Eisen Werner, please select ^4d4dffProceed with the battle^000000.";
+	mes "Você tem duas opções na próxima zona.";
+	mes "Se você deseja reproduzir a história de Seyren Windsor, selecione ^4d4dffProed com a história ^000000. Se você quiser ver a obra -prima de Eisen Werner, selecione ^4d4dffProed com a batalha ^000000.";
 	next;
-	if (select( "Proceed with the story.", "Proceed with the battle." ) == 1) {
-		mes "You've selected the story.";
+	if (select( "Prossiga com a história.", "Prossiga com a batalha." ) == 1) {
+		mes "Você selecionou a história.";
 		close2;
 		if ('event_final == 0) {
 			'event_final = 1;
@@ -695,7 +695,7 @@ OnTouch:
 		warp 'map_slw$,55,153;
 		end;
 	}
-	mes "You've selected the battle.";
+	mes "Você selecionou a batalha.";
 	close2;
 	if ('event_final == 0) {
 		'event_final = 2;
@@ -713,51 +713,51 @@ OnTouch:
 
 1@slw,53,171,5	script	Eisen Werner#werner05	4_M_EISEN,{
 	if (is_party_leader() == false) {
-		mes "^4d4dffOnly the party leader can proceed with this event.^000000";
+		mes "^4d4dffonly o líder do partido pode prosseguir com este evento.^000000";
 		close;
 	}
 	if (checkweight(501,1) == 0) {
-		mes "- Cannot progress with quest because you have too many items in your possession. -";
+		mes "- Não pode progredir com a missão porque você tem muitos itens em sua posse. -";
 		close;
 	}
 	.@seyren$ = instance_npcname("Seyren Windsor#seiren");
 	cutin "ep16_eisen01.bmp",1;
-	mes "[Eisen Werner]";
-	mes "This place is the core of the laboratory, and contains everything of my research.";
-	npctalk "This place is the core of the laboratory, and contains everything of my research.";
+	mes "[Werner de ferro]";
+	mes "Este lugar é o núcleo do laboratório e contém tudo da minha pesquisa.";
+	npctalk "Este lugar é o núcleo do laboratório e contém tudo da minha pesquisa.";
 	next;
-	mes "[Eisen Werner]";
-	mes "It is the heart fragment of Ymir that holds the fundamental power to constitute the world. It also holds the origin of life.";
-	npctalk "It is the heart fragment of Ymir that holds the fundamental power to constitute the world. It also holds the origin of life.";
+	mes "[Werner de ferro]";
+	mes "É o fragmento cardíaco de Ymir que detém o poder fundamental para constituir o mundo. Também mantém a origem da vida.";
+	npctalk "É o fragmento cardíaco de Ymir que detém o poder fundamental para constituir o mundo. Também mantém a origem da vida.";
 	next;
-	mes "[Eisen Werner]";
-	mes "Look at this carefully.";
-	mes "What you've come to reclaim is doing something marvelous!";
-	npctalk "Look at this carefully. What you've come to reclaim is doing something marvelous!";
+	mes "[Werner de ferro]";
+	mes "Veja isso com cuidado.";
+	mes "O que você veio para recuperar é fazer algo maravilhoso!";
+	npctalk "Veja isso com cuidado. O que você veio para recuperar é fazer algo maravilhoso!";
 	next;
-	mes "[Eisen Werner]";
-	mes "The energy extracted from this flows into the magic circle on the ground... Ha ha ha. Of course, this magic circle has been reinterpreted magically.";
-	npctalk "The energy extracted from this flows into the magic circle on the ground... Ha ha ha. Of course, this magic circle has been reinterpreted magically.";
+	mes "[Werner de ferro]";
+	mes "A energia extraída desse flui para o círculo mágico no chão ... ha ha ha. Claro, esse círculo mágico foi reinterpretado magicamente.";
+	npctalk "A energia extraída desse flui para o círculo mágico no chão ... ha ha ha. Claro, esse círculo mágico foi reinterpretado magicamente.";
 	next;
-	mes "[Eisen Werner]";
-	mes "In any case, the energy goes into the experimental subject... Using that power, I've adjusted their time.";
+	mes "[Werner de ferro]";
+	mes "De qualquer forma, a energia entra no assunto experimental ... usando esse poder, eu ajustei o tempo deles.";
 	next;
 	cutin "ep16_eisen03.bmp",1;
-	mes "[Eisen Werner]";
-	mes "... Certainly, some of them get killed due to chapped cells. Ha ha!";
+	mes "[Werner de ferro]";
+	mes "... Certamente, alguns deles são mortos devido a células rachadas. Ha ha!";
 	next;
-	select("Is that all you want to say?");
-	unittalk getcharid(3), "" + strcharinfo(0) + " : Is that all you want to say?";
+	select("É tudo o que você quer dizer?");
+	unittalk getcharid(3), "" + strcharinfo(0) + ": Isso é tudo que você quer dizer?";
 	cutin "ep16_eisen02.bmp",1;
-	mes "[Eisen Werner]";
-	mes "No! Never!";
-	mes "Have you already forgotten what I told you earlier?";
-	mes "I told you I'd prepared a gift.";
+	mes "[Werner de ferro]";
+	mes "Não! Nunca!";
+	mes "Você já esqueceu o que eu te disse antes?";
+	mes "Eu disse que havia preparado um presente.";
 	next;
 	cutin "ep16_eisen01.bmp",1;
-	mes "[Eisen Werner]";
-	mes "Something...";
-	mes "that will surprise you.";
+	mes "[Werner de ferro]";
+	mes "Algo...";
+	mes "Isso vai surpreender você.";
 	close2;
 	setpcblock PCBLOCK_NPC, true;
 	cutin "",255;
@@ -766,45 +766,45 @@ OnTouch:
 	npctalk "......", .@seyren$;
 	sleep2 1000;
 	setpcblock PCBLOCK_NPC, false;
-	unittalk getcharid(3), "" + strcharinfo(0) + " : ... Seyren?!";
-	mes "[Eisen Werner]";
-	mes "How do you like the gift I've prepared?!";
-	mes "Are you satisfied?";
+	unittalk getcharid(3), "" + strcharinfo(0) + ": ... Seyren?!";
+	mes "[Werner de ferro]";
+	mes "Como você gosta do presente que eu preparei?!";
+	mes "Você está satisfeito?";
 	cutin "ep16_eisen01.bmp",1;
 	next;
 	cutin "ep16_eisen01.bmp",1;
-	mes "[Eisen Werner]";
-	mes "This fellow was among the delegation of that silly royal family.";
-	mes "Thanks to the experiment of some brave guy, I have obtained this great stuff.";
+	mes "[Werner de ferro]";
+	mes "Esse sujeito estava entre a delegação daquela família real boba.";
+	mes "Graças ao experimento de algum cara corajoso, obtive essas ótimas coisas.";
 	next;
-	select("Are you talking about the In Vivo Experiment?");
-	unittalk getcharid(3), "" + strcharinfo(0) + " : Are you talking about the In Vivo Experiment?";
+	select("Você está falando sobre o experimento in vivo?");
+	unittalk getcharid(3), "" + strcharinfo(0) + ": Você está falando sobre o experimento in vivo?";
 	cutin "ep16_eisen02.bmp",1;
-	mes "[Eisen Werner]";
-	mes "Yeah, exactly.";
-	mes "Well, there are plenty guys who do In Vivo Experiments apart from that fellow, but he was the first one brave enough to enhance a living creature.";
+	mes "[Werner de ferro]";
+	mes "Sim, exatamente.";
+	mes "Bem, existem muitos caras que fazem experimentos in vivo além desse sujeito, mas ele foi o primeiro corajoso o suficiente para melhorar uma criatura viva.";
 	next;
 	cutin "ep16_eisen01.bmp",1;
-	mes "[Eisen Werner]";
-	mes "using the imitated heart fragment of Ymir";
-	mes "It was a great turning point for the In Vivo Experiments.";
+	mes "[Werner de ferro]";
+	mes "usando o fragmento cardíaco imitado de Ymir";
+	mes "Foi um ótimo ponto de virada para os experimentos in vivo.";
 	next;
-	mes "[Eisen Werner]";
-	mes "I was trying to apply it to many kinds of stuff.";
+	mes "[Werner de ferro]";
+	mes "Eu estava tentando aplicá -lo a muitos tipos de coisas.";
 	next;
-	mes "[Eisen Werner]";
-	mes "By the way....";
-	mes "You should say hello to it. Right?";
+	mes "[Werner de ferro]";
+	mes "Por falar nisso....";
+	mes "Você deve dizer olá para isso. Certo?";
 	next;
-	mes "[Eisen Werner]";
-	mes "Ah~. That's right.";
-	mes "You don't need to say hello, because both of you are going to die!";
+	mes "[Werner de ferro]";
+	mes "Ah ~. Isso mesmo.";
+	mes "Você não precisa dizer olá, porque vocês dois vão morrer!";
 	cutin "ep16_eisen03.bmp",1;
 	next;
 	cutin "ep16_eisen02.bmp",1;
-	mes "[Eisen Werner]";
-	mes "Seyren, escort these guests to hell.";
-	mes "Do you understand what I am saying?";
+	mes "[Werner de ferro]";
+	mes "Seyren, acompanhe esses convidados ao inferno.";
+	mes "Você entende o que estou dizendo?";
 	next;
 	cutin "ep16_seiren02.bmp",2;
 	mes "[Seyren]";
@@ -812,84 +812,84 @@ OnTouch:
 	npctalk "......", .@seyren$;
 	next;
 	cutin "ep16_evt_ws.bmp",4;
-	mes "[Eisen Werner]";
-	mes "Hmm?";
-	mes "What is this, Seyren? Is it a negative phase now?";
+	mes "[Werner de ferro]";
+	mes "Hum?";
+	mes "O que é isso, Seyren? É uma fase negativa agora?";
 	next;
 	mes "[Seyren]";
-	mes "I feel like I've woken up from a long sleep.";
-	mes "Maybe it was for this day.";
-	npctalk "I feel like I've woken up from a long sleep. Maybe it was for this day.", .@seyren$;
+	mes "Sinto que acordei de um longo sono.";
+	mes "Talvez tenha sido para este dia.";
+	npctalk "Sinto que acordei de um longo sono. Talvez tenha sido para este dia.", .@seyren$;
 	next;
-	mes "[Eisen Werner]";
-	mes "Do not forget your duty, Seyren.";
-	mes "You are a weapon. You are nothing more than a puppet with the outfit of a knight called Seyren Windsor.";
+	mes "[Werner de ferro]";
+	mes "Não se esqueça do seu dever, Seyren.";
+	mes "Você é uma arma. Você nada mais é do que um fantoche com a roupa de um cavaleiro chamado Seyren Windsor.";
 	next;
-	mes "[Eisen Werner]";
-	mes "Do you need me to explain step by step?";
-	mes "After transplanting the dummy of Ymir's Heart, the body could not endure the power and eventually collapsed.";
+	mes "[Werner de ferro]";
+	mes "Você precisa de mim para explicar passo a passo?";
+	mes "Depois de transplantar o manequim do coração de Ymir, o corpo não pôde suportar o poder e eventualmente desmoronou.";
 	next;
-	mes "[Eisen Werner]";
+	mes "[Werner de ferro]";
 	mes "Then its spirit duplicated the main body and kept dividing over and over.";
-	mes "During that process, its memory, consciousness, soul, mind and ego were all scattered like sand. They became meaningless.";
+	mes "Durante esse processo, sua memória, consciência, alma, mente e ego estavam todos espalhados como areia. Eles ficaram sem sentido.";
 	next;
-	mes "[Eisen Werner]";
-	mes "When we transplanted the dummy of Ymir's Heart into someone with a strong mind and body, we expected that person would become a stronger biological weapon.";
+	mes "[Werner de ferro]";
+	mes "Quando transplantamos o manequim do coração de Ymir em alguém com uma mente e um corpo fortes, esperávamos que a pessoa se tornasse uma arma biológica mais forte.";
 	next;
-	mes "[Eisen Werner]";
+	mes "[Werner de ferro]";
 	mes "We never expected that it would duplicate itself and divide endlessly. As a result, that experiment was regarded as a failure.";
 	next;
-	mes "[Eisen Werner]";
-	mes "To make things worse, it was an uncontrollable creature that was filled only with fury.";
+	mes "[Werner de ferro]";
+	mes "Para piorar as coisas, era uma criatura incontrolável que estava cheia apenas de fúria.";
 	next;
 	mes "[Seyren]";
-	mes "I am here.";
-	npctalk "I am here.", .@seyren$;
+	mes "Estou aqui.";
+	npctalk "Estou aqui.", .@seyren$;
 	next;
-	mes "[Eisen Werner]";
-	mes "You know what? They are still dividing now.";
-	mes "Just imitating the main body, they are even growing inside it.";
+	mes "[Werner de ferro]";
+	mes "Você sabe o que? Eles ainda estão se dividindo agora.";
+	mes "Apenas imitando o corpo principal, eles estão crescendo dentro dele.";
 	next;
-	mes "[Eisen Werner]";
-	mes "Since they are imperfect beings now, they want to become perfect.";
-	mes "They are imperfect beings now, so they want to become perfect, rather than just imitating the main body and living as a virtual image.";
+	mes "[Werner de ferro]";
+	mes "Como são seres imperfeitos agora, eles querem se tornar perfeitos.";
+	mes "Eles são seres imperfeitos agora, então querem se tornar perfeitos, em vez de apenas imitar o corpo principal e viver como uma imagem virtual.";
 	next;
-	mes "[Eisen Werner]";
-	mes "They wish to exist as a singular entity.";
+	mes "[Werner de ferro]";
+	mes "Eles desejam existir como uma entidade singular.";
 	next;
-	mes "[Eisen Werner]";
-	mes "And the only successful experiment is you. We call you Seyren now.";
+	mes "[Werner de ferro]";
+	mes "E o único experimento bem -sucedido é você. Nós o chamamos de Seyren agora.";
 	next;
 	cutin "ep16_seiren02.bmp",2;
 	mes "[Seyren]";
-	mes "...... Is it the end of your will?";
-	npctalk "...... Is it the end of your will?", .@seyren$;
+	mes "...... é o fim da sua vontade?";
+	npctalk "...... é o fim da sua vontade?", .@seyren$;
 	next;
 	cutin "ep16_eisen03.bmp",0;
-	mes "[Eisen Werner]";
-	mes "Hey, baby? You can't do this to me.";
-	mes "You must obey me!";
+	mes "[Werner de ferro]";
+	mes "Ei, baby? Você não pode fazer isso comigo.";
+	mes "Você deve me obedecer!";
 	next;
 	cutin "ep16_eisen02.bmp",0;
-	mes "[Eisen Werner]";
-	mes "Don't you remember how much I struggled to bring you here out of that hell?";
-	mes "Do not be swayed by the consciousness of someone who's already dead.";
+	mes "[Werner de ferro]";
+	mes "Você não se lembra de quanto eu lutei para trazê -lo aqui do inferno?";
+	mes "Não seja influenciado pela consciência de alguém que já está morto.";
 	next;
 	cutin "ep16_seiren02.bmp",2;
 	mes "[Seyren]";
-	mes "... Eisen Werner.";
-	mes "Let me ask you again. Is it the end of your will?";
-	npctalk "... Eisen Werner. Let me ask you again. Is it the end of your will?", .@seyren$;
+	mes "... Werner de ferro.";
+	mes "Deixe -me perguntar de novo. É o fim da sua vontade?";
+	npctalk "... Eisen Werner. Deixe -me perguntar de novo. É o fim da sua vontade?", .@seyren$;
 	next;
 	cutin "ep16_eisen01.bmp",0;
-	mes "[Eisen Werner]";
-	mes "Damn!";
-	mes "I never expected this!";
-	mes "Isn't this world a funny place? Ha ha ha ha ha";
+	mes "[Werner de ferro]";
+	mes "Droga!";
+	mes "Eu nunca esperava isso!";
+	mes "Este mundo não é um lugar engraçado? Ha ha ha ha ha";
 	next;
-	mes "[Eisen Werner]";
-	mes "Never think that I'm finished here.";
-	mes "I don't need a loser either.";
+	mes "[Werner de ferro]";
+	mes "Nunca pense que estou terminando aqui.";
+	mes "Eu também não preciso de um perdedor.";
 	close2;
 	setpcblock PCBLOCK_NPC, true;
 	cutin "",255;
@@ -903,70 +903,70 @@ OnTouch:
 	setpcblock PCBLOCK_NPC, false;
 	npctalk "Oh....", .@seyren$;
 	mes "[Seyren]";
-	mes "... Eisen. You have abandoned everything like this.";
-	npctalk "... Eisen. You have abandoned everything like this.", .@seyren$;
+	mes "... Eisen. Você abandonou tudo assim.";
+	npctalk "... Eisen. Você abandonou tudo assim.", .@seyren$;
 	specialeffect2 EF_DEVIL3;
 	cutin "ep16_seiren01.bmp",2;
 	next;
 	mes "[Seyren]";
-	mes ".. Ah...";
-	npctalk ".. Ah...", .@seyren$;
+	mes ".. a ...";
+	npctalk ".. a ...", .@seyren$;
 	cutin "ep16_seiren02.bmp",2;
 	next;
 	mes "[Seyren]";
-	mes "The solidity is weakening again.";
-	mes "Now, I have a much more urgent message for you rather than for Eisen.";
-	npctalk "The solidity is weakening again. Now, I have a much more urgent message for you rather than for Eisen.", .@seyren$;
+	mes "A solidez está enfraquecendo novamente.";
+	mes "Agora, tenho uma mensagem muito mais urgente para você, e não para Eisen.";
+	npctalk "A solidez está enfraquecendo novamente. Agora, tenho uma mensagem muito mais urgente para você, e não para Eisen.", .@seyren$;
 	next;
 	mes "[Seyren]";
-	mes "I've been waiting for you for a long time.";
-	mes "As Eisen said, it's no longer important whether I'm Seyren or not.";
-	npctalk "I've been waiting for you for a long time. As Eisen said, it's no longer important whether I'm Seyren or not.", .@seyren$;
+	mes "Estou esperando por você há muito tempo.";
+	mes "Como Eisen disse, não é mais importante se eu sou Seyren ou não.";
+	npctalk "Estou esperando por você há muito tempo. Como Eisen disse, não é mais importante se eu sou Seyren ou não.", .@seyren$;
 	next;
 	mes "[Seyren]";
-	mes "Since I had the ability to think, I didn't know who I was nor why I existed.";
+	mes "Como eu tinha a capacidade de pensar, não sabia quem eu era nem por que existia.";
 	next;
 	specialeffect2 EF_DEVIL4;
 	mes "[Seyren]";
-	mes "The continuous division created countless copies of myself.";
+	mes "A divisão contínua criou inúmeras cópias de mim mesmo.";
 	next;
 	mes "[Seyren]";
-	mes "The power entwined with the dummy of Ymir's Heart, which responded to my will and that of my companions. They wanted to unite, but kept dividing themselves over and over.";
+	mes "O poder entrelaçado com o manequim do coração de Ymir, que respondeu à minha vontade e à dos meus companheiros. Eles queriam se unir, mas continuavam se dividindo repetidamente.";
 	next;
 	specialeffect2 EF_DEVIL5;
 	cutin "ep16_seiren01.bmp",2;
 	mes "[Seyren]";
-	mes "How many copies of myself have been created so far?";
+	mes "Quantas cópias de mim mesmo foram criadas até agora?";
 	next;
 	cutin "ep16_seiren02.bmp",2;
 	mes "[Seyren]";
-	mes "I lost the ego after continuous division, but was regenerated as the previous shape. I don't think it was a coincidence.";
+	mes "Perdi o ego após divisão contínua, mas fui regenerado como a forma anterior. Eu não acho que foi uma coincidência.";
 	next;
 	mes "[Seyren]";
-	mes "I thought there must have been a reason.";
+	mes "Eu pensei que devia ter havido uma razão.";
 	next;
 	mes "[Seyren]";
-	mes "And I realized it after looking at ^4d4dffTerra Gloria^000000.";
-	mes "The reason why the god gave me this opportunity.";
+	mes "E eu percebi depois de olhar para ^4d4dffterra gloria ^000000.";
+	mes "A razão pela qual o Deus me deu essa oportunidade.";
 	next;
 	specialeffect2 EF_DEVIL6;
 	cutin "ep16_seiren01.bmp",2;
 	mes "[Seyren]";
-	mes "Have you come to reclaim this?";
-	mes "... The land is gone and only the star remains.";
+	mes "Você veio para recuperar isso?";
+	mes "... A terra se foi e apenas a estrela permanece.";
 	next;
 	specialeffect2 EF_DEVIL7;
 	cutin "ep16_seiren02.bmp",2;
 	mes "[Seyren]";
-	mes "Eisen is right. ^4d4dffSeyren Windsor is no longer in this world.^000000";
-	mes "All I have now is the strong will to transfer something on and on.";
+	mes "Eisen está certo. ^4d4dffseyren windsor não está mais neste mundo.^000000";
+	mes "Tudo o que tenho agora é a forte vontade de transferir algo sem parar.";
 	next;
 	specialeffect2 EF_SCREEN_QUAKE;
 	specialeffect2 EF_DEVIL8;
 	cutin "ep16_seiren01.bmp",2;
 	mes "[Seyren]";
-	mes "Maybe that bit of will made me exist.";
-	mes "But it's over now.";
+	mes "Talvez isso me tenha feito existir.";
+	mes "Mas acabou agora.";
 	cutin "ep16_seiren02.bmp",2;
 	next;
 	specialeffect2 EF_DEVIL9;
@@ -975,28 +975,28 @@ OnTouch:
 	mes ".....";
 	next;
 	mes "[Seyren]";
-	mes "I really don't have more time.";
-	mes "After this moment, ^4d4dffI will be divided and scattered.^000000 again.";
+	mes "Eu realmente não tenho mais tempo.";
+	mes "Após esse momento, ^4d4dffi será dividido e disperso. ^000000 novamente.";
 	next;
 	mes "[Seyren]";
-	mes "While I still have my will now, I have one message to give you.";
+	mes "Enquanto ainda tenho minha vontade agora, tenho uma mensagem para lhe dar.";
 	next;
 	if (instance_live_info(ILI_NAME) == "Werner Laboratory central room#1") {
 		mes "[Seyren]";
-		mes "Please, go ahead.";
-		mes "Seyren Windsor, the knight of Prontera failed in the task.";
+		mes "Por favor, vá em frente.";
+		mes "Seyren Windsor, o Cavaleiro de Pronntera falhou na tarefa.";
 		next;
 		mes "[Seyren]";
-		mes "^4d4dffMe and all my companions died long ago.";
-		mes "Please don't waste your affections on the bodies that are already dead.^000000";
+		mes "^4d4dffme e todos os meus companheiros morreram há muito tempo.";
+		mes "Por favor, não desperdice seus afetos nos corpos que já estão mortos.^000000";
 		next;
 		mes "[Seyren]";
-		mes "They are just like ghosts covered with peels.";
-		mes "I was lucky to show my last will in front of you.";
+		mes "Eles são como fantasmas cobertos com cascas.";
+		mes "Tive a sorte de mostrar minha última vontade na sua frente.";
 		next;
 		mes "[Seyren]";
-		mes "They are ^4d4dffrelics^000000 of me and my companions.";
-		mes "Please give them to our families.";
+		mes "Eles são ^4d4dffrelics ^000000 de mim e meus companheiros.";
+		mes "Por favor, dê -os a nossas famílias.";
 		if (is_party_leader() == true) {
 			getitem 25179,1;	// Blessing_Star
 			getitem 23087,1;	// Small_Leather_Bag
@@ -1021,8 +1021,8 @@ OnTouch:
 	}
 	// daily
 	mes "[Seyren]";
-	mes "It was great to see you at the end.";
-	mes "Thank you... Bye.";
+	mes "Foi ótimo vê -lo no final.";
+	mes "Obrigado ... tchau.";
 	close2;
 	setpcblock PCBLOCK_NPC, true;
 	cutin "",255;
@@ -1037,7 +1037,7 @@ OnTouch:
 	setpcblock PCBLOCK_NPC, false;
 	if (is_party_leader() == true)
 		'event_final = 0;
-	mapannounce 'map_slw$, "The setting of the central room has been initialized.", bc_map,0xFF99;
+	mapannounce 'map_slw$, "A configuração da sala central foi inicializada.", bc_map,0xFF99;
 	warpparty 'map_slw$,54,134,getcharid(1),'map_slw$,2,2;
 	disablenpc .@seyren$;
 	end;
@@ -1053,23 +1053,23 @@ OnTouch:
 		end;
 	setpcblock PCBLOCK_NPC, true;
 	.@npc_name$ = instance_npcname("Pet child#boss_master");
-	npctalk "How dare you come in! You're so brave!", .@npc_name$;
+	npctalk "Como você ousa entrar! Você é tão corajoso!", .@npc_name$;
 	sleep2 3000;
-	npctalk "You must be honored to fight me!", .@npc_name$;
+	npctalk "Você deve estar honrado em lutar comigo!", .@npc_name$;
 	sleep2 3000;
 	npctalk ".......", .@npc_name$;
 	sleep2 3000;
-	npctalk ".. Damn Werner. Why did you mix me with a wolf?", .@npc_name$;
+	npctalk ".. maldito Werner. Por que você me misturou com um lobo?", .@npc_name$;
 	sleep2 3000;
-	npctalk "A... anyway, you are dead meat.", .@npc_name$;
+	npctalk "A ... Enfim, você está com carne morta.", .@npc_name$;
 	sleep2 3000;
 	setpcblock PCBLOCK_NPC, false;
 	disablenpc instance_npcname("#boss_master_dummy");
-	npctalk "Beeee prepared!!!", .@npc_name$;
+	npctalk "BA Preparade !!!", .@npc_name$;
 	specialeffect EF_DANCE_BLADE_ATK, AREA, instance_npcname("Pet child#boss_master");
 	specialeffect EF_ALL_FULL_THROTTLE, AREA, instance_npcname("Pet child#boss_master");
 	donpcevent instance_npcname("#boss_master_lab") + "::OnStart";
-	mapannounce 'map_slw$, "The Magic field has been activated.", bc_map,0xFF99;
+	mapannounce 'map_slw$, "O campo mágico foi ativado.", bc_map,0xFF99;
 	cloakonnpc instance_npcname("Pet child#boss_master");
 	end;
 }
@@ -1083,7 +1083,7 @@ OnStart:
 	end;
 OnMobDead:
 	if (mobcount( 'map_slw$, instance_npcname("#boss_master_lab") + "::OnMobDead" ) < 1) {
-		mapannounce 'map_slw$, "The Magic field has been eliminated. An entrance has been created.", bc_map,0xFF99;
+		mapannounce 'map_slw$, "O campo mágico foi eliminado. Uma entrada foi criada.", bc_map,0xFF99;
 		enablenpc instance_npcname("Emergency exit#exit_war");
 		disablenpc instance_npcname("#boss_master_lab");
 	}

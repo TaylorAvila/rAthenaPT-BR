@@ -6,7 +6,7 @@
 //===== Changelogs: ==========================================
 //= 1.0 First version. [Capuche]
 //= 1.1 Added a setting to prevent an exploit
-//      (searchs "'exploit_disabled" variable - the variable is
+//      (searchs "'explorar_disabled" variable - the variable is
 //      false by default like on official server). [Capuche]
 //============================================================
 
@@ -15,17 +15,17 @@
 		end;
 	cutin "fenrir_a",2;
 	mes "[Fenrir]";
-	mes "Sealed in the underground";
-	mes "of the Prontera Castle...";
-	mes "I didn't expect it to be this huge...";
+	mes "Selado no underground";
+	mes "do castelo pronúncio ...";
+	mes "Eu não esperava que fosse tão enorme ...";
 	next;
 	cutin "hero_iris_01",2;
-	mes "[Iris]";
-	mes "What on earth is there inside?";
+	mes "[Íris]";
+	mes "O que diabos há dentro?";
 	next;
 	cutin "fenrir_a",2;
 	mes "[Fenrir]";
-	mes "I don't know. Let's investigate the inside, first.";
+	mes "Não sei. Vamos investigar o interior, primeiro.";
 	close2;
 	cutin "",255;
 	disablenpc instance_npcname("Iris#1mir");
@@ -93,56 +93,56 @@ OnInstanceInit:
 		end;
 	if ('step != 0)
 		end;
-	mes "[Iris]";
-	mes "This...this must be...";
-	mes "Ymir's Heart!";
+	mes "[Íris]";
+	mes "Isso ... isso deve ser ...";
+	mes "Coração de Ymir!";
 	next;
 	cutin "fenrir_a",2;
 	mes "[Fenrir]";
-	mes "This...";
-	mes "This is Ymir's Heart...";
+	mes "Esse...";
+	mes "Este é o coração de Ymir ...";
 	next;
 	cutin "hero_iris_01",255;
-	mes "~Rumbling~";
+	mes "~ Estridente ~";
 	next;
 	specialeffect EF_SCREEN_QUAKE,AREA, instance_npcname("Iris#2mir");
 	cutin "hero_iris_01",2;
-	mes "[Iris]";
-	mes "Why is this place shaking?!";
+	mes "[Íris]";
+	mes "Por que este lugar está tremendo?!";
 	next;
 	cutin "fenrir_b",2;
 	mes "[Fenrir]";
-	mes "~Grunts~ They must've started attacking this place, too.";
+	mes "~ Grunhidos ~ Eles devem ter começado a atacar este lugar também.";
 	next;
 	enablenpc instance_npcname("Bijou#2mir");
 	cutin "bijou_01",2;
 	mes "[Bijou]";
-	mes "~Grins~ Delighted to see you all.";
+	mes "~ Sorri ~ encantado em ver todos vocês.";
 	next;
 	cutin "fenrir_b",2;
 	mes "[Fenrir]";
 	mes "!!";
-	mes "You've got to be kidding me!";
+	mes "Você deve estar brincando comigo!";
 	next;
 	cutin "bijou_01",2;
 	mes "[Bijou]";
-	mes "From this moment on, we the Immortal Legion by Lord Valkyrie Himelmez";
-	mes "will take over here.";
+	mes "A partir deste momento, nós, a Legião Imortal, de Lord Valkyrie Himelmez";
+	mes "vai assumir aqui.";
 	next;
 	specialeffect EF_SCREEN_QUAKE,AREA, instance_npcname("Iris#2mir");
 	cutin "hero_iris_01",2;
-	mes "[Iris]";
-	mes "What? How dare you!";
-	mes "I'm game. Bring it on!";
+	mes "[Íris]";
+	mes "O que? Como você ousa!";
+	mes "Eu sou jogo. Pode vir!";
 	next;
 	cutin "bijou_01",2;
 	mes "[Bijou]";
-	mes "~Grins~ Do I look like I have the time to deal with a petty thing like you, human?";
-	mes "But, out of pure mercy, I'll let you taste the fearful power of the Immortal Legion just a little bit.";
+	mes "~ Sorri ~ Parece que tenho tempo para lidar com uma coisa mesquinha como você, humana?";
+	mes "Mas, por pura misericórdia, vou deixar você provar o poderoso poder da Legião Imortal um pouco.";
 	next;
 	cutin "fenrir_b",2;
 	mes "[Fenrir]";
-	mes "~Grunts~ When did all the legionnaires get here?";
+	mes "~ Grunhidos ~ Quando todos os legionários chegaram aqui?";
 	close2;
 	cutin "",255;
 	if ('step == 0) {
@@ -163,10 +163,10 @@ OnTimer200:
 	disablenpc instance_npcname("Fenrir#1mir");
 	disablenpc instance_npcname("Fenrir#2mir");
 	disablenpc instance_npcname("Bijou#2mir");
-	mapannounce 'map_name$, "Fenrir: The enemies will show up soon! Brace yourself!", bc_map,0xFFFF00,FW_NORMAL,12;
+	mapannounce 'map_name$, "Fenrir: Os inimigos aparecerão em breve! Prepare -se!", bc_map,0xFFFF00,FW_NORMAL,12;
 	end;
 OnTimer2200:
-	mapannounce 'map_name$, "Fenrir: The enemies are swarming in. We must get rid of them all!", bc_map,0xFFFF00,FW_NORMAL,12;
+	mapannounce 'map_name$, "Fenrir: Os inimigos estão enxameando. Devemos nos livrar de todos!", bc_map,0xFFFF00,FW_NORMAL,12;
 	// coords inaccurate
 	monster 'map_name$,83,67,"Enchanted Skeleton",3446,1, instance_npcname("eq#mir1") + "::OnMobDead";// P_SKELETON
 	monster 'map_name$,91,51,"Enchanted Skeleton",3446,1, instance_npcname("eq#mir1") + "::OnMobDead";// P_SKELETON
@@ -182,12 +182,12 @@ OnTimer2200:
 OnMobDead:
 	'skeleton_wave[0]--;
 	if ('skeleton_wave[0] == 0) {
-		mapannounce 'map_name$, "Iris: ~Exhales~ Did we knock out all the enemies now?", bc_map,0xFFFF00,FW_NORMAL,12;
+		mapannounce 'map_name$, "Iris: ~ exala ~ Nós nocauteamos todos os inimigos agora?", bc_map,0xFFFF00,FW_NORMAL,12;
 		startnpctimer;
 	}
 	end;
 OnTimer4200:
-	mapannounce 'map_name$, "Fenrir: I don't think so. Some of the remnants are still here. Watch out!", bc_map,0xFFFF00,FW_NORMAL,12;
+	mapannounce 'map_name$, "Fenrir: Acho que não. Alguns dos remanescentes ainda estão aqui. Atenção!", bc_map,0xFFFF00,FW_NORMAL,12;
 	end;
 OnTimer6200:
 	// coords inaccurate
@@ -206,7 +206,7 @@ OnMobDead2:
 	'skeleton_wave[1]--;
 	if ('skeleton_wave[1] == 0 && 'step == 1) {
 		'step = 2;
-		mapannounce 'map_name$, "Fenrir: Phew! I think we've done here.", bc_map,0xFFFF00,FW_NORMAL,12;
+		mapannounce 'map_name$, "Fenrir: Ufa! Acho que fizemos aqui.", bc_map,0xFFFF00,FW_NORMAL,12;
 		enablenpc instance_npcname("Fenrir#3mir");
 		enablenpc instance_npcname("Iris#3mir");
 		enablenpc instance_npcname("Bijou#2mir");
@@ -221,42 +221,42 @@ OnMobDead2:
 	if ('step != 2)
 		end;
 	mes "[Bijou]";
-	mes "~Chuckles~ I think you're not that bad for a human.";
+	mes "~ Ri ~ Eu acho que você não é tão ruim para um humano.";
 	next;
 	cutin "bijou_02",2;
 	mes "[Bijou]";
-	mes "But do you think you can get away from this, again? Wake up, my underlings!";
+	mes "Mas você acha que pode se afastar disso novamente? Acorde, meus subordinados!";
 	specialeffect EF_WARP,AREA, instance_npcname("Renovated Amdarais#3mir");
 	sleep2 3000;
 	specialeffect EF_ENTRY,AREA, instance_npcname("Renovated Amdarais#3mir");
 	enablenpc instance_npcname("Renovated Amdarais#3mir");
 	next;
 	cutin "hero_iris_01",2;
-	mes "[Iris]";
-	mes "What...what's up with this monster?!";
+	mes "[Íris]";
+	mes "O que ... o que há com este monstro?!";
 	next;
 	cutin "bijou_01",2;
 	mes "[Bijou]";
-	mes "Ah...";
-	mes "I'll let you in on me before I go.";
-	mes "I'm Bijou.";
-	mes "I'm the adjutant to Lord Valkyrie Himelmez.";
+	mes "Um ...";
+	mes "Vou deixar você entrar em mim antes de ir.";
+	mes "Eu sou Bijou.";
+	mes "Sou o ajudante do Senhor Valkyrie Himelmez.";
 	next;
 	cutin "fenrir_b",2;
 	mes "[Fenrir]";
-	mes "~Groans~";
-	mes "No Valkyrie's subordinates ever disappointed me and neither did you.";
-	mes "Ymir's Heart is a huge energy source. For what do you want to use it anyway?";
+	mes "~ Gemidos ~";
+	mes "Nenhum subordinado de Valkyrie jamais me decepcionou e você também não.";
+	mes "O coração de Ymir é uma enorme fonte de energia. Para o que você quer usá -lo de qualquer maneira?";
 	next;
 	cutin "bijou_01",2;
 	mes "[Bijou]";
 	mes "......";
-	mes "You don't need to know. You're going to be wiped out soon anyway.";
+	mes "Você não precisa saber. Você será eliminado em breve de qualquer maneira.";
 	next;
 	cutin "fenrir_b",2;
 	mes "[Fenrir]";
-	mes "I don't think you'd use it for any good cause.";
-	mes "I'll stop Bijou from taking Ymir's Heart. You go ahead and take care of that huge monster!";
+	mes "Eu não acho que você o usaria por uma boa causa.";
+	mes "Vou impedir Bijou de tomar o coração de Ymir. Você vai em frente e cuida desse monstro enorme!";
 	close2;
 	cutin "",255;
 	if ('step == 2) {
@@ -287,16 +287,16 @@ OnTimer1000:
 		initnpctimer;
 		end;
 	}
-	mapannounce 'map_name$, "Iris: Oh, this monster...I don't think its HP doesn't seem to drop no matter how many times I hit.", bc_map,0xFFFF00,FW_NORMAL,12;
+	mapannounce 'map_name$, "Iris: Oh, esse monstro ... Eu não acho que o HP não parece cair, não importa quantas vezes eu atinja.", bc_map,0xFFFF00,FW_NORMAL,12;
 	end;
 OnTimer3000:
-	mapannounce 'map_name$, "Bijou: ~Chuckles~ Amdarais won't get knocked down that easily.", bc_map,0xFFFF00,FW_NORMAL,12;
+	mapannounce 'map_name$, "BIJOU: ~ Risadas ~ Amdarais não será derrubada tão facilmente.", bc_map,0xFFFF00,FW_NORMAL,12;
 	end;
 OnTimer5000:
-	mapannounce 'map_name$, "Fenrir: This undead seems to be different from any other undeads.", bc_map,0xFFFF00,FW_NORMAL,12;
+	mapannounce 'map_name$, "Fenrir: Este morto -vivo parece ser diferente de outros mortos -vivos.", bc_map,0xFFFF00,FW_NORMAL,12;
 	end;
 OnTimer7000:
-	mapannounce 'map_name$, "Fenrir: Yes, it's the nucleus! Attack its nucleus to inflict huge damage!", bc_map,0xFFFF00,FW_NORMAL,12;
+	mapannounce 'map_name$, "Fenrir: Sim, é o núcleo! Ataque seu núcleo para infligir grandes danos!", bc_map,0xFFFF00,FW_NORMAL,12;
 	end;
 OnTimer9000:
 	donpcevent instance_npcname("eq#mir3") + "::OnEvent";
@@ -324,11 +324,11 @@ OnEvent:
 OnEvent2:
 	callsub S_Announce, false;
 S_Announce:
-	setarray .@list$[0],"a","b","c","d";
+	setarray .@list$[0],"um","b","c","d";
 	'random_letter$ = .@list$[ rand(4) ];
 	donpcevent instance_npcname( "Fenrir#boss" + 'target_event + "" + 'random_letter$ ) + "::OnEvent";	// 1: P_AMDARAIS / 2: BIJOU
 	if (getarg(0) == true)
-		mapannounce 'map_name$, "Fenrir: Lure it to where I am!", bc_map,0xFFFF00,FW_NORMAL,12;
+		mapannounce 'map_name$, "Fenrir: atraia -o para onde estou!", bc_map,0xFFFF00,FW_NORMAL,12;
 	end;
 OnStart:
 	initnpctimer;
@@ -354,40 +354,40 @@ OnEvent:
 
 OnTouchNPC:
 	if ('touch_mob == 0) {
-		npctalk "Fenrir: Good work! Now it's on you, Iris!", 'fenrir_name$;
+		npctalk "Fenrir: Bom trabalho! Agora está em você, Iris!", 'fenrir_name$;
 		'touch_mob = 1;
 		initnpctimer;
 	}
 	end;
 OnTimer2000:
-	npctalk "Iris: Alright, let me do it! What I, Iris, want is...!", 'iris_name$;
+	npctalk "Iris: Tudo bem, deixe -me fazer isso! O que eu, Iris, quero é ...!", 'iris_name$;
 	specialeffect EF_BEGINSPELL,AREA, 'iris_name$;
 	end;
 OnTimer4000:
-	npctalk "Iris: Mabi Amulet! Go!!", 'iris_name$;
+	npctalk "Noivo: Mabe Amla! C !!", 'iris_name$;
 	if ('target_event == 1)
-		unittalk 'boss_id, "Aaarrgghhh---!!";
+		unittalk 'boss_id, "Aaarrgghhh --- !!";
 	else
-		unittalk 'boss_id, "Bijou: What the...!!";
+		unittalk 'boss_id, "BIJOU: O que ... !!";
 	end;
 OnTimer5000:
-	npctalk "Iris: It worked!", 'iris_name$;
+	npctalk "Iris: Funcionou!", 'iris_name$;
 	end;
 OnTimer7000:
-	npctalk "Fenrir: So this is my turn, then. ~Spirited yell~", 'fenrir_name$;
+	npctalk "Fenrir: Então esta é a minha vez, então. ~ Grito espirituoso ~", 'fenrir_name$;
 	specialeffect EF_BEGINSPELL,AREA, 'fenrir_name$;
 	specialeffect EF_TETRACASTING,AREA, 'fenrir_name$;
 	progressbar_npc "000000",3;
 	end;
 OnTimer10000:
-	npctalk "Fenrir: Take this!!", 'fenrir_name$;
+	npctalk "Fenrir: Pegue isso !!", 'fenrir_name$;
 	specialeffect EF_SUI_EXPLOSION,AREA, 'fenrir_name$;
 	specialeffect EF_LORD,AREA, 'fenrir_name$;
 	specialeffect EF_FLAMELAUNCHER,AREA, 'fenrir_name$;
 	if ('target_event == 1)
-		unittalk 'boss_id, "~Screams~";
+		unittalk 'boss_id, "~ Gritos ~";
 	else
-		unittalk 'boss_id, "Bijou: ~Groans~ More hurting than I thought...!";
+		unittalk 'boss_id, "Bijou: ~ gemidos ~ mais magomente do que eu pensava ...!";
 	getunitdata 'boss_id, .@data;
 	if (.@data[UMOB_HP] > 0) {
 		.@damage = rand(700,1300) * 1000;
@@ -399,10 +399,10 @@ OnTimer10000:
 	}
 	end;
 OnTimer13000:
-	npctalk "Fenrir: It's not perfect but I think we've caused a pretty significant amount of damage!", 'fenrir_name$;
+	npctalk "Fenrir: Não é perfeito, mas acho que causamos uma quantidade bastante significativa de danos!", 'fenrir_name$;
 	end;
 OnTimer14500:
-	npctalk "Fenrir: I've consumed magic too much. I'll take a short break. I'm counting on you, then!", 'fenrir_name$;
+	npctalk "Fenrir: Eu consumi muito mágica. Vou fazer uma pequena pausa. Estou contando com você, então!", 'fenrir_name$;
 	end;
 OnTimer16500:
 	donpcevent instance_npcname("eq#mir3") + "::OnStart";
@@ -420,37 +420,37 @@ OnStop:
 		end;
 	if ('step != 4)
 		end;
-	mes "[Iris]";
-	mes "Was that it...? Has it gone now?";
-	mes "So what's left now is...";
+	mes "[Íris]";
+	mes "Foi isso ...? Isso se foi agora?";
+	mes "Então, o que resta agora é ...";
 	next;
 	enablenpc instance_npcname("Bijou#4mir");
 	cutin "bijou_01",2;
 	mes "[Bijou]";
-	mes "Me...I'm the only one left...";
+	mes "Eu ... eu sou o único que resta ...";
 	next;
 	cutin "hero_iris_01",2;
-	mes "[Iris]";
-	mes "What?!";
+	mes "[Íris]";
+	mes "O que?!";
 	next;
-	mes "~POW!~";
+	mes "~ Pow! ~";
 	specialeffect EF_SUI_EXPLOSION,AREA, instance_npcname("Iris#4mir");
 	next;
 	cutin "hero_iris_01",2;
-	mes "[Iris]";
-	mes "Aaarrghhh---!!!";
+	mes "[Íris]";
+	mes "Aaarrghhh --- !!!";
 	next;
 	cutin "bijou_01",2;
 	mes "[Bijou]";
-	mes "I must say it was rather unexpected. ~Chuckles~";
-	mes "I didn't expect anyone to defeat Amdarais that I spent three good years to complete.";
+	mes "Devo dizer que foi bastante inesperado. ~ Risadas ~";
+	mes "Não esperava que ninguém derrotasse amdarais que passei três bons anos para concluir.";
 	next;
 	cutin "bijou_02",2;
 	mes "[Bijou]";
-	mes "You will pay";
-	mes "for ruining my three-year efforts!!";
-	mes "Slowly...";
-	mes "And horribly painfully...!!";
+	mes "Você vai pagar";
+	mes "Por arruinar meus esforços de três anos !!";
+	mes "Devagar...";
+	mes "E terrivelmente dolorosamente ... !!";
 	close2;
 	cutin "",255;
 	if ('step == 4) {
@@ -498,36 +498,36 @@ OnMobDead:
 	if ('step != 6)
 		end;
 	mes "[Fenrir]";
-	mes "~Groans~ I can't believe nothing seems to work!";
+	mes "~ Gemidos ~ Não acredito que nada parece funcionar!";
 	next;
 	cutin "bijou_01",2;
 	mes "[Bijou]";
-	mes "~Chuckles~";
-	mes "I'll let you taste what despair feels like.";
+	mes "~ Risadas ~";
+	mes "Vou deixar você provar como é o desespero.";
 	next;
 	cutin "bijou_02",2;
 	mes "[Bijou]";
-	mes "Frost Diver!";
+	mes "Mergulhador de geada!";
 	specialeffect EF_LOCKON,AREA, instance_npcname("Fenrir#5mir");
 	sleep2 3000;
 	specialeffect EF_FREEZE,AREA, instance_npcname("Fenrir#5mir");
 	next;
 	cutin "fenrir_b",2;
 	mes "[Fenrir]";
-	mes "~Groans~";
+	mes "~ Gemidos ~";
 	next;
 	cutin "bijou_01",2;
 	mes "[Bijou]";
-	mes "How does it feel? Painful, eh?";
-	mes "You must become paralyzed by now.";
-	mes "...But don't expect me to kill you that easily...";
+	mes "Como se sente? Doloroso, não é?";
+	mes "Você deve ficar paralisado agora.";
+	mes "... mas não espere que eu o mate tão facilmente ...";
 	next;
 	mes "[Bijou]";
-	mes "I should take care of this downright annoying cleric gal first.";
+	mes "Eu deveria cuidar dessa garota clérigo absolutamente irritante primeiro.";
 	next;
 	cutin "fenrir_b",2;
 	mes "[Fenrir]";
-	mes "I...Iris!!";
+	mes "Eu ... Iris !!";
 	next;
 	cutin "sarah_hero3",2;
 	mes "[Sarah]";
@@ -536,157 +536,157 @@ OnMobDead:
 	next;
 	cutin "bijou_02",2;
 	mes "[Bijou]";
-	mes "Sarah...?";
+	mes "Sarah ...?";
 	next;
 	cutin "sarah_hero3",2;
 	mes "[Sarah]";
-	mes "So this is it...";
-	mes "This is the underground of Prontera Castle.";
-	mes "The place where the first Ymir's Heart is sealed.";
+	mes "Então é isso ...";
+	mes "Este é o underground do castelo de prontera.";
+	mes "O lugar onde o coração do primeiro Ymir é selado.";
 	next;
 	mes "[Sarah]";
-	mes "And that must be...";
-	mes "Ymir's Heart...";
+	mes "E isso deve ser ...";
+	mes "Coração de Ymir ...";
 	next;
 	cutin "bijou_02",2;
 	mes "[Bijou]";
-	mes "What brought you all the way up here?";
+	mes "O que te trouxe até aqui?";
 	mes "Sarah Irine.";
-	mes "I didn't expect you would show up here.";
+	mes "Eu não esperava que você aparecesse aqui.";
 	next;
 	cutin "sarah_hero3",2;
 	mes "[Sarah]";
-	mes "What do you think you're doing here, Bijou?";
+	mes "O que você acha que está fazendo aqui, Bijou?";
 	next;
 	cutin "bijou_01",2;
 	mes "[Bijou]";
-	mes "Yes, I was in the middle of taking care of the annoying bugs.";
+	mes "Sim, eu estava no meio de cuidar dos insetos irritantes.";
 	next;
 	cutin "sarah_hero3",2;
 	mes "[Sarah]";
-	mes "What kind of answer is that, Bijou?";
+	mes "Que tipo de resposta é essa, Bijou?";
 	next;
 	mes "[Sarah]";
-	mes "My question was: what are you still doing here, totally goofing off, and, why didn't you break any sealing off of Ymir's Heart?";
+	mes "Minha pergunta era: o que você ainda está fazendo aqui, totalmente brincando e, por que você não interrompeu nenhuma vedação do coração de Ymir?";
 	next;
 	cutin "bijou_02",2;
 	mes "[Bijou]";
-	mes "Well, that's uh...I did break the 1st seal, though.";
-	mes "This place will be cleaned up in no time. There is nothing for you to worry about, Sarah.";
+	mes "Bem, isso é Uh ... eu quebrei o 1º selo, no entanto.";
+	mes "Este lugar será limpo em pouco tempo. Não há nada para você se preocupar, Sarah.";
 	next;
 	mes "[Bijou]";
-	mes "Trust me and consider it done. Please be yourself as proud Valkyrie.";
+	mes "Confie em mim e considere isso feito. Por favor, seja você mesmo como orgulhoso Valkyrie.";
 	next;
 	cutin "bijou_01",2;
 	mes "[Bijou]";
-	mes "(~Scoffs~ What an uptight, pathetic Valkyrie she is! I can't believe a greenhorn like you are treated the same as Himelmez. That is so unfair.)";
+	mes "(~ Zomba ~ Que valquiria tensa e patética ela é! Eu não posso acreditar em um Greenhorn como se você fosse tratado da mesma forma que Himelmez. Isso é tão injusto.)";
 	next;
 	cutin "sarah_hero3_2",2;
 	mes "[Sarah]";
-	mes "You must be out of your mind, Bijou...There is no Himelmez here.";
+	mes "Você deve estar fora de sua mente, Bijou ... não há himelmez aqui.";
 	next;
 	cutin "bijou_03",2;
 	mes "[Bijou]";
-	mes "....~Gasps~";
-	mes "I'm out of breath!";
+	mes ".... ~ suspira ~";
+	mes "Estou sem fôlego!";
 	next;
 	cutin "sarah_hero3_2",2;
 	mes "[Sarah]";
-	mes "You'd better keep your mouth shut!";
+	mes "É melhor você ficar com a boca fechada!";
 	next;
 	cutin "bijou_03",2;
 	mes "[Bijou]";
-	mes "~Coughs~";
-	mes "~Keeps coughing~";
+	mes "~ Tosse ~";
+	mes "~ Continua tossindo ~";
 	next;
 	cutin "sarah_hero3",2;
 	mes "[Sarah]";
-	mes "I can certainly do without a subordinate who wastes time for this kind of petty job.";
-	mes "Let me take that Ymir's Heart...myself.";
+	mes "Eu certamente posso ficar sem um subordinado que desperdiça tempo para esse tipo de trabalho mesquinho.";
+	mes "Deixe -me levar o coração desse ymir ... eu mesmo.";
 	disablenpc instance_npcname("Sarah#5mir");
 	next;
 	cutin "bijou_02",2;
 	mes "[Bijou]";
-	mes "(She is Valkyrie, indeed. Oh, what can you do about that?)";
+	mes "(Ela é Valkyrie, de fato. Oh, o que você pode fazer sobre isso?)";
 	next;
 	cutin "fenrir_b",2;
 	mes "[Fenrir]";
-	mes "The time is right!";
-	mes "Frost Diver!";
+	mes "A hora está certa!";
+	mes "Mergulhador de geada!";
 	specialeffect EF_FREEZE,AREA, instance_npcname("Bijou#5mir");
 	next;
 	cutin "bijou_03",2;
 	mes "[Bijou]";
-	mes "What did you say?!";
+	mes "O que você disse?!";
 	next;
 	mes "[Bijou]";
-	mes "Whoa...That was a close; call.";
-	mes "How could this happen?";
+	mes "Whoa ... isso foi um fim; chamar.";
+	mes "Como isso poderia acontecer?";
 	next;
 	cutin "fenrir_a",2;
 	mes "[Fenrir]";
-	mes "This magic...";
-	mes "This must be high-level magic as I expected. It's pretty tough to cast it.";
+	mes "Esta mágica ...";
+	mes "Deve ser uma mágica de alto nível, como eu esperava. É muito difícil lançá -lo.";
 	next;
 	cutin "bijou_02",2;
 	mes "[Bijou]";
-	mes "(What is this?! Did she just master the magic that I used on her?)";
+	mes "(O que é isso?! Ela apenas dominou a mágica que eu usei nela?)";
 	next;
 	cutin "fenrir_a",2;
 	mes "[Fenrir]";
-	mes "Iris! This is a healing potion.";
-	mes "Drink it and you'll come to your senses.";
+	mes "Íris! Esta é uma poção de cura.";
+	mes "Beba e você vai se sentir para seus sentidos.";
 	next;
 	sleep2 500;
 	specialeffect EF_POTION1,AREA, instance_npcname("Iris#5mir");
 	cutin "hero_iris_01",2;
-	mes "[Iris]";
-	mes "~Muffled sound~";
+	mes "[Íris]";
+	mes "~ Som abafado ~";
 	next;
 	sleep2 500;
 	specialeffect EF_POTION1,AREA, instance_npcname("Iris#5mir");
 	cutin "fenrir_a",2;
 	mes "[Fenrir]";
-	mes "Oh, you woke up now?";
+	mes "Oh, você acordou agora?";
 	next;
 	cutin "hero_iris_01",2;
-	mes "[Iris]";
-	mes "Umm....";
-	mes "~Vomiting sound~";
-	mes "Yuck! Is this bitter!";
-	mes "What the heck is this?!";
-	mes "What did you give to me?";
+	mes "[Íris]";
+	mes "Umm ....";
+	mes "~ Som de vômito ~";
+	mes "Eco! Isso é amargo!";
+	mes "O que diabos é isso?!";
+	mes "O que você me deu?";
 	next;
 	cutin "fenrir_a",2;
 	mes "[Fenrir]";
-	mes "So you woke up, Iris.";
-	mes "I'm so relieved.";
+	mes "Então você acordou, Iris.";
+	mes "Estou tão aliviado.";
 	next;
 	cutin "hero_iris_01",2;
-	mes "[Iris]";
-	mes "~Sighs~ By the way, Fenrir!";
-	mes "What about Ymir's Heart?";
+	mes "[Íris]";
+	mes "~ Suspira ~ A propósito, Fenrir!";
+	mes "E quanto ao coração de Ymir?";
 	next;
 	cutin "bijou_02",2;
 	mes "[Bijou]";
-	mes "(...Fenrir? I thought too much about Ymir's Heart and totally forgot about her. If my guess is right, she must be...!)";
+	mes "(... Fenrir? Pensei muito no coração de Ymir e esqueci totalmente dela. Se meu palpite está certo, ela deve ser ...!)";
 	next;
 	mes "[Bijou]";
-	mes "~Exhales~ I see. That's right.";
-	mes "That beast's blood flowing through your body...That was the answer!";
+	mes "~ Exala ~ eu vejo. Isso mesmo.";
+	mes "O sangue daquela besta fluindo pelo seu corpo ... essa foi a resposta!";
 	next;
 	cutin "bijou_01",2;
 	mes "[Bijou]";
-	mes "Then, let me serve you the right way! ~Chuckles~";
-	mes "I didn't expect to see the hero from a thousand years ago!";
+	mes "Então, deixe -me servir da maneira certa! ~ Risadas ~";
+	mes "Eu não esperava ver o herói de mil anos atrás!";
 	next;
 	cutin "bijou_03",2;
 	mes "[Bijou]";
-	mes "Die!!";
+	mes "O!!";
 	next;
 	cutin "fenrir_b",2;
 	mes "[Fenrir]";
-	mes "...Be careful. She's about to attack!";
+	mes "...Tome cuidado. Ela está prestes a atacar!";
 	close2;
 	cutin "",255;
 	if ('step == 6) {
@@ -718,10 +718,10 @@ OnTimer1000:
 	}
 	end;
 OnTimer3000:
-	mapannounce 'map_name$, "Iris: Let's fight together and we will win again!", bc_map,0xFFFF00,FW_NORMAL,12;
+	mapannounce 'map_name$, "Iris: Vamos lutar juntos e venceremos novamente!", bc_map,0xFFFF00,FW_NORMAL,12;
 	end;
 OnTimer5000:
-	mapannounce 'map_name$, "Fenrir: I think so, too. This time, too, I'd like to ask you to lure it to where I am.", bc_map,0xFFFF00,FW_NORMAL,12;
+	mapannounce 'map_name$, "Fenrir: Eu acho que sim também. Desta vez, também gostaria de pedir que você atraia para onde estou.", bc_map,0xFFFF00,FW_NORMAL,12;
 	end;
 OnTimer7000:
 	mapannounce 'map_name$, "Bijou: ......", bc_map,0xFFFF00,FW_NORMAL,12;
@@ -761,11 +761,11 @@ OnTalk:
 OnTimer20000:
 	.@r = rand(3);
 	if (.@r == 0)
-		unittalk 'boss_id, "Bijou: To Lord Himelmez!";
+		unittalk 'boss_id, "BIJOU: Para Lord Himelmez!";
 	else if (.@r == 1)
-		unittalk 'boss_id, "Bijou: Heh...You're still alive!";
+		unittalk 'boss_id, "Bijou: heh ... você ainda está vivo!";
 	else
-		unittalk 'boss_id, "Bijou: ~Chuckles~ Are you feeling the pain?";
+		unittalk 'boss_id, "Bijou: ~ risadas ~ Você está sentindo a dor?";
 	initnpctimer;
 	end;
 OnStop:
@@ -778,109 +778,109 @@ OnStop:
 		end;
 	if ('step != 8)
 		end;
-	mes "[Iris]";
-	mes "~Grunts~";
+	mes "[Íris]";
+	mes "~ Grunhidos ~";
 	next;
 	cutin "bijou_01",2;
 	mes "[Bijou]";
-	mes "~Evil laughter~ Die!";
-	mes "Clerics deserve to die!";
+	mes "~ Riso maligno ~ morre!";
+	mes "Os clérigos merecem morrer!";
 	specialeffect EF_TETRACASTING,AREA, instance_npcname("Iris#6mir");
 	next;
 	cutin "fenrir_b",2;
 	mes "[Fenrir]";
-	mes "Iris!!";
-	mes "No! Stop!!";
+	mes "Íris!!";
+	mes "Não! Parar!!";
 	specialeffect EF_TETRACASTING,AREA, instance_npcname("Iris#6mir");
 	next;
 	cutin "bijou_01",2;
 	mes "[Bijou]";
-	mes "~Chuckles~";
-	mes "So you're looking for a partner, eh?";
-	mes "Good idea, but...I think it's too late.";
+	mes "~ Risadas ~";
+	mes "Então você está procurando um parceiro, hein?";
+	mes "Boa ideia, mas ... acho que é tarde demais.";
 	specialeffect EF_TETRACASTING,AREA, instance_npcname("Iris#6mir");
 	next;
 	mes "[Bijou]";
-	mes "Because...";
-	mes "This will be the final, fatal blow to you. Wahahaha!";
+	mes "Porque...";
+	mes "Este será o golpe final e fatal para você. Wahahaha!";
 	specialeffect EF_TETRACASTING,AREA, instance_npcname("Iris#6mir");
 	next;
 	sleep2 300;
 	enablenpc instance_npcname("Sarah#6mir");
 	cutin "bijou_03",2;
 	mes "[Bijou]";
-	mes "....~Sighs~";
-	mes "Huh?...In my stomach...";
-	mes "This knife...";
-	mes "Sa...Sarah...? How?";
+	mes ".... ~ suspiros ~";
+	mes "Huh? ... no meu estômago ...";
+	mes "Esta faca ...";
+	mes "Em ... Sarah ...? Como?";
 	specialeffect EF_HFLIMOON1,AREA, instance_npcname("Bijou#6mir");
 	next;
 	cutin "bijou_death",4;
 	mes "[Sarah]";
-	mes "Is that all you want to say?";
-	mes "Don't worry. I'll let Himelmez know of your brave contribution. Don't blame me, Bijou.";
+	mes "É tudo o que você quer dizer?";
+	mes "Não se preocupe. Vou informar a Himelmez sobre sua corajosa contribuição. Não me culpe, Bijou.";
 	next;
 	mes "[Bijou]";
-	mes "Why...? Tell me why!";
-	mes "...That...that little chick...Was that it? Because she's your sister? Was that it? Tell me, Sarah!";
+	mes "Por que...? Diga -me por quê!";
+	mes "... isso ... aquela garotinha ... era isso? Porque ela é sua irmã? Foi isso? Diga -me, Sarah!";
 	next;
 	mes "[Bijou]";
-	mes "~Groans~";
+	mes "~ Gemidos ~";
 	specialeffect EF_HFLIMOON1,AREA, instance_npcname("Bijou#6mir");
 	disablenpc instance_npcname("Bijou#6mir");
 	next;
 	mes "[Sarah]";
 	mes "......";
-	mes "Your soul has been set free, Bijou.";
+	mes "Sua alma foi libertada, Bijou.";
 	next;
 	cutin "hero_iris_01",2;
-	mes "[Iris]";
-	mes "(Did she save me...?)";
+	mes "[Íris]";
+	mes "(Ela me salvou ...?)";
 	next;
-	mes "[Iris]";
-	mes "Sarah...";
-	mes "It's Sarah, right?";
-	mes "People say we parted when we were little...";
+	mes "[Íris]";
+	mes "Sarah ...";
+	mes "É Sarah, certo?";
+	mes "As pessoas dizem que nos separamos quando éramos pequenos ...";
 	next;
-	mes "[Iris]";
-	mes "...So what's your plan, huh? Why...why did you save me?!";
-	mes "Don't you ever think this will ever change my belief! I will never, ever forgive you!";
+	mes "[Íris]";
+	mes "... Então, qual é o seu plano, hein? Por que ... por que você me salvou?!";
+	mes "Você nunca pensa que isso nunca mudará minha crença! Eu nunca vou te perdoar!";
 	next;
-	mes "[Iris]";
-	mes "Mom...Dad...Every people in our town. I'm going to revenge!";
+	mes "[Íris]";
+	mes "Mãe ... pai ... todas as pessoas em nossa cidade. Eu vou me vingar!";
 	next;
 	cutin "sarah_hero3",2;
 	mes "[Sarah]";
-	mes "Shut that mouth!";
-	mes "Don't be a drama queen as if you're the only victim here.";
-	mes "They just paid the price for what they sinned. The sin that they committed by killing my mother 12 years ago.";
+	mes "Feche a boca!";
+	mes "Não seja uma rainha do drama como se você fosse a única vítima aqui.";
+	mes "Eles apenas pagaram o preço pelo que pecaram. O pecado que eles cometeram matando minha mãe há 12 anos.";
 	next;
 	mes "[Sarah]";
-	mes "Do you want me to tell you the truth? Those 'loved ones' you're incessantly talking about...Our great elder and the people in our town were actually...";
+	mes "Você quer que eu diga a verdade? Aqueles 'entes queridos' que você está falando incessantemente ... nosso grande ancião e as pessoas em nossa cidade eram realmente ...";
 	next;
 	mes "[Sarah]";
 	mes "......";
-	mes "Stop it...";
-	mes "Ymir's Heart comes first, no matter what.";
+	mes "Pare ...";
+	mes "O coração de Ymir vem primeiro, não importa o quê.";
 	next;
 	mes "[Sarah]";
-	mes "Mark my word.";
-	mes "I didn't let you live.";
-	mes "I will let you die soon.";
-	mes "I make sure you no longer see the light of day the next time when we meet.";
+	mes "Marque minha palavra.";
+	mes "Eu não deixei você viver.";
+	mes "Eu vou deixar você morrer em breve.";
+	mes "Certifico -me de que você não veja mais a luz do dia na próxima vez que nos encontrarmos.";
 	next;
 	mes "[Sarah]";
-	mes "Don't you ever let anyone kill you until then, Iris.";
-	mes "I'd better bid farewell for today, then.";
+	mes "Você nunca deixa ninguém te matar até então, Iris.";
+	mes "É melhor eu me despedir de hoje, então.";
 	disablenpc instance_npcname("Sarah#6mir");
 	next;
 	specialeffect EF_SCREEN_QUAKE,AREA, instance_npcname("Iris#6mir");
 	cutin "fenrir_b",2;
 	mes "[Fenrir]";
-	mes "~Grunts~ That Valkyrie destroyed the ceiling when taking Ymir's Heart!";
+	mes "~ Grunhidos ~ que Valkyrie destruiu o teto ao tomar o coração de Ymir!";
 	next;
 	mes "[Fenrir]";
-	mes "We'd better get out of here, too! This place is too dangerous!";
+	mes "É melhor sair daqui também! Este lugar é muito perigoso!";
 	close2;
 	if (ep16_royal == 19) {
 		erasequest 7700;// Once More!

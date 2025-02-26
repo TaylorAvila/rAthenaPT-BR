@@ -13,59 +13,59 @@
 //============================================================
 
 prontera,164,171,3	script	MvP Ladder Warper	56,{
-	mes "[MvP Ladder Warper]";
-	mes "Say... do you want to play the MvP Ladder game?";
+	mes "[MVP Ladder Warper]";
+	mes "Diga ... Você quer jogar o jogo MVP Ladder?";
 	next;
-	switch(select("Yes, let's get it on!:Information.:Show me the best record.:No.")) {
+	switch(select("Sim, vamos fazer isso!: Informações.: Mostre -me o melhor disco.")) {
 	case 1:
 		break;
 	case 2:
-		mes "[MvP Ladder Warper]";
-		mes "In this game, your party has to kill every single MvP monster in ascending order, from the weakest to strongest.";
+		mes "[MVP Ladder Warper]";
+		mes "Neste jogo, sua festa precisa matar todos os monstros de MVP em ordem ascendente, da mais fraca a mais forte.";
 		if ( .finish_item_amount )
 			mes "If your party can finish the MVP ladder game, each member will earn "+ callfunc("F_InsertPlural", .finish_item_amount, getitemname( .finish_item_id )) +".";
 		if ( .register_cost )
 			mes "But the entrance fee is "+ callfunc( "F_InsertComma", .register_cost ) +" zeny.";
 		next;
-		mes "[MvP Ladder Warper]";
-		mes "You lose the game if you can't finish in "+ .timeout +" minutes, or if your entire party is killed.";
-		mes "Good luck!";
+		mes "[MVP Ladder Warper]";
+		mes "Você perde o jogo se não conseguir terminar"+ .timeout +"minutos, ou se toda a sua festa for morta.";
+		mes "Boa sorte!";
 		close;
 	case 3:
-		mes "[MvP Ladder Warper]";
+		mes "[MVP Ladder Warper]";
 		if ( !$mvpladdderparty_time ) {
-			mes "Nobody has finished this game yet.";
+			mes "Ninguém terminou este jogo ainda.";
 			close;
 		}
-		mes "The best record is";
-		mes "[ "+( $mvpladdderparty_time / 60 )+" min "+( $mvpladdderparty_time % 60 )+" sec ]";
-		mes "By the party ^FF0000"+ $mvpladdderparty_name$ +"^000000.";
+		mes "O melhor registro é";
+		mes "["+( $mvpladdderparty_time / 60 )+"min"+( $mvpladdderparty_time % 60 )+"sec]";
+		mes "Pela festa ^ff0000"+ $mvpladdderparty_name$ +"^000000.";
 		.@size = getarraysize( $mvpladderparty_member$ );
 		for ( .@i = 0; .@i < .@size; .@i++ )
 			mes "^000000"+ ( .@i +1 ) +". ^0000FF"+ $mvpladderparty_member$[.@i];
 		if ( getgmlevel() < .gmlvlreset ) close;
 		next;
-		if ( select( "Close.", "Reset the record." ) == 1 ) close;
-		if ( select( "Never mind.", "I really want to reset it." ) == 1 ) close;
+		if ( select( "Fechar.", "Redefina o registro." ) == 1 ) close;
+		if ( select( "Deixa para lá.", "Eu realmente quero redefini -lo." ) == 1 ) close;
 		$mvpladdderparty_time = 0;
 		$mvpladdderparty_name$ = "";
 		deletearray $mvpladderparty_member$[.@i];
-		mes "[MvP Ladder Warper]";
-		mes "Record reset successfully.";
+		mes "[MVP Ladder Warper]";
+		mes "Redefinir registro com sucesso.";
 		close;
 	case 4:
-		mes "[MvP Ladder Warper]";
-		mes "When you are strong enough to complete the game, please come back.";
+		mes "[MVP Ladder Warper]";
+		mes "Quando você for forte o suficiente para concluir o jogo, volte.";
 		close;
 	}
 	if ( !getcharid(1) ) {
-		mes "[MvP Ladder Warper]";
-		mes "You have to form a party to play.";
+		mes "[MVP Ladder Warper]";
+		mes "Você tem que formar uma festa para jogar.";
 		close;
 	}
 	if ( is_party_leader() == false ) {
-		mes "[MvP Ladder Warper]";
-		mes "Only the party leader can register.";
+		mes "[MVP Ladder Warper]";
+		mes "Somente o líder do partido pode se registrar.";
 		close;
 	}
 	.@origin = getcharid(3);
@@ -80,35 +80,35 @@ prontera,164,171,3	script	MvP Ladder Warper	56,{
 	}
 	attachrid .@origin;
 	if ( $@partymembercount != .register_min ) {
-		mes "[MvP Ladder Warper]";
-		mes "You have to form a party with exactly "+ .register_min +" members to play.";
+		mes "[MVP Ladder Warper]";
+		mes "Você tem que formar uma festa exatamente"+ .register_min +"membros para jogar.";
 		close;
 	}
 	else if ( .@online != .register_min )  {
-		mes "[MvP Ladder Warper]";
-		mes "Your party must have "+ .register_min +" members online on map '"+ strnpcinfo(4) +"'.";
+		mes "[MVP Ladder Warper]";
+		mes "Sua festa deve ter"+ .register_min +"membros online no mapa '"+ strnpcinfo(4) +"'.";
 		close;
 	}
 	else if ( .register_cost && Zeny < .register_cost ) {
-		mes "[MvP Ladder Warper]";
-		mes "You don't have enough zeny. Please come back when you do.";
+		mes "[MVP Ladder Warper]";
+		mes "Você não tem zeny suficiente. Por favor, volte quando o fizer.";
 		close;
 	}
 	else if ( .party_id ) {
-		mes "[MvP Ladder Warper]";
-		mes "I'm sorry, but a party is currently playing the game. Please standby until the party is finished.";
-		mes "Thank you.";
+		mes "[MVP Ladder Warper]";
+		mes "Sinto muito, mas uma festa está jogando no jogo. Por favor, em espera até que a festa termine.";
+		mes "Obrigado.";
 		close;
 	}
 	Zeny -= .register_cost;
-	announce "The party ["+ strcharinfo(1) +"] has started the MvP ladder game.", bc_all;
+	announce "A festa ["+ strcharinfo(1) +"] iniciou o jogo de escada do MVP.", bc_all;
 	set .party_id, getcharid(1);
 	set .@time_enter, gettimetick(2);
 	for ( .@i = 0; .@i < $@partymembercount; .@i++ ) {
 		if ( isloggedin( $@partymemberaid[.@i], $@partymembercid[.@i] ) ) {
 			attachrid $@partymemberaid[.@i];
 			if ( strcharinfo(3) == strnpcinfo(4) ) {
-				announce "You have "+ .timeout +" minutes to complete "+ .totalround +" rounds.", bc_self;
+				announce "Você tem"+ .timeout +"minutos para concluir"+ .totalround +"rodadas.", bc_self;
 				.@name$[.@c] = strcharinfo(0);
 				.@c++;
 			}
@@ -121,7 +121,7 @@ prontera,164,171,3	script	MvP Ladder Warper	56,{
 	if ( .round == .totalround +1 ) {
 		getpartymember .party_id, 1;
 		getpartymember .party_id, 2;
-		mapannounce .eventmap$, "Congratulations... You were able to defeat all the MVPs!", bc_map;
+		mapannounce .eventmap$, "Parabéns ... você foi capaz de derrotar todos os MVPs!", bc_map;
 		for ( .@i = 0; .@i < $@partymembercount; .@i++ ) {
 			if ( isloggedin( $@partymemberaid[.@i], $@partymembercid[.@i] ) ) {
 				attachrid $@partymemberaid[.@i];
@@ -131,7 +131,7 @@ prontera,164,171,3	script	MvP Ladder Warper	56,{
 		}
 		set .@timeused, gettimetick(2) - .@time_enter;
 		if ( .bonus_item_amount && .@timeused < .bonus_time * 60 ) {
-			mapannounce .eventmap$, "You are rewarded a bonus item for completing the ladder within "+ .bonus_time +" minutes.", bc_map;
+			mapannounce .eventmap$, "Você é recompensado um item de bônus por completar a escada dentro"+ .bonus_time +"minutos.", bc_map;
 			for ( .@i = 0; .@i < $@partymembercount; .@i++ ) {
 				if ( isloggedin( $@partymemberaid[.@i], $@partymembercid[.@i] ) ) {
 					attachrid $@partymemberaid[.@i];
@@ -142,18 +142,18 @@ prontera,164,171,3	script	MvP Ladder Warper	56,{
 		}
 
 		if ( !$mvpladdderparty_time || .@timeused < $mvpladdderparty_time ) {
-			mapannounce .eventmap$, "And you broke the record! [ "+( .@timeused / 60 )+" min "+( .@timeused % 60 )+" sec ]", bc_map;
+			mapannounce .eventmap$, "E você quebrou o disco! [["+( .@timeused / 60 )+"min"+( .@timeused % 60 )+"sec]", bc_map;
 			set $mvpladdderparty_time, .@timeused;
 			set $mvpladdderparty_name$, getpartyname( .party_id );
 			copyarray $mvpladderparty_member$, .@name$, .register_min;
 		}
 		else
-			mapannounce .eventmap$, "Time used [ "+( .@timeused / 60 )+" min "+( .@timeused % 60 )+" sec ]", bc_map;
+			mapannounce .eventmap$, "Tempo usado ["+( .@timeused / 60 )+"min"+( .@timeused % 60 )+"sec]", bc_map;
 		sleep 10000;
-		announce "The party ["+ getpartyname( .party_id ) +"] has finished the MvP ladder game!", bc_all;
+		announce "A festa ["+ getpartyname( .party_id ) +"] terminou o jogo de escada do MVP!", bc_all;
 	}
 	else
-		announce "The party ["+ getpartyname( .party_id ) +"] has failed to finish the MvP ladder game.", bc_all;
+		announce "A festa ["+ getpartyname( .party_id ) +"] não conseguiu terminar o jogo de escada do MVP.", bc_all;
 	mapwarp .eventmap$, .map$, .x, .y;
 	killmonsterall .eventmap$;
 	.party_id = .round = 0;
@@ -177,14 +177,14 @@ OnMvpDead:
 		end;
 	}
 	else if ( .round == .totalround )
-		mapannounce .eventmap$, "The final Round will begin in "+ .delay +" seconds...", bc_map;
+		mapannounce .eventmap$, "A rodada final começará em"+ .delay +"segundos ...", bc_map;
 	else
-		mapannounce .eventmap$, "Starting round "+ .round +" in "+ .delay +" seconds...", bc_map;
+		mapannounce .eventmap$, "Começando"+ .round +"em"+ .delay +"segundos ...", bc_map;
 	sleep .delay * 1000;
 	if ( .mvpid[.round] == 1646 )  // pick random Bio3 MVP
 		.mvpid[.round] = rand(1646,1651);
-	monster .eventmap$,0,0, "--ja--", .mvpid[.round], 1, strnpcinfo(0)+"::OnMvpDead";
-	mapannounce .eventmap$, getmonsterinfo( .mvpid[.round], MOB_NAME ) +" has spawned!", bc_map|bc_blue;
+	monster .eventmap$,0,0, "--- e--", .mvpid[.round], 1, strnpcinfo(0)+":: onmvpdead";
+	mapannounce .eventmap$, getmonsterinfo( .mvpid[.round], MOB_NAME ) +"gerou!", bc_map|bc_blue;
 	end;
 
 OnPCLogoutEvent:
@@ -207,7 +207,7 @@ OnPCDieEvent:
 	if ( .@less_one )
 		.@alive--;
 	if ( !.@alive ) {
-		mapannounce .eventmap$, "Party wiped!", bc_map;
+		mapannounce .eventmap$, "Festa limpa!", bc_map;
 		sleep 10000;
 		awake strnpcinfo(0);
 	}
@@ -292,7 +292,7 @@ OnInit:
 	set .gmlvlreset, 99;
 
 	// event map
-	set .eventmap$, "guild_vs2-2";
+	set .eventmap$, "Guild_vs2-2";
 
 	// mapflag configuration
 	setarray .@mapflag,
@@ -310,7 +310,7 @@ OnInit:
 
 //	Config Ends --------------------------------------------------------------
 
-	mapannounce .eventmap$, "An administrator has refreshed the server. Please re-register. We apologize for the inconvenience.", bc_map;
+	mapannounce .eventmap$, "Um administrador atualizou o servidor. Por favor, registre novamente. Pedimos desculpas pelo inconveniente.", bc_map;
 	getmapxy .map$, .x, .y, BL_NPC;
 	mapwarp .eventmap$, .map$, .x, .y;
 	killmonsterall .eventmap$;

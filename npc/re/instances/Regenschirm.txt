@@ -65,36 +65,36 @@ OnEvent04:
 
 1@rgsr,123,42,5	script	Oscar#rgsr	4_M_LGTGUARD,{
 	mes "[Oscar]";
-	mes "The captain sneaked in the control panel room.";
-	mes "Move quietly.";
+	mes "O capitão esgueirou -se na sala do painel de controle.";
+	mes "Mova -se em silêncio.";
 	close;
 }
 
 1@rgsr,131,58,3	script	Aas#rgsr	4_EP17_AS,{
 	cutin "ep171_as02",1;
-	mes "[Aas]";
-	mes "The door is normally locked with the security system, so I have to stay there and work with the controller.";
-	mes "As you can see most of the entrances have been blocked already.";
-	mes "Hi";
+	mes "[AAS]";
+	mes "A porta está normalmente trancada com o sistema de segurança, então eu tenho que ficar lá e trabalhar com o controlador.";
+	mes "Como você pode ver, a maioria das entradas já foi bloqueada.";
+	mes "Oi";
 	next;
-	mes "[Aas]";
-	mes "It will take some time to go through them one by one.";
-	mes "I'll keep helping you through the intercom.";
+	mes "[AAS]";
+	mes "Levará algum tempo para passar por eles um por um.";
+	mes "Continuarei ajudando -o através do interfone.";
 	next;
-	mes "[Aas]";
-	mes "You'll have to go through the restaurant to reach the hallway.";
-	mes "Est will be performing the operation alone.";
+	mes "[AAS]";
+	mes "Você terá que passar pelo restaurante para chegar ao corredor.";
+	mes "O EST estará executando a operação sozinha.";
 	next;
-	mes "[Aas]";
-	mes "If there's a disturbance, Est may have caused it. So please check out with her before continuing.";
+	mes "[AAS]";
+	mes "Se houver um distúrbio, o EST pode ter causado. Então, por favor, verifique com ela antes de continuar.";
 	next;
-	mes "[Aas]";
-	mes "You should go now adventurer. I'll keep working on securing the security controller.";
-	mes "There may be researchers detained inside.";
+	mes "[AAS]";
+	mes "Você deve ir agora aventureiro. Continuarei trabalhando para garantir o controlador de segurança.";
+	mes "Pode haver pesquisadores detidos dentro.";
 	next;
-	mes "[Aas]";
-	mes "Please consider their safety first.";
-	mes "Now go ahead.";
+	mes "[AAS]";
+	mes "Por favor, considere a segurança deles primeiro.";
+	mes "Agora vá em frente.";
 	close2;
 	if ('rgsr == 0) {
 		'rgsr = 1;
@@ -108,25 +108,25 @@ OnEvent04:
 	enablenpc instance_npcname("Researcher#rgsr_ev_0");
 	if ('rgsr == 2) {
 		'rgsr = 3;
-		npctalk "Communication Requested.";
+		npctalk "Comunicação solicitada.";
 		sleep2 2750;
-		npctalk "Analysing Signal.";
+		npctalk "Analisando sinal.";
 		sleep2 2750;
-		npctalk "Activating Voice Transmission...";
+		npctalk "Ativando a transmissão de voz ...";
 		sleep2 2750;
-		npctalk "Are you connected? It's Aas.";
+		npctalk "Você está conectado? É AAS.";
 		sleep2 2750;
-		npctalk "I have gained control over some of the security system, but I haven't gained full access yet.";
+		npctalk "Eu ganhei controle sobre parte do sistema de segurança, mas ainda não ganhei acesso total.";
 		sleep2 2750;
-		npctalk "Unless there is a big disturbance, the alarm or security devices won't work.";
+		npctalk "A menos que haja um grande distúrbio, os dispositivos de alarme ou segurança não funcionam.";
 		sleep2 2750;
-		npctalk "I think you should open this door to open the hallway.";
+		npctalk "Eu acho que você deveria abrir esta porta para abrir o corredor.";
 		sleep2 2750;
-		npctalk "Ask a Detained Researcher to put their hand on the device.";
+		npctalk "Peça a um pesquisador detido para colocar a mão no dispositivo.";
 		sleep2 2750;
 		npctalk "...*Zap*....";
 		sleep2 2750;
-		npctalk "Voice Transmission Ended.";
+		npctalk "A transmissão de voz terminou.";
 		sleep2 2750;
 		hideonnpc();
 		enablenpc();
@@ -139,14 +139,14 @@ OnEvent04:
 1@rgsr,59,132,7	script	Researcher#rgsr_ev_0	4_M_NFMAN,{
 	if ('rgsr == 4 && 'activate == 0) {
 		'activate = 1;
-		mes "[Researcher]";
-		mes "The biometric scan is still operational, I'll be staying here to keep the door open.";
-		mes "If you're in a hurry, please go...";
-		dispbottom "Control : Identity confirmed.";
+		mes "[Pesquisador]";
+		mes "A varredura biométrica ainda está operacional, eu vou ficar aqui para manter a porta aberta.";
+		mes "Se você estiver com pressa, por favor vá ...";
+		dispbottom "Controle: Identidade confirmada.";
 		donpcevent instance_npcname("#171_rgsr_control") + "::OnEvent02";
 		close2;
 		sleep2 800;
-		npctalk "Researcher : ...huh... what the hell is this...";
+		npctalk "Pesquisador: ... hein ... que diabos é isso ...";
 		end;
 	}
 }
@@ -154,74 +154,74 @@ OnEvent04:
 1@rgsr,36,211,3	script	Est#rgsr	4_F_ESTLOVELOY,{
 	if ('rgsr < 7) {
 		cutin "ep162_est03",2;
-		mes "[Est]";
-		mes "Are you the one who removed the poison gas outside?";
-		mes "You arrived at a good time.";
-		mes "Because of the gas, the door was forcibly locked down!";
+		mes "[Leste]";
+		mes "Você foi quem removeu o gás venenoso do lado de fora?";
+		mes "Você chegou em um bom tempo.";
+		mes "Por causa do gás, a porta estava trancada à força!";
 		next;
 		cutin "ep162_est01",2;
-		mes "[Est]";
-		mes "It takes time for Aas to come hack the controller and release the gas.";
-		mes "I was going to do it myself.";
+		mes "[Leste]";
+		mes "Leva tempo para o AAS chegar hackear o controlador e soltar o gás.";
+		mes "Eu ia fazer isso sozinho.";
 		next;
 		cutin "ep162_est02",2;
-		mes "[Est]";
-		mes "The guards here were wearing the same clothes as those Heart Hunters we saw before.";
-		mes "I don't think I can save all the researchers alone.";
+		mes "[Leste]";
+		mes "Os guardas aqui estavam usando as mesmas roupas que os caçadores de coração que vimos antes.";
+		mes "Acho que não posso salvar todos os pesquisadores sozinhos.";
 		next;
-		mes "[Est]";
-		mes "It seems we've gathered most of them here already.";
-		mes "Let's organize our next strategy.";
+		mes "[Leste]";
+		mes "Parece que já reunimos a maioria deles aqui.";
+		mes "Vamos organizar nossa próxima estratégia.";
 		next;
 		cutin "ep162_est01",2;
-		mes "[Est]";
-		mes "There are laboratories on the other side and it's likely to be a mess.";
-		mes "I wonder if there will be a big fight.";
+		mes "[Leste]";
+		mes "Existem laboratórios do outro lado e é provável que seja uma bagunça.";
+		mes "Gostaria de saber se haverá uma grande luta.";
 		next;
-		mes "[Est]";
-		mes "From now on the Rebellion Special Forces will prioritize on rescuing the Detained Researchers.";
-		mes "If you get it, move quickly!";
+		mes "[Leste]";
+		mes "A partir de agora, as Forças Especiais da Rebelião priorizarão o resgate dos pesquisadores detidos.";
+		mes "Se você conseguir, mova -se rapidamente!";
 		next;
-		mes "[Est]";
-		mes "Okay, adventurer, find a communication device and get in contact with Aas.";
+		mes "[Leste]";
+		mes "Ok, aventureiro, encontre um dispositivo de comunicação e entre em contato com o AAS.";
 		next;
-		mes "[Est]";
-		mes "You have to open the entrance of the private labs.";
+		mes "[Leste]";
+		mes "Você tem que abrir a entrada dos laboratórios particulares.";
 		if ('rgsr == 4)
 			'rgsr = 5;
 		close3;
 	}
 	cutin "ep162_est02",2;
-	mes "[Est]";
-	mes "Huh. We'll focus on rescuing the hostages first.";
-	mes "Look for the Security Guard's room that Aas talked about.";
+	mes "[Leste]";
+	mes "Huh. Vamos nos concentrar em resgatar os reféns primeiro.";
+	mes "Procure o quarto do segurança que foi discutido.";
 	close3;
 }
 
 1@rgsr,26,219,0	script	Access Controller#rgsr2	4_ENERGY_WHITE,{
 	if ('rgsr < 5) {
-		mes "Code is inactive.";
-		mes "The communication has been terminated.";
+		mes "O código é inativo.";
+		mes "A comunicação foi encerrada.";
 		close;
 	}
 	if ('rgsr == 5) {
-		mes "Voice Transmission Connected.";
+		mes "Transmissão de voz conectada.";
 		close2;
 		if ('rgsr == 5)
 			'rgsr = 6;
-		npctalk "Waiting for communication response...";
+		npctalk "Esperando pela resposta da comunicação ...";
 		sleep2 2750;
-		npctalk "Aas : Commander Est? We closed the hall lock, but what is the problem?";
+		npctalk "AAS: comandante EST? Fechamos a trava do salão, mas qual é o problema?";
 		sleep2 2750;
-		npctalk "Aas : Oh you're the adventurer. I will give you the report. I have not fully taken over the security controller system yet.";
+		npctalk "AAS: Oh, você é o aventureiro. Vou te dar o relatório. Ainda não assumi totalmente o sistema de controladores de segurança.";
 		sleep2 2750;
-		npctalk "Aas : It seems it will take some time, but I've taken control of most of the monitoring modules.";
+		npctalk "AAS: Parece que levará algum tempo, mas assumi o controle da maioria dos módulos de monitoramento.";
 		sleep2 2750;
-		npctalk "Aas : Most of the enemy troops were in the lobby and the resting area, so the lab area is less guarded.";
+		npctalk "AAS: A maioria das tropas inimigas estava no saguão e na área de repouso, então a área do laboratório é menos guardada.";
 		sleep2 2750;
-		npctalk "Aas : However, in order to secure the central control room, you have to go through the Guard's Room where many test subjects were detected.";
+		npctalk "AAS: No entanto, para garantir a sala de controle central, você deve passar pela sala da guarda, onde muitos sujeitos de teste foram detectados.";
 		sleep2 2750;
-		npctalk "Aas : The priority should be to secure the laboratories and then the Guard Room.... *click*";
+		npctalk "AAS: a prioridade deve ser proteger os laboratórios e depois a sala de guarda .... *Clique em *";
 		sleep2 2000;
 		npctalk "Est : Eh, what was that?",instance_npcname("Est#rgsr");
 		if ('rgsr == 6)
@@ -231,8 +231,8 @@ OnEvent04:
 	if ('rgsr < 7)
 		end;
 	else {
-		mes "Code is inactive.";
-		mes "The communication has been terminated.";
+		mes "O código é inativo.";
+		mes "A comunicação foi encerrada.";
 		close;
 	}
 }
@@ -245,38 +245,38 @@ OnEvent04:
 		}
 		if (.@miss) {
 			cutin "ep171_as02",2;
-			mes "[Aas]";
-			mes "Hey, Did you check all the labs yet?";
-			mes "Please check if there are still Detained Researchers.";
+			mes "[AAS]";
+			mes "Ei, você já checou todos os laboratórios?";
+			mes "Verifique se ainda existem pesquisadores detidos.";
 			close3;
 		}
 		cutin "ep171_as02",1;
-		mes "[Aas]";
-		mes "The spare Master Key still remains.";
-		mes "Without it, I wouldn't have been able to control over the security systems. Are you okay?";
+		mes "[AAS]";
+		mes "A chave mestre sobressalente ainda permanece.";
+		mes "Sem ele, eu não seria capaz de controlar os sistemas de segurança. Você está bem?";
 		next;
-		mes "[Aas]";
-		mes "Now you only need to check the Central Room.";
-		mes "Did you say Heart Hunters?";
-		mes "The traitors from Schlein have already escaped.";
+		mes "[AAS]";
+		mes "Agora você só precisa verificar a sala central.";
+		mes "Você disse caçadores de coração?";
+		mes "Os traidores de Schlein já escaparam.";
 		next;
-		mes "[Aas]";
-		mes "We've got our focus on that room.";
-		mes "That's the main idea.";
-		mes "Where is Est?";
+		mes "[AAS]";
+		mes "Temos nosso foco naquela sala.";
+		mes "Essa é a ideia principal.";
+		mes "Onde está EST?";
 		next;
 		cutin "16go_01",0;
-		mes "[Goni]";
+		mes "[Perseguido]";
 		mes "... ... ...";
 		next;
 		cutin "ep171_as02",1;
-		mes "[Aas]";
-		mes "You have to keep looking for all the Researchers?";
-		mes "That's necessary, I understand.";
+		mes "[AAS]";
+		mes "Você tem que continuar procurando todos os pesquisadores?";
+		mes "Isso é necessário, eu entendo.";
 		next;
-		mes "[Aas]";
-		mes "Adventurer, we head to the Central Room.";
-		mes "Meet me over there.";
+		mes "[AAS]";
+		mes "Aventureiro, seguimos para a sala central.";
+		mes "Me encontre ali.";
 		close2;
 		cutin "",255;
 		if ('rgsr == 7) {
@@ -287,31 +287,31 @@ OnEvent04:
 		end;
 	}
 	cutin "ep171_as02",1;
-	mes "[Aas]";
-	mes "Adventurer, we head to the Central Room.";
-	mes "Meet me over there.";
+	mes "[AAS]";
+	mes "Aventureiro, seguimos para a sala central.";
+	mes "Me encontre ali.";
 	close3;
 }
 
 1@rgsr,235,143,5	script	Detained Researcher#rgsr_q01	4_F_SCIENCE,{
 	if (!'rescued[0]) {
-		mes "[Researcher]";
-		mes "My... my search... materials...";
-		mes "They took it all!";
-		mes "They took everything!";
+		mes "[Pesquisador]";
+		mes "Meu ... minha pesquisa ... materiais ...";
+		mes "Eles levaram tudo!";
+		mes "Eles levaram tudo!";
 		next;
 		cutin "16go_01",0;
-		mes "[Goni]";
+		mes "[Perseguido]";
 		mes "... ... ...";
 		next;
 		cutin "",255;
-		npctalk "I'm going to live! Thank you!";
-		mes "Oh, you're here to protect me?";
-		mes "I'll go with you, thank you!";
+		npctalk "Eu vou viver! Obrigado!";
+		mes "Oh, você está aqui para me proteger?";
+		mes "Eu vou com você, obrigado!";
 		next;
-		mes "[Researcher]";
-		mes "Oh, you're there to protect me?";
-		mes "I'll go with you, thank you!";
+		mes "[Pesquisador]";
+		mes "Oh, você está lá para me proteger?";
+		mes "Eu vou com você, obrigado!";
 		'rescued[0] = 1;
 		close2;
 		disablenpc();
@@ -321,27 +321,27 @@ OnEvent04:
 
 1@rgsr,237,108,3	script	Detained Researcher#rgsr_q02	4_LGTSCIENCE,{
 	if (!'rescued[1]) {
-		mes "[Researcher]";
-		mes "I thought they kicked out all the crazy guy...";
-		mes "I hit the back of my head like this.";
-		mes "Tsk.";
+		mes "[Pesquisador]";
+		mes "Eu pensei que eles expulsaram todo o cara louco ...";
+		mes "Eu bati na parte de trás da minha cabeça assim.";
+		mes "TSK.";
 		next;
-		mes "[Researcher]";
-		mes "Are you here to save us?";
-		mes "Get me out of here!";
-		mes "We couldn't flee because they put poisonous gas outside the doors!";
+		mes "[Pesquisador]";
+		mes "Você está aqui para nos salvar?";
+		mes "Me tire daqui!";
+		mes "Não podíamos fugir porque eles colocam gás venenoso do lado de fora das portas!";
 		next;
-		mes "[Researcher]";
-		mes "Yeah, I know a little bit about the Heart Hunters, I will tell you everything!";
+		mes "[Pesquisador]";
+		mes "Sim, eu sei um pouco sobre os caçadores de coração, vou lhe contar tudo!";
 		next;
 		cutin "ep162_est02",2;
-		mes "[Est]";
-		mes "Ah? Do you have more information to share?";
-		mes "Do you want to go outside and talk about it calmly with me?";
+		mes "[Leste]";
+		mes "Ah? Você tem mais informações para compartilhar?";
+		mes "Você quer sair e falar sobre isso calmamente comigo?";
 		next;
 		cutin "ep162_est01",2;
-		mes "[Est]";
-		mes "I'll take this guy out of here and you look at the other rooms.";
+		mes "[Leste]";
+		mes "Vou tirar esse cara daqui e você olha para os outros quartos.";
 		'rescued[1] = 1;
 		close2;
 		cutin "",255;
@@ -352,76 +352,76 @@ OnEvent04:
 
 1@rgsr,237,71,3	script	Detained Researcher#rgsr_q03	4_F_FRUIT,{
 	if (!'rescued[2]) {
-		mes "[Researcher]";
-		mes "Please help me!";
-		mes "I worked a lot and I'm not getting paid!";
+		mes "[Pesquisador]";
+		mes "Por favor me ajude!";
+		mes "Eu trabalhei muito e não estou sendo pago!";
 		next;
-		mes "[Researcher]";
-		mes "Schlein, where is Schlein?";
-		mes "He's a traitor!";
-		mes "I've seen it with my own eyes, he just killed the guards...";
+		mes "[Pesquisador]";
+		mes "Snack, onde está Schlein?";
+		mes "Ele é um traidor!";
+		mes "Eu vi isso com meus próprios olhos, ele acabou de matar os guardas ...";
 		next;
-		select("Calm down.");
-		mes "[Researcher]";
-		mes "Is it safe now?";
-		mes "I'm glad when I was hired at Rekenber, but what the hell is going with such a big company...";
+		select("Acalmar.");
+		mes "[Pesquisador]";
+		mes "Está seguro agora?";
+		mes "Fico feliz quando fui contratado em Rekenber, mas o que diabos está indo com uma empresa tão grande ...";
 		next;
-		mes "[Researcher]";
-		mes "Say what? The Rebellions are coming to save us?";
-		mes "Can't I just run away with you instead?";
+		mes "[Pesquisador]";
+		mes "Dizer o que? As rebeliões estão chegando para nos salvar?";
+		mes "Não posso simplesmente fugir com você?";
 		next;
-		mes "[Researcher]";
-		mes "Oh... you're part of the recon team?";
-		mes "Alright. I'll wait for the rescue team.";
-		mes "Many people escaped by breaking the windows and ran away..";
+		mes "[Pesquisador]";
+		mes "Oh ... você faz parte da equipe de reconhecimento?";
+		mes "Tudo bem. Vou esperar pela equipe de resgate.";
+		mes "Muitas pessoas escaparam quebrando as janelas e fugiram.";
 		next;
-		mes "[Researcher]";
-		mes "Oh you already know.";
-		mes "Okay. I'll be quiet now and wait.";
-		mes "Your uniform is really cool though.";
+		mes "[Pesquisador]";
+		mes "Oh você já sabe.";
+		mes "OK. Vou ficar quieto agora e esperar.";
+		mes "Seu uniforme é muito legal.";
 		'rescued[2] = 1;
 		close;
 	}
-	mes "[Researcher]";
-	mes "I know. I know.";
-	mes "If I wait here, will the Rebellions come and save me?";
-	mes "I'll be fine then.";
+	mes "[Pesquisador]";
+	mes "Eu sei. Eu sei.";
+	mes "Se eu esperar aqui, as rebeliões virão e me salvará?";
+	mes "Eu vou ficar bem então.";
 	next;
-	mes "[Researcher]";
-	mes "But again, your uniform is really cool.";
+	mes "[Pesquisador]";
+	mes "Mas, novamente, seu uniforme é muito legal.";
 	close;
 }
 
 1@rgsr,241,51,0	script	Scattered Documents#rgsr	4_ENERGY_BLUE,{
 	if (isbegin_quest(7863) == 0) {
-		mes "This is the list of the Enterprise security teams.";
-		mes "Some have circles around them... others are crossed out.";
+		mes "Esta é a lista das equipes de segurança corporativa.";
+		mes "Alguns têm círculos ao seu redor ... outros são riscados.";
 		next;
 		cutin "ep171_as01",2;
-		mes "[Aas]";
-		mes "The ones circled are probably those who accepted to be recruited...";
-		mes "My team is the one with a X marked next to it.";
+		mes "[AAS]";
+		mes "Os circulantes são provavelmente aqueles que aceitaram para serem recrutados ...";
+		mes "Minha equipe é a que tem um X marcado ao lado.";
 		next;
-		mes "[Aas]";
-		mes "It's a mercenary contract...";
-		mes "There's a rough plan for the day of the raid.";
-		mes "I can't believe it came to this...";
+		mes "[AAS]";
+		mes "É um contrato mercenário ...";
+		mes "Há um plano aproximado para o dia do ataque.";
+		mes "Eu não posso acreditar que chegou a isso ...";
 		next;
-		mes "[Aas]";
-		mes "This is meant to provoke me.";
-		mes "It won't work this time. I'll track this to the end.";
+		mes "[AAS]";
+		mes "Isso pretende me provocar.";
+		mes "Não funcionará desta vez. Vou rastrear isso até o fim.";
 		next;
-		mes "[Aas]";
-		mes "I'd better take it back to Tess and analyze it.";
+		mes "[AAS]";
+		mes "É melhor eu levá -lo de volta ao TESS e analisá -lo.";
 		setquest 7863;
 		close3;
 	}
-	mes "I've already got the data here.";
-	mes "There's nothing else to see here.";
+	mes "Eu já tenho os dados aqui.";
+	mes "Não há mais nada para ver aqui.";
 	close;
 
 OnInstanceInit:
-	questinfo(QTYPE_CLICKME,QMARK_YELLOW,"isbegin_quest(7863) == 0");
+	questinfo(QTYPE_CLICKME,QMARK_YELLOW,"isbegin_quest (7863) == 0");
 	end;
 }
 
@@ -436,7 +436,7 @@ OnInstanceInit:
 		npctalk "No you arrived just in time.",instance_npcname("Est#rgsr2");
 		end;
 	}
-	mes "The device does not work.";
+	mes "O dispositivo não funciona.";
 	close;
 }
 
@@ -448,45 +448,45 @@ OnInstanceInit:
 		.@aas$ = instance_npcname("Aas#rgsr3");
 		.@gonie$ = instance_npcname("Goni#rgsr");
 		.@erst$ = instance_npcname("Est#rgsr2");
-		npctalk "Aas : The Central Room seems to be empty. I'll go in and check it out.",.@aas$;
+		npctalk "AAS: A sala central parece estar vazia. Vou entrar e conferir.",.@aas$;
 		sleep2 3000;
-		npctalk "Aas : I'll go ahead and take the researchers out of here. Will that be okay?",.@erst$;
+		npctalk "AAS: Eu vou em frente e tirar os pesquisadores daqui. Vai ficar bem?",.@erst$;
 		sleep2 3000;
-		npctalk "Aas : Yes. Nothing else is being detected on the system. With our progress so far, the enemies have all been restrained.",.@aas$;
+		npctalk "AAS: Sim. Nada mais está sendo detectado no sistema. Com nosso progresso até agora, todos os inimigos foram restringidos.",.@aas$;
 		sleep2 3000;
-		npctalk "Est : What are you scared of something else? I'm going back already!",.@erst$;
+		npctalk "EST: O que você tem medo de outra coisa? Já estou voltando!",.@erst$;
 		sleep2 3000;
-		npctalk "Goni : ... Me too.",.@gonie$;
+		npctalk "Goni: ... eu também.",.@gonie$;
 		sleep2 3000;
-		npctalk "Est : There were couple of researchers left in the labs, I'll go bring them along. I'll be waiting.",.@erst$;
+		npctalk "EST: Havia alguns pesquisadores nos laboratórios, eu vou trazê -los junto. Eu estarei esperando.",.@erst$;
 		sleep2 3000;
-		npctalk "Est : Alright, Goni. You go to the main lobby first and secure the road. I'll take the others at the conference room.",.@erst$;
+		npctalk "EST: Tudo bem, Goni. Você vai ao lobby principal primeiro e protege a estrada. Vou levar os outros na sala de conferências.",.@erst$;
 		sleep2 3000;
-		npctalk "Goni : *Nods*",.@gonie$;
+		npctalk "Goni: *acena com a cabeça *",.@gonie$;
 		sleep2 3000;
 		disablenpc instance_npcname("Goni#rgsr");
 		disablenpc instance_npcname("Est#rgsr2");
-		npctalk "Aas : So adventurer, let's check out the Central Room.",.@aas$;
+		npctalk "AAS: Então, aventureiro, vamos conferir a sala central.",.@aas$;
 		if ('rgsr == 10)
 			'rgsr = 11;
 		end;
 	}
 	cutin "ep171_as02",1;
-	mes "[Aas]";
-	mes "That's the Central Room right ahead.";
+	mes "[AAS]";
+	mes "Essa é a sala central à frente.";
 	next;
-	if (select("Enter.:Wait.") == 2) {
-		mes "[Aas]";
-		mes "Please speak to me when you're ready.";
-		mes "I don't know why, but it's tightly closed;. It takes some time to maintain access.";
+	if (select("Digite.:wait.") == 2) {
+		mes "[AAS]";
+		mes "Por favor, fale comigo quando estiver pronto.";
+		mes "Não sei por que, mas está bem fechado;. Leva algum tempo para manter o acesso.";
 		next;
-		mes "[Aas]";
-		mes "As confirmed by the security system, nothing is being detected on the inside...";
-		mes "I still want to confirm inside the room regardless.";
+		mes "[AAS]";
+		mes "Conforme confirmado pelo sistema de segurança, nada está sendo detectado por dentro ...";
+		mes "Eu ainda quero confirmar dentro da sala, independentemente.";
 		close3;
 	}
-	mes "[Aas]";
-	mes "First I'll need to disable the auto-locking mechanism, and then I'll follow right away.";
+	mes "[AAS]";
+	mes "Primeiro, precisarei desativar o mecanismo de bloqueio automático e depois seguirei imediatamente.";
 	if ('rgsr == 11) {
 		'rgsr = 12;
 		donpcevent instance_npcname("#171_rgsr_control") + "::OnEvent03";
@@ -499,16 +499,16 @@ OnInstanceInit:
 
 1@rgsr,124,152,5	script	Goni#rgsr	4_M_GONY,{
 	cutin "16go_01",0;
-	mes "[Goni]";
+	mes "[Perseguido]";
 	mes "... ... ...";
 	close3;
 }
 
 1@rgsr,125,154,5	script	Est#rgsr2	4_F_ESTLOVELOY,{
 	cutin "ep162_est01",2;
-	mes "[Est]";
-	mes "I don't believe there are any enemies left inside, I'm going to pull out.";
-	mes "Just check the Central Room and then get out.";
+	mes "[Leste]";
+	mes "Não acredito que haja inimigos, vou sair.";
+	mes "Basta verificar a sala central e depois sair.";
 	close3;
 }
 
@@ -516,64 +516,64 @@ OnInstanceInit:
 	if ('rgsr == 12) {
 		specialeffect EF_RED_HIT;
 		specialeffect EF_BEGINSPELL3;
-		npctalk "Do... do not... come close to me...!! Huh, my head... it hurts...";
-		mapannounce 'map$,"Do... do not... come close to me...!! Huh, my head... it hurts...",bc_map,0x00FF00;
+		npctalk "Faça ... não ... chegue perto de mim ... !! Huh, minha cabeça ... dói ...";
+		mapannounce 'map$,"Faça ... não ... chegue perto de mim ... !! Huh, minha cabeça ... dói ...",bc_map,0x00FF00;
 		'rgsr = 13;
 	}
 	end;
 
 OnFail:
 	specialeffect EF_FREEZE;
-	npctalk "Awesome-!! That's it... What did you do!!";
-	mapannounce 'map$,"Awesome-!! That's it... What did you do!!",bc_map,0x00FF00;
+	npctalk "Incrível-!! É isso ... o que você fez !!";
+	mapannounce 'map$,"Incrível-!! É isso ... o que você fez !!",bc_map,0x00FF00;
 	end;
 }
 
 1@rgsr,144,180,0	script	Control Device#rgsr0	4_ENERGY_BLUE,{
 	if ('rgsr < 13) {
-		mes "This device has an unknown purpose.";
-		mes "There are four buttons in the room.";
+		mes "Este dispositivo tem um propósito desconhecido.";
+		mes "Existem quatro botões na sala.";
 		close;
 	}
 	.@index = atoi(replacestr(strnpcinfo(2),"rgsr",""));
 	if (.@index > 0) {
 		if (!'rsgr_c[ (.@index - 1) ]) {
-			mes "This device has an unknown purpose.";
-			mes "There are four buttons in the room.";
+			mes "Este dispositivo tem um propósito desconhecido.";
+			mes "Existem quatro botões na sala.";
 			next;
-			select("Press the button.");
+			select("Pressione o botão.");
 			donpcevent instance_npcname("Restrained Specimen#rgsr") + "::OnFail";
 			close;
 		}
 	}
 	if (!'rsgr_c[.@index]) {
 		switch (.@index) {
-			case 0: .@answer = 2; .@string$ = "three phases"; break;
-			case 1: .@answer = 1; .@string$ = "two phases"; break;
-			case 2: .@answer = 4; .@string$ = "one phase"; break;
+			case 0: .@answer = 2; .@string$ = "três fases"; break;
+			case 1: .@answer = 1; .@string$ = "duas fases"; break;
+			case 2: .@answer = 4; .@string$ = "uma fase"; break;
 			case 3: .@answer = 3;
 		}
-		mes "This device has an unknown purpose.";
-		mes "There are four buttons in the room.";
+		mes "Este dispositivo tem um propósito desconhecido.";
+		mes "Existem quatro botões na sala.";
 		next;
-		.@s = select("Red Button.:Blue Button.:White Button.:Yellow Button.");
+		.@s = select("Botão vermelho.: Botão Blue.:white Button.: Yellow Button.");
 		if (.@s != .@answer)
 			donpcevent instance_npcname("Restrained Specimen#rgsr") + "::OnFail";
 		else {
 			specialeffect EF_BEGINSPELL3,AREA,instance_npcname("Restrained Specimen#rgsr");
 			if (.@index < 3) {
-				mapannounce 'map$,"Gravity control adjustment... completed... There are " + .@string$ +" remaining.",bc_map,0x0D98BA;
+				mapannounce 'map$,"Ajuste do controle da gravidade ... concluído ... há" + .@string$ +"restante.",bc_map,0x0D98BA;
 				'rsgr_c[.@index] = 1;
 			} else {
 				'rsgr_c[.@index] = 1;
-				mapannounce 'map$,"Gravity control adjustment... completed... Restraints have been disengaged.",bc_map,0x0D98BA;
+				mapannounce 'map$,"Ajuste do controle da gravidade ... Concluído ... Restrições foram desengatadas.",bc_map,0x0D98BA;
 				sleep2 2500;
 				donpcevent instance_npcname("#171_rgsr_control") + "::OnEvent04";
 			}
 		}
 		close;
 	}
-	mes "This device has already been activated.";
+	mes "Este dispositivo já foi ativado.";
 	close;
 }
 
@@ -585,25 +585,25 @@ OnFail:
 	if ('rgsr != 15)
 		end;
 	cutin "ep171_as01",2;
-	mes "[Aas]";
-	mes "Est has handled everything else on the inside.";
-	mes "Sorry for not being able to help you at all.";
+	mes "[AAS]";
+	mes "O EST lidou com todo o resto por dentro.";
+	mes "Desculpe por não poder ajudá -lo.";
 	next;
-	mes "[Aas]";
-	mes "Let's go back to Einbroch.";
-	mes "I'll... I'll go to my office and join you.";
+	mes "[AAS]";
+	mes "Vamos voltar para Einbroch.";
+	mes "Vou ... vou ao meu escritório e me juntar a você.";
 	next;
-	.@s = select("Move to Einbroch.:Move to Lighthalzen.:Stay for a while.");
+	.@s = select("Mova -se para Einbroch.");
 	if (.@s == 3) {
 		cutin "ep171_as02",2;
-		mes "[Aas]";
-		mes "Do you have anything else to investigate?";
-		mes "I'll wait  here.";
+		mes "[AAS]";
+		mes "Você tem mais alguma coisa para investigar?";
+		mes "Vou esperar aqui.";
 		close3;
 	}
-	mes "[Aas]";
-	mes "We're going to wait for you in the Cat on Bullet.";
-	mes "Please head there and meet us in the headquarters.";
+	mes "[AAS]";
+	mes "Vamos esperar por você no gato na bala.";
+	mes "Por favor, vá para lá e nos encontre na sede.";
 	completequest 7862;
 	close2;
 	if (.@s == 1)
@@ -630,7 +630,7 @@ OnSummon:
 	58,65,56,57,44,59,31,53,15,55, //= Bottom Room
 	59,94,48,98,53,103,36,110,33,126,46,132,55,131; //= Upper Room
 	for (.@i = 0; .@i < getarraysize(.@xy); .@i += 2)
-		monster 'map$,.@xy[.@i],.@xy[.@i+1],"Special Guard",3627,1,.@event$;
+		monster 'map$,.@xy[.@i],.@xy[.@i+1],"Guarda especial",3627,1,.@event$;
 	end;
 
 OnMobKill:
@@ -652,7 +652,7 @@ OnSummon:
 	187,69,187,67,188,67,201,74,202,77,207,76,211,74,187,48,188,45,186,46,197,45,202,45,208,42,211,42;
 	setarray .@top_xy,169,217,169,214,172,217,172,214,176,217,176,214,180,217,180,214,184,217,184,214,167,204,168,203,168,203,167,176,167,176,166,175;
 	for (.@i = 0; .@i < getarraysize(.@xy); .@i += 2)
-		monster 'map$,.@xy[.@i],.@xy[.@i+1],"Special Guard",3627,1;
+		monster 'map$,.@xy[.@i],.@xy[.@i+1],"Guarda especial",3627,1;
 	for (.@i = 0; .@i < getarraysize(.@left_xy); .@i += 2)
 		monster 'map$,.@left_xy[.@i],.@left_xy[.@i+1],"Poisonous Gas",20352,1,instance_npcname(strnpcinfo(0))+"::OnLeftKill";
 	for (.@i = 0; .@i < getarraysize(.@right_xy); .@i += 2)
@@ -664,7 +664,7 @@ OnSummon:
 OnLeftKill:
 	.@event$ = instance_npcname(strnpcinfo(0))+"::OnLeftKill";
 	if (!mobcount('map$,.@event$)) {
-		mapannounce 'map$,"Est : Who is it? Are you Aas? Are you the adventurer?",bc_map,0x0D98BA;
+		mapannounce 'map$,"EST: Quem é? Você é AAS? Você é o aventureiro?",bc_map,0x0D98BA;
 		enablenpc instance_npcname("Est#rgsr");
 		enablenpc instance_npcname("Rebellion Crew#rgsr_dum01");
 	}
@@ -678,11 +678,11 @@ OnTopKill:
 1@rgsr,1,1,0	script	#rgsr_boss	HIDDEN_WARP_NPC,{
 	end;
 OnSummon:
-	mapannounce 'map$,"Ahahaha.. ahahaha... I'll kill you all!!!!",bc_map,0x00FF00;
+	mapannounce 'map$,"Ahahaha .. Ahahaha ... eu vou matar todos vocês !!!!",bc_map,0x00FF00;
 	sleep 2000;
-	mapannounce 'map$,"Aas : What is going on? *click* The lock is...!!",bc_map;
+	mapannounce 'map$,"AAS: O que está acontecendo? * Clique em* O bloqueio é ... !!",bc_map;
 	sleep 2000;
-	mapannounce 'map$,"I'm not a defect! I'm not a monster!",bc_map,0x00FF00;
+	mapannounce 'map$,"Eu não sou um defeito! Eu não sou um monstro!",bc_map,0x00FF00;
 	specialeffect EF_LORD,AREA,instance_npcname("Restrained Specimen#rgsr");
 	disablenpc instance_npcname("Restrained Specimen#rgsr");
 	monster 'map$,125,188,"Failed Specimen",20353,1,instance_npcname(strnpcinfo(0))+"::OnBossKill";
@@ -710,7 +710,7 @@ OnTouch:
 	else
 		setarray .@xy,91,91,91,93,95,93,94,97,97,92;
 	for (.@i = 0; .@i < getarraysize(.@xy); .@i += 2)
-		monster 'map$,.@xy[.@i],.@xy[.@i+1],"Special Guard",3622,1;
+		monster 'map$,.@xy[.@i],.@xy[.@i+1],"Guarda especial",3622,1;
 	end;
 }
 
@@ -725,7 +725,7 @@ OnTouch:
 OnTouch:
 	.@event$ = instance_npcname("#rgsr_mob_2")+"::OnLeftKill";
 	if (mobcount('map$,.@event$)) {
-		dispbottom "Voice Behind Door : Who's outside? exterminate that strange poison gas!!";
+		dispbottom "Voz atrás da porta: Quem está do lado de fora? Exterminar esse estranho gás venenoso !!";
 		end;
 	}
 	switch (atoi(replacestr(strnpcinfo(2),"rgsr_warp_",""))) {
@@ -744,7 +744,7 @@ OnTouch:
 1@rgsr,186,216,0	script	#rgsr_warp_5	WARPNPC,1,2,{
 	.@event$ = instance_npcname("#rgsr_mob_2")+"::OnTopKill";
 	if (mobcount('map$,.@event$)) {
-		mes "An unknown entity has been detected. Access Denied.";
+		mes "Uma entidade desconhecida foi detectada. Acesso negado.";
 		close;
 	}
 	switch (atoi(replacestr(strnpcinfo(2),"rgsr_warp_",""))) {
@@ -759,7 +759,7 @@ OnTouch:
 1@rgsr,214,136,0	script	#rgsr_warp_7	WARPNPC,1,2,{
 	.@event$ = instance_npcname("#rgsr_mob_2")+"::OnRightKill";
 	if (mobcount('map$,.@event$) > 0 || 'rgsr < 7) {
-		mes "An unknown entity has been detected. Access Denied.";
+		mes "Uma entidade desconhecida foi detectada. Acesso negado.";
 		close;
 	}
 	switch (atoi(replacestr(strnpcinfo(2),"rgsr_warp_",""))) {
@@ -784,104 +784,104 @@ OnTouch:
 1@rgsr,216,44,0	duplicate(#rgsr_warp_7)	#rgsr_warp_14	WARPNPC,1,2
 
 1@rgsr,37,126,0	script	Researcher#rgsr_dum00	4_F_SCIENCE,{
-	mes "[Detained Researcher]";
-	mes "Why do I have to feed this traitors?";
+	mes "[Pesquisador detido]";
+	mes "Por que eu tenho que alimentar esses traidores?";
 	close;
 }
 
 1@rgsr,35,136,7	script	Researcher#rgsr_dum01	4_LGTSCIENCE,{
-	mes "[Detained Researcher]";
-	mes "I want to go home... I just want to go home...";
+	mes "[Pesquisador detido]";
+	mes "Eu quero ir para casa ... eu só quero ir para casa ...";
 	close;
 }
 
 1@rgsr,38,139,3	script	Researcher#rgsr_dum02	4_M_NFMAN,{
-	mes "[Detained Researcher]";
-	mes "Are you here to save us?";
-	mes "Thank you! Thank you!";
+	mes "[Pesquisador detido]";
+	mes "Você está aqui para nos salvar?";
+	mes "Obrigado! Obrigado!";
 	close;
 }
 
 1@rgsr,31,186,3	script	Researcher#rgsr_dum03	4_LGTSCIENCE,{
-	mes "[Detained Researcher]";
-	mes "What the hell is happening?";
-	mes "Aaaah... I just want to go home...";
+	mes "[Pesquisador detido]";
+	mes "O que diabos está acontecendo?";
+	mes "Aaaah ... eu só quero ir para casa ...";
 	close;
 }
 
 1@rgsr,24,186,5	script	Researcher#rgsr_dum04	4_F_SCIENCE,{
-	mes "[Detained Researcher]";
-	mes "Why did you come here to save me?";
-	mes "The Enterprise's guards... no wait...";
+	mes "[Pesquisador detido]";
+	mes "Por que você veio aqui para me salvar?";
+	mes "Os guardas da empresa ... não espere ...";
 	next;
-	mes "[Detained Researcher]";
-	mes "I thought that you were the one who kept us in custody...!";
-	mes "Why would they do that?";
+	mes "[Pesquisador detido]";
+	mes "Eu pensei que você era quem nos manteve sob custódia ...!";
+	mes "Por que eles fariam isso?";
 	close;
 }
 
 1@rgsr,25,182,7	script	Researcher#rgsr_dum05	4_M_HUMAN_01,{
-	mes "[Detained Researcher]";
-	mes "These scumbags took my Research Report and I escaped here.";
-	mes "It was a spray repellent to block blood-sucking insects!";
+	mes "[Pesquisador detido]";
+	mes "Esses desprezíveis levaram meu relatório de pesquisa e eu escapei aqui.";
+	mes "Era um repelente de spray para bloquear insetos sugadores de sangue!";
 	next;
-	mes "[Detained Researcher]";
-	mes "That was my private research, I don't know why they took it!";
-	mes "You can't just take away someone else's Research Report.";
+	mes "[Pesquisador detido]";
+	mes "Essa foi minha pesquisa particular, não sei por que eles levaram!";
+	mes "Você não pode simplesmente tirar o relatório de pesquisa de outra pessoa.";
 	close;
 }
 
 1@rgsr,40,186,3	script	Rebellion Crew#rgsr_dum01	4_M_ILYA,{
 	mes "[Rebellion Crew]";
-	mes "I've come prepared, but this was easier than thought.";
-	mes "Now I'm stuck here. Hehehehe!";
+	mes "Eu vim preparado, mas isso foi mais fácil do que o pensamento.";
+	mes "Agora estou preso aqui. Hehehehe!";
 	close;
 }
 
 1@rgsr,33,185,3	script	Rebellion Crew#rgsr_dum02	4_M_REBELLION2,{
 	mes "[Rebellion Crew]";
-	mes "The remaining researchers are gathered here for their security.";
-	mes "The Rebellions will protect them and help them escape.";
+	mes "Os demais pesquisadores estão reunidos aqui para sua segurança.";
+	mes "As rebeliões os protegerão e os ajudarão a escapar.";
 	close;
 }
 
 1@rgsr,31,183,5	script	Rebellion Crew#rgsr_dum03	4_F_ANYA,{
 	mes "[Rebellion Crew]";
-	mes "I thought they had less forces on the inside, but I didn't think they'd have installed toxic gas.";
-	mes "Most people have fled already, only the enemies are remaining.";
+	mes "Eu pensei que eles tinham menos forças por dentro, mas não achei que eles teriam instalado gás tóxico.";
+	mes "A maioria das pessoas já fugiu, apenas os inimigos estão restantes.";
 	close;
 }
 
 1@rgsr,195,205,0	script	Research Report#rgsr_00	4_ENERGY_BLUE,{
-	mes "It is a data on new efficiency and side effect of new potions.";
-	mes "However there is information about the core ingredients.";
+	mes "É um dado sobre nova eficiência e efeito colateral de novas poções.";
+	mes "No entanto, há informações sobre os ingredientes principais.";
 	close;
 }
 
 1@rgsr,198,199,0	script	Research Report#rgsr_01	4_ENERGY_BLUE,{
-	mes "Some of the drawing has been torn.";
-	mes "Somebody intentionally destroyed the relevant parts.";
+	mes "Alguns dos desenhos foram rasgados.";
+	mes "Alguém destruiu intencionalmente as partes relevantes.";
 	close;
 }
 
 1@rgsr,207,210,0	script	Research Report#rgsr_02	4_ENERGY_BLUE,{
-	mes "Parts of the documents were severely damaged.";
-	mes "It seems to have been about attempting to create a device using the refraction of light.";
+	mes "Partes dos documentos foram severamente danificadas.";
+	mes "Parece ter sido tentar criar um dispositivo usando a refração da luz.";
 	close;
 }
 
 1@rgsr,226,226,0	script	Research Report#rgsr_03	4_ENERGY_BLUE,{
-	mes "Lloyds's enchantment and processing data.";
-	mes "Only the title was left, all the text was removed.";
+	mes "Os dados de encantamento e processamento de Lloyds.";
+	mes "Somente o título foi deixado, todo o texto foi removido.";
 	close;
 }
 
 1@rgsr,231,223,0	script	Research Report#rgsr_04	4_ENERGY_BLUE,{
-	mes "The booklet is missing some pages. Someone has deliberately omitted the material.";
+	mes "O livreto está faltando algumas páginas. Alguém omitiu deliberadamente o material.";
 	close;
 }
 
 1@rgsr,243,223,0	script	Research Report#rgsr_05	4_ENERGY_BLUE,{
-	mes "The experimental data has been removed. There are clear traces of someone destroying the information.";
+	mes "Os dados experimentais foram removidos. Existem traços claros de alguém destruindo a informação.";
 	close;
 }

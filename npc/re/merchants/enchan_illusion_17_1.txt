@@ -10,35 +10,35 @@
 //============================================================
 
 sp_cor,152,158,4	script	Butterfly Merchant#sp_cor	4_M_ORIENT01,{
-	mes "[Butterfly Merchant]";
-	mes "Hey, nice to meet you.";
-	mes "I'm selling " + getitemname(100903) + ", do you want to buy it?";	// Teleport_Ep17_01
+	mes "[Mercante Butterfly]";
+	mes "Ei, prazer em conhecê -lo.";
+	mes "Estou vendendo" + getitemname(100903) + ", você quer comprá -lo?";	// Teleport_Ep17_01
 	close2;
 	callshop "shop_sp_cor";
 	end;
 }
 
 sp_cor,136,156,3	script	Grace Operator#ext162	4_M_REPAIR,{
-	mes "[Grace Operator]";
-	mes "Hello.";
-	mes "We have ^4d4dffGrace^000000 equipment that can be exchanged for " + mesitemlink( 25723 ) + ".";
-	mes "I will guide you to exchange items according to your job.";
+	mes "[GRACE Operator]";
+	mes "Olá.";
+	mes "Temos ^4d4dffgrace ^000000 Equipamento que pode ser trocado por" + mesitemlink( 25723 ) + ".";
+	mes "Vou guiá -lo a trocar itens de acordo com o seu trabalho.";
 	close2;
 	switch( eaclass() & EAJ_THIRDMASK ) {
 	case EAJ_RUNE_KNIGHT:
 		.@str$ = "JOB_RUNE_KNIGHT";
 		break;
 	case EAJ_WARLOCK:
-		.@str$ = "JOB_WARLOCK";
+		.@str$ = "Job_warlock";
 		break;
 	case EAJ_RANGER:
-		.@str$ = "JOB_RANGER";
+		.@str$ = "Job_ranger";
 		break;
 	case EAJ_ARCH_BISHOP:
 		.@str$ = "JOB_ARCH_BISHOP";
 		break;
 	case EAJ_MECHANIC:
-		.@str$ = "JOB_MECHANIC";
+		.@str$ = "Job_mechanic";
 		break;
 	case EAJ_GUILLOTINE_CROSS:
 		.@str$ = "JOB_GUILLOTINE_CROSS";
@@ -47,16 +47,16 @@ sp_cor,136,156,3	script	Grace Operator#ext162	4_M_REPAIR,{
 		.@str$ = "JOB_ROYAL_GUARD";
 		break;
 	case EAJ_SORCERER:
-		.@str$ = "JOB_SORCERER";
+		.@str$ = "Job_sorcerer";
 		break;
 	case EAJ_MINSTRELWANDERER:
-		.@str$ = "JOB_MINSTREL";
+		.@str$ = "Job_minstrel";
 		break;
 	case EAJ_SURA:
-		.@str$ = "JOB_SURA";
+		.@str$ = "Job_sura";
 		break;
 	case EAJ_GENETIC:
-		.@str$ = "JOB_GENETIC";
+		.@str$ = "Job_Genetic";
 		break;
 	case EAJ_SHADOW_CHASER:
 		.@str$ = "JOB_SHADOW_CHASER";
@@ -79,12 +79,12 @@ sp_cor,136,156,3	script	Grace Operator#ext162	4_M_REPAIR,{
 		case JOB_REBELLION:
 		case JOB_BABY_REBELLION:
 		case JOB_NIGHT_WATCH:
-			.@str$ = "JOB_REBELLION";
+			.@str$ = "Job_rebellion";
 			break;
 		case JOB_SUMMONER:
 		case JOB_BABY_SUMMONER:
 		case JOB_SPIRIT_HANDLER:
-			.@str$ = "JOB_SUMMONER";
+			.@str$ = "Job_summoner";
 			break;
 		case JOB_STAR_EMPEROR:
 		case JOB_BABY_STAR_EMPEROR:
@@ -97,7 +97,7 @@ sp_cor,136,156,3	script	Grace Operator#ext162	4_M_REPAIR,{
 		case JOB_SOUL_REAPER:
 		case JOB_BABY_SOUL_REAPER:
 		case JOB_SOUL_ASCETIC:
-			.@str$ = "JOB_SOUL_REAPER";
+			.@str$ = "Job_soul_reaper";
 			break;
 		default:
 			end;
@@ -111,64 +111,64 @@ sp_cor,136,156,3	script	Grace Operator#ext162	4_M_REPAIR,{
 // Enchanting Supply Exchange NPC - Official iRO Conversion
 sp_cor,108,130,5	script	Rebellion#rm171_7	4_F_REBELLION3,{
 	if (isbegin_quest(17019) == 0) {
-		mes "[Rebellion]";
-		mes "The Rebellion is using this building for the moment.";
-		mes "Along with a few others around it.";
+		mes "[Rebelião]";
+		mes "A rebelião está usando este edifício no momento.";
+		mes "Junto com alguns outros ao seu redor.";
 		next;
-		mes "[Rebellion]";
-		mes "We haven't been this busy for a long time.";
-		mes "I don't like that we're working with the President and the company, but it still feels good to be busy with something.";
+		mes "[Rebelião]";
+		mes "Não estamos tão ocupados há muito tempo.";
+		mes "Não gosto que estamos trabalhando com o presidente e a empresa, mas ainda é bom estar ocupado com alguma coisa.";
 		close;
 	}
 	if (isbegin_quest(16353) < 2) {
-		mes "[Rebellion]";
-		mes "So, you received the message. The Captains are having a meeting on the inside. Captain Elena Volkova must have called you.";
-		mes "... I was going to call her, but she's already here.";
+		mes "[Rebelião]";
+		mes "Então, você recebeu a mensagem. Os capitães estão tendo uma reunião por dentro. O capitão Elena Volkova deve ter chamado você.";
+		mes "... Eu ia ligar para ela, mas ela já está aqui.";
 		cloakoffnpcself( "Elena Volkova#rm171_0" );
-		npctalk "Elena Volkova: Ah, I've been looking for you, Adventurer.", "Elena Volkova#rm171_0", bc_self;
+		npctalk "Elena Volkova: Ah, eu tenho procurado por você, aventureiro.", "Elena Volkova#rm171_0", bc_self;
 		if (isbegin_quest(16352) == 0)
 			setquest 16352;
 		close;
 	}
 	if (isbegin_quest(16360) < 2) {
-		mes "[Rebellion]";
-		mes "The Rebellion is using this building for the moment.";
-		mes "Along with a few others around it.";
+		mes "[Rebelião]";
+		mes "A rebelião está usando este edifício no momento.";
+		mes "Junto com alguns outros ao seu redor.";
 		next;
-		mes "[Rebellion]";
-		mes "We haven't been this busy for a long time.";
-		mes "I don't like that we're working with the President and the company, but it still feels good to be busy with something.";
+		mes "[Rebelião]";
+		mes "Não estamos tão ocupados há muito tempo.";
+		mes "Não gosto que estamos trabalhando com o presidente e a empresa, mas ainda é bom estar ocupado com alguma coisa.";
 		close2;
 		if (isbegin_quest(16352) == 1)
 			erasequest 16352;
 		end;
 	}
-	mes "[Rebellion]";
-	mes "Did you bring Damaged Weapons? Would you like to see that science criminal? He's in there. Want me to call him for you?";
-	mes "Or do you have business with me? I can exchange Weapon Modification Devices and Armor Modification Modules.";
+	mes "[Rebelião]";
+	mes "Você trouxe armas danificadas? Você gostaria de ver essa ciência criminosa? Ele está lá. Quer que eu ligue para ele para você?";
+	mes "Ou você tem negócios comigo? Posso trocar dispositivos de modificação de armas e módulos de modificação de armadura.";
 	cloakoffnpcself( "Elyumina#rm171_4" );
-	npctalk "Rebellion: Hey, criminal. You're wanted.", "Rebellion#rm171_7", bc_self;
-	npctalk "Elyumina: Alright, alright! I'm coming! You're so pathetic that without me, you'll have to fight with bean bags.", "Elyumina#rm171_4", bc_self;
+	npctalk "Rebelião: Ei, criminoso. Você é procurado.", "Rebellion#rm171_7", bc_self;
+	npctalk "Elyumina: Tudo bem, tudo bem! Estou chegando! Você é tão patético que, sem mim, terá que lutar com sacos de feijão.", "Elyumina#rm171_4", bc_self;
 	next;
-	switch (select("See Elyumina.", "Request Weapon Modification Device.", "Request Armor Modification Module.")) {
+	switch (select("C Alumina.", "Solicitar dispositivo de modificação da arma.", "Solicite o módulo de modificação da armadura.")) {
 	case 1:
-		mes "[Rebellion]";
-		mes "Okay, enjoy your conversation.";
-		mes "It took a long time to coax him, but he eventually agreed to modify our weapons and armor. He's pretty good at it, too. He's been working all day, every day.";
+		mes "[Rebelião]";
+		mes "Ok, aproveite sua conversa.";
+		mes "Demorou muito tempo para convencê -lo, mas ele finalmente concordou em modificar nossas armas e armaduras. Ele é muito bom nisso também. Ele está trabalhando o dia todo, todos os dias.";
 		close;
 	case 2:
-		npctalk "Elyumina: What? If you were just going to keep me standing here like a statue, why did you even call me? You jerks!", "Elyumina#rm171_4", bc_self;
+		npctalk "Elyumina: O quê? Se você fosse apenas me manter aqui como uma estátua, por que você me ligou? Vocês idiotas!", "Elyumina#rm171_4", bc_self;
 		if (checkweight(1201,3) == 0) {
-			mes "[Rebellion]";
-			mes "Do you want a Weapon Modification Device? It's 5 " + mesitemlink( 25723 ) + " or 1 million Zeny.";
-			mes "Your bag is full. Please make some room first.";
+			mes "[Rebelião]";
+			mes "Você quer um dispositivo de modificação de armas? São 5" + mesitemlink( 25723 ) + "ou 1 milhão de zeny.";
+			mes "Sua bolsa está cheia. Por favor, faça algum espaço primeiro.";
 			close;
 		}
-		mes "[Rebellion]";
-		mes "Do you want a Weapon Modification Device? It's 5 " + mesitemlink( 25723 ) + " or 1 million Zeny.";
-		mes "If you want a weapon, you can talk to Elyumina.";
+		mes "[Rebelião]";
+		mes "Você quer um dispositivo de modificação de armas? São 5" + mesitemlink( 25723 ) + "ou 1 milhão de zeny.";
+		mes "Se você quer uma arma, pode falar com Elyumina.";
 		next;
-		if (select("Request Weapon Modification Device (Physical).", "Request Weapon Modification Device (Magic).") == 1) {
+		if (select("Solicitar dispositivo de modificação da arma (físico).", "Solicitar dispositivo de modificação da arma (mágica).") == 1) {
 			// .@item_id = 23773;	// EP17_1_SPC02
 			.@group = IG_EP17_1_SPC02;
 			setarray .@ids[0],23776,23777,23778;
@@ -177,75 +177,75 @@ sp_cor,108,130,5	script	Rebellion#rm171_7	4_F_REBELLION3,{
 			.@group = IG_EP17_1_SPC03;	// EP17_1_SPC03
 			setarray .@ids[0],23779,23780,23781;
 		}
-		mes "[Rebellion]";
-		mes "I can randomly give you a " + mesitemlink( .@ids[0] ) + ",";
+		mes "[Rebelião]";
+		mes "Eu posso te dar aleatoriamente um" + mesitemlink( .@ids[0] ) + ",";
 		mes mesitemlink( .@ids[1] ) + ",";
-		mes "or " + mesitemlink( .@ids[2] ) + ".";
-		mes "Which one do you have, 5 Cor Cores or 1 million Zeny?";
+		mes "ou" + mesitemlink( .@ids[2] ) + ".";
+		mes "Qual você tem, 5 núcleos ou 1 milhão de zeny?";
 		next;
 		disable_items;
-		switch (select("5 Cor Cores", "1 million Zeny")) {
+		switch (select("5 Cor Cores", "1 milhão de mulheres")) {
 		case 1:
 			if (checkweight(1201,3) == 0) {
-				mes "[Rebellion]";
-				mes "There seems to be a problem. Please check if your bag has enough free space, and you have all the exchange materials you need.";
+				mes "[Rebelião]";
+				mes "Parece haver um problema. Verifique se sua bolsa tem espaço livre suficiente e você tem todos os materiais de troca necessários.";
 				close;
 			}
 			if (countitem(25723) < 5) {
-				mes "[Rebellion]";
-				mes "You don't have enough Cor Cores. Please check your bag again.";
+				mes "[Rebelião]";
+				mes "Você não tem núcleos de Cor suficiente. Por favor, verifique sua bolsa novamente.";
 				close;
 			}
 			delitem 25723,5;	// EP17_1_EVT39
 			break;
 		case 2:
 			if (checkweight(1201,3) == 0) {
-				mes "[Rebellion]";
-				mes "There seems to be a problem. Please check if your bag has enough free space, and you have all the exchange materials you need.";
+				mes "[Rebelião]";
+				mes "Parece haver um problema. Verifique se sua bolsa tem espaço livre suficiente e você tem todos os materiais de troca necessários.";
 				close;
 			}
 			if (Zeny < 1000000) {
-				mes "[Rebellion]";
-				mes "You don't have enough Zeny. Please check your wallet again.";
+				mes "[Rebelião]";
+				mes "Você não tem zeny suficiente. Por favor, verifique sua carteira novamente.";
 				close;
 			}
 			Zeny -= 1000000;
 		}
 		// consumeitem .@item_id;
 		getgroupitem(.@group);
-		mes "[Rebellion]";
-		mes "I gave you the best I had left.";
-		mes "If you want to refine it, the <NAVI>[Tin Can]<INFO>sp_cor,106,136,0,101,0</INFO></NAVI> next to me can take good care of you.";
+		mes "[Rebelião]";
+		mes "Eu te dei o melhor que me restava.";
+		mes "Se você deseja refiná -lo, o <Vi> [Tin Can] <FOUM> SP_COR, 106,136,0,101,0 </foste> </avi> ao meu lado, pode cuidar bem de você.";
 		close;
 	case 3:
-		npctalk "Elyumina: What? If you were just going to keep me standing here like a statue, why did you even call me? You brutes!", "Elyumina#rm171_4", bc_self;
-		mes "[Rebellion]";
-		mes "Do you want an Armor Modification Module? It's 30 " + mesitemlink( 25669 ) + " and 5 " + mesitemlink( 25723 ) + ".";
+		npctalk "Elyumina: O quê? Se você fosse apenas me manter aqui como uma estátua, por que você me ligou? Seus brutos!", "Elyumina#rm171_4", bc_self;
+		mes "[Rebelião]";
+		mes "Você quer um módulo de modificação de armadura? São 30" + mesitemlink( 25669 ) + "e 5" + mesitemlink( 25723 ) + ".";
 		if (checkweight(1201,3) == 0) {
-			mes "Your bag is full. Please make some room first.";
+			mes "Sua bolsa está cheia. Por favor, faça algum espaço primeiro.";
 			close;
 		}
-		mes "The kind you get is randomly decided.";
+		mes "O tipo que você recebe é decidido aleatoriamente.";
 		next;
-		if (select("Request Armor Modification Module.", "Cancel.") == 2) {
-			mes "[Rebellion]";
-			mes "Feel feel to talk to me if you want Armor Modification Modules.";
+		if (select("Solicite o módulo de modificação da armadura.", "Cancelar.") == 2) {
+			mes "[Rebelião]";
+			mes "Sinta -se a falar comigo se você quiser módulos de modificação da armadura.";
 			close;
 		}
 		disable_items;
 		if (countitem(25669) < 30 || countitem(25723) < 5) {
-			mes "[Rebellion]";
-			mes "Each Module requires 30 Mysterious Components and 5 Cor Cores. You don't have them all. Please check.";
+			mes "[Rebelião]";
+			mes "Cada módulo requer 30 componentes misteriosos e 5 núcleos cor. Você não tem todos eles. Por favor, verifique.";
 			close;
 		}
 		if (checkweight(1201,3) == 0) {
-			mes "[Rebellion]";
-			mes "There seems to be a problem. Please check if your bag has enough free space, and you have all the exchange materials you need.";
+			mes "[Rebelião]";
+			mes "Parece haver um problema. Verifique se sua bolsa tem espaço livre suficiente e você tem todos os materiais de troca necessários.";
 			close;
 		}
-		mes "[Rebellion]";
-		mes "I gave you an Armor Modification Module.";
-		mes "If you want to refine it, the <NAVI>[Tin Can]<INFO>sp_cor,106,136,0,101,0</INFO></NAVI> next to me can take good care of you.";
+		mes "[Rebelião]";
+		mes "Eu te dei um módulo de modificação da armadura.";
+		mes "Se você deseja refiná -lo, o <Vi> [Tin Can] <FOUM> SP_COR, 106,136,0,101,0 </foste> </avi> ao meu lado, pode cuidar bem de você.";
 		delitem 25669,30;	// EP17_1_EVT02
 		delitem 25723,5;	// EP17_1_EVT39
 		// consumeitem 23775;	// EP17_1_SPC04
@@ -255,7 +255,7 @@ sp_cor,108,130,5	script	Rebellion#rm171_7	4_F_REBELLION3,{
 	end;
 
 OnInit:
-	questinfo (QTYPE_QUEST, QMARK_YELLOW, " isbegin_quest(17019) == 1 && isbegin_quest(16352) == 0 ");
+	questinfo (QTYPE_QUEST, QMARK_YELLOW, "isbegin_quest (17019) == 1 && isbegin_quest (16352) == 0");
 	end;
 }
 
@@ -263,8 +263,8 @@ OnInit:
 sp_cor,111,130,3	script	Elyumina#rm171_4	4_EP17_ELYUMINA,{
 	if (isbegin_quest(16360) < 2) {
 		cutin "ep171_elyumina02",0;
-		mes "[Elyumina]";
-		mes "Argh! Why do you keep asking for me when I need to focus on my research? I'm busy, alright? If you're bored, go bring me more damaged weapons!";
+		mes "[Alumina]";
+		mes "Argh! Por que você continua me pedindo quando eu preciso me concentrar na minha pesquisa? Estou ocupado, tudo bem? Se você estiver entediado, vá me trazer mais armas danificadas!";
 		close2;
 		cloakonnpcself( "Elyumina#rm171_3" );
 		cutin "",255;
@@ -272,66 +272,66 @@ sp_cor,111,130,3	script	Elyumina#rm171_4	4_EP17_ELYUMINA,{
 	}
 	if (checkweight(28136,2) == 0) {
 		cutin "ep171_elyumina03",0;
-		mes "[Elyumina]";
-		mes "Didn't you come for weapons or armor? Your bag is full. I don't have time to wait for you while you rummage through your bag. Come back later.";
+		mes "[Alumina]";
+		mes "Você não veio para armas ou armaduras? Sua bolsa está cheia. Não tenho tempo para esperar por você enquanto você vasculha sua bolsa. Volte mais tarde.";
 		next;
-		mes " - Your bag is full. Please make some room, and then talk to me again. -";
+		mes "- Sua bolsa está cheia. Por favor, faça algum espaço e depois fale comigo novamente. -";
 		close3;
 	}
 	cutin "ep171_elyumina01",0;
-	mes "[Elyumina]";
-	mes "What is it so important that you had to interrupt my research? This had better be important.";
+	mes "[Alumina]";
+	mes "O que é tão importante que você teve que interromper minha pesquisa? É melhor isso ser importante.";
 	next;
 	cutin "",255;
-	switch (select("Request OS Weapon.", "Request Illusion Armor.")) {
+	switch (select("Solicite Arma OS.", "Solicite Armadura de Ilusão.")) {
 	case 1:
 		cutin "ep171_elyumina01",0;
-		mes "[Elyumina]";
-		mes "OS weapons? I'll handle that if you bring me 1 " + mesitemlink( 25668 ) + " and 50 " + mesitemlink( 25669 ) + ".";
-		mes "I'll give you whatever kind I want to give you, among the ones I have. Why should I let you pick?";
+		mes "[Alumina]";
+		mes "Armas de sistema operacional? Vou lidar com isso se você me trazer 1" + mesitemlink( 25668 ) + "e 50" + mesitemlink( 25669 ) + ".";
+		mes "Vou te dar o tipo que quero dar a você, entre os que tenho. Por que devo deixar você escolher?";
 		next;
 		cutin "",255;
-		if (select("Exchange OS Weapon.", "Check the available list.") == 2) {
+		if (select("Troca de arma.", "Verifique a lista disponível.") == 2) {
 			cutin "ep171_elyumina03",0;
-			mes "[Elyumina]";
-			mes "Tsk, tsk. I said everything I make is good. Do you really have to choose? Alright, then listen up.";
+			mes "[Alumina]";
+			mes "TSK, TSK. Eu disse que tudo o que faço é bom. Você realmente tem que escolher? Tudo bem, então ouça.";
 			next;
-			mes "[Elyumina]";
-			mes "Sword: " + mesitemlink( 13493 );
-			mes "Two-handed Sword: " + mesitemlink( 21047 );
-			mes "Staff: " + mesitemlink( 26151 );
-			mes "Book: " + mesitemlink( 28629 );
-			mes "Axe: " + mesitemlink( 28136 );
-			mes "Mace: " + mesitemlink( 16088 );
-			mes "Bow: " + mesitemlink( 18178 );
-			mes "Crossbow: " + mesitemlink( 18179 );
-			mes "Katar: " + mesitemlink( 28038 );
-			mes "Knuckle: " + mesitemlink( 1862 );
-			mes "Sniper Rifle: " + mesitemlink( 28253 );
-			mes "Dagger: " + mesitemlink( 28755 );
-			mes "Bow: " + mesitemlink( 18180 );
-			mes "Lance: " + mesitemlink( 32019 );
-			mes "Mace: " + mesitemlink( 16089 );
+			mes "[Alumina]";
+			mes "Espada:" + mesitemlink( 13493 );
+			mes "Espada de duas mãos:" + mesitemlink( 21047 );
+			mes "Funcionários:" + mesitemlink( 26151 );
+			mes "Livro:" + mesitemlink( 28629 );
+			mes "Machado:" + mesitemlink( 28136 );
+			mes "Mulher:" + mesitemlink( 16088 );
+			mes "Arco:" + mesitemlink( 18178 );
+			mes "Besta:" + mesitemlink( 18179 );
+			mes "Trem:" + mesitemlink( 28038 );
+			mes "Junta:" + mesitemlink( 1862 );
+			mes "Rifle de Sniper:" + mesitemlink( 28253 );
+			mes "Punhal:" + mesitemlink( 28755 );
+			mes "Arco:" + mesitemlink( 18180 );
+			mes "Lança:" + mesitemlink( 32019 );
+			mes "Mulher:" + mesitemlink( 16089 );
 			close3;
 		}
 		disable_items;
 		if (countitem(25668) < 1 || countitem(25669) < 50) {
 			cutin "ep171_elyumina03",0;
-			mes "[Elyumina]";
-			mes "I told you, bring me 1 Damaged Weapon and 50 Mysterious Components. You should listen when people talk.";
+			mes "[Alumina]";
+			mes "Eu disse a você, traga -me uma arma danificada e 50 componentes misteriosos. Você deve ouvir quando as pessoas falam.";
 			close3;
 		}
 		if (checkweight(28136,2) == 0) {
 			cutin "ep171_elyumina03",0;
-			mes "[Elyumina]";
-			mes "... What the? There's a problem.";
-			mes "Not on my end, of course. This is on you. Check if your bag is full or you have all the materials you need.";
+			mes "[Alumina]";
+			mes "... o que? Há um problema.";
+			mes "Não do meu lado, é claro. Isso é sobre você. Verifique se a sua bolsa está cheia ou você tem todos os materiais necessários.";
 			close3;
 		}
 		cutin "ep171_elyumina04",0;
-		mes "[Elyumina]";
-		mes "There. If you want another, then bring me more Damaged Weapons and Mysterious Components.";
-		mes "I'm locked up in here, fixing toys, because of you. You can deal with this, right?";
+		mes "[Alumina]";
+		mes "Lá. Se você quiser outro, traga -me mais armas e componentes misteriosos.";
+		mes "Estou trancado aqui, consertando brinquedos, por sua causa. Você pode lidar com isso, certo?";
 		delitem 25668,1;	// EP17_1_EVT01
 		delitem 25669,50;	// EP17_1_EVT02
 		// consumeitem 23772;	// EP17_1_SPC01
@@ -339,12 +339,12 @@ sp_cor,111,130,3	script	Elyumina#rm171_4	4_EP17_ELYUMINA,{
 		close3;
 	case 2:
 		cutin "ep171_elyumina04",0;
-		mes "[Elyumina]";
-		mes "If you want Illusion armor, bring me 50 " + mesitemlink( 25723 ) + ". I'll give you a piece.";
-		mes "Let's see... Ooh, when did I make so many varieties? Alright, I feel generous. What do you want?";
+		mes "[Alumina]";
+		mes "Se você quer uma armadura de ilusão, traga -me 50" + mesitemlink( 25723 ) + ". Vou te dar uma peça.";
+		mes "Vamos ver ... ooh, quando eu fiz tantas variedades? Tudo bem, eu me sinto generoso. O que você quer?";
 		next;
 		cutin "",255;
-		switch (select("Illusion Armor", "Illusion Engine Wing", "Illusion Leg", "Illusion Booster", "Illusion Battle Chip")) {
+		switch (select("Armadura de ilusão", "Asa de mecanismo de ilusão", "Perna de ilusão", "Ilusão Booster", "Ilusão Battle Chip")) {
 		case 1:
 			setarray .@item[0],15376,15377;
 			break;
@@ -362,35 +362,35 @@ sp_cor,111,130,3	script	Elyumina#rm171_4	4_EP17_ELYUMINA,{
 			break;
 		}
 		cutin "ep171_elyumina01",0;
-		mes "[Elyumina]";
+		mes "[Alumina]";
 		mes mesitemlink( .@item[0] );
 		mes mesitemlink( .@item[1] );
-		mes "Which one?";
+		mes "Qual deles?";
 		next;
 		cutin "",255;
 		.@id = .@item[ select( getitemname(.@item[0]), getitemname(.@item[1]) ) -1 ];
 		cutin "ep171_elyumina04",0;
-		mes "[Elyumina]";
-		mes "Alright, " + getitemname(.@id) + ", right? Do you really want to trade it for 50 Cor Cores?";
+		mes "[Alumina]";
+		mes "Tudo bem," + getitemname(.@id) + ", certo? Você realmente quer negociá -lo por 50 núcleos?";
 		next;
 		cutin "",255;
-		if (select( "Exchange.", "Do not exchange." ) == 2) {
+		if (select( "Intercâmbio.", "Não troque." ) == 2) {
 			cutin "ep171_elyumina03",0;
-			mes "[Elyumina]";
-			mes "Hey, are you kidding me? Hey, I tried to be nice!";
+			mes "[Alumina]";
+			mes "Ei, você está brincando comigo? Ei, eu tentei ser legal!";
 			close3;
 		}
 		disable_items;
 		if (countitem(25723) < 50) {
 			cutin "ep171_elyumina02",0;
-			mes "[Elyumina]";
-			mes "Hey, are you kidding me? You don't have all the Cor Cores! Hey, I tried to be nice!";
+			mes "[Alumina]";
+			mes "Ei, você está brincando comigo? Você não tem todos os núcleos do COR! Ei, eu tentei ser legal!";
 			enable_items;
 			close3;
 		}
 		cutin "ep171_elyumina04",0;
-		mes "[Elyumina]";
-		mes "Here, take this " + getitemname(.@id) + ". I bet it's probably the best armor you've ever had. You really ought to be grateful.";
+		mes "[Alumina]";
+		mes "Aqui, pegue isso" + getitemname(.@id) + ". Aposto que é provavelmente a melhor armadura que você já teve. Você realmente deve ser grato.";
 		delitem 25723,50;	// EP17_1_EVT390
 		getitem .@id,1;
 		enable_items;
@@ -406,31 +406,31 @@ OnInit:
 // Illusion Enchanter - Walkthrough Conversion
 sp_cor,106,136,3	script	RS26#illusion_enchant	4_SYS_MSG,{
 	if(!checkweight(1201,1) || (MaxWeight - Weight) < 1000){
-		mes "You can't proceed with the conversation because you have a large quantity of items.";
-		mes "Please organize your items and try again.";
+		mes "Você não pode prosseguir com a conversa porque tem uma grande quantidade de itens.";
+		mes "Por favor, organize seus itens e tente novamente.";
 		close;
 	}
 	disable_items;
-	mes "[RS26]";
+	mes "[Rs26]";
 	mes strcharinfo(0)+".";
-	mes "Welcome, Welcome!";
+	mes "Bem -vindo, bem -vindo!";
 	next;
-	switch (select("Explore the devices.:Enchant Illusion Armor.:Enchant Illusion Engine Wing.:Enchant Illusion Leg.:Enchant Illusion Accessory [R]:Enchant Illusion Accessory [L]")) {
+	switch (select("Explore os dispositivos.")) {
 	case 1:
-		mes "^0000FF# I'm the latest hologram technology perfected to show natural responses and gestures. #^000000";
+		mes "^0000FF# Eu sou a mais recente tecnologia de holograma aperfeiçoada para mostrar respostas e gestos naturais. #^000000";
 		next;
-		mes "[RS26]";
-		mes "My technology can only be found in future cities. I am RS26, a Regenschirm robotic machine.";
-		npctalk "Rebellion : Oh, that machine is useless without a module.","Rebellion#171_cor_merchant",bc_self;
+		mes "[Rs26]";
+		mes "Minha tecnologia só pode ser encontrada em futuras cidades. Eu sou Rs26, uma máquina robótica Regenschirm.";
+		npctalk "Rebelião: Ah, essa máquina é inútil sem um módulo.","Rebellion#171_cor_merchant",bc_self;
 		next;
-		mes "[RS26]";
-		mes "If you bring Illusion equipment with strengthening modules, I will improve them as you desire.";
+		mes "[Rs26]";
+		mes "Se você trazer equipamentos de ilusão com módulos de fortalecimento, eu os melhorarei como você deseja.";
 		next;
-		mes "[RS26]";
-		mes "Since these modules work with the standard equipment, they will not destroy the items. However, the number of upgrades can vary depending on the equipment.";
+		mes "[Rs26]";
+		mes "Como esses módulos funcionam com o equipamento padrão, eles não destruirão os itens. No entanto, o número de atualizações pode variar dependendo do equipamento.";
 		next;
-		mes "[RS26]";
-		mes "Please come back if you need my help~";
+		mes "[Rs26]";
+		mes "Por favor, volte se precisar da minha ajuda ~";
 		close;
 	case 2:
 		.@part = EQI_ARMOR;
@@ -458,10 +458,10 @@ sp_cor,106,136,3	script	RS26#illusion_enchant	4_SYS_MSG,{
 		setarray .@id,32208,32210;
 		break;
 	}
-	switch (select("Cancel.:Normal Grade.:Rare Grade.:Unique Grade.:Legendary Grade.")) {
+	switch (select("Cancel.: Normal Grade.:Rare Grade.")) {
 	case 1:
-		mes "[RS26]";
-		mes "I'm stopping here.";
+		mes "[Rs26]";
+		mes "Estou parando aqui.";
 		close;
 		
 	case 2:
@@ -484,19 +484,19 @@ sp_cor,106,136,3	script	RS26#illusion_enchant	4_SYS_MSG,{
 		.@max = 25705;
 		break;
 	}
-	.@menu$ = "Cancel.:";
+	.@menu$ = "Cancelar.:";
 	for(.@i = .@min; .@i < (.@max + 1); .@i++){
 		.@module_id[getarraysize(.@module_id)] = .@i;
 		.@item_name$ = getitemname(.@i);
 		.@item_name$ = replacestr(.@item_name$,"Modification Module (","");
 		.@item_name$ = replacestr(.@item_name$,")","");
-		.@menu$ += (!countitem(.@i) ? "^AAAAAA":"") + .@item_name$ + (!countitem(.@i) ? "^000000:":":");
+		.@menu$ += (!countitem(.@i) ? "^Aaaaaa":"") + .@item_name$ + (!countitem(.@i) ? "^000000:":":");
 	}
 	.@s = select(.@menu$);
 	switch( .@s ) {
 	case 1:
-		mes "[RS26]";
-		mes "I'm stopping here.";
+		mes "[Rs26]";
+		mes "Estou parando aqui.";
 		close;
 		
 	default:
@@ -508,42 +508,42 @@ sp_cor,106,136,3	script	RS26#illusion_enchant	4_SYS_MSG,{
 			.@card[.@i] = getequipcardid(.@part,.@i);
 		copyarray .@check[0],.@card[0],4;
 		if (!.@equip_id || .@id[0] != .@equip_id && .@id[1] != .@equip_id) {
-			mes "[RS26]";
-			mes "The equipment needs to be checked. That thing is not something this device can work with.";
+			mes "[Rs26]";
+			mes "O equipamento precisa ser verificado. Essa coisa não é algo com o qual esse dispositivo pode funcionar.";
 			close;
 		}
 		.@var$ = module_check(.@module_id[.@s],.@part,.@index);
 		explode(.@s$,.@var$,",");
 		switch (atoi(.@s$[0])) {
 			case 1:
-				mes "[RS26]";
-				mes "The module needs to be checked. This device cannot detect it.";
+				mes "[Rs26]";
+				mes "O módulo precisa ser verificado. Este dispositivo não pode detectá -lo.";
 				close;
 			case 2:
-				mes "[RS26]";
-				mes "Looks like the equipment you're trying to strengthen is already at it's limit.";
+				mes "[Rs26]";
+				mes "Parece que o equipamento que você está tentando fortalecer já está no seu limite.";
 				close;
 			case 3:
-				mes "[RS26]";
-				mes "You need to have a module that matches the efficacy to proceed with enhancement.";
+				mes "[Rs26]";
+				mes "Você precisa ter um módulo que corresponda à eficácia para prosseguir com o aprimoramento.";
 				close;
 			case 4:
-				mes "[RS26]";
+				mes "[Rs26]";
 				mes "The capabilities of this module can be enchanted up to " + .@s$[1] + " " + (atoi(.@s$[1]) > 1 ? "times":"time") +". It seems that the module threshold is already at it's limit.";
 				close;
 			case 5:
 				.@item_name$ = getitemname(.@module_id[.@s]);
 				.@item_name$ = replacestr(.@item_name$,"Modification Module (","");
 				.@item_name$ = replacestr(.@item_name$,")","");
-				mes "[RS26]";
-				mes "^0000FFYou have selected " + getitemname(.@equip_id) + " " + .@item_name$ + "^000000";
+				mes "[Rs26]";
+				mes "^0000ffyou selecionou" + getitemname(.@equip_id) + "" + .@item_name$ + "^000000";
 				mes "------------------";
 				mes "The selected module can be enchanted up to ^0000FF" + .@s$[2] + " " +  (atoi(.@s$[2]) > 1 ? "times":"time") +  "^000000 on the equipment. This equipment is currently enchanted with this module by ^0000FF" + .@s$[1] + ".";
-				mes "Do you want to proceed?";
+				mes "Você quer prosseguir?";
 				next;
-				if (select("I'll think about it more...:Let's proceed.") == 1) {
-					mes "[RS26]";
-					mes "Then, please visit me again when you need my help~";
+				if (select("Vou pensar mais sobre isso ...: Vamos proceder.") == 1) {
+					mes "[Rs26]";
+					mes "Então, por favor, visite -me novamente quando precisar da minha ajuda ~";
 					close;
 				}
 				for (.@i = 1; .@i < 4; .@i++) {
@@ -559,8 +559,8 @@ sp_cor,106,136,3	script	RS26#illusion_enchant	4_SYS_MSG,{
 				specialeffect2 EF_REPAIRWEAPON;
 				delequip .@part;
 				getitem2 .@equip_id,1,1,.@refine,0,.@card[0],.@card[1],.@card[2],.@card[3];
-				mes "[RS26]";
-				mes "Attempting to upgrade the slot ^990000" + .@augment_slot + "^000000 of the equipment.";
+				mes "[Rs26]";
+				mes "Tentando atualizar o slot ^990000" + .@augment_slot + "^000000 do equipamento.";
 				close;
 		}
 	}

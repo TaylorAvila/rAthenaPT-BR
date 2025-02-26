@@ -69,11 +69,11 @@ te_prt_gld,159,25,0	warp	prtg02_Castle	1,1,prt_cas,82,171
 OnTouch:
 	.@num = atoi( replacestr(strnpcinfo(2), "_te", "") );
 	switch(.@num) {
-		case 1: callsub( S_Warp, "te_prtcas01",99,32 );
-		case 2: callsub( S_Warp, "te_prtcas02",43,229 );
-		case 3: callsub( S_Warp, "te_prtcas03",168,12 );
-		case 4: callsub( S_Warp, "te_prtcas04",86,13 );
-		case 5: callsub( S_Warp, "te_prtcas05",17,235 );
+		case 1: callsub( S_Warp, "in_prtcas01",99,32 );
+		case 2: callsub( S_Warp, "in_prtcas02",43,229 );
+		case 3: callsub( S_Warp, "TE_PRTCAS03",168,12 );
+		case 4: callsub( S_Warp, "TE_PRTCAS04",86,13 );
+		case 5: callsub( S_Warp, "TE_PRTCAS05",17,235 );
 		case 6: callsub( S_Warp, "te_aldecas1",34,248 );
 		case 7: callsub( S_Warp, "te_aldecas2",88,163 );
 		case 8: callsub( S_Warp, "te_aldecas3",114,286 );
@@ -85,7 +85,7 @@ OnTouch:
 S_Warp:
 	.@castle$ = getarg(0);
 	if (jobcanentermap(.@castle$) == 0) {
-		mes "3rd and expansion job level can't enter in WoE TE.";
+		mes "O 3º e o nível do trabalho de expansão não podem entrar em TE.";
 		close;
 	}
 
@@ -99,14 +99,14 @@ S_Warp:
 
 	if (WoeTETimeStart(3600) == 1) {
 		if (!.@guild_id || !.@my_guild_id) {
-			mes "It's time for preparing to WoE. Only Alliance guild is able to enter.";
+			mes "É hora de se preparar para ai. Somente a Alliance Guild é capaz de entrar.";
 			close;
 		}
 		if (getguildalliance(.@my_guild_id,.@guild_id) != 1) {
-			mes "It's time for preparing to WoE. Only Alliance guild is able to enter.";
+			mes "É hora de se preparar para ai. Somente a Alliance Guild é capaz de entrar.";
 			close;
 		}
-		mes "Welcome alliance guild.";
+		mes "Bem -vindo Alliance Guild.";
 		close2;
 	}
 	warp .@castle$,getarg(1),getarg(2);

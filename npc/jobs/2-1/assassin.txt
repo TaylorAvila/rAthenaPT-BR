@@ -6,10 +6,10 @@
 //===== Changelog: ===========================================
 //= 1.0 Used some dialogue from the aegis Assassin script translated By: Pgro Team (OwNaGe)
 //=     Also converted the booby traps from the aegis script.[kobra_k88]
-//= 1.1 Made adjustments to ontouch npcs to work with the new "ontouch" functionality.
+//= 1.1 Made adjustments to ontouch npcs to work with the new "oTouch" functionality.
 //=     Fixed some duplicate npc names.  Added missing waitingroom triggers.
 //=     Fixed warp in "TimerSin", was supposed to be an areawarp.
-//=     For some reason sometimes the "Nameless One" would have message windows
+//=     For some reason sometimes the "Nomeless One" would have message windows
 //=     without controls.  Changed the doevent that triggers him to an
 //=     addtimer and that seemed make the prob. go away[kobra_k88]
 //= 1.2 Fixed WRONG skillpoint check! [Lupus]
@@ -49,46 +49,46 @@
 
 in_moc_16,19,33,1	script	Guildsman#asn	55,{
 	if (Upper == 1) {
-		mes "[Ferocious-looking guy]";
-		mes "Hm? You....?";
-		mes "I sense that you're different than most people...";
+		mes "[Cara de aparência feroz]";
+		mes "HM? Você....?";
+		mes "Sinto que você é diferente da maioria das pessoas ...";
 		next;
-		mes "[Ferocious-looking guy]";
-		mes "I've never met anyone as intimidating as you! For some reason, I don't like you. I think you should leave!";
+		mes "[Cara de aparência feroz]";
+		mes "Eu nunca conheci ninguém tão intimidador quanto você! Por alguma razão, eu não gosto de você. Eu acho que você deveria sair!";
 		close;
 	}
 	if (SkillPoint) {
-		mes "[Ferocious-looking guy]";
-		mes "You can't change your job if you have any unused skill points from the 1st job. You better go and use those up first.";
+		mes "[Cara de aparência feroz]";
+		mes "Você não pode mudar seu trabalho se tiver algum ponto de habilidade não utilizado do 1º trabalho. É melhor você usar isso primeiro.";
 		close;
 	}
 	if (ASSIN_Q == 4) {
-		mes "[Ferocious-looking guy]";
-		mes "Oh, stop making that face. Can you really be in that much pain?";
+		mes "[Cara de aparência feroz]";
+		mes "Oh, pare de fazer esse rosto. Você pode realmente estar com tanta dor?";
 		next;
-		mes "[Ferocious-looking guy]";
-		mes "Wah wah wah, you're hurting, I can see that. Look, I'll restore HP and SP. Happy?";
+		mes "[Cara de aparência feroz]";
+		mes "Wah wah wah, você está sofrendo, eu posso ver isso. Olha, vou restaurar a HP e o sp. Feliz?";
 		percentheal 100,100;
 		next;
-		mes "[Ferocious-looking guy]";
-		mes "Is it that hard to stay alive?";
-		mes "Why don't you try harder next time? You can't force yourself too hard to become an Assassin...";
+		mes "[Cara de aparência feroz]";
+		mes "É tão difícil permanecer vivo?";
+		mes "Por que você não se esforça mais na próxima vez? Você não pode se forçar demais para se tornar um assassino ...";
 		next;
-		if (select("I will become an Assassin no matter what!:Oh man, I gotta take a break.") == 1) {
-			mes "[Ferocious-looking guy]";
+		if (select("Vou me tornar um assassino, não importa o quê!: Oh cara, eu tenho que fazer uma pausa.") == 1) {
+			mes "[Cara de aparência feroz]";
 			mes "Oh...";
-			mes "Well then,";
-			mes "go for it!";
+			mes "Bem então,";
+			mes "Vá em frente!";
 			close2;
 			ASSIN_Q = 0;
 			warp "in_moc_16",19,76;
 			end;
 		}
-		mes "[Ferocious-looking guy]";
-		mes "Take a break? Oh alright, have it your way. When you feel like you're ready to become an Assassin, come back.";
+		mes "[Cara de aparência feroz]";
+		mes "Fazer uma pausa? Oh, tudo bem, faça do seu jeito. Quando você sentir que está pronto para se tornar um assassino, volte.";
 		next;
-		mes "[Ferocious-looking guy]";
-		mes "You'll have to walk if you want to get back to town. Oh, and don't forget to save your spawn point, alright?";
+		mes "[Cara de aparência feroz]";
+		mes "Você terá que andar se quiser voltar para a cidade. Ah, e não se esqueça de salvar seu ponto de desova, tudo bem?";
 		close2;
 		ASSIN_Q = 0;
 		ASSIN_Q2 = 0;
@@ -99,158 +99,158 @@ in_moc_16,19,33,1	script	Guildsman#asn	55,{
 		end;
 	}
 	if (BaseJob == Job_Thief && countitem(1008) == 0 && ASSIN_Q > 7) {
-		mes "[Assassin Expert 'Huey']";
-		mes "Hey, what happened...? How come you didn't bring the ^006699Necklace of Oblivion^000000? You're supposed to carry that with you, so where is it?";
+		mes "[Assassino especialista 'Huey']";
+		mes "Ei, o que aconteceu ...? Como é que você não trouxe o ^006699necklace of Oblivion ^000000? Você deveria levar isso com você, então onde está?";
 		next;
-		mes "[Assassin Expert 'Huey']";
-		mes "You get better get that ^006699Necklace of Oblivion^000000 again before the guildmaster finds out! Hurry, and do your best to get it!";
+		mes "[Assassino especialista 'Huey']";
+		mes "Você é melhor obtê -lo ^006699necklace of Oblivion ^000000 novamente antes que o mestre da guilda descubra! Apresse -se e faça o seu melhor para obtê -lo!";
 		next;
-		mes "[Assassin Expert 'Huey']";
-		mes "When you finally succeed in getting it, bring it to me! ^666666*Sigh...*^000000";
+		mes "[Assassino especialista 'Huey']";
+		mes "Quando você finalmente conseguir obtê -lo, traga -o para mim! ^666666*suspiro ...*^000000";
 		close;
 	}
 	if (BaseJob == Job_Thief && countitem(1008) > 0 && ASSIN_Q > 7) {
-		mes "[Assassin Expert 'Huey']";
-		mes "Well well well, you got it. Congratulations! But since it's been clearly scratched, I can't accept it. You'll never become an Assassin!";
+		mes "[Assassino especialista 'Huey']";
+		mes "Bem bem, bem, você entendeu. Parabéns! Mas como está claramente arranhado, não posso aceitá -lo. Você nunca se tornará um assassino!";
 		next;
-		mes "[Assassin Expert 'Huey']";
-		mes "Hahahah~! I'm just joking, don't take it seriously. But I do need to check this necklace with the guildmaster first.";
+		mes "[Assassino especialista 'Huey']";
+		mes "Hahahah ~! Estou apenas brincando, não leve isso a sério. Mas preciso verificar esse colar com o guildmaster primeiro.";
 		next;
-		mes "[Assassin Expert 'Huey']";
+		mes "[Assassino especialista 'Huey']";
 		mes "...";
 		next;
-		mes "[Assassin Expert 'Huey']";
+		mes "[Assassino especialista 'Huey']";
 		mes "...";
 		mes "......";
 		next;
-		mes "[Assassin Expert 'Huey']";
-		mes "Alright!";
-		mes "You've been approved!";
+		mes "[Assassino especialista 'Huey']";
+		mes "Tudo bem!";
+		mes "Você foi aprovado!";
 		next;
 		delitem 1008,1; //Frozen_Heart
 		changequest 8007,8008;
 		completequest 8008;
 		callfunc "Job_Change",Job_Assassin;
 		callfunc "F_ClearJobVar";		// clears all job variables for the current player
-		mes "[Assassin Expert 'Huey']";
-		mes "Now! Do your best to be a great Assassin! Travel with faith and kill with dignity. Come by anytime and pay us a visit. Once again, congratulations.";
+		mes "[Assassino especialista 'Huey']";
+		mes "Agora! Faça o seu melhor para ser um grande assassino! Viajar com fé e matar com dignidade. Venha a qualquer momento e faça uma visita. Mais uma vez, parabéns.";
 		close;
 	}
 	else if (countitem(1008) > 0 && BaseJob == Job_Thief && ASSIN_Q < 7) {
-		mes "[Ferocious-looking guy]";
+		mes "[Cara de aparência feroz]";
 		mes "Eh?";
-		mes "What do you want?";
+		mes "O que você quer?";
 		next;
-		mes "[Ferocious-looking guy]";
-		mes "I see you're carrying a ^006699Necklace of Oblivion^000000... You want to become an Assassin, don't you? Let me check it...";
+		mes "[Cara de aparência feroz]";
+		mes "Vejo que você está carregando um ^006699necklace of Oblivion ^000000 ... Você quer se tornar um assassino, não é? Deixe -me verificar ...";
 		next;
-		mes "[Ferocious-looking guy]";
+		mes "[Cara de aparência feroz]";
 		mes "...";
 		next;
-		mes "[Ferocious-looking guy]";
+		mes "[Cara de aparência feroz]";
 		mes "...";
 		mes "......";
 		next;
-		mes "[Ferocious-looking guy]";
-		mes "Wait a second...";
-		mes "Why you no good BASTARD! THIS IS A FAKE!";
+		mes "[Cara de aparência feroz]";
+		mes "Espere um segundo ...";
+		mes "Por que você não é um bom bastardo! Isso é falso!";
 		next;
-		mes "[Ferocious-looking guy]";
-		mes "How dare you think of trying to trick me with a fake! Are you stupid or what!? I should kill you...";
+		mes "[Cara de aparência feroz]";
+		mes "Como você ousa pensar em tentar me enganar com uma falsa! Você é estúpido ou o quê!? Eu deveria te matar ...";
 		close2;
 		warp "moc_fild16",206,229;
 		end;
 	}
 	else {
-		mes "[Ferocious-looking guy]";
-		mes "What brings you here?";
-		mes "I don't think I like the way you're looking at me... Punk.";
+		mes "[Cara de aparência feroz]";
+		mes "O que te traz aqui?";
+		mes "Acho que não gosto da maneira como você está olhando para mim ... punk.";
 		next;
 		if (BaseClass == Job_Novice) {
-			mes "[Ferocious-looking guy]";
-			mes "Hey Newbie. You should really get out of here as soon as you can. I can't guarantee your safety.";
+			mes "[Cara de aparência feroz]";
+			mes "Ei novato. Você realmente deve sair daqui o mais rápido possível. Não posso garantir sua segurança.";
 			close;
 		}
 		else if (BaseClass == Job_Swordman) {
-			mes "[Ferocious-looking guy]";
-			mes "What brings a man of the sword to this place? Why don't you try smashing stuff somewhere else, ya lunkhead.";
+			mes "[Cara de aparência feroz]";
+			mes "O que traz um homem da espada para este lugar? Por que você não tenta esmagar coisas em outro lugar, Ya Lunkhead.";
 			close;
 		}
 		else if (BaseClass == Job_Mage) {
-			mes "[Ferocious-looking guy]";
-			mes "Now what would a magic user be doing here?";
+			mes "[Cara de aparência feroz]";
+			mes "Agora, o que um usuário de mágica faria aqui?";
 			next;
-			mes "[Ferocious-looking guy]";
-			mes "There's a library in Prontera and Juno where you're welcome, so why don't you make like a magic trick and disappear?";
+			mes "[Cara de aparência feroz]";
+			mes "Há uma biblioteca em Protera e Juno, onde você é bem -vindo, então por que você não faz um truque de mágica e desaparece?";
 			close;
 		}
 		else if (BaseClass == Job_Archer) {
-			mes "[Ferocious-looking guy]";
-			mes "Well well well.";
-			mes "Look at that purdy bow.";
+			mes "[Cara de aparência feroz]";
+			mes "Bem bem bem.";
+			mes "Olhe para aquele arco purdy.";
 			next;
-			mes "[Ferocious-looking guy]";
-			mes "There aren't many Bowmen with the gall to even come close to this place. Well, what do you think you're doin' here?!";
+			mes "[Cara de aparência feroz]";
+			mes "Não há muitos arqueiros com a galinha para chegar perto deste lugar. Bem, o que você acha que está fazendo aqui?!";
 			close;
 		}
 		else if (BaseClass == Job_Acolyte) {
-			mes "[Ferocious-looking guy]";
-			mes "I thought something smelled funny. What's a servant of God doing in this place? You don't belong here.";
+			mes "[Cara de aparência feroz]";
+			mes "Eu pensei que algo cheirava engraçado. O que um servo de Deus está fazendo neste lugar? Você não pertence aqui.";
 			close;
 		}
 		else if (BaseClass == Job_Merchant) {
-			mes "[Ferocious-looking guy]";
-			mes "We don't like greedy people around these parts. You better sell your stuff somewhere else, Moneybags.";
+			mes "[Cara de aparência feroz]";
+			mes "Não gostamos de pessoas gananciosas por essas partes. É melhor você vender suas coisas em outro lugar, Moneybags.";
 			close;
 		}
 		else if (BaseJob == Job_Rogue) {
-			mes "[Ferocious-looking guy]";
-			mes "You look like you don't have a care in the world. Well, I hope you enjoy your rest while you stay here. It's okay, since the Rogue and Assassin Guilds have always gotten along pretty well.";
+			mes "[Cara de aparência feroz]";
+			mes "Parece que você não se importa no mundo. Bem, espero que você desfrute do seu descanso enquanto fica aqui. Tudo bem, já que as guildas desonestas e assassinadas sempre se deram bem.";
 			next;
-			mes "[Ferocious-looking guy]";
-			mes "By the way...";
-			mes "Have you ever seen";
-			mes "a girl named Markie?";
+			mes "[Cara de aparência feroz]";
+			mes "Por falar nisso...";
+			mes "Você já viu";
+			mes "Uma garota chamada Markie?";
 			next;
-			mes "[Ferocious-looking guy]";
-			mes "Markie...";
-			mes "We promised that we'd be together forever. ^666666*Sigh...*^000000 I don't even think she remembers that promise anymore. Then again, we were pretty young back then...";
+			mes "[Cara de aparência feroz]";
+			mes "Markie ...";
+			mes "Prometemos que estaríamos juntos para sempre. ^666666*suspiro ...*^000000 Eu nem acho que ela se lembra dessa promessa. Então, novamente, éramos muito jovens naquela época ...";
 			close;
 		}
 		else if (BaseJob == Job_Assassin) {
-			mes "[Assassin Expert 'Huey']";
-			mes "Hey, I remember you~";
-			mes "Wasn't your name, umm, I remember 'cause it sounded funny to me...";
+			mes "[Assassino especialista 'Huey']";
+			mes "Ei, eu me lembro de você ~";
+			mes "Não era o seu nome, umm, eu lembro porque parecia engraçado para mim ...";
 			next;
-			mes "[Assassin Expert 'Huey']";
-			mes ":+:" + strcharinfo(0) + ":+:, right? No wait, just "+ strcharinfo(0) +". Yeah, how's it goin'?";
+			mes "[Assassino especialista 'Huey']";
+			mes ":+:" + strcharinfo(0) + ":+:, certo? Não espere, apenas"+ strcharinfo(0) +". Sim, como está indo?";
 			next;
-			mes "[Assassin Expert 'Huey']";
-			mes "Unfortunately, I don't have any requests for you at this time from the guild. Just keep focusing on your training. Till then, see ya.";
+			mes "[Assassino especialista 'Huey']";
+			mes "Infelizmente, não tenho nenhum pedido para você neste momento da guilda. Apenas continue se concentrando no seu treinamento. Até então, vejo você.";
 			close;
 		}
 		else if (BaseJob == Job_Thief && JobLevel > 39) {
 			if (SkillPoint) {
-				mes "[Ferocious-looking guy]";
-				mes "You can't change your job if you still have unused skill points from First Job. You better use up those skill points first.";
+				mes "[Cara de aparência feroz]";
+				mes "Você não pode mudar seu trabalho se ainda tiver pontos de habilidade não utilizados desde o primeiro emprego. É melhor você usar esses pontos de habilidade primeiro.";
 				close;
 			}
 			else {
-				mes "[Ferocious-looking guy]";
-				mes "Hmm...";
-				mes "A Thief...?";
+				mes "[Cara de aparência feroz]";
+				mes "Hum...";
+				mes "Um ladrão ...?";
 				next;
-				mes "[Ferocious-looking guy]";
-				mes "And a well-experienced Thief since I can't seem to find my wallet. We do need people like you, you know.";
+				mes "[Cara de aparência feroz]";
+				mes "E um ladrão bem experiente, pois não consigo encontrar minha carteira. Precisamos de pessoas como você, você sabe.";
 				next;
-				mes "[Ferocious-looking guy]";
-				mes "So how about taking the next step and becoming an Assassin?";
+				mes "[Cara de aparência feroz]";
+				mes "Então, que tal dar o próximo passo e se tornar um assassino?";
 				next;
-				switch(select("Yes. I've picked my last pocket.:What's the requirements?:Maybe later, I need to steal some things first.")) {
+				switch(select("Sim. Eu escolhi meu último bolso.: Quais são os requisitos?: Talvez mais tarde, preciso roubar algumas coisas primeiro.")) {
 				case 1:
-					mes "[Ferocious-looking guy]";
-					mes "It's been a while since I've received a guest. I'm sending";
-					mes "you to the office.";
+					mes "[Cara de aparência feroz]";
+					mes "Já faz um tempo desde que recebi um convidado. Estou enviando";
+					mes "você para o escritório.";
 					close2;
 					ASSIN_Q = 0;
 					if (checkquest(8000) != -1) {
@@ -261,292 +261,292 @@ in_moc_16,19,33,1	script	Guildsman#asn	55,{
 					warp "in_moc_16",19,76;
 					end;
 				case 2:
-					mes "[Ferocious-looking guy]";
-					mes "Requirements? Well, first you need to be a Thief. Second, you need to be at least Thief job level 40.";
+					mes "[Cara de aparência feroz]";
+					mes "Requisitos? Bem, primeiro você precisa ser um ladrão. Segundo, você precisa ser pelo menos o nível de trabalho de ladrão 40.";
 					next;
-					mes "[Ferocious-looking guy]";
-					mes "And third, you need to pass a test to become an Assassin. You got";
-					mes "all that? If you're sure of your ability as a Thief, you won't have to worry.";
+					mes "[Cara de aparência feroz]";
+					mes "E terceiro, você precisa passar em um teste para se tornar um assassino. Você tem";
+					mes "tudo isso? Se você tem certeza de sua habilidade como ladrão, não precisará se preocupar.";
 					close;
 				case 3:
-					mes "[Ferocious-looking guy]";
-					mes "Hmm...";
-					mes "Alright then.";
-					mes "But come back when";
-					mes "you think you're ready.";
+					mes "[Cara de aparência feroz]";
+					mes "Hum...";
+					mes "Tudo bem então.";
+					mes "Mas volte quando";
+					mes "Você acha que está pronto.";
 					close;
 				}
 			}
 		}
 		else {
-			mes "[Ferocious-looking guy]";
-			mes "Huh. You're not qualified to become an Assassin yet. There are requirements you need to meet first, you know.";
+			mes "[Cara de aparência feroz]";
+			mes "Huh. Você ainda não está qualificado para se tornar um assassino. Existem requisitos que você precisa atender primeiro, você sabe.";
 			next;
-			mes "[Ferocious-looking guy]";
-			mes "Well, keep training. You need to be at least job level 40, got it? But if you're above job level 40, that will probably be even better.";
+			mes "[Cara de aparência feroz]";
+			mes "Bem, continue treinando. Você precisa estar pelo menos o nível de trabalho 40, entendeu? Mas se você estiver acima do nível de trabalho 40, isso provavelmente será ainda melhor.";
 			close;
 		}
 	}
 }
 
 in_moc_16,25,90,1	script	Guildsman#ASN2	730,2,2,{
-	mes "[Assassin 'Khai']";
+	mes "[Assassino 'Khai']";
 	mes "Umm?!";
 	emotion ET_SURPRISE;
 	next;
-	mes "[Assassin 'Khai']";
-	mes "Come closer. I prefer to talk to people face to face. It really irritates me if I have to raise my voice, just so you can hear me.";
-	mes "I feel irritated when somebody talks to me behind my back.";
+	mes "[Assassino 'Khai']";
+	mes "Chegue mais perto. Eu prefiro conversar com as pessoas cara a cara. Isso realmente me irrita se eu tiver que levantar minha voz, apenas para que você possa me ouvir.";
+	mes "Sinto -me irritado quando alguém fala comigo pelas minhas costas.";
 	close;
 
 OnTouch_:
 	if (ASSIN_Q2 == 4) {
-		mes "[Assassin 'Khai']";
+		mes "[Assassino 'Khai']";
 		mes "Ehhh?";
-		mes "Didn't you just";
-		mes "pass me a minute ago?";
+		mes "Você não apenas";
+		mes "me passa um minuto atrás?";
 		next;
-		mes "[Assassin 'Khai']";
-		mes "Eh...?!";
-		mes "You failed?";
-		mes "Even on the";
-		mes "writing test?";
+		mes "[Assassino 'Khai']";
+		mes "Eh ...?!";
+		mes "Você falhou?";
+		mes "Mesmo no";
+		mes "teste de escrita?";
 		mes "Bwahahahahaha!";
 		next;
-		mes "[Assassin 'Khai']";
-		mes "Well...";
-		mes "It's been a long time since";
-		mes "I've met such a big failure.";
+		mes "[Assassino 'Khai']";
+		mes "Bem...";
+		mes "Já faz muito tempo desde";
+		mes "Eu conheci um fracasso tão grande.";
 		next;
-		mes "[Assassin 'Khai']";
-		mes "HAH!";
-		mes "Hahahahah~!";
-		mes "Oh, you're killing me....";
+		mes "[Assassino 'Khai']";
+		mes "Hah!";
+		mes "Hahahahah ~!";
+		mes "Oh, você está me matando ....";
 		next;
-		mes "[Assassin 'Khai']";
-		mes "Sorry for laughing, but this is hilarious! Hahaha~ So do you want me to give you some hints?";
+		mes "[Assassino 'Khai']";
+		mes "Desculpe por rir, mas isso é hilário! Hahaha ~ Então você quer que eu lhe dê algumas dicas?";
 		next;
-		switch(select("I beg you, give me hints.:Don't laugh at me! Now, give me hints!:...Shut up, I don't need your help!")) {
+		switch(select("Eu imploro, dê -me dicas .: Não ri de mim! Agora, dê -me dicas !: ... Cale a boca, não preciso da sua ajuda!")) {
 		case 1:
-			mes "[Assassin 'Khai']";
-			mes "Haaahahahaha!!!";
-			mes "Well well, aren't we honest. You're not even an Assassin yet, but you're killing me, I tell you, killing me!";
+			mes "[Assassino 'Khai']";
+			mes "Sonhar !!!";
+			mes "Bem, bem, não somos honestos. Você ainda não é um assassino, mas está me matando, eu digo, me matando!";
 			next;
-			mes "[The Anonymous One]";
-			mes "Ho ho ho...";
+			mes "[O anônimo]";
+			mes "Eu tenho eu ...";
 			next;
-			mes "[Assassin 'Khai']";
-			mes "Did you hear that Anonymous one?! 'I beg you, give me hints.' Hahahah!";
+			mes "[Assassino 'Khai']";
+			mes "Você ouviu aquele anônimo?! 'Eu imploro, me dê dicas.' Hahahah!";
 			next;
-			mes "[The Anonymous One]";
-			mes "Yes.";
-			mes "This one is quite hilarious";
-			mes "in a pathetic sort of way.";
+			mes "[O anônimo]";
+			mes "Sim.";
+			mes "Este é bastante hilário";
+			mes "de uma maneira patética.";
 			next;
-			mes "[Assassin 'Khai']";
-			mes "Hahahahahahah!";
-			mes "Soooooo, you wanted";
-			mes "some hints, right?";
+			mes "[Assassino 'Khai']";
+			mes "Hahahahahahahah!";
+			mes "Tããão, você queria";
+			mes "Algumas dicas, certo?";
 			next;
-			mes "[Assassin 'Khai']";
+			mes "[Assassino 'Khai']";
 			mes "...";
 			next;
-			mes "[Assassin 'Khai']";
+			mes "[Assassino 'Khai']";
 			mes "...";
 			mes "......";
 			next;
-			mes "[Assassin 'Khai']";
+			mes "[Assassino 'Khai']";
 			mes "...";
 			mes "......";
 			mes ".........";
 			next;
-			mes "[Assassin 'Khai']";
+			mes "[Assassino 'Khai']";
 			mes "...";
 			mes "......";
 			mes ".........";
 			mes "............";
 			next;
-			mes "[Assassin 'Khai']";
+			mes "[Assassino 'Khai']";
 			mes "...";
 			mes "......";
 			mes ".........";
 			mes "............";
 			mes "...............";
 			next;
-			mes "[Assassin 'Khai']";
-			mes "Nah.";
-			mes "I changed my mind!";
-			mes "I'm not gonna give you any hints after all. Hee hee hee~";
+			mes "[Assassino 'Khai']";
+			mes "Agora.";
+			mes "Eu mudei de idéia!";
+			mes "Afinal, eu não vou te dar nenhuma dica. Hee hee hee ~";
 			close;
 		case 2:
-			mes "[Assassin 'Khai']";
+			mes "[Assassino 'Khai']";
 			if (Sex == SEX_MALE) {
-				mes "Huh. You must have a lot of self confidence to be a Thief nowadays.";
+				mes "Huh. Você deve ter muita autoconfiança para ser um ladrão hoje em dia.";
 				next;
-				mes "[Assassin 'Khai']";
-				mes "Yeah yeah, I understand. Everyone messes up from time to time. Sorry for laughing at your mistakes.";
+				mes "[Assassino 'Khai']";
+				mes "Sim, sim, eu entendo. Todo mundo estraga tudo de vez em quando. Desculpe por rir de seus erros.";
 			}
 			else
-				mes "Hmm. I like your attitude. You should keep your pride as a Thief. Sorry for laughing at your mistakes. I think you'll do better next time.";
+				mes "Hum. Eu gosto da sua atitude. Você deve manter seu orgulho como um ladrão. Desculpe por rir de seus erros. Eu acho que você se sairá melhor da próxima vez.";
 			next;
-			mes "[Assassin 'Khai']";
-			mes "I'm not allowed to give you hints, I can tell you more about being an Assassin...";
+			mes "[Assassino 'Khai']";
+			mes "Não tenho permissão para lhe dar dicas, posso falar mais sobre ser um assassino ...";
 			next;
-			mes "[Assassin 'Khai']";
-			mes "Above all else, we value our dignity. We're Assassins, after all and people will need us.";
+			mes "[Assassino 'Khai']";
+			mes "Acima de tudo, valorizamos nossa dignidade. Afinal, somos assassinos e as pessoas precisarão de nós.";
 			next;
-			mes "[Assassin 'Khai']";
-			mes "If people are close to you in some way, they might not understand what I'm saying. We're born to be loners due to our nature.";
+			mes "[Assassino 'Khai']";
+			mes "Se as pessoas estão perto de você de alguma forma, elas podem não entender o que estou dizendo. Nascemos para serem solitários devido à nossa natureza.";
 			next;
-			mes "[Assassin 'Khai']";
-			mes "Imagine if a lover or a friend saw the blood on your hands. There's a chance that they might not stay with you.";
+			mes "[Assassino 'Khai']";
+			mes "Imagine se um amante ou um amigo visse o sangue em suas mãos. Há uma chance de que eles não fiquem com você.";
 			next;
-			mes "[Assassin 'Khai']";
-			mes "Sometimes it gets lonely but it's not that bad. At least I can do what I want to do, you know, and do things my way.";
+			mes "[Assassino 'Khai']";
+			mes "Às vezes fica sozinho, mas não é tão ruim assim. Pelo menos eu posso fazer o que quero, você sabe, e fazer as coisas do meu jeito.";
 			next;
-			mes "[Assassin 'Khai']";
-			mes "Well, that's all I can tell you for now. Does being an Assassin";
-			mes "seem depressing to you?";
+			mes "[Assassino 'Khai']";
+			mes "Bem, é tudo o que posso te dizer por enquanto. Ser um assassino";
+			mes "parece deprimente para você?";
 			close;
 		case 3:
-			mes "[Assassin 'Khai']";
-			mes "...Hm.";
+			mes "[Assassino 'Khai']";
+			mes "... hm.";
 			next;
-			mes "[Assassin 'Khai']";
-			mes "Right, that's the spirit. Don't ever let anyone else look down";
-			mes "on you. We're Assassins...";
+			mes "[Assassino 'Khai']";
+			mes "Certo, esse é o espírito. Nunca deixe mais ninguém olhar para baixo";
+			mes "em você. Somos assassinos ...";
 			next;
-			mes "[Assassin 'Khai']";
-			mes "I apologize for laughing at you earlier. I want you to remember to keep that sense of pride and dignity as an Assassin.";
+			mes "[Assassino 'Khai']";
+			mes "Peço desculpas por rir de você mais cedo. Quero que você se lembre de manter esse sentimento de orgulho e dignidade como assassino.";
 			next;
-			mes "[Assassin 'Khai']";
-			mes "Along with keeping your pride,";
-			mes "I want that you respect the blood that may stain your Katar or Dagger.";
+			mes "[Assassino 'Khai']";
+			mes "Junto com manter seu orgulho,";
+			mes "Eu quero que você respeite o sangue que pode manchar seu katar ou adaga.";
 			next;
-			if (select("...Got you.:...I'm confused.") == 1) {
-				mes "[Assassin 'Khai']";
-				mes "Yeah, I can trust you now. Let me give you some important tips.";
+			if (select("... peguei você .:... Estou confuso.") == 1) {
+				mes "[Assassino 'Khai']";
+				mes "Sim, eu posso confiar em você agora. Deixe -me dar -lhe algumas dicas importantes.";
 				next;
 				switch(rand(1,3)) {
 				case 1:
-					mes "[Assassin 'Khai']";
-					mes "First of all, Grimtooth is ...A skill specifically for the Katar. Therefore, it doesn't require any skills related to Dagger weapons.";
+					mes "[Assassino 'Khai']";
+					mes "Primeiro de tudo, Grimtooth é ... uma habilidade especificamente para o katar. Portanto, não requer habilidades relacionadas às armas de adaga.";
 					next;
-					mes "[Assassin 'Khai']";
-					mes "Double attack ...Haven't you tried it? It allows you to attack an enemy twice at a time.";
+					mes "[Assassino 'Khai']";
+					mes "Ataque duplo ... você não tentou? Ele permite que você ataque um inimigo duas vezes por vez.";
 					next;
-					mes "[Assassin 'Khai']";
-					mes "Red Blood is an elemental stone, Blue Gemstone doesn't have to do the Assassin job at all!";
+					mes "[Assassino 'Khai']";
+					mes "O sangue vermelho é uma pedra elementar, a pedra preciosa azul não precisa fazer o trabalho de assassino!";
 					next;
-					mes "[Assassin 'Khai']";
-					mes "Have you ever seen Mages hunt Elder willow using the Cold Bolt skill? Water overpowers Fire. Water puts Fire under control, and Wind puts water under control.";
+					mes "[Assassino 'Khai']";
+					mes "Você já viu magos caçando Willow Elder usando a habilidade de parafuso frio? A água opera o fogo. A água coloca fogo sob controle e o vento coloca a água sob controle.";
 					next;
-					mes "[Assassin 'Khai']";
-					mes "As long as you stick close to the shadows, by walls and things like that, Cloaking will hide you from sight perfectly! Unless some bastard uses a certain detecting skill, you know.";
+					mes "[Assassino 'Khai']";
+					mes "Contanto que você fique perto das sombras, por paredes e coisas assim, a capuz vai esconder você da vista perfeitamente! A menos que algum bastardo use uma certa habilidade de detecção, você sabe.";
 					next;
 					break;
 				case 2:
-					mes "[Assassin 'Khai']";
-					mes "'Sharpened Legbone of Ghoul' possesses the Undead property.";
+					mes "[Assassino 'Khai']";
+					mes "'Sharned Legbone of Ghoul' possui a propriedade morta -viva.";
 					next;
-					mes "[Assassin 'Khai']";
-					mes "What kind of weapon have you used so far? Damascus? Gladius? Stiletto? Or Main Gauche? What is that you're carrying now?";
+					mes "[Assassino 'Khai']";
+					mes "Que tipo de arma você usou até agora? Damasco? Gladius? Estilete? Ou gauche principal? O que você está carregando agora?";
 					next;
-					mes "[Assassin 'Khai']";
-					mes "It's possible to get a slotted Katar from Desert Wolf. Well, just keep that in mind. You will need this information someday.";
+					mes "[Assassino 'Khai']";
+					mes "É possível obter um katar com fenda do deserto Wolf. Bem, lembre -se disso. Você precisará dessas informações algum dia.";
 					next;
-					mes "[Assassin 'Khai']";
-					mes "You can gain a slotted Jur from a buddy living in a dark and damp place under the ground. Well, I have no idea why that dude has that weapon... Maybe he needs it to dig a hole?";
+					mes "[Assassino 'Khai']";
+					mes "Você pode ganhar um jurado com um amigo que vive em um local escuro e úmido sob o chão. Bem, eu não tenho ideia de por que esse cara tem essa arma ... talvez ele precise cavar um buraco?";
 					next;
-					mes "[Assassin 'Khai']";
-					mes "And...";
-					mes "I've always wanted a frog as a pet. But it's impossible!";
+					mes "[Assassino 'Khai']";
+					mes "E...";
+					mes "Eu sempre quis um sapo como animal de estimação. Mas é impossível!";
 					next;
-					mes "[Assassin 'Khai']";
-					mes "As far as I know, a Goblin carrying a hammer possesses the Earth property. Keep in mind that Fire overcomes the Earth property.";
+					mes "[Assassino 'Khai']";
+					mes "Até onde eu sei, um duende carregando um martelo possui a propriedade da Terra. Lembre -se de que o fogo supera a propriedade da Terra.";
 					next;
-					mes "[Assassin 'Khai']";
-					mes "You know elemental weapons? The names of Blacksmiths are engraved on them usually...";
+					mes "[Assassino 'Khai']";
+					mes "Você conhece armas elementares? Os nomes dos ferreiros estão gravados neles geralmente ...";
 					next;
 					break;
 				case 3:
-					mes "[Assassin 'Khai']";
-					mes "Sell an Elder Willow Card to a Mage as soon as you can. They are mad about the card for some reason. Doesn't it increase the INT of a character? Hmmm...";
+					mes "[Assassino 'Khai']";
+					mes "Venda um cartão Willow ancião para um mago o mais rápido possível. Eles estão loucos com o cartão por algum motivo. Não aumenta o int de um personagem? Hmmm...";
 					next;
-					mes "[Assassin 'Khai']";
-					mes "For us, Dodge and Attack is more important than defense. Don't ever think about wearing a helm. It's heavy, uncomfortable and will even block your sight.";
+					mes "[Assassino 'Khai']";
+					mes "Para nós, Dodge e ataque são mais importantes que a defesa. Nunca pense em usar leme. É pesado, desconfortável e até bloqueará sua visão.";
 					next;
-					mes "[Assassin 'Khai']";
-					mes "'Increase Dodge' allows you to have +3% flee rate per skill lvl.";
+					mes "[Assassino 'Khai']";
+					mes "'Aumentar o Dodge' permite que você tenha +3% fugir com a Taxa de Habilidade LVL.";
 					next;
-					mes "[Assassin 'Khai']";
-					mes "As I have told you repeatedly: Katar class weapons (Jamadhar/Jur/Katar etc) are two-handed!";
+					mes "[Assassino 'Khai']";
+					mes "Como eu disse a você repetidamente: as armas da classe Katar (Jamadhar/Jur/Katar etc) são duas mãos!";
 					next;
-					mes "[Assassin 'Khai']";
-					mes "City of desert... I miss my hometown, Morocc. I haven't been there for a long time. I feel like I became a Thief a few days ago. Time flies so fast...";
+					mes "[Assassino 'Khai']";
+					mes "Cidade do deserto ... sinto falta da minha cidade natal, Morocc. Eu não estou lá há muito tempo. Sinto que me tornei um ladrão há alguns dias. O tempo voa tão rápido ...";
 					next;
-					mes "[Assassin 'Khai']";
-					mes "Heh. I remember my Thief quest. I was so damn nervous when I broke into the farm to get Mushrooms...";
+					mes "[Assassino 'Khai']";
+					mes "Heh. Lembro -me da minha missão de ladrão. Eu estava tão nervoso quando invadi a fazenda para pegar cogumelos ...";
 					next;
-					mes "[Assassin 'Khai']";
-					mes "Insects detect hiding/cloaking skills. Their feelers never fail to find targets.";
+					mes "[Assassino 'Khai']";
+					mes "Os insetos detectam habilidades de esconderijo/capim. Seus sentimentos nunca deixam de encontrar alvos.";
 					next;
-					mes "[Assassin 'Khai']";
-					mes "I've heard that the Baphomet Jr. Card adds +3 points to Agility and +1 point on Critical Attack...";
+					mes "[Assassino 'Khai']";
+					mes "Ouvi dizer que o cartão Baphomet Jr. adiciona +3 pontos à agilidade e +1 pontos no ataque crítico ...";
 					next;
-					mes "[Assassin 'Khai']";
-					mes "Yeah, we Assassins specialize in training Agility. We can gain a bonus of 10 Agility points even before mastering job level. The problem is it won't go up anymore after that, you know.";
+					mes "[Assassino 'Khai']";
+					mes "Sim, assassinatos nos especializamos em treinar agilidade. Podemos ganhar um bônus de 10 pontos de agilidade mesmo antes de dominar o nível de trabalho. O problema é que não vai mais subir depois disso, você sabe.";
 					next;
 				}
-				mes "[Assassin 'Khai']";
-				mes "^666666*Phew*^000000 That's all I can tell you, though that's a lot of hints. I don't doubt that I told you almost everything.";
+				mes "[Assassino 'Khai']";
+				mes "^666666*Presidente*^000000 Isso é tudo o que posso dizer, embora isso seja muitas dicas. Não duvido que te disse quase tudo.";
 				next;
-				mes "[Assassin 'Khai']";
-				mes "Well then, go ask to take the test again with 'The Anonymous.'";
+				mes "[Assassino 'Khai']";
+				mes "Bem, então, peça para fazer o teste novamente com 'o anônimo'.";
 				close2;
 				warp "in_moc_16",19,144;
 				end;
 			}
-			mes "[Assassin 'Khai']";
-			mes "^666666*Sigh...*^000000";
-			mes "How can you not understand the concept of dignity? You just showed some to me just now!";
+			mes "[Assassino 'Khai']";
+			mes "^666666*suspiro ...*^000000";
+			mes "Como você pode não entender o conceito de dignidade? Você acabou de me mostrar um pouco para mim agora!";
 			next;
-			mes "[Assassin 'Khai']";
-			mes "Oh, I get it. It wasn't pride you were showing, you were just being a jerk!";
+			mes "[Assassino 'Khai']";
+			mes "Oh, eu entendo. Não era orgulho que você estava mostrando, você estava apenas sendo um idiota!";
 			next;
-			mes "[Assassin 'Khai']";
-			mes "Grrrrr...";
-			mes "WARP PORTAL!";
+			mes "[Assassino 'Khai']";
+			mes "Grrrrr ...";
+			mes "Portal de Warp!";
 			close2;
 			warp "c_tower4",64,76;
 			end;
 		}
 	}
 	else {
-		mes "[Assassin 'Khai']";
-		mes "Oh, you must be an Assassin trainee. You are here to become";
-		mes "an Assassin, aren't you?";
+		mes "[Assassino 'Khai']";
+		mes "Oh, você deve ser um trainee de assassino. Você está aqui para se tornar";
+		mes "Um assassino, não é?";
 		next;
-		if (select("Yes, I am. :...No, I'm not.") == 1) {
-			mes "[Assassin 'Khai']";
-			mes "Okay, good. Let's fill out the application form. Please sign your name and include your job level.";
+		if (select("Sim eu sou. : ... não, eu não estou.") == 1) {
+			mes "[Assassino 'Khai']";
+			mes "OK, bom. Vamos preencher o formulário de inscrição. Assine seu nome e inclua seu nível de trabalho.";
 			next;
-			mes "[Assassin 'Khai']";
-			mes "Let's see.";
-			mes "Your name is";
+			mes "[Assassino 'Khai']";
+			mes "Vamos ver.";
+			mes "Seu nome é";
 			mes "" + strcharinfo(0) + "...";
-			mes "Job level " + JobLevel + "...";
+			mes "Nível de trabalho" + JobLevel + "...";
 			next;
 			if (JobLevel > 48) {
-				mes "[Assassin 'Khai']";
-				mes "Wait, Job level " + JobLevel + "?! I can see you've been training pretty hard! My bosses will like this~";
+				mes "[Assassino 'Khai']";
+				mes "Espere, nível de trabalho" + JobLevel + "?! Eu posso ver que você está treinando muito! Meus chefes vão gostar ~";
 				next;
-				mes "[Assassin 'Khai']";
-				mes "Did you finish the form? Alright, go ahead and give it to me. Give me a second and I'll transport you to the Test Hall.";
+				mes "[Assassino 'Khai']";
+				mes "Você terminou o formulário? Tudo bem, vá em frente e dê para mim. Dê -me um segundo e eu o transportarei para o salão de teste.";
 				next;
-				mes "[Assassin 'Khai']";
-				mes "Alright then,";
-				mes "best of luck to you!";
+				mes "[Assassino 'Khai']";
+				mes "Tudo bem então,";
+				mes "Boa sorte para você!";
 				close2;
 				if (ASSIN_Q3 < 3)
 					ASSIN_Q3 = 1;
@@ -556,21 +556,21 @@ OnTouch_:
 				end;
 			}
 			else if (JobLevel < 49) {
-				mes "[Assassin 'Khai']";
-				mes "Well, you passed";
-				mes "the requirements.";
-				mes "Not bad at all.";
+				mes "[Assassino 'Khai']";
+				mes "Bem, você passou";
+				mes "os requisitos.";
+				mes "Nada mal.";
 				next;
-				mes "[Assassin 'Khai']";
-				mes "Go ahead and give";
-				mes "me the form when you're";
-				mes "done filling it out.";
-				mes "Alright, thanks.";
+				mes "[Assassino 'Khai']";
+				mes "Vá em frente e dê";
+				mes "eu o formulário quando você está";
+				mes "feito preenchê -lo.";
+				mes "Tudo bem, obrigado.";
 				next;
-				mes "[Assassin 'Khai']";
-				mes "I'll transport you";
-				mes "to the Test Hall.";
-				mes "Best of luck~";
+				mes "[Assassino 'Khai']";
+				mes "Vou transportar você";
+				mes "para o salão de teste.";
+				mes "Boa sorte ~";
 				close2;
 				if (ASSIN_Q3 < 3)
 					ASSIN_Q3 = 2;
@@ -580,24 +580,24 @@ OnTouch_:
 				end;
 			}
 			else {
-				mes "[Assassin 'Khai']";
-				mes "Who the";
-				mes "hell are you?";
-				mes "...Guards!";
+				mes "[Assassino 'Khai']";
+				mes "Quem o";
+				mes "Inferno, você está?";
+				mes "... Guardas!";
 				close2;
 				warp "moc_fild16",206,229;
 				end;
 			}
 		}
 		else {
-			mes "[Assassin 'Khai']";
+			mes "[Assassino 'Khai']";
 			mes "Huh...?";
-			mes "What, are you trying to trick me or something? Don't you wanna be an Assassin?";
+			mes "O que você está tentando me enganar ou algo assim? Você não quer ser um assassino?";
 			next;
-			if (select("No.:Yes, I want to be an Assassin.") == 1) {
-				mes "[Assassin 'Khai']";
-				mes "Eh, get outta here.";
-				mes "Stop wastin' my time...";
+			if (select("Não .: Sim, eu quero ser um assassino.") == 1) {
+				mes "[Assassino 'Khai']";
+				mes "Eh, saia aqui.";
+				mes "Pare de perder meu tempo ...";
 				close2;
 				ASSIN_Q = 0;
 				ASSIN_Q2 = 0;
@@ -605,26 +605,26 @@ OnTouch_:
 				warp "moc_fild16",206,229;
 				end;
 			}
-			mes "[Assassin 'Khai']";
+			mes "[Assassino 'Khai']";
 			mes "...";
-			mes "What the hell?";
-			mes "Okay, then.";
+			mes "Que diabos?";
+			mes "Ok, então.";
 			next;
-			mes "[Assassin 'Khai']";
-			mes "Fill out the application form with your name and job level.";
+			mes "[Assassino 'Khai']";
+			mes "Preencha o formulário de inscrição com seu nome e nível de trabalho.";
 			next;
-			mes "[Assassin 'Khai']";
+			mes "[Assassino 'Khai']";
 			mes "" + strcharinfo(0) + "?";
-			mes "That's your name?";
-			mes "It sounds funny.";
-			mes "Let's see... Job Level " + JobLevel + "...";
+			mes "Esse é o seu nome?";
+			mes "Parece engraçado.";
+			mes "Vamos ver ... nível de trabalho" + JobLevel + "...";
 			next;
 			if (JobLevel > 48) {
-				mes "[Assassin 'Khai']";
-				mes "Ho? Job Level " + JobLevel + "?! You must have been training really hard. The bosses will like that for sure...";
+				mes "[Assassino 'Khai']";
+				mes "Ho? Nível de trabalho" + JobLevel + "?! Você deve estar treinando muito. Os chefes vão gostar disso com certeza ...";
 				next;
-				mes "[Assassin 'Khai']";
-				mes "Are you done filling out the form? Alright, give it to me so I can send you to the Test Hall. Good luck~";
+				mes "[Assassino 'Khai']";
+				mes "Você terminou de preencher o formulário? Tudo bem, dê para mim para que eu possa enviá -lo para a sala de teste. Boa sorte ~";
 				next;
 				if (ASSIN_Q3 < 3)
 					ASSIN_Q3 = 1;
@@ -634,12 +634,12 @@ OnTouch_:
 				end;
 			}
 			else if (JobLevel < 49) {
-				mes "[Assassin 'Khai']";
-				mes "Not bad. You fulfilled our requirements. Not bad at all. Now are you done filling out the form?";
+				mes "[Assassino 'Khai']";
+				mes "Nada mal. Você atendeu aos nossos requisitos. Nada mal. Agora você terminou de preencher o formulário?";
 				next;
-				mes "[Assassin 'Khai']";
-				mes "Then give me the form so that I can send you to the Test Hall, alright?";
-				mes "Good luck...";
+				mes "[Assassino 'Khai']";
+				mes "Então me dê o formulário para que eu possa enviá -lo para a sala de teste, tudo bem?";
+				mes "Boa sorte...";
 				next;
 				if (ASSIN_Q3 < 3)
 					ASSIN_Q3 = 2;
@@ -649,10 +649,10 @@ OnTouch_:
 				end;
 			}
 			else {
-				mes "[Assassin 'Khai']";
-				mes "How the hell did";
-				mes "you get in here?";
-				mes "Get out!";
+				mes "[Assassino 'Khai']";
+				mes "Como diabos";
+				mes "Você entra aqui?";
+				mes "Sair!";
 				close2;
 				warp "moc_fild16",206,229;
 				end;
@@ -665,335 +665,335 @@ in_moc_16,19,154,0	script	nameless_one	-1,8,2,{
 OnTouch_:
 	if (ASSIN_Q2 < 5) {
 		if (ASSIN_Q2 < 3) {
-			mes "[The Anonymous One]";
-			mes "Welcome, guest.";
-			mes "Mwahaha, it's useless";
-			mes "to try to find or see me...";
+			mes "[O anônimo]";
+			mes "Bem -vindo, convidado.";
+			mes "Mwahaha, é inútil";
+			mes "tentar me encontrar ou me ver ...";
 			next;
-			mes "[The Anonymous One]";
-			mes "I am perfectly hidden!";
-			mes "To become undetectable can only be done by the greatest Assassins!";
+			mes "[O anônimo]";
+			mes "Estou perfeitamente escondido!";
+			mes "Tornar -se indetectável só pode ser feito pelos maiores assassinos!";
 			next;
-			mes "[The Anonymous One]";
-			mes "Aren't you scared that you can't see me? I could kill you at any time and it would be so easy...";
+			mes "[O anônimo]";
+			mes "Você não tem medo de não me ver? Eu poderia te matar a qualquer momento e seria tão fácil ...";
 			next;
-			if (select("I think I crapped my pants!:You're all talk. I challenge you!") == 1) {
-				mes "[The Anonymous One]";
-				mes "Now I see that";
-				mes "you're nothing";
-				mes "but a wimp.";
+			if (select("Eu acho que caciquei minhas calças !: Vocês todos conversam. Eu te desafio!") == 1) {
+				mes "[O anônimo]";
+				mes "Agora eu vejo isso";
+				mes "Você não é nada";
+				mes "Mas um covarde.";
 				next;
-				mes "[The Anonymous One]";
+				mes "[O anônimo]";
 				mes "Bwahahahahahah!";
-				mes "Stop cowering in fear!";
-				mes "It's making me laugh!";
+				mes "Pare de encolher -se com medo!";
+				mes "Isso está me fazendo rir!";
 				close;
 			}
-			mes "[The Anonymous One]";
-			mes "So...";
-			mes "You wish for";
-			mes "a challenge?";
-			mes "From me?!";
+			mes "[O anônimo]";
+			mes "Então...";
+			mes "Você deseja";
+			mes "um desafio?";
+			mes "De mim?!";
 			next;
-			mes "[The Anonymous One]";
-			mes "A river of blood follows my every footstep. I am nameless, for the sting of my blades is all anyone needs to know.";
+			mes "[O anônimo]";
+			mes "Um rio de sangue segue meu passo. Estou sem nome, pois a picada das minhas lâminas é tudo o que alguém precisa saber.";
 			next;
-			mes "[The Anonymous One]";
-			mes "I am here to test your knowledge, as well as your capacity for heartlessness. Those are both necessary to become an Assassin.";
+			mes "[O anônimo]";
+			mes "Estou aqui para testar seu conhecimento, bem como sua capacidade de falta de coração. Ambos são necessários para se tornar um assassino.";
 			next;
-			mes "[The Anonymous One]";
-			mes "For your challenge, you must";
-			mes "answer my questions correctly. Very difficult questions that only an Assassin can answer.";
+			mes "[O anônimo]";
+			mes "Para o seu desafio, você deve";
+			mes "Responda às minhas perguntas corretamente. Perguntas muito difíceis que apenas um assassino pode responder.";
 			next;
-			mes "[The Anonymous One]";
-			mes "Although I am heartless,";
-			mes "I am not necessarily cruel. Before we proceed, is there anything you wish to know?";
+			mes "[O anônimo]";
+			mes "Embora eu esteja sem coração,";
+			mes "Eu não sou necessariamente cruel. Antes de prosseguir, há algo que você deseja saber?";
 			next;
 			ASSIN_Q2 = 0;
 			while(ASSIN_Q2 < 3) {
-				switch(select("...Skills?:...Stats?:Hmpf, I know it all.")) {
+				switch(select("... Habilidades ?: ... Estatísticas ?: HMPF, eu sei tudo.")) {
 				case 1:
-					mes "[The Anonymous One]";
-					mes "Skills...?";
-					mes "Although skills can have circumstantial applications, I will tell you about the basic concepts.";
+					mes "[O anônimo]";
+					mes "Habilidades...?";
+					mes "Embora as habilidades possam ter aplicações circunstanciais, vou falar sobre os conceitos básicos.";
 					next;
-					mes "[The Anonymous One]";
-					mes "First, ^3355FFKatar Mastery^000000. This skill increases the damage of Katar class weapons. The higher the skill level, the more damage is increased.";
+					mes "[O anônimo]";
+					mes "Primeiro, ^3355ffkatar domínio ^000000. Essa habilidade aumenta os danos das armas da classe Katar. Quanto maior o nível de habilidade, mais danos aumentará.";
 					next;
-					mes "[The Anonymous One]";
-					mes "^3355FFLeft Hand Mastery^000000 and ^3355FFRight Hand Mastery^000000. Assassins can equip different weapons in each hand when using Dagger class weapons.";
+					mes "[O anônimo]";
+					mes "^3355fleft Hand Mastery^000000 e^3355ffright Hand Mastery^000000. Assassinos podem equipar armas diferentes em cada mão ao usar armas de classe de punhal.";
 					next;
-					mes "[The Anonymous One]";
-					mes "But it is obviously more difficult to handle 2 weapons at a time than using just one. The Left and Right Hand Mastery skills increase the damage when using two Daggers.";
+					mes "[O anônimo]";
+					mes "Mas é obviamente mais difícil lidar com 2 armas de cada vez do que usar apenas uma. As habilidades de domínio esquerdo e direito aumentam os danos ao usar dois punhais.";
 					next;
-					mes "[The Anonymous One]";
-					mes "However, if you don't want to use two Daggers, you won't need this skill. You will see how 'Left Hand Mastery' works as soon as you reach 'Right Hand Mastery' Level 2.";
+					mes "[O anônimo]";
+					mes "No entanto, se você não quiser usar dois punhais, não precisará dessa habilidade. Você verá como funciona o 'domínio da mão esquerda' assim que chegar ao nível 2 do 'domínio da mão direita'.";
 					next;
-					mes "[The Anonymous One]";
-					mes "^3355FFSonic Blow^000000 allows you to strike an enemy 8 times at once. This skill only works with Katar weapons because of the speed it requires.";
+					mes "[O anônimo]";
+					mes "^3355ffsonic Blow^000000 permite que você atinja um inimigo 8 vezes ao mesmo tempo. Essa habilidade funciona apenas com armas de katar devido à velocidade necessária.";
 					next;
-					mes "[The Anonymous One]";
-					mes "Of course, the damage is affected by STR and weapon damage. You'll understand how this skill works when you reach Level 4 Katar Mastery.";
+					mes "[O anônimo]";
+					mes "Obviamente, o dano é afetado por STR e danos à arma. Você entenderá como essa habilidade funciona quando você atingir o domínio do nível 4 de Katar.";
 					next;
-					mes "[The Anonymous One]";
-					mes "^3355FFGrimtooth^000000 allows you to attack enemies while hiding under the ground. As you master it, you'll be able to attack foes from a distance.";
+					mes "[O anônimo]";
+					mes "^3355ffgrimtooth^000000 permite atacar inimigos enquanto se esconde sob o solo. Enquanto você o domina, você poderá atacar inimigos à distância.";
 					next;
-					mes "[The Anonymous One]";
-					mes "Since it's a ranged attack, it can be very useful when you're surrounded by enemies.";
+					mes "[O anônimo]";
+					mes "Como é um ataque à distância, pode ser muito útil quando você está cercado por inimigos.";
 					next;
-					mes "[The Anonymous One]";
-					mes "Because you're required to perfectly hide yourself to use this skill, you must first learn Level 2 Cloaking before you can learn Grimtooth.";
+					mes "[O anônimo]";
+					mes "Como você é obrigado a se esconder perfeitamente para usar essa habilidade, você deve primeiro aprender o Coberto de Nível 2 antes de aprender o Grimtooth.";
 					next;
-					mes "[The Anonymous One]";
-					mes "To learn ^3355FFCloaking^000000, you must learn Level 2 Hiding. Then you will be able to move while hiding if you are close to a wall.";
+					mes "[O anônimo]";
+					mes "Para aprender ^3355ffcloaking ^000000, você deve aprender o nível 2 de nível 2. Então você poderá se mover enquanto estiver escondido se estiver perto de uma parede.";
 					next;
-					mes "[The Anonymous One]";
-					mes "The ^3355FFEnchant Poison^000000 skill allows you to enchant poison on the weapon you're using. This will temporarily give the weapon the Poison property.";
+					mes "[O anônimo]";
+					mes "A habilidade ^3355FENCHANT POUNNE ^000000 permite encantar o veneno na arma que você está usando. Isso dará temporariamente à arma a propriedade venenosa.";
 					next;
-					mes "[The Anonymous One]";
-					mes "This will also make your attacks poison the enemy by chance. You can also use this skill to enchant the weapons of your party members...";
+					mes "[O anônimo]";
+					mes "Isso também fará seus ataques envenenar o inimigo por acaso. Você também pode usar essa habilidade para encantar as armas dos membros do seu partido ...";
 					next;
-					mes "[The Anonymous One]";
-					mes "^3355FFPoison React^000000 shields the user from attacks with the Poison property, and can be used on other people as well. However, you must learn Level 3 Enchant Poison first.";
+					mes "[O anônimo]";
+					mes "^3355ffpoison reaja^000000 protege o usuário dos ataques com a propriedade Poison e também pode ser usado em outras pessoas. No entanto, você deve aprender primeiro o veneno encantador de nível 3.";
 					next;
-					mes "[The Anonymous One]";
-					mes "^3355FFVenom Dust^000000 consumes a Red Gemstone to contaminate an area with poison. The duration of contamination increases with the level of this skill.";
+					mes "[O anônimo]";
+					mes "^3355fvenom poeira^000000 consome uma pedra preciosa vermelha para contaminar uma área com veneno. A duração da contaminação aumenta com o nível dessa habilidade.";
 					next;
-					mes "[The Anonymous One]";
-					mes "You can learn the Venom Dust skill after you learn Level 5 Enchant Poison.";
+					mes "[O anônimo]";
+					mes "Você pode aprender a habilidade de poeira do veneno depois de aprender veneno encantado no nível 5.";
 					next;
-					mes "[The Anonymous One]";
-					mes "^3355FFVenom Splasher^000000 is a skill that, after it is used on a target, will cause it to explode when its HP is less than a certain amount after three seconds.";
+					mes "[O anônimo]";
+					mes "^3355ffevenom splasher^000000 é uma habilidade que, depois de ser usada em um alvo, fará com que ele exploda quando o HP for menor que uma certa quantidade após três segundos.";
 					next;
-					mes "[The Anonymous One]";
-					mes "When the target explodes, the enemies in the vicinity are also damaged. This is an essential skill for Assassins. It requires Level 5 Poison React and Level 5 Venom Dust.";
+					mes "[O anônimo]";
+					mes "Quando o alvo explode, os inimigos nas proximidades também são danificados. Essa é uma habilidade essencial para assassinos. Requer reação de veneno de nível 5 e poeira de veneno de nível 5.";
 					next;
-					mes "[The Anonymous One]";
-					mes "Now...";
-					mes "That's all I have to tell you";
-					mes "about Assassin skills.";
+					mes "[O anônimo]";
+					mes "Agora...";
+					mes "Isso é tudo que tenho que te dizer";
+					mes "sobre habilidades de assassino.";
 					ASSIN_Q2 = 1;
 					next;
 					break;
 				case 2:
-					mes "[The Anonymous One]";
-					mes "Hmm, Stats...";
-					mes "For Assassins, Agility, or AGI, is the most important stat.";
+					mes "[O anônimo]";
+					mes "Hmm, estatísticas ...";
+					mes "Para assassinos, agilidade ou AGI, é a estatística mais importante.";
 					next;
-					mes "[The Anonymous One]";
-					mes "For the sake of assassination, STR is probably the second most important stat. But that is only my recommendation.";
+					mes "[O anônimo]";
+					mes "Por uma questão de assassinato, o STR é provavelmente a segunda estatística mais importante. Mas essa é apenas minha recomendação.";
 					next;
-					mes "[The Anonymous One]";
-					mes "I cannot give you better advice than that in regards to Stats. You should research and see which stats suit you, and decide what kind of Assassin you want to be.";
+					mes "[O anônimo]";
+					mes "Não posso lhe dar melhores conselhos do que isso em relação às estatísticas. Você deve pesquisar e ver quais estatísticas combinam com você e decidir que tipo de assassino você quer ser.";
 					ASSIN_Q2 = 2;
 					next;
 					break;
 				case 3:
 					if (ASSIN_Q2 == 0) {
-						mes "[The Anonymous One]";
-						mes "Know everything do you?!";
-						mes "I'll be the judge of that!";
+						mes "[O anônimo]";
+						mes "Sabe tudo você?!";
+						mes "Eu serei o juiz disso!";
 						next;
 					}
 					ASSIN_Q2 = 3;
 					break;
 				}
 			}
-			mes "[The Anonymous One]";
-			mes "Hmpf. It is now time to test your knowledge. You are not allowed to miss more than one question.";
+			mes "[O anônimo]";
+			mes "HMPF. Agora é hora de testar seu conhecimento. Você não tem permissão para perder mais de uma pergunta.";
 			next;
-			mes "[The Anonymous One]";
-			mes "In other words, if you want to pass this test, you must give me 9 correct answers out of 10 questions. I won't let you know which answer you got wrong...";
+			mes "[O anônimo]";
+			mes "Em outras palavras, se você quiser passar neste teste, deve me dar 9 respostas corretas em 10 perguntas. Não vou deixar você saber qual resposta você entendeu ...";
 			next;
-			mes "[The Anonymous One]";
-			mes "Are you ready?";
-			mes "Prepare yourself!";
+			mes "[O anônimo]";
+			mes "Você está pronto?";
+			mes "Prepare -se!";
 		}
 		else if (ASSIN_Q2 < 5) {
-			mes "[The Anonymous One]";
-			mes "Having problems";
-			mes "passing a simple test?";
-			mes "You should have";
-			mes "known better.";
+			mes "[O anônimo]";
+			mes "Tendo problemas";
+			mes "passando um teste simples?";
+			mes "Você deveria ter";
+			mes "conhecido melhor.";
 			next;
-			if (select("Help me, how do I pass?:I challenge you again!") == 1) {
-				mes "[The Anonymous One]";
-				mes "Well, that's a damn good question. But you're banished from the Assassin Guild, so it's no concern of mine...";
+			if (select("Ajude -me, como faço para passar ?: Eu o desafio de novo!") == 1) {
+				mes "[O anônimo]";
+				mes "Bem, essa é uma pergunta muito boa. Mas você é banido do Assassino Guild, então não é uma preocupação minha ...";
 				close2;
 				warp "moc_fild16",206,151;
 				end;
 			}
-			mes "[The Anonymous One]";
-			mes "So I see...";
-			mes "Now go, but do not fear. I will be by your side as you learn the outcome of your choice...";
+			mes "[O anônimo]";
+			mes "Então eu vejo ...";
+			mes "Agora vá, mas não tema. Estarei ao seu lado enquanto você aprende o resultado de sua escolha ...";
 			next;
-			mes "[The Anonymous One]";
-			mes "Now, we shall test you once more! Keep in mind, you must answer 9 questions out of 10 correctly. Remember I am doing you a favor...";
+			mes "[O anônimo]";
+			mes "Agora, te testaremos mais uma vez! Lembre -se de que você deve responder a 9 perguntas de 10 corretamente. Lembre -se de que estou fazendo um favor a você ...";
 			next;
-			mes "[The Anonymous One]";
-			mes "You must answer 9 questions out of 10 correctly. If you miss more than one question, you can never become an Assassin.";
+			mes "[O anônimo]";
+			mes "Você deve responder a 9 perguntas de 10 corretamente. Se você perder mais de uma pergunta, nunca poderá se tornar um assassino.";
 			next;
-			mes "[The Anonymous One]";
-			mes "Okay,";
-			mes "are you ready?";
-			mes "Good luck.";
+			mes "[O anônimo]";
+			mes "OK,";
+			mes "Você está pronto?";
+			mes "Boa sorte.";
 		}
 		next;
 		switch(rand(1,3)) {
 		case 1:
-			mes "[The Anonymous One]";
-			mes "1. Choose skill that is not required to learn Grimtooth.";
+			mes "[O anônimo]";
+			mes "1. Escolha Habilidade que não é necessária para aprender Grimtooth.";
 			next;
-			if (select("Cloaking level 2:Sonic Blow level 5:Katar Mastery level 4:Right hand Mastery level 2") == 4)
+			if (select("Nível 2 de Clawing 2: Sonic Blow Nível 5: Katar Domínio Nível 4: Direita Dominada Nível 2") == 4)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "2. What property does Enchant Poison possess?";
+			mes "[O anônimo]";
+			mes "2. Que propriedade possui veneno encantador?";
 			next;
-			if (select("Poison:Earth:Fire:Wind") == 1)
+			if (select("Poison: Terra: Fogo: Vento") == 1)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "3. How does Level 4 Right Hand Mastery work?";
+			mes "[O anônimo]";
+			mes "3. Como funciona o domínio da mão direita do nível 4?";
 			next;
-			if (select("Recover 80% of damage decrease:Recover 90% of damage decrease:Increase 90% of damage:Increase 108% of damage") == 2)
+			if (select("Recuperar 80% da queda de danos: recuperar 90% da queda de danos: Aumente 90% dos danos: Aumente 108% dos danos") == 2)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "4. What is the item required for using Venom Dust?";
+			mes "[O anônimo]";
+			mes "4. Qual é o item necessário para usar poeira do veneno?";
 			next;
-			if (select("Red Blood:Blue Gemstone:Yellow Gemstone:Red Gemstone") == 4)
+			if (select("Blood Red: Pedido Blue: Amarelo Pedaço: pedra preciosa vermelha") == 4)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "5. Which skill can you learn when you reach Level 5 Enchant Poison?";
+			mes "[O anônimo]";
+			mes "5. Qual habilidade você pode aprender quando atinge o nível 5 de veneno encantador?";
 			next;
-			if (select("Envenom:Sonic Blow:Venom Splasher:Venom Dust") == 4)
+			if (select("Envenom: Sonic Blow: Venom Splasher: Poeira de Venom") == 4)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "6. Among the following skills, which allows you to walk while invisible?";
+			mes "[O anônimo]";
+			mes "6. Entre as seguintes habilidades, o que permite que você ande enquanto invisível?";
 			next;
-			if (select("Hiding:Back Slide:Cloaking:Sand Attack") == 3)
+			if (select("Escondimento: Slide traseiro: Cobalo: ataque de areia") == 3)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "7. Choose the condition that is unrelated to Venom Splasher.";
+			mes "[O anônimo]";
+			mes "7. Escolha a condição que não está relacionada ao Venom Splasher.";
 			next;
-			if (select("Poisoned target.:Red Gemstone.:Remaing HP of Target.") == 2)
+			if (select("Target envenenado.: Pedra preciosa.") == 2)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "8. Which monster is weak to a weapon with Vadon card (adds 20% damage on Fire property monster)?";
+			mes "[O anônimo]";
+			mes "8. Qual monstro é fraco de uma arma com cartão Vadon (acrescenta 20% de dano ao monstro da propriedade de incêndio)?";
 			next;
-			if (select("Steel Chonchon:Deviruchi:Elder Willow:Baphomet") == 3)
+			if (select("Aço Chonchon: Deviruchi: Willow do Élder: Baphomet") == 3)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "9. How much SP does";
-			mes "Double Attack need?";
+			mes "[O anônimo]";
+			mes "9. Quanto SP faz";
+			mes "Necessidade de ataque duplo?";
 			next;
-			if (select("15:It's a passive skill, so SP use is 0.:It's passive skill, so SP use is 10.:54") == 2)
+			if (select("15: É uma habilidade passiva, então o uso do SP é 0.: É uma habilidade passiva, então o uso do SP é 10.:54") == 2)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "10. What is the best elemental Main Gauche weapon for hunting in Izlude dungeon?";
+			mes "[O anônimo]";
+			mes "10. Qual é a melhor arma de gauche elementar para caçar na masmorra de Izlude?";
 			next;
-			if (select("Wind Main Gauche:Ice Main Gauche:Earth Main Gauche:Fire Main Gauche") == 1)
+			if (select("Vento esquerdo: Mão esquerda: Terra Mão esquerda: Fire a mão esquerda") == 1)
 				.@assassin_t += 10;
 			break;
 		case 2:
-			mes "[The Anonymous One]";
-			mes "1. Which monster";
-			mes "drops a slotted Katar?";
+			mes "[O anônimo]";
+			mes "1. Qual monstro";
+			mes "Droga um katar com fenda?";
 			next;
-			if (select("Thief Bug:Peco Peco:Desert Wolf:Hammer Cobolt") == 3)
+			if (select("Bug de ladrão: PECO PECO: Desert Wolf: Hammer Cobolt") == 3)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "2. Which monster";
-			mes "drops a slotted Jur?";
+			mes "[O anônimo]";
+			mes "2. Qual monstro";
+			mes "Droga um Jur com fenda?";
 			next;
-			if (select("Martin:Desert Wolf:Marionette:Myst") == 1)
+			if (select("Martin: Desert Wolf: Marionette: Myst") == 1)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "3. Which class is allowed to craft elemental weapons?";
+			mes "[O anônimo]";
+			mes "3. Qual classe é permitida criar armas elementares?";
 			next;
-			if (select("Merchant:Blacksmith:Thief:Priest") == 2)
+			if (select("Mercador: Blacksmith: Thief: Sacerdote") == 2)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "4. Choose the weapon which is not in the Katar class.";
+			mes "[O anônimo]";
+			mes "4. Escolha a arma que não está na classe Katar.";
 			next;
-			if (select("Jamadhar:Jur:Katar:Gladius") == 4)
+			if (select("Jamdhar: Juntar: Catar: Gladius") == 4)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "5. What property do Izlude dungeon monsters posses?";
+			mes "[O anônimo]";
+			mes "5. Que propriedade os monstros da masmorra izlude possuem?";
 			next;
-			if (select("Water:Fire:Wind:Earth") == 1)
+			if (select("Água: Fogo: Vento: Terra") == 1)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "6. Which monster";
-			mes "cannot be a Cute Pet?";
+			mes "[O anônimo]";
+			mes "6. Qual monstro";
+			mes "Não pode ser um animal de estimação fofo?";
 			next;
 			if (select("Poporing:Roda Frog:Smokie:Poison Spore") == 2)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "7. Choose a monster that Fire property Daggers work the best on.";
+			mes "[O anônimo]";
+			mes "7. Escolha um monstro que os punhais de imóveis atendam melhor.";
 			next;
-			if (select("Dagger Goblin:Mace Goblin:Morning Star Goblin:Hammer Goblin") == 4)
+			if (select("Dagger Goblin: Mace Goblin: Morning Star Goblin: Hammer Goblin") == 4)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "8. Choose the non-elemental Katar from the following:";
+			mes "[O anônimo]";
+			mes "8. Escolha o katar não elementente entre o seguinte:";
 			next;
-			if (select("Katar of Raging Blaze:Katar of Dusty Thornbush:Sharpened Legbone of Ghoul:Infiltrator") == 4)
+			if (select("Katar de Raging Blaze: Katar de Dusty Thornbush: Legno de Ghoul afiado: Infiltrador") == 4)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "9. Which is the uncommon monster?";
+			mes "[O anônimo]";
+			mes "9. Qual é o monstro incomum?";
 			next;
-			if (select("Poring:Mastering:Ghostring:Spore") == 3)
+			if (select("Poring: Mastering: Ghostring: Spore") == 3)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "10. Choose the monster";
-			mes "that is not Undead.";
+			mes "[O anônimo]";
+			mes "10. Escolha o monstro";
+			mes "Isso não é morto -vivo.";
 			next;
-			if (select("Drake:Megalodon:Spore:Khalitzburg") == 3)
+			if (select("Drake: Megalodon: Spore: Khalitzburg") == 3)
 				.@assassin_t += 10;
 			break;
 		case 3:
-			mes "[The Anonymous One]";
-			mes "1. Choose the correct amount of the maximum dodge rate increase from the 'Increase Dodge' skill when at level 10.";
+			mes "[O anônimo]";
+			mes "1. Escolha a quantidade correta do aumento da taxa de esquiva máxima em relação à habilidade 'Aumente Dodge' quando no nível 10.";
 			next;
 			if (select("30:40:160:20") == 1)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "2. Choose a monster which detects hiding/cloaking Thieves and Assassins.";
+			mes "[O anônimo]";
+			mes "2. Escolha um monstro que detecte ladrões e assassinos de esconderijo/capim.";
 			next;
-			if (select("Worm Tail:Andre:Mummy:Soldier Skeleton") == 2)
+			if (select("Worm Tail: Andre: Mamãe: Esqueleto de Soldado") == 2)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "3. Choose a group of weapons that cannot be used by an Assassin at once.";
+			mes "[O anônimo]";
+			mes "3. Escolha um grupo de armas que não possam ser usadas por um assassino de uma só vez.";
 			next;
-			if (select("Main Gaughe + Gladius:Stiletto + Main Gauche:Katar + Maingauche:Hammer + Stiletto") == 3)
+			if (select("Medidor Principal + Gladius: Stiletto + Gauche Principal: Katar + Maingauche: Hammer + Stiletto") == 3)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "4. Choose the town where Thieves can change their jobs.";
+			mes "[O anônimo]";
+			mes "4. Escolha a cidade onde os ladrões podem mudar de emprego.";
 			next;
-			if (select("Prontera:Lutie:Alberta:Morocc") == 4)
+			if (select("Pronntera: Lutie: Alberta: Morocc") == 4)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "5. Choose a card that does not affect the AGI stat.";
+			mes "[O anônimo]";
+			mes "5. Escolha um cartão que não afete o AGI Stat.";
 			next;
-			if (select("Baphomet Jr. card:Whisper Card:Female Thiefbug card:Male Thiefbug card") == 2)
+			if (select("Cartão Baphomet Jr.") == 2)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "6. Choose the correct specialty of the Assassin class.";
+			mes "[O anônimo]";
+			mes "6. Escolha a especialidade correta da classe Assassin.";
 			next;
-			if (select("Excellent singing talent:Excellent reading talent:Excellent dancing talent:Excellent dodge ability") == 4)
+			if (select("Excelente talento para cantar: excelente talento de leitura: Excelente talento de dança: excelente habilidade Dodge") == 4)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "7. Choose the maximum AGI bonus an Assassin can get at job level 50.";
+			mes "[O anônimo]";
+			mes "7. Escolha o bônus AGI máximo que um assassino pode obter no nível de trabalho 50.";
 			next;
 			if (select("7:8:9:10") == 4)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "8. Choose the item that an Assassin cannot equip.";
+			mes "[O anônimo]";
+			mes "8. Escolha o item que um assassino não pode equipar.";
 			next;
-			if (select("Dagger:Helm:Boots:Brooch") == 2)
+			if (select("Dagger: Helm: Botas: Broche") == 2)
 				.@assassin_t += 10;
-			mes "[The Anonymous One]";
-			mes "9. Choose the job change item for Thief.";
+			mes "[O anônimo]";
+			mes "9. Escolha o item de mudança de emprego para ladrão.";
 			next;
-			switch(select("Orange Gooey Mushroom:Red Gooey Mushroom:Orange Net Mushroom:Orange Hair Mushroom")) {
+			switch(select("Cogumelo pegajoso laranja: cogumelo vermelho pegajoso: cogumelo da rede laranja: cogumelo de cabelo laranja")) {
 			case 1:
 			case 3:
 				.@assassin_t += 10;
@@ -1001,47 +1001,47 @@ OnTouch_:
 			default:
 				break;
 			}
-			mes "[The Anonymous One]";
-			mes "10. Choose a card that would typically benefit an Assassin the least.";
+			mes "[O anônimo]";
+			mes "10. Escolha um cartão que normalmente beneficiaria um assassinato menos.";
 			next;
-			if (select("Whisper card:Elder Willow card:Soldier Skeleton card:Cobold card") == 2)
+			if (select("Cartão de Whisper: Elder Willow Card: Soldier Skeleton Card: Cobold Card") == 2)
 				.@assassin_t += 10;
 			break;
 		}
 		if (ASSIN_Q2 == 3) {
 			next;
-			mes "[The Anonymous One]";
-			mes "Hmpf.";
-			mes "Somehow, you";
-			mes "have shown me";
-			mes "great effort.";
+			mes "[O anônimo]";
+			mes "HMPF.";
+			mes "De alguma forma, você";
+			mes "me mostraram";
+			mes "Grande esforço.";
 			next;
-			mes "[The Anonymous One]";
-			mes "Let's see...";
-			mes "You scored";
-			mes "" + .@assassin_t + " percent...";
+			mes "[O anônimo]";
+			mes "Vamos ver ...";
+			mes "Você marcou";
+			mes "" + .@assassin_t + "por cento...";
 			if (.@assassin_t > 80) {
 				ASSIN_Q2 = 5;
 				changequest 8002,8003;
-				mes "Well done.";
-				mes "You pass.";
+				mes "Bom trabalho.";
+				mes "Você passa.";
 				next;
-				mes "[The Anonymous One]";
-				mes "However, another test awaits you. When you go inside the next area, you will receive your instructions...";
+				mes "[O anônimo]";
+				mes "No entanto, outro teste aguarda você. Quando você entrar na próxima área, você receberá suas instruções ...";
 				close;
 			}
 			else {
 				ASSIN_Q2 = 4;
-				mes "That means you fail!";
+				mes "Isso significa que você falha!";
 				next;
-				mes "[The Anonymous One]";
-				mes "How could you expect to be an Assassin with this score? Keep training and come back when you're ready.";
+				mes "[O anônimo]";
+				mes "Como você poderia esperar ser um assassino com essa pontuação? Continue treinando e volte quando estiver pronto.";
 				next;
-				mes "[The Anonymous One]";
-				mes "I would ask 'Khai,' the one who processed your application, for advice.";
+				mes "[O anônimo]";
+				mes "Eu perguntaria a 'khai', quem processou sua inscrição, para conselhos.";
 				next;
-				mes "[The Anonymous One]";
-				mes "You may also use this code: ^880000iro.ragnarokonline.com^000000. Somehow, those words are linked to a vast body of otherworldly knowledge...";
+				mes "[O anônimo]";
+				mes "Você também pode usar este código: ^880000IRO.RAGNAROKONLINE.COM ^000000. De alguma forma, essas palavras estão ligadas a um vasto corpo de conhecimento sobrenatural ...";
 				close2;
 				warp "in_moc_16",19,76;
 				end;
@@ -1049,40 +1049,40 @@ OnTouch_:
 		}
 		else if (ASSIN_Q2 == 4) {
 			next;
-			mes "[The Anonymous One]";
-			mes "You showed";
-			mes "great effort...";
+			mes "[O anônimo]";
+			mes "Você mostrou";
+			mes "Grande esforço ...";
 			next;
-			mes "[The Anonymous One]";
-			mes "Let's see...";
-			mes "You scored";
-			mes "" + .@assassin_t + " points...";
+			mes "[O anônimo]";
+			mes "Vamos ver ...";
+			mes "Você marcou";
+			mes "" + .@assassin_t + "Pontos ...";
 			if (.@assassin_t > 80) {
 				ASSIN_Q2 = 5;
 				changequest 8002,8003;
 				next;
-				mes "[The Anonymous One]";
-				mes "You didn't fail this time! But you're not done just yet. You have another test ahead of you. Once you proceed, you will be informed about your next trial.";
+				mes "[O anônimo]";
+				mes "Você não falhou desta vez! Mas você ainda não terminou. Você tem outro teste pela frente. Depois de prosseguir, você será informado sobre o seu próximo julgamento.";
 				close;
 			}
 			else {
 				ASSIN_Q2 = 4;
-				mes "You failed!";
+				mes "Você falhou!";
 				next;
-				mes "[The Anonymous One]";
-				mes "You're too underqualified. How can you even think about becoming an Assassin?!";
+				mes "[O anônimo]";
+				mes "Você é muito subqualificado. Como você pode pensar em se tornar um assassino?!";
 				next;
-				mes "[The Anonymous One]";
-				mes "I'm surprised that you were even able to become a Thief. Go away, and come back only when you know what the hell you're doing.";
+				mes "[O anônimo]";
+				mes "Estou surpreso que você tenha sido capaz de se tornar um ladrão. Vá embora e volte apenas quando você souber o que diabos está fazendo.";
 				next;
-				mes "[The Anonymous One]";
-				mes "Hmpf, if you really don't have a clue, I will give you a little advice.";
+				mes "[O anônimo]";
+				mes "HMPF, se você realmente não tiver idéia, eu lhe darei um pequeno conselho.";
 				next;
-				mes "[The Anonymous One]";
-				mes "Go ask 'Khai,' the guy who takes care of your test application, maybe he will help you.";
+				mes "[O anônimo]";
+				mes "Vá perguntar a 'Khai', o cara que cuida do seu aplicativo de teste, talvez ele o ajude.";
 				next;
-				mes "[The Anonymous One]";
-				mes "You may also wish to take advantage of the ancient code, ^3355FFiro.ragnarokonline.com^000000. Supposedly, those words are linked to a vast body of otherworldly knowledge...";
+				mes "[O anônimo]";
+				mes "Você também pode aproveitar o código antigo, ^3355ffiro.ragnarokonline.com ^000000. Supostamente, essas palavras estão ligadas a um vasto corpo de conhecimento sobrenatural ...";
 				close2;
 				warp "in_moc_16",19,76;
 				end;
@@ -1090,8 +1090,8 @@ OnTouch_:
 		}
 	}
 	else {
-		mes "[The Anonymous One]";
-		mes "...I will keep watching you.";
+		mes "[O anônimo]";
+		mes "... Vou continuar te observando.";
 		close;
 	}
 }
@@ -1102,7 +1102,7 @@ in_moc_16,21,165,2	script	Standby Room#ASNTEST	725,{
 OnInit:
 	//disablenpc "Standby Room#ASNTEST";
 	hideonnpc "Standby Room#ASNTEST";
-	waitingroom "Standby Room",10,"Standby Room#ASNTEST::OnStartArena",1;
+	waitingroom "Sala de espera",10,"Quarto de espera#Asntest :: OnStartarena",1;
 	enablewaitingroomevent;
 	end;
 
@@ -1130,7 +1130,7 @@ in_moc_16,21,165,2	script	Test Guide#ASN	725,4,4,{
 OnTouch_:
 	if (ASSIN_Q2 < 5) {
 		mes "[Barcardi]";
-		mes "You can't take the next trial without passing the written test first. You better speak to the Anonymous One...";
+		mes "Você não pode fazer o próximo julgamento sem passar o teste escrito primeiro. É melhor você falar com o anônimo ...";
 		close2;
 		warp "in_moc_16",19,76;
 		end;
@@ -1138,59 +1138,59 @@ OnTouch_:
 	if (ASSIN_Q == 1 && ASSIN_Q2 == 5) {
 		mes "[Barcardi]";
 		mes "" + strcharinfo(0) + "...";
-		mes "You passed the test..?";
+		mes "Você passou no teste ..?";
 		next;
 		mes "[Barcardi]";
-		mes "To be honest, I want to grant you the job change without any other condition. Too many pathetic people don't even have the basic knowledge to be Assassins...";
+		mes "Para ser sincero, quero conceder a você a mudança de emprego sem nenhuma outra condição. Muitas pessoas patéticas nem sequer têm o conhecimento básico para serem assassinos ...";
 		next;
 		mes "[Barcardi]";
-		mes "We must keep our dignity as Assassins and be truly great! Regrettably, there are too many idiots that don't have any pride.";
+		mes "Devemos manter nossa dignidade como assassinos e ser realmente ótimos! Lamentavelmente, existem muitos idiotas que não têm orgulho.";
 		next;
 		mes "[Barcardi]";
-		mes "All Assassins must respect the enemies they slay, the blood that they spill, and above all, maintain their sense of dignity!";
+		mes "Todos os assassinos devem respeitar os inimigos que matam, o sangue que derramam e, acima de tudo, manter seu senso de dignidade!";
 		next;
 		mes "[Barcardi]";
-		mes "Alright. This next trial will test your ability to quickly find your target.";
+		mes "Tudo bem. Este próximo julgamento testará sua capacidade de encontrar rapidamente seu alvo.";
 		next;
 		mes "[Barcardi]";
-		mes "If you're going to be an Assassin, we need to determine whether or not you can distinguish friend from foe in an instant.";
+		mes "Se você for um assassino, precisamos determinar se você pode ou não distinguir o amigo do inimigo em um instante.";
 		next;
 		mes "[Barcardi]";
-		mes "The main goal of this test is to find and kill as many monsters named ^008800Job change target^000000 as possible.";
+		mes "O principal objetivo deste teste é encontrar e matar o maior número de monstros chamados ^008800job altera o destino ^000000.";
 		next;
 		mes "[Barcardi]";
-		mes "You must kill at least";
-		mes "6 ^008800Job change target^000000 monsters. They're intermingled among similar looking monsters, so you need to be careful...";
+		mes "Você deve matar pelo menos";
+		mes "6 ^008800JOB MONTAÇÃO ^000000 MONSTERS. Eles estão misturados entre monstros de aparência semelhante, então você precisa ter cuidado ...";
 		next;
 		mes "[Barcardi]";
-		mes "If you fail, you'll have to restart this test. Go to the room above";
-		mes "me to be transported to the Test Hall.";
+		mes "Se você falhar, terá que reiniciar este teste. Vá para a sala acima";
+		mes "eu para ser transportado para o salão de teste.";
 		next;
 		mes "[Barcardi]";
-		mes "Only one person is allowed to take the test at a time, so if anyone is taking the test, you'll have to wait until that person finishes.";
+		mes "Apenas uma pessoa pode fazer o teste de cada vez; portanto, se alguém estiver fazendo o teste, você terá que esperar até que essa pessoa termine.";
 		close;
 	}
 	else {
 		mes "[Barcardi]";
-		mes "Hey, don't be too hard";
-		mes "on yourself. Cheer up!";
+		mes "Ei, não seja muito difícil";
+		mes "em si mesmo. Alegrar!";
 		next;
 		mes "[Barcardi]";
-		mes "Hmm, if you're exhausted, I'm willing to bring you back. Of course, if you leave, you'll have to take the job test over again. So what do you want to do?";
+		mes "Hmm, se você estiver exausto, estou disposto a trazê -lo de volta. Obviamente, se você sair, terá que fazer o teste de emprego novamente. Então, o que você quer fazer?";
 		next;
-		if (select("Continue!:Quit the job change test for now.") == 1) {
+		if (select("Continue!: Saia do teste de mudança de emprego por enquanto.") == 1) {
 			mes "[Barcardi]";
-			mes "Good choice!";
-			mes "Remember, you";
-			mes "must find and kill";
-			mes "6 ^008800Job change target^000000 monsters!";
-			mes "Good luck!";
+			mes "Boa escolha!";
+			mes "Lembre -se de você";
+			mes "deve encontrar e matar";
+			mes "6 ^008800JOB MONTAÇÃO ^000000 MONSTERS!";
+			mes "Boa sorte!";
 			close;
 		}
 		mes "[Barcardi]";
-		mes "Alright...";
-		mes "I guess you";
-		mes "could use a break...";
+		mes "Tudo bem...";
+		mes "Eu acho que você";
+		mes "poderia usar uma pausa ...";
 		close2;
 		ASSIN_Q = 0;
 		ASSIN_Q2 = 0;
@@ -1206,47 +1206,47 @@ in_moc_16,1,1,0	script	Beholder#ASNTEST	-1,{
 OnEnable:
 	.MyMobs = 6;
 	// Target mobs
-	monster "in_moc_16",62,161,"Job change target",1002,1,"Beholder#ASNTEST::OnMyMobDead";
-	monster "in_moc_16",85,169,"Job change target",1063,1,"Beholder#ASNTEST::OnMyMobDead";
-	monster "in_moc_16",88,152,"Job change target",1002,1,"Beholder#ASNTEST::OnMyMobDead";
-	monster "in_moc_16",90,143,"Job change target",1113,1,"Beholder#ASNTEST::OnMyMobDead";
-	monster "in_moc_16",74,167,"Job change target",1031,1,"Beholder#ASNTEST::OnMyMobDead";
-	monster "in_moc_16",77,173,"Job change target",1002,1,"Beholder#ASNTEST::OnMyMobDead";
+	monster "in_moc_16",62,161,"Alteração de mudança de emprego",1002,1,"Beholder#Asntest :: onMyMobdead";
+	monster "in_moc_16",85,169,"Alteração de mudança de emprego",1063,1,"Beholder#Asntest :: onMyMobdead";
+	monster "in_moc_16",88,152,"Alteração de mudança de emprego",1002,1,"Beholder#Asntest :: onMyMobdead";
+	monster "in_moc_16",90,143,"Alteração de mudança de emprego",1113,1,"Beholder#Asntest :: onMyMobdead";
+	monster "in_moc_16",74,167,"Alteração de mudança de emprego",1031,1,"Beholder#Asntest :: onMyMobdead";
+	monster "in_moc_16",77,173,"Alteração de mudança de emprego",1002,1,"Beholder#Asntest :: onMyMobdead";
 	// Decoy mobs
-	monster "in_moc_16",62,161,"Job change creature",1063,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",85,169,"Job change creature",1031,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",79,174,"Job change creature",1113,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",85,156,"Job change creature",1063,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",74,171,"Job change monster",1002,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",68,173,"Job change dummy",1113,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",65,158,"Battle test target",1002,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",60,158,"Warrior test target",1113,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",64,169,"Job change targets",1002,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",71,173,"Jobs change target",1063,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",77,172,"Please don't hit me",1002,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",76,172,"Job change sample",1063,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",75,172,"Not me",1113,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",67,167,"I got yours right here",1063,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",86,170,"Job changes target",1031,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",86,171,"Job quest target",1002,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",85,170,"Job target change",1113,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",89,171,"Hit me",1063,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",85,170,"Battle Monster",1031,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",89,156,"Bouncer",1002,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",89,156,"Mungamorp",1113,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",89,156,"Battle test target",1063,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",89,156,"Dew of the Battle field",1113,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",89,156,"Tear of test",1031,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",83,169,"Evil Druid",1002,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",63,158,"Doppelganger",1063,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",63,157,"Job change dummy",1002,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",64,159,"Job ready dummy",1002,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",63,159,"Job change ready",1063,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",63,159,"Archer test target",1002,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",63,159,"Swordman test target",1002,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",83,148,"Thief test target",1002,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",82,148,"Acolyte test target",1002,1,"Beholder#ASNTEST::OnMyMobDead2";
-	monster "in_moc_16",84,148,"Merchant test target",1002,1,"Beholder#ASNTEST::OnMyMobDead2";
+	monster "in_moc_16",62,161,"Criatura de mudança de emprego",1063,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",85,169,"Criatura de mudança de emprego",1031,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",79,174,"Criatura de mudança de emprego",1113,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",85,156,"Criatura de mudança de emprego",1063,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",74,171,"Mudança de trabalho Monster",1002,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",68,173,"Mudança de trabalho fictícia",1113,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",65,158,"Meta de teste de batalha",1002,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",60,158,"Teste de teste de guerreiro",1113,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",64,169,"Metas de mudança de emprego",1002,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",71,173,"Mudança de empregos meta",1063,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",77,172,"Por favor, não me bata",1002,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",76,172,"Amostra de mudança de emprego",1063,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",75,172,"Não eu",1113,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",67,167,"Eu tenho o seu bem aqui",1063,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",86,170,"Alterações de trabalho -alvo",1031,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",86,171,"Target Mest",1002,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",85,170,"Mudança de meta de trabalho",1113,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",89,171,"Bata em mim",1063,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",85,170,"Monstro de batalha",1031,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",89,156,"Bouncer",1002,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",89,156,"Mungamorp",1113,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",89,156,"Meta de teste de batalha",1063,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",89,156,"Orvalho do campo de batalha",1113,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",89,156,"Rasgo de teste",1031,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",83,169,"Druida maligna",1002,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",63,158,"Doppelganger",1063,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",63,157,"Mudança de trabalho fictícia",1002,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",64,159,"Trabalho pronto para trabalho",1002,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",63,159,"Mudança de trabalho pronta",1063,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",63,159,"Archer Test Target",1002,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",63,159,"Teste de teste de espada -alvo",1002,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",83,148,"Teste de Teste de Ladrão",1002,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",82,148,"Alvo de teste de acólito",1002,1,"Beholder#Asntest :: onMyMobdead2";
+	monster "in_moc_16",84,148,"Merchant Test Target",1002,1,"Beholder#Asntest :: onMyMobdead2";
 	initnpctimer;
 	end;
 
@@ -1266,7 +1266,7 @@ OnResetmob:
 OnMyMobDead:
 	.MyMobs--;
 	if (.MyMobs < 1) {
-		mapannounce "in_moc_16","You seem to be doing quite well. Keep it up!",bc_map;
+		mapannounce "in_moc_16","Você parece estar indo muito bem. Mantem!",bc_map;
 		ASSIN_Q = 3;
 		changequest 8003,8004;
 		donpcevent "timestopper#1::OnEnable";
@@ -1276,68 +1276,68 @@ OnMyMobDead:
 		stopnpctimer;
 	}
 	else {
-		mapannounce "in_moc_16","Okay, you're doing good! Hang in there, you're almost there!",bc_map;
+		mapannounce "in_moc_16","Ok, você está bem! Espere lá, você está quase lá!",bc_map;
 	}
 	end;
 
 OnMyMobDead2:
-	mapannounce "in_moc_16",strcharinfo(0) + "! You made a mistake! I'm bringing you back!",bc_map;
+	mapannounce "in_moc_16",strcharinfo(0) + "! Você cometeu um erro! Estou trazendo você de volta!",bc_map;
 	ASSIN_Q = 2;
 	warp "in_moc_16",19,161;
 	donpcevent "Beholder#ASNTEST::OnReset";
 	end;
 
 OnTimer1000:
-	mapannounce "in_moc_16"," Okay, let the test begin!",bc_map;
+	mapannounce "in_moc_16","Ok, deixe o teste começar!",bc_map;
 	end;
 
 OnTimer2000:
-	mapannounce "in_moc_16","As you've been told before, find and only kill monsters named 'Job change target!'",bc_map;
+	mapannounce "in_moc_16","Como você foi dito antes, encontre e mate apenas monstros denominados 'Target Mudança de emprego!'",bc_map;
 	end;
 
 OnTimer3000:
-	mapannounce "in_moc_16","The purpose of this test is to examine your ability to quickly distinguish enemies from other people!",bc_map;
+	mapannounce "in_moc_16","O objetivo deste teste é examinar sua capacidade de distinguir rapidamente os inimigos de outras pessoas!",bc_map;
 	end;
 
 OnTimer4000:
-	mapannounce "in_moc_16","You will have 3 minutes for the test! We will inform you of every minute passed.",bc_map;
+	mapannounce "in_moc_16","Você terá 3 minutos para o teste! Vamos informá -lo de cada minuto passado.",bc_map;
 	end;
 
 OnTimer5000:
-	mapannounce "in_moc_16","Ok, now you've got exactly 3 minutes. Move! Move!",bc_map;
+	mapannounce "in_moc_16","OK, agora você tem exatamente 3 minutos. Mover! Mover!",bc_map;
 	end;
 
 OnTimer65000:
-	mapannounce "in_moc_16","2 minutes left. As I've told you, get the 'Job change target' monsters!",bc_map;
+	mapannounce "in_moc_16","2 minutos restantes. Como eu te disse, obtenha os monstros 'Target de mudança de emprego'!",bc_map;
 	end;
 
 OnTimer125000:
-	mapannounce "in_moc_16","1 minute left.",bc_map;
+	mapannounce "in_moc_16","1 minuto restante.",bc_map;
 	end;
 
 OnTimer180000:
-	mapannounce "in_moc_16","5 seconds left...",bc_map;
+	mapannounce "in_moc_16","5 segundos restantes ...",bc_map;
 	end;
 
 OnTimer181000:
-	mapannounce "in_moc_16","4 seconds left...",bc_map;
+	mapannounce "in_moc_16","4 segundos restantes ...",bc_map;
 	end;
 
 OnTimer182000:
-	mapannounce "in_moc_16","3 seconds left...",bc_map;
+	mapannounce "in_moc_16","3 segundos restantes ...",bc_map;
 	end;
 
 OnTimer183000:
-	mapannounce "in_moc_16","2 seconds left...",bc_map;
+	mapannounce "in_moc_16","2 segundos restantes ...",bc_map;
 	end;
 
 OnTimer184000:
-	mapannounce "in_moc_16","1 second left.",bc_map;
+	mapannounce "in_moc_16","1 Segundo restante.",bc_map;
 	end;
 
 OnTimer185000:
-	mapannounce "in_moc_16","Time's up!",bc_map;
-	mapannounce "in_moc_16","Well, good job... If you wanted to waste your time. You'll have to try again!",bc_map;
+	mapannounce "in_moc_16","O tempo acabou!",bc_map;
+	mapannounce "in_moc_16","Bem, bom trabalho ... se você quisesse perder seu tempo. Você terá que tentar novamente!",bc_map;
 	//ASSIN_Q = 2;
 	end;
 
@@ -1353,7 +1353,7 @@ OnTimer187000:
 in_moc_16,68,158,0	script	01_1::SinTrap	-1,0,0,{
 OnTouch_:
 	if (getvariableofnpc(.DisableTraps,"Beholder#ASNTEST")  < 1) {
-		mapannounce "in_moc_16",strcharinfo(0) + ", you're trapped. You will be sent back.",bc_map;
+		mapannounce "in_moc_16",strcharinfo(0) + ", você está preso. Você será enviado de volta.",bc_map;
 		ASSIN_Q = 2;
 		warp "in_moc_16",19,161;
 		donpcevent "Beholder#ASNTEST::OnResetmob";
@@ -1462,7 +1462,7 @@ OnTouch_:
 	end;
 
 OnEnable:
-	mapannounce "in_moc_16","The door to the next room, at coordinates 87 137, has opened.",bc_map;
+	mapannounce "in_moc_16","A porta da sala ao lado, nas coordenadas 87 137, abriu.",bc_map;
 	enablenpc "Keeper of the Door#ASN";
 	end;
 
@@ -1486,8 +1486,8 @@ OnDisable:
 	end;
 
 OnMyMobDead:
-	mapannounce "in_moc_16","Hey, what the hell was that?! I told you: No killing monsters!",bc_map;
-	mapannounce "in_moc_16","I'm bringing you back... *Sigh...*",bc_map;
+	mapannounce "in_moc_16","Ei, o que diabos foi isso?! Eu te disse: sem monstros de matar!",bc_map;
+	mapannounce "in_moc_16","Estou trazendo você de volta ... *suspiro ... *",bc_map;
 	ASSIN_Q = 3;
 	warp "in_moc_16",87,102;
 	killmonster "in_moc_16","timestopper#1::OnMyMobDead";
@@ -1500,28 +1500,28 @@ in_moc_16,89,98,1	script	Thomas#ASNTEST	118,5,1,{
 OnTouch_:
 	if (ASSIN_Q == 4) {
 		mes "[Thomas]";
-		mes "Damn...! You look like you're in a lot of pain. ^666666*Sigh*^000000 Give me a second, let me try to restore your HP and SP...";
+		mes "Droga...! Parece que você está com muita dor. ^666666*suspiro*^000000 Dê -me um segundo, deixe -me tentar restaurar seu HP e SP ...";
 		percentheal 100,100;
 		next;
 		mes "[Thomas]";
-		mes "It looks like you're having a tough time. You're either trying too hard, or not trying hard";
-		mes "enough, kid.";
+		mes "Parece que você está tendo um momento difícil. Você está se esforçando demais ou não se esforçando";
+		mes "Chega, garoto.";
 		next;
-		switch(select("I'm gonna try it again!:I... I quit!")) {
+		switch(select("Vou tentar de novo!: Eu ... eu parei!")) {
 		case 1:
 			mes "[Thomas]";
-			mes "Hmm. Well, okay.";
-			mes "Good luck out there.";
+			mes "Hum. Bem, ok.";
+			mes "Boa sorte lá fora.";
 			close;
 		case 2:
 			mes "[Thomas]";
 			mes "Huh...";
-			mes "Quit the test, eh? Well, I guess you don't wanna waste any more of our time.";
+			mes "Saia do teste, não é? Bem, acho que você não quer desperdiçar mais do nosso tempo.";
 			next;
 			mes "[Thomas]";
-			mes "Oh hey, don't forget to save your respawn point in town.";
+			mes "Oh, ei, não se esqueça de salvar seu ponto de reaparecimento na cidade.";
 			close2;
-			mapannounce "in_moc_16",strcharinfo(0) + " got scared and quit the test...Who's Next?!",bc_map;
+			mapannounce "in_moc_16",strcharinfo(0) + "Ficou assustado e saiu do teste ... quem é o próximo?!",bc_map;
 			ASSIN_Q = 0;
 			ASSIN_Q2 = 0;
 			changequest 8004,8000;
@@ -1533,48 +1533,48 @@ OnTouch_:
 	}
 
 	mes "[Thomas]";
-	mes "Hey, I'm Thomas. I'm in charge of testing your use of the hiding skill. Think you're up to it?";
+	mes "Ei, eu sou Thomas. Estou encarregado de testar o uso da habilidade de ocultar. Acha que você está pronto?";
 	next;
 	mes "[Thomas]";
-	mes "Listen. In this test, you can't kill any monsters. Your goal is to reach 'Barcardi' at the opposite side of this room.";
+	mes "Ouvir. Neste teste, você não pode matar monstros. Seu objetivo é alcançar 'Barcardi' no lado oposto desta sala.";
 	next;
 	mes "[Thomas]";
-	mes "So basically, get to the other side of this room and meet 'Barcardi' without killing a single monster. Understand?";
+	mes "Então, basicamente, chegue ao outro lado desta sala e conheça 'Barcardi' sem matar um único monstro. Entender?";
 	next;
 	mes "[Thomas]";
-	mes "If you run away, get a nose bleed and pass out or something like that, I'll fail ya'. Enough talk. Let's see what you got.";
+	mes "Se você fugir, pegue um sangramento no nariz e desmaie ou algo assim, eu falharei. Chega de conversa. Vamos ver o que você conseguiu.";
 	close2;
 	ASSIN_Q = 4;
 
-	monster "in_moc_16",81,77,"Mummy",1041,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",82,77,"Mummy",1041,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",83,77,"Mummy",1041,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",84,77,"Mummy",1041,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",85,77,"Mummy",1041,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",86,77,"Mummy",1041,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",88,77,"Mummy",1041,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",89,77,"Mummy",1041,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",90,77,"Mummy",1041,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",77,77,"Mummy",1041,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",78,56,"Mummy",1041,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",79,56,"Mummy",1041,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",80,56,"Mummy",1041,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",81,56,"Mummy",1041,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",91,55,"Mummy",1041,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",92,56,"Mummy",1041,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",93,56,"Mummy",1041,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",94,56,"Mummy",1041,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",95,56,"Mummy",1041,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",96,56,"Mummy",1041,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",97,56,"Mummy",1041,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",76,62,"Hydra",1068,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",79,62,"Hydra",1068,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",79,65,"Hydra",1068,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",76,65,"Hydra",1068,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",96,62,"Hydra",1068,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",96,65,"Hydra",1068,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",99,62,"Hydra",1068,1,"timestopper#1::OnMyMobDead";
-	monster "in_moc_16",99,65,"Hydra",1068,1,"timestopper#1::OnMyMobDead";
+	monster "in_moc_16",81,77,"Mamãe",1041,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",82,77,"Mamãe",1041,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",83,77,"Mamãe",1041,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",84,77,"Mamãe",1041,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",85,77,"Mamãe",1041,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",86,77,"Mamãe",1041,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",88,77,"Mamãe",1041,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",89,77,"Mamãe",1041,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",90,77,"Mamãe",1041,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",77,77,"Mamãe",1041,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",78,56,"Mamãe",1041,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",79,56,"Mamãe",1041,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",80,56,"Mamãe",1041,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",81,56,"Mamãe",1041,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",91,55,"Mamãe",1041,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",92,56,"Mamãe",1041,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",93,56,"Mamãe",1041,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",94,56,"Mamãe",1041,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",95,56,"Mamãe",1041,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",96,56,"Mamãe",1041,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",97,56,"Mamãe",1041,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",76,62,"Hidra",1068,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",79,62,"Hidra",1068,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",79,65,"Hidra",1068,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",76,65,"Hidra",1068,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",96,62,"Hidra",1068,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",96,65,"Hidra",1068,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",99,62,"Hidra",1068,1,"Timestopper#1 :: onMyMobdead";
+	monster "in_moc_16",99,65,"Hidra",1068,1,"Timestopper#1 :: onMyMobdead";
 	end;
 
 OnDisable:
@@ -1589,8 +1589,8 @@ OnTouch_:
 	donpcevent "timestopper#1::OnDisable";
 	donpcevent "Thomas#ASNTEST::OnDisable";
 	mes "[Barcardi]";
-	mes "Oh! Congratulations!";
-	mes "You may now proceed to our Guildmaster's room. Good luck!!";
+	mes "Oh! Parabéns!";
+	mes "Agora você pode prosseguir para o quarto de nosso mestre da guilda. Boa sorte!!";
 	close2;
 	ASSIN_Q = 5;
 	changequest 8004,8005;
@@ -1607,7 +1607,7 @@ OnTouch_:
 			changequest 8005,8006;
 	}
 	else {
-		mapannounce "in_moc_16",strcharinfo(0)+" has entered 'Guildmaster's room.'",bc_map;
+		mapannounce "in_moc_16",strcharinfo(0)+"entrou no 'quarto de mestre de guilds'.",bc_map;
 		savepoint "in_moc_16",181,183,1,1;
 		donpcevent "Guildmaster#ASN1::OnCast";
 		warp "in_moc_16",167,113;
@@ -1619,20 +1619,20 @@ in_moc_16,167,110,0	script	Guildmaster#ASN1	-1,3,1,{
 OnTouch_:
 	savepoint "in_moc_16",167,110,1,1;
 	mes "[Guildmaster]";
-	mes "Welcome. ";
-	mes "This place is called the 'Guildmaster's room,' the deepest place in the Assassin guild.";
+	mes "Bem-vindo.";
+	mes "Este lugar é chamado de 'quarto de mestre de guildas', o lugar mais profundo da Guilda de Assassino.";
 	next;
 	mes "[Guildmaster]";
-	mes "I'm going to give you a simple test. Please find your way through this maze and come to me. It is this maze that protects our guild from intruders.";
+	mes "Vou fazer um teste simples. Por favor, encontre o seu caminho através deste labirinto e venha até mim. É esse labirinto que protege nossa guilda de intrusos.";
 	next;
 	mes "[Guildmaster]";
-	mes "I look forward";
-	mes "to meeting you";
-	mes "at the end of maze.";
+	mes "Estou ansioso";
+	mes "para conhecê -lo";
+	mes "No final do labirinto.";
 	close;
 
 OnCast:
-	mapannounce "in_moc_16","...Next volunteer, please come in.",bc_map;
+	mapannounce "in_moc_16","... Próximo voluntário, por favor, entre.",bc_map;
 	end;
 }
 
@@ -1640,314 +1640,314 @@ in_moc_16,149,80,4	script	Guildmaster#ASN2	106,1,1,{
 	end;
 OnTouch_:
 	if (checkre(0))
-		savepoint "morocc",100,100,1,1;
+		savepoint "Marrocos",100,100,1,1;
 	else
 		savepoint "moc_ruins",79,99,1,1;
 	if (ASSIN_Q == 7 && BaseJob == Job_Thief) {
 		ASSIN_Q = 8;
 		mes "[Guildmaster]";
-		mes "Welcome.";
-		mes "I apologize for";
-		mes "making you go";
-		mes "through the maze.";
+		mes "Bem-vindo.";
+		mes "Peço desculpas por";
+		mes "fazendo você ir";
+		mes "através do labirinto.";
 		next;
 		mes "[Guildmaster]";
-		mes "I saw your resume just now. You're well known as a Thief with guts. Rarely do we receive potential Assassins of your stature.";
+		mes "Eu vi seu currículo agora. Você é bem conhecido como um ladrão com coragem. Raramente recebemos possíveis assassinos de sua estatura.";
 		next;
 		mes "[Guildmaster]";
-		mes "May I ask you some questions if you don't mind? You don't have to be nervous. Just remember: if you lie, I will kill you.";
+		mes "Posso fazer algumas perguntas se você não se importa? Você não precisa estar nervoso. Lembre -se: se você mentir, eu vou te matar.";
 		next;
 		mes "[Guildmaster]";
-		mes "First off, what do you think is the priority of an Assassin?";
+		mes "Primeiro, o que você acha que é a prioridade de um assassino?";
 		next;
-		switch(select("More power.:An Assassin's pride.:Endless practice.")) {
+		switch(select("Mais poder.")) {
 		case 1:
 			mes "[Guildmaster]";
-			mes "More power...";
-			mes "Yes, you may think";
-			mes "of Assassins as much";
-			mes "stronger than Thieves.";
+			mes "Mais poder ...";
+			mes "Sim, você pode pensar";
+			mes "de assassinos tanto";
+			mes "mais forte que ladrões.";
 			next;
 			mes "[Guildmaster]";
-			mes "However, for what reason do you wish for more power? To show off? Personal revenge? For what purpose will you use this power?";
+			mes "No entanto, por que motivo você deseja mais poder? Para se exibir? Vingança pessoal? Para que finalidade você usará esse poder?";
 			next;
 			mes "[Guildmaster]";
-			mes "Why do you want";
-			mes "to be stronger";
-			mes "than you are now?";
+			mes "Por que você quer";
+			mes "para ser mais forte";
+			mes "do que você é agora?";
 			next;
-			switch(select("Revenge...!:Money~:I want to travel.")) {
+			switch(select("Vingança ...!: Dinheiro ~: Eu quero viajar.")) {
 			case 1:
 				mes "[Guildmaster]";
-				mes "Revenge...?";
-				mes "Yes, I understand. All of us hold grudges against someone else eventually.";
+				mes "Vingança...?";
+				mes "Sim, eu entendo. Todos nós seguramos rancor contra outra pessoa eventualmente.";
 				next;
 				mes "[Guildmaster]";
-				mes "However, keep in mind that we are not allowed to be emotionally attached. Carry out your duties without question. That is our way.";
+				mes "No entanto, lembre -se de que não podemos estar emocionalmente apegados. Faça seus deveres sem dúvida. Esse é o nosso caminho.";
 				next;
 				mes "[Guildmaster]";
-				mes "Being an Assassin means";
-				mes "to abandon the ego.";
+				mes "Ser um assassino significa";
+				mes "abandonar o ego.";
 				next;
 				break;
 			case 2:
 				ASSIN_Q = 9;
 				mes "[Guildmaster]";
-				mes "Financial reasons...? I won't deny that we all need money to live. But being Assassin means living for a higher purpose.";
+				mes "Razões financeiras ...? Não vou negar que todos precisamos de dinheiro para viver. Mas ser assassino significa viver para um propósito mais alto.";
 				next;
 				mes "[Guildmaster]";
-				mes "Being an Assassin means";
-				mes "to abandon such worldly";
-				mes "attachments...";
+				mes "Ser um assassino significa";
+				mes "Para abandonar esse mundo";
+				mes "anexos ...";
 				next;
 				break;
 			case 3:
 				ASSIN_Q = 10;
 				mes "[Guildmaster]";
-				mes "Good idea. Traveling around the world will allow you to broaden your experiences.";
+				mes "Boa ideia. Viajar ao redor do mundo permitirá que você amplie suas experiências.";
 				next;
 				mes "[Guildmaster]";
-				mes "Most of us tend to avoid gathering into groups though, but I'm sure you already caught that, yes?";
+				mes "A maioria de nós tende a evitar se reunir em grupos, mas tenho certeza de que você já pegou isso, sim?";
 				next;
 				mes "[Guildmaster]";
-				mes "In a way, being an Assassin is to live life in loneliness...";
+				mes "De certa forma, ser um assassino é viver a vida em solidão ...";
 				next;
 				break;
 			}
 			break;
 		case 2:
 			mes "[Guildmaster]";
-			mes "An Assassin's pride...";
-			mes "Did other Assassins tell you that...?";
+			mes "Orgulho de um assassino ...";
+			mes "Outros assassinos lhe disseram isso ...?";
 			next;
 			mes "[Guildmaster]";
-			mes "Pride is certainly important, but pride is worth nothing if you do not have any ability.";
+			mes "O orgulho é certamente importante, mas o orgulho não vale nada se você não tiver nenhuma habilidade.";
 			next;
 			mes "[Guildmaster]";
-			mes "Most of the Assassins you've met before me are brethren that have shared many difficult times together.";
+			mes "A maioria dos assassinos que você conheceu antes de mim são irmãos que compartilharam muitos momentos difíceis juntos.";
 			next;
 			mes "[Guildmaster]";
-			mes "I can understand why their pride and dignity would be so important to them. Now, for what reason do you wish to become an Assassin?";
+			mes "Eu posso entender por que o orgulho e a dignidade deles seriam tão importantes para eles. Agora, por que motivo você deseja se tornar um assassino?";
 			next;
-			switch(select("I like the solitude.:Making money being an Assassin.:They just look interesting.")) {
+			switch(select("Eu gosto da solidão.")) {
 			case 1:
 				ASSIN_Q = 11;
 				mes "[Guildmaster]";
-				mes "You got the point...";
-				mes "We are lonely. We will always be alone, even amongst each other...";
+				mes "Você tem o ponto ...";
+				mes "Estamos sozinhos. Sempre estaremos sozinhos, mesmo entre si ...";
 				next;
 				mes "[Guildmaster]";
-				mes "In a way, being";
-				mes "an Assassin equals";
-				mes "nothing, I would say.";
+				mes "De certa forma, sendo";
+				mes "Um assassino é igual a";
+				mes "Nada, eu diria.";
 				next;
 				mes "[Guildmaster]";
-				mes "But, as I told you before, we have comrades. I recommend having at least one comrade to back up you when you're on a mission.";
+				mes "Mas, como eu te disse antes, temos camaradas. Eu recomendo ter pelo menos um camarada para apoiá -lo quando estiver em uma missão.";
 				next;
 				break;
 			case 2:
 				ASSIN_Q = 12;
 				mes "[Guildmaster]";
-				mes "Well, I can't deny it, we do need money to make a living. But don't you think we should pursue something even more important than money?";
+				mes "Bem, não posso negar, precisamos de dinheiro para ganhar a vida. Mas você não acha que devemos buscar algo ainda mais importante do que dinheiro?";
 				next;
 				break;
 			case 3:
 				ASSIN_Q = 13;
 				mes "[Guildmaster]";
-				mes "Style and appearance is only superficial. It is sad that many people think this way...";
+				mes "Estilo e aparência são apenas superficiais. É triste que muitas pessoas pensem assim ...";
 				next;
 				mes "[Guildmaster]";
-				mes "Such disgraceful Assassins that have lost their true focus are dealt with in our own manner...";
+				mes "Tais assassinos vergonhosos que perderam seu verdadeiro foco são tratados da nossa maneira ...";
 				next;
 				mes "[Guildmaster]";
-				mes "Don't forget...";
-				mes "Assassins don't toy around. We are not into a style or trend, and we never will be.";
+				mes "Não se esqueça ...";
+				mes "Assassinos não brincam. Não estamos em um estilo ou tendência, e nunca seremos.";
 				next;
 				break;
 			}
 			break;
 		case 3:
 			mes "[Guildmaster]";
-			mes "Endless Practice...";
-			mes "I think you have what it takes. Is there a reason you want to be an Assassin?";
+			mes "Prática sem fim ...";
+			mes "Eu acho que você tem o que é preciso. Existe uma razão pela qual você quer ser um assassino?";
 			next;
 			mes "[Guildmaster]";
-			mes "Unlike the Thief class, the Assassin job doesn't allow self-indulgence. Tell me the";
-			mes "reason you train endlessly.";
+			mes "Ao contrário da classe de ladrões, o trabalho de assassinato não permite a auto-indulgência. Diga -me o";
+			mes "razão pela qual você treina sem parar.";
 			next;
-			switch(select("To broaden my skills.:It's a goal of mine.:For spiritual improvement.")) {
+			switch(select("Para ampliar minhas habilidades.")) {
 			case 1:
 				ASSIN_Q = 14;
 				mes "[Guildmaster]";
-				mes "Learning skills comes naturally with the Assassin job. But don't think of skills as the best value of your training.";
+				mes "As habilidades de aprendizado são naturalmente com o trabalho de assassinato. Mas não pense nas habilidades como o melhor valor do seu treinamento.";
 				next;
 				mes "[Guildmaster]";
-				mes "You won't be satisfied in becoming an Assassin if you think this...";
+				mes "Você não ficará satisfeito em se tornar um assassino se pensa isso ...";
 				next;
 				break;
 			case 2:
 				ASSIN_Q = 15;
 				mes "[Guildmaster]";
-				mes "It's a goal of yours, eh? Well, I guess you've got to have goals...";
+				mes "É um seu objetivo, não é? Bem, acho que você precisa ter objetivos ...";
 				next;
 				mes "[Guildmaster]";
-				mes "I once knew a person who had goals. Long ago, I met someone on assignment who wanted to keep from getting killed before becoming a level 54 knight.";
+				mes "Uma vez eu conheci uma pessoa que tinha objetivos. Há muito tempo, conheci alguém em tarefas que queria não ser morto antes de se tornar um cavaleiro de nível 54.";
 				next;
 				mes "[Guildmaster]";
-				mes "It's to bad I had to kill him before he was level 52... ^666666*Sigh*^000000 Oh well.";
+				mes "É ruim que eu tive que matá -lo antes que ele estivesse no nível 52 ... ^666666*suspiro* ^000000 oh bem.";
 				next;
-				mes "I'm a bit worried about you. I hope you realize that once you become an Assassin, there's no turning back...";
+				mes "Estou um pouco preocupado com você. Espero que você perceba que, depois de se tornar um assassino, não há como voltar atrás ...";
 				next;
 				break;
 			case 3:
 				ASSIN_Q = 16;
 				mes "[Guildmaster]";
-				mes "Good idea...";
-				mes "That is a good way to improve yourself. I've seen many people who know how to be strong physically but not in their mental state.";
+				mes "Boa ideia...";
+				mes "Essa é uma boa maneira de melhorar a si mesmo. Eu já vi muitas pessoas que sabem ser fortes fisicamente, mas não em seu estado mental.";
 				next;
 				mes "[Guildmaster]";
-				mes "I hope you're not a hypocrite. Spiritual discipline is the best way for you to survive.";
+				mes "Espero que você não seja um hipócrita. A disciplina espiritual é a melhor maneira de você sobreviver.";
 				next;
 				break;
 			}
 			break;
 		}
 		mes "[Guildmaster]";
-		mes "Sadly, there are some nit-wits who are eager to be Assassins even though they don't know anything...";
+		mes "Infelizmente, existem alguns nit-wits que estão ansiosos para serem assassinos, mesmo que não saibam de nada ...";
 		next;
 		mes "[Guildmaster]";
-		mes "They cause problems and bring us disgrace. Their activities often result in horrible situations.";
+		mes "Eles causam problemas e nos trazem desgraça. Suas atividades geralmente resultam em situações horríveis.";
 		next;
 		mes "[Guildmaster]";
-		mes "Be careful lest you become one of them once you become an Assassin. The responsibility rests solely on your shoulders...";
+		mes "Cuidado para que você se torne um deles quando se tornar um assassino. A responsabilidade repousa apenas em seus ombros ...";
 		next;
 		mes "[Guildmaster]";
-		mes "So if you could become an Assassin right now, what is the first thing you would do?";
+		mes "Então, se você pudesse se tornar um assassino agora, qual é a primeira coisa que você faria?";
 		next;
-		switch(select("I would go hunt right away.:There are people waiting for me.:Check how I can help as an Assassin.")) {
+		switch(select("Eu iria caçar imediatamente.")) {
 		case 1:
 			mes "[Guildmaster]";
-			mes "Hunt...";
-			mes "Is that all...?";
+			mes "Caçar...";
+			mes "Isso é tudo ...?";
 			next;
-			switch(select("I would level up fast.:I want to explore my Assassin skills.:I will go where I couldn't go as a Thief.")) {
+			switch(select("Eu iria subir de nível rápido.")) {
 			case 1:
 				.@assassin_sangdam += 10;
 				mes "[Guildmaster]";
-				mes "Don't act recklessly...";
-				mes "Being an Assassin never makes you a different person. And don't rely on chance.";
+				mes "Não aja de forma imprudente ...";
+				mes "Ser um assassino nunca faz de você uma pessoa diferente. E não confie no acaso.";
 				next;
 				break;
 			case 2:
 				.@assassin_sangdam += 5;
 				mes "[Guildmaster]";
-				mes "It is good for one to examine oneself. I can understand that you will be excited by the great change in your ability.";
+				mes "É bom para alguém se examinar. Eu posso entender que você ficará animado com a grande mudança em sua capacidade.";
 				next;
 				mes "[Guildmaster]";
-				mes "In the meantime, I hope you won't forget the Assassin mentality.";
+				mes "Enquanto isso, espero que você não esqueça a mentalidade de assassino.";
 				next;
 				break;
 			case 3:
 				mes "[Guildmaster]";
-				mes "Very well...";
-				mes "Exploring places you've never seen before. But know that being an Assassin never makes you a different person.";
+				mes "Muito bem...";
+				mes "Explorando lugares que você nunca viu antes. Mas saiba que ser um assassino nunca faz de você uma pessoa diferente.";
 				next;
 				mes "[Guildmaster]";
-				mes "Don't force yourself too much.";
-				mes "Take your time and travel wisely.";
+				mes "Não se force muito.";
+				mes "Tome seu tempo e viaje com sabedoria.";
 				next;
 				break;
 			}
 			break;
 		case 2:
 			mes "[Guildmaster]";
-			mes "Who is waiting";
-			mes "for you, might I ask?";
+			mes "Quem está esperando";
+			mes "Para você, devo perguntar?";
 			next;
-			switch(select("My friends.:My Guildsmen.:My lover.")) {
+			switch(select("Meus amigos .: My Guildsmen.")) {
 			case 1:
 				.@assassin_sangdam += 5;
 				mes "[Guildmaster]";
-				mes "I see...";
-				mes "Appreciate them for caring about you, even when you're alone.";
+				mes "Eu vejo...";
+				mes "Aprecie -os por se preocupar com você, mesmo quando você estiver sozinho.";
 				next;
 				break;
 			case 2:
 				.@assassin_sangdam += 5;
 				mes "[Guildmaster]";
-				mes "Great...";
-				mes "Comrades for whom you would die for...";
+				mes "Ótimo...";
+				mes "Camaradas por quem você morreria ...";
 				next;
 				mes "[Guildmaster]";
-				mes "As an Assassin, find a job that you can do for them without them knowing..";
+				mes "Como assassino, encontre um emprego que você possa fazer por eles sem que eles saibam ..";
 				next;
 				break;
 			case 3:
 				mes "[Guildmaster]";
-				mes "Haha, the needs of the body are sometimes hard to ignore. It's best to accept that part of human nature.";
+				mes "Haha, as necessidades do corpo às vezes são difíceis de ignorar. É melhor aceitar essa parte da natureza humana.";
 				next;
 				mes "[Guildmaster]";
 				if (Sex == SEX_MALE)
-					mes "But you must never reveal to her the Assassin side of your life. No matter what it takes.";
+					mes "Mas você nunca deve revelar a ela o lado assassino da sua vida. Não importa o que seja preciso.";
 				else
-					mes "But you must never reveal to him the Assassin side of your life, no matter what it takes.";
+					mes "Mas você nunca deve revelar a ele o lado assassino da sua vida, não importa o que seja preciso.";
 				next;
 				mes "[Guildmaster]";
-				mes "Love your beloved forever, even if you can't openly express it. Sometimes, life doesn't allow you to find true love more than once.";
+				mes "Ame seu amado para sempre, mesmo que você não possa expressá -lo abertamente. Às vezes, a vida não permite que você encontre amor verdadeiro mais de uma vez.";
 				next;
 				break;
 			}
 			break;
 		case 3:
 			mes "[Guildmaster]";
-			mes "That's most admirable. Is there anything that you would like to ask me about?";
+			mes "Isso é mais admirável. Há algo que você gostaria de me perguntar?";
 			next;
-			switch(select("Places where Assassins can level up...:Main goals as an Assassin.:Financial consulting.")) {
+			switch(select("Lugares onde os assassinos podem subir de nível ...: Principais objetivos como assassino .: Consultoria financeira.")) {
 			case 1:
 				.@assassin_sangdam += 5;
 				mes "[Guildmaster]";
-				mes "It all depends on your mind. Any place could be the best to level up according to your mind state.";
+				mes "Tudo depende da sua mente. Qualquer lugar pode ser o melhor para subir de acordo com o seu estado mental.";
 				next;
 				mes "[Guildmaster]";
-				mes "You must know how to";
-				mes "survive in any situation.";
+				mes "Você deve saber como";
+				mes "sobreviver em qualquer situação.";
 				next;
 				break;
 			case 2:
 				mes "[Guildmaster]";
-				mes "There are many Assassins out there. Look to them as your trainers, and ask for their opinions.";
+				mes "Existem muitos assassinos por aí. Olhe para eles como seus treinadores e peça suas opiniões.";
 				next;
 				mes "[Guildmaster]";
-				mes "I hope you will become an excellent Assassin. And when you reach a certain level, you must guide newbies as your trainers have.";
+				mes "Espero que você se torne um excelente assassino. E quando você atingir um certo nível, você deve orientar os novatos como seus treinadores.";
 				next;
 				break;
 			case 3:
 				.@assassin_sangdam += 10;
 				mes "[Guildmaster]";
-				mes "Oh my lord...";
-				mes "Are you planning to become an Assassin in order to make money?";
+				mes "Oh meu Senhor ...";
+				mes "Você está planejando se tornar um assassino para ganhar dinheiro?";
 				next;
 				mes "[Guildmaster]";
-				mes "People of that nature are unwelcome. If such is your goal, you may wish to reconsider your job...";
+				mes "Pessoas dessa natureza não são bem -vindas. Se esse é o seu objetivo, você pode reconsiderar seu trabalho ...";
 				next;
 				break;
 			}
 			break;
 		}
 		mes "[Guildmaster]";
-		mes "It was nice to meet you. You reminded me of the good ol' days.";
+		mes "Foi bom conhecê -lo. Você me lembrou os bons e velhos dias.";
 		next;
 		mes "[Guildmaster]";
-		mes "Please give me";
-		mes "one second...";
+		mes "Por favor me dê";
+		mes "um segundo ...";
 		next;
-		mapannounce "in_moc_16","Those involved with the testing of " + strcharinfo(0) + ", please gather before me.",bc_map;
+		mapannounce "in_moc_16","Aqueles envolvidos com o teste de" + strcharinfo(0) + ", por favor, junte -se diante de mim.",bc_map;
 		mes "[Guildmaster]";
-		mes "Those involved with the testing of " + strcharinfo(0) + ", please gather before me.";
+		mes "Aqueles envolvidos com o teste de" + strcharinfo(0) + ", por favor, junte -se diante de mim.";
 		next;
 		mes "[Guildmaster]";
-		mes "They will";
-		mes "be here soon.";
+		mes "Eles vão";
+		mes "Esteja aqui em breve.";
 		next;
 		enablenpc "[Huey]";
 		enablenpc "[Khai]";
@@ -1956,142 +1956,142 @@ OnTouch_:
 		enablenpc "[Beholder]";
 		enablenpc "[Thomas]";
 		enablenpc "[Gayle Maroubitz]";
-		mes "[The Anonymous One]";
-		mes "I am here.";
+		mes "[O anônimo]";
+		mes "Estou aqui.";
 		next;
 		mes "[Guildmaster]";
-		mes "I would like to listen to your opinion of " + strcharinfo(0) + " for the job change test.";
+		mes "Eu gostaria de ouvir sua opinião sobre" + strcharinfo(0) + "para o teste de mudança de emprego.";
 		next;
-		mes "[The Anonymous One]";
-		mes "Ah yeah...";
-		mes "I think";
+		mes "[O anônimo]";
+		mes "Ah sim ...";
+		mes "Eu penso";
 		mes ""+ strcharinfo(0) +"";
-		mes "is decent.";
+		mes "é decente.";
 		next;
 		mes "[Guildmaster]";
-		mes "Well...";
-		mes "The Anonymous One";
-		mes "supports you. How";
-		mes "about you, Huey?";
+		mes "Bem...";
+		mes "O anônimo";
+		mes "apoia você. Como";
+		mes "Sobre você, Huey?";
 		next;
 		if (ASSIN_Q3 == 1) { // player Job Level was above 48
 			mes "[Huey]";
-			mes "A rarity.";
-			mes "You can tell";
-			mes "by the job level.";
+			mes "Uma raridade.";
+			mes "Você pode dizer";
+			mes "pelo nível do trabalho.";
 			next;
 			mes "[Huey]";
-			mes "I agree with";
-			mes "the Anonymous One.";
+			mes "Eu concordo com";
+			mes "o anônimo.";
 		}
 		else { // player Job Level was below 48
 			mes "[Huey]";
-			mes "Although "+ strcharinfo(0) +" looks too mellow and gentle, kind of like a pussycat, "+ strcharinfo(0) +" has the stuff.";
+			mes "Embora"+ strcharinfo(0) +"parece muito suave e gentil, como um gatsycat,"+ strcharinfo(0) +"tem as coisas.";
 			next;
 			mes "[Huey]";
-			mes "If it's alright with you, I'd like to get back to my job.";
+			mes "Se estiver tudo bem com você, gostaria de voltar ao meu trabalho.";
 			next;
 			mes "[Guildmaster]";
-			mes "Yes...";
-			mes "That is all, Huey.";
+			mes "Sim...";
+			mes "Isso é tudo, Huey.";
 		}
 		next;
 		mes "[Guildmaster]";
-		mes "So...";
-		mes "'Beholder,' what";
-		mes "is your opinion?";
+		mes "Então...";
+		mes "'Beholder', o quê";
+		mes "É sua opinião?";
 		next;
 		disablenpc "[Huey]";
-		mes "[Beholder]";
-		mes "Well, I don't like the course score. But, somehow the whole test was passed. I'm okay with this person.";
+		mes "[Espectador]";
+		mes "Bem, eu não gosto da pontuação do curso. Mas, de alguma forma, todo o teste foi aprovado. Estou bem com essa pessoa.";
 		next;
 		mes "[Guildmaster]";
-		mes "Hmm...";
-		mes "It seems we are all in agreement. Good. I don't have any problem with "+ strcharinfo(0) +" as well...";
+		mes "Hum...";
+		mes "Parece que estamos todos de acordo. Bom. Eu não tenho nenhum problema com"+ strcharinfo(0) +"também...";
 		next;
 		switch(ASSIN_Q) {
 		case 8:
 			mes "[Guildmaster]";
-			mes "Even though you're driven by personal revenge, I hope it will go away as you train...";
+			mes "Mesmo que você seja levado por vingança pessoal, espero que ele desapareça enquanto você treina ...";
 			next;
 			break;
 		case 9:
 			mes "[Guildmaster]";
-			mes "Even though your main concern for now is being a rich, I'm sure you'll pursue something even greater...";
+			mes "Mesmo que sua principal preocupação por enquanto esteja sendo rica, tenho certeza que você perseguirá algo ainda maior ...";
 			next;
 			break;
 		case 10:
 			mes "[Guildmaster]";
-			mes "Eager to travel all around the world, I hope your real identity is found in your journeys...";
+			mes "Ansioso para viajar por todo o mundo, espero que sua identidade real seja encontrada em suas jornadas ...";
 			next;
 			break;
 		case 11:
 			mes "[Guildmaster]";
-			mes "You seem to know a lot about Assassins. I don't think frustration from being alone will be difficult for you...";
+			mes "Você parece saber muito sobre assassinos. Eu não acho que a frustração por ficar sozinha será difícil para você ...";
 			next;
 			break;
 		case 12:
 			mes "[Guildmaster]";
-			mes "You have an idiocy about money, but I believe that you should be able to overcome it.";
+			mes "Você tem uma idiotice sobre dinheiro, mas acredito que você deve ser capaz de superá -lo.";
 			next;
 			mes "[Guildmaster]";
-			mes "Although I do not trust you for now, I will give you a chance...";
+			mes "Embora eu não confie em você por enquanto, vou te dar uma chance ...";
 			next;
 			break;
 		case 13:
 			mes "[Guildmaster]";
-			mes "Even though you're enamored with Assassins superficially, I believe you will realize the real value of the Assassin job sooner or later.";
+			mes "Embora você esteja apaixonado por assassinos superficialmente, acredito que você perceberá o valor real do trabalho de assassinato mais cedo ou mais tarde.";
 			next;
 			break;
 		case 14:
 			mes "[Guildmaster]";
-			mes "One of the rare people who seeks better skills, I hope you will realize the importance of spiritual discipline sooner or later.";
+			mes "Uma das pessoas raras que busca melhores habilidades, espero que você perceba a importância da disciplina espiritual mais cedo ou mais tarde.";
 			next;
 			break;
 		case 15:
 			mes "[Guildmaster]";
-			mes "Sooner or later, you will find a new goal to which you can devote yourself...";
+			mes "Mais cedo ou mais tarde, você encontrará um novo objetivo ao qual você pode se dedicar ...";
 			next;
 			break;
 		case 16:
 			mes "[Guildmaster]";
-			mes "I know some people care only about their physical training, but";
-			mes "I believe you stand out amongst them...";
+			mes "Eu sei que algumas pessoas se preocupam apenas com o treinamento físico, mas";
+			mes "Eu acredito que você se destaca entre eles ...";
 			next;
 		}
 		switch(ASSIN_Q3) {
 		case 1: // player Job Level was above 48
 			mes "[Guildmaster]";
-			mes "Well, I've said too much. Please choose a weapon as a present.";
+			mes "Bem, eu disse demais. Escolha uma arma como presente.";
 			next;
 			mes "[Guildmaster]";
-			mes "You can choose a Jur, Katar, Main Gauche, or a Gladius. As a master, I love them all.";
+			mes "Você pode escolher um Jur, Katar, Gauche Main ou Gladius. Como mestre, eu amo todos eles.";
 			next;
-			switch(select("Jur:Katar:Main Gauche:Gladius")) {
+			switch(select("Jur: Katar: Mão esquerda: Gladius")) {
 			case 1:
 				mes "[Guildmaster]";
-				mes "A Jur...";
-				mes "Good choice. There you are. I hope it will serve you well.";
+				mes "Juro ...";
+				mes "Boa escolha. Lá está você. Espero que isso sirva bem.";
 				getitem 1251,1; //Jur_
 				break;
 			case 2:
 				mes "[Guildmaster]";
-				mes "A Katar...";
-				mes "Here you are.";
-				mes "Although it's used,";
-				mes "I know it will";
-				mes "serve you well.";
+				mes "No Catar ...";
+				mes "Olha Você aqui.";
+				mes "Embora seja usado,";
+				mes "Eu sei que vai";
+				mes "Sirva você bem.";
 				getitem 1253,1; //Katar_
 				break;
 			case 3:
 				mes "[Guildmaster]";
-				mes "I see. You want to use both hands. Here, take your Main Gauche.";
+				mes "Eu vejo. Você quer usar as duas mãos. Aqui, pegue seu gauche principal.";
 				getitem 1208,1; //Main_Gauche_
 				break;
 			case 4:
 				mes "[Guildmaster]";
-				mes "A Gladius...";
-				mes "It used to rule over the Assassin weapon market. Please take care of my gladius.";
+				mes "Uma espada ...";
+				mes "Costumava governar o mercado de armas de assassinato. Por favor, cuide do meu Gladius.";
 				getitem 1220,1; //Gladius_
 			}
 			ASSIN_Q3 = 3;
@@ -2099,8 +2099,8 @@ OnTouch_:
 			break;
 		case 2: // player Job Level was below 48
 			mes "[Guildmaster]";
-			mes "Well, I talked too much.";
-			mes "Please take this first.";
+			mes "Bem, eu falei demais.";
+			mes "Por favor, pegue isso primeiro.";
 			next;
 			switch(rand(1,5)) {
 			case 1:
@@ -2121,15 +2121,15 @@ OnTouch_:
 			ASSIN_Q3 = 3;
 		}
 		mes "[Guildmaster]";
-		mes "Well, I am giving you a token. Please return to the Assassin expert, the Ferocious-Looking Huey, at the entrance.";
+		mes "Bem, estou lhe dando um sinal. Por favor, volte ao especialista em assassino, o feroz Huey, na entrada.";
 		next;
 		mes "[Guildmaster]";
-		mes "Upon receiving this token, Huey will promote you to an Assassin.";
+		mes "Ao receber esse token, Huey o promoverá para um assassino.";
 		next;
 		mes "[Guildmaster]";
-		mes "You, " + strcharinfo(0) + ", have chosen to live as an Assassin. May you learn our ways and be an honorable example to others.";
+		mes "Você," + strcharinfo(0) + ", optaram por viver como assassino. Que você aprenda nossos caminhos e seja um exemplo honroso para os outros.";
 		if (checkre(0))
-			savepoint "morocc",100,100,1,1;
+			savepoint "Marrocos",100,100,1,1;
 		else
 			savepoint "moc_ruins",79,99,1,1;
 		getitem 1008,1; //Frozen_Heart
@@ -2137,7 +2137,7 @@ OnTouch_:
 		changequest 8006,8007;
 		next;
 		mes "[Guildmaster]";
-		mes "Okay, all of you may go back to your positions. I will send you to the entrance as well. Let's move...";
+		mes "Ok, todos vocês podem voltar às suas posições. Vou mandar você para a entrada também. Vamos nos mover ...";
 		disablenpc "[Huey]";
 		disablenpc "[Khai]";
 		disablenpc "[The Anonymous One]";
@@ -2151,11 +2151,11 @@ OnTouch_:
 	}
 	else if (ASSIN_Q == 17) {
 		mes "[Guildmaster]";
-		mes "Umm...?";
-		mes "How come you're in here...?";
+		mes "Umm ...?";
+		mes "Como é que você está aqui ...?";
 		next;
 		mes "[Guildmaster]";
-		mes "You already finished your test. Why don't you go try to get the ^006699Necklace of Oblivion^000000 so you can change your job?";
+		mes "Você já terminou seu teste. Por que você não tenta obter o ^006699necklace of Oblivion ^000000 para que você possa mudar seu trabalho?";
 		close2;
 		warp "in_moc_16",17,19;
 		end;
@@ -2163,19 +2163,19 @@ OnTouch_:
 	else if (ASSIN_Q > 7 && ASSIN_Q < 17) {
 		ASSIN_Q = 7;
 		mes "[Guildmaster]";
-		mes "What the hell? You pressed 'Cancel' during the process. Do you want to change your job or what?";
+		mes "Que diabos? Você pressionou 'Cancelar' durante o processo. Você quer mudar seu trabalho ou o quê?";
 		next;
 		mes "[Guildmaster]";
-		mes "^666666*Sigh...*^000000";
-		mes "Ok, let's start again. If you don't listen this time, you won't leave this room alive. You got me?";
+		mes "^666666*suspiro ...*^000000";
+		mes "OK, vamos começar de novo. Se você não ouvir desta vez, não deixará este quarto vivo. Você me pegou?";
 		close;
 	}
 	else {
 		mes "[Guildmaster]";
-		mes "Umm? How come your in here?";
+		mes "Umm? Como você está aqui?";
 		next;
 		mes "[Guildmaster]";
-		mes "You already finished your test, go give your ^006699Necklace of Oblivion^000000 to the Ferocious-looking guy so you can change your job!";
+		mes "Você já terminou seu teste, dê o seu ^006699necklace of Oblivion ^000000 para o cara de aparência feroz para que você possa mudar seu trabalho!";
 		close2;
 		warp "in_moc_16",17,19;
 		end;
@@ -2183,8 +2183,8 @@ OnTouch_:
 }
 
 in_moc_16,186,81,1	script	Master Assist	55,1,1,{
-	mes "[Assistent Gayle Maroubitz]";
-	mes "Sorry, but I'm not in charge of job changes. Go to the Guildmaster, as he has told you.";
+	mes "[Assistente Gayle Maroubitz]";
+	mes "Desculpe, mas não estou encarregado das mudanças de emprego. Vá para o mestre da guilda, como ele lhe disse.";
 	close;
 }
 
@@ -2192,60 +2192,60 @@ in_moc_16,170,90,0	script	info 1	-1,{
 OnTouch_:
 	mes "[Guildmaster]";
 	mes "Huh.";
-	mes "Now, that place is blocked. You might want to check the other side.";
+	mes "Agora, esse lugar está bloqueado. Você pode querer verificar o outro lado.";
 	close;
 }
 
 in_moc_16,153,85,0	script	info 2	-1,1,1,{
 OnTouch_:
 	mes "[Guildmaster]";
-	mes "You're getting warmer. You're almost there. Just, turn around a little bit.";
+	mes "Você está ficando mais quente. Você está quase lá. Apenas, vire um pouco.";
 	close;
 }
 
 in_moc_16,160,85,0	script	info 3	-1,1,1,{
 OnTouch_:
 	mes "[Guildmaster]";
-	mes "Hmm.";
-	mes "Now, that place";
-	mes "is blocked.";
+	mes "Hum.";
+	mes "Agora, aquele lugar";
+	mes "está bloqueado.";
 	close;
 }
 
 in_moc_16,175,89,0	script	info 4	-1,1,1,{
 OnTouch_:
 	mes "[Guildmaster]";
-	mes "Umm...";
-	mes "You're heading for my assistant. Do you still need to talk to him?";
+	mes "Umm ...";
+	mes "Você está indo para o meu assistente. Você ainda precisa falar com ele?";
 	close;
 }
 
 in_moc_16,164,88,0	script	info 5	-1,{
 OnTouch_:
 	mes "[Guildmaster]";
-	mes "Well done...";
-	mes "I can feel your steps near me.";
+	mes "Bom trabalho...";
+	mes "Eu posso sentir seus passos perto de mim.";
 	close;
 }
 
 in_moc_16,149,95,0	script	info 6	-1,1,1,{
 OnTouch_:
 	mes "[Guildmaster]";
-	mes "Hm? Not bad. You're almost here.";
+	mes "HM? Nada mal. Você está quase aqui.";
 	close;
 }
 
 in_moc_16,180,101,0	script	info 7	-1,1,1,{
 OnTouch_:
 	mes "[Guildmaster]";
-	mes "I don't think you're going the right way.";
+	mes "Eu não acho que você está indo do caminho certo.";
 	close;
 }
 
 in_moc_16,186,107,0	script	info 8	-1,1,1,{
 OnTouch_:
 	mes "[Guildmaster]";
-	mes "No sense of direction, eh?";
+	mes "Sem senso de direção, hein?";
 	close;
 }
 

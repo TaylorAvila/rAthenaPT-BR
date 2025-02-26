@@ -13,8 +13,8 @@
 -	shop	inf_ration	-1,512:-1,513:-1,515:-1,516:-1
 
 cmd_fild07,63,268,1	script	Emergency Food Merchant#pa0829_01	4_M_BIBI,{
-	mes "[Emergency Food Merchant]";
-	mes "I have a lot of stuff over here, of course, not for free.";
+	mes "[Comerciante de alimentos de emergência]";
+	mes "Eu tenho muitas coisas aqui, é claro, não de graça.";
 	close2;
 	callshop "inf_ration",1;
 	end;
@@ -23,29 +23,29 @@ cmd_fild07,63,268,1	script	Emergency Food Merchant#pa0829_01	4_M_BIBI,{
 // Warp Scroll Seller
 cmd_fild07,375,167,1	script	Ruins Black Trader#pa0829_01	4_F_JOB_HUNTER,{
 	mes "[Ruins Black Trader]";
-	mes "Hey, isn't it hard to walk in and out of here every time? For just ^0000ff20,000^000000 Zeny, you can have a scroll that will take you directly to the entrance of the ruins, what do you think?";
+	mes "Ei, não é difícil entrar e sair daqui sempre? Por apenas ^0000ff20.000 ^000000 Zeny, você pode ter um pergaminho que o levará diretamente à entrada das ruínas, o que você acha?";
 Purchase:
 	next;
-	switch( select( "Give me one", "I don't think so" )) {
+	switch( select( "Me dê um", "Eu não acho" )) {
 		case 1:
 			if (!checkweight(22980,1) || (MaxWeight - Weight) < 1000) {
-				mes "You can't proceed with the conversation because you have a large quantity of items.";
-				mes "Please organize your items and try again.";
+				mes "Você não pode prosseguir com a conversa porque tem uma grande quantidade de itens.";
+				mes "Por favor, organize seus itens e tente novamente.";
 				close;
 			}
 			else if (Zeny < 20000) {
 				mes "[Ruins Black Trader]";
-				mes "You don't seem to have any more money. A scroll costs 20,000 Zeny.";
+				mes "Você não parece ter mais dinheiro. Um pergaminho custa 20.000 Zeny.";
 				close;
 			}
 			Zeny -= 20000;
 			getitem 22980,1;
 			mes "[Ruins Black Trader]";
-			mes "It was a good deal. Need more?";
+			mes "Foi um bom negócio. Precisa de mais?";
 			goto Purchase;
 		case 2:
 			mes "[Ruins Black Trader]";
-			mes "Come back anytime";
+			mes "Volte a qualquer hora";
 			close;
 	}
 }
@@ -53,18 +53,18 @@ Purchase:
 // Equipment Shop
 cmd_fild07,57,275,5	script	Artifact Appraiser#pa0829_01	1_F_02,{
 	if (!checkweight(1201,1) || (MaxWeight - Weight) < 1000) {
-		mes "You can't proceed with the conversation because you have a large quantity of items.";
-		mes "Please organize your items and try again.";
+		mes "Você não pode prosseguir com a conversa porque tem uma grande quantidade de itens.";
+		mes "Por favor, organize seus itens e tente novamente.";
 		close;
 	}
 	.@stone_id = 6905;
-	mes "[ Artifact Appraiser ]";
-	mes "Choose the type of equipment that you want to purchase. You can purchase as many as you want, as long as you have " + getitemname(.@stone_id) + ".";
+	mes "[Avaliador de artefato]";
+	mes "Escolha o tipo de equipamento que deseja comprar. Você pode comprar quantos quiser, desde que você tenha" + getitemname(.@stone_id) + ".";
 	next;
-	switch (select("Cancel:Weapons:Armors")) {
+	switch (select("Cancelar: Armas: Armaduras")) {
 		case 1:
-			mes "[ Artifact Appraiser ]";
-			mes "Please come back whenever you want~";
+			mes "[Avaliador de artefato]";
+			mes "Por favor volte sempre que quiser ~";
 			close;
 
 		case 2:
@@ -77,33 +77,33 @@ cmd_fild07,57,275,5	script	Artifact Appraiser#pa0829_01	1_F_02,{
 			.@price = 50;
 			break;
 	}
-	.@menu$ = "Cancel:";
+	.@menu$ = "Cancelar:";
 	for (.@i = 0; .@i < getarraysize(.@equip_id); .@i++)
 		.@menu$ += getitemname(.@equip_id[.@i]) + ":";
 	.@s = select(.@menu$) - 1;
 	switch (.@s) {
 		case 0:
-			mes "[ Artifact Appraiser ]";
-			mes "Please come back whenever you want~";
+			mes "[Avaliador de artefato]";
+			mes "Por favor volte sempre que quiser ~";
 			close;
 
 		default:
 			.@s--;
-			mes "[ Artifact Appraiser ]";
-			mes "You need ^0000FF" + .@price + "^000000 " + getitemname(.@stone_id) + " to purchase the " + getitemname(.@equip_id[.@s]) + "~";
+			mes "[Avaliador de artefato]";
+			mes "Você precisa de ^0000ff" + .@price + "^000000" + getitemname(.@stone_id) + "para comprar o" + getitemname(.@equip_id[.@s]) + "~";
 			next;
-			if (select("Cancel:Purchase") == 1) {
-				mes "[ Artifact Appraiser ]";
-				mes "Please come back whenever you want~";
+			if (select("Cancelar: compra") == 1) {
+				mes "[Avaliador de artefato]";
+				mes "Por favor volte sempre que quiser ~";
 				close;
 			}
 			if (countitem(.@stone_id) < .@price) {
-				mes "[ Artifact Appraiser ]";
-				mes "You don't have enough " + getitemname(.@stone_id) + " to purchase this item.";
+				mes "[Avaliador de artefato]";
+				mes "Você não tem o suficiente" + getitemname(.@stone_id) + "para comprar este item.";
 				close;
 			}
-			mes "[ Artifact Appraiser ]";
-			mes "Thank you for your trust. Please come back again next time.";
+			mes "[Avaliador de artefato]";
+			mes "Obrigado pela sua confiança. Por favor, volte novamente na próxima vez.";
 			delitem .@stone_id,.@price;
 			getitem .@equip_id[.@s],1;
 			close;
@@ -113,45 +113,45 @@ cmd_fild07,57,275,5	script	Artifact Appraiser#pa0829_01	1_F_02,{
 // Equipment Enchanter
 cmd_fild07,60,275,3	script	Artifact Enhancer#pa0829_01	4_F_JOB_BLACKSMITH,{
 	if (!checkweight(1201,1) || (MaxWeight - Weight) < 1000) {
-		mes "You can't proceed with the conversation because you have a large quantity of items.";
-		mes "Please organize your items and try again.";
+		mes "Você não pode prosseguir com a conversa porque tem uma grande quantidade de itens.";
+		mes "Por favor, organize seus itens e tente novamente.";
 		close;
 	}
 	disable_items;
 	.@stone_id = 6905;
 	function equip_check;
-	mes "[ Artifact Enhancer ]";
-	mes "If you're looking to strengthen the equipment that you've obtained in the Infinite Space, you have come to the right place.";
-	mes "Do you have any " + getitemname(.@stone_id) + "?";
+	mes "[Enterior de artefato]";
+	mes "Se você deseja fortalecer o equipamento que obteve no espaço infinito, chegou ao lugar certo.";
+	mes "Você tem algum" + getitemname(.@stone_id) + "?";
 	next;
-	switch (select("How do I enchant my equipment?:Enchant equipment.:Initialize equipment's enchant.")) {
+	switch (select("Como faço para encantar meu equipamento ?: Enchant Equipment.")) {
 		case 1:
-			mes "[ Artifact Enhancer ]";
-			mes "You'll be able to obtain " + getitemname(.@stone_id) + ", if you explore the space under the Paros Lighthouse.";
+			mes "[Enterior de artefato]";
+			mes "Você poderá obter" + getitemname(.@stone_id) + ", se você explorar o espaço sob o farol de Paros.";
 			next;
-			mes "[ Artifact Enhancer ]";
-			mes "For that material, I can reinforce the equipment that you got from the Infinite Space.";
+			mes "[Enterior de artefato]";
+			mes "Para esse material, posso reforçar o equipamento que você obteve do espaço infinito.";
 			next;
-			mes "[ Artifact Enhancer ]";
-			mes "I can only enchant the 3rd and the 4th slot.";
+			mes "[Enterior de artefato]";
+			mes "Só posso encantar o terceiro e o quarto slot.";
 			next;
-			mes "[ Artifact Enhancer ]";
-			mes "There is no chance of the equipment being destroyed during the enchanting process, but there's a high probability that it will be destroyed when initializing the enchants.";
+			mes "[Enterior de artefato]";
+			mes "Não há chance de o equipamento ser destruído durante o processo encantador, mas há uma alta probabilidade de que ele seja destruído ao inicializar os encantadores.";
 			next;
-			mes "[ Artifact Enhancer ]";
-			mes "Then come visit me when you want to enchant the equipment.";
+			mes "[Enterior de artefato]";
+			mes "Então venha me visitar quando quiser encantar o equipamento.";
 			break;
 
 		case 2:
 			.@stone_id = 6905;
 			.@fee = 20;
-			mes "[ Artifact Enhancer ]";
-			mes "Please select the equipment that you want to enchant.";
+			mes "[Enterior de artefato]";
+			mes "Selecione o equipamento que você deseja encantar.";
 			next;
-			switch (select("Cancel:Weapon:Armor:Shoes:Garment:Helm")) {
+			switch (select("Cancelar: Arma: Armadura: Sapatos: vestuário: leme")) {
 				case 1:
-					mes "[ Artifact Enhancer ]";
-					mes "Then come visit me when you want to enchant the equipment.";
+					mes "[Enterior de artefato]";
+					mes "Então venha me visitar quando quiser encantar o equipamento.";
 					close;
 
 				case 2:
@@ -182,8 +182,8 @@ cmd_fild07,60,275,3	script	Artifact Enhancer#pa0829_01	4_F_JOB_BLACKSMITH,{
 				.@check[.@i] = getequipcardid(.@part,.@i);
 			}
 			if (.@card[2] > 0) {
-				mes "[ Artifact Enhancer ]";
-				mes "I can only enchant up to the third slot. Your equipment can't be further enchanted.";
+				mes "[Enterior de artefato]";
+				mes "Só posso encantar até o terceiro slot. Seu equipamento não pode ser mais encantado.";
 				close;
 			}
 			switch (.@part) {
@@ -209,25 +209,25 @@ cmd_fild07,60,275,3	script	Artifact Enhancer#pa0829_01	4_F_JOB_BLACKSMITH,{
 			}
 			.@slot = (.@card[3] > 0 ? 2 : 3);
 			.@index = (.@slot == 3 ? 0 : 1);
-			mes "[ Artifact Enhancer ]";
-			mes "You can choose 3 types of enchant, and the enchant fee is " + .@fee + " " + getitemname(.@stone_id) + ".";
-			mes "I'll make sure it gets enchanted without a problem.";
+			mes "[Enterior de artefato]";
+			mes "Você pode escolher 3 tipos de encantamento, e a taxa encantadora é" + .@fee + "" + getitemname(.@stone_id) + ".";
+			mes "Vou garantir que fique encantado sem problemas.";
 			next;
-			.@type = select("Quit:Physical:Magical:Range") - 2;
-			mes "[ Artifact Enhancer ]";
+			.@type = select("Quase: Físico: Mágico: Range") - 2;
+			mes "[Enterior de artefato]";
 			if (.@slot == 3)
-				mes "Okay, let's begin the first enchantment.";
+				mes "Ok, vamos começar o primeiro encantamento.";
 			else
-				mes "Okay, let's proceed with the second enchantment.";
+				mes "Ok, vamos prosseguir com o segundo encantamento.";
 			next;
-			if (select("I'll return later.:Please proceed.") == 1) {
-				mes "[ Artifact Enhancer ]";
-				mes "If you change your mind, just return to me.";
+			if (select("Voltarei mais tarde.") == 1) {
+				mes "[Enterior de artefato]";
+				mes "Se você mudar de idéia, basta voltar para mim.";
 				close;
 			}
 			if (countitem(.@stone_id) < .@fee) {
-				mes "[ Artifact Enhancer ]";
-				mes "Hm. By the way, I don't think you were listening, you don't have enough " + getitemname(.@stone_id) + ".";
+				mes "[Enterior de artefato]";
+				mes "HM. A propósito, eu não acho que você estava ouvindo, você não tem o suficiente" + getitemname(.@stone_id) + ".";
 				close;
 			}
 			explode(.@T$,.@enchant$[.@index],":");
@@ -240,21 +240,21 @@ cmd_fild07,60,275,3	script	Artifact Enhancer#pa0829_01	4_F_JOB_BLACKSMITH,{
 			delequip .@part;
 			getitem2 .@equip_id,1,1,.@refine,0,.@card[0],.@card[1],.@card[2],.@card[3];
 			specialeffect2 EF_REPAIRWEAPON;
-			mes "[ Artifact Enhancer ]";
-			mes "Hm. It was well done. Check your equipment at once.";
+			mes "[Enterior de artefato]";
+			mes "HM. Foi bem feito. Verifique seu equipamento de uma só vez.";
 			break;
 		
 		case 3:
 			.@stone_id = 6905;
 			.@fee = 30;
 			.@break_chance = 30;
-			mes "[ Artifact Enhancer ]";
-			mes "Please select the equipment that you want to enchant.";
+			mes "[Enterior de artefato]";
+			mes "Selecione o equipamento que você deseja encantar.";
 			next;
-			switch (select("Cancel:Weapon:Armor:Shoes:Garment:Helm")) {
+			switch (select("Cancelar: Arma: Armadura: Sapatos: vestuário: leme")) {
 				case 1:
-					mes "[ Artifact Enhancer ]";
-					mes "Then come visit me when you want to enchant the equipment.";
+					mes "[Enterior de artefato]";
+					mes "Então venha me visitar quando quiser encantar o equipamento.";
 					close;
 
 				case 2:
@@ -285,21 +285,21 @@ cmd_fild07,60,275,3	script	Artifact Enhancer#pa0829_01	4_F_JOB_BLACKSMITH,{
 				.@check[.@i] = .@card[.@i];
 			}
 			if (.@card[3] == 0) {
-				mes "[ Artifact Enhancer ]";
-				mes "Your equipment doesn't have any enchant on it.";
+				mes "[Enterior de artefato]";
+				mes "Seu equipamento não tem nenhum encantamento.";
 				close;
 			}
-			mes "[ Artifact Enhancer ]";
-			mes "There is a chance that your infinite space equipment will be destroyed on the initializion process. Are you still willing to proceed?";
+			mes "[Enterior de artefato]";
+			mes "Há uma chance de que seu equipamento espacial infinito seja destruído no processo de inicialização. Você ainda está disposto a prosseguir?";
 			next;
-			if (select("Quit:Proceed") == 1) {
-				mes "[ Artifact Enhancer ]";
-				mes "If you change your mind, just return to me.";
+			if (select("Desistir: prossiga") == 1) {
+				mes "[Enterior de artefato]";
+				mes "Se você mudar de idéia, basta voltar para mim.";
 				close;
 			}
 			if (countitem(.@stone_id) < .@fee) {
-				mes "[ Artifact Enhancer ]";
-				mes "Hm. By the way, I don't think you were listening, you don't have enough " + getitemname(.@stone_id) + ".";
+				mes "[Enterior de artefato]";
+				mes "HM. A propósito, eu não acho que você estava ouvindo, você não tem o suficiente" + getitemname(.@stone_id) + ".";
 				close;
 			}
 			delitem .@stone_id,.@fee;
@@ -309,12 +309,12 @@ cmd_fild07,60,275,3	script	Artifact Enhancer#pa0829_01	4_F_JOB_BLACKSMITH,{
 			if (rand(1,100) > .@chance) {
 				getitem2 .@equip_id,1,1,.@refine,0,.@card[0],.@card[1],0,0;
 				specialeffect2 EF_REPAIRWEAPON;
-				mes "[ Artifact Enhancer ]";
-				mes "Hm. It was well done. Check your equipment at once.";
+				mes "[Enterior de artefato]";
+				mes "HM. Foi bem feito. Verifique seu equipamento de uma só vez.";
 			} else {
 				specialeffect2 EF_REFINEFAIL;
-				mes "[ Artifact Enhancer ]";
-				mes "Well, I did warn you. You aren't lucky, eh?";
+				mes "[Enterior de artefato]";
+				mes "Bem, eu te avisei. Você não tem sorte, não é?";
 			}
 			break;
 	}
@@ -323,13 +323,13 @@ cmd_fild07,60,275,3	script	Artifact Enhancer#pa0829_01	4_F_JOB_BLACKSMITH,{
 	function	equip_check	{
 		setarray .@equip_id,1994,1938,13323,13126,28703,2024,16038,21014,28105,18128,15141,22075,20779,19033;
 		if (!getarg(0)) {
-			mes "[ Artifact Enhancer ]";
-			mes "Did you take off your equipment?";
+			mes "[Enterior de artefato]";
+			mes "Você tirou seu equipamento?";
 			close;
 		}
 		if (inarray(.@equip_id,getarg(0)) == -1) {
-			mes "[ Artifact Enhancer ]";
-			mes "This equipment is not suitable for enchanting. Don't forget that only the infinite equipment series can be enchanted.";
+			mes "[Enterior de artefato]";
+			mes "Este equipamento não é adequado para encantador. Não se esqueça que apenas a série de equipamentos infinitos pode ser encantada.";
 			close;
 		}
 		return;

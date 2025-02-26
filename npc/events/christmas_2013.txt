@@ -28,16 +28,16 @@ xmas,10,1,5	script	2013questreset2#xmas	10086,{
 xmas,150,134,3	script	Union Commander Cliff	10086,{
 	if (BaseLevel < 40) {
 		mes "[Union Commander Cliff]";
-		mes "No words for noob!! Level 40 below cannot join Singles Union Army!";
+		mes "Sem palavras para Noob !! O nível 40 abaixo não pode se juntar ao Exército da União para Singles!";
 		close;
 	}
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 1) {
-		mes "^ff0000You are overweight. Check your inventory and speak to me later.^000000";
+		mes "^ff0000 Você está acima do peso. Verifique seu inventário e fale comigo mais tarde.^000000";
 		close;
 	}
 	set .@playtime, checkquest(15059,PLAYTIME);
 	if (.@playtime == 0 || .@playtime == 1) {
-		mes "- You can repeat this quest after 24 hours.";
+		mes "- Você pode repetir essa missão após 24 horas.";
 		close;
 	} else if (checkquest(15059,PLAYTIME) > 1) {
 		erasequest 15059;
@@ -46,22 +46,22 @@ xmas,150,134,3	script	Union Commander Cliff	10086,{
 	set .@que_allmem, isbegin_quest(15060) + isbegin_quest(15061) + isbegin_quest(15062) + isbegin_quest(15063) + isbegin_quest(15064);
 	if (isbegin_quest(15057) == 1) {
 		if (countitem(7909) < 10 || countitem(7910) < 10 || countitem(6682) < 10) {
-			mes "[Union Commander Cliff]";
-			mes "We need more materials to hold a Christmas party for the Singles Union Army!";
+			mes "[Comandante da União Cliff]";
+			mes "Precisamos de mais materiais para realizar uma festa de Natal para o Exército da União dos Singles!";
 			next;
-			mes "[Union Commander Cliff]";
-			mes "Bring ^ff000010 Stolen Cookie, 10 Stolen Candy, and 10 Bag Of Selling Goods^000000 from those damn raccoons!";
+			mes "[Comandante da União Cliff]";
+			mes "Traga ^FF000010 Cookie roubado, 10 doces roubados e 10 sacos de venda de mercadorias ^000000 daqueles malditos guaxinins!";
 			close;
 		}
-		mes "[Union Commander Cliff]";
-		mes "Did you kick the ass of the Raccoon Hooray team? Oh! You've brought all the items we need. We will be able to feel some Christmas mood with it!";
+		mes "[Comandante da União Cliff]";
+		mes "Você chutou a bunda do time de guaxinim varay? Oh! Você trouxe todos os itens que precisamos. Seremos capazes de sentir algum humor de Natal com ele!";
 		next;
-		mes "[Union Commander Cliff]";
-		mes "I will take ALL the items you brought. For that, I'll give you an exclusive reward only for Singles Union Army. You-must-open-it-ALONE!";
+		mes "[Comandante da União Cliff]";
+		mes "Vou pegar todos os itens que você trouxe. Para isso, eu lhe darei uma recompensa exclusiva apenas para o exército da União Singles. Você é muito aberto!";
 		next;
-		mes "[Union Commander Cliff]";
-		mes "Seize the holiday!";
-		mes "Glory to the Singles Union Army! hihihi HAHAHAHA!!";
+		mes "[Comandante da União Cliff]";
+		mes "Aproveite o feriado!";
+		mes "Glória ao Exército da União dos Singles! Hihihi hahahaha !!";
 		delitem 7909, countitem(7909); //Stolen_Cookie
 		delitem 7910, countitem(7910); //Stolen_Candy
 		delitem 6682, countitem(6682); //Bag_Of_Selling_Goods
@@ -73,43 +73,43 @@ xmas,150,134,3	script	Union Commander Cliff	10086,{
 		specialeffect2 EF_ANGEL2;
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 < 5) {
-		mes "[Union Commander Cliff]";
-		mes "You have a total of " + xmas2013_01 + " couple breaking points.";
-		mes "Break up at least 5 couples and come back to me!";
+		mes "[Comandante da União Cliff]";
+		mes "Você tem um total de" + xmas2013_01 + "casal de quebra de pontos.";
+		mes "Quebre pelo menos 5 casais e volte para mim!";
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 > 4) {
-		mes "[Union Commander Cliff]";
-		mes "Yes! You did it!! More and more are joining the Singles Union Army!! hihihi HAHAHA-HAK! Victory is ours!!";
+		mes "[Comandante da União Cliff]";
+		mes "Sim! Você fez isso !! Cada vez mais estão se juntando ao Exército da União dos Singles !! Hihihi hahaha-hak! Vitória é nossa !!";
 		erasequest 15056;
 		setquest 15057;
 		getitem 22686,5; //Solo_Cookie
 		next;
-		mes "[Union Commander Cliff]";
-		mes "BUT!!! While we're busy breaking up couples, those damn Raccoon Hooray brats stole most of our items. Without it, we cannot get the feel of Christmas mood.";
+		mes "[Comandante da União Cliff]";
+		mes "MAS!!! Enquanto estamos ocupados quebrando casais, aqueles malditos pirralhos de guaxinim roubam a maioria dos nossos itens. Sem ele, não podemos sentir o humor do Natal.";
 		next;
-		mes "[Union Commander Cliff]";
-		mes "It's time to punish them and reclaim the items for the Singles Union Army!!";
+		mes "[Comandante da União Cliff]";
+		mes "É hora de puni -los e recuperar os itens do Exército da União dos Singles !!";
 		next;
-		mes "[Union Commander Cliff]";
-		mes "^ff0000>10 Stolen Cookie, 10 Stolen Candy and 10 Bag Of Selling Goods^000000 should be enough for the party. Find the raccoons on field maps and dungeons!";
+		mes "[Comandante da União Cliff]";
+		mes "^FF0000> 10 Cookie roubado, 10 doces roubados e 10 saco de vendas de mercadorias^000000 devem ser suficientes para a festa. Encontre os guaxinins em mapas de campo e masmorras!";
 		next;
-		mes "[Union Commander Cliff]";
-		mes "It doesn't matter if you brought more, I will take them ALL!!";
+		mes "[Comandante da União Cliff]";
+		mes "Não importa se você trouxe mais, vou levar todos eles !!";
 		close;
 	} else if (isbegin_quest(15055) == 0) {
-		mes "[Union Commander Cliff]";
-		mes "Hey you!! Yes! You right there! You!!";
+		mes "[Comandante da União Cliff]";
+		mes "Ei você !! Sim! Você está aí! Você!!";
 		next;
-		mes "[Union Commander Cliff]";
-		mes "Let me ask you bluntly.";
-		mes "You must be single. I've got a feeling. Right?!??";
+		mes "[Comandante da União Cliff]";
+		mes "Deixe -me perguntar sem rodeios.";
+		mes "Você deve ser solteiro. Eu tenho um sentimento. Certo?!??";
 		next;
-		if(select("- ...maybe...?:WHAT! I'm in a relationship!!") == 2) {
-			mes "[Union Commander Cliff]";
-			mes "What? ...in a relationship?!!";
-			mes "...Not single, but a couple...";
+		if(select("- ... talvez ...?: O quê! Estou em um relacionamento !!") == 2) {
+			mes "[Comandante da União Cliff]";
+			mes "O que? ...em uma relação?!!";
+			mes "... não solteiro, mas um casal ...";
 			mes "......";
-			mes "Damn you! Taste the wrath of the Singles Union Army!!!";
+			mes "Maldito! Prove a ira do Exército da União dos Solteiros !!!";
 			close2;
 			specialeffect2 EF_MAGICALATTHIT;
 			specialeffect2 EF_POTION2;
@@ -117,99 +117,99 @@ xmas,150,134,3	script	Union Commander Cliff	10086,{
 			specialeffect2 EF_COIN;
 			end;
 		}
-		mes "[Union Commander Cliff]";
-		mes "hihihi HAHAHA-HAK!";
-		mes "I knew it! First glance I can tell!";
-		mes "Don't underestimate me, I've been single all my life! hihihi HAHAHA-HAK!";
-		mes "My name is Union Commander Cliff!";
+		mes "[Comandante da União Cliff]";
+		mes "Hihihi hahaha-hak!";
+		mes "Eu sabia! Primeira olhada, posso dizer!";
+		mes "Não me subestime, eu estive solteiro durante toda a minha vida! Hihihi hahaha-hak!";
+		mes "Meu nome é o comandante da União Cliff!";
 		next;
-		mes "[Union Commander Cliff]";
-		mes "Anyway, this December, the day is coming....";
+		mes "[Comandante da União Cliff]";
+		mes "Enfim, em dezembro, o dia está chegando ....";
 		next;
-		mes "[Union Commander Cliff]";
-		mes "Christmas songs everywhere, bright colored lights, pouring white snow, and couples seeing each other with smile on their faces...couples...COUPPPLEEES...!!!!";
+		mes "[Comandante da União Cliff]";
+		mes "Músicas de Natal em todos os lugares, luzes de cores vivas, neve branca e casais se vendo com sorriso no rosto ... casais ... casais ... !!!!";
 		next;
-		mes "[Union Commander Cliff]";
-		mes "In the beginning was a celebration of the birth of our Lord! Then, why...how...when did it became a day for couples??!";
+		mes "[Comandante da União Cliff]";
+		mes "No começo, havia uma celebração do nascimento de nosso Senhor! Então, por que ... como ... quando se tornou um dia para casais ??!";
 		next;
-		mes "[Union Commander Cliff]";
-		mes "I can't stand this....";
-		mes "I will not forgive them for the happiness they bring only for themselves!!";
+		mes "[Comandante da União Cliff]";
+		mes "Eu não suporto isso ....";
+		mes "Não vou perdoá -los pela felicidade que eles trazem apenas para si !!";
 		next;
-		mes "[Union Commander Cliff]";
-		mes "Christmas for couples?";
-		mes "No way! This Christmas will be a day for singles!!";
+		mes "[Comandante da União Cliff]";
+		mes "Natal para casais?";
+		mes "Sem chance! Este Natal será um dia para solteiros !!";
 		next;
-		mes "[Union Commander Cliff]";
-		mes "However, I will need members to stand against them. Its name would be, Singles Union Army!!";
+		mes "[Comandante da União Cliff]";
+		mes "No entanto, vou precisar dos membros para se destacarem contra eles. Seu nome seria, Singles Union Exército !!";
 		next;
-		mes "[Union Commander Cliff]";
-		mes "What do you think? Would you join my Singles Union Army and make Christmas day for singles?";
+		mes "[Comandante da União Cliff]";
+		mes "O que você acha? Você se juntaria ao meu exército da União de Singles e faria o dia de Natal para solteiros?";
 		next;
-		select("Count me in!:I'll help.:I can't say no, can I?");
-		mes "[Union Commander Cliff]";
-		mes "Yeah! That's it! but we need more members to stand against couples.";
+		select("Conte comigo!: Eu vou ajudar .: Eu não posso dizer não, posso?");
+		mes "[Comandante da União Cliff]";
+		mes "Sim! É isso! Mas precisamos de mais membros para enfrentar casais.";
 		next;
-		mes "[Union Commander Cliff]";
-		mes "Here is your first mission!";
-		mes "Go find someone in Lutie and make them join us. 5 singles should be enough, now gogogo~!";
-		mes "hihihi HAHAHA-HAK!";
+		mes "[Comandante da União Cliff]";
+		mes "Aqui está sua primeira missão!";
+		mes "Vá encontrar alguém em Lutie e faça -o se juntar a nós. 5 singles devem ser suficientes, agora GOGOGO ~!";
+		mes "Hihihi hahaha-hak!";
 		close2;
 		setquest 15055;
 		end;
 	} else if (isbegin_quest(15055) == 1 && .@que_allmem < 10) {
-		mes "[Union Commander Cliff]";
-		mes "No time to waste!";
-		mes "Go find 5 singles in Lutie and make them join!";
+		mes "[Comandante da União Cliff]";
+		mes "Sem tempo para desperdiçar!";
+		mes "Vá encontrar 5 singles em Lutie e faça com que eles se juntem!";
 		close;
 	} else if (isbegin_quest(15055) == 1 && .@que_allmem > 9) {
-		mes "[Union Commander Cliff]";
-		mes "Good job! I've met them all! They are worthy to join our cause hihihi HAHAHA-HAK!!";
+		mes "[Comandante da União Cliff]";
+		mes "Bom trabalho! Eu conheci todos eles! Eles são dignos de se juntar à nossa causa hihihi hahaha-hak !!";
 		next;
-		mes "[Union Commander Cliff]";
-		mes "While you were gathering more Singles Union Army members, I've made badges..";
+		mes "[Comandante da União Cliff]";
+		mes "Enquanto você estava reunindo mais membros do Exército da União Singles, eu fiz emblemas.";
 		next;
-		mes "[Union Commander Cliff]";
-		mes "It might not be useful but this kind of small token can make our bonds solid and strong!";
+		mes "[Comandante da União Cliff]";
+		mes "Pode não ser útil, mas esse tipo de pequeno token pode tornar nossos títulos sólidos e fortes!";
 		next;
-		mes "[Union Commander Cliff]";
-		mes "Well, take this! Now you are the proud member of Singles Union Army!!";
+		mes "[Comandante da União Cliff]";
+		mes "Bem, pegue isso! Agora você é o orgulhoso membro do Exército da União Singles !!";
 		set xmas2013_01,0;
 		completequest 15055;
 		getitem 6821,1; //Solo_Troops_Badge
 		next;
-		mes "[Union Commander Cliff]";
-		mes "Now it is time to show our power to couples as we've got enough members!!";
+		mes "[Comandante da União Cliff]";
+		mes "Agora é hora de mostrar nosso poder para os casais, pois temos membros suficientes !!";
 		next;
-		mes "[Union Commander Cliff]";
-		mes "On to the second mission!";
-		mes "Go to Lutie and make couples separate. Doesn't matter how you do it, just them break up!!";
-		mes "hihihi HAHAHA-HAK!";
+		mes "[Comandante da União Cliff]";
+		mes "Na segunda missão!";
+		mes "Vá para Lutie e faça com que os casais se separem. Não importa como você faz isso, apenas eles terminam !!";
+		mes "Hihihi hahaha-hak!";
 		next;
-		mes "[Union Commander Cliff]";
-		mes "Well there is one more thing...";
-		mes "When you disturb couple, if they broke up, you will gain 2 point, in case of just simple argument will grant you 1 point.";
-		mes "But if they become more into each others, your score will be minus 1 point. So when you got 5 points and come here for report, it means mission accomplished.";
+		mes "[Comandante da União Cliff]";
+		mes "Bem, há mais uma coisa ...";
+		mes "Quando você perturbe o casal, se eles se separaram, você ganhará 2 pontos, no caso de apenas um argumento simples lhe dará 1 ponto.";
+		mes "Mas se eles se tornarem mais um do outro, sua pontuação será menos 1 ponto. Então, quando você recebeu 5 pontos e venha aqui para relatar, isso significa missão cumprida.";
 		next;
-		mes "[Union Commander Cliff]";
-		mes "Surely you won't have minus score so don't worry.";
+		mes "[Comandante da União Cliff]";
+		mes "Certamente você não terá pontuação menos, então não se preocupe.";
 		setquest 15056;
 		close;
 	} else if (isbegin_quest(15055) == 2) {
-		mes "[Union Commander Cliff]";
-		mes "Now it is time to show our power to couples as we've got enough troops!!";
+		mes "[Comandante da União Cliff]";
+		mes "Agora é hora de mostrar nosso poder para os casais, pois temos tropas suficientes !!";
 		next;
-		mes "[Union Commander Cliff]";
-		mes "Let's go for second mission!";
-		mes "Go to Lutie and make couples separated. Whatever they are just make them break up!! ";
+		mes "[Comandante da União Cliff]";
+		mes "Vamos para a segunda missão!";
+		mes "Vá para Lutie e faça com que os casais se separem. O que quer que eles estejam, apenas os faça se separar !!";
 		next;
-		mes "[Union Commander Cliff]";
-		mes "Well there is one more thing...";
-		mes "When you disturb couple, if they broke up, you will gain 2 point, in case of just simple argument will grant you 1 point. ";
-		mes "But if they become more into each others, your score will be minus 1 point. So when you got 5 points and come here for report, it means mission accomplished.";
+		mes "[Comandante da União Cliff]";
+		mes "Bem, há mais uma coisa ...";
+		mes "Quando você perturbe o casal, se eles se separaram, você ganhará 2 pontos, no caso de apenas um argumento simples lhe dará 1 ponto.";
+		mes "Mas se eles se tornarem mais um do outro, sua pontuação será menos 1 ponto. Então, quando você recebeu 5 pontos e venha aqui para relatar, isso significa missão cumprida.";
 		next;
-		mes "[Union Commander Cliff]";
-		mes "Surely you won't have minus score so don't worry.";
+		mes "[Comandante da União Cliff]";
+		mes "Certamente você não terá pontuação menos, então não se preocupe.";
 		setquest 15056;
 		close;
 	}
@@ -218,38 +218,38 @@ xmas,150,134,3	script	Union Commander Cliff	10086,{
 
 xmas,172,126,3	script	Lonely Kwami#xmas	10089,{
 	if (isbegin_quest(15055) == 0) {
-		mes "[Kwami]";
-		mes "Haa.....breaking up right before Christmas....I'm alone...a single! ...AM I??!!";
+		mes "[Meu]]";
+		mes "Haa ..... terminando logo antes do natal ... estou sozinho ... um solteiro! ... eu sou ?? !!";
 		close;
 	} else if (isbegin_quest(15055) == 1 && isbegin_quest(15060) == 0) {
-		mes "[Kwami]";
-		mes "Haa.....breaking up right before Christmas....I'm alone...a single! ...AM I??!!";
+		mes "[Meu]]";
+		mes "Haa ..... terminando logo antes do natal ... estou sozinho ... um solteiro! ... eu sou ?? !!";
 		next;
-		mes "[Kwami]";
-		mes "Who are you!?";
-		mes "What's your business with me?";
+		mes "[Meu]]";
+		mes "Quem é você!?";
+		mes "Qual é o seu negócio comigo?";
 		next;
-		select("- Singles Union Army has come to you. -");
-		mes "[Kwami]";
-		mes "err? Singles Union Army? What is that?";
+		select("- O Exército da União de Singles chegou até você. -");
+		mes "[Meu]]";
+		mes "errar? Singles Union Exército? O que é aquilo?";
 		next;
-		select("- Explain about the club -");
-		mes "[Kwami]";
-		mes "...yeah. You're right!";
+		select("- Explique sobre o clube -");
+		mes "[Meu]]";
+		mes "...sim. Você tem razão!";
 		next;
-		mes "[Kwami]";
-		mes "As I'm single! I'd never let couples enjoy this Christmas!!";
+		mes "[Meu]]";
+		mes "Como estou solteiro! Eu nunca deixaria os casais aproveitarem neste Natal !!";
 		next;
-		mes "[Kwami]";
-		mes "I will join to the Singles Union Army!!";
+		mes "[Meu]]";
+		mes "Vou me juntar ao Exército da União dos Singles !!";
 		next;
-		mes "- Kwami has become a member of Singles Union Army. -";
+		mes "- Kwami se tornou membro do Exército da União Singles. -";
 		setquest 15060;
 		completequest 15060;
 		close;
 	} else {
-		mes "[Singles Union Kwami]";
-		mes "First of all, I've got to have revenge on my ex...No?";
+		mes "[Solteiros da minha união]";
+		mes "Primeiro de tudo, tenho que me vingar do meu ex ... não?";
 		close;
 	}
 }
@@ -257,110 +257,110 @@ xmas,172,126,3	script	Lonely Kwami#xmas	10089,{
 xmas,113,161,5	script	Lonely Willer#xmas	10090,{
 	if (isbegin_quest(15055) == 0) {
 		mes "[Willer]";
-		mes "Hoooooo... it is so boring to play alone....";
+		mes "Hoooooo ... é tão chato brincar sozinho ....";
 		close;
 	} else if (isbegin_quest(15055) == 1 && isbegin_quest(15061) == 0) {
 		mes "[Willer]";
-		mes "Hoooooo... it is so boring to play alone....";
+		mes "Hoooooo ... é tão chato brincar sozinho ....";
 		next;
 		mes "[Willer]";
-		mes "Isn't there anything exciting?";
-		mes "...hey, would you play with me??";
+		mes "Não há nada emocionante?";
+		mes "... Ei, você brincaria comigo ??";
 		next;
-		select("- Singles Union Army has come to you. -");
+		select("- O Exército da União de Singles chegou até você. -");
 		mes "[Willer]";
-		mes "Singles Union what? Why come to me?";
+		mes "Singles Union O quê? Por que veio para mim?";
 		next;
-		select("- Explain about the club -");
+		select("- Explique sobre o clube -");
 		mes "[Willer]";
-		mes "Sooo...";
-		mes "Break up couples and make Christmas party only for singles?";
+		mes "Tão ...";
+		mes "Quebrar casais e fazer uma festa de Natal apenas para solteiros?";
 		next;
 		mes "[Willer]";
-		mes "That must be fun! I don't understand exactly but I will join, I'm in!!";
+		mes "Isso deve ser divertido! Eu não entendo exatamente, mas vou entrar, estou dentro !!";
 		next;
-		mes "- Willer has become a member of Singles Union Army. -";
+		mes "- Willer se tornou membro do Exército da União Singles. -";
 		setquest 15061;
 		completequest 15061;
 		close;
 	} else {
 		mes "[Singles Union Willer]";
-		mes "Break up couples...this should be fun!!";
+		mes "Quebrar casais ... isso deve ser divertido !!";
 		close;
 	}
 }
 
 xmas,131,97,5	script	Lonely Rinka#xmas	10091,{
 	if (isbegin_quest(15055) == 0) {
-		mes "[Rinka]";
-		mes "Ewww! darn... what kind of friend would only boast about her boyfriend, disgusting! Does she really think that I can't have one?!?";
+		mes "[O mercado]";
+		mes "Ewww! Droga ... que tipo de amigo só se gabaria de seu namorado, nojento! Ela realmente acha que eu não posso ter um?!?";
 		close;
 	} else if (isbegin_quest(15055) == 1 && isbegin_quest(15062) == 0) {
-		mes "[Rinka]";
-		mes "Ewww! Darn... what kind of friend would only boast about her boyfriend, disgusting! Does she really think that I can't have one?!?";
+		mes "[O mercado]";
+		mes "Ewww! Droga ... que tipo de amigo só se gabaria de seu namorado, nojento! Ela realmente acha que eu não posso ter um?!?";
 		next;
-		mes "[Rinka]";
-		mes "- sobbing -";
+		mes "[O mercado]";
+		mes "- Sobbing -";
 		next;
-		mes "[Rinka]";
-		mes "I can't... in fact, there is no one... I have no one!!!!!!!!!!!!!!";
+		mes "[O mercado]";
+		mes "Eu não posso ... Na verdade, não há ninguém ... Não tenho ninguém !!!!!!!!!!!!!!";
 		next;
-		select("- Singles Union Army has come to you. -");
-		mes "[Rinka]";
-		mes "EEeepp! Wow!!";
-		mes "You surprised me. What are you talking about, what is that?!";
+		select("- O Exército da União de Singles chegou até você. -");
+		mes "[O mercado]";
+		mes "Eeeepp! Uau!!";
+		mes "Você me surpreendeu. Do que você está falando, o que é isso?!";
 		next;
-		select("- Explain about the club -");
-		mes "[Rinka]";
-		mes "Hoho...there's something like that?";
-		mes "Breaking up couples...";
-		mes "Okay! Let me join!";
+		select("- Explique sobre o clube -");
+		mes "[O mercado]";
+		mes "Hoho ... há algo assim?";
+		mes "Quebrando casais ...";
+		mes "OK! Deixe -me entrar!";
 		next;
-		mes "[Rinka]";
-		mes "Is there room for another member?";
-		mes "...soon another member will join!";
-		mes "Wait for it~ my friend!! ...";
+		mes "[O mercado]";
+		mes "Existe espaço para outro membro?";
+		mes "... Em breve, outro membro se juntará!";
+		mes "Espere por isso ~ meu amigo !! ...";
 		next;
-		mes "- Rinka has become a member of Singles Union Army. -";
+		mes "- Rinka se tornou membro do Exército da União Singles. -";
 		setquest 15062;
 		completequest 15062;
 		close;
 	} else {
 		mes "[Singles Union Rinka]";
-		mes "Wait for it~ my friend!! You will... join soon!!";
+		mes "Espere por isso ~ meu amigo !! Você vai ... participar em breve !!";
 		close;
 	}
 }
 
 xmas,121,127,5	script	Lonely Jee#xmas	10088,{
 	if (isbegin_quest(15055) == 0) {
-		mes "[Jee]";
-		mes "How beautiful to be single...";
+		mes "[JEE]";
+		mes "Que lindo ser solteiro ...";
 		close;
 	} else if ((isbegin_quest(15055) == 1) && (isbegin_quest(15063) == 0)) {
-		mes "[Jee]";
-		mes "How beautiful to be single...";
+		mes "[JEE]";
+		mes "Que lindo ser solteiro ...";
 		next;
-		mes "[Jee]";
-		mes "There is no one to bother you. No one to take care of. No more extra work from others. More time to spend it alone.";
+		mes "[JEE]";
+		mes "Não há ninguém para incomodá -lo. Ninguém para cuidar. Não há mais trabalho extra dos outros. Mais tempo para gastar sozinho.";
 		next;
-		mes "[Jee]";
-		mes "Why are people giving up this advantage and want to be couples??";
+		mes "[JEE]";
+		mes "Por que as pessoas estão desistindo dessa vantagem e querem ser casais?";
 		next;
-		select("- Singles Union Army has come to you. -");
-		mes "[Jee]";
-		mes "Yeah, I've heard of it recently. I knew that you would come to me.";
+		select("- O Exército da União de Singles chegou até você. -");
+		mes "[JEE]";
+		mes "Sim, ouvi falar disso recentemente. Eu sabia que você viria até mim.";
 		next;
-		mes "[Jee]";
-		mes "No more words necessary. I will spread the advantage of being single!";
+		mes "[JEE]";
+		mes "Não há mais palavras necessárias. Vou espalhar a vantagem de ser solteiro!";
 		next;
-		mes "- Jee has become a member of Singles Union Army. -";
+		mes "- Jee se tornou membro do Exército da União Singles. -";
 		setquest 15063;
 		completequest 15063;
 		close;
 	} else {
 		mes "[Singles Union Jee]";
-		mes "I will spread the advantage of being single!";
+		mes "Vou espalhar a vantagem de ser solteiro!";
 		close;
 	}
 }
@@ -368,37 +368,37 @@ xmas,121,127,5	script	Lonely Jee#xmas	10088,{
 xmas,150,169,3	script	Lonely Marty#xmas	10087,{
 	if (isbegin_quest(15055) == 0) {
 		mes "[Marty]";
-		mes "umm... Zzz ... nyam-nyam...";
+		mes "Mãe ... Zazz ...";
 		close;
 	} else if (isbegin_quest(15055) == 1 && isbegin_quest(15064) == 0) {
 		mes "[Marty]";
-		mes "umm... Zzz ... nyamnyam...";
+		mes "umm ... zzz ... nyamyam ...";
 		next;
-		select("- Singles Union Army has come to you. -");
+		select("- O Exército da União de Singles chegou até você. -");
 		mes "[Marty]";
-		mes "nyam.... nyamnyam... Grrr... Zzz";
+		mes "Nim .... Nimim ... Troward ... Zazz";
 		next;
-		select("- Explain about the club -");
+		select("- Explique sobre o clube -");
 		mes "[Marty]";
-		mes "Huum... nyaaa.... Zzz";
+		mes "Lei ... isso .... zzz";
 		next;
-		mes "- ...you may consider him to agree to join. -";
+		mes "- ... você pode considerá -lo concordar em participar. -";
 		next;
-		mes "- Marty has become a member of Singles Union Army. -";
+		mes "- Marty se tornou membro do Exército da União Singles. -";
 		setquest 15064;
 		completequest 15064;
 		close;
 	} else {
 		mes "[Singles Union Marty]";
-		mes "nyam.... nyamnyam... Grrrr... Zzz";
+		mes "Nim .... Nimim ... Troward ... Zazz";
 		close;
 	}
 }
 
 xmas,108,149,5	script	Drop Machine#xmas	562,{
 	if (isbegin_quest(15056) == 0) {
-		mes "[Drop Machine]";
-		mes "Dingding dong Ding!~";
+		mes "[Máquina de soltar]";
+		mes "Ding Ding Ding Dong Ding! ~";
 		emotion ET_THROB;
 		next;
 		mes "[Slot Machine]";
@@ -406,60 +406,60 @@ xmas,108,149,5	script	Drop Machine#xmas	562,{
 		emotion ET_THROB, getnpcid(0, "Slot Machine#xmas");
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 < 5) {
-		mes "[Drop Machine]";
-		mes "Dingdingding ding!~";
+		mes "[Máquina de soltar]";
+		mes "Ding Top!";
 		emotion ET_THROB;
 		next;
 		mes "[Slot Machine]";
-		mes "Charrrrr Sharrrrrrrr Ding!~";
+		mes "Charrrrr sharrrrrrrrrrrrrr! ~";
 		emotion ET_THROB, getnpcid(0, "Slot Machine#xmas");
 		next;
-		mes "- Oh no, another couple!";
-		mes "- Even though they're just machines...";
-		mes "- I cannot bear to see this!";
+		mes "- Oh não, outro casal!";
+		mes "- mesmo que sejam apenas máquinas ...";
+		mes "- Não suporto ver isso!";
 		next;
-		select("- Run the machine to full power. -");
-		mes "[Drop Machine]";
-		mes "Ding ding ding dong ding ding ding dong Ding ding ding dong ding ding ding dong";
+		select("- Execute a máquina com energia total. -");
+		mes "[Máquina de soltar]";
+		mes "Ding Top Ding Ding Ding Ding Ding Ding Ding Ding Ding Ding Ding Ding Ding Ding Ding Ding Ding Ding Ding Ding Ding Ding Ding Ding Dong Ding Dong Dong Dong Dong Dong Dong Dong Dong Dong Dong Dong Dong";
 		next;
 		mes "[Slot Machine]";
-		mes "Krrrrrrrrrr Dingding dong Krrrrrr Dingding Krrrrrrrrrrr ding Krrrrrrrrr";
+		mes "Krrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrra";
 		next;
 		set .@cu_bre, rand(1,10);
 		if (.@cu_bre < 3) {
-			mes "- I...";
-			mes "- I think I broke them both!";
-			mes "- Successfully broke up a couple!";
-			mes "- 2 Points for a great job!";
+			mes "- EU...";
+			mes "- Acho que quebrei os dois!";
+			mes "- terminou com sucesso um casal!";
+			mes "- 2 pontos para um ótimo trabalho!";
 			set xmas2013_01, xmas2013_01 + 2;
 		} else if (.@cu_bre > 7) {
-			mes "- I ran the machine for a while";
-			mes "- But the sound of the machine";
-			mes "- seems to grow louder.";
-			mes "- Failed to break them, minus 1 point!";
+			mes "- Eu corri a máquina por um tempo";
+			mes "- Mas o som da máquina";
+			mes "- parece ficar mais alto.";
+			mes "- Falha ao quebrá -los, menos 1 ponto!";
 			if (xmas2013_01 > 0)
 				set xmas2013_01, xmas2013_01 - 1;
 		} else {
-			mes "- After running the machine for a while";
-			mes "- I think I finally broke one of them!";
-			mes "- Here's 1 point for a good job!";
+			mes "- Depois de executar a máquina por um tempo";
+			mes "- Acho que finalmente quebrei um deles!";
+			mes "- Aqui está 1 ponto para um bom trabalho!";
 			set xmas2013_01, xmas2013_01 + 1;
 		}
-		mes "- Current couple breaking point is " + xmas2013_01 + ".";
+		mes "- O ponto de ruptura atual é" + xmas2013_01 + ".";
 		hideonnpc "Drop Machine#xmas";
 		hideonnpc "Slot Machine#xmas";
 		initnpctimer;
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 > 4) {
-		mes "- Couple breaking point";
-		mes "- is now more than 5.";
-		mes "- I should go back to Union Commander Cliff.";
+		mes "- Ponto de quebra de casal";
+		mes "- agora é mais de 5.";
+		mes "- Eu deveria voltar ao comandante da União Cliff.";
 		close;
 	}
 	end;
 OnTimer100000:
-	hideoffnpc "Drop Machine#xmas";
-	hideoffnpc "Slot Machine#xmas";
+	hideoffnpc "Máquina de soltar#Natal";
+	hideoffnpc "Slot Machine#Natal";
 	stopnpctimer;
 	end;
 }
@@ -467,110 +467,110 @@ xmas,111,149,3	script	Slot Machine#xmas	563,{ end; }
 
 xmas,181,150,5	script	Frightened Man#xmas	711,{
 	if (isbegin_quest(15056) == 0) {
-		mes "[Frightened Man]";
-		mes "It's my fault, I'm sorry. Please don't be mad.";
+		mes "[Homem assustado]";
+		mes "É minha culpa, sinto muito. Por favor, não fique bravo.";
 		emotion ET_SORRY;
 		next;
-		mes "[Angry Woman]";
-		mes "You're sorry? Do you know what you did? Do you have any idea why I'm mad?";
+		mes "[Mulher zangada]";
+		mes "Você está arrependido? Você sabe o que você fez? Você tem alguma ideia de por que estou bravo?";
 		emotion ET_FRET, getnpcid(0, "Angry Woman#xmas");
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 < 5) {
-		mes "[Frightened Man]";
-		mes "It's my bad, I'm sorry. Please don't be mad";
+		mes "[Homem assustado]";
+		mes "É meu mal, me desculpe. Por favor, não fique bravo";
 		emotion ET_SORRY;
 		next;
-		mes "[Angry Woman]";
-		mes "You're sorry? Do you know what you did? Do you have any idea why I'm mad?";
+		mes "[Mulher zangada]";
+		mes "Você está arrependido? Você sabe o que você fez? Você tem alguma ideia de por que estou bravo?";
 		emotion ET_FRET, getnpcid(0, "Angry Woman#xmas");
 		next;
-		mes "[Frightened Man]";
-		mes "Well, I just feel like everything's my fault";
+		mes "[Homem assustado]";
+		mes "Bem, eu apenas sinto que tudo é minha culpa";
 		next;
-		mes "[Angry Woman]";
-		mes "You're always like this!";
-		mes "You never know what you should apologize for!!";
+		mes "[Mulher zangada]";
+		mes "Você é sempre assim!";
+		mes "Você nunca sabe pelo que deve se desculpar !!";
 		next;
-		mes "[Frightened Man]";
-		mes "Ah... What should I do?";
-		mes "Hey, what do you think I should say to my girlfriend?";
+		mes "[Homem assustado]";
+		mes "Ah ... o que devo fazer?";
+		mes "Ei, o que você acha que eu deveria dizer à minha namorada?";
 		next;
-		select("- Tell her 'We should stop seeing each other'!");
-		mes "[Frightened Man]";
-		mes "Maybe we.. should stop seeing each other?";
-		mes "Oh no, I just said it out loud!";
+		select("- Diga a ela 'devemos parar de se ver'!");
+		mes "[Homem assustado]";
+		mes "Talvez nós .. devemos parar de nos ver?";
+		mes "Oh não, eu apenas disse isso em voz alta!";
 		next;
 		set .@cu_bre, rand(1,10);
 		if (.@cu_bre < 3) {
-			mes "[Angry Woman]";
-			mes "What? What did you just say? We should stop seeing each other? How could you say that to me?! You're the one who's done everything wrong! Okay, you know what? Let's just break up! I'm sick of all this!";
+			mes "[Mulher zangada]";
+			mes "O que? O que você acabou de dizer? Devemos parar de ver um ao outro? Como você poderia dizer isso para mim?! Você é quem fez tudo errado! Ok, você sabe o que? Vamos acabar com! Estou cansado de tudo isso!";
 			set xmas2013_01, xmas2013_01 + 2;
 			hideonnpc "Frightened Man#xmas";
 			hideonnpc "Angry Woman#xmas";
 			initnpctimer;
 			next;
-			mes "[Frightened Man]";
-			mes "No, that's not what I... okay, that's it! I'm sick of this too, sick of you whining all the time! Let's just end this today!!";
+			mes "[Homem assustado]";
+			mes "Não, não é isso que eu ... ok, é isso! Estou farto disso também, cansado de você choramingando o tempo todo! Vamos acabar com isso hoje !!";
 			next;
-			mes "- Successfully broke up a couple!!";
-			mes "- 2 Points!";
+			mes "- terminou com sucesso um casal !!";
+			mes "- 2 pontos!";
 		} else if (.@cu_bre > 7) {
-			mes "[Angry Woman]";
-			mes "What? ...What did you just say? We should stop seeing each other?";
+			mes "[Mulher zangada]";
+			mes "O que? ... O que você acabou de dizer? Devemos parar de ver um ao outro?";
 			if (xmas2013_01 > 0)
 				set xmas2013_01, xmas2013_01 - 1;
 			hideonnpc "Frightened Man#xmas";
 			hideonnpc "Angry Woman#xmas";
 			initnpctimer;
 			next;
-			mes "[Angry Woman]";
-			mes "I can't believe you can be such a hot, tough guy! It's like I'm falling in love all over again!";
+			mes "[Mulher zangada]";
+			mes "Não acredito que você pode ser um cara tão quente e durão! É como se eu estivesse me apaixonando de novo!";
 			next;
-			mes "[Angry Woman]";
-			mes "Honey, can you say that again, more in a rough way?";
+			mes "[Mulher zangada]";
+			mes "Querida, você pode dizer isso de novo, mais de uma maneira difícil?";
 			next;
-			mes "[Frightened Man]";
-			mes "Huh? sure... Let's... let's just end this!!!";
+			mes "[Homem assustado]";
+			mes "Huh? Claro ... vamos ... vamos acabar com isso !!!";
 			next;
-			mes "[Angry Woman]";
-			mes "Hahahaha! You're awesome! Awesome! Say it again! Say it!";
+			mes "[Mulher zangada]";
+			mes "Hahahaha! Você é incrível! Incrível! Diga de novo! Diga!";
 			next;
-			mes "[Frightened Man]";
-			mes "Let's just break up! I'm leaving you!!";
+			mes "[Homem assustado]";
+			mes "Vamos acabar com! Estou deixando você !!";
 			next;
-			mes "[Angry Woman]";
-			mes "Hahahahahahaha! Yay! You're the best!";
+			mes "[Mulher zangada]";
+			mes "Hahahahahahahaha! Yay! Você é o melhor!";
 			next;
-			mes "- ...These people aren't normal.";
-			mes "- minus 1 point for the failure!";
+			mes "- ... essas pessoas não são normais.";
+			mes "- menos 1 ponto para o fracasso!";
 		} else {
 			set xmas2013_01, xmas2013_01 + 1;
 			hideonnpc "Frightened Man#xmas";
 			hideonnpc "Angry Woman#xmas";
 			initnpctimer;
-			mes "[Angry Woman]";
-			mes "What? ...What did you just say? We should stop seeing each other?";
+			mes "[Mulher zangada]";
+			mes "O que? ... O que você acabou de dizer? Devemos parar de ver um ao outro?";
 			next;
-			mes "[Angry Woman]";
-			mes "...I think we're both too upset now. Let's just talk about it later...";
+			mes "[Mulher zangada]";
+			mes "... Eu acho que nós dois estamos muito chateados agora. Vamos apenas falar sobre isso mais tarde ...";
 			next;
-			mes "[Frightened Man]";
-			mes "Hmm?... ah, yes, you're right... Goodbye, get home safely...";
+			mes "[Homem assustado]";
+			mes "Hmm? ... ah, sim, você está certo ... adeus, chegue em casa com segurança ...";
 			next;
-			mes "- Here's 1 point for ruining their date!";
+			mes "- Aqui está 1 ponto para arruinar o encontro deles!";
 		}
-		mes "- Current couple breaking point is " + xmas2013_01 + ".";
+		mes "- O ponto de ruptura atual é" + xmas2013_01 + ".";
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 > 4) {
-		mes "- Couple breaking point";
-		mes "- is now more than 5.";
-		mes "- I should go back to Union Commander Cliff.";
+		mes "- Ponto de quebra de casal";
+		mes "- agora é mais de 5.";
+		mes "- Eu deveria voltar ao comandante da União Cliff.";
 		close;
 	}
 	end;
 OnTimer100000:
-	hideoffnpc "Frightened Man#xmas";
-	hideoffnpc "Angry Woman#xmas";
+	hideoffnpc "Homem assustado#Natal";
+	hideoffnpc "Mulher zangada#Natal";
 	stopnpctimer;
 	end;
 }
@@ -578,58 +578,58 @@ xmas,183,150,3	script	Angry Woman#xmas	714,{ end; }
 
 xmas_in,32,99,5	script	Singles Union Kwami	10089,{
 	if (isbegin_quest(15056) == 0) {
-		mes "[Singles Union Kwami]";
-		mes "Rinka. It's a huge mystery how such a pretty girl like you ended up in this Singles Union Army.";
+		mes "[Solteiros da minha união]";
+		mes "Rinka. É um enorme mistério como uma garota tão bonita como você acabou neste exército da União Singles.";
 		emotion ET_THROB;
 		next;
 		mes "[Singles Union Rinka]";
-		mes "You think I'm pretty? hoho... It's mystery for me too, that a handsome man like you joined the Singles Union Army.";
+		mes "Você acha que eu sou bonita? Hoho ... é um mistério para mim também, que um homem bonito como você se juntou ao exército da União dos Singles.";
 		emotion ET_THROB, getnpcid(0, "Singles Union Rinka");
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 < 5) {
-		mes "[Singles Union Kwami]";
-		mes "Rinka. It's a huge mystery how such a pretty girl like you ended up in this Singles Union Army.";
+		mes "[Solteiros da minha união]";
+		mes "Rinka. É um enorme mistério como uma garota tão bonita como você acabou neste exército da União Singles.";
 		emotion ET_THROB;
 		next;
 		mes "[Singles Union Rinka]";
-		mes "You think I'm pretty? hoho... It's mystery for me too, that a handsome man like you joined the Singles Union Army.";
+		mes "Você acha que eu sou bonita? Hoho ... é um mistério para mim também, que um homem bonito como você se juntou ao exército da União dos Singles.";
 		emotion ET_THROB, getnpcid(0, "Singles Union Rinka");
 		next;
-		mes "[Singles Union Kwami]";
-		mes "Well, isn't it a shame we should spend Christmas alone? What do you say, Rinka, you and me...";
+		mes "[Solteiros da minha união]";
+		mes "Bem, não é uma pena que devamos passar o Natal sozinho? O que você diz, Rinka, você e eu ...";
 		next;
-		select("- To be a couple is to be a betrayer! You betray us, you die!!!");
+		select("- Ser um casal é ser um traidor! Você nos trai, você morre !!!");
 		set xmas2013_01, xmas2013_01 + 1;
 		hideonnpc "Singles Union Kwami";
 		hideonnpc "Singles Union Rinka";
 		initnpctimer;
 		mes "[Singles Union Rinka]";
-		mes "Argh!!!!! Who is this?!";
-		mes "Isn't this the one who dragged us to the Singles Union Army?!";
+		mes "ARGH !!!!! Quem é isso?!";
+		mes "Não é isso que nos arrastou para o exército da União dos Singles?!";
 		next;
-		mes "[Singles Union Kwami]";
-		mes "Were you.. eavesdropping?!";
-		mes "I just wanted to say we should find more members for the Club! Hahahahaha!";
+		mes "[Solteiros da minha união]";
+		mes "Você estava .. escuta?!";
+		mes "Eu só queria dizer que devemos encontrar mais membros para o clube! Hahahahaha!";
 		next;
-		mes "[Singles Union Kwami]";
-		mes "I'll see you later, Rinka. I am going out to hunt down more couples. Don't tell the boss!";
+		mes "[Solteiros da minha união]";
+		mes "Vejo você mais tarde, Rinka. Estou saindo para caçar mais casais. Não diga ao chefe!";
 		next;
 		mes "[Singles Union Rinka]";
-		mes "Hmm, I guess I should get going to. See you later Kwami, goodbye to you too~";
+		mes "Hmm, acho que deveria ir. Vejo você mais tarde Kwami, adeus a você também ~";
 		next;
-		mes "- Successfully stopped a couple from forming!";
-		mes "- 1 Point for the good job!";
-		mes "- Current couple breaking point is " + xmas2013_01 + ".";
+		mes "- Parou com sucesso um casal de se formar!";
+		mes "- 1 ponto para o bom trabalho!";
+		mes "- O ponto de ruptura atual é" + xmas2013_01 + ".";
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 > 4) {
-		mes "- Couple breaking point";
-		mes "- is now more than 5.";
-		mes "- I should go back to Union Commander Cliff.";
+		mes "- Ponto de quebra de casal";
+		mes "- agora é mais de 5.";
+		mes "- Eu deveria voltar ao comandante da União Cliff.";
 		close;
 	}
 	end;
 OnTimer300000:
-	hideoffnpc "Singles Union Kwami";
+	hideoffnpc "Solteiros da minha união";
 	hideoffnpc "Singles Union Rinka";
 	stopnpctimer;
 	end;
@@ -638,127 +638,127 @@ xmas_in,34,99,3	script	Singles Union Rinka	10091,{ end; }
 
 xmas,156,109,5	script	Poor Alchemist#xmas	749,{
 	if (isbegin_quest(15056) == 0) {
-		mes "[Poor Alchemist]";
-		mes "Oh, hello.";
+		mes "[Pobre alquimista]";
+		mes "Oh, olá.";
 		emotion ET_PROFUSELY_SWEAT;
 		next;
-		mes "[Florist]";
-		mes "Hello, Mr. Alchemist.";
-		mes "Are you working today, too?";
+		mes "[Florista]";
+		mes "Olá, Sr. Alchemist.";
+		mes "Você também está trabalhando hoje?";
 		emotion ET_DELIGHT, getnpcid(0, "Florist#xmas");
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 < 5) {
-		mes "[Poor Alchemist]";
-		mes "Oh, hello.";
+		mes "[Pobre alquimista]";
+		mes "Oh, olá.";
 		emotion ET_PROFUSELY_SWEAT;
 		next;
-		mes "[Florist]";
-		mes "Hello, Mr. Alchemist.";
-		mes "Are you working today, too?";
+		mes "[Florista]";
+		mes "Olá, Sr. Alchemist.";
+		mes "Você também está trabalhando hoje?";
 		emotion ET_DELIGHT, getnpcid(0, "Florist#xmas");
 		next;
-		mes "[Poor Alchemist]";
-		mes "Actually, I have something to tell you.";
-		mes "It's very important so please listen carefully.";
+		mes "[Pobre alquimista]";
+		mes "Na verdade, eu tenho algo para lhe dizer.";
+		mes "É muito importante, então, por favor, ouça com cuidado.";
 		next;
-		mes "[Florist]";
-		mes "Oh, sure, please speak freely.";
+		mes "[Florista]";
+		mes "Oh, claro, por favor, fale livremente.";
 		next;
-		mes "[Poor Alchemist]";
-		mes "Biologically speaking, limbic system in the cerebrum enables us to be sociable, to communicate with people, to entertain etc.";
+		mes "[Pobre alquimista]";
+		mes "Biologicamente falando, o sistema límbico no cérebro nos permite ser sociáveis, comunicar com pessoas, entreter etc.";
 		next;
-		mes "[Poor Alchemist]";
-		mes "So when you see a beautiful woman, the information such as her appearance, her scent, the tone of her voice etc. goes to the limbic area.";
+		mes "[Pobre alquimista]";
+		mes "Então, quando você vê uma mulher bonita, as informações como sua aparência, seu perfume, o tom de sua voz etc. vão para a área límbica.";
 		next;
-		mes "[Poor Alchemist]";
-		mes "The limbic system then evaluates the information, to see if this lady is friendly, agressive, or charming, etc.";
+		mes "[Pobre alquimista]";
+		mes "O sistema límbico que avalia as informações, para ver se essa senhora é amigável, agressiva ou encantadora, etc.";
 		next;
-		mes "[Poor Alchemist]";
-		mes "When the evaluation is done, the limbic system immediately begins to secrete the chemicals.";
+		mes "[Pobre alquimista]";
+		mes "Quando a avaliação é realizada, o sistema límbico começa imediatamente a secretar os produtos químicos.";
 		next;
-		mes "[Poor Alchemist]";
-		mes "So if you're attracted to this lady, a hormone calls Dopamine is secreted and it makes you feel slightly happy.";
+		mes "[Pobre alquimista]";
+		mes "Portanto, se você é atraído por essa senhora, um hormônio chama a dopamina é secretado e faz você se sentir um pouco feliz.";
 		next;
-		mes "[Poor Alchemist]";
-		mes "When that stage ends, you get the Adrenaline pumping, then you become more direct and enthusiastic.";
+		mes "[Pobre alquimista]";
+		mes "Quando esse estágio termina, você obtém a adrenalina, então se torna mais direto e entusiasmado.";
 		next;
-		mes "[Poor Alchemist]";
-		mes "I'm in that stage now towards you! In other word, I am very...!!";
+		mes "[Pobre alquimista]";
+		mes "Estou nesse estágio agora em sua direção! Em outra palavra, eu sou muito ... !!";
 		next;
-		select("- Very hungry, right?!");
-		mes "[Florist]";
-		mes "Huh? Is that right?";
-		mes "Are you hungry now, Mr. Alchemist?";
+		select("- com muita fome, certo?!");
+		mes "[Florista]";
+		mes "Huh? Está certo?";
+		mes "Você está com fome agora, Sr. Alchemist?";
 		next;
-		mes "[Poor Alchemist]";
-		mes "Ah.. yes.. I think I am...";
-		mes "...very hungry..";
+		mes "[Pobre alquimista]";
+		mes "Ah .. sim .. eu acho que sou ...";
+		mes "... com muita fome ..";
 		next;
 		set .@cu_bre, rand(1,10);
 		if (.@cu_bre < 3) {
-			mes "[Florist]";
-			mes "There's a nice restaurant near here. Why don't you go there and have a meal?";
+			mes "[Florista]";
+			mes "Há um bom restaurante perto daqui. Por que você não vai lá e faz uma refeição?";
 			set xmas2013_01, xmas2013_01 + 2;
 			hideonnpc "Poor Alchemist#xmas";
 			hideonnpc "Florist#xmas";
 			initnpctimer;
 			next;
-			mes "[Poor Alchemist]";
-			mes "...Sure, thank you. Have a good day...";
+			mes "[Pobre alquimista]";
+			mes "... claro, obrigado. Tenha um bom dia ...";
 			next;
-			mes "- Successfully stopped a couple from forming!";
-			mes "- 2 points for the great job!";
+			mes "- Parou com sucesso um casal de se formar!";
+			mes "- 2 pontos para o excelente trabalho!";
 		} else if (.@cu_bre > 7) {
-			mes "[Florist]";
-			mes "I see. I understand what you mean.";
+			mes "[Florista]";
+			mes "Eu vejo. Eu entendo o que você quer dizer.";
 			if (xmas2013_01 > 0)
 				set xmas2013_01, xmas2013_01 - 1;
 			hideonnpc "Poor Alchemist#xmas";
 			hideonnpc "Florist#xmas";
 			initnpctimer;
 			next;
-			mes "[Florist]";
-			mes "Can I cook some nice meal for you, then?";
+			mes "[Florista]";
+			mes "Posso cozinhar uma boa refeição para você, então?";
 			next;
-			mes "[Florist]";
-			mes "...For the rest of my life, if you want...";
+			mes "[Florista]";
+			mes "... pelo resto da minha vida, se você quiser ...";
 			next;
-			mes "[Poor Alchemist]";
-			mes "Okay...";
+			mes "[Pobre alquimista]";
+			mes "OK...";
 			mes "......";
-			mes "Wait, what?????";
+			mes "Espere, o que ?????";
 			next;
-			mes "[Poor Alchemist]";
+			mes "[Pobre alquimista]";
 			mes "......";
-			mes "...... Yes! I want!!!!!!!!";
+			mes "...... Sim! Eu quero!!!!!!!!";
 			next;
-			mes "- Failed to break up a couple";
-			mes "- minus 1 point for the failure!";
+			mes "- Falha ao quebrar um casal";
+			mes "- menos 1 ponto para o fracasso!";
 		} else {
 			set xmas2013_01, xmas2013_01 + 1;
 			hideonnpc "Poor Alchemist#xmas";
 			hideonnpc "Florist#xmas";
 			initnpctimer;
-			mes "[Florist]";
-			mes "There's some food in the store, please come in.";
+			mes "[Florista]";
+			mes "Há alguma comida na loja, por favor entre.";
 			next;
-			mes "[Poor Alchemist]";
-			mes "Ah... yes, thank you.";
+			mes "[Pobre alquimista]";
+			mes "Ah ... sim, obrigado.";
 			next;
-			mes "- You did interrupt the couple in a way. Here's 1 point for you!";
+			mes "- Você interrompeu o casal de certa forma. Aqui está 1 ponto para você!";
 		}
-		mes "- Current couple breaking point is " + xmas2013_01 + ".";
+		mes "- O ponto de ruptura atual é" + xmas2013_01 + ".";
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 > 4) {
-		mes "- Couple breaking point";
-		mes "- is now more than 5.";
-		mes "- I should go back to Union Commander Cliff.";
+		mes "- Ponto de quebra de casal";
+		mes "- agora é mais de 5.";
+		mes "- Eu deveria voltar ao comandante da União Cliff.";
 		close;
 	}
 	end;
 OnTimer100000:
-	hideoffnpc "Poor Alchemist#xmas";
-	hideoffnpc "Florist#xmas";
+	hideoffnpc "Pobre alquimista#Natal";
+	hideoffnpc "Florista#Natal";
 	stopnpctimer;
 	end;
 }
@@ -766,45 +766,45 @@ xmas,158,109,3	script	Florist#xmas	91,{ end; }
 
 xmas,166,164,5	script	Raffini Boy#xmas	443,{
 	if (isbegin_quest(15056) == 0) {
-		mes "[Raffini Boy]";
-		mes "This is Lutie village...";
+		mes "[Menino Raffini]";
+		mes "Esta é a vila de Lutie ...";
 		emotion ET_STARE_ABOUT;
 		next;
 		mes "[Raffini Girl]";
-		mes "So much beautiful white snow flakes.";
-		mes "But it's too cold here...";
+		mes "Tanto lindos flocos de neve branca.";
+		mes "Mas está muito frio aqui ...";
 		emotion ET_CRY, getnpcid(0, "Raffini Girl#xmas");
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 < 5) {
-		mes "[Raffini Boy]";
-		mes "This is Lutie village...";
+		mes "[Menino Raffini]";
+		mes "Esta é a vila de Lutie ...";
 		emotion ET_STARE_ABOUT;
 		next;
 		mes "[Raffini Girl]";
-		mes "So much beautiful white snow flakes.";
-		mes "But it's too cold here...";
+		mes "Tanto lindos flocos de neve branca.";
+		mes "Mas está muito frio aqui ...";
 		emotion ET_CRY, getnpcid(0, "Raffini Girl#xmas");
 		next;
-		mes "[Raffini Boy]";
-		mes "But it's you who wanted to see the snow this Christmas.";
+		mes "[Menino Raffini]";
+		mes "Mas é você quem queria ver a neve neste Natal.";
 		next;
 		mes "[Raffini Girl]";
-		mes "Oh but I didn't know how much cold it is...oops...";
+		mes "Oh, mas eu não sabia quanto frio está ... opa ...";
 		next;
-		mes "[Raffini Boy]";
-		mes "Well, ok I see...Just come closer to me.";
-		next;
-		mes "[Raffini Girl]";
-		mes "What? I cannot hear you. What were you saying?";
-		next;
-		mes "[Raffini Boy]";
-		mes "...Come closer to me. To my side.";
+		mes "[Menino Raffini]";
+		mes "Bem, ok, eu vejo ... apenas se aproxima de mim.";
 		next;
 		mes "[Raffini Girl]";
-		mes "Ohh ok...";
+		mes "O que? Eu não posso ouvi-lo. O que você estava dizendo?";
 		next;
-		mes "- Hmm...there is no space at all";
-		mes "- for me to interrupt...";
+		mes "[Menino Raffini]";
+		mes "... aproximar -se de mim. Ao meu lado.";
+		next;
+		mes "[Raffini Girl]";
+		mes "Ohh ok ...";
+		next;
+		mes "- Hmm ... não há espaço";
+		mes "- Para eu interromper ...";
 		next;
 		hideonnpc "Raffini Boy#xmas";
 		hideonnpc "Raffini Girl#xmas";
@@ -813,49 +813,49 @@ xmas,166,164,5	script	Raffini Boy#xmas	443,{
 		if (.@cu_bre < 6) {
 			set xmas2013_01, xmas2013_01 + 1;
 			mes "[Raffini Girl]";
-			mes "....But it's still too cold! I don't want to be here any more.";
+			mes ".... mas ainda está muito frio! Eu não quero mais estar aqui.";
 			next;
 			mes "[Raffini Girl]";
-			mes "I want to go back to Eclage!";
+			mes "Eu quero voltar ao eclage!";
 			next;
-			mes "[Raffini Boy]";
-			mes "Oh? Hey...we finally just got here, but you will go back right now?";
+			mes "[Menino Raffini]";
+			mes "Oh? Ei ... nós finalmente chegamos aqui, mas você voltará agora?";
 			next;
-			mes "[Raffini Boy]";
-			mes "Hey! Let's go together!!";
+			mes "[Menino Raffini]";
+			mes "Ei! Vamos juntos !!";
 			next;
-			mes "- No sweat at all, but everything is going alright.";
-			mes "- Get 1 score point!";
+			mes "- Sem suor, mas tudo está indo bem.";
+			mes "- Obtenha 1 ponto de pontuação!";
 		} else {
 			if (xmas2013_01 > 0)
 				set xmas2013_01, xmas2013_01 - 1;
 			mes "[Raffini Girl]";
-			mes "Oh! It's much warmer than before...hehe";
+			mes "Oh! É muito mais quente do que antes ... hehe";
 			next;
-			mes "[Raffini Boy]";
-			mes "D..don't be too close to me!";
+			mes "[Menino Raffini]";
+			mes "D.. Não esteja muito perto de mim!";
 			next;
 			mes "[Raffini Girl]";
-			mes "Why not? Who cares. Let's go to grab something yummy.";
+			mes "Por que não? Quem se importa. Vamos pegar algo gostoso.";
 			next;
-			mes "[Raffini Boy]";
-			mes "You're too close too me! I, I can feel your..um..hey!";
+			mes "[Menino Raffini]";
+			mes "Você está muito perto de mim! Eu, eu posso sentir o seu ... UM..Ele!";
 			next;
-			mes "- Oops, I was attacked by that couple even without doing anything.";
-			mes "- Failed, got -1 score point!";
+			mes "- Opa, fui atacado por esse casal, mesmo sem fazer nada.";
+			mes "- falhou, obteve -1 pontos de pontuação!";
 		}
-		mes "- Current couple breaking point is " + xmas2013_01 + ".";
+		mes "- O ponto de ruptura atual é" + xmas2013_01 + ".";
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 > 4) {
-		mes "- Couple breaking point";
-		mes "- is now more than 5.";
-		mes "- I should go back to Union Commander Cliff.";
+		mes "- Ponto de quebra de casal";
+		mes "- agora é mais de 5.";
+		mes "- Eu deveria voltar ao comandante da União Cliff.";
 		close;
 	}
 	end;
 OnTimer100000:
-	hideoffnpc "Raffini Boy#xmas";
-	hideoffnpc "Raffini Girl#xmas";
+	hideoffnpc "Raffini Boy#Natal";
+	hideoffnpc "Raffini Girl#Natal";
 	stopnpctimer;
 	end;
 }
@@ -864,33 +864,33 @@ xmas,168,164,3	script	Raffini Girl#xmas	438,{ end; }
 xmas,147,123,5	script	Angeling#xmas	948,{
 	if (isbegin_quest(15056) == 0) {
 		mes "[Angeling]";
-		mes "Kkuing~";
+		mes "Kkuing ~";
 		emotion ET_THROB;
 		next;
 		mes "[Arc Angeling]";
-		mes "Kkuing Kkuing~";
+		mes "Kkuing Kuing ~";
 		emotion ET_THROB, getnpcid(0, "Arc Angeling#xmas");
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 < 5) {
 		mes "[Angeling]";
-		mes "Kkuing~";
+		mes "Kkuing ~";
 		emotion ET_THROB;
 		next;
 		mes "[Arc Angeling]";
-		mes "Kkuing Kkuing~";
+		mes "Kkuing Kuing ~";
 		emotion ET_THROB, getnpcid(0, "Arc Angeling#xmas");
 		next;
-		mes "- I cannot bother them though.";
-		mes "- Can't even talk to them,";
-		mes "- oh well.";
+		mes "- Eu não posso incomodá -los embora.";
+		mes "- Não posso nem falar com eles,";
+		mes "- Ah bem.";
 		next;
-		mes "- Just hunt them?";
-		mes "- ......No way.";
+		mes "- apenas caçá -los?";
+		mes "- ......Sem chance.";
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 > 4) {
-		mes "- Couple breaking point";
-		mes "- is now more than 5.";
-		mes "- I should go back to Union Commander Cliff.";
+		mes "- Ponto de quebra de casal";
+		mes "- agora é mais de 5.";
+		mes "- Eu deveria voltar ao comandante da União Cliff.";
 		close;
 	}
 	end;
@@ -899,40 +899,40 @@ xmas,149,123,3	script	Arc Angeling#xmas	949,{ end; }
 
 xmas,129,115,5	script	Prenetan#xmas	783,{
 	if (isbegin_quest(15056) == 0) {
-		mes "[Prenetan]";
-		mes "Umba~ Umba Umba!";
-		mes "Umba Umumumum!";
+		mes "[Transmitido]";
+		mes "Problema ~ Item de edição!";
+		mes "Problem Mumumum!";
 		next;
-		mes "[Prenetan]";
-		mes "Finally got you, huh? You are cheating on me until now and even made me chase after you? I'll kill you boy!";
+		mes "[Transmitido]";
+		mes "Finalmente pegou você, hein? Você está me traindo até agora e até me fez perseguir depois de você? Eu vou te matar garoto!";
 		emotion ET_FRET;
 		next;
 		mes "[Umpoucoriotan]";
-		mes "Ooohh... my wife is too violent. Ohh...it hurts!";
+		mes "Ooh ... minha esposa é muito violenta. Ooh ... dói!";
 		emotion ET_CRY, getnpcid(0, "Umpoucoriotan#xmas");
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 < 5) {
-		mes "[Prenetan]";
-		mes "Umba~ Umba umba!";
-		mes "Umba umumumum!";
+		mes "[Transmitido]";
+		mes "Problema ~ Item de edição!";
+		mes "Problem Mumumum!";
 		next;
-		mes "[Prenetan]";
-		mes "Finally got you, huh? You are cheating on me until now and even made me chase after you? I'll kill you boy!";
+		mes "[Transmitido]";
+		mes "Finalmente pegou você, hein? Você está me traindo até agora e até me fez perseguir depois de você? Eu vou te matar garoto!";
 		emotion ET_FRET;
 		next;
 		mes "[Umpoucoriotan]";
-		mes "Ooohh... my wife is too violent. Ohh...it hurts!";
+		mes "Ooh ... minha esposa é muito violenta. Ooh ... dói!";
 		emotion ET_CRY, getnpcid(0, "Umpoucoriotan#xmas");
 		next;
 		mes "[Umpoucoriotan]";
-		mes "Wenathan, berzthan, Chabimathan";
-		mes "Oooh... The girls of Umbala are here... They're waiting for me now....Arg! Don't touch me!";
+		mes "Vanathan, Barjathan, Chhabimathan";
+		mes "Oooh ... as meninas de Umbala estão aqui ... estão esperando por mim agora .... arg! Não me toque!";
 		next;
-		mes "[Prenetan]";
-		mes "How stupid you are!";
-		mes "Those girls never wanted to see you and that's just a lie that they would come here!!";
+		mes "[Transmitido]";
+		mes "Como você é estúpido!";
+		mes "Essas garotas nunca quisam ver você e isso é apenas uma mentira que viriam aqui !!";
 		next;
-		select("- No. They are all here!");
+		select("- Não. Eles estão todos aqui!");
 		hideonnpc "Prenetan#xmas";
 		hideonnpc "Umpoucoriotan#xmas";
 		initnpctimer;
@@ -940,42 +940,42 @@ xmas,129,115,5	script	Prenetan#xmas	783,{
 		if (.@cu_bre < 6) {
 			set xmas2013_01, xmas2013_01 + 1;
 			mes "[Umpoucoriotan]";
-			mes "Umm...yeah I know..Is it true those girls are here?";
+			mes "Umm ... sim, eu sei ... é verdade que essas garotas estão aqui?";
 			next;
 			mes "[Umpoucoriotan]";
-			mes "...Oh I got a stomachache... Did I have something wrong... Darling, just a second. I'll be right back soon to go to the restroom! Just wait for a while here!";
+			mes "... oh, eu tenho dor de estômago ... eu tinha algo errado ... querida, apenas um segundo. Volto logo para ir ao banheiro! Apenas espere um pouco aqui!";
 			next;
-			mes "[Prenetan]";
-			mes "Hey you idiot! Stop right there! Stop! ...STOP!!!";
+			mes "[Transmitido]";
+			mes "Ei seu idiota! Pare bem aí! Parar! ...PARAR!!!";
 			next;
-			mes "- Well, things are quite easy. Got 1 score point!";
+			mes "- Bem, as coisas são muito fáceis. Tenho 1 ponto de pontuação!";
 		} else {
 			set xmas2013_01, xmas2013_01 + 1;
-			mes "[Prenetan]";
-			mes "Who's there? You want to be killed, too?";
+			mes "[Transmitido]";
+			mes "Quem está aí? Você quer ser morto também?";
 			next;
 			mes "- Oops";
 			next;
-			mes "[Prenetan]";
-			mes "You still don't understand anything. Come here, I'm taking you back to Umbala!";
+			mes "[Transmitido]";
+			mes "Você ainda não entende nada. Venha aqui, estou levando você de volta a Umbala!";
 			next;
 			mes "[Umpoucoriotan]";
-			mes "ARG! ....Arrrrrrrrg!! It hurts! Noooo!!! They're waiting for me!!!";
+			mes "Arg! .... arrrrrrrrg !! Isso dói! NOOOOO !!! Eles estão esperando por mim !!!";
 			next;
-			mes "- Well, he just made it harder for himself. Got 1 score point!";
+			mes "- Bem, ele apenas tornou mais difícil para si mesmo. Tenho 1 ponto de pontuação!";
 		}
-		mes "- Current couple breaking point is " + xmas2013_01 + ".";
+		mes "- O ponto de ruptura atual é" + xmas2013_01 + ".";
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 > 4) {
-		mes "- Couple breaking point";
-		mes "- is now more than 5.";
-		mes "- I should go back to Union Commander Cliff.";
+		mes "- Ponto de quebra de casal";
+		mes "- agora é mais de 5.";
+		mes "- Eu deveria voltar ao comandante da União Cliff.";
 		close;
 	}
 	end;
 OnTimer100000:
-	hideoffnpc "Prenetan#xmas";
-	hideoffnpc "Umpoucoriotan#xmas";
+	hideoffnpc "Transferido # natal";
+	hideoffnpc "Umpoucoriotan#Natal";
 	stopnpctimer;
 	end;
 }
@@ -983,117 +983,117 @@ xmas,131,115,3	script	Umpoucoriotan#xmas	789,{ end; }
 
 xmas,138,174,5	script	Dark Lord#xmas	737,{
 	if (isbegin_quest(15056) == 0) {
-		mes "[Dark Lord]";
-		mes "Whahahahaha the world will turn into darkness soon and everyone will kneel down before me!!";
+		mes "[Lorde das Trevas]";
+		mes "WHAHAHAHAHA O mundo se transformará em escuridão em breve e todos se ajoelharão diante de mim !!";
 		emotion ET_SURPRISE;
 		next;
 		mes "[Succubus]";
-		mes "My master. All worlds will follow your will.";
+		mes "Meu mestre. Todos os mundos seguirão sua vontade.";
 		emotion ET_THROB, getnpcid(0, "Succubus#xmas");
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 < 5) {
-		mes "[Dark Lord]";
-		mes "Whahahahaha the world will turn into darkness soon and everyone will kneel down before me!!";
+		mes "[Lorde das Trevas]";
+		mes "WHAHAHAHAHA O mundo se transformará em escuridão em breve e todos se ajoelharão diante de mim !!";
 		emotion ET_SURPRISE;
 		next;
 		mes "[Succubus]";
-		mes "My master. All worlds will follow your will.";
+		mes "Meu mestre. Todos os mundos seguirão sua vontade.";
 		emotion ET_THROB, getnpcid(0, "Succubus#xmas");
 		next;
-		mes "[Dark Lord]";
-		mes "You've been loyal to me even though I've been giving difficult orders. You deserve a reward. What do you want for now? I'll definitely make it for you. I can even give you more power!";
+		mes "[Lorde das Trevas]";
+		mes "Você foi leal a mim, mesmo que eu estivesse dando ordens difíceis. Você merece uma recompensa. O que você quer por enquanto? Definitivamente vou fazer isso para você. Eu posso até lhe dar mais poder!";
 		next;
 		mes "[Succubus]";
 		mes "......";
-		mes "Could you really give me anything that I want...?";
+		mes "Você poderia realmente me dar o que eu quiser ...?";
 		next;
 		mes "[Succubus]";
-		mes "What I really need is...";
+		mes "O que eu realmente preciso é ...";
 		mes "......";
-		mes "Only you, my master.";
+		mes "Só você, meu mestre.";
 		next;
-		mes "[Dark Lord]";
+		mes "[Lorde das Trevas]";
 		mes "......";
 		mes "?!!!!!";
 		next;
 		mes "[Succubus]";
-		mes "I've been in love with you...";
-		mes "for a very long time...";
+		mes "Eu estive apaixonado por você ...";
+		mes "por muito tempo ...";
 		next;
-		mes "[Dark Lord]";
+		mes "[Lorde das Trevas]";
 		mes "......";
 		next;
-		mes "[Dark Lord]";
-		mes "It's not that I didn't know about that.";
+		mes "[Lorde das Trevas]";
+		mes "Não é que eu não soubesse disso.";
 		next;
-		mes "[Dark Lord]";
-		mes "I also...";
+		mes "[Lorde das Trevas]";
+		mes "Eu também ...";
 		next;
-		mes "[Dark Lord]";
-		mes "...But we're demons. Demons choosing a path towards love?! Ridiculous, the dark world will never forgive us! We will be hiding for the rest of our lives!";
+		mes "[Lorde das Trevas]";
+		mes "... mas somos demônios. Demônios escolhendo um caminho para o amor?! Ridículo, o mundo sombrio nunca nos perdoará! Estaremos escondidos pelo resto de nossas vidas!";
 		next;
 		mes "[Succubus]";
-		mes "It doesn't matter as long as I am with you, my master...";
+		mes "Não importa enquanto eu estiver com você, meu mestre ...";
 		next;
-		select("- I'm sorry to bother you... but weren't you discussing about conquering the world?");
+		select("- Lamento incomodá -lo ... mas você não estava discutindo sobre a conquista do mundo?");
 		hideonnpc "Dark Lord#xmas";
 		hideonnpc "Succubus#xmas";
 		initnpctimer;
 		set .@cu_bre, rand(1,10);
 		if (.@cu_bre < 5) {
 			set xmas2013_01, xmas2013_01 + 2;
-			mes "[Dark Lord]";
-			mes "Ye..yes. That's right, succubus! We've already had such a high goal!";
+			mes "[Lorde das Trevas]";
+			mes "Ye..yes. É isso mesmo, Súcubo! Já tivemos um gol tão alto!";
 			next;
-			mes "[Dark Lord]";
-			mes "I appreciated the thought but know your place! Just be my subordinate as you already are.";
+			mes "[Lorde das Trevas]";
+			mes "Apreciei o pensamento, mas conheço seu lugar! Apenas seja meu subordinado como você já é.";
 			next;
 			mes "[Succubus]";
-			mes "Oh yes...my master, please forgive me. I'll try my best to make your the world yours.";
+			mes "Oh sim ... meu mestre, por favor me perdoe. Vou tentar o meu melhor para fazer do seu mundo o seu.";
 			next;
-			mes "[Dark Lord]";
-			mes "Yes! There is nothing better than turning this world into darkness. Everyone will kneel down before me. Hahahahahahahahah!!!";
+			mes "[Lorde das Trevas]";
+			mes "Sim! Não há nada melhor do que transformar este mundo em escuridão. Todos vão se ajoelhar diante de mim. Hahahahahahahahahah !!!";
 			next;
-			mes "- Even though the world will";
-			mes "- be engulfed in darkness soon...";
-			mes "- I got a big success to break up a couple!";
-			mes "- 2 score points!";
+			mes "- mesmo que o mundo vá";
+			mes "- Seja envolvido na escuridão em breve ...";
+			mes "- Tive um grande sucesso para terminar um casal!";
+			mes "- 2 pontos de pontuação!";
 		} else {
 			if (xmas2013_01 > 0)
 				set xmas2013_01, xmas2013_01 - 1;
-			mes "[Dark Lord]";
-			mes "Conquering the world... It's useless compared to what we've feeling right now.";
-			mes "Dear Succubus, can you really overcome any kind of agony if you are with me?";
+			mes "[Lorde das Trevas]";
+			mes "Conquistando o mundo ... é inútil em comparação com o que sentimos agora.";
+			mes "Caro Súcubo, você pode realmente superar algum tipo de agonia se estiver comigo?";
 			next;
 			mes "[Succubus]";
-			mes "...Master!";
+			mes "...Mestre!";
 			next;
 			mes "[Succubus]";
-			mes "Of course, I'm prepared and will keep going... I'll follow you forever even if I shall be in any kind of agony.";
+			mes "Claro, estou preparado e vou continuar ... Vou segui -lo para sempre, mesmo que eu esteja em algum tipo de agonia.";
 			next;
 			mes "[Succubus]";
-			mes "I'll be yours forever!";
+			mes "Eu serei seu para sempre!";
 			next;
-			mes "[Dark Lord]";
-			mes "I see...I can feel your heart now. Ok, let's go together... no matter how hard it will be!!";
+			mes "[Lorde das Trevas]";
+			mes "Entendo ... eu posso sentir seu coração agora. Ok, vamos juntos ... não importa o quão difícil seja !!";
 			next;
-			mes "- I saved this world from darkess.";
-			mes "- though a couple was formed!";
-			mes "- very sad...";
-			mes "- Failed, -1 score point!";
+			mes "- Eu salvei este mundo das trevas.";
+			mes "- Embora um casal tenha sido formado!";
+			mes "- muito triste ...";
+			mes "- Falha, -1 Ponto de pontuação!";
 		}
-		mes "- Current couple breaking point is " + xmas2013_01 + ".";
+		mes "- O ponto de ruptura atual é" + xmas2013_01 + ".";
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 > 4) {
-		mes "- Couple breaking point";
-		mes "- is now more than 5.";
-		mes "- I should go back to Union Commander Cliff.";
+		mes "- Ponto de quebra de casal";
+		mes "- agora é mais de 5.";
+		mes "- Eu deveria voltar ao comandante da União Cliff.";
 		close;
 	}
 	end;
 OnTimer100000:
-	hideoffnpc "Dark Lord#xmas";
-	hideoffnpc "Succubus#xmas";
+	hideoffnpc "Lorde das Trevas#Natal";
+	hideoffnpc "Succubus#Natal";
 	stopnpctimer;
 	end;
 }

@@ -38,28 +38,28 @@
 gef_fild10,242,202,0	script	Dimensional Gorge Piece	406,{
 
 	set .@party_id,getcharid(1);
-	set .@md_name$,"Orc's Memory";
+	set .@md_name$,"Memória de Orc";
 
 	if (!instance_check_party(.@party_id,2,30,80)) {
-		mes "Only users between Levels ^ff000030 ~ 80^000000 can enter this Dungeon.";
+		mes "Somente os usuários entre os níveis ^FF000030 ~ 80 ^000000 podem entrar nesta masmorra.";
 		close;
 	}
 
 	set .@orctime,checkquest(12059,PLAYTIME);
 	if (.@orctime == -1) {
 		if (is_party_leader() == true) {
-			mes "Party status confirmed. Would you like to book entrance to the "+.@md_name$+"?";
+			mes "O status da parte confirmado. Você gostaria de reservar entrada para o"+.@md_name$+"?";
 			next;
-			switch(select("Reserve the "+.@md_name$+":Enter the Dungeon:Cancel")) {
+			switch(select("Reserve o"+.@md_name$+": Digite a masmorra: Cancelar")) {
 			case 1:
 				if (instance_create(.@md_name$) < 0) {
-					mes "Party Name: "+ getpartyname(.@party_id);
-					mes "Party Leader: "+strcharinfo(0);
-					mes "^0000ff"+.@md_name$+" ^000000 - Reservation Failed.";
+					mes "Nome da festa:"+ getpartyname(.@party_id);
+					mes "Líder do partido:"+strcharinfo(0);
+					mes "^0000FF"+.@md_name$+"^000000 - A reserva falhou.";
 					close;
 				}
-				mes "^0000ff"+.@md_name$+"^000000- Attempting to book an entrance";
-				mes "After making a reservation, you have to select 'Enter the Dungeon' from the menu if you wish to enter the "+.@md_name$+".";
+				mes "^0000FF"+.@md_name$+"^000000- Tentando reservar uma entrada";
+				mes "Depois de fazer uma reserva, você deve selecionar 'Digite a masmorra' no menu, se desejar entrar no"+.@md_name$+".";
 				close;
 			case 2:
 				callsub L_Enter,0;
@@ -67,36 +67,36 @@ gef_fild10,242,202,0	script	Dimensional Gorge Piece	406,{
 				close;
 			}
 		}
-		if(select(.@md_name$ + " Enter the Memorial Dungeon:Cancel") == 2)
+		if(select(.@md_name$ + "Digite a masmorra memorial: Cancelar") == 2)
 			end;
 		callsub L_Enter,1;
 	} else if (.@orctime == 0 || .@orctime == 1) {
-		mes "You can enter the Dungeon if it has been generated.";
+		mes "Você pode entrar na masmorra se tiver sido gerado.";
 		next;
-		if(select("Enter the Dungeon "+.@md_name$+":Cancel") == 2)
+		if(select("Entre na masmorra"+.@md_name$+":Cancelar") == 2)
 			close;
 		callsub L_Enter,0;
 	} else if (.@orctime == 2) {
-		mes "^0000ffAll records and after-effects related to the Orc's Memory Dungeon are deleted. You can now regenerate or re-enter the dungeon.^000000";
+		mes "^0000fffall registros e efeitos posteriores relacionados à masmorra de memória do ORC são excluídos. Agora você pode regenerar ou entrar novamente na masmorra.^000000";
 		erasequest 12059;
 		close;
 	}
-	mes "In order to generate a dungeon you must be the Party Leader and have at least 2 members in the party.";
+	mes "Para gerar uma masmorra, você deve ser o líder do partido e ter pelo menos 2 membros do partido.";
 	close;
 L_Enter:
 	switch(instance_enter("Orc's Memory")) {
 	case IE_OTHER:
-		mes "An unknown error has occurred.";
+		mes "Um erro desconhecido ocorreu.";
 		close;
 	case IE_NOINSTANCE:
-		mes "Memorial Dungeon Orc's Memory does not exist.";
-		mes "Memorial Dungeon has been destroyed by the Party Leader, or because of the time limit. Please try again after 2 hours.";
+		mes "A memória do Memorial Dungeon Orc não existe.";
+		mes "A masmorra memorial foi destruída pelo líder do partido ou por causa do prazo. Por favor, tente novamente depois de 2 horas.";
 		close;
 	case IE_NOMEMBER:
-		mes "Only a member of the party can enter the Memorial Dungeon.";
+		mes "Somente um membro do partido pode entrar na masmorra memorial.";
 		close;
 	case IE_OK:
-		mapannounce "gef_fild10", getpartyname( getcharid(1) ) +" party's member "+strcharinfo(0)+" has entered the Orc's Memory.",bc_map,"0x00ff99";
+		mapannounce "Gef_fild10", getpartyname( getcharid(1) ) +"membro do partido"+strcharinfo(0)+"entrou na memória do orc.",bc_map,"0 buceta 00";
 		if (checkquest(12059) == -1) setquest 12059;
 		//warp "1@orcs",179,15;
 		if (getarg(0) == 0) close;
@@ -107,56 +107,56 @@ L_Enter:
 
 gef_fild10,238,202,6	script	Mad Scientist#orc	865,{
 	if (BaseLevel < 50) {
-		mes "The Mad Scientist doesn't seem to notice you and keeps mumbling to himself...";
+		mes "O cientista louco não parece notar você e continua resmungando para si mesmo ...";
 		close;
 	}
 	if (mad == 0) {
 		mes "[Mad Scientist]";
-		mes "Haha, no Orcs are coming near me!";
-		mes "The power of the Dimensional Gorge is undefeatable!!";
+		mes "Haha, nenhum orcs está chegando perto de mim!";
+		mes "O poder do desfiladeiro dimensional é indefinível !!";
 		next;
-		switch(select("Orcs don't attack you?:You wish!")) {
+		switch(select("Orcs não atacam você ?: Você deseja!")) {
 		case 1:
 			mes "[Mad Scientist]";
-			mes "Yeah, yeah.. I know it's hard to belive. I don't blame ya.";
-			mes "I used to study the Dimensional Gorge discovered near Morocc.";
-			mes "According to my research, the minerals found there have enormous power inside them!";
+			mes "Sim, sim .. eu sei que é difícil de acreditar. Eu não culpo você.";
+			mes "Eu costumava estudar o desfiladeiro dimensional descoberto perto de Marrocos.";
+			mes "De acordo com minha pesquisa, os minerais descobriram que lá têm um enorme poder dentro deles!";
 			next;
 			break;
 		case 2:
 			mes "[Mad Scientist]";
-			mes "You are a pretty distrustful person, huh?";
+			mes "Você é uma pessoa muito desconfiada, hein?";
 			next;
 			break;
 		}
-		select("Oh? Like what, travel to alternate space?");
+		select("Oh? Tipo, viajar para o espaço alternativo?");
 		mes "[Mad Scientist]";
-		mes "Very smart! I have actually just done that! See that statue over there? It's not your normal Monolith!";
+		mes "Muito inteligente! Na verdade, acabei de fazer isso! Vê aquela estátua ali? Não é o seu monólito normal!";
 		next;
 		mes "[Mad Scientist]";
-		mes "I have created it with a combination of our technology and the unlimited energy I discovered from the Gorge! Want to try it?";
+		mes "Eu o criei com uma combinação de nossa tecnologia e a energia ilimitada que descobri no desfiladeiro! Quer experimentar?";
 		next;
-		select("...Um, that doesn't sound legal?");
+		select("... Hum, isso não parece legal?");
 		mes "[Mad Scientist]";
-		mes "Hey, since when did something so interesting have to be legal!? How about it! You can talk to the Orcs! C'mon!";
+		mes "Ei, desde quando algo tão interessante tem que ser legal!? Que tal! Você pode falar com os orcs! Vamos!";
 		next;
 		mes "[Mad Scientist]";
-		mes "Chances are they'll just give you lots of instructions once they see you, so just wing it! They're always saying the same thing, to the point where I memorized them!";
+		mes "As chances são de que eles apenas lhe dão muitas instruções quando o virem, então apenas vá! Eles estão sempre dizendo a mesma coisa, a ponto de eu memorizá -los!";
 		next;
-		switch(select("Alright... What do I do?:Umm, maybe not.")) {
+		switch(select("Tudo bem ... o que eu faço ?: Umm, talvez não.")) {
 		case 1:
 			mes "[Mad Scientist]";
-			mes "Very good! Just sit in the hands of this statue! And try to act natural when you're in there!";
+			mes "Muito bom! Basta sentar nas mãos desta estátua! E tente agir natural quando estiver lá!";
 			set mad,1;
 			close;
 		case 2:
 			mes "[Mad Scientist]";
-			mes "Oh fine, be that way!";
+			mes "Oh, tudo bem, seja assim!";
 			close;
 		}
 	} else if (mad == 1) {
 		mes "[Mad Scientist]";
-		mes "Hmm? Put your hand on that Monemus Statue if you want to experience traveling through dimensions!";
+		mes "Hum? Coloque sua mão nessa estátua de MONEMUS se você quiser experimentar viajar por dimensões!";
 		close;
 	} else {
 		set mad,1;
@@ -194,19 +194,19 @@ OnMyMobDead:
 		else if ((.@mob_ran > 28) && (.@mob_ran < 30)) {
 			monster .@map$,0,0,"High Orc",1213,.@mob_dead_num,instance_npcname("#Resurrect Monsters1")+"::OnMyMobDead";
 			if (rand(1,10) == 9) {
-				mapannounce .@map$, "High Orc: We need more defenses! Get more people here!",bc_map,"0xff4444";
+				mapannounce .@map$, "Alto ORC: precisamos de mais defesas! Pegue mais pessoas aqui!",bc_map,"0xff4444";
 			}
 		}
 		else if ((.@mob_ran > 26) && (.@mob_ran < 29)) {
 			areamonster .@map$,41,91,51,81,"High Orc",1213,.@mob_dead_num,instance_npcname("#Resurrect Monsters1")+"::OnMyMobDead";
 			if (rand(1,10) == 9) {
-				mapannounce .@map$, "Where are the High Orcs!? Get them to stop the enemies!",bc_map,"0xff4444";
+				mapannounce .@map$, "Onde estão os altos orcs!? Faça com que eles parem os inimigos!",bc_map,"0xff4444";
 			}
 		}
 		else {
 			areamonster .@map$,17,187,27,177,"High Orc",1213,.@mob_dead_num,instance_npcname("#Resurrect Monsters1")+"::OnMyMobDead";
 			if (rand(1,5) == 3) {
-				mapannounce .@map$, "Caution: The army's starting to concentrate at Zone No. 4.",bc_map,"0x77ff77";
+				mapannounce .@map$, "CUIDADO: O Exército está começando a se concentrar na zona nº 4.",bc_map,"0 como um deserto";
 			}
 			if (rand(1,100) == 50) {
 				initnpctimer;
@@ -221,7 +221,7 @@ OnTimer10:
 
 OnTimer4010:
 	set .@map$, instance_mapname("1@orcs");
-	mapannounce .@map$, "Stalactic Golems are digging out of the deep underground.",bc_map,"0x77ff77";
+	mapannounce .@map$, "Golemas estaláticos estão saindo do subterrâneo profundo.",bc_map,"0 como um deserto";
 	areamonster .@map$,17,187,27,177,"Stalactic Golem",1278,20,instance_npcname("#Resurrect Monsters1")+"::OnMyMobDead";
 	stopnpctimer;
 	end;
@@ -288,7 +288,7 @@ OnMyMobDead:
 		if (.@mob_dead_num > 0) {
 			areamonster .@map$,43,155,47,159,"Orc Archer",1189,.@mob_dead_num,instance_npcname("#Resurrect Monsters3")+"::OnMyMobDead";
 			if (rand(1,3) == 3) {
-				mapannounce .@map$, "High Orc: Attack them from behind! Cut off their support!",bc_map,"0xff4444";
+				mapannounce .@map$, "High Orc: ataque -os por trás! Corte o apoio deles!",bc_map,"0xff4444";
 			}
 		}
 	}
@@ -544,13 +544,13 @@ OnMyMobDead:
 		else if ((.@mob_ran > 26) && (.@mob_ran < 29)) {
 			areamonster .@map$,157,112,167,122,"High Orc",1213,.@mob_dead_num,instance_npcname("#2Resurrect Monsters1")+"::OnMyMobDead";
 			if (rand(1,10) == 9) {
-				mapannounce .@map$, "Warning: High Orcs are gathering near area 3.",bc_map,"0xff4444";
+				mapannounce .@map$, "Aviso: Orcs altos estão se reunindo perto da área 3.",bc_map,"0xff4444";
 			}
 		}
 		else {
 			areamonster .@map$,173,13,183,23,"High Orc",1213,.@mob_dead_num,instance_npcname("#2Resurrect Monsters1")+"::OnMyMobDead";
 			if (rand(1,5) == 3) {
-				mapannounce .@map$, "Caution: The Forces have started to concentrate at the Shaman's Altar.",bc_map,"0x77ff77";
+				mapannounce .@map$, "CUIDADO: As forças começaram a se concentrar no altar do xamã.",bc_map,"0 como um deserto";
 			}
 			if (rand(1,70) == 50) {
 				initnpctimer;
@@ -565,7 +565,7 @@ OnTimer10:
 
 OnTimer4010:
 	set .@map$, instance_mapname("2@orcs");
-	mapannounce .@map$, "[ Wraiths were summoned by an unknown power ]",bc_map,"0x77ff77";
+	mapannounce .@map$, "[Wraiths foram convocados por um poder desconhecido]",bc_map,"0 como um deserto";
 	areamonster .@map$,167,25,177,35,"Wraith",1475,30,instance_npcname("#2Resurrect Monsters1")+"::OnMyMobDead";
 	stopnpctimer;
 	end;
@@ -596,7 +596,7 @@ OnMyMobDead:
 		if (.@mob_dead_num > 0) {
 			areamonster .@map$,168,10,184,26,"Orc Archer",1189,.@mob_dead_num,instance_npcname("#2Resurrect Monsters3")+"::OnMyMobDead";
 			if (rand(1,15) == 3) {
-				mapannounce .@map$, "Warning: Orc Archer teams are gathering near the altar.",bc_map,"0xff4444";
+				mapannounce .@map$, "Aviso: as equipes do Orc Archer estão se reunindo perto do altar.",bc_map,"0xff4444";
 			}
 		}
 	}
@@ -678,7 +678,7 @@ OnTimer23910:
 
 2@orcs,26,164,0	script	Torch#1-1	844,{
 	if (is_party_leader() == false) end;
-	progressbar "ffff00",5;
+	progressbar "FFFF00",5;
 	setarray .@id[0], atoi(charat(strnpcinfo(2),0)), atoi(charat(strnpcinfo(2),2));
 	if (.@id[1] == 4)
 		donpcevent instance_npcname("#Warp2-"+.@id[0])+"::OnEnable";
@@ -689,7 +689,7 @@ OnTimer23910:
 	end;
 
 OnInstanceInit:
-	if (strnpcinfo(0) != "Torch#2-1" && strnpcinfo(0) != "Torch#3-1")
+	if (strnpcinfo(0) != "Tocha#2-1" && strnpcinfo(0) != "Tocha#3-1")
 		disablenpc();
 	end;
 
@@ -718,7 +718,7 @@ OnInstanceInit:
 OnEnable:
 	set .@map$, instance_mapname("2@orcs");
 	monster .@map$,109,156,"Safeguard Chief",1981,1,instance_npcname("#Mobs Control")+"::OnMyMobDead1";
-	mapannounce .@map$, "The Chief Orc of Safeguards: Oh!! Looks like I have company. Defeat me if you can!!",bc_map,"0xff8888";
+	mapannounce .@map$, "O Chefe Orc of Safeguards: Oh !! Parece que tenho companhia. Derrote -me se puder !!",bc_map,"0xff8888";
 	end;
 
 OnContinue:
@@ -749,7 +749,7 @@ OnInstanceInit:
 OnEnable:
 	set .@map$, instance_mapname("2@orcs");
 	monster .@map$,67,64,"Orc Sniper",1982,1,instance_npcname("#Mobs Control")+"::OnMyMobDead2";
-	mapannounce .@map$, "Orc Sniper: Hah! Pretty impressive that you made it this far, but your foolish little trip ends here...",bc_map,"0xff8888";
+	mapannounce .@map$, "Orc Sniper: hah! Muito impressionante que você chegou até aqui, mas sua pequena viagem tola termina aqui ...",bc_map,"0xff8888";
 	end;
 
 OnContinue:
@@ -780,7 +780,7 @@ OnInstanceInit:
 OnEnable:
 	set .@map$, instance_mapname("2@orcs");
 	monster .@map$,152,147,"Depraved Orc Spirit",1983,1,instance_npcname("#Mobs Control")+"::OnMyMobDead3";
-	mapannounce .@map$, "Depraved Orc Spirit: I smell flesh! Hungry! Wanna try some human meat!!",bc_map,"0xff8888";
+	mapannounce .@map$, "Espírito Orc depravado: sinto o cheiro de carne! Com fome! Quero experimentar um pouco de carne humana !!",bc_map,"0xff8888";
 	end;
 
 OnContinue:
@@ -822,7 +822,7 @@ OnInstanceInit:
 OnEnable:
 	set .@map$, instance_mapname("2@orcs");
 	monster .@map$,185,8,"Shaman Cargalache",1984,1,instance_npcname("#Boss Control")+"::OnMyMobDead";
-	monster .@map$,179,15,"Depraved Orc Hero",1087,1;
+	monster .@map$,179,15,"Herói de orc depravado",1087,1;
 	enablenpc instance_npcname("#Boss Control");
 	end;
 
@@ -831,19 +831,19 @@ OnMyMobDead:
 	set .@map$, instance_mapname("2@orcs");
 	set .@mob_ran,rand(1,5);
 	if (.@mob_ran == 1) {
-		mapannounce .@map$, "Shaman Cargalache: How... How could this be... How could someone like you...!!",bc_map,"0xffff00";
+		mapannounce .@map$, "Shaman Cargalache: Como ... como isso poderia ser ... como alguém como você pode ... !!",bc_map,"0xffff00";
 	}
 	else if (.@mob_ran == 2) {
-		mapannounce .@map$, "Shaman Cargalache: How is it that I've been overpowered by mere humans!",bc_map,"0xffff00";
+		mapannounce .@map$, "Shaman Cargalache: Como é que fui dominado por meros humanos!",bc_map,"0xffff00";
 	}
 	else if (.@mob_ran == 3) {
-		mapannounce .@map$, "Shaman Cargalache: This... This can't be the end...",bc_map,"0xffff00";
+		mapannounce .@map$, "Xamã Cargalache: este ... isso não pode ser o fim ...",bc_map,"0xffff00";
 	}
 	else if (.@mob_ran == 4) {
-		mapannounce .@map$, "Shaman Cargalache: I... Can't die... Yet...!",bc_map,"0xffff00";
+		mapannounce .@map$, "Shaman Cargalache: Eu ... não posso morrer ... ainda ...!",bc_map,"0xffff00";
 	}
 	else {
-		mapannounce .@map$, "Shaman Cargalache: Defeated by these fools... It can't be happening...!",bc_map,"0xffff00";
+		mapannounce .@map$, "Shaman Cargalache: derrotado por esses tolos ... não pode estar acontecendo ...!",bc_map,"0xffff00";
 	}
 	donpcevent instance_npcname("#2Resurrect Monsters1")+"::OnDisable";
 	donpcevent instance_npcname("#2Resurrect Monsters3")+"::OnDisable";
@@ -868,32 +868,32 @@ OnTouch_:
 2@orcs,172,13,0	script	Kruger#	434,{
 	if (yong_odun < 2) {
 		mes "[Kruger]";
-		mes "*Coughing*";
-		mes ""+strcharinfo(0)+", it's you...";
+		mes "*Tosse*";
+		mes ""+strcharinfo(0)+", é você ...";
 		next;
-		mes "["+strcharinfo(0)+"] ";
-		mes "Don't move! You are wounded!";
+		mes "["+strcharinfo(0)+"]";
+		mes "Não me mova! Você está ferido!";
 		next;
 		mes "[Kruger]";
-		mes "It's... all right.. I'm dying...";
+		mes "Está ... tudo bem .. estou morrendo ...";
 		mes "....";
-		mes "The Shaman? What about the Shaman?";
+		mes "O xamã? E o xamã?";
 		next;
-		mes "["+strcharinfo(0)+"] ";
-		mes "The Shaman's dead now. Who was that Shaman really?";
+		mes "["+strcharinfo(0)+"]";
+		mes "O xamã está morto agora. Quem era esse xamã realmente?";
 		next;
-		mes "Kruger seemed to be relieved as he hears of the death of the Shaman, but you notice the bitter expression on his face.";
+		mes "Kruger parecia estar aliviado ao ouvir a morte do xamã, mas você percebe a expressão amarga em seu rosto.";
 		next;
 		mes "[Kruger]";
-		mes "I.. I just couldn't kill my own daughter...";
-		mes "Thank you, I'm sure she's finally free from the nightmare that used to choke her soul.";
+		mes "Eu .. eu simplesmente não conseguia matar minha própria filha ...";
+		mes "Obrigado, tenho certeza que ela finalmente está livre do pesadelo que costumava sufocar sua alma.";
 		next;
-		mes "Kruger was about to say something more, but he breathed his last breath before he could...";
+		mes "Kruger estava prestes a dizer algo mais, mas respirou o último suspiro antes de poder ...";
 		set yong_odun,2;
 		close;
 	}
 	else {
-		mes "You can see the dead body of Kruger, peacefully lying on the ground.";
+		mes "Você pode ver o cadáver de Kruger, deitado pacificamente no chão.";
 		close;
 	}
 

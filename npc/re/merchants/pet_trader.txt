@@ -9,18 +9,18 @@
 
 prontera,210,209,5	script	Pet Trader#1	4_M_JPNOJI,{
 	disable_items;
-	mes "[Pet Trader]";
-	mes "Making a living through business ain't easy.";
-	mes "I get real bad motion sickness, yet today I got caught up in a storm on my way here.";
+	mes "[Trader de animais de estimação]";
+	mes "Vivendo a vida através dos negócios não é fácil.";
+	mes "Fico muito enjôo, mas hoje fui pego em uma tempestade no meu caminho aqui.";
 	next;
-	mes "[Pet Trader]";
-	mes "It was such a horrible experience. Thanks to that, I don't feel so good. Ughh...";
+	mes "[Trader de animais de estimação]";
+	mes "Foi uma experiência tão horrível. Graças a isso, não me sinto tão bem. Ughh ...";
 	next;
-	mes "[Pet Trader]";
-	mes "Anyway, did you come here looking for a Cute Pet?";
-	mes "You've brought a ticket with you, right?";
+	mes "[Trader de animais de estimação]";
+	mes "Enfim, você veio aqui procurando um animal de estimação fofo?";
+	mes "Você trouxe um ingresso com você, certo?";
 	next;
-	switch (select("Examine your tickets:Cancel")) {
+	switch (select("Examine seus ingressos: Cancelar")) {
 	case 1:
 		setarray .@tickets,
 			6116, //Succu_Pet_Coupon
@@ -130,36 +130,36 @@ prontera,210,209,5	script	Pet Trader#1	4_M_JPNOJI,{
 		}
 
 		if (.@count == 0) {
-			mes "[Pet Trader]";
-			mes "I don't think you've got the stuff I want.";
+			mes "[Trader de animais de estimação]";
+			mes "Eu não acho que você tem as coisas que eu quero.";
 			close;
 		}
 
-		mes "[Pet Trader]";
-		mes "Which ticket do you want to exchange?";
+		mes "[Trader de animais de estimação]";
+		mes "Qual ingresso você deseja trocar?";
 		next;
 		.@index = .@ticketIndices[select(.@menu$) - 1];
 
-		mes "[Pet Trader]";
-		mes "Great!";
+		mes "[Trader de animais de estimação]";
+		mes "Ótimo!";
 		mes "^0000FF"+ getitemname(.@eggs[.@index]) +"^000000";
-		mes "Are you sure you want this pet?";
+		mes "Tem certeza de que quer este animal de estimação?";
 		next;
-		if (select("Yes:No") == 2) close;
+		if (select("Sim: Não") == 2) close;
 		if (!checkweight(.@eggs[.@index], 1)) {
-			mes "You're carrying too much stuff!";
-			mes "Come back when you've made some space.";
+			mes "Você está carregando muita coisa!";
+			mes "Volte quando você fizer algum espaço.";
 			close;
 		}
 
-		mes "[Pet Trader]";
-		mes "Here's your pet~";
+		mes "[Trader de animais de estimação]";
+		mes "Aqui está o seu animal de estimação ~";
 		delitem .@tickets[.@index], 1;
 		getitem .@eggs[.@index], 1;
 		close;
 	case 2:
-		mes "[Pet Trader]";
-		mes "So you want hear about the land across the sea, but I ain't feeling so well today.";
+		mes "[Trader de animais de estimação]";
+		mes "Então você quer ouvir sobre a terra do outro lado do mar, mas eu não me sinto tão bem hoje.";
 		close;
 	}
 	end;

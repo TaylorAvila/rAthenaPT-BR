@@ -18,59 +18,59 @@
 //============================================================
 
 morocc,156,70,3	script	Girl#sc00	93,3,3,{
-	mes "[Girl]";
+	mes "[Garota]";
 	if (BaseJob == Job_Rogue) {
 		if (job_sha == 0) {
 			if (BaseLevel < 99 || JobLevel < 50) {
-				mes "You're not ready.";
+				mes "Você não está pronto.";
 				close;
 			}
-			mes "Hey? Stop!";
-			mes "Aren't you interested in hearing a funny story?";
+			mes "Ei? Parar!";
+			mes "Você não está interessado em ouvir uma história engraçada?";
 			next;
-			select("What story?");
-			mes "[Girl]";
-			mes "Have you been to the guild recently?";
-			mes "Some interesting things have happened lately.";
-			mes "Maybe new guests...";
+			select("Que história?");
+			mes "[Garota]";
+			mes "Você já esteve na guilda recentemente?";
+			mes "Algumas coisas interessantes aconteceram ultimamente.";
+			mes "Talvez novos convidados ...";
 			next;
-			mes "[Girl]";
-			mes "I heard it has to do with something called a Shadow Chaser.";
-			mes "You should go and check it out.";
+			mes "[Garota]";
+			mes "Ouvi dizer que tem a ver com algo chamado caçador de sombras.";
+			mes "Você deve ir e conferir.";
 			next;
-			mes "[Girl]";
-			mes "Every time they visit us, they are on new missions.";
-			mes "What missions are they doing I wonder?";
+			mes "[Garota]";
+			mes "Toda vez que eles nos visitam, eles estão em novas missões.";
+			mes "Que missões eles estão fazendo, eu me pergunto?";
 			set job_sha,1;
 			close;
 		} else if (job_sha == 1) {
-			mes "If you have any interest... just go!";
-			mes "Do you know where the guild is?";
+			mes "Se você tem algum interesse ... basta ir!";
+			mes "Você sabe onde está a guilda?";
 			next;
-			mes "[Girl]";
-			mes "It is in a fortress under Pharos lighthouse.";
-			mes "Sigh....";
-			mes "You must visit there!";
+			mes "[Garota]";
+			mes "Está em uma fortaleza sob o farol de Pharos.";
+			mes "Suspirar....";
+			mes "Você deve visitar lá!";
 			close;
 		} else {
-			mes "Wow, you look busy.";
-			mes "Have you heard that there are visiters?";
-			mes "They're on a treasure hunt!";
+			mes "Uau, você parece ocupado.";
+			mes "Você já ouviu falar que existem visitantes?";
+			mes "Eles estão em uma caça ao tesouro!";
 			next;
-			mes "[Girl]";
-			mes "It must be fun.";
-			mes "I wanna try!";
+			mes "[Garota]";
+			mes "Deve ser divertido.";
+			mes "Eu quero tentar!";
 			close;
 		}
 	}
 	mes "Eh?";
-	mes "I don't have anything for you...";
+	mes "Eu não tenho nada para você ...";
 	close;
 OnTouch_:
 	if (BaseJob == Job_Rogue && BaseLevel > 98 && JobLevel > 49 && job_sha == 0) {
-		mes "[Girl]";
-		mes "Hey? Stop!";
-		mes "Aren't you interested in hearing a funny story?";
+		mes "[Garota]";
+		mes "Ei? Parar!";
+		mes "Você não está interessado em ouvir uma história engraçada?";
 		close;
 	}
 	end;
@@ -81,68 +81,68 @@ in_rogue,376,100,5	script	Guild Member#sc01	828,{
 		if (job_sha < 2) {
 			set @job_sha,0;
 		OnDialogue:
-			mes "[Vin]";
-			mes "Ah? What's this?";
-			mes "Lotte, you know what this means?";
+			mes "[Recebe]";
+			mes "Ah? O que é isso?";
+			mes "Lotte, você sabe o que isso significa?";
 			next;
-			mes "[Lotte]";
-			mes "Hmm '3847147298' this is the only thing I've used on...";
-			mes "Then, why'd they use numbers to name the villages?";
+			mes "[LOTTE]";
+			mes "Hmm '3847147298' Esta é a única coisa que eu usei ...";
+			mes "Então, por que eles usavam números para nomear as aldeias?";
 			next;
-			mes "[Lotte]";
-			mes "Vin! This is crap!";
+			mes "[LOTTE]";
+			mes "Vin! Isso é uma porcaria!";
 			next;
-			mes "[Vin]";
-			mes "What?";
+			mes "[Recebe]";
+			mes "O que?";
 			next;
 			if (BaseLevel > 98) {
-				mes "[Scary man]";
-				mes "Hey there?";
+				mes "[Homem assustador]";
+				mes "Ei?";
 				next;
-				switch(select("Me?:Sorry, I am busy...")) {
+				switch(select("Eu?: Desculpe, estou ocupado ...")) {
 				case 1:
-					mes "[Scary man]";
-					mes "Yes! You there!";
-					mes "Let me introduce myself to you.";
-					mes "My name is Urupa.";
-					mes "If you are interested, could you come over here?";
+					mes "[Homem assustador]";
+					mes "Sim! Você aí!";
+					mes "Deixe -me apresentar -me a você.";
+					mes "Meu nome é grave.";
+					mes "Se você estiver interessado, você poderia vir aqui?";
 					if (@job_sha == 1) {
 						set job_sha,1;
 						set @job_sha,0;
 					}
 					close;
 				case 2:
-					mes "[Scary man]";
-					mes "What? You're just going to give up like that?";
-					mes "So disappointing...";
+					mes "[Homem assustador]";
+					mes "O que? Você só vai desistir assim?";
+					mes "Tão decepcionante ...";
 					close;
 				}
 			}
-			mes "[Scary man]";
-			mes "You are supposed to figure this one out!";
-			mes "But you are still so... weak.";
+			mes "[Homem assustador]";
+			mes "Você deveria descobrir este!";
+			mes "Mas você ainda é tão ... fraco.";
 			close;
 		} else {
-			mes "[Vin]";
-			mes "Yes...";
-			mes "Sooner or later I'll solve it myself if I dare to get the map...!";
+			mes "[Recebe]";
+			mes "Sim...";
+			mes "Mais cedo ou mais tarde, eu mesmo resolverei se ousar pegar o mapa ...!";
 			close;
 		}
 	} else if (Class == Job_Shadow_Chaser || Class == Job_Shadow_Chaser_T || Class == Job_Baby_Shadow_Chaser) {
-		mes "[Vin]";
-		mes "Huh! This is a Shadow Chaser!";
-		mes "How unbelievable!";
-		mes "But it seems familiar doesn't it?";
+		mes "[Recebe]";
+		mes "Huh! Este é um caçador de sombras!";
+		mes "Que inacreditável!";
+		mes "Mas parece familiar, não é?";
 		next;
-		mes "[Vin]";
-		mes "Hmm......";
+		mes "[Recebe]";
+		mes "Hum......";
 		mes "..........";
-		mes "Oh my! I can't remember...!";
+		mes "Oh meu Deus! Não me lembro ...!";
 		close;
 	}
-	mes "[Vin]";
-	mes "Ah? Who's there?";
-	mes "We are flooded with guests today...";
+	mes "[Recebe]";
+	mes "Ah? Quem está aí?";
+	mes "Somos inundados de convidados hoje ...";
 	close;
 }
 
@@ -153,46 +153,46 @@ in_rogue,379,99,1	script	Guild Member#sc02	747,{
 			doevent "Guild Member#sc01::OnDialogue";
 			end;
 		}
-		mes "[Lotte]";
-		mes "What?";
-		mes "Damn...";
+		mes "[LOTTE]";
+		mes "O que?";
+		mes "Droga...";
 		next;
-		mes "[Lotte]";
-		mes "I just hate numbers!";
+		mes "[LOTTE]";
+		mes "Eu apenas odeio números!";
 		close;
 	} else if (Class == Job_Shadow_Chaser || Class == Job_Shadow_Chaser_T || Class == Job_Baby_Shadow_Chaser) {
-		mes "[Lotte]";
-		mes "Wow!";
-		mes "You are the one!";
-		mes "Just extraordinary smart and emotionally advanced...";
+		mes "[LOTTE]";
+		mes "Uau!";
+		mes "Você é o único!";
+		mes "Apenas extraordinários inteligentes e emocionalmente avançados ...";
 		next;
-		mes "[Lotte]";
-		mes "SHADOW CHASER!";
-		mes "Wow when could I become one.";
+		mes "[LOTTE]";
+		mes "Chaser Shadow!";
+		mes "Uau, quando eu poderia me tornar um.";
 		close;
 	}
-	mes "[Lotte]";
-	mes "I don't need anything.";
+	mes "[LOTTE]";
+	mes "Eu não preciso de nada.";
 	close;
 }
 
 in_rogue,379,101,3	script	Scary Man#sc03	810,{
 	if (job_sha == 0) {
 		if (BaseJob == Job_Rogue && BaseLevel > 98 && JobLevel > 49) {
-			mes "[Scary man]";
-			mes "Oh you are so talented?";
-			mes "Now I have one interesting quetion! Do you want it solved?";
+			mes "[Homem assustador]";
+			mes "Oh você é tão talentoso?";
+			mes "Agora eu tenho uma pergunta interessante! Você quer isso resolvido?";
 			next;
-			mes "[Urupa]";
-			mes "My name is Urupa.";
-			mes "If you have anything interesting just challenge it.";
+			mes "[Túmulo]";
+			mes "Meu nome é grave.";
+			mes "Se você tem algo interessante, basta desafiá -lo.";
 			set job_sha,1;
 			close;
 		}
-		mes "[Scary man]";
-		mes "What's your business?";
-		mes "I don't have anything to do with you.";
-		mes "I don't care for people like you. I just deal with the extraordinary.";
+		mes "[Homem assustador]";
+		mes "Qual é o seu negócio?";
+		mes "Não tenho nada a ver com você.";
+		mes "Eu não ligo para pessoas como você. Eu apenas lido com o extraordinário.";
 		close;
 	} else if (job_sha == 1) {
 		if (VIP_SCRIPT) {
@@ -201,91 +201,91 @@ in_rogue,379,101,3	script	Scary Man#sc03	810,{
 			setquest 7160;
 			next;
 		}
-		mes "[Urupa]";
-		mes "We give a quiz and nobody has yet to solve it.";
-		mes "You want it to be solved?";
-		mes "This is a code.";
-		mes "Look at it.";
+		mes "[Túmulo]";
+		mes "Demos a um teste e ninguém ainda não o resolveu.";
+		mes "Você quer que seja resolvido?";
+		mes "Este é um código.";
+		mes "Olhe para isso.";
 		next;
-		mes "- The message is -";
-		mes "- written in a cipher. -";
-		mes "The mission seems to be to break the code...";
+		mes "- A mensagem é -";
+		mes "- escrito em uma cifra. -";
+		mes "A missão parece ser quebrar o código ...";
 		next;
-		mes "[Urupa]";
-		mes "This is the code.";
-		mes "It is just numbering a cipher to make the message make sense.";
-		mes "For example...";
+		mes "[Túmulo]";
+		mes "Este é o código.";
+		mes "É apenas numerando uma cifra fazer a mensagem fazer sentido.";
+		mes "Por exemplo...";
 		next;
 		callsub L_Code,1;
-		mes "[Urupa]";
-		mes "Now here's what needs to be to solved.";
-		mes "Decipher the code and go where it tells you...";
+		mes "[Túmulo]";
+		mes "Agora, aqui está o que precisa ser resolvido.";
+		mes "Decifra o código e vá para onde ele diz ...";
 		next;
 		callsub L_Code,2;
 		next;
-		mes "[Urupa]";
-		mes "So write this down!";
-		mes "I expected that you would take this adventure!";
+		mes "[Túmulo]";
+		mes "Então, escreva isso!";
+		mes "Eu esperava que você tivesse essa aventura!";
 		set job_sha,2;
 		setquest 7160;
 		close;
 	} else if (job_sha == 2) {
-		mes "[Urupa]";
-		mes "You want one more explanation?";
-		mes "Or do you just want the code?";
+		mes "[Túmulo]";
+		mes "Você quer mais uma explicação?";
+		mes "Ou você só quer o código?";
 		next;
-		switch(select("More explanation.:Get the code.")) {
+		switch(select("Mais explicação.: Obtenha o código.")) {
 		case 1:
 			callsub L_Code,1;
-			mes "[Urupa]";
-			mes "Now it's up to you!";
-			mes "So go! Go!";
+			mes "[Túmulo]";
+			mes "Agora depende de você!";
+			mes "Então vá! Ir!";
 			close;
 		case 2:
-			mes "[Urupa]";
-			mes "Let me show you the code again...";
+			mes "[Túmulo]";
+			mes "Deixe -me mostrar o código novamente ...";
 			next;
 			callsub L_Code,2;
 			close;
 		}
 	} else if (job_sha > 2 && job_sha < 31) {
-		mes "[Urupa]";
-		mes "Ok, have you solved it yet?";
-		mes "Good luck!";
+		mes "[Túmulo]";
+		mes "Ok, você já resolveu?";
+		mes "Boa sorte!";
 		close;
 	} else if (job_sha == 31) {
-		mes "[Urupa]";
-		mes "You have just become a Shadow Chaser.";
-		mes "The quizzes are for collecting the right people...";
+		mes "[Túmulo]";
+		mes "Você acabou de se tornar um caçador de sombras.";
+		mes "Os testes são para coletar as pessoas certas ...";
 		close;
 	}
-	mes "[Urupa]";
-	mes "Nothing special?";
-	mes "As you see... I am ok here!";
+	mes "[Túmulo]";
+	mes "Nada de especial?";
+	mes "Como você vê ... estou bem aqui!";
 	close;
 L_Code:
 	if (getarg(0) == 1) {
-		mes "[Urupa]";
+		mes "[Túmulo]";
 		mes "3511543433";
-		mes "This means PAYON.";
+		mes "Isso significa payon.";
 		next;
-		mes "[Urupa]";
-		mes "The numbers have to be paired.";
+		mes "[Túmulo]";
+		mes "Os números precisam ser emparelhados.";
 		mes "3511543433";
-		mes "35 11 54 34 33 breaks down into 5 pairs!";
+		mes "35 11 54 34 33 quebra em 5 pares!";
 		next;
-		mes "[Urupa]";
-		mes "So the pairs mean:";
-		mes "35 - P, 11 - A,";
+		mes "[Túmulo]";
+		mes "Então os pares significam:";
+		mes "35 - p, 11 - a,";
 		mes "54 - Y, 34 - O, 33 - N.";
 		next;
-		mes "[Urupa]";
-		mes "Here are the numbers all in a row.";
+		mes "[Túmulo]";
+		mes "Aqui estão os números todos seguidos.";
 		mes "33, 34, 35!";
 		mes "N , O , P ?";
 		next;
 	} else {
-		mes "Here we go!";
+		mes "Aqui vamos nós!";
 		next;
 		mes "^4d4dff";
 		mes "43231114345243";
@@ -294,289 +294,289 @@ L_Code:
 		mes "3542343344154211";
 		mes "^000000";
 		next;
-		mes "[Urupa]";
-		mes "Could you do that?";
-		mes "If you visit there, you might be surprised...";
+		mes "[Túmulo]";
+		mes "Você poderia fazer isso?";
+		mes "Se você visitar lá, você pode se surpreender ...";
 	}
 	return;
 }
 
 s_atelier,65,123,5	script	Manager#sc04_prt	903,{
 	if (job_sha == 2) {
-		mes "[Manager]";
-		mes "Where's Max!?";
-		mes "Damn, there're so many strangers around.";
-		mes "Hey...";
+		mes "[Gerente]";
+		mes "Onde está o máximo!?";
+		mes "Porra, existem tantos estranhos por aí.";
+		mes "Ei...";
 		next;
-		switch(select("Show the deciphered code!:...")) {
+		switch(select("Mostre o código decifrado!: ...")) {
 		case 1:
-			mes "[Manager]";
-			mes "Wow, you deciphered it?";
-			mes "So, what's the right answer?";
+			mes "[Gerente]";
+			mes "Uau, você decifrou isso?";
+			mes "Então, qual é a resposta certa?";
 			next;
 			input .@inputstr$;
-			if (.@inputstr$ == "shadows atelier in prontera" || .@inputstr$ == "SHADOWS ATELIER IN PRONTERA") {
-				mes "[Manager]";
-				mes "Good.";
-				mes "You just got it.";
-				mes "Then why have you come over here?";
+			if (.@inputstr$ == "Sombras atelier em prontário" || .@inputstr$ == "Sombras atelier em prontário") {
+				mes "[Gerente]";
+				mes "Bom.";
+				mes "Você acabou de entender.";
+				mes "Então por que você veio aqui?";
 				next;
-				select("The code says here's the one...");
-				mes "[Manager]";
-				mes "So you are the one.";
-				mes "Could you wait for a sec'?";
+				select("O código diz aqui está o único ...");
+				mes "[Gerente]";
+				mes "Então você é o único.";
+				mes "Você poderia esperar por um segundo?";
 				set job_sha,3;
 				close;
 			}
-			mes "[Manager]";
-			mes "Remember to put the code exactly as it should be deciphered.";
-			mes "Maybe you should try again...";
+			mes "[Gerente]";
+			mes "Lembre -se de colocar o código exatamente como deve ser decifrado.";
+			mes "Talvez você deva tentar de novo ...";
 			close;
 		case 2:
-			mes "[Manager]";
-			mes "Only allowed for people involved....";
-			mes "Could you ask the clerk at the shop?";
+			mes "[Gerente]";
+			mes "Apenas permitiu as pessoas envolvidas ....";
+			mes "Você poderia perguntar ao funcionário da loja?";
 			close;
 		}
 	} else if (job_sha == 3) {
-		mes "[Manager]";
-		mes "Now let me introduce myself to you!";
-		mes "I am Graham, the manager of this shadow gallery...";
+		mes "[Gerente]";
+		mes "Agora deixe -me apresentar -me a você!";
+		mes "Eu sou Graham, o gerente desta galeria das sombras ...";
 		next;
 		mes "[Graham]";
-		mes "You may have already guessed.";
-		mes "This is an additional facility for rogues.";
-		mes "We adopt things like art and other historical stuff.";
+		mes "Você já deve ter adivinhado.";
+		mes "Esta é uma instalação adicional para bandidos.";
+		mes "Adotamos coisas como arte e outras coisas históricas.";
 		next;
 		mes "[Graham]";
-		mes "These things are illegal.";
-		mes "Such things you guys bring us from historical places...";
-		mes "Ok.";
+		mes "Essas coisas são ilegais.";
+		mes "Tais coisas que vocês nos trazem de lugares históricos ...";
+		mes "OK.";
 		next;
 		mes "[Graham]";
-		mes "So we've got to know things like...";
-		mes "special codes and information where the treasures are.";
+		mes "Então, temos que saber coisas como ...";
+		mes "Códigos e informações especiais onde estão os tesouros.";
 		next;
 		mes "[Graham]";
-		mes "We need you guys...";
-		mes "So we've asked assistance from the Rogue guild.";
+		mes "Precisamos de vocês ...";
+		mes "Então, pedimos assistência ao Rogue Guild.";
 		next;
-		select("Any other places you guys work?");
+		select("Algum outro lugar que vocês trabalham?");
 		mes "[Graham]";
-		mes "Ah, yes...";
-		mes "We are in Prontera, Juno, Rachel, and Lighthalzen.";
-		mes "Ok?";
-		next;
-		mes "[Graham]";
-		mes "Anyway....";
-		mes "We all really want to know where the treasures are.";
-		mes "So the code is to break into each of those places.";
+		mes "Ah, sim ...";
+		mes "Estamos em Protera, Juno, Rachel e Lighthalzen.";
+		mes "OK?";
 		next;
 		mes "[Graham]";
-		mes "You seem like the right one.";
-		mes "So I will give you the code.";
-		mes "Please find the treasure!";
+		mes "De qualquer forma....";
+		mes "Todos nós realmente queremos saber onde estão os tesouros.";
+		mes "Portanto, o código é invadir cada um desses lugares.";
 		next;
-		switch(select("No way!:I'll give it a try!")) {
+		mes "[Graham]";
+		mes "Você parece o certo.";
+		mes "Então, eu vou te dar o código.";
+		mes "Por favor, encontre o tesouro!";
+		next;
+		switch(select("De jeito nenhum!: Vou tentar!")) {
 		case 1:
 			mes "[Graham]";
-			mes "What the hell?";
-			mes "If you are not going to help then I'll just find someone else.";
+			mes "Que diabos?";
+			mes "Se você não vai ajudar, vou encontrar outra pessoa.";
 			set job_sha,4;
 			close;
 		case 2:
 			mes "[Graham]";
-			mes "You are so powerful!";
-			mes "So here...";
+			mes "Você é tão poderoso!";
+			mes "Então aqui ...";
 			next;
 			callsub L_Code,0;
 			close;
 		}
 	} else if (job_sha == 4) {
 		mes "[Graham]";
-		mes "Are you interested in it now?";
+		mes "Você está interessado nisso agora?";
 		next;
-		switch(select("Not at all.:Hmm, I'll take it.")) {
+		switch(select("De jeito nenhum.:hmm, eu vou aceitar.")) {
 		case 1:
 			mes "[Graham]";
-			mes "Damn it.";
+			mes "Caramba.";
 			close;
 		case 2:
 			mes "[Graham]";
-			mes "You are just so picky...";
-			mes "Here...";
+			mes "Você é tão exigente ...";
+			mes "Aqui...";
 			next;
 			callsub L_Code,0;
 			close;
 		}
 	} else if (job_sha == 5) {
 		mes "[Graham]";
-		mes "Did you find something?";
+		mes "Você encontrou alguma coisa?";
 		next;
-		switch(select("I need an explanation.:What's the code again?")) {
+		switch(select("Eu preciso de uma explicação .: O que é o código novamente?")) {
 		case 1:
 			mes "[Graham]";
-			mes "You are so powerful!";
+			mes "Você é tão poderoso!";
 			next;
 			callsub L_Code,1;
 			mes "[Graham]";
-			mes "Got it?";
+			mes "Entendi?";
 			close;
 		case 2:
 			mes "[Graham]";
-			mes "I've given you the code.";
-			mes "So crazy...";
-			mes "Don't you have a memo of it?";
+			mes "Eu te dei o código.";
+			mes "Tão louco ...";
+			mes "Você não tem um memorando disso?";
 			close;
 		}
 	} else if (job_sha == 6 || job_sha == 7) {
 		mes "[Graham]";
-		mes "Nothing special...?";
-		mes "You've been to places...?";
-		mes "There's definetely something.";
+		mes "Nada de especial ...?";
+		mes "Você esteve em lugares ...?";
+		mes "Definitivamente, há algo.";
 		next;
-		mes "Graham seems to know something.";
-		mes "I'd better go there again.";
+		mes "Graham parece saber algo.";
+		mes "É melhor eu ir lá novamente.";
 		close;
 	} else if (job_sha == 8) {
 		mes "[Graham]";
-		mes "So, any improvements?";
+		mes "Então, alguma melhoria?";
 		next;
-		select("Show him the key.");
+		select("Mostre a ele a chave.");
 		mes "[Graham]";
-		mes "Deception!";
-		mes "You are deceiving me!";
-		next;
-		mes "[Graham]";
-		mes "This is all?";
-		mes "Only one key.";
-		mes "How deceptive!";
-		mes "Just as I thought, it's a kind of treasure.";
+		mes "Decepção!";
+		mes "Você está me enganando!";
 		next;
 		mes "[Graham]";
-		mes "You just gave me a shock.";
-		mes "Ok...";
-		mes "The code is kept in galleries.";
+		mes "Isso é tudo?";
+		mes "Apenas uma chave.";
+		mes "Quão enganoso!";
+		mes "Assim como eu pensava, é um tipo de tesouro.";
 		next;
 		mes "[Graham]";
-		mes "Ok there's more galleries than this one...";
-		mes "Juno and Rachel have the codes...";
+		mes "Você acabou de me dar um choque.";
+		mes "OK...";
+		mes "O código é mantido em galerias.";
 		next;
 		mes "[Graham]";
-		mes "This is just what I was guessing.";
-		mes "The codes kept by other galleries aren't treasures at all...";
+		mes "Ok, há mais galerias do que esta ...";
+		mes "Juno e Rachel têm os códigos ...";
 		next;
 		mes "[Graham]";
-		mes "Go to Rachel...";
+		mes "Isso é exatamente o que eu estava adivinhando.";
+		mes "Os códigos mantidos por outras galerias não são tesouros ...";
 		next;
 		mes "[Graham]";
-		mes "Find the gallery in Rachel...";
-		mes "Tell 'em that you just came from Graham and ask for the code.";
+		mes "Vá para Rachel ...";
 		next;
 		mes "[Graham]";
-		mes "Ok?";
-		mes "Then go there!";
+		mes "Encontre a galeria em Rachel ...";
+		mes "Diga a eles que você acabou de vir de Graham e peça o código.";
+		next;
+		mes "[Graham]";
+		mes "OK?";
+		mes "Então vá lá!";
 		set job_sha,9;
 		changequest 7165,7166;
 		close;
 	} else if (job_sha == 9) {
 		mes "[Graham]";
-		mes "There're four galleries...";
-		mes "Prontera, Rachel, Juno, and Lighthalzen.";
+		mes "Existem quatro galerias ...";
+		mes "Pronorra, Rachel, Juno e Lighthalzen.";
 		next;
 		mes "[Graham]";
-		mes "One of the codes kept by the galleries is already deciphered.";
-		mes "It's just one key....";
+		mes "Um dos códigos mantidos pelas galerias já está decifrado.";
+		mes "É apenas uma chave ....";
 		next;
 		mes "[Graham]";
-		mes "But here's what I am guessing.";
-		mes "The codes are linked to each other.";
-		mes "And the purpose is different for each one.";
+		mes "Mas aqui está o que estou adivinhando.";
+		mes "Os códigos estão ligados um ao outro.";
+		mes "E o objetivo é diferente para cada um.";
 		next;
 		mes "[Graham]";
-		mes "For example...";
-		mes "If one is just a key then the others are things requiring the key.";
+		mes "Por exemplo...";
+		mes "Se alguém é apenas uma chave, os outros são coisas que exigem a chave.";
 		next;
 		mes "[Graham]";
-		mes "The key must be for opening the box.";
-		mes "Can you guess what's inside?";
+		mes "A chave deve ser para abrir a caixa.";
+		mes "Você consegue adivinhar o que está dentro?";
 		next;
-		select("Umm, treasure?");
+		select("Umm, tesouro?");
 		mes "[Graham]";
-		mes "YES.";
-		mes "That's why we're here!";
-		next;
-		mes "[Graham]";
-		mes "People think that we are just trading the stuff...";
-		mes "But we are here for very special things.";
+		mes "SIM.";
+		mes "É por isso que estamos aqui!";
 		next;
 		mes "[Graham]";
-		mes "Go to ^4d4dffRachel Gallery^000000 and get the code...";
-		mes "They will support you if you explain everything.";
-		mes "Ok?";
+		mes "As pessoas pensam que estamos apenas trocando as coisas ...";
+		mes "Mas estamos aqui para coisas muito especiais.";
+		next;
+		mes "[Graham]";
+		mes "Vá para ^4d4dffrachel Gallery ^000000 e obtenha o código ...";
+		mes "Eles o apoiarão se você explicar tudo.";
+		mes "OK?";
 		close;
 	} else if (job_sha > 9 && job_sha < 30) {
 		mes "[Graham]";
-		mes "How about everything?";
-		mes "We are dying to know about the key.";
-		mes "So you got support from the other galleries.";
+		mes "Que tal tudo?";
+		mes "Estamos morrendo de vontade de saber sobre a chave.";
+		mes "Então você recebeu apoio das outras galerias.";
 		close;
 	} else if (job_sha > 29) {
 		mes "[Graham]";
-		mes "Shadow Chaser!!";
-		mes "Ah!";
+		mes "Shadow Chaser !!";
+		mes "UM!";
 		next;
 		mes "[Graham]";
-		mes "It's not intentionally decieving...";
-		mes "Hahaha!!";
+		mes "Não está intencionalmente enganando ...";
+		mes "Hahaha !!";
 		next;
 		mes "[Graham]";
-		mes "Isn't it interesting?";
-		mes "It's more than just taking exams.";
-		mes "We got to know about you and figured out who you are.";
+		mes "Não é interessante?";
+		mes "É mais do que apenas fazer exames.";
+		mes "Nós conhecemos você e descobrimos quem você é.";
 		next;
 		mes "[Graham]";
-		mes "How's my acting?";
-		mes "It worked?";
+		mes "Como está minha atuação?";
+		mes "Funcionou?";
 		next;
 		mes "[Graham]";
-		mes "If you need anything just ask them what you want.";
+		mes "Se você precisar de algo, basta perguntar o que você quer.";
 		close;
 	}
-	mes "[Manager]";
-	mes "Only allowed for people involved...";
-	mes "Could you ask the clerk at the shop?";
+	mes "[Gerente]";
+	mes "Permitiu apenas as pessoas envolvidas ...";
+	mes "Você poderia perguntar ao funcionário da loja?";
 	close;
 L_Code:
-	mes "-note.";
+	mes "-observação.";
 	mes "^4d4dff 13 15 18 15 3 3 18 21 9 14^000000";
-	mes "key : 0 -";
+	mes "Chave: 0 -";
 	next;
-	select("These are just numbers...");
+	select("Estes são apenas números ...");
 	mes "[Graham]";
-	mes "The only difference from the one from the Rogue Guild is that you don't need to match them in pairs.";
-	next;
-	mes "[Graham]";
-	mes "Also here's the keyword...";
-	mes "This case is key 0.";
+	mes "A única diferença do da guilda desonesta é que você não precisa combiná -los em pares.";
 	next;
 	mes "[Graham]";
-	mes "Let's see. For example.";
+	mes "Também aqui está a palavra -chave ...";
+	mes "Este caso é a chave 0.";
+	next;
+	mes "[Graham]";
+	mes "Vamos ver. Por exemplo.";
 	mes "13 15 18 15 3 3 18 21 9 14 =";
 	mes "M O R O C C R U I N";
 	next;
 	mes "[Graham]";
-	mes "Look at this... C = 3.";
-	mes "C is the third letter right?";
+	mes "Veja isso ... c = 3.";
+	mes "C é a terceira letra, certo?";
 	next;
 	mes "[Graham]";
-	mes "Do you get it?";
-	mes "But this won't be given with keyword 0. When I give you the keyword you can figure it out for yourself.";
+	mes "Você entendeu?";
+	mes "Mas isso não será dado com a palavra -chave 0. Quando eu lhe dou a palavra -chave, você pode descobrir por si mesmo.";
 	next;
 	if (getarg(0)) return;
 	mes "[Graham]";
-	mes "Now let's move on to the mission.";
-	mes "Here's the cipher...";
+	mes "Agora vamos para a missão.";
+	mes "Aqui está a cifra ...";
 	next;
 	set .@key01, rand(3,5);
 	set .@a, 1 + .@key01;
@@ -593,14 +593,14 @@ L_Code:
 	set .@s, 19 + .@key01;
 	set .@t, 20 + .@key01;
 	set .@u, 21 + .@key01;
-	mes "^4d4dff" + .@b + " " + .@l + " " + .@u + " " + .@e + " ";
-	mes "" + .@f + " " + .@i + " " + .@r + " " + .@e + " ";
-	mes "" + .@i + " " + .@n + " ";
-	mes "" + .@t + " " + .@u + " " + .@r + " " + .@t + " " + .@l + " " + .@e + " ";
-	mes "" + .@i + " " + .@s + " " + .@l + " " + .@a + " " + .@n + " " + .@d + " ";
-	mes "" + .@t + " " + .@h + " " + .@i + " " + .@r + " " + .@d + " ";
-	mes "" + .@f + " " + .@l + " " + .@o + " " + .@o + " " + .@r + " ";
-	mes "key : " + .@key01 + ".";
+	mes "^4d4dff" + .@b + "" + .@l + "" + .@u + "" + .@e + "";
+	mes "" + .@f + "" + .@i + "" + .@r + "" + .@e + "";
+	mes "" + .@i + "" + .@n + "";
+	mes "" + .@t + "" + .@u + "" + .@r + "" + .@t + "" + .@l + "" + .@e + "";
+	mes "" + .@i + "" + .@s + "" + .@l + "" + .@a + "" + .@n + "" + .@d + "";
+	mes "" + .@t + "" + .@h + "" + .@i + "" + .@r + "" + .@d + "";
+	mes "" + .@f + "" + .@l + "" + .@o + "" + .@o + "" + .@r + "";
+	mes "chave :" + .@key01 + ".";
 	set job_sha,5;
 	erasequest 7160;
 	if (.@key01 == 3) setquest 7161;
@@ -608,113 +608,113 @@ L_Code:
 	else if (.@key01 == 5) setquest 7163;
 	next;
 	mes "[Graham]";
-	mes "Just take it.";
-	mes "I have a bad memory.";
-	mes "You have all the information so you are on your own now.";
+	mes "Apenas pegue.";
+	mes "Eu tenho uma memória ruim.";
+	mes "Você tem todas as informações para que esteja por conta própria agora.";
 	next;
 	mes "[Graham]";
-	mes "Once you get something come over here.";
+	mes "Depois de conseguir algo, venha aqui.";
 	next;
-	mes "- You take the memo from Graham.";
-	mes "Don't forget it! -";
+	mes "- Você pega o memorando de Graham.";
+	mes "Não se esqueça! -";
 	close;
 }
 
 s_atelier,168,65,5	script	Manager#sc08_ra	923,{
 	if (job_sha < 10) {
-		mes "[Manager]";
-		mes "Who are you?";
-		mes "This place isn't for you.";
+		mes "[Gerente]";
+		mes "Quem é você?";
+		mes "Este lugar não é para você.";
 		next;
 		if (job_sha < 9) {
-			mes "[Manager]";
-			mes "What are they doing up there?";
-			mes "Bleh...";
+			mes "[Gerente]";
+			mes "O que eles estão fazendo lá em cima?";
+			mes "Bleh ...";
 			close;
 		}
-		switch(select("Give me your password!:I was sent by Graham.")) {
+		switch(select("Dê -me sua senha !: Fui enviado por Graham.")) {
 		case 1:
-			mes "[Manager]";
-			mes "You need my password?";
-			mes "How much would you pay me?";
+			mes "[Gerente]";
+			mes "Você precisa da minha senha?";
+			mes "Quanto você me pagaria?";
 			next;
-			mes "[Manager]";
-			mes "10 million zeny?";
-			mes "Ok I'll take that then!";
+			mes "[Gerente]";
+			mes "10 milhões de mulheres?";
+			mes "Ok, vou levar isso então!";
 			next;
-			mes "[Manager]";
-			mes "Yeah right!";
-			mes "Who the hell are you?";
-			mes "How dare you just ask for my password?";
+			mes "[Gerente]";
+			mes "Sim certo!";
+			mes "Quem diabos é você?";
+			mes "Como você se atreve a pedir minha senha?";
 			close;
 		case 2:
-			mes "[Manager]";
+			mes "[Gerente]";
 			mes "Graham?";
-			mes "Why?";
+			mes "Por que?";
 			next;
 			if (countitem(6266) == 0) {
-				mes "You don't seem to have brought it here.";
+				mes "Você não parece ter trazido aqui.";
 				next;
-				mes "[Manager]";
-				mes "Are you mute?";
-				mes "I don't know why Graham sent you here.";
-				mes "Just go if you don't have any business here!";
+				mes "[Gerente]";
+				mes "Você é mudo?";
+				mes "Não sei por que Graham te enviou aqui.";
+				mes "Apenas vá se você não tiver nenhum negócio aqui!";
 				close;
 			}
-			mes "[Manager]";
-			mes "So this key was sent by him.";
+			mes "[Gerente]";
+			mes "Então essa chave foi enviada por ele.";
 			next;
-			select("No, I found it as the clue.");
-			mes "[Manager]";
-			mes "Ah?";
-			mes "So doesn't that mean that one code could be exchanged as a treasure...?";
+			select("Não, eu o encontrei como a pista.");
+			mes "[Gerente]";
+			mes "De?";
+			mes "Então, isso não significa que um código poderia ser trocado como um tesouro ...?";
 			next;
-			select("Maybe.");
-			mes "[Manager]";
+			select("Talvez.");
+			mes "[Gerente]";
 			mes "...........";
-			mes "Hmm....";
+			mes "Hum....";
 			next;
-			mes "[Manager]";
-			mes "Hmm...";
+			mes "[Gerente]";
+			mes "Hum...";
 			next;
-			mes "- The manager seems -";
-			mes "- to be thinking about -";
-			mes "- something. Then he-";
-			mes "- hands over a paper. -";
+			mes "- O gerente parece -";
+			mes "- estar pensando -";
+			mes "- algo. Então ele-";
+			mes "- Mãos sobre um papel. -";
 			next;
-			mes "[Manager]";
-			mes "No way.";
-			mes "Here's the clue.";
-			mes "Try to find it.";
+			mes "[Gerente]";
+			mes "Sem chance.";
+			mes "Aqui está a pista.";
+			mes "Tente encontrá -lo.";
 			next;
-			mes "[Manager]";
-			mes "Anyway my name is Paul.";
+			mes "[Gerente]";
+			mes "De qualquer forma, meu nome é Paul.";
 			mes "...........";
 			next;
 			mes "[Paul]";
-			mes "Naturally...";
-			mes "I've already solved the clue.";
+			mes "Naturalmente...";
+			mes "Eu já resolvi a pista.";
 			next;
-			mes "- Here's the paper that -";
-			mes "- Paul handed over. -";
+			mes "- Aqui está o artigo que -";
+			mes "- Paul entregou. -";
 			next;
 			mes "R-E-N-N-N-D";
-			mes "L-N-N-W-W-N-D";
+			mes "L-N-N-W-W-W-N-D";
 			next;
 			mes "[Paul]";
-			mes "Isn't it so simple?";
-			mes "What do you think?";
-			mes "RENNND / LNNWWND means one thing.";
+			mes "Não é tão simples?";
+			mes "O que você acha?";
+			mes "Rennnd / lnnwwnd significa uma coisa.";
 			next;
-			switch(select("I think I got it.:I have no clue.")) {
+			switch(select("Acho que entendi .: Eu não tenho idéia.")) {
 			case 1:
 				callsub L_Code,7166;
 				close;
 			case 2:
 				mes "[Paul]";
-				mes "What? You don't know it?";
-				mes "Then you'd better think about it more.";
-				mes "It's so easy.";
+				mes "O que? Você não sabe disso?";
+				mes "Então é melhor você pensar mais nisso.";
+				mes "É tão fácil.";
 				set job_sha,10;
 				changequest 7166,7167;
 				close;
@@ -722,405 +722,405 @@ s_atelier,168,65,5	script	Manager#sc08_ra	923,{
 		}
 	} else if (job_sha == 10) {
 		mes "[Paul]";
-		mes "So did you get what it means?";
+		mes "Então você conseguiu o que isso significa?";
 		next;
-		switch(select("Yes!:No, I don't think so.")) {
+		switch(select("Sim!: Não, acho que não.")) {
 		case 1:
 			callsub L_Code,7167;
 			close;
 		case 2:
 			mes "[Paul]";
-			mes "Is it that hard?";
+			mes "É tão difícil?";
 			next;
-			select("I can't do it...");
+			select("Eu não posso fazer isso ...");
 			mes "[Paul]";
-			mes "No way.";
-			mes "Can I give you a hint?";
-			mes "Compass!";
+			mes "Sem chance.";
+			mes "Posso te dar uma dica?";
+			mes "Bússola!";
 			close;
 		}
 	} else if (job_sha > 10 && job_sha < 14) {
 		mes "[Paul]";
-		mes "I've already given you all the info you need.";
+		mes "Eu já dei a você todas as informações que você precisa.";
 		next;
 		mes "[Paul]";
-		mes "I've given you one more clue.";
-		mes "Isn't it enough?";
+		mes "Eu te dei mais uma pista.";
+		mes "Não é suficiente?";
 		next;
 		mes "[Paul]";
-		mes "As you and Graham mentioned.";
-		mes "Go and find it out.";
+		mes "Como você e Graham mencionaram.";
+		mes "Vá e descubra.";
 		next;
 		mes "[Paul]";
-		mes "If you find real things like treasure,";
-		mes "come back here.";
+		mes "Se você encontrar coisas reais como tesouro,";
+		mes "volte aqui.";
 		close;
 	} else if (job_sha > 13 && job_sha < 17) {
 		mes "[Paul]";
-		mes "You must find the right place.";
-		mes "The word is RENNND";
-		mes "It's refering the cave East - North - North - North from this Rachel.";
+		mes "Você deve encontrar o lugar certo.";
+		mes "A palavra é rennd";
+		mes "Está se referindo a Caverna Leste - Norte - Norte - Norte desta Rachel.";
 		next;
 		mes "[Paul]";
-		mes "L-N-N-W-W-N-D is also same.";
-		mes "L is for Lighthalzen.";
-		mes "Lighthalzen - North- North - West - West.";
-		mes "That's the ice cave.";
+		mes "L-N-N-W-W-W-N-D também é o mesmo.";
+		mes "L é para Lighthalzen.";
+		mes "Lighthalzen - North -North - Oeste - Oeste.";
+		mes "Essa é a caverna de gelo.";
 		next;
 		mes "[Paul]";
-		mes "Is there any improvement!?";
+		mes "Existe alguma melhoria!?";
 		next;
-		select("You need to investigate more?");
+		select("Você precisa investigar mais?");
 		mes "[Paul]";
-		mes "Really? Ok...";
-		mes "No way....";
-		mes "We will expect a good result.";
+		mes "Realmente? OK...";
+		mes "Sem chance....";
+		mes "Vamos esperar um bom resultado.";
 		close;
 	} else if (job_sha == 17) {
 		mes "[Paul]";
-		mes "I am dying to wait for you.";
-		mes "So what did you find out?";
+		mes "Estou morrendo de vontade de esperar por você.";
+		mes "Então, o que você descobriu?";
 		next;
-		select("I found the key.:Hmm...");
-		mes "- You hand over the 'Illusion Key' that you found in the ice cave. -";
-		next;
-		mes "[Paul]";
-		mes "Illusion! Haha!";
-		mes "After deception is illusion!";
-		mes "So are you lying to me?";
+		select("Eu encontrei a chave.:hmm ...");
+		mes "- Você entrega a 'chave de ilusão' que encontrou na caverna de gelo. -";
 		next;
 		mes "[Paul]";
-		mes "I can feel how Graham felt it...";
-		mes "We don't dare to get that tiny key...";
+		mes "Ilusão! Haha!";
+		mes "Após o engano é ilusão!";
+		mes "Então você está mentindo para mim?";
 		next;
 		mes "[Paul]";
-		mes "The young guy in Lighthalzen is quite challenging to deal with...";
-		mes "So we'd better request assistance from Haled...";
+		mes "Eu posso sentir como Graham sentiu isso ...";
+		mes "Não ousamos conseguir essa pequena chave ...";
 		next;
 		mes "[Paul]";
-		mes "Hey...";
-		mes "If you go to Juno...";
-		mes "There's a gallery...";
+		mes "O jovem em Lighthalzen é bastante desafiador de lidar com ...";
+		mes "Então, é melhor solicitar assistência de Halled ...";
 		next;
 		mes "[Paul]";
-		mes "So could you ask him to get the password?";
-		mes "Hmm...";
+		mes "Ei...";
+		mes "Se você for para Juno ...";
+		mes "Há uma galeria ...";
 		next;
 		mes "[Paul]";
-		mes "I feel like the red hair guy in the main gallery is teasing me...";
-		mes "Anyway...";
-		mes "So I really like to know the password and the identity of the key...";
+		mes "Então você poderia pedir a ele para obter a senha?";
+		mes "Hum...";
 		next;
 		mes "[Paul]";
-		mes "If Haled isn't supportive...";
-		mes "Tell him ^4d4dffI know what you did last summer!^000000";
-		mes "You shouldn't be wrong...!?";
+		mes "Eu sinto que o cara do cabelo ruivo na galeria principal está me provocando ...";
+		mes "De qualquer forma...";
+		mes "Então, eu realmente gosto de saber a senha e a identidade da chave ...";
+		next;
+		mes "[Paul]";
+		mes "Se Haled não é apoiado ...";
+		mes "Diga a ele ^4d4dffi Saiba o que você fez no verão passado! ^000000";
+		mes "Você não deveria estar errado ...!?";
 		set job_sha,18;
 		changequest 7172,7173;
 		close;
 	} else if (job_sha == 18) {
 		mes "[Paul]";
-		mes "You could ask him to get the key...";
-		mes "He will help you if you tell him something...";
+		mes "Você poderia pedir a ele para pegar a chave ...";
+		mes "Ele irá ajudá -lo se você contar algo a ele ...";
 		next;
 		mes "[Paul]";
-		mes "If Haled isn't supportive...";
-		mes "Tell him ^4d4dffI know what you did last summer!^000000";
+		mes "Se Haled não é apoiado ...";
+		mes "Diga a ele ^4d4dffi Saiba o que você fez no verão passado! ^000000";
 		close;
 	} else if (job_sha > 18 && job_sha < 30) {
 		mes "[Paul]";
-		mes "So you are still looking for the treasure... right?";
-		mes "I would look for it...";
+		mes "Então você ainda está procurando o tesouro ... certo?";
+		mes "Eu procuraria por isso ...";
 		close;
 	} else if (job_sha == 30) {
 		mes "[Paul]";
-		mes "Now I almost guessed what would happen later...";
-		mes "It can't have happened!";
+		mes "Agora eu quase imaginei o que aconteceria mais tarde ...";
+		mes "Não pode ter acontecido!";
 		next;
 		mes "[Paul]";
-		mes "Are you shocked?";
-		mes "Don't think worse.";
-		mes "You could get a good person.";
-		mes "Hahaha...";
+		mes "Você está chocado?";
+		mes "Não pense pior.";
+		mes "Você poderia conseguir uma boa pessoa.";
+		mes "Hahaha ...";
 		close;
 	}
 	mes "[Paul]";
-	mes "Do you need a painting tool?";
-	mes "Then you can request that to the assistant.";
-	mes "We always have it just in case.";
+	mes "Você precisa de uma ferramenta de pintura?";
+	mes "Então você pode solicitar isso ao assistente.";
+	mes "Nós sempre o temos apenas por precaução.";
 	close;
 L_Code:
 	mes "[Paul]";
-	mes "Really? Then I don't need to give you the answer.";
-	mes "Could you interpret the meaning of each letter.";
+	mes "Realmente? Então não preciso dar a resposta.";
+	mes "Você poderia interpretar o significado de cada letra.";
 	next;
-	select("It's kinda the combination of places.");
+	select("É meio que a combinação de lugares.");
 	mes "[Paul]";
-	mes "So?";
+	mes "Então?";
 	next;
-	select("E-N meaning East - North");
+	select("E -N Significado Leste - Norte");
 	mes "[Paul]";
-	mes "Ok that's good enough.";
-	mes "Then go and find out.";
+	mes "Ok, isso é bom o suficiente.";
+	mes "Então vá e descubra.";
 	next;
 	mes "[Paul]";
-	mes "Memorize this.";
-	mes "You might need it. It could be a clue for you.";
+	mes "Memorizar isso.";
+	mes "Você pode precisar disso. Pode ser uma pista para você.";
 	next;
 	mes "[Paul]";
 	switch(rand(3)) {
 	case 0:
-		mes "[ S E E D ]";
-		mes "S E E D?";
+		mes "[ SEMENTE ]";
+		mes "SEMENTE?";
 		set job_sha,11;
 		changequest getarg(0),7168;
 		break;
 	case 1:
-		mes "[ F O O T ]";
-		mes "F O O T?";
+		mes "[ PÉ ]";
+		mes "PÉ?";
 		set job_sha,12;
 		changequest getarg(0),7169;
 		break;
 	case 2:
-		mes "[ C O L D ]";
-		mes "C O L D?";
+		mes "[ FRIO ]";
+		mes "FRIO?";
 		set job_sha,13;
 		changequest getarg(0),7170;
 		break;
 	}
-	mes "I don't know what it really means, but it would be helpful to you to figure it out.";
+	mes "Não sei o que realmente significa, mas seria útil para você descobrir.";
 	close;
 }
 
 s_atelier,167,129,3	script	Manager#sc06_yuno	806,{
 	if (job_sha < 19) {
-		mes "[Manager]";
-		mes "What?";
-		mes "If you've come here for some money, you are wrong.";
-		mes "This isn't a pawnshop.";
+		mes "[Gerente]";
+		mes "O que?";
+		mes "Se você veio aqui por algum dinheiro, está errado.";
+		mes "Esta não é uma loja de penhores.";
 		if (job_sha < 18) close;
 		next;
-		select("You are... Haled?");
-		mes "[Haled]";
-		mes "Hmm? I'm the manager of this workplace in Juno. What's the matter?";
+		select("Você está ... dobrado?");
+		mes "[ILDED]";
+		mes "Hum? Sou o gerente deste local de trabalho em Juno. Qual é o problema?";
 		next;
-		mes "[Haled]";
-		mes "Hmm. You were sent by Graham and Paul?";
-		mes "I thought that you just came here to beg for money with fossil pieces.";
+		mes "[ILDED]";
+		mes "Hum. Você foi enviado por Graham e Paul?";
+		mes "Eu pensei que você acabou de vir aqui para implorar por dinheiro com peças fósseis.";
 		next;
-		mes "[Haled]";
-		mes "It's a classic way that poor scholars use.";
-		mes "Sometimes I buy good stuff so some people know that this is a pawnshop.";
+		mes "[ILDED]";
+		mes "É uma maneira clássica que os pobres estudiosos usam.";
+		mes "Às vezes eu compro coisas boas para que algumas pessoas saibam que isso é uma loja de penhores.";
 		next;
-		mes "[Haled]";
-		mes "Let me hear your story.";
+		mes "[ILDED]";
+		mes "Deixe -me ouvir sua história.";
 		next;
-		mes "- You explain everything so far and show the key of arrogance. -";
+		mes "- Você explica tudo até agora e mostra a chave de arrogância. -";
 		next;
-		mes "[Haled]";
-		mes "So...";
-		mes "I totally understand.";
-		mes "It's this key's location that";
-		mes "shared the informaton!";
+		mes "[ILDED]";
+		mes "Então...";
+		mes "Eu entendo totalmente.";
+		mes "É a localização desta chave que";
+		mes "compartilhou as informações!";
 		next;
-		mes "[Haled]";
-		mes "Anyway. Two are keys and the treasure that I have to open with this key, what can I do?";
+		mes "[ILDED]";
+		mes "De qualquer forma. Duas são chaves e o tesouro que eu tenho que abrir com essa chave, o que posso fazer?";
 		next;
-		mes "[Haled]";
-		mes "We will investigate Juno's workplace, so give it to me?";
+		mes "[ILDED]";
+		mes "Vamos investigar o local de trabalho de Juno, então me dê?";
 		next;
-		mes "- Haled doesn't want to cooperate with you.";
-		mes "Remember what Paul said. -";
+		mes "- Haled não quer cooperar com você.";
+		mes "Lembre -se do que Paul disse. -";
 		next;
 		callsub L_Code;
-		mes "[Haled]";
-		mes "So what?";
-		mes "He's a wild-eyed person.";
-		mes "Did you just speak to me in a threatening tone?";
+		mes "[ILDED]";
+		mes "E daí?";
+		mes "Ele é uma pessoa de olhos arregalados.";
+		mes "Você acabou de falar comigo em um tom ameaçador?";
 		set job_sha,19;
 		close;
 	} else if (job_sha == 19) {
-		mes "[Haled]";
-		mes "What?";
-		mes "You want to talk with me?";
-		mes "How about you just hand over that key to me?";
+		mes "[ILDED]";
+		mes "O que?";
+		mes "Você quer falar comigo?";
+		mes "Que tal você apenas entregar essa chave para mim?";
 		next;
 		callsub L_Code;
-		mes "[Haled]";
-		mes "What's wrong with you?";
-		mes "Are you ok?";
-		mes "Paul? What do you want to say?";
+		mes "[ILDED]";
+		mes "O que você tem?";
+		mes "Você está bem?";
+		mes "Paul? O que você quer dizer?";
 		set job_sha,19;
 		close;
 	} else if (job_sha == 20) {
-		mes "[Haled]";
-		mes "Got it.";
-		mes "Ok.";
-		mes "You need to know where the place with the code is?";
+		mes "[ILDED]";
+		mes "Entendi.";
+		mes "OK.";
+		mes "Você precisa saber onde está o lugar com o código?";
 		next;
-		mes "[Haled]";
-		mes "I don't have a choice.";
-		mes "Listen carefully to this poem.";
+		mes "[ILDED]";
+		mes "Eu não tenho escolha.";
+		mes "Ouça atentamente este poema.";
 		next;
-		mes "[Haled]";
-		mes "^4d4dffThe end of thin root of life-giving water.";
-		mes "It's all of tears and signs of living people.";
-		mes "They are us but also not us.";
-		mes "Residents of forgotten night";
-		mes "play the waltz of despair^000000.";
+		mes "[ILDED]";
+		mes "^4d4dff a extremidade da raiz fina da água que dá vida.";
+		mes "São todas as lágrimas e sinais de pessoas vivas.";
+		mes "Eles somos nós, mas também não nós.";
+		mes "Moradores de noite esquecida";
+		mes "Jogue a valsa do desespero^000000.";
 		next;
-		mes "[Haled]";
-		mes "Do you know where it is?";
-		mes "You know where it is right?";
-		mes "It's only my opinion, but...";
-		mes "It can't be possible...";
+		mes "[ILDED]";
+		mes "Você sabe onde está?";
+		mes "Você sabe onde está certo?";
+		mes "É apenas minha opinião, mas ...";
+		mes "Não pode ser possível ...";
 		next;
-		mes "[Haled]";
-		mes "Anyway, if you want to do it, go ahead.";
-		mes "If you know what this poem means.";
+		mes "[ILDED]";
+		mes "De qualquer forma, se você quiser fazer isso, vá em frente.";
+		mes "Se você sabe o que esse poema significa.";
 		next;
-		mes "[Haled]";
-		mes "Of course, if you find something, you have to come back.";
-		mes "Got it?";
-		mes "I'm going to write it down so that you won't forget.";
+		mes "[ILDED]";
+		mes "Claro, se você encontrar alguma coisa, terá que voltar.";
+		mes "Entendi?";
+		mes "Vou escrever para que você não esqueça.";
 		set job_sha,21;
 		changequest 7173,7174;
 		close;
 	} else if (job_sha == 21) {
-		mes "[Haled]";
-		mes "I won't be surprised with whatever you find.";
-		mes "You have to find the place that the poem speaks of.";
+		mes "[ILDED]";
+		mes "Não ficarei surpreso com o que você encontrar.";
+		mes "Você tem que encontrar o lugar do qual o poema fala.";
 		next;
-		mes "[Haled]";
-		mes "^4d4dffThe end of thin root of life-giving water.";
-		mes "It's all of tears and signs of living people.";
-		mes "They are us but also not us.";
-		mes "Residents of forgotten night";
-		mes "play the waltz of despair^000000.";
+		mes "[ILDED]";
+		mes "^4d4dff a extremidade da raiz fina da água que dá vida.";
+		mes "São todas as lágrimas e sinais de pessoas vivas.";
+		mes "Eles somos nós, mas também não nós.";
+		mes "Moradores de noite esquecida";
+		mes "Jogue a valsa do desespero^000000.";
 		next;
-		mes "[Haled]";
-		mes "Of course, if you find something, you have to come back.";
-		mes "Got it?";
+		mes "[ILDED]";
+		mes "Claro, se você encontrar alguma coisa, terá que voltar.";
+		mes "Entendi?";
 		close;
 	} else if (job_sha > 21 && job_sha < 25) {
-		mes "[Haled]";
-		mes "How's it going?";
-		mes "If you find something, you have to come back.";
-		mes "Don't go to Graham or Paul.";
+		mes "[ILDED]";
+		mes "Como tá indo?";
+		mes "Se você encontrar alguma coisa, terá que voltar.";
+		mes "Não vá para Graham ou Paul.";
 		close;
 	} else if (job_sha == 25) {
-		mes "[Haled]";
-		mes "Did you find something?";
+		mes "[ILDED]";
+		mes "Você encontrou alguma coisa?";
 		next;
-		select("Show the key of pleasure.");
+		select("Mostre a chave do prazer.");
 		if (countitem(6268)) {
-			mes "[Haled]";
-			mes "Ha..........akkk.";
-			mes "Another key?";
-			mes "Is it the only key?!";
+			mes "[ILDED]";
+			mes "Se .......... Akkk.";
+			mes "Outra chave?";
+			mes "É a única chave?!";
 			next;
-			mes "[Haled]";
-			mes "Then... do I have to ask help from the young man from Lighthalzen?";
+			mes "[ILDED]";
+			mes "Então ... eu tenho que pedir ajuda do jovem de Lighthalzen?";
 			mes "...........";
-			mes "Ah...";
+			mes "Um ...";
 			next;
-			mes "[Haled]";
-			mes "I have no choice.";
-			mes "Go to Lighthalzen with the three keys.";
-			mes "Meet Vicente who is master of the store in Lighthalzen and tell him everything.";
+			mes "[ILDED]";
+			mes "Eu não tenho escolha.";
+			mes "Vá para Lighthalzen com as três chaves.";
+			mes "Conheça Vicente, que é o mestre da loja em Lighthalzen, e conte a ele tudo.";
 			next;
-			mes "[Haled]";
-			mes "I told you that the old man is persistant and he ruins everything.";
+			mes "[ILDED]";
+			mes "Eu te disse que o velho é persistente e ele arruina tudo.";
 			next;
-			mes "[Haled]";
-			mes "You have to have all your facts straight to send information to the guild.";
-			mes "First you have to work together in one accord.";
+			mes "[ILDED]";
+			mes "Você precisa ter todos os seus fatos diretamente para enviar informações para a guilda.";
+			mes "Primeiro você tem que trabalhar juntos em um acordo.";
 			next;
-			mes "[Haled]";
-			mes "The thing you find can belong to the workplace.";
-			mes "It can be shared.";
+			mes "[ILDED]";
+			mes "O que você encontra pode pertencer ao local de trabalho.";
+			mes "Pode ser compartilhado.";
 			next;
-			mes "[Haled]";
-			mes "I thought that it was a very simple thing.";
-			mes "We couldn't share that stuff together.";
+			mes "[ILDED]";
+			mes "Eu pensei que era uma coisa muito simples.";
+			mes "Não poderíamos compartilhar essas coisas juntos.";
 			next;
-			mes "[Haled]";
-			mes "All of the information that I got from workplace are key.";
-			mes "There must be something to use three key with.";
+			mes "[ILDED]";
+			mes "Todas as informações que recebi no local de trabalho são fundamentais.";
+			mes "Deve haver algo para usar três chave.";
 			next;
-			mes "[Haled]";
-			mes "Anyway it has to do with deceit and pleasure...";
-			mes "Is it teasing me...";
+			mes "[ILDED]";
+			mes "De qualquer forma, tem a ver com engano e prazer ...";
+			mes "Isso está me provocando ...";
 			next;
-			mes "[Haled]";
-			mes "Ok. Let me finish.";
-			mes "Go to Vicente in Lighthalzen.";
+			mes "[ILDED]";
+			mes "OK. Deixe -me terminar.";
+			mes "Vá para Vicente em Lighthalzen.";
 			set job_sha,26;
 			changequest 7176,7177;
 			close;
 		}
 		mes "["+strcharinfo(0)+"]";
-		mes "I'm sorry.";
-		mes "I found one more key but I didn't bring it.";
-		mes "I'll bring it soon.";
+		mes "Desculpe.";
+		mes "Encontrei mais uma chave, mas não a trouxe.";
+		mes "Vou trazê -lo em breve.";
 		close;
 	} else if (job_sha == 26) {
-		mes "[Haled]";
-		mes "Shadow workplace in Lighthalzen.";
-		mes "The manager's name is Vicente.";
-		mes "Tell him everything and get one last information.";
+		mes "[ILDED]";
+		mes "Local de trabalho das sombras em Lighthalzen.";
+		mes "O nome do gerente é Vicente.";
+		mes "Conte a ele tudo e obtenha uma última informação.";
 		close;
 	} else if (job_sha > 26 && job_sha < 30) {
-		mes "[Haled]";
-		mes "Hey, you!";
-		mes "Was Vicente helpful to you?";
-		mes "You have something important...";
-		mes "So you have to find out what is it.";
+		mes "[ILDED]";
+		mes "Ei, você!";
+		mes "Vicente foi útil para você?";
+		mes "Você tem algo importante ...";
+		mes "Então você tem que descobrir o que é.";
 		next;
-		mes "[Haled]";
-		mes "Keep trying.";
+		mes "[ILDED]";
+		mes "Continue tentando.";
 		close;
 	} else if (job_sha == 30) {
-		mes "[Haled]";
-		mes "Hey, you!";
-		mes "What's going on?";
-		mes "What? Shadow Chaser?";
+		mes "[ILDED]";
+		mes "Ei, você!";
+		mes "O que está acontecendo?";
+		mes "O que? Chaser Shadow?";
 		next;
-		mes "[Haled]";
-		mes "Did I know that fact?";
-		mes "Sure. I heard a little bit before";
-		mes "I used to do work like this.";
+		mes "[ILDED]";
+		mes "Eu conhecia esse fato?";
+		mes "Claro. Eu ouvi um pouco antes";
+		mes "Eu costumava trabalhar assim.";
 		next;
-		mes "[Haled]";
-		mes "It's an honor for me to pick a person who belongs to us.";
-		mes "Just accept that. You are going to be a good Shadow Chaser.";
+		mes "[ILDED]";
+		mes "É uma honra para mim escolher uma pessoa que nos pertence.";
+		mes "Apenas aceite isso. Você vai ser um bom caçador de sombras.";
 		close;
 	}
-	mes "[Haled]";
-	mes "I like your face.";
-	mes "We don't have any special thing.";
-	mes "An assistant sells some paint and tool.";
+	mes "[ILDED]";
+	mes "Eu gosto do seu rosto.";
+	mes "Não temos nada especial.";
+	mes "Um assistente vende um pouco de tinta e ferramenta.";
 	close;
 L_Code:
 	mes "["+strcharinfo(0)+"]";
-	mes "Paul said...";
+	mes "Paul disse ...";
 	next;
 	input .@inputstr$;
 	mes "["+strcharinfo(0)+"]";
-	mes "Paul said...";
+	mes "Paul disse ...";
 	mes "'"+.@inputstr$+"' .";
 	next;
-	if (.@inputstr$ == "I know what you did last summer!") {
-		mes "[Haled]";
-		mes "Ekk... He...";
-		mes "Knew everything...";
-		mes "Hmm...";
-		mes "I can help.";
-		mes "I will cooperate.";
+	if (.@inputstr$ == "Eu sei o que você fez no verão passado!") {
+		mes "[ILDED]";
+		mes "Ekk ... a ...";
+		mes "Sabia tudo ...";
+		mes "Hum...";
+		mes "Eu posso ajudar.";
+		mes "Vou cooperar.";
 		next;
-		mes "[Haled]";
-		mes "I need some time to collect my thoughts.";
-		mes "Wait for me a bit.";
+		mes "[ILDED]";
+		mes "Eu preciso de algum tempo para recolher meus pensamentos.";
+		mes "Espere por mim um pouco.";
 		set job_sha,20;
 		close;
 	}
@@ -1129,249 +1129,249 @@ L_Code:
 
 s_atelier,25,75,3	script	Manager#sc10_lgt	899,{
 	if (job_sha < 26) {
-		mes "[Manager]";
-		mes "You are?";
-		mes "Sorry, but we don't trade old art goods.";
-		mes "If you neeed something, then ask an assistant.";
+		mes "[Gerente]";
+		mes "Você é?";
+		mes "Desculpe, mas não trocamos velhos bens de arte.";
+		mes "Se você precisar de algo, pergunte a um assistente.";
 		close;
 	} else if (job_sha == 26) {
 		mes "[Vicente]";
-		mes "Welcome.";
-		mes "I've been waiting for you.";
+		mes "Bem-vindo.";
+		mes "Eu estive esperando por você.";
 		next;
-		select("For me?");
+		select("Para mim?");
 		mes "[Vicente]";
-		mes "I wondered when you would visit.";
-		mes "I've been waiting a long time for you.";
-		mes "Huhu...";
-		next;
-		mes "[Vicente]";
-		mes "How were Graham,Paul and Haled?";
-		mes "They are not easy people to deal with huh?";
-		next;
-		select("You know everything?");
-		mes "[Vicente]";
-		mes "Sure.";
-		mes "They ignore me because they think that I'm too young.";
-		mes "As if they were all perfect. HahahaHah...";
+		mes "Eu me perguntei quando você visitava.";
+		mes "Estou esperando muito tempo para você.";
+		mes "Hu hu ...";
 		next;
 		mes "[Vicente]";
-		mes "Did you bring all of the keys?";
-		mes "There should be three.";
-		mes "You came here to find out how to use them I assume, right?";
+		mes "Como Graham, Paul e Halled?";
+		mes "Eles não são pessoas fáceis de lidar com Huh?";
 		next;
-		select("Yeah, you're right!");
+		select("Você conhece tudo?");
 		mes "[Vicente]";
-		mes "You don't have to be surprised.";
-		mes "I can't find how long it took for those three men to investigate before.";
-		mes "I already finished my work.";
-		next;
-		mes "[Vicente]";
-		mes "When I went to the final location I found a stone statue.";
-		mes "But it needs to have key.";
+		mes "Claro.";
+		mes "Eles me ignoram porque pensam que eu sou muito jovem.";
+		mes "Como se fossem todos perfeitos. Hahahahah ...";
 		next;
 		mes "[Vicente]";
-		mes "Even Three.";
-		mes " ";
+		mes "Você trouxe todas as chaves?";
+		mes "Deve haver três.";
+		mes "Você veio aqui para descobrir como usá -los, presumo, certo?";
+		next;
+		select("Sim, você está certo!");
+		mes "[Vicente]";
+		mes "Você não precisa se surpreender.";
+		mes "Não consigo encontrar quanto tempo demorou para esses três homens investigarem antes.";
+		mes "Eu já terminei meu trabalho.";
+		next;
+		mes "[Vicente]";
+		mes "Quando fui para o local final, encontrei uma estátua de pedra.";
+		mes "Mas precisa ter chave.";
+		next;
+		mes "[Vicente]";
+		mes "Até três.";
+		mes "";
 		mes "(Vicente smiles)";
 		next;
 		mes "[Vicente]";
-		mes "At first, the information that was given from the guild means only one thing.";
-		mes "Because of the saying that they respect the right of our possessions,";
-		mes "we shared our information.";
+		mes "A princípio, as informações que foram dadas da guilda significam apenas uma coisa.";
+		mes "Por causa do ditado que eles respeitam o direito de nossos bens,";
+		mes "Nós compartilhamos nossas informações.";
 		next;
 		mes "[Vicente]";
-		mes "So we had to wait for it.";
-		mes "I thought the last man would never give it to me...";
+		mes "Então tivemos que esperar por isso.";
+		mes "Eu pensei que o último homem nunca iria me dar ...";
 		next;
 		mes "[Vicente]";
-		mes "They thought I wanted to have the treasure for myself.";
-		mes "So that's why I've just been waiting for you.";
+		mes "Eles pensaram que eu queria ter o tesouro para mim.";
+		mes "É por isso que eu só estava esperando por você.";
 		next;
 		mes "[Vicente]";
-		mes "Then let's make a point!";
-		mes "Do you know thanatos tower?";
+		mes "Então vamos fazer uma observação!";
+		mes "Você conhece a Tower Tower?";
 		next;
-		switch(select("Sure.:The tower of death?")) {
+		switch(select("Claro .: A Torre da Morte?")) {
 		case 1:
 			mes "[Vicente]";
-			mes "You know that.";
-			mes "Then you can understand easily.";
+			mes "Você sabe disso.";
+			mes "Então você pode entender facilmente.";
 			next;
 			break;
 		case 2:
 			mes "[Vicente]";
-			mes "Yes, that tower in northen Juno.";
-			mes "There are huge monsters there.";
+			mes "Sim, aquela torre em Northen Juno.";
+			mes "Existem monstros enormes lá.";
 			next;
 			break;
 		}
 		mes "[Vicente]";
-		mes "You told me that you went to the final place with the information?";
-		mes "That's the Thanatos Tower.";
+		mes "Você me disse que foi ao último lugar com as informações?";
+		mes "Essa é a torre Thanatos.";
 		next;
 		mes "[Vicente]";
-		mes "Fortunately, the location is the 1st floor of that tower.";
-		mes "So I'm going to tell what you have to do.";
+		mes "Felizmente, a localização é o 1º andar daquela torre.";
+		mes "Então, eu vou dizer o que você tem que fazer.";
 		next;
 		mes "[Vicente]";
-		mes "At the 1st floor of thanatos tower, there are members from the Rekenber Corporation.";
-		mes "Go north from their desk...";
+		mes "No 1º andar da Thanatos Tower, há membros da Rekenber Corporation.";
+		mes "Vá para o norte de sua mesa ...";
 		next;
 		mes "[Vicente]";
-		mes "And you can find stairs and a location where light comes out of.";
-		mes "That's the location of the information that I have.";
+		mes "E você pode encontrar escadas e um local onde sai da luz.";
+		mes "Essa é a localização das informações que eu tenho.";
 		next;
 		mes "[Vicente]";
-		mes "Now you know the location you have to go to with the three keys.";
-		mes "Find out the secret of the stone statue.";
+		mes "Agora você conhece o local que você deve ir com as três chaves.";
+		mes "Descubra o segredo da estátua de pedra.";
 		next;
 		mes "[Vicente]";
-		mes "You can't imagine what kind of things you might find.";
-		mes "That's the final destination of all of the keys.";
+		mes "Você não pode imaginar que tipo de coisas você pode encontrar.";
+		mes "Esse é o destino final de todas as chaves.";
 		set job_sha,27;
 		changequest 7177,7178;
 		next;
 		mes "[Vicente]";
-		mes "Good luck.";
+		mes "Boa sorte.";
 		close;
 	} else if (job_sha == 27) {
 		mes "[Vicente]";
-		mes "Listen carefully.";
-		mes "The location you need to find is";
-		mes "north from middle of thanatos 1st floor.";
-		mes "You can find stairs and a location where light comes out.";
+		mes "Ouça com cuidado.";
+		mes "O local que você precisa encontrar é";
+		mes "ao norte do meio do Thanatos 1º andar.";
+		mes "Você pode encontrar escadas e um local onde a luz sai.";
 		next;
 		mes "[Vicente]";
-		mes "If you find something, come back here.";
-		mes "Actually, I want to get the key from you, but...";
+		mes "Se você encontrar algo, volte aqui.";
+		mes "Na verdade, eu quero obter a chave de você, mas ...";
 		next;
 		mes "[Vicente]";
-		mes "I just respect your opinion.";
-		mes "If you find something, come back here. Got it?";
+		mes "Eu apenas respeito sua opinião.";
+		mes "Se você encontrar algo, volte aqui. Entendi?";
 		close;
 	} else if (job_sha == 28) {
 		mes "[Vicente]";
-		mes "You are back?";
-		mes "Find anything?";
+		mes "Você está de volta?";
+		mes "Encontre alguma coisa?";
 		next;
-		switch(select("Throw the brush.:Grab him by the collar.:Drop the brush.")) {
+		switch(select("Jogue o pincel.")) {
 		case 1:
 			mes "[Vicente]";
-			mes "Hey, what are you doing?";
-			mes "This brush...";
-			mes "Is this the treasure hidden in the Thanatos Tower?";
+			mes "Ei, o que você está fazendo?";
+			mes "Este pincel ...";
+			mes "Este é o tesouro escondido na torre Thanatos?";
 			next;
-			mes "Vicente looks surprised after taking a look at it.";
+			mes "Vicente parece surpreso depois de dar uma olhada nele.";
 			next;
 			break;
 		case 2:
 			mes "[Vicente]";
-			mes "What's wrong with you?";
-			mes "You can tell me more details?";
+			mes "O que você tem?";
+			mes "Você pode me dizer mais detalhes?";
 			next;
-			mes "Vincente looks surpised after taking a look at it.";
+			mes "Vicente parece surpreso depois de dar uma olhada nele.";
 			next;
 			mes "[Vicente]";
-			mes "Is this the treasure hidden in the Thanatos Tower?";
+			mes "Este é o tesouro escondido na torre Thanatos?";
 			next;
 			break;
 		case 3:
 			mes "[Vicente]";
-			mes "What the matter?";
-			mes "Are you ok?";
+			mes "Qual é o problema?";
+			mes "Você está bem?";
 			next;
-			mes "Vicente looks at me with a surprised face.";
+			mes "Vicente olha para mim com um rosto surpreso.";
 			next;
-			select("Point at the brush.");
+			select("Aponte para o pincel.");
 			mes "[Vicente]";
-			mes "Is this the treasure hidden in the Thanatos Tower?";
+			mes "Este é o tesouro escondido na torre Thanatos?";
 			next;
-			mes "Vincente looks surpised after taking a look at it.";
+			mes "Vicente parece surpreso depois de dar uma olhada nele.";
 			next;
 			break;
 		}
 		mes "[Vicente]";
-		mes "Haha!!";
-		mes "Ahahahaha!!!!!";
-		mes "I got it now!";
-		mes "Congratulations.";
+		mes "Haha !!";
+		mes "Ahahahaha !!!!!";
+		mes "Eu entendi agora!";
+		mes "Parabéns.";
 		next;
 		mes "[Vicente]";
-		mes "It's treasure.";
-		mes "You found a big treasure!";
-		mes "Talk to me for bit, won't you?";
+		mes "É tesouro.";
+		mes "Você encontrou um grande tesouro!";
+		mes "Fale comigo por um pouco, não é?";
 		next;
 		mes "[Vicente]";
-		mes "There is someone who has been waiting for you.";
-		mes "He's been waiting for someone to bring this brush back.";
-		mes "Let's go inside.";
+		mes "Há alguém que está esperando por você.";
+		mes "Ele está esperando alguém trazer esse pincel de volta.";
+		mes "Vamos entrar.";
 		set job_sha,29;
 		erasequest 7179;
 		close;
 	} else if (job_sha == 29 || job_sha == 30) {
 		mes "[Vicente]";
-		mes "I'm going to listen to your story.";
+		mes "Vou ouvir sua história.";
 		close;
 	}
 	mes "[Vicente]";
-	mes "I'm expecting your work from now on.";
-	mes "You must be a good Shadow Chaser.";
-	mes "I'm sure of it.";
+	mes "Estou esperando seu trabalho a partir de agora.";
+	mes "Você deve ser um bom caçador de sombras.";
+	mes "Tenho certeza disso.";
 	close;
 }
 
 s_atelier,73,65,3	script	Vicente#sc12_lgt	899,{
 	mes "[Vicente]";
 	if (job_sha < 29) {
-		mes "If you don't have anything special to do here, you'd better leave.";
-		mes "No trespassing.";
+		mes "Se você não tiver nada de especial para fazer aqui, é melhor sair.";
+		mes "Sem invasão.";
 		close;
 	} else if (job_sha == 29) {
-		mes "This way.";
-		mes "He's been waiting for you a while.";
-		mes "Not me, Dumk.";
+		mes "Por aqui.";
+		mes "Ele está esperando por você há um tempo.";
+		mes "Não eu, Dunk.";
 		close;
 	} else if (job_sha == 30) {
-		mes "Dumk wants to have you as a Shadow Chaser.";
-		mes "Big news right?";
+		mes "Dumk quer ter você como um caçador de sombras.";
+		mes "Grandes notícias, certo?";
 		close;
 	} else if (job_sha == 31) {
-		mes "I'm expecting your work from now on.";
-		mes "You must be a good Shadow Chaser.";
-		mes "I'm sure of it.";
+		mes "Estou esperando seu trabalho a partir de agora.";
+		mes "Você deve ser um bom caçador de sombras.";
+		mes "Tenho certeza disso.";
 		close;
 	}
-	mes "I don't have any special reason to visit here.";
-	mes "An assistant sells tools and paint.";
+	mes "Não tenho nenhum motivo especial para visitar aqui.";
+	mes "Um assistente vende ferramentas e tinta.";
 	close;
 }
 
 s_atelier,70,66,4	script	Dumk#sc13_lgh	481,{
 	if (Class == Job_Shadow_Chaser || Class == Job_Shadow_Chaser_T || Class == Job_Baby_Shadow_Chaser) {
 		mes "[Dumk]";
-		mes "What is it?";
-		mes "Have you been enjoying your new skills?";
+		mes "O que é?";
+		mes "Você tem gostado de suas novas habilidades?";
 		next;
 		mes "[Dumk]";
-		mes "If you want to improve your skills, you have to seek out new uses for paint.";
+		mes "Se você deseja melhorar suas habilidades, precisa procurar novos usos para tinta.";
 		next;
 		mes "[Dumk]";
-		mes "Don't forget.";
-		mes "We are Shadow Chasers.";
-		mes "Huhu...";
-		mes "HuhuHuhu...";
+		mes "Não se esqueça.";
+		mes "Somos caçadores de sombras.";
+		mes "Hu hu ...";
+		mes "Huhuhuhu ...";
 		close;
 	}
 	if (checkweight(1201,4) == 0) {
-		mes "- You can't continue on in this quest because you are overweight. -";
+		mes "- Você não pode continuar nesta missão porque está acima do peso. -";
 		close;
 	}
 	if (ismounting()) {
 		mes "[Dumk]";
-		mes "Who is this guy? Why should he sit in front of me so high?";
-		mes "Although I do not know why you riding on it, but here is in door,";
-		mes "That is no danger to rely on animals to escape, so you please get down!";
+		mes "Quem é esse cara? Por que ele deveria se sentar na minha frente tão alto?";
+		mes "Embora eu não saiba por que você está andando nele, mas aqui está na porta,";
+		mes "Isso não é perigo para confiar nos animais para escapar, então você, por favor, desça!";
 		close;
 	}
 	if (BaseJob == Job_Rogue) {
@@ -1380,226 +1380,226 @@ s_atelier,70,66,4	script	Dumk#sc13_lgh	481,{
 			mes "Vicente. No Soliciting.";
 			next;
 			mes "[Vicente]";
-			mes "A solicitor?";
-			mes "I don't think so. He's our colleage.";
+			mes "Um advogado?";
+			mes "Eu não acho. Ele é nosso colega.";
 			next;
 			mes "[Dumk]";
-			mes "...Ah?";
+			mes "...?";
 			close;
 		}
 		if (BaseLevel < 99 || JobLevel < 50 || SkillPoint != 0) {
 			mes "[Dumk]";
-			mes "You are still green!";
-			mes "Did you expect that you can learn the dark arts with your ability?";
-			mes "You are wrong!";
+			mes "Você ainda é verde!";
+			mes "Você esperava que pudesse aprender as artes das trevas com sua capacidade?";
+			mes "Você está errado!";
 			next;
 			mes "[Vicente]";
-			mes "Haha...";
-			mes "Please, understand. Dumk has very bad communication skills.";
-			mes "Even doesn't talk to anyone who isn't a high enough level.";
+			mes "Haha ...";
+			mes "Por favor, entenda. Dumk tem habilidades de comunicação muito ruins.";
+			mes "Mesmo não fala com ninguém que não seja um nível alto o suficiente.";
 			next;
 			mes "[Vicente]";
-			mes "And as person who isn't not ready.";
-			mes "^4d4dffYou maybe are not ready for him^000000.";
+			mes "E como pessoa que não não está pronta.";
+			mes "^4d4dffffyou talvez não esteja pronto para ele^000000.";
 			next;
 			mes "[Dumk]";
-			mes "You talk too much.";
+			mes "Você fala demais.";
 			mes "Heh.";
 			next;
 			mes "[Vicente]";
-			mes "- He is pleased. -";
-			mes "Hey.";
-			mes "He could be ashamed.";
+			mes "- Ele está satisfeito. -";
+			mes "Ei.";
+			mes "Ele poderia ter vergonha.";
 			close;
 		}
 		if (job_sha == 29) {
 			mes "[Dumk]";
-			mes "It's you? You are the one who found the brush?";
+			mes "É você? Você é quem encontrou o pincel?";
 			next;
 			select("Show the brush to him.");
 			if (countitem(6269)) {
 				mes "[Dumk]";
-				mes "That's it.";
-				mes "Did you find it by yourself?";
+				mes "É isso.";
+				mes "Você encontrou isso sozinho?";
 				next;
-				switch(select("Yes.:With my friends")) {
+				switch(select("Sim .: Com meus amigos")) {
 				case 1:
 					mes "[Dumk]";
-					mes "Hmm...";
-					mes "You have a high ability.";
-					mes "Breaking the codes should have been tough.";
-					mes "But it wasn't for you.";
+					mes "Hum...";
+					mes "Você tem uma alta habilidade.";
+					mes "Quebrar os códigos deveria ter sido difícil.";
+					mes "Mas não foi para você.";
 					next;
 					break;
 				case 2:
 					mes "[Dumk]";
-					mes "Hmm...";
-					mes "That's your other skill.";
-					mes "People who have no friends must be lonely.";
+					mes "Hum...";
+					mes "Essa é sua outra habilidade.";
+					mes "Pessoas que não têm amigos devem estar sozinhas.";
 					next;
 					mes "[Dumk]";
-					mes "To us, relationships are very important.";
-					mes "You get more people, you get more help.";
+					mes "Para nós, os relacionamentos são muito importantes.";
+					mes "Você tem mais pessoas, você tem mais ajuda.";
 					next;
 					break;
 				}
 				mes "[Dumk]";
-				mes "It's time to introduce myself.";
-				mes "I'm Dumk.";
+				mes "É hora de me apresentar.";
+				mes "Eu sou Dumk.";
 				next;
-				select("You are...");
+				select("Você é...");
 				mes "[Vicente]";
-				mes "Chicken! How about the chicken for this supper?";
+				mes "Frango! Que tal o frango para esta ceia?";
 				next;
 				mes "[Dumk]";
-				mes "Why chicken?";
-				mes "Why are you interrupting?";
-				mes "You wanna be fired?";
-				next;
-				mes "[Vicente]";
-				mes "Sorry...";
-				mes " ";
-				mes "(He turns to you and says it's taboo to talk about chicken.)";
-				next;
-				mes "[Dumk]";
-				mes "Anyway, let's make a point.";
-				mes "You.";
-				mes "Will you yield to the will of the brush?";
-				next;
-				select("Yield to? What?");
-				mes "[Dumk]";
-				mes "This brush was used by the master.";
-				mes "Paintings by him have mysterious power.";
-				next;
-				mes "[Dumk]";
-				mes "I can't tell you the root of the power.";
-				mes "Someday you will find out.";
-				mes "He sublimates power through the medium of his paintings.";
-				next;
-				select("I don't get it...?");
-				mes "[Dumk]";
-				mes "We walk in darkness without moonlight.";
-				mes "And find out our shining days are over.";
-				next;
-				mes "[Dumk]";
-				mes "We follow to other shadows";
-				mes "and we can be real";
-				mes "Shadow Chasers!";
-				next;
-				select("What are you talking about?");
-				mes "[Vicente]";
-				mes "He suggests that you become a Shadow Chaser.";
+				mes "Por que frango?";
+				mes "Por que você está interrompendo?";
+				mes "Você quer ser demitido?";
 				next;
 				mes "[Vicente]";
-				mes "In our guild, there is a special group that have unique skills.";
-				mes "They are Shadow Chasers.";
-				mes "They usually hide ther figure and they think they are different from others.";
+				mes "Desculpe...";
+				mes "";
+				mes "(Ele se vira para você e diz que é tabu falar sobre frango.)";
 				next;
 				mes "[Dumk]";
-				mes "Don't be so sarcastic, Vicente!";
-				mes "I told you.";
-				mes "You are qualified to be a Shadow Chaser!";
+				mes "De qualquer forma, vamos fazer uma observação.";
+				mes "Você.";
+				mes "Você cederá à vontade do pincel?";
+				next;
+				select("Render? O que?");
+				mes "[Dumk]";
+				mes "Este pincel foi usado pelo mestre.";
+				mes "As pinturas por ele têm poder misterioso.";
 				next;
 				mes "[Dumk]";
-				mes "Give that brush to me.";
-				mes "I need it again.";
-				mes "I'm so thirsty.";
-				mes "Wait a minute.";
+				mes "Não posso lhe dizer a raiz do poder.";
+				mes "Um dia você descobrirá.";
+				mes "Ele sublima o poder através do meio de suas pinturas.";
+				next;
+				select("Eu não entendo ...?");
+				mes "[Dumk]";
+				mes "Andamos na escuridão sem luar.";
+				mes "E descubra que nossos dias brilhantes terminaram.";
+				next;
+				mes "[Dumk]";
+				mes "Nós seguimos para outras sombras";
+				mes "E nós podemos ser reais";
+				mes "Chasers Shadow!";
+				next;
+				select("O que você está falando?");
+				mes "[Vicente]";
+				mes "Ele sugere que você se torne um caçador de sombras.";
+				next;
+				mes "[Vicente]";
+				mes "Em nossa guilda, há um grupo especial que possui habilidades únicas.";
+				mes "Eles são caçadores de sombras.";
+				mes "Eles geralmente escondem sua figura e acham que são diferentes dos outros.";
+				next;
+				mes "[Dumk]";
+				mes "Não seja tão sarcástico, Vicente!";
+				mes "Eu te disse.";
+				mes "Você está qualificado para ser um caçador de sombras!";
+				next;
+				mes "[Dumk]";
+				mes "Dê esse pincel para mim.";
+				mes "Eu preciso disso de novo.";
+				mes "Estou tão com sede.";
+				mes "Espere um minuto.";
 				delitem 6269,1; //Master_Brush
 				set job_sha,30;
 				close;
 			}
 			mes "[Dumk]";
-			mes "Let me see...";
-			mes "Did you bring the brush?";
+			mes "Deixe-me ver...";
+			mes "Você trouxe o pincel?";
 			next;
 			mes "[Dumk]";
-			mes "What are you doing?";
-			mes "Show me the brush?";
-			mes "You didn't bring it?";
-			mes "You are not very careful...";
+			mes "O que você está fazendo?";
+			mes "Mostre -me o pincel?";
+			mes "Você não trouxe?";
+			mes "Você não é muito cuidadoso ...";
 			close;
 		} else if (job_sha == 30) {
 			mes "[Dumk]";
-			mes "So, do you want me to keep talking about Shadow Chasers?";
+			mes "Então, você quer que eu continue falando sobre caçadores de sombras?";
 			next;
-			switch(select("What is a Shadow Chaser?:Change me to Shadow Chaser.:I'll come back later.")) {
+			switch(select("O que é um caçador de sombras?: Mude -me para Shadow Chaser.: Eu voltarei mais tarde.")) {
 			case 1:
 				mes "[Dumk]";
-				mes "Most spells are exclusively for Wizards and their kind.";
-				mes "But Knight has since been able to use a kind of magic with things called Runes.";
+				mes "A maioria dos feitiços é exclusivamente para assistentes e sua espécie.";
+				mes "Mas Knight foi capaz de usar um tipo de mágica com coisas chamadas runas.";
 				next;
 				mes "[Dumk]";
-				mes "So we tried finding a medium for spells that suit our characteristics.";
+				mes "Por isso, tentamos encontrar um meio para feitiços que se adequam às nossas características.";
 				next;
 				mes "[Dumk]";
-				mes "So finally...";
-				mes "We found paint!";
+				mes "Então finalmente ...";
+				mes "Encontramos tinta!";
 				next;
 				mes "[Dumk]";
-				mes "Paint gives us lots of feelings.";
-				mes "We can feel peaceful and happy or it can give us feelings of sorrow and fear.";
+				mes "A tinta nos dá muitos sentimentos.";
+				mes "Podemos nos sentir pacíficos e felizes ou isso pode nos dar sentimentos de tristeza e medo.";
 				next;
 				mes "[Dumk]";
-				mes "We use that to harness the different emotions of people and exploit them when they're most vulnerable.";
+				mes "Usamos isso para aproveitar as diferentes emoções das pessoas e explorá -las quando são mais vulneráveis.";
 				next;
 				mes "[Dumk]";
-				mes "The effects on our enemies are similar to that of magic spells.";
+				mes "Os efeitos em nossos inimigos são semelhantes aos de feitiços mágicos.";
 				next;
 				mes "[Dumk]";
-				mes "For instance, this power could be used to create blackholes to make your enemies vanish.";
+				mes "Por exemplo, esse poder pode ser usado para criar buracos pretos para fazer seus inimigos desaparecerem.";
 				next;
 				mes "[Dumk]";
-				mes "So if you want to have that power then you must have artistry.";
+				mes "Então, se você quiser ter esse poder, deve ter arte.";
 				next;
 				mes "[Dumk]";
-				mes "You have to be a trendsetter when it comes to fashion!";
-				mes "The ability to understand art!";
-				mes "You should have everything.";
+				mes "Você tem que ser um criador de tendências quando se trata de moda!";
+				mes "A capacidade de entender a arte!";
+				mes "Você deveria ter tudo.";
 				next;
-				select("Then what is the Master Brush?");
+				select("Então o que é o mestro?");
 				mes "[Dumk]";
-				mes "Ah?";
-				mes "That was a brush who was a master of dark arts.";
-				mes "Now we are looking for someone who can be a Shadow Chaser.";
-				next;
-				mes "[Dumk]";
-				mes "This is a kind of game.";
-				mes "If there is someone who wants to become a Shadow Chaser,";
-				mes "we just start the process to find this brush.";
+				mes "De?";
+				mes "Era um pincel que era um mestre em artes das trevas.";
+				mes "Agora estamos procurando alguém que possa ser um caçador de sombras.";
 				next;
 				mes "[Dumk]";
-				mes "We put the codes to make sure that you can think outside of the box.";
-				mes "Did you have fun?";
+				mes "Este é um tipo de jogo.";
+				mes "Se há alguém que quer se tornar um caçador de sombras,";
+				mes "Acabamos de iniciar o processo para encontrar esse pincel.";
+				next;
+				mes "[Dumk]";
+				mes "Colocamos os códigos para garantir que você possa pensar fora da caixa.";
+				mes "Você se divertiu?";
 				close;
 			case 2:
 				mes "[Dumk]";
-				mes "You decided!";
-				mes "As your case, you can master the art of psychological warfare using paint!";
-				mes "The art created is beautiful but dangerous.";
+				mes "Você decidiu!";
+				mes "Como seu caso, você pode dominar a arte da guerra psicológica usando tinta!";
+				mes "A arte criada é linda, mas perigosa.";
 				next;
 				mes "[Dumk]";
-				mes "We use paint as a medium for spells.";
-				mes "We use that to harness the different emotions of people and exploit them when they're most vulnerable.";
+				mes "Usamos a tinta como um meio para feitiços.";
+				mes "Usamos isso para aproveitar as diferentes emoções das pessoas e explorá -las quando são mais vulneráveis.";
 				next;
 				mes "[Dumk]";
-				mes "For instance, this power could be used to create black holes to make your enemies vanish.";
+				mes "Por exemplo, esse poder pode ser usado para criar buracos negros para fazer seus inimigos desaparecerem.";
 				next;
 				mes "[Dumk]";
-				mes "So if you want to have that power then you must have artistry.";
+				mes "Então, se você quiser ter esse poder, deve ter arte.";
 				next;
 				mes "[Dumk]";
-				mes "You have to be a trendsetter when it comes to fashion!";
-				mes "The ability to understand art!";
-				mes "You should have everything.";
+				mes "Você tem que ser um criador de tendências quando se trata de moda!";
+				mes "A capacidade de entender a arte!";
+				mes "Você deveria ter tudo.";
 				next;
 				mes "[Dumk]";
-				mes "You performed your duties diligently and found the brush.";
-				mes "So you are qualified to be a Shadow Chaser.";
+				mes "Você desempenhou suas tarefas diligentemente e encontrou o pincel.";
+				mes "Então você está qualificado para ser um caçador de sombras.";
 				next;
 				mes "[Dumk]";
-				mes "Congratulations.";
-				mes "Welcome to your new life.";
+				mes "Parabéns.";
+				mes "Bem -vindo à sua nova vida.";
 				jobchange roclass(eaclass()|EAJL_THIRD);
 				getitem 6121,1; //Makeover_Brush
 				getitem 6122,1; //Paint_Brush
@@ -1608,57 +1608,57 @@ s_atelier,70,66,4	script	Dumk#sc13_lgh	481,{
 				getitem 5750,1; //Shadow_Handicraft
 				next;
 				mes "[Dumk]";
-				mes "It's a fashionable uniform.";
-				mes "It uses patterns of leopard and feathers";
-				mes "The fashion world will be shocked.";
+				mes "É um uniforme da moda.";
+				mes "Ele usa padrões de leopardo e penas";
+				mes "O mundo da moda ficará chocado.";
 				next;
 				mes "[Dumk]";
-				mes "This shadow peacock I designed myself.";
-				mes "It's too hard to create something that absorbs my art sense.";
-				mes "Then about this part...";
+				mes "Este pavão de sombra eu me projetei.";
+				mes "É muito difícil criar algo que absorva meu senso de arte.";
+				mes "Então sobre esta parte ...";
 				next;
-				mes "Dumk keeps talking about fashion, art sense, paint and feeling.";
-				mes "He's obviously in his own world.";
+				mes "Dunk continua falando sobre moda, senso de arte, dor e sentimento.";
+				mes "Ele está obviamente em seu próprio mundo.";
 				next;
-				select("About this brush...");
+				select("Sobre este pincel ...");
 				mes "[Vicente]";
-				mes "Ah, I'll expain.";
-				mes "We need tools for painting.";
-				next;
-				mes "[Vicente]";
-				mes "The make-up brush is used for face painting.";
-				mes "You can get paint from the workplace.";
+				mes "Ah, vou me expandir.";
+				mes "Precisamos de ferramentas para pintar.";
 				next;
 				mes "[Vicente]";
-				mes "The paint brush is used for painting big spaces.";
-				mes "You can get paint from the workplace too.";
+				mes "A escova de maquiagem é usada para pintura de rosto.";
+				mes "Você pode obter tinta do local de trabalho.";
 				next;
 				mes "[Vicente]";
-				mes "Don't you remember the location of the workplace?";
-				mes "Juno, Prontera, Rachel and Lighthalzen.";
+				mes "O pincel é usado para pintar grandes espaços.";
+				mes "Você também pode obter tinta do local de trabalho.";
 				next;
 				mes "[Vicente]";
-				mes "If you need paint, go to an assistant.";
-				mes "^4d4dffIf you don't have any tools, you can use skill needed paints.^000000";
+				mes "Você não se lembra da localização do local de trabalho?";
+				mes "Juno, Protera, Rachel e Lighthalzen.";
 				next;
 				mes "[Vicente]";
-				mes "Congratulations to be our person.";
+				mes "Se você precisar de tinta, vá a um assistente.";
+				mes "^4d4dffIf Você não tem ferramentas, você pode usar as tintas necessárias para habilidades.^000000";
+				next;
+				mes "[Vicente]";
+				mes "Parabéns por ser nossa pessoa.";
 				close;
 			case 3:
 				mes "[Dumk]";
-				mes "What?";
-				mes "Why not?";
-				mes "You don't want to be a Shadow Chaser?";
-				mes "I can teach you so much about painting.";
+				mes "O que?";
+				mes "Por que não?";
+				mes "Você não quer ser um caçador de sombras?";
+				mes "Eu posso te ensinar muito sobre pintar.";
 				next;
 				mes "[Dumk]";
-				mes "You really won't understand until you become one.";
+				mes "Você realmente não vai entender até se tornar um.";
 				next;
 				mes "[Dumk]";
-				mes "Don't you want to learn how to harness a power stronger than what you know?";
+				mes "Você não quer aprender a aproveitar um poder mais forte do que o que sabe?";
 				mes "....";
 				next;
-				mes "Dumk seemed to be dissapointed because I didn't answer him.";
+				mes "Dunk parecia ficar desapontado porque eu não respondi a ele.";
 				close;
 			}
 		}
@@ -1668,10 +1668,10 @@ s_atelier,70,66,4	script	Dumk#sc13_lgh	481,{
 	mes "Heh.";
 	next;
 	mes "[Vicente]";
-	mes "I'm sorry.";
-	mes "He is not interested in other people.";
-	mes "But you can't enter this space.";
-	mes "You can get tools at the store.";
+	mes "Desculpe.";
+	mes "Ele não está interessado em outras pessoas.";
+	mes "Mas você não pode entrar neste espaço.";
+	mes "Você pode obter ferramentas na loja.";
 	close;
 }
 
@@ -1679,53 +1679,53 @@ s_atelier,70,66,4	script	Dumk#sc13_lgh	481,{
 //============================================================
 tur_dun03,38,209,1	script	Blue Flame#sc_f01	802,{
 	if (job_sha == 5) {
-		mes "A blue flame is roaring.";
-		mes "The deciphered code means...";
+		mes "Uma chama azul está rugindo.";
+		mes "O código decifrado significa ...";
 		next;
 		input .@inputstr$;
-		set .@dap01$, "blue fire in turtle island third floor";
-		set .@dap02$, "BLUE FIRE IN TURTLE ISLAND THIRD FLOOR";
+		set .@dap01$, "Blue Fire in Turtle Island Terceiro andar";
+		set .@dap02$, "Blue Fire in Turtle Island Terceiro andar";
 		if (.@inputstr$ != .@dap01$ && .@inputstr$ != .@dap02$) {
 			mes "["+strcharinfo(0)+"]";
-			mes "What was it?";
-			mes "I guess I have to make sure I don't use any capital letters.";
+			mes "O que foi?";
+			mes "Acho que tenho que ter certeza de que não uso letras maiúsculas.";
 			close;
 		}
 		mes "["+strcharinfo(0)+"]";
 		mes "^4d4dff"+.@inputstr$+"^000000";
-		mes "It's clearly pointing to this.";
+		mes "Está claramente apontando para isso.";
 		next;
-		mes "You just murmur the sentence when the flame begins growing.";
+		mes "Você apenas murmura a frase quando a chama começa a crescer.";
 		next;
-		mes "[Unknown voice]";
-		mes "Hm? Someone is coming?";
-		mes "You are the one who wants to have my treasure?";
-		mes "But your limitation is over.";
+		mes "[Voz desconhecida]";
+		mes "HM? Alguém está vindo?";
+		mes "Você é quem quer ter meu tesouro?";
+		mes "Mas sua limitação acabou.";
 		next;
-		mes "The flame is talking.";
-		mes "The voice is snake-like.";
-		mes "In the middle of blue flame, there are two marble eyes.";
+		mes "A chama está falando.";
+		mes "A voz é parecida com uma cobra.";
+		mes "No meio da chama azul, há dois olhos de mármore.";
 		next;
-		select("Pick it up.");
-		mes "[Unknown voice]";
-		mes "You are in a hurry.";
-		mes "Hahaha, humans usually do things like that.";
-		mes "They can't see the truth.";
+		select("Pegue.");
+		mes "[Voz desconhecida]";
+		mes "Você está com pressa.";
+		mes "Hahaha, os humanos geralmente fazem coisas assim.";
+		mes "Eles não podem ver a verdade.";
 		next;
-		mes "[Unknown voice]";
-		mes "How about you?";
-		mes "I don't expect that you will do harm to this blue flame.";
-		mes "It's the only one with two...";
+		mes "[Voz desconhecida]";
+		mes "E você?";
+		mes "Não espero que você faça mal a essa chama azul.";
+		mes "É o único com dois ...";
 		next;
-		select("Who are you?");
+		select("Quem é você?");
 		mes "[Shadow of Deception]";
-		mes "Me? I'm a deception.";
-		mes "I sneer at people who are stupid.";
-		mes "I laugh behind their backs.";
-		mes "HahaHaha...";
+		mes "Meu? Eu sou um engano.";
+		mes "Eu zombo de pessoas que são estúpidas.";
+		mes "Eu rio pelas costas deles.";
+		mes "Hahahaha ...";
 		next;
-		mes "The Blue Flame is growning and rolling.";
-		mes "They seem to be related.";
+		mes "A chama azul está crescendo e rolando.";
+		mes "Eles parecem estar relacionados.";
 		set job_sha,6;
 		setquest 7164;
 		if (checkquest(7161) >= 0) erasequest 7161;
@@ -1734,196 +1734,196 @@ tur_dun03,38,209,1	script	Blue Flame#sc_f01	802,{
 		close;
 	} else if (job_sha == 6) {
 		if (checkquest(7164,HUNTING) == 2) {
-			mes "It looks like the blue flame is under the limitation.";
-			mes "You can't feel that rolling effect of a spell like before.";
+			mes "Parece que a chama azul está sob a limitação.";
+			mes "Você não pode sentir esse efeito rolante de um feitiço como antes.";
 			next;
-			select("Pick up the marbles.");
-			mes "When you pick them up, you can feel that your weight is lightened.";
+			select("Pegue as bolas de gude.");
+			mes "Quando você os pega, você pode sentir que seu peso está iluminado.";
 			set job_sha,7;
 			erasequest 7164;
 			close2;
 			warp "job3_sha01",22,82;
 			end;
 		}
-		mes "The flame is still rolling with a strong spell.";
-		mes "You have to cut the relation with it.";
+		mes "A chama ainda está rolando com um feitiço forte.";
+		mes "Você tem que cortar a relação com isso.";
 		close;
 	} else if (job_sha == 7) {
-		mes "It looks like the blue flame is under the limitation.";
-		mes "You can't feel that rolling effect of a spell like before.";
+		mes "Parece que a chama azul está sob a limitação.";
+		mes "Você não pode sentir esse efeito rolante de um feitiço como antes.";
 		next;
-		select("Pick up the marbles.");
-		mes "When you pick it up, you can feel that your weight is lightened.";
+		select("Pegue as bolas de gude.");
+		mes "Quando você o pega, você pode sentir que seu peso está iluminado.";
 		close2;
 		warp "job3_sha01",22,82;
 		end;
 	}
-	mes "The flame is rolling.";
+	mes "A chama está rolando.";
 	close;
 }
 
 ice_dun02,206,223,1	script	Red Flame#sc_f02	802,{
 	if (job_sha < 11) {
-		mes "An unknown red flame is roaring.";
+		mes "Uma chama vermelha desconhecida está rugindo.";
 		close;
 	} else if (job_sha > 10 && job_sha < 14) {
-		mes "The red flame is roaring.";
-		mes "It changed to a woman in black.";
+		mes "A chama vermelha está rugindo.";
+		mes "Mudou para uma mulher de preto.";
 		next;
-		mes "[Woman in black]";
-		mes "Can you hear me?";
-		mes "Huhu.";
-		mes "Can you see me?";
+		mes "[Mulher de preto]";
+		mes "Você pode me ouvir?";
+		mes "Hu hu.";
+		mes "Você consegue me ver?";
 		next;
-		mes "[Woman in black]";
-		mes "You are the chosen one?";
-		mes "You can know that.";
-		mes "There is a soul that is the same as me.";
+		mes "[Mulher de preto]";
+		mes "Você é o escolhido?";
+		mes "Você pode saber disso.";
+		mes "Há uma alma que é a mesma que eu.";
 		next;
-		mes "[Woman in black]";
-		mes "I'm a shadow.";
-		mes "A wandering shadow.";
-		mes "Sad soul.";
-		mes "A shadow of illusion without truth.";
+		mes "[Mulher de preto]";
+		mes "Eu sou uma sombra.";
+		mes "Uma sombra errante.";
+		mes "Alma triste.";
+		mes "Uma sombra de ilusão sem verdade.";
 		next;
-		mes "[Shadow of Illusion]";
-		mes "What do you want?";
-		mes "Do you want treasure?";
-		mes "Then pick it up.";
-		mes "Tear my soul and";
-		mes "show the truth.";
+		mes "[Sombra da ilusão]";
+		mes "O que você quer?";
+		mes "Você quer tesouro?";
+		mes "Em seguida, pegue.";
+		mes "Rasgar minha alma e";
+		mes "Mostre a verdade.";
 		set job_sha, job_sha+3;
 		setquest 7171;
 		close;
 	} else if (job_sha == 14 || job_sha == 15 || job_sha == 16) {
 		if (checkquest(7171,HUNTING) == 2) {
-			mes "You can't feel the soul from the flame.";
-			mes "When you go closer, you can't see well because of darkness.";
+			mes "Você não pode sentir a alma da chama.";
+			mes "Quando você se aproxima, não pode ver bem por causa da escuridão.";
 			close2;
 			warp "job3_sha01",22,33;
 			end;
 		}
-		mes "[Shadow of Illusion]";
-		mes "Huhu.";
-		mes "What's wrong?";
-		mes "You couldn't find the half of my soul?";
-		mes "Huhu...";
+		mes "[Sombra da ilusão]";
+		mes "Hu hu.";
+		mes "O que está errado?";
+		mes "Você não conseguiu encontrar a metade da minha alma?";
+		mes "Hu hu ...";
 		next;
-		mes "[Shadow of Illusion]";
-		mes "Ah, hurry and give me rest.";
-		mes "I want to die softly.";
-		mes "I want to give up the phony life.";
+		mes "[Sombra da ilusão]";
+		mes "Ah, apresse -se e me dê descanso.";
+		mes "Eu quero morrer suavemente.";
+		mes "Eu quero desistir da vida falsa.";
 		next;
-		mes "[Shadow of Illusion]";
-		mes "Huhu...";
-		mes "When the false shadow is gone, you can see the truth.";
-		mes "Please, tear the false to dazzle who are blind...";
-		mes "Without any trace...";
+		mes "[Sombra da ilusão]";
+		mes "Hu hu ...";
+		mes "Quando a falsa sombra se foi, você pode ver a verdade.";
+		mes "Por favor, rasgue o falso para deslumbrar que são cegos ...";
+		mes "Sem nenhum vestígio ...";
 		close;
 	}
-	mes "The flame is rolling.";
-	mes "You can't see well because of the light of ice.";
+	mes "A chama está rolando.";
+	mes "Você não pode ver bem por causa da luz do gelo.";
 	close;
 }
 
 niflheim,230,276,1	script	Red Flame#sc_f03	802,{
 	if (job_sha < 21) {
-		mes "That's a mysterious flame.";
-		mes "It looks like cursing.";
-		mes "Go away form that.";
+		mes "Isso é uma chama misteriosa.";
+		mes "Parece amaldiçoar.";
+		mes "Vá embora isso.";
 		close;
 	}
 	else if (job_sha == 21) {
 		mes "["+strcharinfo(0)+"]";
-		mes "The poem that Haled told me was pointing to Niflheim.";
-		mes "There is a flame that looks like the one from turtle island and ice dungeon.";
+		mes "O poema que Haled me disse estava apontando para Niflheim.";
+		mes "Há uma chama que se parece com a de Turtle Island e Gelo Dungeon.";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "The end of living tree's roots.";
-		mes "Tears of all living people.";
-		mes "Sign of all dead people.";
+		mes "O fim das raízes da árvore viva.";
+		mes "Lágrimas de todas as pessoas vivas.";
+		mes "Sinal de todas as pessoas mortas.";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "They are us but also not us.";
+		mes "Eles somos nós, mas também não nós.";
 		next;
-		mes "[Someone's voice]";
-		mes "They are us but also not us.";
+		mes "[Voz de alguém]";
+		mes "Eles somos nós, mas também não nós.";
 		next;
-		mes "[Someone's voice]";
-		mes "Residents of the night forgotten...";
+		mes "[Voz de alguém]";
+		mes "Moradores da noite esquecidos ...";
 		next;
-		select("Who is playing that?");
-		mes "[Someone's voice]";
-		mes "Who is playing the waltz of desperation?";
+		select("Quem está jogando isso?");
+		mes "[Voz de alguém]";
+		mes "Quem está tocando a valsa de desespero?";
 		mes ".....";
 		next;
-		mes "[Someone's voice]";
-		mes "Ha...";
-		mes "You came here to dig the secret of death.";
-		mes "Can you play the waltz of death for me?";
+		mes "[Voz de alguém]";
+		mes "Ha ...";
+		mes "Você veio aqui para cavar o segredo da morte.";
+		mes "Você pode tocar a valsa da morte para mim?";
 		next;
-		mes "[Someone's voice]";
-		mes "I don't to be subject to restraint";
-		mes "and be with sign of dead people.";
+		mes "[Voz de alguém]";
+		mes "Eu não estou sujeito a restrição";
+		mes "E esteja com o sinal de pessoas mortas.";
 		next;
-		mes "[Shadow of Pleasure]";
-		mes "I'm a shadow.";
-		mes "I show that best of the pleasure in this world.";
-		mes "Illusions such that you don't want to be awaken from the dream.";
+		mes "[Sombra do prazer]";
+		mes "Eu sou uma sombra.";
+		mes "Eu mostro o melhor prazer neste mundo.";
+		mes "Ilusões de modo que você não quer ser acordado do sonho.";
 		next;
-		mes "[Shadow of Pleasure]";
-		mes "The soul got tangled by cold chains";
-		mes "I can't see the dream";
-		mes "and the shadow lost the pleasure that will be lasting forever.";
+		mes "[Sombra do prazer]";
+		mes "A alma foi emaranhada por correntes frias";
+		mes "Eu não consigo ver o sonho";
+		mes "E a sombra perdeu o prazer que durará para sempre.";
 		next;
-		mes "[Shadow of Pleasure]";
-		mes "Please, help me.";
-		mes "Give me two hands to";
-		mes "escape from here!";
+		mes "[Sombra do prazer]";
+		mes "Por favor me ajude.";
+		mes "Dê -me duas mãos para";
+		mes "Fuja daqui!";
 		next;
-		mes "[Shadow of Pleasure]";
-		mes "Can you stifle me with two hands?";
-		mes "The other side of my senses";
-		mes "gas for breath.";
+		mes "[Sombra do prazer]";
+		mes "Você pode me sufocar com as duas mãos?";
+		mes "O outro lado dos meus sentidos";
+		mes "gás para respiração.";
 		next;
-		mes "[Shadow of Pleasure]";
-		mes "That's the evidence that I live.";
-		mes "That's the evidence that I cross over the line.";
-		mes "With start of life";
-		mes "the last pleasure.";
+		mes "[Sombra do prazer]";
+		mes "Essa é a evidência de que eu vivo.";
+		mes "Essa é a evidência de que eu atravesso a linha.";
+		mes "Com o início da vida";
+		mes "o último prazer.";
 		next;
-		mes "[Shadow of Pleasure]";
-		mes "Show me the";
-		mes "sweet death.";
+		mes "[Sombra do prazer]";
+		mes "Mostre -me o";
+		mes "Doce morte.";
 		next;
-		mes "The flame is dying.";
-		mes "You should handle the shadow of pleasure.";
+		mes "A chama está morrendo.";
+		mes "Você deve lidar com a sombra do prazer.";
 		set job_sha,22;
 		erasequest 7174;
 		setquest 7175;
 		close;
 	} else if (job_sha == 22) {
 		if (checkquest(7175,HUNTING) == 2) {
-			mes "You can't feel the soul from the flame.";
-			mes "When you go closer, you can't see well because of darkness.";
+			mes "Você não pode sentir a alma da chama.";
+			mes "Quando você se aproxima, não pode ver bem por causa da escuridão.";
 			set job_sha,23;
 			erasequest 7175;
 			close2;
 			warp "job3_sha01",73,87;
 			end;
 		}
-		mes "You can feel a strong soul in the flame.";
-		mes "You should handle the shadow of pleasure.";
+		mes "Você pode sentir uma alma forte na chama.";
+		mes "Você deve lidar com a sombra do prazer.";
 		close;
 	} else if (job_sha == 23 || job_sha == 24) {
-		mes "You can't feel the soul from the flame.";
-		mes "When you go closer, you can't see well because of darkness.";
+		mes "Você não pode sentir a alma da chama.";
+		mes "Quando você se aproxima, não pode ver bem por causa da escuridão.";
 		close2;
 		warp "job3_sha01",73,87;
 		end;
 	}
-	mes "There is a flame.";
-	mes "You can't feel anything from it.";
+	mes "Há uma chama.";
+	mes "Você não pode sentir nada disso.";
 	close;
 }
 
@@ -1931,146 +1931,146 @@ niflheim,230,276,1	script	Red Flame#sc_f03	802,{
 //============================================================
 job3_sha01,22,78,0	script	????#keybox01	844,{
 	if (checkweight(1201,1) == 0) {
-		mes "- You can't continue on in this quest because you are overweight. -";
+		mes "- Você não pode continuar nesta missão porque está acima do peso. -";
 		close;
 	}
 	if (job_sha == 7) {
-		mes "It's a small box made of a hard turtle's shell.";
-		mes "The middle of it...";
+		mes "É uma pequena caixa feita de uma concha de tartaruga dura.";
+		mes "O meio disso ...";
 		next;
-		select("Touch the middle.:Push the middle.");
-		mes "When you touch it, something comes out!";
+		select("Toque no meio.");
+		mes "Quando você toca, algo sai!";
 		next;
-		setarray .@Codes1$[1],"EFDFJWF","FGEGKXG","GHFHLYH","HIGIMZI","IJHJNAJ","JKIKOBK","KLJLPCL","LMKMQDM";
-		setarray .@Codes2$[1],"IPOFTUZ","JQPGUVA","KRQHVWB","LSRIWXC","MTSJXYD","NUTKYZE","OVULZAF","PWVMABG";
+		setarray .@Codes1$[1],"Efdfjwf","FGKXG","Ghfhlyh","Hijazi","Shijhanaj","Atualizar","Kljlpcl","LMKMQDM";
+		setarray .@Codes2$[1],"Ipoftuz","Jakpguwa","Kr Krthbing","LSRIWXC","Mtsjxyd","Nutkyze","Ovulzaf","Bosmab";
 		set .@i, rand(1,8);
-		mes " ";
-		mes " ";
-		mes " DECEIVE";
+		mes "";
+		mes "";
+		mes "ENGANAR";
 		next;
-		mes " ";
-		mes " ";
-		mes " "+.@i;
+		mes "";
+		mes "";
+		mes ""+.@i;
 		next;
-		mes " "+.@Codes1$[.@i];
+		mes ""+.@Codes1$[.@i];
 		next;
-		mes "It shows some letters and numbers.";
-		mes " ";
-		mes "Deceive.";
-		mes "Then "+.@i+".";
-		mes "And "+.@Codes1$[.@i]+".";
+		mes "Ele mostra algumas letras e números.";
+		mes "";
+		mes "Enganar.";
+		mes "Então"+.@i+".";
+		mes "E"+.@Codes1$[.@i]+".";
 		next;
-		select("What does it mean?");
+		select("O que isso significa?");
 		mes "["+strcharinfo(0)+"]";
-		mes "Is it also code.";
-		mes "It must be!";
-		mes "Ah, something is showing up again...?";
+		mes "Também é código.";
+		mes "Deve ser!";
+		mes "Ah, algo está aparecendo de novo ...?";
 		next;
-		mes "- You can see some letters on the turtle's shell. -";
+		mes "- Você pode ver algumas letras na concha da tartaruga. -";
 		next;
-		mes " ";
-		mes "HONESTY";
-		mes " ";
-		mes "And also letters. They are blinking as if waiting for a code to be input.";
+		mes "";
+		mes "HONESTIDADE";
+		mes "";
+		mes "E também cartas. Eles estão piscando como se esperasse que um código fosse inserido.";
 		next;
 		input .@inputstr$;
 		if (.@inputstr$ == .@Codes2$[.@i] || .@inputstr$ == strtolower(.@Codes2$[.@i])) {
-			mes "When you put the correct answer in there,";
-			mes "the box is opened.";
-			mes "There is a small and fabulous key.";
+			mes "Quando você coloca a resposta correta lá,";
+			mes "A caixa está aberta.";
+			mes "Há uma chave pequena e fabulosa.";
 			next;
-			mes "- You get the Key of Deception. -";
+			mes "- Você recebe a chave do engano. -";
 			set job_sha,8;
 			getitem 6266,1; //Cheat_Key
 			setquest 7165;
 			close;
 		}
-		mes "- You put the answer -";
-		mes "- but it doesn't work. -";
-		mes "- You have failed. -";
+		mes "- Você coloca a resposta -";
+		mes "- mas não funciona. -";
+		mes "- Você falhou. -";
 		close;
 	}
-	mes "You don't have to stay in here.";
+	mes "Você não precisa ficar aqui.";
 	next;
-	if(select("Go outside.:Stay here.") == 1)
+	if(select("Vá para fora .: Fique aqui.") == 1)
 		warp "tur_dun03",40,201;
 	close;
 }
 
 job3_sha01,25,28,0	script	????#keybox02	844,{
 	if (checkweight(1201,1) == 0) {
-		mes "- You can't continue on in this quest because you are overweight. -";
+		mes "- Você não pode continuar nesta missão porque está acima do peso. -";
 		close;
 	}
-	setarray .@Words$[0],"SEED","FOOT","COLD";
+	setarray .@Words$[0],"SEMENTE","PÉ","FRIO";
 	setarray .@Numbers[0],24,25,20;
 	set .@i,job_sha-14;
 	if (job_sha > 13 && job_sha < 17) {
-		mes "There are lots of boxes.";
-		mes "with sort of numbers.";
+		mes "Existem muitas caixas.";
+		mes "com uma espécie de números.";
 		next;
-		mes " 1 2 3 4 5";
-		mes " 6 7 8 9 0";
-		mes " ";
-		mes " [ ][ ] ";
+		mes "1 2 3 4 5";
+		mes "6 7 8 9 0";
+		mes "";
+		mes "[ ][ ]";
 		next;
-		mes "When you touched that number, then it moved.";
-		mes "You find the empty space.";
+		mes "Quando você tocou nesse número, ele se moveu.";
+		mes "Você encontra o espaço vazio.";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "I guess I have to put the number in the empty space...";
-		mes "I have two empty squares to put two numbers.";
-		mes "What will it be good for?";
+		mes "Acho que tenho que colocar o número no espaço vazio ...";
+		mes "Eu tenho dois quadrados vazios para colocar dois números.";
+		mes "Para que será bom?";
 		next;
-		select("I think it's related with the word given by Paul.");
+		select("Eu acho que está relacionado à palavra dada por Paul.");
 		mes "["+strcharinfo(0)+"]";
-		mes "I got "+.@Words$[.@i]+".";
-		mes "Now I have to convert it into a number...";
+		mes "Eu obtive"+.@Words$[.@i]+".";
+		mes "Agora eu tenho que convertê -lo em um número ...";
 		next;
-		switch(select("Input the answer.:I can't get it.")) {
+		switch(select("Insira a resposta .: Eu não consigo obtê -lo.")) {
 		case 1:
 			input .@input;
 			if (.@input == .@Numbers[.@i]) {
-				mes "You put 2 and "+(.@Numbers[.@i]-20)+".";
-				mes "The box opens and you get one key.";
+				mes "Você coloca 2 e"+(.@Numbers[.@i]-20)+".";
+				mes "A caixa abre e você obtém uma chave.";
 				next;
-				mes "You got the Key of Illusion.";
-				next;
-				mes "["+strcharinfo(0)+"]";
-				mes "It's not a treasure.";
-				mes "The Key of Illusion? Is it related with the Shadow of Illusion?";
-				mes "I got the Key of Deception after I handled Deception...";
+				mes "Você tem a chave da ilusão.";
 				next;
 				mes "["+strcharinfo(0)+"]";
-				mes "Anyway, Paul will be disappointed.";
-				mes "Key again...";
-				mes "How can I escape from here...?";
+				mes "Não é um tesouro.";
+				mes "A chave de ilusão? Está relacionado com a sombra da ilusão?";
+				mes "Eu recebi a chave do engano depois de lidar com o engano ...";
+				next;
+				mes "["+strcharinfo(0)+"]";
+				mes "De qualquer forma, Paul ficará desapontado.";
+				mes "Chave de novo ...";
+				mes "Como posso escapar daqui ...?";
 				set job_sha,17;
 				getitem 6267,1; //Virtual_Key
 				erasequest 7171;
 				changequest 7168+.@i,7172;
 				next;
-				mes "When I push the box, it shows the door to go outside.";
+				mes "Quando eu empurro a caixa, ela mostra a porta para sair.";
 				close2;
 				warp "ice_dun02",209,219;
 				end;
 			}
-			mes "When you enter the number, it goes back to the first.";
+			mes "Quando você entra no número, ele remonta ao primeiro.";
 			close;
 		case 2:
 			mes "["+strcharinfo(0)+"]";
-			mes "Hmm.";
-			mes "I can't get it...";
-			mes "Is it the same code as the Prontera workplace...?";
+			mes "Hum.";
+			mes "Eu não consigo entender ...";
+			mes "É o mesmo código que o local de trabalho pronúncia ...?";
 			next;
 			mes "["+strcharinfo(0)+"]";
-			mes "According to that method...";
-			mes "A means 11 and B means 12.";
+			mes "De acordo com esse método ...";
+			mes "A significa 11 e B significa 12.";
 			close;
 		}
 	}
-	mes "It's a myterious box.";
-	mes "When I push the box, it shows the door to go outside.";
+	mes "É uma caixa misteriosa.";
+	mes "Quando eu empurro a caixa, ela mostra a porta para sair.";
 	close2;
 	warp "ice_dun02",209,219;
 	end;
@@ -2078,108 +2078,108 @@ job3_sha01,25,28,0	script	????#keybox02	844,{
 
 job3_sha01,73,80,0	script	????#keybox03	844,{
 	if (checkweight(1201,1) == 0) {
-		mes "- You can't continue on in this quest because you are overweight. -";
+		mes "- Você não pode continuar nesta missão porque está acima do peso. -";
 		close;
 	}
 	if (job_sha == 23 || job_sha == 24) {
 		if (job_sha == 23) {
-			mes "There is a box that looks like a house.";
-			mes "There's a small paper in the chimney.";
+			mes "Há uma caixa que parece uma casa.";
+			mes "Há um pequeno papel na chaminé.";
 			next;
-			mes "It says...";
+			mes "Diz ...";
 			mes "-----------------";
-			mes " 20 21 18 14";
-			mes " 1 14 4";
-			mes " 19 8 1 11 5";
+			mes "20 21 18 14";
+			mes "1 14 4";
+			mes "19 8 1 11 5";
 			mes "-----------------";
 			next;
 			mes "["+strcharinfo(0)+"]";
-			mes "I think it's another code.";
+			mes "Eu acho que é outro código.";
 		} else {
 			mes "["+strcharinfo(0)+"]";
-			mes "Let me think again...";
+			mes "Deixe -me pensar de novo ...";
 			mes "20 21 18 14";
-			mes "1 14 4 ";
+			mes "1 14 4";
 			mes "19 8 1 11 5";
 			mes "...";
 		}
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "It's the same as before.";
-		mes "There's no code, so 1 should be A.";
-		mes "And the answer is...";
+		mes "É o mesmo de antes.";
+		mes "Não há código, então 1 devo ser A.";
+		mes "E a resposta é ...";
 		next;
 		input .@inputstr$;
-		if (.@inputstr$ == "turn and shake" || .@inputstr$ == "TURN AND SHAKE") {
+		if (.@inputstr$ == "vire e agite" || .@inputstr$ == "Vire e agite") {
 			mes "["+strcharinfo(0)+"]";
-			mes "Turn... Turn... and";
-			mes "Shake? Shake?";
-			mes "For what?";
+			mes "Vire ... vire ... e";
+			mes "Sacudir? Sacudir?";
+			mes "Para que?";
 			next;
 			while(1) {
-				switch(select("Turn the roof.:Turn the house.:Turn the handle.")) {
+				switch(select("Vire o telhado.")) {
 				case 1:
-					mes "You turn the roof.";
+					mes "Você vira o telhado.";
 					next;
-					switch(select("Shake the roof.:Shake the house.")) {
+					switch(select("Agite o telhado .: Shake the House.")) {
 					case 1:
-						mes "Even though you shake the roof but";
-						mes "nothing happens.";
+						mes "Mesmo que você sacuda o telhado, mas";
+						mes "Nada acontece.";
 						next;
 						mes "["+strcharinfo(0)+"]";
-						mes "That's not it.";
-						mes "Hmm...";
+						mes "Não é isso.";
+						mes "Hum...";
 						next;
 						break;
 					case 2:
-						mes "You tried to shake the house but";
-						mes "it doesn't do anything.";
+						mes "Você tentou sacudir a casa, mas";
+						mes "Não faz nada.";
 						next;
 						mes "["+strcharinfo(0)+"]";
-						mes "It's wrong.";
-						mes "Put it back";
-						mes "and try it again.";
+						mes "Está errado.";
+						mes "Coloque de volta";
+						mes "e tente novamente.";
 						next;
 						break;
 					}
 					break;
 				case 2:
-					mes "You grab the whole house and turn it.";
+					mes "Você pega a casa inteira e a vira.";
 					next;
-					switch(select("Shake up and down.:Shake back and forth.:Turn 'round and 'round and shake.:Roll it upside down.")) {
+					switch(select("Agite para cima e para baixo .: Shake para frente e para trás.")) {
 					case 1:
 					case 2:
-						mes "Nothing happens.";
-						mes "You think there is something inside, but it won't come out.";
+						mes "Nada acontece.";
+						mes "Você acha que há algo por dentro, mas não será lançado.";
 						next;
 						mes "["+strcharinfo(0)+"]";
-						mes "That's not it.";
-						mes "Hmm...";
+						mes "Não é isso.";
+						mes "Hum...";
 						next;
 						break;
 					case 3:
-						mes "You shake it slowly.";
-						mes "You can hear a noise,";
-						mes "but nothing's coming out.";
+						mes "Você o sacode devagar.";
+						mes "Você pode ouvir um barulho,";
+						mes "Mas nada está saindo.";
 						next;
 						mes "["+strcharinfo(0)+"]";
-						mes "That's not it.";
-						mes "Hmm...";
+						mes "Não é isso.";
+						mes "Hum...";
 						next;
 						break;
 					case 4:
-						mes "Rolling it upside down causes something inside to move.";
+						mes "Rolar de cabeça para baixo faz com que algo interior se mova.";
 						next;
-						mes "You shake it slowly.";
-						mes "You can hear some noise.";
-						mes "Something's coming out.";
+						mes "Você o sacode devagar.";
+						mes "Você pode ouvir algum barulho.";
+						mes "Algo está saindo.";
 						next;
-						mes "- You got the Key of Pleasure. -";
+						mes "- Você tem a chave do prazer. -";
 						next;
 						mes "["+strcharinfo(0)+"]";
-						mes "What? A key again!";
-						mes "Haled will be disappointed.";
-						mes "I better go back.";
+						mes "O que? Uma chave novamente!";
+						mes "Haled ficará desapontado.";
+						mes "É melhor eu voltar.";
 						set job_sha,25;
 						setquest 7176;
 						getitem 6268,1; //Mirth_Key
@@ -2187,11 +2187,11 @@ job3_sha01,73,80,0	script	????#keybox03	844,{
 					}
 					break;
 				case 3:
-					mes "You tried to turn the small handle";
-					mes "but it doesn't work.";
+					mes "Você tentou virar a pequena alça";
+					mes "Mas não funciona.";
 					next;
 					mes "["+strcharinfo(0)+"]";
-					mes "What should I do now?";
+					mes "O que devo fazer agora?";
 					next;
 					break;
 				}
@@ -2200,14 +2200,14 @@ job3_sha01,73,80,0	script	????#keybox03	844,{
 		mes "["+strcharinfo(0)+"]";
 		mes "..."+.@inputstr$+"...?";
 		if (job_sha == 23) {
-			mes "What does that mean?";
+			mes "O que isso significa?";
 			set job_sha,24;
 		} else
-			mes "Again? I don't get it.";
+			mes "De novo? Eu não entendo.";
 		close;
 	}
-	mes "You don't have to stay in here.";
-	mes "You put the box down and see that there is a door to go outside.";
+	mes "Você não precisa ficar aqui.";
+	mes "Você abaixa a caixa e vê que há uma porta para sair.";
 	close2;
 	warp "niflheim",230,270;
 	end;
@@ -2215,31 +2215,31 @@ job3_sha01,73,80,0	script	????#keybox03	844,{
 
 job3_sha01,71,27,0	script	????#keybox04	844,{
 	if (checkweight(1201,1) == 0) {
-		mes "- You can't continue on in this quest because you are overweight. -";
+		mes "- Você não pode continuar nesta missão porque está acima do peso. -";
 		close;
 	}
 	if (job_sha == 27) {
-		mes "There is a stone statue that looks";
-		mes "like a small casket with a fabulous pattern around it.";
+		mes "Há uma estátua de pedra que parece";
+		mes "Como um pequeno caixão com um padrão fabuloso ao seu redor.";
 		next;
-		mes "But you can't feel any power from it.";
-		mes "You find three holes in there.";
+		mes "Mas você não pode sentir nenhum poder disso.";
+		mes "Você encontra três buracos lá.";
 		next;
-		mes "Inscribed next to the holes is written";
-		mes "deception, illusion and pleasure.";
+		mes "Inscrito ao lado dos buracos está escrito";
+		mes "engano, ilusão e prazer.";
 		next;
-		select("Place the key in the holes.");
+		select("Coloque a chave nos buracos.");
 		if (countitem(6266) && countitem(6267) && countitem(6268)) {
 			mes "["+strcharinfo(0)+"]";
-			mes "At first, Deception...";
-			mes "then Illusion...";
-			mes "and Pleasure...";
-			mes "Let me see.";
+			mes "No começo, decepção ...";
+			mes "Então ilusão ...";
+			mes "e prazer ...";
+			mes "Deixe-me ver.";
 			next;
-			mes "When you put the keys in";
-			mes "something comes out.";
+			mes "Quando você coloca as chaves em";
+			mes "algo sai.";
 			next;
-			mes "- You got a brush with a fabulous pattern on it. -";
+			mes "- Você tem um pincel com um padrão fabuloso. -";
 			delitem 6266,1; //Cheat_Key
 			delitem 6267,1; //Virtual_Key
 			delitem 6268,1; //Mirth_Key
@@ -2248,27 +2248,27 @@ job3_sha01,71,27,0	script	????#keybox04	844,{
 			changequest 7178,7179;
 			next;
 			mes "["+strcharinfo(0)+"]";
-			mes "What???";
-			mes "A brush!!!!";
-			mes "This isn't treasure!!!";
+			mes "O que???";
+			mes "Um pincel !!!!";
+			mes "Isso não é tesouro !!!";
 			next;
 			mes "["+strcharinfo(0)+"]";
-			mes "Ahahhah!!!!";
-			mes "*sniff*";
-			mes "It's not treasure!";
+			mes "Ahahhah !!!!";
+			mes "*Sniff*";
+			mes "Não é tesouro!";
 			next;
-			select("Now I'm pissed off.");
+			select("Agora estou chateado.");
 			mes "["+strcharinfo(0)+"]";
-			mes "*Sigh*";
-			mes "Guess I should bring this to ^4d4dffVicente^000000!";
+			mes "*Suspirar*";
+			mes "Acho que eu deveria trazer isso para ^4d4dffvicente ^000000!";
 			close;
 		}
 		mes "["+strcharinfo(0)+"]";
-		mes "I didn't bring all of the keys.";
-		mes "How could I be so stupid?";
+		mes "Eu não trouxe todas as chaves.";
+		mes "Como eu poderia ser tão estúpido?";
 		close;
 	}
-	mes "It's an empty stone statue.";
+	mes "É uma estátua de pedra vazia.";
 	close;
 }
 
@@ -2276,214 +2276,214 @@ job3_sha01,71,27,0	script	????#keybox04	844,{
 //============================================================
 s_atelier,29,119,3	script	Max#sc05_prt	97,{
 	mes "[Max]";
-	mes "Welcome~";
+	mes "Bem -vindo ~";
 	if (Class == Job_Shadow_Chaser || Class == Job_Shadow_Chaser_T || Class == Job_Baby_Shadow_Chaser) {
-		mes "You are a member of the Rogue guild!";
-		mes "What can I help you with?";
+		mes "Você é um membro do Rogue Guild!";
+		mes "Com o que posso ajudá -lo?";
 		next;
-		set .@i, select("I need a make-up brush.:I need a paint brush.:Nothing.");
+		set .@i, select("Eu preciso de um pincel de maquiagem.");
 		mes "[Max]";
 		if (.@i == 1) setarray .@i[1],6121,1,10,100000;
 		else if (.@i == 2) setarray .@i[1],6122,2,30,200000;
 		else {
-			mes "If you need more";
-			mes "just visit me!";
+			mes "Se você precisar de mais";
+			mes "Apenas me visite!";
 			close;
 		}
 		if (countitem(.@i[1])) {
-			mes "Are you kidding me?";
-			mes "You already have it?";
-			mes "You don't need anything else.";
+			mes "Você está brincando comigo?";
+			mes "Você já tem isso?";
+			mes "Você não precisa de mais nada.";
 			next;
 			mes "[Max]";
-			mes "Visit later and use what you have!";
+			mes "Visite mais tarde e use o que você tem!";
 			close;
 		}
 		if (countitem(7150) >= .@i[2] && countitem(949) >= .@i[3] && Zeny >= .@i[4]) {
-			mes "Oh you brought all the things required.";
-			mes "Hold on a bit.";
+			mes "Oh, você trouxe todas as coisas necessárias.";
+			mes "Segure um pouco.";
 			next;
 			mes "[Max]";
-			mes "Here's what you need.";
+			mes "Aqui está o que você precisa.";
 			next;
 			mes "[Max]";
-			mes "Take it.";
-			mes "Good luck!";
+			mes "Pegue.";
+			mes "Boa sorte!";
 			delitem 7150,.@i[2]; //Bamboo_Cut
 			delitem 949,.@i[3]; //Feather
 			set Zeny, Zeny - .@i[4];
 			getitem .@i[1],1; //Makeover_Brush,Paint_Brush
 			close;
 		}
-		mes "Here's what you need to get a make-up brush.";
-		mes .@i[2]+" Bamboo Cut,";
-		mes .@i[3]+" Feather,";
-		mes "and "+.@i[0]+"00,000 zeny.";
+		mes "Aqui está o que você precisa para obter um pincel de maquiagem.";
+		mes .@i[2]+"Corte de bambu,";
+		mes .@i[3]+"Pena,";
+		mes "e"+.@i[0]+"00.000 mulheres.";
 		close;
 	}
-	mes "We sell all art related things here~";
+	mes "Nós vendemos todas as coisas relacionadas à arte aqui ~";
 	next;
-	switch(select("Paint!?:Where's the manager?")) {
+	switch(select("Paint!?: Onde está o gerente?")) {
 	case 1:
 		mes "[Max]";
-		mes "You are asking for paint?";
-		mes "Could you just ask them to get the paint?~";
+		mes "Você está pedindo tinta?";
+		mes "Você poderia apenas pedir a eles para pegar a pintura? ~";
 		close;
 	case 2:
 		mes "[Max]";
-		mes "There's our manager.";
-		mes "Right over there.";
-		mes "**points**";
-		mes "Are you blind?";
+		mes "Aí está o nosso gerente.";
+		mes "Bem ali.";
+		mes "** Pontos **";
+		mes "Você é cego?";
 		close;
 	}
 }
 
 s_atelier,136,70,3	script	Titika#sc09_ra	914,{
-	mes "[Titika]";
-	mes "Welcome.";
+	mes "[Titi]";
+	mes "Bem-vindo.";
 	if (Class == Job_Shadow_Chaser || Class == Job_Shadow_Chaser_T || Class == Job_Baby_Shadow_Chaser) {
-		mes "You are in a guild.";
-		mes "What can I help you with?";
+		mes "Você está em uma guilda.";
+		mes "Com o que posso ajudá -lo?";
 		next;
-		set .@i, select("Make a new make-up brush.:Make a new paint brush.:Nothing.");
-		mes "[Titika]";
+		set .@i, select("Faça um novo pincel de maquiagem .: Faça um novo pincel.");
+		mes "[Titi]";
 		if (.@i == 1) setarray .@i[1],6121,1,10,100000;
 		else if (.@i == 2) setarray .@i[1],6122,2,30,200000;
 		else {
-			mes "Visit me again.";
+			mes "Visite -me de novo.";
 			close;
 		}
 		if (countitem(.@i[1])) {
-			mes "You already have a paint brush?";
-			mes "I think it's enough...";
+			mes "Você já tem um pincel?";
+			mes "Eu acho que é o suficiente ...";
 			close;
 		}
 		if (countitem(7150) >= .@i[2] && countitem(949) >= .@i[3] && Zeny >= .@i[4]) {
-			mes "You brought all the materials.";
-			mes "I'll exchange it with the goods that I made.";
+			mes "Você trouxe todos os materiais.";
+			mes "Vou trocar com as mercadorias que fiz.";
 			delitem 7150,.@i[2]; //Bamboo_Cut
 			delitem 949,.@i[3]; //Feather
 			set Zeny, Zeny - .@i[4];
 			getitem .@i[1],1; //Makeover_Brush,Paint_Brush
 			close;
 		}
-		mes "To make a paint brush,";
-		mes "you need "+.@i[2]+" Bamboo Cut,";
-		mes .@i[3]+" Feathers,";
-		mes "and "+.@i[0]+"00,000 zeny.";
+		mes "Para fazer um pincel,";
+		mes "você precisa"+.@i[2]+"Corte de bambu,";
+		mes .@i[3]+"Penas,";
+		mes "e"+.@i[0]+"00.000 mulheres.";
 		close;
 	}
-	mes "This is the Shadow Chaser workplace~";
+	mes "Este é o local de trabalho do Shadow Chaser ~";
 	next;
-	switch(select("Where is the paint?:Where is the manager?")) {
+	switch(select("Onde está a tinta ?: Onde está o gerente?")) {
 	case 1:
-		mes "[Titika]";
-		mes "You mean paint?";
-		mes "Talk to the assistant and ask about the paint tool.";
+		mes "[Titi]";
+		mes "Você quer dizer tinta?";
+		mes "Converse com o assistente e pergunte sobre a ferramenta de pintura.";
 		close;
 	case 2:
-		mes "[Titika]";
-		mes "My manager is inside of the workplace.";
-		mes "If you visit him without a special reason, he will ignore you.";
+		mes "[Titi]";
+		mes "Meu gerente está dentro do local de trabalho.";
+		mes "Se você o visitar sem um motivo especial, ele o ignorará.";
 		close;
 	}
 }
 
 s_atelier,124,128,3	script	RimiGX#sc07_yuno	862,{
-	mes "[RimiGX]";
-	mes "Welcome.";
+	mes "[Rima]";
+	mes "Bem-vindo.";
 	if (Class == Job_Shadow_Chaser || Class == Job_Shadow_Chaser_T || Class == Job_Baby_Shadow_Chaser) {
-		mes "What are you looking for?";
+		mes "O que você está procurando?";
 		next;
-		set .@i, select("Make a new blush for make-up.:Make a new blush for painting.:Nothing.");
-		mes "[RimiGX]";
+		set .@i, select("Faça um novo blush para a maquiagem.");
+		mes "[Rima]";
 		if (.@i == 1) setarray .@i[1],6121,1,10,100000;
 		else if (.@i == 2) setarray .@i[1],6122,2,30,200000;
 		else {
-			mes "Visit me again.";
+			mes "Visite -me de novo.";
 			close;
 		}
 		if (countitem(.@i[1])) {
-			mes "I can't offer extra stuff.";
-			mes "Visit here when you lost stuff.";
+			mes "Não posso oferecer coisas extras.";
+			mes "Visite aqui quando você perde coisas.";
 			close;
 		}
 		if (countitem(7150) >= .@i[2] && countitem(949) >= .@i[3] && Zeny >= .@i[4]) {
-			mes "You brought stuff you need.";
-			mes "It will be fast when I exchange the stuff made?";
+			mes "Você trouxe coisas que você precisa.";
+			mes "Será rápido quando eu trocar as coisas feitas?";
 			delitem 7150,.@i[2]; //Bamboo_Cut
 			delitem 949,.@i[3]; //Feather
 			set Zeny, Zeny - .@i[4];
 			getitem .@i[1],1; //Makeover_Brush,Paint_Brush
 			close;
 		}
-		mes "For blush to "+((.@i[0] == 1)?"make up":"paint");
-		mes "you need "+.@i[2]+" Bamboo Cut,";
-		mes .@i[3]+" Feather, and "+.@i[0]+"00,000 zeny.";
+		mes "Para corar"+((.@i[0] == 1)?"inventar":"pintar");
+		mes "você precisa"+.@i[2]+"Corte de bambu,";
+		mes .@i[3]+"Penas e"+.@i[0]+"00.000 mulheres.";
 		close;
 	}
-	mes "It's the shadow workplace~";
+	mes "É o local de trabalho das sombras ~";
 	next;
-	switch(select("Where is the paint?:Where is the manager?")) {
+	switch(select("Onde está a tinta ?: Onde está o gerente?")) {
 	case 1:
-		mes "[RimiGX]";
-		mes "Paint?";
-		mes "Ask an assistant who works over there.";
+		mes "[Rima]";
+		mes "Pintar?";
+		mes "Pergunte a um assistente que trabalha lá.";
 		close;
 	case 2:
-		mes "[RimiGX]";
-		mes "Manager? He's in inside of the workplace.";
-		mes "But when you visit him, you should have something to tell him....";
+		mes "[Rima]";
+		mes "Gerente? Ele está dentro do local de trabalho.";
+		mes "Mas quando você o visita, você deve ter algo para dizer a ele ....";
 		close;
 	}
 }
 
 s_atelier,26,68,3	script	Vito#sc11_lgt	904,{
 	mes "[Vito]";
-	mes "Welcome.";
+	mes "Bem-vindo.";
 	if (Class == Job_Shadow_Chaser || Class == Job_Shadow_Chaser_T || Class == Job_Baby_Shadow_Chaser) {
-		mes "What are you looking for?";
+		mes "O que você está procurando?";
 		next;
-		set .@i, select("Make a new blush for make-up.:Make a new blush for painting.:Nothing.");
+		set .@i, select("Faça um novo blush para a maquiagem.");
 		mes "[Vito]";
 		if (.@i == 1) setarray .@i[1],6121,1,10,100000;
 		else if (.@i == 2) setarray .@i[1],6122,2,30,200000;
 		else {
-			mes "Whenever you need a blush, visit me.";
-			mes "See you!";
+			mes "Sempre que você precisar de um rubor, visite -me.";
+			mes "Vê você!";
 			close;
 		}
 		if (countitem(.@i[1])) {
-			mes "We offer only one blush to each person.";
-			mes "We can't offer extra blushes.";
+			mes "Oferecemos apenas um blush para cada pessoa.";
+			mes "Não podemos oferecer blushes extras.";
 			close;
 		}
 		if (countitem(7150) >= .@i[2] && countitem(949) >= .@i[3] && Zeny >= .@i[4]) {
-			mes "You brought all what you need.";
-			mes "I'm going to exchange the blush I made before.";
+			mes "Você trouxe tudo o que você precisa.";
+			mes "Vou trocar o blush que fiz antes.";
 			delitem 7150,.@i[2]; //Bamboo_Cut
 			delitem 949,.@i[3]; //Feather
 			set Zeny, Zeny - .@i[4];
 			getitem .@i[1],1; //Makeover_Brush,Paint_Brush
 			close;
 		}
-		mes "For blush to "+((.@i[0] == 1)?"make up":"paint");
-		mes "you need "+.@i[2]+" Bamboo Cut,";
-		mes .@i[3]+" Feather, and "+.@i[0]+"00,000 zeny.";
+		mes "Para corar"+((.@i[0] == 1)?"inventar":"pintar");
+		mes "você precisa"+.@i[2]+"Corte de bambu,";
+		mes .@i[3]+"Penas e"+.@i[0]+"00.000 mulheres.";
 		close;
 	}
-	mes "It's the shadow workplace.";
+	mes "É o local de trabalho das sombras.";
 	next;
-	switch(select("Where is the paint?:Where is the manager?")) {
+	switch(select("Onde está a tinta ?: Onde está o gerente?")) {
 	case 1:
 		mes "[Vito]";
-		mes "Paint?";
-		mes "Ask the assistant standing over there.";
+		mes "Pintar?";
+		mes "Pergunte ao assistente de pé ali.";
 		close;
 	case 2:
 		mes "[Vito]";
-		mes "The man standing in front of the counter is the manager.";
+		mes "O homem que está em frente ao balcão é o gerente.";
 		close;
 	}
 }
@@ -2493,14 +2493,14 @@ s_atelier,26,68,3	script	Vito#sc11_lgt	904,{
 tha_t01,149,228,0	script	#shadowc02	45,2,2,{
 	end;
 OnTouch:
-	mes "You can feel weird power.";
+	mes "Você pode sentir poder estranho.";
 	if (BaseJob == Job_Rogue && job_sha == 27) {
-		mes "You are getting dizzy.";
+		mes "Você está ficando tonto.";
 		close2;
 		warp "job3_sha01",71,36;
 		end;
 	}
-	mes "You don't know what it is.";
+	mes "Você não sabe o que é.";
 	close;
 }
 

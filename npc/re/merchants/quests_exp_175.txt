@@ -9,41 +9,41 @@
 
 einbech,149,257,4	script	Site manager Elmen#extdq0	4_TOWER_16,{
 	if (checkweight(25814,100) == 0 || checkweight(1201,1) == 0 || (MaxWeight - Weight) < 10000) {
-		mes "- You cannot proceed because you have too many items. -";
+		mes "- Você não pode prosseguir porque tem muitos itens. -";
 		close;
 	}
 	mes "[Elmen]";
-	mes "Hello. Adventurer.";
-	mes "If you're here to purchase Dynite mining equipment or refine ore into Dynite, you've come to the right place.";
+	mes "Olá. Aventureiro.";
+	mes "Se você estiver aqui para comprar o equipamento de mineração Dynite ou refinar o minério em Dynite, veio ao lugar certo.";
 	next;
-	switch( select( "Dynite Refinement", "Dynite Shop", "Dynite Equipment Exchange" ) ) {
+	switch( select( "Refinamento Dynite", "Dynite Shop", "Dynite Equipment Exchange" ) ) {
 	case 1:
-		npctalk "Elmen: You can refine up to 100 Dynite at a time. The machine is small.", "", bc_self;
+		npctalk "Elmen: Você pode refinar até 100 Dynite por vez. A máquina é pequena.", "", bc_self;
 		mes "[Elmen]";
-		mes "" + mesitemlink(25814) + " Refined Ore.";
-		mes "" + mesitemlink(25809) + " ^777777(currently " + countitem(25809) + ")^000000";
-		mes "" + mesitemlink(25810) + " ^777777(currently " + countitem(25810) + ")^000000";
-		mes "" + mesitemlink(25811) + " ^777777(currently " + countitem(25811) + ")^000000";
-		mes "" + mesitemlink(25812) + " ^777777(currently " + countitem(25812) + ")^000000";
-		mes "" + mesitemlink(25813) + " ^777777(currently " + countitem(25813) + ")^000000";
-		mes "You need one each of the five types of ore.";
+		mes "" + mesitemlink(25814) + "Minério refinado.";
+		mes "" + mesitemlink(25809) + "^777777 (atualmente" + countitem(25809) + ")^000000";
+		mes "" + mesitemlink(25810) + "^777777 (atualmente" + countitem(25810) + ")^000000";
+		mes "" + mesitemlink(25811) + "^777777 (atualmente" + countitem(25811) + ")^000000";
+		mes "" + mesitemlink(25812) + "^777777 (atualmente" + countitem(25812) + ")^000000";
+		mes "" + mesitemlink(25813) + "^777777 (atualmente" + countitem(25813) + ")^000000";
+		mes "Você precisa de um dos cinco tipos de minério.";
 		next;
 		input .@val;
 		if (.@val > 100) {
 			mes "[Elmen]";
-			mes "I'm sorry. Adventurer.";
-			mes "Dynite Refinement can only be refined up to 100 at a time? The machine is small, so there is no help. Please understand.";
+			mes "Desculpe. Aventureiro.";
+			mes "O refinamento Dynite só pode ser refinado até 100 por vez? A máquina é pequena, então não há ajuda. Por favor, entenda.";
 			close;
 		}
 		if (.@val == 0) {
 			mes "[Elmen]";
-			mes "Cancel?";
-			mes "If you need refinement of the Dynite, please find it anytime. There is no one who can do it without me.";
+			mes "Cancelar?";
+			mes "Se você precisar de refinamento da dinita, encontre -o a qualquer momento. Não há ninguém que possa fazer isso sem mim.";
 			close;
 		}
 		if (countitem(25809) < .@val || countitem(25810) < .@val || countitem(25811) < .@val || countitem(25812) < .@val || countitem(25813) < .@val) {
 			mes "[Elmen]";
-			mes "Hey! This makes it difficult for each other, don't you run out of materials needed for refining? The materials!";
+			mes "Ei! Isso torna difícil um para o outro, você não fica sem materiais necessários para refinar? Os materiais!";
 			close;
 		}
 		specialeffect EF_REPAIRWEAPON;
@@ -55,31 +55,31 @@ einbech,149,257,4	script	Site manager Elmen#extdq0	4_TOWER_16,{
 		delitem 25813,.@val;	// Ein_WHIDIUM
 		getitem 25814,.@val;	// Ein_DYNITE
 		mes "[Elmen]";
-		mes "" + .@val + " Dynite have been refined. It's perfect today!";
+		mes "" + .@val + "Dynite foi refinado. É perfeito hoje!";
 		close;
 	case 2:
 		mes "[Elmen]";
-		mes "There are various accessories and modification permits. Look carefully at what you want before buying.";
+		mes "Existem vários acessórios e licenças de modificação. Olhe cuidadosamente para o que você deseja antes de comprar.";
 		close2;
 		callshop "barter_ein_dun03";
 		end;
 	case 3:
 		mes "[Elmen]";
-		mes "I can exchange the equipment with the Dynite, but it's already in a tightly sealed box.";
-		mes "Give me 50 ^4d4dffDynites^000000 and I will open a ^4d4dffweapon box^000000 for you.";
+		mes "Eu posso trocar o equipamento com o Dynite, mas ele já está em uma caixa bem selada.";
+		mes "Dê -me 50 ^4d4dffdynites ^000000 e abrirei uma caixa ^4d4dffweapon ^000000 para você.";
 		next;
 		mes "[Elmen]";
-		mes "I don't know what will come out, but the quality is good. Would you like to open it?";
+		mes "Não sei o que será lançado, mas a qualidade é boa. Você gostaria de abri -lo?";
 		next;
-		if (select( "Close your eyes and exchange.", "Do not exchange." ) == 2) {
+		if (select( "Feche os olhos e troque.", "Não troque." ) == 2) {
 			mes "[Elmen]";
-			mes "Kee, this is a waste, it was a good deal.";
+			mes "Kee, isso é um desperdício, foi um bom negócio.";
 			close;
 		}
 		if (countitem(25814) < 50) {
 			mes "[Elmen]";
-			mes "You don't have enough Dynite friends.";
-			mes "I don't know what's going to come out, so it's hard to go anywhere and get this kind of equipment at this price.";
+			mes "Você não tem amigos dynite suficientes.";
+			mes "Não sei o que vai sair, por isso é difícil ir a qualquer lugar e obter esse tipo de equipamento a esse preço.";
 			close;
 		}
 		delitem 25814,50;

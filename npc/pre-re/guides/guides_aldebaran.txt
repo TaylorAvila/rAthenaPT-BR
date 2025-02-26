@@ -17,40 +17,40 @@
 //= 1.4 Fitted the many lines into 1 or 2, and corrected some typos [erKURITA]
 //= 1.5 Removed Duplicates [Silent]
 //= 1.6 Rescripted to official 10.3 standards. [L0ne_W0lf]
-//= 1.6a Changed some "close"s to "close2"s. (bugreport:1597) [Samuray22]
+//= 1.6a Changed some "fechar"s to "Close2"s. (bugreport:1597) [Samuray22]
 //= 1.7 Fixed viewpoint coordinates [Playtester]
 //============================================================
 
 aldebaran,139,63,4	script	Soldier#alde	105,{
 	cutin "prt_soldier",2;
-	mes "[Al De Baran Guard]";
-	mes "I'm just an ordinary guard";
-	mes "that you could find in any other city. I don't think I even have a name...";
+	mes "[Para Baran Guard]";
+	mes "Eu sou apenas um guarda comum";
+	mes "que você pode encontrar em qualquer outra cidade. Acho que nem tenho um nome ...";
 	next;
-	mes "[Al De Baran Guard]";
-	mes "I am in charge of the Service Guides from the Al De Baran Garrison. Let me guide you";
-	mes "through our town!";
+	mes "[Para Baran Guard]";
+	mes "Estou encarregado dos guias de serviço do Al de Baran Garrison. Deixe -me guiar você";
+	mes "Através da nossa cidade!";
 	next;
-	if (select("Get Location Guide.:End conversation.") == 1) {
+	if (select("Obtenha o guia de localização.: Conversação.") == 1) {
 		viewpoint 1,61,229,0,0xFF6633;
 		viewpoint 1,72,197,1,0x0000FF;
 		viewpoint 1,223,222,2,0x00FFFF;
 		viewpoint 1,233,105,3,0x515151;
 		viewpoint 1,197,70,4,0x3355FF;
 		viewpoint 1,60,60,5,0xFF5555;
-		mes "^FF6633+^000000 -> Kafra Main Office ";
-		mes "^0000FF+^000000 -> Weapon Shop ";
-		mes "^00FFFF+^000000 -> Sorcerer Guild (Closed)";
+		mes "^Ff6633+^000000 -> Escritório principal da CAFRA";
+		mes "^0000FF+^000000 -> loja de armas";
+		mes "^00ffff+^000000 -> Guilda de feiticeiro (fechada)";
 		mes "^515151+^000000 -> Pub";
-		mes "^3355FF+^000000 -> Item Shop";
-		mes "^FF5555+^000000 -> Alchemist Guild";
+		mes "^3355ff+^000000 -> Loja de itens";
+		mes "^Ff5555+^000000 -> Guilda de Alquimista";
 		close2;
 		cutin "prt_soldier",255;
 		end;
 	}
-	mes "[Al De Baran Guard]";
-	mes "We are sworn to protect Al De Baran! May the forces of evil always be crushed by the";
-	mes "righteous fist of good!";
+	mes "[Para Baran Guard]";
+	mes "Justamos proteger Al de Baran! Que as forças do mal sempre sejam esmagadas pelo";
+	mes "Punho justo de bom!";
 	close2;
 	cutin "prt_soldier",255;
 	end;
@@ -58,49 +58,49 @@ aldebaran,139,63,4	script	Soldier#alde	105,{
 
 aldebaran,133,108,4	script	Soldier#2alde	105,{
 	cutin "prt_soldier",2;
-	mes "[Al De Baran Guard]";
-	mes "I'm just an";
-	mes "ordinary guard,";
-	mes "the kind you can";
-	mes "find in any other city.";
+	mes "[Para Baran Guard]";
+	mes "Eu sou apenas um";
+	mes "Guarda comum,";
+	mes "O tipo que você pode";
+	mes "Encontre em qualquer outra cidade.";
 	next;
-	mes "[Al De Baran Guard]";
-	mes "When I'm not too busy";
-	mes "protecting the Al De Baran";
-	mes "populace, I'm here giving directions to adventurers";
-	mes "like yourself.";
+	mes "[Para Baran Guard]";
+	mes "Quando não estou muito ocupado";
+	mes "Proteja o Baran";
+	mes "população, estou aqui dando instruções aos aventureiros";
+	mes "como você.";
 	next;
-	switch(select("Kafra Main Office :Weapon Shop :Sorcerer Guild :Pub :Item Shop :Alchemist Guild :End Conversation ")) {
+	switch(select("Kafra Principal Office: Armas Shop: Sorcerer Guild: Pub: Item Shop: Alchemist Guild: End conversor")) {
 	case 1:
 		viewpoint 1,61,229,0,0xFF6633;
-		mes "^FF6633+^000000 -> Kafra Main Office ";
+		mes "^Ff6633+^000000 -> Escritório principal da CAFRA";
 		break;
 	case 2:
 		viewpoint 1,72,197,1,0x0000FF;
-		mes "^0000FF+^000000 -> Weapon Shop ";
+		mes "^0000FF+^000000 -> loja de armas";
 		break;
 	case 3:
 		viewpoint 1,223,222,2,0x00FFFF;
-		mes "^00FFFF+^000000 -> Sorcerer Guild (Closed)";
+		mes "^00ffff+^000000 -> Guilda de feiticeiro (fechada)";
 		break;
 	case 4:
 		viewpoint 1,233,105,3,0x515151;
-		mes "^515151+^000000 -> Pub ";
+		mes "^515151+^000000 -> Pub";
 		break;
 	case 5:
 		viewpoint 1,197,70,4,0x3355FF;
-		mes "^3355FF+^000000 -> Item Shop ";
+		mes "^3355ff+^000000 -> Loja de itens";
 		break;
 	case 6:
 		viewpoint 1,60,60,5,0xFF5555;
-		mes "^FF5555+^000000 -> Alchemist Guild";
+		mes "^Ff5555+^000000 -> Guilda de Alquimista";
 		break;
 	case 7:
-		mes "[Al De Baran Guard]";
-		mes "We are sworn to";
-		mes "protect Al De Baran!";
-		mes "May the forces of good";
-		mes "always prevail over evil~";
+		mes "[Para Baran Guard]";
+		mes "Nós juramos";
+		mes "Al Baran protegido!";
+		mes "Que as forças do bem";
+		mes "sempre prevalece sobre o mal ~";
 		break;
 	}
 	close2;

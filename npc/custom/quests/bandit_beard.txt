@@ -22,56 +22,56 @@ umbala,126,129,4	script	Bearded Man#bandit	120,{
 	if(BEARD_QUEST >= 5 ) goto L_DONE;
 	if(BEARD_QUEST >= 1 ) goto L_THREAD;
 
-	mes "[Bearded Man]";
-	mes "Beards! Get your wonderful beards!";
-	mes "Would you like a beard?";
+	mes "[Homem barbudo]";
+	mes "Barbas! Pegue suas barbas maravilhosas!";
+	mes "Você gostaria de uma barba?";
 	next;
-	menu "Yes, I'd like some facial hair!",-,"No thanks, thats gross!",M_NO;
+	menu "Sim, eu gostaria de um pouco de cabelo facial!",-,"Não, obrigado, isso é nojento!",M_NO;
 
-	mes "[Bearded Man]";
-	mes "HoHo~ So you want some whiskers.";
+	mes "[Homem barbudo]";
+	mes "Hoho ~ Então você quer alguns bigodes.";
 	emotion ET_SMILE;
-	mes "Well I would give you my beards but there not cheap.";
-	mes "Matter of fact I have only one left...";
-	mes "but I'm not selling it.";
-	mes "But don't get mad! I can make you one.";
+	mes "Bem, eu te daria minhas barbas, mas não há barato.";
+	mes "De fato, só tenho um ...";
+	mes "Mas não estou vendendo.";
+	mes "Mas não fique bravo! Eu posso fazer de você um.";
 	next;
 	set BEARD_QUEST,1;
 L_THREAD:
-	mes "[Bearded Man]";
-	mes "I would need some ^8080FFThread^000000 for the Beard.";
-	mes "Talk to my friend in Izlude for some ^8080FFThread^000000.";
+	mes "[Homem barbudo]";
+	mes "Eu precisaria de alguns ^8080FFTHREAD ^000000 para a barba.";
+	mes "Converse com meu amigo em Izlude por alguns ^8080FFTHREAD ^000000.";
 	next;
 
-	mes "[Bearded Man]";
-	mes "Also I would need you to get me some things for the beard.";
-	mes "They are:";
+	mes "[Homem barbudo]";
+	mes "Além disso, eu precisaria que você me pegue algumas coisas para a barba.";
+	mes "Eles são:";
 L_LIST:
-	mes "^8080FFElastic Band^000000";
-	mes "^8080FF5 Animal Skins^000000";
-	mes "^8080FFBlack Dye Stuff^000000";
-	mes "^8080FFGranpa Beard^000000";
-	mes "^8080FF100 sticky Mucus^000000";
-	mes "^8080FFCounteragent^000000";
-	mes " and one ^8080FF2 Carat Diamond^000000";
+	mes "^8080 Bandafelástica^000000";
+	mes "^8080FF5 Skins de animais^000000";
+	mes "^8080ffflack corante material^000000";
+	mes "^8080ffgranpa barba^000000";
+	mes "^8080FF100 Muco pegajoso^000000";
+	mes "^8080ffCounterAgent^000000";
+	mes "e um ^8080FF2 Diamante de quilato ^000000";
 	close;
 
 M_NO:
-	mes "[Bearded Man]";
-	mes "Fine, be that way!";
+	mes "[Homem barbudo]";
+	mes "Tudo bem, seja assim!";
 	emotion ET_ANGER;
 	close;
 
 L_DONE:
-	mes "[Bearded Man]";
-	mes "Sorry, I can only make one per person.";
-	mes "We don't want too many beards now. Right?";
+	mes "[Homem barbudo]";
+	mes "Desculpe, só posso fazer um por pessoa.";
+	mes "Não queremos muitas barbas agora. Certo?";
 	emotion ET_KIK;
 	close;
 
 L_MAKE:
-	mes "[Bearded Man]";
-	mes "Let's make you your beard!";
+	mes "[Homem barbudo]";
+	mes "Vamos fazer de você sua barba!";
 	next;
 	if(countitem(7200) < 1 || countitem(919) < 1 ||	countitem(983) < 1 || countitem(2241) < 1 ||
 	countitem(938) < 100 || countitem(973) < 1 || countitem(731) < 1) goto L_NOITEMS;
@@ -82,39 +82,39 @@ L_MAKE:
 	delitem 938, 100;
 	delitem 973, 1;
 	delitem 731, 1;
-	mes "^8080FF~You see him cutting and sewing the beard together~^000000";
+	mes "^8080ff ~ você o vê cortando e costurando a barba juntos ~^000000";
 	next;
-	mes "^8080FF~He hands you the finished beard~^000000";
+	mes "^8080ff ~ ele entrega a barba acabada ~^000000";
 	next;
 	getitem 2237, 1;
 	set BEARD_QUEST, 5;
-	mes "[Bearded Man]";
-	mes "Have a nice day!";
+	mes "[Homem barbudo]";
+	mes "Tenha um bom dia!";
 	emotion ET_KIK;
 	close;
 
 L_NOITEMS:
-	mes "[Bearded Man]";
-	mes "What the hell! I can't make a beard without the items!";
-	mes "Here is the list again:";
+	mes "[Homem barbudo]";
+	mes "Que diabos! Não posso fazer uma barba sem os itens!";
+	mes "Aqui está a lista novamente:";
 	emotion ET_HUK;
 	goto L_LIST;
 }  
 
 //Master Tailor----------
 izlude_in,123,175,4	script	Master Tailor#bandit	50,{
-	mes "[Master Tailor]";
-	mes "Good evening! I am the Master Tailor!";
+	mes "[Mestre alfaiate]";
+	mes "Boa noite! Eu sou o alfaiate mestre!";
 	if(BEARD_QUEST != 1 ) close;
 
 	next;
-	mes "[Master Tailor]";
-	mes "What? A Bearded Man sent you...";
-	mes "Well I'm sorry to say that I am out of ^8080FFThread^000000.";
-	mes "But I have the address to where I get the shipments.";
-	mes "It is in Al de Baran Kafra Inc. warehouse area.";
-	mes "The address is: Al de Baran 59, 221";
-	mes "See you later.";
+	mes "[Mestre alfaiate]";
+	mes "O que? Um homem barbudo te enviou ...";
+	mes "Bem, lamento dizer que estou fora de ^8080ffthread ^000000.";
+	mes "Mas tenho o endereço para onde recebo as remessas.";
+	mes "É e Al de Baran Kafra Inc. Área do armazém.";
+	mes "O endereço é: Al de Baran 59, 221";
+	mes "Até mais.";
 	set BEARD_QUEST, 2;
 	close;
 }
@@ -124,35 +124,35 @@ aldeba_in,70,179,5	script	Kafra Clerk#bandit	113,{
 	if(BEARD_QUEST == 3 ) goto L_REPEAT;
 	if(BEARD_QUEST > 3 ) goto L_DONE;
 
-	mes "What can I do for you?";
+	mes "O que posso fazer para você?";
 	next;
 	if(BEARD_QUEST == 2 ) goto L_DELIVERY;
 
-	menu "What's in the boxes?",-,"Nothing.",M_NOPE;
+	menu "O que há nas caixas?",-,"Nada.",M_NOPE;
 
 	mes "[Kafra Clerk]";
-	mes "They're empty.";
+	mes "Eles estão vazios.";
 M_NOPE:
 	close;
 
 L_DELIVERY:
 
 	mes "[Kafra Clerk]";
-	mes "Sorry but we have not received any ^8080FFThread^000000.";
-	mes "Our shipments have been put off until its safe.";
-	mes "You see we get our ^8080FFThread^000000 from Alberta and a monsters keeps attacking our merchants.";
+	mes "Desculpe, mas não recebemos nenhum ^8080FFTHREAD ^000000.";
+	mes "Nossas remessas foram adiadas até o seu seguro.";
+	mes "Você vê que recebemos nosso ^8080FFTHREAD ^000000 de Alberta e um monstros continua atacando nossos comerciantes.";
 	next;
 	mes "[Kafra Clerk]";
-	mes "Now this monsters has not been doing this before.";
-	mes "It may have to do with the warmer months.";
-	mes "Please help us out!";
+	mes "Agora, esses monstros não têm feito isso antes.";
+	mes "Pode ter a ver com os meses mais quentes.";
+	mes "Por favor nos ajude!";
 	set BEARD_QUEST,3;
 	next;
 	mes "[Kafra Clerk]";
 L_REPEAT:
-	mes "Oh by the way, that Thread Merchant is somewhere around Alberta 60 and 100...";
+	mes "Ah, a propósito, esse comerciante de tópicos está em algum lugar em torno de Alberta 60 e 100 ...";
 L_DONE:
-	mes "Thank You!";
+	mes "Obrigado!";
 	close;
 }
 
@@ -161,50 +161,50 @@ alberta,65,123,6	script	Man#bandit	85,{
 	if(BEARD_QUEST == 3 && $@beardMobD) goto L_KILLED;
 	if(BEARD_QUEST > 3) goto L_DONE;
 
-	mes "[Thread Merchant]";
-	mes "ARGGG!! I can never get my stuff to Al de Baran!";
-	mes "I keep getting mobbed by some bugs.";
-	mes "They steal all my supplies and ^8080FFThread^000000.";
+	mes "[Mercador de thread]";
+	mes "Arggg !! Eu nunca posso levar minhas coisas para Al de Baran!";
+	mes "Eu continuo sendo preenchido por alguns insetos.";
+	mes "Eles roubam todos os meus suprimentos e ^8080FFTHREAD ^000000.";
 	next;
-	mes "[Thread Merchant]";
+	mes "[Mercador de thread]";
 
-	if(BEARD_QUEST != 3) mes "What am I to do?";
+	if(BEARD_QUEST != 3) mes "O que devo fazer?";
 	if(BEARD_QUEST != 3) close;
 
-	if($@beardmob > 0) mes "Kill! Kill them already!!!";
+	if($@beardmob > 0) mes "Matar! Mate -os já !!!";
 	if($@beardmob > 0) close;
-	mes "Are you here to help me?";
+	mes "Você está aqui para me ajudar?";
 	emotion ET_QUESTION;
 	next;
-	menu "Yes",-,"No",M_NO;
+	menu "Sim",-,"No",M_NO;
 
-	mes "[Thread Merchant]";
-	mes "Oh thank the Gods!";
-	mes "If you can only just kill the bugs I would be able to make my delivery.";
+	mes "[Mercador de thread]";
+	mes "Oh graças aos deuses!";
+	mes "Se você puder apenas matar os insetos, eu seria capaz de fazer minha entrega.";
 	next;
-	mes "[Thread Merchant]";
-	mes "Oh NO! Here they come!!";
+	mes "[Mercador de thread]";
+	mes "Oh não! Aqui estão eles !!";
 	emotion ET_PROFUSELY_SWEAT;
 	donpcevent "BRDQ_MOBS::OnStart";
 	close;
 
 L_KILLED:
 	set $@beardMobD,0;
-	mes "[Thread Merchant]";
-	mes "Thank you for killing the Thief Bugs.";
-	mes "As a token of my gratitude here is a box full of ^8080FFThread^000000.";
+	mes "[Mercador de thread]";
+	mes "Obrigado por matar os bugs do ladrão.";
+	mes "Como um sinal da minha gratidão aqui está uma caixa cheia de ^8080ffthread ^000000.";
 	set BEARD_QUEST,4;
 	close;
 
 L_DONE:
-	mes "[Thread Merchant]";
-	mes "Thank you again!";
+	mes "[Mercador de thread]";
+	mes "Obrigado novamente!";
 	emotion ET_THANKS;
 	close;
 
 M_NO:
-	mes "[Thread Merchant]";
-	mes "What to do...";
+	mes "[Mercador de thread]";
+	mes "O que fazer ...";
 	close;
 }
 
@@ -213,16 +213,16 @@ alberta,1,1,1	script	BRDQ_MOBS	-1,{
 OnStart:
 	set $@beardMob,10;
 	set $@beardMobD,0;
-	monster "alberta",65,120,"Thief Bug Male",1054,1,"BRDQ_MOBS::OnDie";
-	monster "alberta",66,120,"Thief Bug Male",1054,1,"BRDQ_MOBS::OnDie";
-	monster "alberta",67,120,"Thief Bug Male",1054,1,"BRDQ_MOBS::OnDie";
-	monster "alberta",68,120,"Thief Bug Male",1054,1,"BRDQ_MOBS::OnDie";
-	monster "alberta",66,121,"Thief Bug Male",1054,1,"BRDQ_MOBS::OnDie";
-	monster "alberta",67,121,"Thief Bug Male",1054,1,"BRDQ_MOBS::OnDie";
-	monster "alberta",68,121,"Thief Bug Male",1054,1,"BRDQ_MOBS::OnDie";
-	monster "alberta",66,122,"Thief Bug Male",1054,1,"BRDQ_MOBS::OnDie";
-	monster "alberta",67,122,"Thief Bug Male",1054,1,"BRDQ_MOBS::OnDie";
-	monster "alberta",68,122,"Thief Bug Male",1054,1,"BRDQ_MOBS::OnDie";
+	monster "Alberta",65,120,"Ladrão bug masculino",1054,1,"BRDQ_MOBS :: ondie";
+	monster "Alberta",66,120,"Ladrão bug masculino",1054,1,"BRDQ_MOBS :: ondie";
+	monster "Alberta",67,120,"Ladrão bug masculino",1054,1,"BRDQ_MOBS :: ondie";
+	monster "Alberta",68,120,"Ladrão bug masculino",1054,1,"BRDQ_MOBS :: ondie";
+	monster "Alberta",66,121,"Ladrão bug masculino",1054,1,"BRDQ_MOBS :: ondie";
+	monster "Alberta",67,121,"Ladrão bug masculino",1054,1,"BRDQ_MOBS :: ondie";
+	monster "Alberta",68,121,"Ladrão bug masculino",1054,1,"BRDQ_MOBS :: ondie";
+	monster "Alberta",66,122,"Ladrão bug masculino",1054,1,"BRDQ_MOBS :: ondie";
+	monster "Alberta",67,122,"Ladrão bug masculino",1054,1,"BRDQ_MOBS :: ondie";
+	monster "Alberta",68,122,"Ladrão bug masculino",1054,1,"BRDQ_MOBS :: ondie";
 	end;
 OnDie:
 	set $@beardmob, $@beardmob - 1;

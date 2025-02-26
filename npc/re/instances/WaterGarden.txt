@@ -14,11 +14,11 @@ ba_maison,238,44,5	script	Harad#jh_ba1	4_EP17_BASIC_B,{
 	if (ep172_watergarden < 3) {
 		cutin "ep172_beta",2;
 		mes "[Harad]";
-		mes "Hello, guest.";
-		mes "This place is the docks.";
+		mes "Olá, convidado.";
+		mes "Este lugar são as docas.";
 		next;
 		mes "[Harad]";
-		mes "We don't have any ships operating right now. But the scenery is nice, feel free to take a look around for a while!";
+		mes "Não temos navios operando agora. Mas o cenário é bom, fique à vontade para dar uma olhada por um tempo!";
 		close3;
 	}
 	switch( checkquest(16439,PLAYTIME) ) {
@@ -28,11 +28,11 @@ ba_maison,238,44,5	script	Harad#jh_ba1	4_EP17_BASIC_B,{
 	case 1:
 		cutin "ep172_beta",2;
 		mes "[Harad]";
-		mes "In accordance with the Gardeners' plant cultivation and herbicide plans. Admission to the water garden is limited once per day for both the normal and hard water garden.";
+		mes "De acordo com o cultivo de plantas dos jardineiros e os planos de herbicidas. A admissão no jardim aquático é limitada uma vez por dia, tanto para o jardim de água normal e dura.";
 		next;
 		mes "[Harad]";
-		mes "Thank you for your understanding.";
-		mes "Please take enough rest and come back again after dawn!";
+		mes "Obrigado pela sua compreensão.";
+		mes "Por favor, descanse o suficiente e volte novamente depois do amanhecer!";
 		close3;
 	case 2:
 		erasequest 16439;
@@ -40,18 +40,18 @@ ba_maison,238,44,5	script	Harad#jh_ba1	4_EP17_BASIC_B,{
 	}
 	cutin "ep172_beta",2;
 	mes "[Harad]";
-	mes "Would you like to take a ride to the water garden?";
-	mes "The ship only run once a day!";
+	mes "Você gostaria de dar um passeio até o jardim aquático?";
+	mes "O navio só corre uma vez por dia!";
 	next;
-	mes "^FF0000Please note that, any abnormal monster handling inside the instance such as taming, is not considered normal.^000000";
+	mes "^FF0000PLEATE Observe que, qualquer manuseio anormal de monstros dentro da instância, como domesticação, não é considerado normal.^000000";
 	mes "";
-	mes "^FF0000The party leader who received the quest for the 'Water Garden' or 'Water Garden Hard' must enter the instance to proceed. In the case of party leader changes, the instance will be cancelled and you may not proceed.^000000";
+	mes "^FF0000 O líder do partido que recebeu a busca pelo 'jardim aquático' ou 'hard hard jardim' deve entrar na instância para prosseguir. No caso de mudanças no líder do partido, a instância será cancelada e você não poderá prosseguir.^000000";
 	next;
 	cutin "",255;
 	.@normal = is_party_leader();
 	.@hard = (.@normal && isbegin_quest(16430) == 2);
-	.@md_name$ = "Water Garden";	// default
-	switch( select( (.@normal ? "Create Water Garden" : ""), (.@hard ? "Create Water Garden Hard" : ""), "^0000CDGarden Entrance^000000" ) ) {
+	.@md_name$ = "Jardim aquático";	// default
+	switch( select( (.@normal ? "Crie jardim aquático" : ""), (.@hard ? "Crie Hater Garden Hard" : ""), "^0000cdgarden Entrada^000000" ) ) {
 	case 1:
 		.@quest_given = 16437;
 		.@other_quest = 16438;
@@ -60,58 +60,58 @@ ba_maison,238,44,5	script	Harad#jh_ba1	4_EP17_BASIC_B,{
 		if (BaseLevel < 180) {
 			cutin "ep172_beta",2;
 			mes "[Harad]";
-			mes "You can tell me if you want to enter the water garden.";
-			mes "But it's dangerous inside. You can't enter right now.";
+			mes "Você pode me dizer se deseja entrar no jardim aquático.";
+			mes "Mas é perigoso por dentro. Você não pode entrar agora.";
 			next;
-			mes "- This MD is for level 180 or above. -";
+			mes "- Este MD é para o nível 180 ou superior. -";
 			close3;
 		}
-		.@md_name$ = "Water Garden Hard";
+		.@md_name$ = "Garden aquático com força";
 		.@quest_given = 16438;
 		.@other_quest = 16437;
 		break;
 	case 3:
 		if (ep172_watergarden > 3) {
 			.@instance_name$ = instance_live_info(ILI_NAME, instance_id(IM_PARTY));
-			if (.@instance_name$ != "Water Garden" && .@instance_name$ != "Water Garden Hard") {
+			if (.@instance_name$ != "Jardim aquático" && .@instance_name$ != "Garden aquático com força") {
 				cutin "ep172_beta",2;
 				mes "[Harad]";
-				mes "The instance has not been created yet.";
-				mes "Please check it.";
+				mes "A instância ainda não foi criada.";
+				mes "Por favor, verifique.";
 				close3;
 			}
 			cutin "ep172_beta",2;
 			mes "[Harad]";
-			mes "Enter the ^CC0000" + .@instance_name$ + "^000000.";
+			mes "Digite o ^CC0000" + .@instance_name$ + "^000000.";
 			next;
 			cutin "",255;
-			if (select( "^0000CDEnter Water Garden", "Enter Water Garden Hard^000000" ) == 1)
-				.@md_name$ = "Water Garden";
+			if (select( "^0000cdenter Garden de água", "Entre no Garden Water Hard^000000" ) == 1)
+				.@md_name$ = "Jardim aquático";
 			else
-				.@md_name$ = "Water Garden Hard";
+				.@md_name$ = "Garden aquático com força";
 		}
 		if (instance_enter(.@md_name$) != IE_OK) {
 			cutin "ep172_beta",2;
 			mes "[Harad]";
-			mes "The instance has not been created yet.";
-			mes "Please check it.";
+			mes "A instância ainda não foi criada.";
+			mes "Por favor, verifique.";
 			close2;
 			cutin "",255;
 			end;
 		}
 		setquest 16439;
-		mapannounce "ba_maison", "" + strcharinfo(0) + " of the party, " + getpartyname( getcharid(1) ) + ", is entering the " + .@md_name$ + ".", bc_map, "0x00FF99";
+		mapannounce "bastão", "" + strcharinfo(0) + "da festa," + getpartyname( getcharid(1) ) + ", está entrando no" + .@md_name$ + ".", bc_map, "0 buceta 00";
 		end;
 	}
 	if (instance_create(.@md_name$) == -3)
-		dispbottom "The reservation of the instance '" + .@md_name$ + "' has failed due to an active instance.";
+		dispbottom "A reserva da instância '" + .@md_name$ + "'Falhou devido a uma instância ativa.";
 	if (isbegin_quest(.@quest_given) > 0)
 		erasequest .@quest_given;
 	if (isbegin_quest(.@other_quest) > 0)
 		erasequest .@other_quest;
 	setquest .@quest_given;
 	mes "[Harad]";
-	mes "When the " + .@md_name$ + " MD has opened, please speak to me again and select ^0000CDEnter " + .@md_name$ + "^000000.";
+	mes "Quando o" + .@md_name$ + "MD abriu, fale comigo novamente e selecione ^0000cdenter" + .@md_name$ + "^000000.";
 	close;
 }
 
@@ -154,7 +154,7 @@ OnTouch:
 	end;
 OnTouch:
 	if ('water_garden == 0) {
-		mes "- You can enter the water garden after the party leader has entered the MD. -";
+		mes "- Você pode entrar no jardim aquático depois que o líder do partido entrou no MD. -";
 		close;
 	}
 	warp 'map_ghg$,208,57;
@@ -191,20 +191,20 @@ OnTouch:
 	if ('water_garden == 0)
 		end;
 	if ('water_garden == 1) {
-		mes "[Hetilla]";
-		mes " Guests, welcome to the water garden,";
-		mes "Are you going to see Papilla? Papilla's been very sensitive about the intruders lately...";
-		npctalk "Guests, welcome to the water garden. Are you going to see Papilla? Papilla's been very sensitive about the intruders lately...";
+		mes "[Imediatamente]";
+		mes "Convidados, bem -vindo ao jardim aquático,";
+		mes "Você vai ver Papilla? Papila tem sido muito sensível aos invasores ultimamente ...";
+		npctalk "Convidados, bem -vindos ao jardim aquático. Você vai ver Papilla? Papila tem sido muito sensível aos invasores ultimamente ...";
 		next;
-		mes "[Hetilla]";
-		mes "Papillas are playing around here and there.";
-		mes "They use psychedelic materials from their wings to make short distance movements or use a dangerous magic over them.";
-		npctalk "Papillas are playing around here and there. They use psychedelic materials from their wings to make short distance movements or use a dangerous magic over them.";
+		mes "[Imediatamente]";
+		mes "Papillas estão brincando por aqui e ali.";
+		mes "Eles usam materiais psicodélicos de suas asas para fazer movimentos de curta distância ou usar uma magia perigosa sobre eles.";
+		npctalk "Papillas estão brincando por aqui e ali. Eles usam materiais psicodélicos de suas asas para fazer movimentos de curta distância ou usar uma magia perigosa sobre eles.";
 		next;
-		mes "[Hetilla]";
-		mes "I warned you on advanced, but be careful.";
-		mes "Pruning all overgrown plants and animals opens the door to the next area at 3 o'clock.";
-		npctalk "I warned you on advanced, but be careful. Pruning all overgrown plants and animals opens the door to the next area at 3 o'clock.";
+		mes "[Imediatamente]";
+		mes "Eu avisei você no Avançado, mas tenha cuidado.";
+		mes "A poda de todas as plantas e animais cobertos de vegetação abre a porta para a próxima área às 3 horas.";
+		npctalk "Eu avisei você no Avançado, mas tenha cuidado. A poda de todas as plantas e animais cobertos de vegetação abre a porta para a próxima área às 3 horas.";
 		close2;
 		if ('water_garden == 1) {
 			'water_garden = 2;
@@ -214,9 +214,9 @@ OnTouch:
 		end;
 	}
 	if ('water_garden == 2)
-		npctalk "Be careful of the papila's hallucinogens.";
+		npctalk "Tenha cuidado com os alucinógenos de Papila.";
 	else
-		npctalk "Guest, you can already move to the next area.";
+		npctalk "Convidado, você já pode se mudar para a próxima área.";
 	end;
 }
 
@@ -225,50 +225,50 @@ OnTouch:
 OnStart:
 	.@event$ = instance_npcname("#172_wg_mob_1") + "::OnMobDead";
 	if ('mode == 0) {
-		monster 'map_ghg$,247,89,"--ja--",20677,1, .@event$;
-		monster 'map_ghg$,257,90,"--ja--",20677,1, .@event$;
-		monster 'map_ghg$,228,89,"--ja--",20677,1, .@event$;
-		monster 'map_ghg$,227,93,"--ja--",20677,1, .@event$;
-		monster 'map_ghg$,238,54,"--ja--",20677,1, .@event$;
-		monster 'map_ghg$,245,52,"--ja--",20677,1, .@event$;
-		monster 'map_ghg$,251,89,"--ja--",20669,1, .@event$;
-		monster 'map_ghg$,253,92,"--ja--",20669,1, .@event$;
-		monster 'map_ghg$,244,53,"--ja--",20669,1, .@event$;
-		monster 'map_ghg$,227,96,"--ja--",20669,1, .@event$;
-		monster 'map_ghg$,226,83,"--ja--",20669,1, .@event$;
-		monster 'map_ghg$,244,59,"--ja--",20669,1, .@event$;
+		monster 'map_ghg$,247,89,"--- e--",20677,1, .@event$;
+		monster 'map_ghg$,257,90,"--- e--",20677,1, .@event$;
+		monster 'map_ghg$,228,89,"--- e--",20677,1, .@event$;
+		monster 'map_ghg$,227,93,"--- e--",20677,1, .@event$;
+		monster 'map_ghg$,238,54,"--- e--",20677,1, .@event$;
+		monster 'map_ghg$,245,52,"--- e--",20677,1, .@event$;
+		monster 'map_ghg$,251,89,"--- e--",20669,1, .@event$;
+		monster 'map_ghg$,253,92,"--- e--",20669,1, .@event$;
+		monster 'map_ghg$,244,53,"--- e--",20669,1, .@event$;
+		monster 'map_ghg$,227,96,"--- e--",20669,1, .@event$;
+		monster 'map_ghg$,226,83,"--- e--",20669,1, .@event$;
+		monster 'map_ghg$,244,59,"--- e--",20669,1, .@event$;
 	}
 	else {
-		monster 'map_ghg$,257,65,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,253,64,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,245,77,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,245,78,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,249,70,"--ja--","MD_PAPILA_H",1, .@event$;
-		monster 'map_ghg$,257,87,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,250,81,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,253,85,"--ja--","MD_PAPILA_H",1, .@event$;
-		monster 'map_ghg$,254,93,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,251,59,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,252,59,"--ja--","MD_PAPILA_H",1, .@event$;
-		monster 'map_ghg$,239,54,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,237,53,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,242,52,"--ja--","MD_PAPILA_H",1, .@event$;
-		monster 'map_ghg$,241,52,"--ja--","MD_PAPILA_H",1, .@event$;
-		monster 'map_ghg$,239,51,"--ja--","MD_PAPILA_H",1, .@event$;
-		monster 'map_ghg$,234,69,"--ja--","MD_PAPILA_H",1, .@event$;
-		monster 'map_ghg$,231,61,"--ja--","MD_PAPILA_H",1, .@event$;
-		monster 'map_ghg$,232,73,"--ja--","MD_PAPILA_H",1, .@event$;
-		monster 'map_ghg$,228,58,"--ja--","MD_PAPILA_H",1, .@event$;
-		monster 'map_ghg$,225,66,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,225,63,"--ja--","MD_PAPILA_H",1, .@event$;
-		monster 'map_ghg$,224,62,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,220,88,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,219,92,"--ja--","MD_PAPILA_H",1, .@event$;
-		monster 'map_ghg$,226,95,"--ja--","MD_PAPILA_H",1, .@event$;
-		monster 'map_ghg$,228,98,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,221,98,"--ja--","MD_PAPILA_H",1, .@event$;
-		monster 'map_ghg$,249,97,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,254,96,"--ja--","MD_PAPILA_H",1, .@event$;
+		monster 'map_ghg$,257,65,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,253,64,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,245,77,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,245,78,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,249,70,"--- e--","MD_PAPILA_H",1, .@event$;
+		monster 'map_ghg$,257,87,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,250,81,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,253,85,"--- e--","MD_PAPILA_H",1, .@event$;
+		monster 'map_ghg$,254,93,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,251,59,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,252,59,"--- e--","MD_PAPILA_H",1, .@event$;
+		monster 'map_ghg$,239,54,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,237,53,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,242,52,"--- e--","MD_PAPILA_H",1, .@event$;
+		monster 'map_ghg$,241,52,"--- e--","MD_PAPILA_H",1, .@event$;
+		monster 'map_ghg$,239,51,"--- e--","MD_PAPILA_H",1, .@event$;
+		monster 'map_ghg$,234,69,"--- e--","MD_PAPILA_H",1, .@event$;
+		monster 'map_ghg$,231,61,"--- e--","MD_PAPILA_H",1, .@event$;
+		monster 'map_ghg$,232,73,"--- e--","MD_PAPILA_H",1, .@event$;
+		monster 'map_ghg$,228,58,"--- e--","MD_PAPILA_H",1, .@event$;
+		monster 'map_ghg$,225,66,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,225,63,"--- e--","MD_PAPILA_H",1, .@event$;
+		monster 'map_ghg$,224,62,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,220,88,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,219,92,"--- e--","MD_PAPILA_H",1, .@event$;
+		monster 'map_ghg$,226,95,"--- e--","MD_PAPILA_H",1, .@event$;
+		monster 'map_ghg$,228,98,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,221,98,"--- e--","MD_PAPILA_H",1, .@event$;
+		monster 'map_ghg$,249,97,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,254,96,"--- e--","MD_PAPILA_H",1, .@event$;
 	}
 	end;
 OnMobDead:
@@ -281,7 +281,7 @@ OnMobDead:
 		specialeffect EF_READYPORTAL, AREA, instance_npcname("#ghg_w2");
 		donpcevent instance_npcname("#172_wg_area_1") + "::OnStop";
 		enablenpc instance_npcname("Gardener#ghg_g2");
-		mapannounce 'map_ghg$, "Cleanup is complete. Please proceed to the next area.", bc_map, 0xFFFF99;
+		mapannounce 'map_ghg$, "A limpeza está completa. Por favor, prossiga para a próxima área.", bc_map, 0xFFFF99;
 		end;
 	}
 	end;
@@ -319,7 +319,7 @@ OnStart:
 	initnpctimer;
 	end;
 OnTimer2000:
-	mapannounce 'map_ghg$, "The magic of the Papilla's has activated. Be careful!", bc_map, 0xFFFF99;
+	mapannounce 'map_ghg$, "A magia da Papila's ativou. Tome cuidado!", bc_map, 0xFFFF99;
 	end;
 OnTimer4000:
 	callsub( S_Spawn, 240,73,20676,9 );
@@ -340,7 +340,7 @@ S_Spawn:
 	.@y = getarg(1);
 
 	monster 'map_ghg$,.@x,.@y, "", getarg(2),1, instance_npcname("#172_wg_area_1") + "::OnMobDead";
-	unitskillusepos $@mobid[0],"NPC_RAINOFMETEOR",getarg(3),.@x,.@y,-10000;
+	unitskillusepos $@mobid[0],"Npc_rainofmeteor",getarg(3),.@x,.@y,-10000;
 	return;
 
 OnTimer24000:
@@ -360,20 +360,20 @@ OnMobDead:
 1@ghg,316,69,3	script(DISABLED)	Gardener#ghg_g2	4_EP17_SCISSORE,{
 	if ('water_garden == 3) {
 		mes "[Juventus]";
-		mes "Be careful, Papillas' and other type of Papillas seems to be wandering around.";
-		npctalk "Be careful, Papillas' and other type of Papillas seems to be wandering around.";
+		mes "Cuidado, Papillas e outro tipo de papillas parecem estar vagando.";
+		npctalk "Cuidado, Papillas e outro tipo de papillas parecem estar vagando.";
 		next;
 		mes "[Juventus]";
-		mes "The attack range varies depending on the color of the Papilla.";
-		npctalk "The attack range varies depending on the color of the Papilla.";
+		mes "A faixa de ataque varia dependendo da cor da papila.";
+		npctalk "A faixa de ataque varia dependendo da cor da papila.";
 		next;
 		mes "[Juventus]";
-		mes "Also some of the gardeners were destroyed by the intruders.";
-		npctalk "Also some of the gardeners were destroyed by the intruders.";
+		mes "Também alguns dos jardineiros foram destruídos pelos intrusos.";
+		npctalk "Também alguns dos jardineiros foram destruídos pelos intrusos.";
 		next;
 		mes "[Juventus]";
-		mes "If they ever attack the guest, they're all broken gardeners, so don't hesitate to take it down.";
-		npctalk "If they ever attack the guest, they're all broken gardeners, so don't hesitate to take it down.";
+		mes "Se eles atacam o hóspede, são todos jardineiros quebrados, então não hesite em derrubá -lo.";
+		npctalk "Se eles atacam o hóspede, são todos jardineiros quebrados, então não hesite em derrubá -lo.";
 		close2;
 		if ('water_garden == 3) {
 			'water_garden = 4;
@@ -384,10 +384,10 @@ OnMobDead:
 	}
 	if ('water_garden == 4) {
 		mes "[Juventus]";
-		mes "If the gardeners ever attack the guest, they're all broken gardeners, so don't hesitate to take it down.";
+		mes "Se os jardineiros atacarem o hóspede, todos estão quebrados, então não hesite em derrubá -lo.";
 		close;
 	}
-	npctalk "The obstructions is now gone, you can not move to the next area.";
+	npctalk "As obstruções agora se foram, você não pode se mudar para a próxima área.";
 	end;
 }
 
@@ -396,47 +396,47 @@ OnMobDead:
 OnStart:
 	.@event$ = instance_npcname("#172_wg_mob_2") + "::OnMobDead";
 	if ('mode == 0) {
-		monster 'map_ghg$,334,84,"--ja--",20677,1, .@event$;
-		monster 'map_ghg$,328,79,"--ja--",20677,1, .@event$;
-		monster 'map_ghg$,325,84,"--ja--",20677,1, .@event$;
-		monster 'map_ghg$,332,69,"--ja--",20677,1, .@event$;
-		monster 'map_ghg$,331,74,"--ja--",20677,1, .@event$;
-		monster 'map_ghg$,327,87,"--ja--",20677,1, .@event$;
-		monster 'map_ghg$,338,73,"--ja--",20677,1, .@event$;
-		monster 'map_ghg$,340,84,"--ja--",20677,1, .@event$;
-		monster 'map_ghg$,342,79,"--ja--",20677,1, .@event$;
-		monster 'map_ghg$,337,67,"--ja--",20622,1, .@event$;
-		monster 'map_ghg$,325,82,"--ja--",20622,1, .@event$;
-		monster 'map_ghg$,338,83,"--ja--",20622,1, .@event$;
+		monster 'map_ghg$,334,84,"--- e--",20677,1, .@event$;
+		monster 'map_ghg$,328,79,"--- e--",20677,1, .@event$;
+		monster 'map_ghg$,325,84,"--- e--",20677,1, .@event$;
+		monster 'map_ghg$,332,69,"--- e--",20677,1, .@event$;
+		monster 'map_ghg$,331,74,"--- e--",20677,1, .@event$;
+		monster 'map_ghg$,327,87,"--- e--",20677,1, .@event$;
+		monster 'map_ghg$,338,73,"--- e--",20677,1, .@event$;
+		monster 'map_ghg$,340,84,"--- e--",20677,1, .@event$;
+		monster 'map_ghg$,342,79,"--- e--",20677,1, .@event$;
+		monster 'map_ghg$,337,67,"--- e--",20622,1, .@event$;
+		monster 'map_ghg$,325,82,"--- e--",20622,1, .@event$;
+		monster 'map_ghg$,338,83,"--- e--",20622,1, .@event$;
 	}
 	else {
-		monster 'map_ghg$,322,82,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,322,82,"--ja--","MD_BETA_SCISSORE_NG_H",1, .@event$;
-		monster 'map_ghg$,327,73,"--ja--","MD_BETA_SCISSORE_NG_H",1, .@event$;
-		monster 'map_ghg$,327,73,"--ja--","MD_VERPORTE_H",1, .@event$;
-		monster 'map_ghg$,328,69,"--ja--","MD_BETA_SCISSORE_NG_H",1, .@event$;
-		monster 'map_ghg$,329,73,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,329,79,"--ja--","MD_VERPORTE_H",1, .@event$;
-		monster 'map_ghg$,330,78,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,332,67,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,332,82,"--ja--","MD_BETA_SCISSORE_NG_H",1, .@event$;
-		monster 'map_ghg$,333,74,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,334,69,"--ja--","MD_BETA_SCISSORE_NG_H",1, .@event$;
-		monster 'map_ghg$,334,78,"--ja--","MD_VERPORTE_H",1, .@event$;
-		monster 'map_ghg$,333,83,"--ja--","MD_BETA_SCISSORE_NG_H",1, .@event$;
-		monster 'map_ghg$,332,83,"--ja--","MD_VERPORTE_H",1, .@event$;
-		monster 'map_ghg$,336,74,"--ja--","MD_VERPORTE_H",1, .@event$;
-		monster 'map_ghg$,338,84,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,338,84,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,339,80,"--ja--","MD_BETA_SCISSORE_NG_H",1, .@event$;
-		monster 'map_ghg$,341,78,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,341,83,"--ja--","MD_BETA_SCISSORE_NG_H",1, .@event$;
-		monster 'map_ghg$,333,86,"--ja--","MD_VERPORTE_H",1, .@event$;
-		monster 'map_ghg$,332,86,"--ja--","MD_VERPORTE_H",1, .@event$;
-		monster 'map_ghg$,344,78,"--ja--","MD_BETA_SCISSORE_NG_H",1, .@event$;
-		monster 'map_ghg$,332,89,"--ja--","MD_ARIES_H",1, .@event$;
-		monster 'map_ghg$,335,90,"--ja--","MD_VERPORTE_H",1, .@event$;
-		monster 'map_ghg$,327,90,"--ja--","MD_VERPORTE_H",1, .@event$;
+		monster 'map_ghg$,322,82,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,322,82,"--- e--","Md_beta_scissore_ng_h",1, .@event$;
+		monster 'map_ghg$,327,73,"--- e--","Md_beta_scissore_ng_h",1, .@event$;
+		monster 'map_ghg$,327,73,"--- e--","MD_VERPORTE_H",1, .@event$;
+		monster 'map_ghg$,328,69,"--- e--","Md_beta_scissore_ng_h",1, .@event$;
+		monster 'map_ghg$,329,73,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,329,79,"--- e--","MD_VERPORTE_H",1, .@event$;
+		monster 'map_ghg$,330,78,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,332,67,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,332,82,"--- e--","Md_beta_scissore_ng_h",1, .@event$;
+		monster 'map_ghg$,333,74,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,334,69,"--- e--","Md_beta_scissore_ng_h",1, .@event$;
+		monster 'map_ghg$,334,78,"--- e--","MD_VERPORTE_H",1, .@event$;
+		monster 'map_ghg$,333,83,"--- e--","Md_beta_scissore_ng_h",1, .@event$;
+		monster 'map_ghg$,332,83,"--- e--","MD_VERPORTE_H",1, .@event$;
+		monster 'map_ghg$,336,74,"--- e--","MD_VERPORTE_H",1, .@event$;
+		monster 'map_ghg$,338,84,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,338,84,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,339,80,"--- e--","Md_beta_scissore_ng_h",1, .@event$;
+		monster 'map_ghg$,341,78,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,341,83,"--- e--","Md_beta_scissore_ng_h",1, .@event$;
+		monster 'map_ghg$,333,86,"--- e--","MD_VERPORTE_H",1, .@event$;
+		monster 'map_ghg$,332,86,"--- e--","MD_VERPORTE_H",1, .@event$;
+		monster 'map_ghg$,344,78,"--- e--","Md_beta_scissore_ng_h",1, .@event$;
+		monster 'map_ghg$,332,89,"--- e--","Md_aries_h",1, .@event$;
+		monster 'map_ghg$,335,90,"--- e--","MD_VERPORTE_H",1, .@event$;
+		monster 'map_ghg$,327,90,"--- e--","MD_VERPORTE_H",1, .@event$;
 	}
 	end;
 OnMobDead:
@@ -450,7 +450,7 @@ OnMobDead:
 		donpcevent instance_npcname("#172_wg_area_2") + "::OnStop";
 		enablenpc instance_npcname("Gardener#ghg_g3");
 		enablenpc instance_npcname("Gardener#gmck3");
-		mapannounce 'map_ghg$, "You have eliminated all the obstructions. Please proceed to the next area.", bc_map, 0xFFFF99;
+		mapannounce 'map_ghg$, "Você eliminou todas as obstruções. Por favor, prossiga para a próxima área.", bc_map, 0xFFFF99;
 		end;
 	}
 	end;
@@ -462,7 +462,7 @@ OnStart:
 	deletearray 'gid_area_2;
 	deletearray 'type_area_2;
 
-	mapannounce 'map_ghg$, "The Papilla's has returned!", bc_map, 0xFFFF99;
+	mapannounce 'map_ghg$, "A Papilla retornou!", bc_map, 0xFFFF99;
 
 	setarray .@xy[0],
 		320,91,325,91,330,91,335,91,340,91,345,91,
@@ -478,9 +478,9 @@ OnStart:
 	for ( .@i = 0; .@i < 3; ++.@i ) {
 		.@r = rand( .@size ) * 2;
 		if (rand(2))	// (red) Cross Pattern
-			monster 'map_ghg$,.@xy[.@r],.@xy[.@r+1],"Papilla",20673,1, .@event$;
+			monster 'map_ghg$,.@xy[.@r],.@xy[.@r+1],"Papila",20673,1, .@event$;
 		else	// (blue) Diagonal Pattern
-			monster 'map_ghg$,.@xy[.@r],.@xy[.@r+1],"Papilla",20676,1, .@event$;
+			monster 'map_ghg$,.@xy[.@r],.@xy[.@r+1],"Papila",20676,1, .@event$;
 		'gid_area_2[.@i] = $@mobid[0];
 		deletearray .@xy[.@r],2;
 		.@size -= 2;
@@ -556,21 +556,21 @@ S_Skill:
 
 // Area 3
 1@ghg,341,143,3	script(DISABLED)	Gardener#ghg_g3	4_EP17_SCISSORE,5,1,{
-	mes "[Aditura]";
-	mes "The rose garden is a very beautiful place, but recently, we are having trouble maintaining it because of the swarms of animals and plants that appeared in groups.";
-	npctalk "The rose garden is a very beautiful place, but recently, we are having trouble maintaining it because of the swarms of animals and plants that appeared in groups.";
+	mes "[Hertidão]";
+	mes "O Rose Garden é um lugar muito bonito, mas recentemente estamos tendo problemas para mantê -lo por causa dos enxames de animais e plantas que apareceram em grupos.";
+	npctalk "O Rose Garden é um lugar muito bonito, mas recentemente estamos tendo problemas para mantê -lo por causa dos enxames de animais e plantas que apareceram em grupos.";
 	next;
-	mes "[Aditura]";
-	mes "Guest, I'd like you to please prune the plants and animals.";
-	npctalk "Guest, I'd like you to please prune the plants and animals.";
+	mes "[Hertidão]";
+	mes "Convidado, eu gostaria que você pudesse podar as plantas e animais.";
+	npctalk "Convidado, eu gostaria que você pudesse podar as plantas e animais.";
 	next;
-	mes "[Aditura]";
-	mes "At the end of the garden, there is a manager waiting to open the next area, so please speak to her when you reach there.";
-	npctalk "At the end of the garden, there is a manager waiting to open the next area, so please speak to her when you reach there.";
+	mes "[Hertidão]";
+	mes "No final do jardim, há um gerente esperando para abrir a próxima área; portanto, fale com ela quando chegar lá.";
+	npctalk "No final do jardim, há um gerente esperando para abrir a próxima área; portanto, fale com ela quando chegar lá.";
 	next;
-	mes "[Aditura]";
-	mes "It's a little slow, so you might have to wait, but... the next area will definitely open.";
-	npctalk "It's a little slow, so you might have to wait, but... the next area will definitely open.";
+	mes "[Hertidão]";
+	mes "É um pouco lento, então você pode ter que esperar, mas ... a próxima área definitivamente abrirá.";
+	npctalk "É um pouco lento, então você pode ter que esperar, mas ... a próxima área definitivamente abrirá.";
 	close;
 
 OnTouch_:	// note: hidden player doesn't trigger it!
@@ -589,12 +589,12 @@ OnTouch_:	// note: hidden player doesn't trigger it!
 		monster 'map_ghg$,317,150,"",20665,1;
 	}
 	else {
-		monster 'map_ghg$,318,147,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,317,147,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,318,149,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,316,150,"--ja--","MD_BETA_SCISSORE_NG_H",1;
-		monster 'map_ghg$,317,149,"--ja--","MD_BETA_SCISSORE_NG_H",1;
-		monster 'map_ghg$,315,148,"--ja--","MD_BETA_SCISSORE_NG_H",1;
+		monster 'map_ghg$,318,147,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,317,147,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,318,149,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,316,150,"--- e--","Md_beta_scissore_ng_h",1;
+		monster 'map_ghg$,317,149,"--- e--","Md_beta_scissore_ng_h",1;
+		monster 'map_ghg$,315,148,"--- e--","Md_beta_scissore_ng_h",1;
 	}
 	end;
 }
@@ -608,12 +608,12 @@ OnTouch_:
 		monster 'map_ghg$,296,147,"",20665,1;
 	}
 	else {
-		monster 'map_ghg$,298,151,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,296,151,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,297,150,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,296,148,"--ja--","MD_BETA_SCISSORE_NG_H",1;
-		monster 'map_ghg$,296,150,"--ja--","MD_BETA_SCISSORE_NG_H",1;
-		monster 'map_ghg$,298,148,"--ja--","MD_BETA_SCISSORE_NG_H",1;
+		monster 'map_ghg$,298,151,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,296,151,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,297,150,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,296,148,"--- e--","Md_beta_scissore_ng_h",1;
+		monster 'map_ghg$,296,150,"--- e--","Md_beta_scissore_ng_h",1;
+		monster 'map_ghg$,298,148,"--- e--","Md_beta_scissore_ng_h",1;
 	}
 	end;
 }
@@ -628,12 +628,12 @@ OnTouch_:
 		monster 'map_ghg$,278,147,"",20665,1;
 	}
 	else {
-		monster 'map_ghg$,278,151,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,278,148,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,276,148,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,275,151,"--ja--","MD_BETA_SCISSORE_NG_H",1;
-		monster 'map_ghg$,278,150,"--ja--","MD_BETA_SCISSORE_NG_H",1;
-		monster 'map_ghg$,277,151,"--ja--","MD_BETA_SCISSORE_NG_H",1;
+		monster 'map_ghg$,278,151,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,278,148,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,276,148,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,275,151,"--- e--","Md_beta_scissore_ng_h",1;
+		monster 'map_ghg$,278,150,"--- e--","Md_beta_scissore_ng_h",1;
+		monster 'map_ghg$,277,151,"--- e--","Md_beta_scissore_ng_h",1;
 	}
 	end;
 }
@@ -648,12 +648,12 @@ OnTouch_:
 		monster 'map_ghg$,256,150,"",20665,1;
 	}
 	else {
-		monster 'map_ghg$,256,151,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,254,149,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,256,147,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,256,151,"--ja--","MD_BETA_SCISSORE_NG_H",1;
-		monster 'map_ghg$,256,147,"--ja--","MD_BETA_SCISSORE_NG_H",1;
-		monster 'map_ghg$,256,147,"--ja--","MD_BETA_SCISSORE_NG_H",1;
+		monster 'map_ghg$,256,151,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,254,149,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,256,147,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,256,151,"--- e--","Md_beta_scissore_ng_h",1;
+		monster 'map_ghg$,256,147,"--- e--","Md_beta_scissore_ng_h",1;
+		monster 'map_ghg$,256,147,"--- e--","Md_beta_scissore_ng_h",1;
 	}
 	end;
 }
@@ -668,12 +668,12 @@ OnTouch_:
 		monster 'map_ghg$,231,162,"",20665,1;
 	}
 	else {
-		monster 'map_ghg$,232,163,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,229,159,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,232,159,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,231,160,"--ja--","MD_BETA_SCISSORE_NG_H",1;
-		monster 'map_ghg$,230,162,"--ja--","MD_BETA_SCISSORE_NG_H",1;
-		monster 'map_ghg$,231,159,"--ja--","MD_BETA_SCISSORE_NG_H",1;
+		monster 'map_ghg$,232,163,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,229,159,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,232,159,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,231,160,"--- e--","Md_beta_scissore_ng_h",1;
+		monster 'map_ghg$,230,162,"--- e--","Md_beta_scissore_ng_h",1;
+		monster 'map_ghg$,231,159,"--- e--","Md_beta_scissore_ng_h",1;
 	}
 	end;
 }
@@ -688,12 +688,12 @@ OnTouch_:
 		monster 'map_ghg$,252,174,"",20665,1;
 	}
 	else {
-		monster 'map_ghg$,254,173,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,254,173,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,256,171,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,254,172,"--ja--","MD_BETA_SCISSORE_NG_H",1;
-		monster 'map_ghg$,253,174,"--ja--","MD_BETA_SCISSORE_NG_H",1;
-		monster 'map_ghg$,252,174,"--ja--","MD_BETA_SCISSORE_NG_H",1;
+		monster 'map_ghg$,254,173,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,254,173,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,256,171,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,254,172,"--- e--","Md_beta_scissore_ng_h",1;
+		monster 'map_ghg$,253,174,"--- e--","Md_beta_scissore_ng_h",1;
+		monster 'map_ghg$,252,174,"--- e--","Md_beta_scissore_ng_h",1;
 	}
 	end;
 }
@@ -708,12 +708,12 @@ OnTouch_:
 		monster 'map_ghg$,276,175,"",20665,1;
 	}
 	else {
-		monster 'map_ghg$,276,171,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,275,175,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,274,173,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,274,175,"--ja--","MD_BETA_SCISSORE_NG_H",1;
-		monster 'map_ghg$,274,171,"--ja--","MD_BETA_SCISSORE_NG_H",1;
-		monster 'map_ghg$,274,173,"--ja--","MD_BETA_SCISSORE_NG_H",1;
+		monster 'map_ghg$,276,171,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,275,175,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,274,173,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,274,175,"--- e--","Md_beta_scissore_ng_h",1;
+		monster 'map_ghg$,274,171,"--- e--","Md_beta_scissore_ng_h",1;
+		monster 'map_ghg$,274,173,"--- e--","Md_beta_scissore_ng_h",1;
 	}
 	end;
 }
@@ -728,12 +728,12 @@ OnTouch_:
 		monster 'map_ghg$,292,173,"",20665,1;
 	}
 	else {
-		monster 'map_ghg$,295,171,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,296,172,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,293,171,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,292,171,"--ja--","MD_BETA_SCISSORE_NG_H",1;
-		monster 'map_ghg$,294,172,"--ja--","MD_BETA_SCISSORE_NG_H",1;
-		monster 'map_ghg$,296,173,"--ja--","MD_BETA_SCISSORE_NG_H",1;
+		monster 'map_ghg$,295,171,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,296,172,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,293,171,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,292,171,"--- e--","Md_beta_scissore_ng_h",1;
+		monster 'map_ghg$,294,172,"--- e--","Md_beta_scissore_ng_h",1;
+		monster 'map_ghg$,296,173,"--- e--","Md_beta_scissore_ng_h",1;
 	}
 	end;
 }
@@ -748,28 +748,28 @@ OnTouch_:
 		monster 'map_ghg$,314,173,"",20665,1;
 	}
 	else {
-		monster 'map_ghg$,314,171,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,313,175,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,312,173,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,315,172,"--ja--","MD_BETA_SCISSORE_NG_H",1;
-		monster 'map_ghg$,314,173,"--ja--","MD_BETA_SCISSORE_NG_H",1;
-		monster 'map_ghg$,314,175,"--ja--","MD_BETA_SCISSORE_NG_H",1;
+		monster 'map_ghg$,314,171,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,313,175,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,312,173,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,315,172,"--- e--","Md_beta_scissore_ng_h",1;
+		monster 'map_ghg$,314,173,"--- e--","Md_beta_scissore_ng_h",1;
+		monster 'map_ghg$,314,175,"--- e--","Md_beta_scissore_ng_h",1;
 	}
 	end;
 }
 
 1@ghg,344,173,3	script(DISABLED)	Gardener#gmck3	4_EP17_SCISSORE,2,2,{
 	if ('water_garden < 6) {
-		npctalk "An error... has occurred.";
+		npctalk "Um erro ... ocorreu.";
 		end;
 	}
 	progressbar_npc "00FF00",5;
-	mes "[Higel]";
-	mes "Next garden... portal creation complete... Move into the 12 o'clock direction... to use... Thank you...";
-	npctalk "Next garden... portal creation complete... Move into the 12 o'clock direction... to use... Thank you...";
+	mes "[Higels]";
+	mes "Próximo jardim ... Criação do portal Completa ... vá para a direção das 12 horas ... para usar ... obrigado ...";
+	npctalk "Próximo jardim ... Criação do portal Completa ... vá para a direção das 12 horas ... para usar ... obrigado ...";
 	next;
-	mes "[Higel]";
-	mes "After the move... Papilla in the maze... Please prune all of them.";
+	mes "[Higels]";
+	mes "Após a mudança ... Papila no labirinto ... Por favor, amenize todos eles.";
 	close2;
 	if ('water_garden == 6) {
 		// note: mobs from traps are not killed
@@ -793,41 +793,41 @@ OnTouch:	// unknown effect
 OnStart:
 	.@event$ = instance_npcname("#172_wg_mob_4") + "::OnMobDead";
 	if ('mode == 0) {
-		monster 'map_ghg$,314,301,"--ja--",20665,1;
-		monster 'map_ghg$,317,296,"--ja--",20665,1;
-		monster 'map_ghg$,324,296,"--ja--",20665,1;
-		monster 'map_ghg$,317,275,"--ja--",20677,1;
-		monster 'map_ghg$,318,266,"--ja--",20677,1;
-		monster 'map_ghg$,311,268,"--ja--",20677,1;
-		monster 'map_ghg$,277,279,"--ja--",20665,1;
-		monster 'map_ghg$,286,284,"--ja--",20665,1;
-		monster 'map_ghg$,280,284,"--ja--",20665,1;
-		monster 'map_ghg$,278,241,"--ja--",20671,1, .@event$;	// other monsters are not required
-		monster 'map_ghg$,278,301,"--ja--",20674,1, .@event$;
+		monster 'map_ghg$,314,301,"--- e--",20665,1;
+		monster 'map_ghg$,317,296,"--- e--",20665,1;
+		monster 'map_ghg$,324,296,"--- e--",20665,1;
+		monster 'map_ghg$,317,275,"--- e--",20677,1;
+		monster 'map_ghg$,318,266,"--- e--",20677,1;
+		monster 'map_ghg$,311,268,"--- e--",20677,1;
+		monster 'map_ghg$,277,279,"--- e--",20665,1;
+		monster 'map_ghg$,286,284,"--- e--",20665,1;
+		monster 'map_ghg$,280,284,"--- e--",20665,1;
+		monster 'map_ghg$,278,241,"--- e--",20671,1, .@event$;	// other monsters are not required
+		monster 'map_ghg$,278,301,"--- e--",20674,1, .@event$;
 	}
 	else {
-		monster 'map_ghg$,334,304,"--ja--","MD_ARIES_H",1;
-		monster 'map_ghg$,333,310,"--ja--","MD_ARIES_H",1;
-		monster 'map_ghg$,327,304,"--ja--","MD_ARIES_H",1;
-		monster 'map_ghg$,327,303,"--ja--","MD_ARIES_H",1;
-		monster 'map_ghg$,326,302,"--ja--","MD_ARIES_H",1;
-		monster 'map_ghg$,321,299,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,318,295,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,314,296,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,318,291,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,313,297,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,315,271,"--ja--","MD_ARIES_H",1;
-		monster 'map_ghg$,320,271,"--ja--","MD_ARIES_H",1;
-		monster 'map_ghg$,318,266,"--ja--","MD_ARIES_H",1;
-		monster 'map_ghg$,322,264,"--ja--","MD_ARIES_H",1;
-		monster 'map_ghg$,311,269,"--ja--","MD_ARIES_H",1;
-		monster 'map_ghg$,275,273,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,275,277,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,285,279,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,275,282,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,286,282,"--ja--","MD_VERPORTE_H",1;
-		monster 'map_ghg$,278,301,"--ja--","MD_PAPILA_CAE_H",1, .@event$;	// other monsters are not required
-		monster 'map_ghg$,278,241,"--ja--","MD_PAPILA_RUBA_H",1, .@event$;
+		monster 'map_ghg$,334,304,"--- e--","Md_aries_h",1;
+		monster 'map_ghg$,333,310,"--- e--","Md_aries_h",1;
+		monster 'map_ghg$,327,304,"--- e--","Md_aries_h",1;
+		monster 'map_ghg$,327,303,"--- e--","Md_aries_h",1;
+		monster 'map_ghg$,326,302,"--- e--","Md_aries_h",1;
+		monster 'map_ghg$,321,299,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,318,295,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,314,296,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,318,291,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,313,297,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,315,271,"--- e--","Md_aries_h",1;
+		monster 'map_ghg$,320,271,"--- e--","Md_aries_h",1;
+		monster 'map_ghg$,318,266,"--- e--","Md_aries_h",1;
+		monster 'map_ghg$,322,264,"--- e--","Md_aries_h",1;
+		monster 'map_ghg$,311,269,"--- e--","Md_aries_h",1;
+		monster 'map_ghg$,275,273,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,275,277,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,285,279,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,275,282,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,286,282,"--- e--","MD_VERPORTE_H",1;
+		monster 'map_ghg$,278,301,"--- e--","Md_papila_cae_h",1, .@event$;	// other monsters are not required
+		monster 'map_ghg$,278,241,"--- e--","MD_PAPILA_RUBA_H",1, .@event$;
 	}
 	end;
 OnMobDead:
@@ -837,7 +837,7 @@ OnMobDead:
 		'water_garden = 8;
 		enablenpc instance_npcname("#ghg_wb");
 		specialeffect EF_READYPORTAL, AREA, instance_npcname("#ghg_wb");
-		mapannounce 'map_ghg$, "The final garden has opened. Please proceed to the next area.", bc_map, 0xFFFF99;
+		mapannounce 'map_ghg$, "O jardim final foi aberto. Por favor, prossiga para a próxima área.", bc_map, 0xFFFF99;
 		enablenpc instance_npcname("Gardener#ghg_gb");
 		end;
 	}
@@ -848,23 +848,23 @@ OnMobDead:
 1@ghg,346,248,3	script(DISABLED)	Gardener#keeper1	4_EP17_SCISSORE,{
 	if (isbegin_quest(16435) == 1) {
 		if (checkweight(1000099,1) == 0) {	// (custom)
-			mes "^008800Wait a sec!!";
-			mes "You cannot receive any more items because you're carrying too many items. Please try again after you lighten up.^000000";
+			mes "^008800Wait A Sec !!";
+			mes "Você não pode receber mais itens porque está carregando muitos itens. Por favor, tente novamente depois de iluminar.^000000";
 			close;
 		}
 		if (countitem(1000099) == 0) {
-			npctalk "Oh, I forgot to make regular contact! I'll get in touch. Would you like a cookie while you're here?", "", bc_self;
+			npctalk "Oh, eu esqueci de fazer contato regular! Vou entrar em contato. Você gostaria de um biscoito enquanto estiver aqui?", "", bc_self;
 			getitem 1000099,1;
 			end;
 		}
-		npctalk "Do not worry, I already contacted Alpha. Hehe.", "", bc_self;
+		npctalk "Não se preocupe, já entrei em contato com Alpha. Hehe.", "", bc_self;
 		end;
 	}
 	if ('water_garden == 7) {
-		npctalk "That's strange, I forgot it yesterday, but I forgot it today as well.";
+		npctalk "Isso é estranho, eu esqueci ontem, mas eu esqueci hoje também.";
 		end;
 	}
-	npctalk "The final garden opened. But... I forgot what should I do...";
+	npctalk "O jardim final foi aberto. Mas ... eu esqueci o que devo fazer ...";
 	end;
 }
 1@ghg,334,272,3	duplicate(Gardener#keeper1)	Gardener#keeper2	4_EP17_SCISSORE
@@ -876,16 +876,16 @@ OnMobDead:
 1@ghg,186,287,3	script(DISABLED)	Gardener#ghg_gb	4_EP17_SCISSORE,{
 	if ('water_garden == 8) {
 		mes "[Velkina]";
-		mes "If a Papilla shows up during the battle, make it follow you to the pillar of the same color.";
+		mes "Se uma papila aparecer durante a batalha, faça com que você o siga até o pilar da mesma cor.";
 		next;
 		mes "[Velkina]";
-		mes "If the Papilla touches the light, it will take damage and die.";
+		mes "Se a papila tocar a luz, levará danos e morrerá.";
 		next;
 		mes "[Velkina]";
-		mes "If you can safely stop Silva Papilla, we will handle the rest!";
+		mes "Se você pode parar com segurança Silva Papilla, lidaremos com o resto!";
 		next;
 		mes "[Velkina]";
-		mes "Then, I'll burn the incense that calls out Silva Papilla...";
+		mes "Então, eu queimarei o incenso que chama Silva Papilla ...";
 		close2;
 		if ('water_garden == 8) {
 			'water_garden = 9;
@@ -917,8 +917,8 @@ OnSlave:
 	'red = rand(1,3);
 	'blue = rand(1,3);
 	.@event$ = instance_npcname("#172_wg_boss") + "::OnMobDead";
-	monster 'map_ghg$,182,286,"Papilla Ruba",(20671+'mode),1, .@event$;
-	monster 'map_ghg$,182,286,"Papilla Cae",(20674+'mode),1, .@event$;
+	monster 'map_ghg$,182,286,"Mingau Ruba",(20671+'mode),1, .@event$;
+	monster 'map_ghg$,182,286,"CAE do mamilo",(20674+'mode),1, .@event$;
 	enablenpc instance_npcname("#blue" + 'blue + "ghg");
 	enablenpc instance_npcname("#red" + 'red + "ghg");
 	sleep 15000;
@@ -1012,13 +1012,13 @@ OnTouchNPC:
 1@ghg,187,287,3	script(DISABLED)	Gardener#ghg_gb1	4_EP17_SCISSORE,2,2,{
 	if ('water_garden == 10) {
 		mes "[Velkina]";
-		mes "You didn't forget your request from Seiyu, and came in here, right?";
+		mes "Você não esqueceu seu pedido de Seiyu e veio aqui, certo?";
 		next;
 		mes "[Velkina]";
-		mes "Don't forget to go out and talk to Seiyu to ^0000CDReceive your rewards^000000 from todays work.";
+		mes "Não se esqueça de sair e conversar com seiyu para ^0000cdreceive suas recompensas ^000000 do trabalho de hoje.";
 		next;
 		mes "[Velkina]";
-		mes "Then, I'll show you the way outside again!";
+		mes "Então, eu vou te mostrar o caminho para fora novamente!";
 		close2;
 		warp "ba_maison",233,46;
 		end;

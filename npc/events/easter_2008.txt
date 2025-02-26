@@ -17,109 +17,109 @@
 
 // Prontera
 prontera,111,99,5	script	Egg Salesman#prt::EggVendor	98,{
-	mes "[Egg Salesman]";
-	mes "^FF0000Chicken Eggs^000000! Come and";
-	mes "buy as many Chicken Eggs";
-	mes "as you want, whenever you";
-	mes "want! Hey buddy, you wanna";
-	mes "take a look at the Chicken";
-	mes "Eggs that I'm selling?";
+	mes "[Vendedor de ovos]";
+	mes "^FF0000CONENCIONE O OVOS^000000! Venha e";
+	mes "Compre tantos ovos de galinha";
+	mes "Como você quiser, sempre que você";
+	mes "querer! Ei amigo, você quer";
+	mes "Dê uma olhada no frango";
+	mes "Ovos que estou vendendo?";
 	next;
 	while(1) {
-		switch(select("What are you doing?:Why Chicken Eggs?:Sure, I'll buy some.:Never mind.")) {
+		switch(select("O que você está fazendo ?: Por que ovos de galinha ?: Claro, vou comprar um pouco.")) {
 		case 1:
-			mes "[Egg Salesman]";
-			mes "What am I--? I'm";
-			mes "selling Chicken Eggs!";
-			mes "For this special event";
-			mes "period, I'm selling as many";
-			mes "Chicken Eggs as you could";
-			mes "want for only 500 zeny each!";
+			mes "[Vendedor de ovos]";
+			mes "O que sou eu--? Eu sou";
+			mes "Vendendo ovos de galinha!";
+			mes "Para este evento especial";
+			mes "período, estou vendendo tantos";
+			mes "Ovos de galinha como você poderia";
+			mes "Quer apenas 500 Zeny cada!";
 			next;
-			mes "[Egg Salesman]";
-			mes "Boys, girls, friends,";
-			mes "family, old people, young";
-			mes "people, um, maybe not most";
-			mes "vegetarians or raw foodists,";
-			mes "but almost everyone likes eggs!";
+			mes "[Vendedor de ovos]";
+			mes "Meninos, meninas, amigos,";
+			mes "família, idosos, jovens";
+			mes "pessoas, hum, talvez não a maioria";
+			mes "vegetarianos ou foodistas crus,";
+			mes "Mas quase todo mundo gosta de ovos!";
 			next;
-			mes "[Egg Salesman]";
-			mes "Can you imagine a world";
-			mes "without eggs? There'd be";
-			mes "no bread, pastries, cake";
-			mes "or frosting... Ice cream";
-			mes "would be a lot runnier...";
-			mes "Pranks wouldn't be as fun...";
+			mes "[Vendedor de ovos]";
+			mes "Você pode imaginar um mundo";
+			mes "sem ovos? Haveria";
+			mes "Sem pão, doces, bolo";
+			mes "ou glacê ... sorvete";
+			mes "seria muito mais estranho ...";
+			mes "Pranks não seriam tão divertidas ...";
 			next;
 			break;
 		case 2:
-			mes "[Egg Salesman]";
-			mes "I'm not really sure why, but";
-			mes "Chicken Eggs are popular";
-			mes "around this time of year.";
-			mes "They're hot items right";
-			mes "now, and I aim to cash in!";
+			mes "[Vendedor de ovos]";
+			mes "Não tenho muita certeza do porquê, mas";
+			mes "Ovos de galinha são populares";
+			mes "Nesta época do ano.";
+			mes "Eles são itens quentes certos";
+			mes "Agora, e pretendo lucrar!";
 			next;
 			break;
 		case 3:
-			mes "[Egg Salesman]";
-			mes "Great! How many do you";
-			mes "want? Remember that each";
-			mes "Chicken Egg is 500 zeny.";
-			mes "Remember that you won't";
-			mes "always be able to buy";
-			mes "Chicken Eggs so easily!";
+			mes "[Vendedor de ovos]";
+			mes "Ótimo! Quantos você";
+			mes "querer? Lembre -se disso";
+			mes "Ovo de galinha é 500 Zeny.";
+			mes "Lembre -se de que você não vai";
+			mes "Sempre seja capaz de comprar";
+			mes "Ovos de galinha tão facilmente!";
 			next;
 			while(1) {
 				input .@input;
 				if (.@input == 0) {
-					mes "[Egg Salesman]";
-					mes "Hey, if you're not";
-					mes "going to buy anything,";
-					mes "then would you mind getting";
-					mes "out of the way so I can";
-					mes "help out my customers?";
+					mes "[Vendedor de ovos]";
+					mes "Ei, se você não";
+					mes "Vou comprar qualquer coisa,";
+					mes "Então você se importaria de conseguir";
+					mes "fora do caminho para que eu possa";
+					mes "ajudar meus clientes?";
 					close;
 				}
 				else if (.@input < 0 || .@input > 1000) {
-					mes "[Egg Salesman]";
-					mes "Hey, you mind giving";
-					mes "me a real number? I also";
-					mes "can't sell you more than";
-					mes "1,000 Chicken Eggs at a time,";
-					mes "you know. C'mon, tell me how";
-					mes "many you want for real now.";
+					mes "[Vendedor de ovos]";
+					mes "Ei, você se importa de dar";
+					mes "eu um número real? Eu também";
+					mes "não posso te vender mais do que";
+					mes "1.000 ovos de galinha por vez,";
+					mes "você sabe. Vamos, diga -me como";
+					mes "Muitos que você quer de verdade agora.";
 					next;
 				}
 				else {
 					set .@egg_zeny,.@input*500;
 					if (Zeny < .@egg_zeny) {
-						mes "[Egg Salesman]";
-						mes "You don't have enough Zeny.";
+						mes "[Vendedor de ovos]";
+						mes "Você não tem zeny suficiente.";
 						next;
-						mes "[Egg Salesman]";
-						mes "No discount, go and get enough Zeny.";
+						mes "[Vendedor de ovos]";
+						mes "Sem desconto, vá e pegue o suficiente Zeny.";
 						close;
 					}
 					else {
 						if (checkweight(7605,.@input) == 0) {
-							mes "[Egg Salesman]";
-							mes "Hey, I know you really";
-							mes "want to buy some Chicken";
-							mes "Eggs, but you won't be able";
-							mes "to carry that much now. Why";
-							mes "don't you free up some";
-							mes "Inventory space first?.";
+							mes "[Vendedor de ovos]";
+							mes "Ei, eu te conheço realmente";
+							mes "quero comprar um pouco de frango";
+							mes "Ovos, mas você não será capaz";
+							mes "para carregar muito agora. Por que";
+							mes "você não libera alguns";
+							mes "Espaço de inventário primeiro?.";
 							close;
 						}
 						else {
-							mes "[Egg Salesman]";
-							mes "Here's your Chicken Eggs!";
-							mes "I guess there's some festival";
-							mes "happening where you'll need";
-							mes "them, but I don't know anything";
-							mes "about that. Well, have a good";
-							mes "time, and I'll see you again!";
+							mes "[Vendedor de ovos]";
+							mes "Aqui estão seus ovos de galinha!";
+							mes "Eu acho que há algum festival";
+							mes "acontecendo onde você precisará";
+							mes "eles, mas eu não sei nada";
+							mes "sobre isso. Bem, tenha um bom";
+							mes "tempo, e eu te vejo de novo!";
 							set Zeny, Zeny-.@egg_zeny;
 							getitem 7605,.@input; //Chicken_Egg
 							close;
@@ -128,51 +128,51 @@ prontera,111,99,5	script	Egg Salesman#prt::EggVendor	98,{
 				}
 			}
 		case 4:
-			mes "[Egg Salesman]";
-			mes "Not interested in buying";
-			mes "Chicken Eggs, huh? Well,";
-			mes "word's going around that";
-			mes "there's some kind of festival";
-			mes "where they'll come in handy...";
-			mes "Can you really pass this up?";
+			mes "[Vendedor de ovos]";
+			mes "Não está interessado em comprar";
+			mes "Ovos de galinha, hein? Bem,";
+			mes "Palavra está circulando";
+			mes "Há algum tipo de festival";
+			mes "onde eles serão úteis ...";
+			mes "Você pode realmente deixar passar isso?";
 			close;
 		}
 	}
 }
 
 prontera,113,98,0	script	Dowdy Matron#prt::EggMatron	701,{
-	mes "[Dowdy Matron]";
-	mes "This festival is going";
-	mes "to be so much fun! Ooh!";
-	mes "I should buy some Chicken";
-	mes "Eggs to make some decorations.";
+	mes "[Matrona Dowdy]";
+	mes "Este festival está indo";
+	mes "Para ser muito divertido! Ooh!";
+	mes "Eu deveria comprar um pouco de frango";
+	mes "Ovos para fazer algumas decorações.";
 	next;
-	mes "[Dowdy Matron]";
-	mes "Speaking of which,";
-	mes "I've heard the nun that";
-	mes "can make Holy Eggs is back";
-	mes "in Prontera. Though, I think";
-	mes "she's using Chicken Eggs rather";
-	mes "than regular Eggs to make them.";
+	mes "[Matrona Dowdy]";
+	mes "Falando nisso,";
+	mes "Eu ouvi a freira que";
+	mes "Pode fazer ovos sagrados está de volta";
+	mes "em Protera. No entanto, eu acho";
+	mes "Ela está usando ovos de galinha em vez";
+	mes "do que ovos regulares para fazê -los.";
 	close;
 }
 
 prontera,108,96,5	script	Cantankerous Geezer#prt::EggGeezer	709,{
-	mes "[Cantankerous Geezer]";
-	mes ".Hey, do you know how";
-	mes "Chicken Eggs got to be so";
-	mes "expensive? I mean, 500 zeny";
-	mes "is a lot! I think it's because";
-	mes "some guy in Morocc is trying";
-	mes "to amass a ton of Holy Eggs!";
+	mes "[Presucedista Cantankeroso]";
+	mes ".Ele, você sabe como";
+	mes "Ovos de galinha tem que ser tão";
+	mes "caro? Quero dizer, 500 Zeny";
+	mes "é muito! Eu acho que é porque";
+	mes "um cara em marrocc está tentando";
+	mes "Para acumular uma tonelada de ovos sagrados!";
 	next;
-	mes "[Cantankerous Geezer]";
-	mes "I don't know what he's";
-	mes "offering for those Holy";
-	mes "Eggs, but adventurers are";
-	mes "coming to him with Holy Eggs";
-	mes "in droves. I wonder what he's";
-	mes "giving to them in return?";
+	mes "[Presucedista Cantankeroso]";
+	mes "Eu não sei o que ele é";
+	mes "oferecendo para aqueles santo";
+	mes "Ovos, mas aventureiros são";
+	mes "Vindo para ele com ovos sagrados";
+	mes "em massa. Eu me pergunto o que ele é";
+	mes "dando a eles em troca?";
 	close2;
 	if (easter2008 < 1) {
 		set easter2008,1;
@@ -202,79 +202,79 @@ alberta,88,52,5	duplicate(EggGeezer)	Cantankerous Geezer#alb	709
 
 // Create Holy Eggs
 prontera,230,312,3	script	Nerlen#es07	79,{
-	mes "[Nerlen]";
-	mes "Hello! If you'd like,";
-	mes "I can take your Chicken";
-	mes "Eggs and transform them";
-	mes "into Holy Eggs. It's something";
-	mes "I do for others in celebration";
-	mes "of this holy season.";
+	mes "[Onde]";
+	mes "Olá! Se você quiser,";
+	mes "Eu posso levar seu frango";
+	mes "Ovos e transformá -los";
+	mes "em ovos sagrados. É algo";
+	mes "Eu faço para os outros em comemoração";
+	mes "desta estação sagrada.";
 	next;
-	mes "[Nerlen]";
-	mes "Holy Eggs represent";
-	mes "rebirth and, fittingly,";
-	mes "can be used to restore";
-	mes "life to your friends.";
-	mes "Would you like me to";
-	mes "make some for you?";
+	mes "[Onde]";
+	mes "Ovos sagrados representam";
+	mes "renascimento e, apropriadamente,";
+	mes "pode ser usado para restaurar";
+	mes "vida para seus amigos.";
+	mes "Você gostaria que eu fosse";
+	mes "fazer alguns para você?";
 	next;
-	switch(select("What do I need to make Holy Eggs?:I want to make Holy Eggs.:Maybe next time.")) {
+	switch(select("O que eu preciso para fazer ovos sagrados?: Eu quero fazer ovos sagrados.")) {
 	case 1:
-		mes "[Nerlen]";
-		mes "For each Holy Egg";
-		mes "that you want me to";
-		mes "make, you will need";
-		mes "to bring me...";
+		mes "[Onde]";
+		mes "Para cada ovo santo";
+		mes "que você quer que eu";
+		mes "fazer, você precisará";
+		mes "para me trazer ...";
 		next;
-		mes "[Nerlen]";
-		mes "^4D4DFF1 White Herb^000000,";
-		mes "^4D4DFF1 Green Herb^000000,";
-		mes "^4D4DFF1 Yellow Herb^000000,";
-		mes "^4D4DFF1 Holy Water^000000, and";
-		mes "^4D4DFF1 Chicken Egg^000000.";
+		mes "[Onde]";
+		mes "^4d4dff1 erva branca^000000,";
+		mes "^4d4dff1 erva verde^000000,";
+		mes "^4d4dff1 erva amarela^000000,";
+		mes "^4d4dff1 água benta^000000 e";
+		mes "^4d4dff1 ovo de frango^000000.";
 		close;
 	case 2:
-		mes "[Nerlen]";
-		mes "Alright, how many";
-		mes "Holy Eggs would you";
-		mes "like me to make you?";
-		mes "I can only make up to";
-		mes "10 Holy Eggs at a time.";
-		mes "Enter ''0'' to cancel.";
+		mes "[Onde]";
+		mes "Tudo bem, quantos";
+		mes "Ovos sagrados você seria";
+		mes "como eu para fazer você?";
+		mes "Eu só posso fazer as pazes";
+		mes "10 ovos sagrados de cada vez.";
+		mes "Digite '' 0 '' para cancelar.";
 		next;
 		while(1) {
 			input .@input;
 			if (.@input == 0) {
-				mes "[Nerlen]";
-				mes "Oh, you changed your";
-				mes "mind? Feel free to visit me";
-				mes "whenever you want me to";
-				mes "make you some Holy Eggs~";
+				mes "[Onde]";
+				mes "Oh, você mudou seu";
+				mes "mente? Sinta -se à vontade para me visitar";
+				mes "sempre que você quiser que eu";
+				mes "Faça de você alguns ovos sagrados ~";
 				close;
 			}
 			else if (.@input < 0 || .@input > 10) {
-				mes "[Nerlen]";
-				mes "I'm sorry, but I can only";
-				mes "make up to 10 Holy Eggs";
-				mes "at a time. If you wanted to";
-				mes "cancel, then just enter ''0.''";
+				mes "[Onde]";
+				mes "Sinto muito, mas só posso";
+				mes "fazer até 10 ovos sagrados";
+				mes "de cada vez. Se você quisesse";
+				mes "Cancelar e depois digitar '' '' ''";
 				next;
 			}
 			else {
 				if ((countitem(509) < .@input) || (countitem(511) < .@input) || (countitem(508) < .@input) || (countitem(523) < .@input) || (countitem(7605) < .@input)) {
-					mes "[Nerlen]";
-					mes "I'm sorry, but you don't";
-					mes "have enough items to make";
-					mes "Holy Eggs. You need the";
-					mes "following for me to create";
-					mes "each Holy Egg for you.";
+					mes "[Onde]";
+					mes "Sinto muito, mas você não";
+					mes "tem itens suficientes para fazer";
+					mes "Ovos sagrados. Você precisa do";
+					mes "seguindo para eu criar";
+					mes "cada ovo santo para você.";
 					next;
-					mes "[Nerlen]";
-					mes "^4D4DFF1 White Herb^000000,";
-					mes "^4D4DFF1 Green Herb^000000,";
-					mes "^4D4DFF1 Yellow Herb^000000,";
-					mes "^4D4DFF1 Holy Water^000000, and";
-					mes "^4D4DFF1 Chicken Egg^000000.";
+					mes "[Onde]";
+					mes "^4d4dff1 erva branca^000000,";
+					mes "^4d4dff1 erva verde^000000,";
+					mes "^4d4dff1 erva amarela^000000,";
+					mes "^4d4dff1 água benta^000000 e";
+					mes "^4d4dff1 ovo de frango^000000.";
 					close;
 				}
 				else {
@@ -283,12 +283,12 @@ prontera,230,312,3	script	Nerlen#es07	79,{
 			}
 		}
 		if (checkweight(12019,.@input) == 0) {
-			mes "[Nerlen]";
-			mes "I'm sorry, but you";
-			mes "won't be able to carry";
-			mes "that many Holy Eggs now...";
-			mes "You'd better free up more";
-			mes "space in your Inventory first.";
+			mes "[Onde]";
+			mes "Sinto muito, mas você";
+			mes "Não será capaz de carregar";
+			mes "tantos ovos sagrados agora ...";
+			mes "É melhor você libertar mais";
+			mes "Espaço em seu inventário primeiro.";
 			close;
 		}
 		else {
@@ -298,17 +298,17 @@ prontera,230,312,3	script	Nerlen#es07	79,{
 			delitem 523,.@input; //Holy_Water
 			delitem 7605,.@input; //Egg
 			getitem 12019,.@input; //Holy_Egg
-			mes "[Nerlen]";
-			mes "Thank you!";
-			mes "I hope you enjoy";
-			mes "these Holy Eggs~";
-			mes "Hope you to be with God's love.";
+			mes "[Onde]";
+			mes "Obrigado!";
+			mes "Espero que você goste";
+			mes "esses ovos sagrados ~";
+			mes "Espero que você esteja com o amor de Deus.";
 			close;
 		}
 	case 3:
-		mes "[Nerlen]";
-		mes "Alright, I understand.";
-		mes "May God bless you.";
+		mes "[Onde]";
+		mes "Tudo bem, eu entendo.";
+		mes "Que Deus te abençoe.";
 		close;
 	}
 }
@@ -316,285 +316,285 @@ prontera,230,312,3	script	Nerlen#es07	79,{
 // Easter Quest
 morocc,131,26,5	script	Secret Corps#egg	880,{
 	if (easter2008 == 1) {
-		mes "[Corps Member]";
-		mes "How are you doing?";
-		mes "Death... It's inescapable.";
-		mes "Even you'll die someday. But...";
+		mes "[Membro do corpo]";
+		mes "Como vai?";
+		mes "Morte ... é inevitável.";
+		mes "Até você vai morrer algum dia. Mas...";
 		next;
 		if (countitem(12019) > 0) {
-			mes "[Corps Member]";
-			mes "Oh, yes. That's it.";
-			mes "You have it. The egg you";
-			mes "hold has a secret power.";
-			mes "I think that... Yes. Someone";
-			mes "like you would understand";
-			mes "us, fit well into our group.";
+			mes "[Membro do corpo]";
+			mes "Oh sim. É isso.";
+			mes "Você tem. O ovo você";
+			mes "Hold tem um poder secreto.";
+			mes "Eu acho que ... sim. Alguém";
+			mes "Como você entenderia";
+			mes "nós, nos encaixam bem no nosso grupo.";
 			next;
-			mes "[Corps Member]";
-			mes "Why don't";
-			mes "you... Join us?";
+			mes "[Membro do corpo]";
+			mes "Por que não";
+			mes "você ... se junta a nós?";
 			next;
-			switch(select("What for?:Um... But you're suspicious!")) {
+			switch(select("O que ?: Hum ... mas você suspeita!")) {
 			case 1:
-				mes "[Corps Member]";
-				mes "I see I've caught your";
-				mes "interest! Well, if you'd";
-				mes "like to join us and learn";
-				mes "more, then why don't you";
-				mes "bring me 10 Holy Eggs?";
-				mes "That is my condition.";
+				mes "[Membro do corpo]";
+				mes "Vejo que peguei o seu";
+				mes "interesse! Bem, se você tivesse";
+				mes "gostaria de se juntar a nós e aprender";
+				mes "mais, então por que você não";
+				mes "Traga -me 10 ovos sagrados?";
+				mes "Essa é a minha condição.";
 				set easter2008,2;
 				close;
 			case 2:
-				mes "[Corps Member]";
-				mes "Really? Well, I suppose";
-				mes "I can't help it. Let me";
-				mes "assure you that our";
-				mes "organization works";
-				mes "for the greater good.";
+				mes "[Membro do corpo]";
+				mes "Realmente? Bem, suponho";
+				mes "Eu não posso evitar. Deixe-me";
+				mes "garantir que nosso";
+				mes "Organização funciona";
+				mes "Para o bem maior.";
 				close;
 			}
 		}
 		else {
-			mes "[Corps Member]";
-			mes "We should all enjoy";
-			mes "life while we still can.";
-			mes "Who knows? Perhaps";
-			mes "there will be other lives";
-			mes "to live after this one.";
-			mes "Perhaps, perhaps....";
+			mes "[Membro do corpo]";
+			mes "Todos nós devemos desfrutar";
+			mes "vida enquanto ainda podemos.";
+			mes "Quem sabe? Talvez";
+			mes "Haverá outras vidas";
+			mes "viver depois deste.";
+			mes "Talvez, talvez ....";
 			close;
 		}
 	}
 	else if (easter2008 == 2) {
-		mes "[Corps Member]";
-		mes "Ah, you have returned.";
-		mes "Did you still wish to";
-		mes "join our ranks? If so,";
-		mes "I hope you brought the";
-		mes "10 Holy Eggs I require.";
+		mes "[Membro do corpo]";
+		mes "Ah, você voltou.";
+		mes "Você ainda desejou";
+		mes "Junte -se às nossas fileiras? Se for assim,";
+		mes "Espero que você tenha trazido o";
+		mes "10 ovos sagrados que eu preciso.";
 		next;
-		switch(select("Give Holy Eggs:Don't Give Holy Eggs")) {
+		switch(select("Dê ovos sagrados: não dê ovos sagrados")) {
 		case 1:
-			mes "[Corps Member]";
-			mes "So you do wish to";
-			mes "join our organization.";
-			mes "First, let me check if you";
-			mes "brought the Holy Eggs...";
+			mes "[Membro do corpo]";
+			mes "Então você deseja";
+			mes "Junte -se à nossa organização.";
+			mes "Primeiro, deixe -me verificar se você";
+			mes "trouxe os ovos sagrados ...";
 			next;
 			if (countitem(12019) > 9) {
-				mes "[Corps Member]";
-				mes "Very well. In return";
-				mes "for these Holy Eggs, let";
-				mes "me give you a small present";
-				mes "for joining us. Now, I can";
-				mes "tell you about what we do.";
+				mes "[Membro do corpo]";
+				mes "Muito bem. Em troca";
+				mes "Para esses ovos sagrados, vamos";
+				mes "eu te dado um pequeno presente";
+				mes "por se juntar a nós. Agora, eu posso";
+				mes "Conte a você sobre o que fazemos.";
 				delitem 12019,10; //Holy_Egg
 				set easter2008,3;
 				getitem 644,2; //Gift_Box
 				next;
-				mes "[Corps Member]";
-				mes "^333333*Cough Cough*^000000";
-				mes "Excuse me, I've got--";
-				mes "^333333*Cough!*^000000 A... A bit of a";
-				mes "sore throat. Give me a sec...";
+				mes "[Membro do corpo]";
+				mes "^3333333*Tosse*^000000";
+				mes "Com licença, eu tenho--";
+				mes "^333333*tosse!*^000000 a ... um pouco de um";
+				mes "dor de garganta. Dê -me um segundo ...";
 				close;
 			}
 			else {
-				mes "[Corps Member]";
-				mes "Hm. You don't have enough";
-				mes "Holy Eggs to meet the condition";
-				mes "I set for you. Did you leave";
-				mes "them in your Storage?";
+				mes "[Membro do corpo]";
+				mes "HM. Você não tem o suficiente";
+				mes "Ovos sagrados para encontrar a condição";
+				mes "Eu preparei para você. Você saiu";
+				mes "eles em seu armazenamento?";
 				close;
 			}
 		case 2:
-			mes "[Corps Member]";
-			mes "Hm? I suppose I can't";
-			mes "blame you for being a bit";
-			mes "suspicious of us. Let me";
-			mes "assure you that ours is";
-			mes "a mission of holiness.";
+			mes "[Membro do corpo]";
+			mes "HM? Suponho que não posso";
+			mes "culpar você por ser um pouco";
+			mes "suspeito de nós. Deixe-me";
+			mes "garantir que o nosso é";
+			mes "uma missão de santidade.";
 			close;
 		}
 	}
 	else if (easter2008 == 3) {
-		mes "[Corps Member]";
-		mes "We are an organization";
-		mes "that is dedicated to...";
-		mes "Resurrecting dead heroes!";
+		mes "[Membro do corpo]";
+		mes "Nós somos uma organização";
+		mes "que é dedicado a ...";
+		mes "Ressuscindo heróis mortos!";
 		next;
-		mes "[Corps Member]";
-		mes "Those Holy Eggs that you've";
-		mes "brought have the power to";
-		mes "restore life to the dead.";
-		mes "In large quantities...";
-		mes "They can even revive";
-		mes "ancient fallen heroes!";
+		mes "[Membro do corpo]";
+		mes "Aqueles ovos sagrados que você";
+		mes "trouxe o poder de";
+		mes "restaurar a vida aos mortos.";
+		mes "Em grandes quantidades ...";
+		mes "Eles podem até reviver";
+		mes "Heróis caídos antigos!";
 		next;
-		mes "[Corps Member]";
-		mes "When you bring me";
-		mes "33 Holy Eggs, I will";
-		mes "enchant them so that you";
-		mes "can use them on areas where";
-		mes "ancient heroes had died.";
+		mes "[Membro do corpo]";
+		mes "Quando você me traz";
+		mes "33 ovos sagrados eu vou";
+		mes "encantá -los para que você";
+		mes "pode usá -los em áreas onde";
+		mes "Heróis antigos haviam morrido.";
 		next;
-		mes "[Corps Member]";
-		mes "Go and bring me";
-		mes "33 Holy Eggs! I shall be";
-		mes "waiting here for your return...";
+		mes "[Membro do corpo]";
+		mes "Vá e me traga";
+		mes "33 ovos sagrados! Eu serei";
+		mes "Esperando aqui pelo seu retorno ...";
 		set easter2008,4;
 		close;
 	}
 	else if (easter2008 == 4) {
-		mes "[Corps Member]";
-		mes "Ah, you've returned";
-		mes "Now, did you bring me";
-		mes "33 Holy Eggs for your task?";
+		mes "[Membro do corpo]";
+		mes "Ah, você voltou";
+		mes "Agora você me trouxe";
+		mes "33 Ovos sagrados para sua tarefa?";
 		next;
-		switch(select("Give Holy Eggs:Don't Give Holy Eggs")) {
+		switch(select("Dê ovos sagrados: não dê ovos sagrados")) {
 		case 1:
 			if (countitem(12019) > 32) {
-				mes "[Corps Member]";
-				mes "Ah, these will do!";
-				mes "Now, make a note of the";
-				mes "destination I describe as";
-				mes "I infuse these Holy Eggs";
-				mes "with additional magic.";
+				mes "[Membro do corpo]";
+				mes "Ah, isso serve!";
+				mes "Agora, anote o";
+				mes "destino que descrevo como";
+				mes "Eu infudo esses ovos sagrados";
+				mes "com mágica adicional.";
 				next;
 				if (BaseLevel < 41) {
-					mes "[Corps Member]";
-					mes "You must go to the";
-					mes "entrance of Payon Dungeon,";
-					mes "where a nimble hero has fallen.";
-					mes "Sacrifice the Holy Eggs there,";
-					mes "and then return to me. Now...";
-					mes "Go, and bring him back to life!";
+					mes "[Membro do corpo]";
+					mes "Você deve ir para o";
+					mes "Entrada de Payon Dungeon,";
+					mes "Onde um herói ágil caiu.";
+					mes "Sacrifique os ovos sagrados lá,";
+					mes "E então volte para mim. Agora...";
+					mes "Vá e trazê -lo de volta à vida!";
 					set easter2008,5;
 					close;
 				}
 				else if ((BaseLevel > 40) && (BaseLevel < 61)) {
-					mes "[Corps Member]";
-					mes "Go to the 3rd level of";
-					mes "Izlude dungeon... A hero.";
-					mes "that sought wisdom perished";
-					mes "at the entrance to the 4th";
-					mes "level. Sacrifice the Holy Eggs";
-					mes "there, and return him to life!";
+					mes "[Membro do corpo]";
+					mes "Vá para o 3º nível de";
+					mes "Dungeon Izlude ... um herói.";
+					mes "Isso procurou sabedoria pereceu";
+					mes "na entrada do 4º";
+					mes "nível. Sacrificar os ovos sagrados";
+					mes "lá, e devolvê -lo à vida!";
 					set easter2008,6;
 					close;
 				}
 				else if ((BaseLevel > 60) && (BaseLevel < 81)) {
-					mes "[Corps Member]";
-					mes "Go to the abandoned mine";
-					mes "dungeon where a brave hero";
-					mes "died to protect his comrades.";
-					mes "Sacrifice the Holy Eggs as soon";
-					mes "as you get to the 3rd floor.";
-					mes "Go, and bring him back to life!";
+					mes "[Membro do corpo]";
+					mes "Vá para a mina abandonada";
+					mes "masmorra onde um herói corajoso";
+					mes "morreu para proteger seus camaradas.";
+					mes "Sacrifique os ovos sagrados logo";
+					mes "À medida que você chega ao 3º andar.";
+					mes "Vá e trazê -lo de volta à vida!";
 					set easter2008,7;
 					close;
 				}
 				else {
-					mes "[Corps Member]";
-					mes "Go to Glastheim, and";
-					mes "sacrifice the Holy Eggs";
-					mes "as soon as you enter the";
-					mes "2nd floor. A hero perished";
-					mes "there, but you shall bring";
-					mes "him back to the living!";
+					mes "[Membro do corpo]";
+					mes "Vá para Glastheim, e";
+					mes "sacrificar os ovos sagrados";
+					mes "Assim que você entra no";
+					mes "2º andar. Um herói pereceu";
+					mes "lá, mas você deve trazer";
+					mes "ele de volta aos vivos!";
 					set easter2008,8;
 					close;
 				}
 			}
 			else {
-				mes "[Corps Member]";
-				mes "Hm? This isn't";
-				mes "33 Holy Eggs. Did you";
-				mes "leave some in your Storage?";
+				mes "[Membro do corpo]";
+				mes "HM? Isso não é";
+				mes "33 ovos sagrados. Você fez";
+				mes "deixar alguns em seu armazenamento?";
 				close;
 			}
 		case 2:
-			mes "[Corps Member]";
-			mes "Don't you understand";
-			mes "the righteousness of";
-			mes "our cause? Returning fallen";
-			mes "heroes will bring peace to";
-			mes "our lands much more quickly!";
+			mes "[Membro do corpo]";
+			mes "Você não entende";
+			mes "a justiça de";
+			mes "nossa causa? Retornando caído";
+			mes "heróis trarão paz para";
+			mes "Nossas terras muito mais rapidamente!";
 			close;
 		}
 	}
 	else if (easter2008 >= 5 && easter2008 <= 8) {
-		mes "[Corps Member]";
-		mes "Did you forget";
-		mes "where you must go?";
-		mes "Let me remind you";
-		mes "so that you do not";
-		mes "lose your way...";
+		mes "[Membro do corpo]";
+		mes "Você esqueceu";
+		mes "Para onde você deve ir?";
+		mes "Deixe -me lembrá -lo";
+		mes "para que você não";
+		mes "Perca o seu caminho ...";
 		next;
-		mes "[Corps Member]";
+		mes "[Membro do corpo]";
 		switch(easter2008) {
 		case 5:
-			mes "[Corps Member]";
-			mes "You must go to the";
-			mes "entrance of Payon Dungeon,";
-			mes "where a nimble hero has fallen.";
-			mes "Sacrifice the Holy Eggs there,";
-			mes "and then return to me. Now...";
-			mes "Go, and bring him back to life!";
+			mes "[Membro do corpo]";
+			mes "Você deve ir para o";
+			mes "Entrada de Payon Dungeon,";
+			mes "Onde um herói ágil caiu.";
+			mes "Sacrifique os ovos sagrados lá,";
+			mes "E então volte para mim. Agora...";
+			mes "Vá e trazê -lo de volta à vida!";
 			close;
 		case 6:
-			mes "[Corps Member]";
-			mes "Go to the 3rd level of";
-			mes "Izlude dungeon... A hero.";
-			mes "that sought wisdom perished";
-			mes "at the entrance to the 4th";
-			mes "level. Sacrifice the Holy Eggs";
-			mes "there, and return him to life!";
+			mes "[Membro do corpo]";
+			mes "Vá para o 3º nível de";
+			mes "Dungeon Izlude ... um herói.";
+			mes "Isso procurou sabedoria pereceu";
+			mes "na entrada do 4º";
+			mes "nível. Sacrificar os ovos sagrados";
+			mes "lá, e devolvê -lo à vida!";
 			close;
 		case 7:
-			mes "[Corps Member]";
-			mes "Go to the abandoned mine";
-			mes "dungeon where a brave hero";
-			mes "died to protect his comrades.";
-			mes "Sacrifice the Holy Eggs as soon";
-			mes "as you get to the 3rd floor.";
-			mes "Go, and bring him back to life!";
+			mes "[Membro do corpo]";
+			mes "Vá para a mina abandonada";
+			mes "masmorra onde um herói corajoso";
+			mes "morreu para proteger seus camaradas.";
+			mes "Sacrifique os ovos sagrados logo";
+			mes "À medida que você chega ao 3º andar.";
+			mes "Vá e trazê -lo de volta à vida!";
 			close;
 		case 8:
-			mes "Go to Glastheim, and";
-			mes "sacrifice the Holy Eggs";
-			mes "as soon as you enter the";
-			mes "2nd floor. A hero perished";
-			mes "there, but you shall bring";
-			mes "him back to the living!";
+			mes "Vá para Glastheim, e";
+			mes "sacrificar os ovos sagrados";
+			mes "Assim que você entra no";
+			mes "2º andar. Um herói pereceu";
+			mes "lá, mas você deve trazer";
+			mes "ele de volta aos vivos!";
 			close;
 		}
 	}
 	else if (easter2008 == 9) {
-		mes "[Corps Member]";
-		mes "Ah, I hope you've come";
-		mes "back with good news.";
-		mes "So did it work?";
+		mes "[Membro do corpo]";
+		mes "Ah, espero que você venha";
+		mes "de volta com boas notícias.";
+		mes "Então funcionou?";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Actually...";
-		mes "Nothing happened....";
+		mes "Na verdade...";
+		mes "Nada aconteceu ....";
 		next;
-		mes "[Corps Member]";
-		mes "What? It can't be.";
-		mes "The magic... It should";
-		mes "have been powerful enough...";
-		mes "Well, it's too bad that we";
-		mes "failed. Even so, I am grateful";
-		mes "for all your help thus far...";
+		mes "[Membro do corpo]";
+		mes "O que? Não pode ser.";
+		mes "A magia ... deveria";
+		mes "foram poderosos o suficiente ...";
+		mes "Bem, é uma pena que nós";
+		mes "fracassado. Mesmo assim, sou grato";
+		mes "Por toda a sua ajuda até agora ...";
 		next;
-		mes "[Corps Member]";
-		mes "We'll investigate what";
-		mes "could have gone wrong,";
-		mes "and then try again next year.";
-		mes "Farewell, my friend, and I hope";
-		mes "that you'll assist us again.";
+		mes "[Membro do corpo]";
+		mes "Vamos investigar o quê";
+		mes "poderia ter dado errado,";
+		mes "E então tente novamente no próximo ano.";
+		mes "Adeus, meu amigo, e espero";
+		mes "que você nos ajudará novamente.";
 		set easter2008,10;
 		if (BaseLevel < 41) {
 			getexp 5000,0;
@@ -621,9 +621,9 @@ morocc,131,26,5	script	Secret Corps#egg	880,{
 		close;
 	}
 	else {
-		mes "[Corps Member]";
-		mes "Shh! Tell no one";
-		mes "that I am here.";
+		mes "[Membro do corpo]";
+		mes "Shh! Ninguém";
+		mes "que estou aqui.";
 		close;
 	}
 }
@@ -631,20 +631,20 @@ morocc,131,26,5	script	Secret Corps#egg	880,{
 pay_dun00,22,127,0	script	Trace#egg1	844,{
 	if (easter2008 == 5) {
 		mes "[" + strcharinfo(0) + "]";
-		mes "Well...";
-		mes "This is the place";
-		mes "the Corps Member";
-		mes "wanted me to find...";
-		mes "Time to use all of";
-		mes "these Holy Eggs.";
+		mes "Bem...";
+		mes "Este é o lugar";
+		mes "o membro do corpo";
+		mes "queria que eu encontrasse ...";
+		mes "Hora de usar tudo de";
+		mes "esses ovos sagrados.";
 		next;
 		if (countitem(12019) > 32) {
 			mes "[" + strcharinfo(0) + "]";
-			mes "Here we go...";
-			mes "Will this really bring";
-			mes "this ancient hero";
-			mes "back to life? I'm...";
-			mes "I'm kind of scared!";
+			mes "Aqui vamos nós ...";
+			mes "Isso realmente trará";
+			mes "Este herói antigo";
+			mes "de volta à vida? Eu sou...";
+			mes "Estou meio assustado!";
 			next;
 			mes "[" + strcharinfo(0) + "]";
 			mes "...............................";
@@ -654,10 +654,10 @@ pay_dun00,22,127,0	script	Trace#egg1	844,{
 			mes "...............................";
 			next;
 			mes "[" + strcharinfo(0) + "]";
-			mes "^333333*Whew!*^000000 Nothing happened!";
-			mes "I guess I better go back to";
-			mes "that Corps Member and let";
-			mes "him know that it didn't work.";
+			mes "^3333333*Ufa!*^000000 Nada aconteceu!";
+			mes "Eu acho melhor voltar para";
+			mes "aquele membro do corpo e deixe";
+			mes "Ele sabe que não funcionou.";
 			close2;
 			delitem 12019,33; //Holy_Egg
 			set easter2008,9;
@@ -665,17 +665,17 @@ pay_dun00,22,127,0	script	Trace#egg1	844,{
 		}
 		else {
 			mes "[" + strcharinfo(0) + "]";
-			mes "Huh? Where did I put";
-			mes "those 33 Holy Eggs";
-			mes "that I needed for this?";
+			mes "Huh? Onde eu coloquei";
+			mes "Aqueles 33 ovos sagrados";
+			mes "que eu precisava para isso?";
 			close;
 		}
 	}
 	else {
 		mes "[" + strcharinfo(0) + "]";
-		mes "There was something";
-		mes "here, but I can't tell";
-		mes "for sure what it was...";
+		mes "Havia algo";
+		mes "Aqui, mas não posso dizer";
+		mes "com certeza o que era ...";
 		close;
 	}
 }
@@ -683,20 +683,20 @@ pay_dun00,22,127,0	script	Trace#egg1	844,{
 iz_dun02,340,346,0	script	Trace#egg	844,{
 	if (easter2008 == 6) {
 		mes "[" + strcharinfo(0) + "]";
-		mes "Well...";
-		mes "This is the place";
-		mes "the Corps Member";
-		mes "wanted me to find...";
-		mes "Time to use all of";
-		mes "these Holy Eggs.";
+		mes "Bem...";
+		mes "Este é o lugar";
+		mes "o membro do corpo";
+		mes "queria que eu encontrasse ...";
+		mes "Hora de usar tudo de";
+		mes "esses ovos sagrados.";
 		next;
 		if (countitem(12019) > 32) {
 			mes "[" + strcharinfo(0) + "]";
-			mes "Here we go...";
-			mes "Will this really bring";
-			mes "this ancient hero";
-			mes "back to life? I'm...";
-			mes "I'm kind of scared!";
+			mes "Aqui vamos nós ...";
+			mes "Isso realmente trará";
+			mes "Este herói antigo";
+			mes "de volta à vida? Eu sou...";
+			mes "Estou meio assustado!";
 			next;
 			mes "[" + strcharinfo(0) + "]";
 			mes "...............................";
@@ -706,10 +706,10 @@ iz_dun02,340,346,0	script	Trace#egg	844,{
 			mes "...............................";
 			next;
 			mes "[" + strcharinfo(0) + "]";
-			mes "^333333*Whew!*^000000 Nothing happened!";
-			mes "I guess I better go back to";
-			mes "that Corps Member and let";
-			mes "him know that it didn't work.";
+			mes "^3333333*Ufa!*^000000 Nada aconteceu!";
+			mes "Eu acho melhor voltar para";
+			mes "aquele membro do corpo e deixe";
+			mes "Ele sabe que não funcionou.";
 			close2;
 			delitem 12019,33; //Holy_Egg
 			set easter2008,9;
@@ -717,17 +717,17 @@ iz_dun02,340,346,0	script	Trace#egg	844,{
 		}
 		else {
 			mes "[" + strcharinfo(0) + "]";
-			mes "Huh? Where did I put";
-			mes "those 33 Holy Eggs";
-			mes "that I needed for this?";
+			mes "Huh? Onde eu coloquei";
+			mes "Aqueles 33 ovos sagrados";
+			mes "que eu precisava para isso?";
 			close;
 		}
 	}
 	else {
 		mes "[" + strcharinfo(0) + "]";
-		mes "There was something";
-		mes "here, but I can't tell";
-		mes "for sure what it was...";
+		mes "Havia algo";
+		mes "Aqui, mas não posso dizer";
+		mes "com certeza o que era ...";
 		close;
 	}
 }
@@ -735,20 +735,20 @@ iz_dun02,340,346,0	script	Trace#egg	844,{
 mjo_dun03,308,256,0	script	Trace#egg2	844,{
 	if (easter2008 == 7) {
 		mes "[" + strcharinfo(0) + "]";
-		mes "Well...";
-		mes "This is the place";
-		mes "the Corps Member";
-		mes "wanted me to find...";
-		mes "Time to use all of";
-		mes "these Holy Eggs.";
+		mes "Bem...";
+		mes "Este é o lugar";
+		mes "o membro do corpo";
+		mes "queria que eu encontrasse ...";
+		mes "Hora de usar tudo de";
+		mes "esses ovos sagrados.";
 		next;
 		if (countitem(12019) > 32) {
 			mes "[" + strcharinfo(0) + "]";
-			mes "Here we go...";
-			mes "Will this really bring";
-			mes "this ancient hero";
-			mes "back to life? I'm...";
-			mes "I'm kind of scared!";
+			mes "Aqui vamos nós ...";
+			mes "Isso realmente trará";
+			mes "Este herói antigo";
+			mes "de volta à vida? Eu sou...";
+			mes "Estou meio assustado!";
 			next;
 			mes "[" + strcharinfo(0) + "]";
 			mes "...............................";
@@ -758,10 +758,10 @@ mjo_dun03,308,256,0	script	Trace#egg2	844,{
 			mes "...............................";
 			next;
 			mes "[" + strcharinfo(0) + "]";
-			mes "^333333*Whew!*^000000 Nothing happened!";
-			mes "I guess I better go back to";
-			mes "that Corps Member and let";
-			mes "him know that it didn't work.";
+			mes "^3333333*Ufa!*^000000 Nada aconteceu!";
+			mes "Eu acho melhor voltar para";
+			mes "aquele membro do corpo e deixe";
+			mes "Ele sabe que não funcionou.";
 			close2;
 			delitem 12019,33; //Holy_Egg
 			set easter2008,9;
@@ -769,17 +769,17 @@ mjo_dun03,308,256,0	script	Trace#egg2	844,{
 		}
 		else {
 			mes "[" + strcharinfo(0) + "]";
-			mes "Huh? Where did I put";
-			mes "those 33 Holy Eggs";
-			mes "that I needed for this?";
+			mes "Huh? Onde eu coloquei";
+			mes "Aqueles 33 ovos sagrados";
+			mes "que eu precisava para isso?";
 			close;
 		}
 	}
 	else {
 		mes "[" + strcharinfo(0) + "]";
-		mes "There was something";
-		mes "here, but I can't tell";
-		mes "for sure what it was...";
+		mes "Havia algo";
+		mes "Aqui, mas não posso dizer";
+		mes "com certeza o que era ...";
 		close;
 	}
 }
@@ -787,20 +787,20 @@ mjo_dun03,308,256,0	script	Trace#egg2	844,{
 gl_prison,157,176,0	script	Trace#egg3	844,{
 	if (easter2008 == 8) {
 		mes "[" + strcharinfo(0) + "]";
-		mes "Well...";
-		mes "This is the place";
-		mes "the Corps Member";
-		mes "wanted me to find...";
-		mes "Time to use all of";
-		mes "these Holy Eggs.";
+		mes "Bem...";
+		mes "Este é o lugar";
+		mes "o membro do corpo";
+		mes "queria que eu encontrasse ...";
+		mes "Hora de usar tudo de";
+		mes "esses ovos sagrados.";
 		next;
 		if (countitem(12019) > 32) {
 			mes "[" + strcharinfo(0) + "]";
-			mes "Here we go...";
-			mes "Will this really bring";
-			mes "this ancient hero";
-			mes "back to life? I'm...";
-			mes "I'm kind of scared!";
+			mes "Aqui vamos nós ...";
+			mes "Isso realmente trará";
+			mes "Este herói antigo";
+			mes "de volta à vida? Eu sou...";
+			mes "Estou meio assustado!";
 			next;
 			mes "[" + strcharinfo(0) + "]";
 			mes "...............................";
@@ -810,10 +810,10 @@ gl_prison,157,176,0	script	Trace#egg3	844,{
 			mes "...............................";
 			next;
 			mes "[" + strcharinfo(0) + "]";
-			mes "^333333*Whew!*^000000 Nothing happened!";
-			mes "I guess I better go back to";
-			mes "that Corps Member and let";
-			mes "him know that it didn't work.";
+			mes "^3333333*Ufa!*^000000 Nada aconteceu!";
+			mes "Eu acho melhor voltar para";
+			mes "aquele membro do corpo e deixe";
+			mes "Ele sabe que não funcionou.";
 			close2;
 			delitem 12019,33; //Holy_Egg
 			set easter2008,9;
@@ -821,17 +821,17 @@ gl_prison,157,176,0	script	Trace#egg3	844,{
 		}
 		else {
 			mes "[" + strcharinfo(0) + "]";
-			mes "Huh? Where did I put";
-			mes "those 33 Holy Eggs";
-			mes "that I needed for this?";
+			mes "Huh? Onde eu coloquei";
+			mes "Aqueles 33 ovos sagrados";
+			mes "que eu precisava para isso?";
 			close;
 		}
 	}
 	else {
 		mes "[" + strcharinfo(0) + "]";
-		mes "There was something";
-		mes "here, but I can't tell";
-		mes "for sure what it was...";
+		mes "Havia algo";
+		mes "Aqui, mas não posso dizer";
+		mes "com certeza o que era ...";
 		close;
 	}
 }

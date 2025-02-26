@@ -8,43 +8,43 @@
 //============================================================
 
 pay_arche,44,124,5	script	Marry Jae	4_F_JOB_BLACKSMITH,{
-	mes "[Marry Jae]";
+	mes "[Casar Jae]";
 	if (BaseLevel < 60) {
-		mes "Your base level is too low, come back when you hit level 60+.";
+		mes "Seu nível base é muito baixo, volte quando você atingir o nível 60 ou mais.";
 		close;
 	}
-	mes "^ff0000If you attempt to tame any monsters, it will not count as a kill. Please be careful.^000000";
+	mes "^FF0000 Se você tentar domar quaisquer monstros, ele não contará como uma morte. Por favor, tenha cuidado.^000000";
 	next;
 	.@day = gettime(DT_DAYOFWEEK);
 	if (.@day != SATURDAY && .@day != SUNDAY) {
-		mes "[Marry Jae]";
-		mes "Oh, a curious onlooker? I'm Marry Jae, the person in charge of weekends among the days of the week.";
+		mes "[Casar Jae]";
+		mes "Oh, um espectador curioso? Caso -me Jae, a pessoa encarregada dos fins de semana entre os dias da semana.";
 		next;
-		mes "[Marry Jae]";
-		mes "What is the weekend dungeon? Actually, it's a specially designed space for new adventurers to train.";
+		mes "[Casar Jae]";
+		mes "Qual é a masmorra de fim de semana? Na verdade, é um espaço especialmente projetado para novos aventureiros treinarem.";
 		next;
-		mes "^0000FFLooking around, it's obvious that Marry Jae is talking to you.^000000";
+		mes "^0000 00, é óbvio que se casar Jae está falando com você.^000000";
 		next;
-		mes "[Marry Jae]";
-		mes "For those who do not have a party on the weekends, this place is hunting and experience gaining grounds for lonely adventurers!";
+		mes "[Casar Jae]";
+		mes "Para aqueles que não fazem uma festa nos fins de semana, este lugar é caçar e experimentar ganhando motivos para aventureiros solitários!";
 		next;
-		mes "[Marry Jae]";
-		mes "Besides, the experience gain here is very generous.";
+		mes "[Casar Jae]";
+		mes "Além disso, o ganho de experiência aqui é muito generoso.";
 		next;
-		select( "When is the opening time?" );
-		mes "[Marry Jae]";
-		mes "The dungeon will be open during:";
-		mes "^0000FFSaturday 00:00 ~ Sunday 23:59^000000";
+		select( "Quando é o horário de abertura?" );
+		mes "[Casar Jae]";
+		mes "A masmorra estará aberta durante:";
+		mes "^0000ffsaturday 00:00 ~ domingo 23: 59^000000";
 		next;
-		mes "[Marry Jae]";
-		mes "I hope to see you when the weekend arrives~";
+		mes "[Casar Jae]";
+		mes "Espero vê -lo quando o fim de semana chegar ~";
 		close;
 	}
-	.@md_name$ = "Weekend Dungeon";
+	.@md_name$ = "Dungeon de fim de semana";
 
 	if (getcharid(1) < 1) {
-		mes "[Marry Jae]";
-		mes "You need to form a party of one member or more.";
+		mes "[Casar Jae]";
+		mes "Você precisa formar uma parte de um membro ou mais.";
 		close;
 	}
 	switch( checkquest(12378,PLAYTIME) ) {
@@ -55,9 +55,9 @@ pay_arche,44,124,5	script	Marry Jae	4_F_JOB_BLACKSMITH,{
 		switch( checkquest(12377,PLAYTIME) ) {
 		case -1:
 		case 2:
-			mes "[Marry Jae]";
-			mes "Sorry, but the entry period to the " + .@md_name$ + " has expired.";
-			mes "Take a rest while waiting for the dungeon to be available again.";
+			mes "[Casar Jae]";
+			mes "Desculpe, mas o período de entrada para o" + .@md_name$ + "expirou.";
+			mes "Descanse enquanto espera que a masmorra esteja disponível novamente.";
 			close;
 		case 0:
 		case 1:
@@ -67,40 +67,40 @@ pay_arche,44,124,5	script	Marry Jae	4_F_JOB_BLACKSMITH,{
 	case 2:
 		erasequest 12377;
 		erasequest 12378;
-		mes "[Marry Jae]";
-		mes "The cooldown has expired.";
-		mes "You may re-enter the Memorial Dungeon.";
+		mes "[Casar Jae]";
+		mes "A recarga expirou.";
+		mes "Você pode entrar novamente na masmorra memorial.";
 		close;
 	}
 
 	if (is_party_leader() == true)
-		.@menu$ = "Prepare Memorial Dungeon";
+		.@menu$ = "Prepare a masmorra memorial";
 
-	mes "[Marry Jae]";
-	mes "I think you're just about ready.";
-	mes "Now, would you like to enter it now?";
+	mes "[Casar Jae]";
+	mes "Eu acho que você está quase pronto.";
+	mes "Agora, você gostaria de entrar agora?";
 	next;
-	switch( select( .@menu$, "Enter Weekend Dungeon", "Cancel" ) ) {
+	switch( select( .@menu$, "Entre na masmorra de fim de semana", "Cancelar" ) ) {
 	case 1:
 		instance_create(.@md_name$);
-		mes "[Marry Jae]";
-		mes "The Memorial Dungeon has been created.";
-		mes "You may now enter.";
+		mes "[Casar Jae]";
+		mes "A masmorra memorial foi criada.";
+		mes "Agora você pode entrar.";
 		close;
 	case 2:
 		switch( instance_enter(.@md_name$) ) {
 		case IE_NOMEMBER:
 			end;
 		case IE_NOINSTANCE:
-			mes "There is no Memorial Dungeon registered.";
+			mes "Não há masmorra memorial registrada.";
 			close;
 		case IE_OTHER:
-			mes "An unknown error has occurred.";
+			mes "Um erro desconhecido ocorreu.";
 			close;
 		case IE_OK:
-			mes "[Marry Jae]";
-			mes "Off you go!";
-			mapannounce "pay_arche", "" + strcharinfo(0) + " of the party, " + getpartyname( getcharid(1) ) + ", is entering the " + .@md_name$ + ".", bc_map, 0xFF99;
+			mes "[Casar Jae]";
+			mes "Você vai!";
+			mapannounce "pay_arche", "" + strcharinfo(0) + "da festa," + getpartyname( getcharid(1) ) + ", está entrando no" + .@md_name$ + ".", bc_map, 0xFF99;
 			if (isbegin_quest(12377) == 0)
 				setquest 12377;
 			if (isbegin_quest(12378) == 0)
@@ -109,9 +109,9 @@ pay_arche,44,124,5	script	Marry Jae	4_F_JOB_BLACKSMITH,{
 		}
 		end;
 	case 3:
-		mes "[Marry Jae]";
-		mes "You have not prepared?";
-		mes "Can't really help it I guess.";
+		mes "[Casar Jae]";
+		mes "Você não se preparou?";
+		mes "Não posso realmente evitar, eu acho.";
 		close;
 	}
 }
@@ -119,17 +119,17 @@ pay_arche,44,124,5	script	Marry Jae	4_F_JOB_BLACKSMITH,{
 //Merchant
 pay_arche,44,121,5	script	Gift Supplies Clerk	4_F_02,{
 	.@zeny = 60000;
-	mes "[Gift Supplies Clerk]";
-	mes "I offer packaging services for those who wish to present a precious gift to a cherished one.";
+	mes "[Funcionário de suprimentos de presentes]";
+	mes "Ofereço serviços de embalagem para quem deseja apresentar um presente precioso a um querido.";
 	next;
-	mes "[Gift Supplies Clerk]";
-	mes "If you have 5 units of <ITEM>" + getitemname(23143) + "<INFO>23143</INFO></ITEM> or <ITEM>" + getitemname(23142) + "<INFO>23142</INFO></ITEM>, I can pack it for just ^FF0000" + F_InsertComma(.@zeny) + "^000000 Zeny!";
-	mes "Do you want to pack it right now?";
+	mes "[Funcionário de suprimentos de presentes]";
+	mes "Se você tem 5 unidades de <tem>" + getitemname(23143) + "<FOLSE> 23143 </info> </tem> ou <tem>" + getitemname(23142) + "<FOLSE> 23142 </info> </tem>, posso embalá -lo por apenas ^ff0000" + F_InsertComma(.@zeny) + "^000000 Zeny!";
+	mes "Você quer embalar agora?";
 	next;
-	switch( select( "Cancel", "Growth Elixir Packing", "Job Elixir Packing" ) ) {
+	switch( select( "Cancelar", "ELIXIR DE CRESCIMENTO", "Pacote de elixir do trabalho" ) ) {
 	case 1:
-		mes "[Gift Supplies Clerk]";
-		mes "Come back whenever you need packaging services!";
+		mes "[Funcionário de suprimentos de presentes]";
+		mes "Volte sempre que precisar de serviços de embalagem!";
 		close;
 	case 2:
 		.@item = 23142;
@@ -140,29 +140,29 @@ pay_arche,44,121,5	script	Gift Supplies Clerk	4_F_02,{
 		.@box = 23145;
 		break;
 	}
-	mes "[Gift Supplies Clerk]";
+	mes "[Funcionário de suprimentos de presentes]";
 	if (countitem(.@item) < 5) {
-		mes "Please come back when you have enough materials.";
+		mes "Por favor, volte quando tiver materiais suficientes.";
 		close;
 	}
 	if (Zeny < .@zeny) {
-		mes "Please come back when you have enough Zeny.";
-		mes F_InsertComma(.@zeny) + "z to be specific.";
+		mes "Por favor, volte quando tiver Zeny suficiente.";
+		mes F_InsertComma(.@zeny) + "z para ser específico.";
 		close;
 	}
 	if (checkweight(23144,1) == 0) {
-		mes "You have too many kinds of objects. Clear your inventory.";
+		mes "Você tem muitos tipos de objetos. Limpe seu inventário.";
 		close;
 	}
 	if (MaxWeight - Weight < 10000) {
-		mes "Can't continue because you have too many heavy objects. Reduce your total weight by clearing your inventory.";
+		mes "Não posso continuar porque você tem muitos objetos pesados. Reduza seu peso total limpando seu inventário.";
 		close;
 	}
-	mes "Confirm to spend " + F_InsertComma(.@zeny) + "z to package 5 <ITEM>" + getitemname(.@item) + "<INFO>" + .@item + "</INFO></ITEM> into <ITEM>" + getitemname(.@box) + "<INFO>" + .@box + "</INFO></ITEM>?";
+	mes "Confirmar para gastar" + F_InsertComma(.@zeny) + "Z para o pacote 5 <Item>" + getitemname(.@item) + "<fo>" + .@item + "</Info> </tem> em <tem>" + getitemname(.@box) + "<fo>" + .@box + "</Info> </tem>?";
 	next;
-	if (select( "Yes", "No" ) == 2) {
-		mes "[Gift Supplies Clerk]";
-		mes "Come back whenever you need packaging services!";
+	if (select( "Sim", "No" ) == 2) {
+		mes "[Funcionário de suprimentos de presentes]";
+		mes "Volte sempre que precisar de serviços de embalagem!";
 		close;
 	}
 	Zeny -= .@zeny;
@@ -175,11 +175,11 @@ pay_arche,44,121,5	script	Gift Supplies Clerk	4_F_02,{
 1@md_pay,239,30,6	script	Marry Jae#0_1	4_F_JOB_BLACKSMITH,{
 	if (is_party_leader() == false)
 		end;
-	mes "[Marry Jae]";
-	mes "Before we start setting up the environment here, we'll give you the chance to choose an appropriate difficulty level.";
-	mes "I could make my own choice, but each person handles it differently based on their abilities.";
+	mes "[Casar Jae]";
+	mes "Antes de começarmos a configurar o ambiente aqui, daremos a você a chance de escolher um nível de dificuldade apropriado.";
+	mes "Eu poderia fazer minha própria escolha, mas cada pessoa lida com isso de maneira diferente com base em suas habilidades.";
 	next;
-	switch( select( "Cancel", "Lv60 ~ 79", "Lv80 ~ 99", "Lv100 ~ 119", "Lv120 ~ 139", "Lv140 ~ 159", "Lv160 ~ " ) ) {
+	switch( select( "Cancelar", "Lv60 ~ 79", "Lv80 ~ 99", "Lv100 ~ 119", "Lv120 ~ 139", "Lv140 ~ 159", "Lv160 ~" ) ) {
 	case 1:
 		end;
 	//Familiar, Skeleton, Zombie
@@ -208,14 +208,14 @@ pay_arche,44,121,5	script	Gift Supplies Clerk	4_F_02,{
 		setarray 'mob[0],3648,3642,3654;
 		break;
 	}
-	mes "[Marry Jae]";
+	mes "[Casar Jae]";
 	if (BaseLevel < .@min_level) {
-		mes "Your base level is too low to select this, you need to be level " + .@min_level + " + .";
+		mes "Seu nível base é muito baixo para selecionar isso, você precisa estar nivelado" + .@min_level + "+ .";
 		close;
 	}
 
-	mes "Good luck finding the treasures!";
-	npctalk "Good luck~";
+	mes "Boa sorte em encontrar os tesouros!";
+	npctalk "Boa sorte ~";
 	donpcevent instance_npcname("map_md_pay_spawn") + "::OnStart";
 	close;
 }
@@ -268,77 +268,77 @@ OnStart:
 
 	.@event$ = instance_npcname("map_md_pay_spawn") + "::OnSkelDead";
 	killmonster 'map_md_pay$, .@event$;
-	monster 'map_md_pay$,245,55,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,243,63,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,259,98,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,258,204,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,239,122,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,189,190,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,239,231,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,205,225,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,172,207,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,166,234,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,171,236,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,126,180,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,150,150,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,155,135,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,174,75,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,186,67,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,95,65,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,55,85,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,37,92,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,34,90,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,27,99,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,57,76,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,62,93,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,33,97,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,60,45,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,48,60,"Skeleton",'mob[1],1,.@event$;
-	monster 'map_md_pay$,73,51,"Skeleton",'mob[1],1,.@event$;
+	monster 'map_md_pay$,245,55,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,243,63,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,259,98,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,258,204,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,239,122,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,189,190,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,239,231,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,205,225,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,172,207,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,166,234,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,171,236,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,126,180,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,150,150,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,155,135,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,174,75,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,186,67,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,95,65,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,55,85,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,37,92,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,34,90,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,27,99,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,57,76,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,62,93,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,33,97,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,60,45,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,48,60,"Esqueleto",'mob[1],1,.@event$;
+	monster 'map_md_pay$,73,51,"Esqueleto",'mob[1],1,.@event$;
 
 	.@event$ = instance_npcname("map_md_pay_spawn") + "::OnZombieDead";
 	killmonster 'map_md_pay$, .@event$;
-	monster 'map_md_pay$,245,65,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,218,61,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,255,171,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,215,165,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,237,127,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,215,105,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,198,168,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,243,267,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,165,207,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,157,236,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,113,259,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,105,255,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,117,238,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,164,194,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,159,172,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,175,155,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,146,131,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,152,126,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,181,85,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,165,81,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,157,74,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,175,45,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,49,48,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,65,175,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,78,180,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,33,207,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,49,227,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,55,235,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,60,240,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,70,237,"Zombie",'mob[2],1,.@event$;
-	monster 'map_md_pay$,65,265,"Zombie",'mob[2],1,.@event$;
+	monster 'map_md_pay$,245,65,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,218,61,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,255,171,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,215,165,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,237,127,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,215,105,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,198,168,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,243,267,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,165,207,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,157,236,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,113,259,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,105,255,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,117,238,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,164,194,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,159,172,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,175,155,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,146,131,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,152,126,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,181,85,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,165,81,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,157,74,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,175,45,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,49,48,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,65,175,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,78,180,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,33,207,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,49,227,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,55,235,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,60,240,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,70,237,"Zumbi",'mob[2],1,.@event$;
+	monster 'map_md_pay$,65,265,"Zumbi",'mob[2],1,.@event$;
 
 	'rand_chest = rand(1,4);
 	end;
 
 OnFarmiliarDead:
-	callsub( S_Mob, 'mob[0], "Familiar", "OnFarmiliarDead" );
+	callsub( S_Mob, 'mob[0], "Familiar", "OnfarmiliarDead" );
 OnSkelDead:
-	callsub( S_Mob, 'mob[1], "Skeleton", "OnSkelDead" );
+	callsub( S_Mob, 'mob[1], "Esqueleto", "Onskeldead" );
 OnZombieDead:
-	callsub( S_Mob, 'mob[2], "Zombie", "OnZombieDead" );
+	callsub( S_Mob, 'mob[2], "Zumbi", "Onzombiead" );
 
 S_Mob:
 	if (rand(100) == 0) {
@@ -371,19 +371,19 @@ OnInstanceInit:
 	sleep 500;
 	.@chestname$ = strnpcinfo(2);
 
-	if (.@chestname$ == "WDbox1") {
+	if (.@chestname$ == "Wdbox1") {
 		for ( .@i = 0; .@i < 3; ++.@i )
 			makeitem rand(23142,23143),1, 'map_md_pay$, rand(97,101), rand(170,174);
 	}
-	else if (.@chestname$ == "WDbox2") {
+	else if (.@chestname$ == "Wdbox2") {
 		for ( .@i = 0; .@i < 3; ++.@i )
 			makeitem rand(23142,23143),1, 'map_md_pay$, rand(233,237), rand(58,62);
 	}
-	else if (.@chestname$ == "WDbox3") {
+	else if (.@chestname$ == "WD Box3") {
 		for ( .@i = 0; .@i < 3; ++.@i )
 			makeitem rand(23142,23143),1, 'map_md_pay$, rand(51,55), rand(265,269);
 	}
-	else if (.@chestname$ == "WDbox4") {
+	else if (.@chestname$ == "Wdbox4") {
 		for ( .@i = 0; .@i < 3; ++.@i )
 			makeitem rand(23142,23143),1, 'map_md_pay$, rand(236,240), rand(250,254);
 	}
@@ -391,7 +391,7 @@ OnInstanceInit:
 
 OnStart:
 	enablenpc();
-	instance_announce -1, "A treasure chest appeared somewhere in the dungeon. It'll disappear after a while, so let's find it.", bc_map, "0xff5500";
+	instance_announce -1, "Um baú do tesouro apareceu em algum lugar da masmorra. Vai desaparecer depois de um tempo, então vamos encontrá -lo.", bc_map, "0xff5500";
 	initnpctimer;
 	end;
 OnTimer180000:	//3min before chest disappears

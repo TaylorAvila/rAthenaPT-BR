@@ -16,42 +16,42 @@
 //============================================================ 
 
 xmas,140,137,3	script	Lutie Guide#xmas	717,{
-	mes "[Lutie Guide]";
-	mes "Welcome to ^8B4513Lutie^000000,";
-	mes "the Snow Village.";
-	mes "Do you need help navigating the village?";
-	F_Navi("[Lutie Guide]");
+	mes "[Guia Lutie]";
+	mes "Bem -vindo a ^8b4513lutie ^000000,";
+	mes "a vila da neve.";
+	mes "Você precisa de ajuda para navegar na vila?";
+	F_Navi("[Guia Lutie]");
 	while (1) {
 		next;
-		switch(select("[ Gift Shop ]:[ Church ]:[ Weapon & Armor Shop ]:[ Tool Shop ]:[ Santa's House ]:[ Toy Factory ]:Remove Marks from Mini-Map:Cancel")) {
+		switch(select("[Loja de presentes]: [igreja]: [loja de armas e armaduras]: [loja de ferramentas]: [casa do santa]: [fábrica de brinquedos]: remova as marcas do mini-mapa: cancelar")) {
 		case 1:
-			callsub L_Mark, F_Navi("Gift Shop","xmas,172,131","^008080");
+			callsub L_Mark, F_Navi("Loja de presentes","Xmas, 172.131","^008080");
 			viewpoint 1,172,131,2,0x008080;
 			break;
 		case 2:
-			callsub L_Mark, F_Navi("Church","xmas,104,287","^006400");
+			callsub L_Mark, F_Navi("Igreja","Xmas, 104.287","^006400");
 			viewpoint 1,104,287,1,0xAAFF00;
 			break;
 		case 3:
-			callsub L_Mark, F_Navi("Weapon & Armor Shop","xmas,171,158","^FF1493");
+			callsub L_Mark, F_Navi("Loja de armas e armaduras","Xmas, 171.158","^F -1493");
 			viewpoint 1,171,158,3,0xFF1493;
 			break;
 		case 4:
-			callsub L_Mark, F_Navi("Tool Shop","xmas,122,131","^8B4513");
+			callsub L_Mark, F_Navi("Loja de ferramentas","Xmas, 122.131","^8B4513");
 			viewpoint 1,122,131,4,0x8B4513;
 			break;
 		case 5:
-			callsub L_Mark, F_Navi("Santa's House","xmas,149,237","^B9062F"),1;
+			callsub L_Mark, F_Navi("Santa's House","Xmas, 149.237","^B9062F"),1;
 			viewpoint 1,149,237,5,0x9400D3;
 			break;
 		case 6:
-			callsub L_Mark, F_Navi("Toy Factory","xmas,143,312","^9400D3");
+			callsub L_Mark, F_Navi("Fábrica de brinquedos","Xmas, 143.312","^9400");
 			viewpoint 1,143,312,6,0xFF0000;
 			break;
 		case 7:
-			mes "[Lutie Guide]";
-			mes "Sure, I'll remove all marks from your mini-map.";
-			mes "Is there anything else I can do for you?";
+			mes "[Guia Lutie]";
+			mes "Claro, removerei todas as marcas do seu mini-mapa.";
+			mes "Há mais alguma coisa que eu possa fazer por você?";
 			viewpoint 2,1,1,0,0xFFFFFF;
 			viewpoint 2,1,1,1,0xFFFFFF;
 			viewpoint 2,1,1,2,0xFFFFFF;
@@ -61,17 +61,17 @@ xmas,140,137,3	script	Lutie Guide#xmas	717,{
 			viewpoint 2,1,1,6,0xFFFFFF;
 			break;
 		case 8:
-			mes "[Lutie Guide]";
-			mes "Be safe on your travels.";
+			mes "[Guia Lutie]";
+			mes "Esteja seguro em suas viagens.";
 			close;
 		}
 	}
 	end;
 L_Mark:
-	mes "[Lutie Guide]";
-	mes "Let me mark the location of "+((getarg(1,0))?"":"the");
+	mes "[Guia Lutie]";
+	mes "Deixe -me marcar a localização de"+((getarg(1,0))?"":"o");
 	mes getarg(0)+"^000000";
-	mes "on your mini-map.";
-	mes "Would you like to check any other locations?";
+	mes "em seu mini-mapa.";
+	mes "Você gostaria de verificar outros locais?";
 	return;
 }

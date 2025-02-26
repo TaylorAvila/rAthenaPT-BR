@@ -8,9 +8,9 @@
 //= rAthena Project
 //===== Description: =========================================
 //= iRO Lunar New Year event; Year of the Rat. (2008)
-//= Kill Cramps, Taruus, and Matrins to retrieve "Rice Pouches"
+//= Kill Cramps, Taruus, and Matrins to retrieve "Bolsas de arroz"
 //= in return for various rice-themed foods, envelopes, and
-//= a "New year Doll" egg. Rates are guessed.
+//= a "Boneca de ano novo" egg. Rates are guessed.
 //=
 //= Cramp, Tarou, and Matrin drops altered, Uncomment in
 //= mob_db2 to enable. [required]
@@ -25,110 +25,110 @@
 //============================================================
 
 payon_in01,193,30,4	script	Rice Mill Grandma#rat	78,{
-	mes "[Rice Mill Grandma]";
+	mes "[Rice Mill avó]";
 	if (!lunar_rat) {
-		mes "Those filthy little";
-		mes "creatures! Scurrying";
-		mes "around, snatching things";
-		mes "from me! If only they";
-		mes "weren't so blamed quick...";
+		mes "Aqueles pequenos imundos";
+		mes "Criaturas! Correndo";
+		mes "ao redor, arrebatando as coisas";
+		mes "de mim! Se ao menos eles";
+		mes "Não foi tão culpado rápido ...";
 		next;
-		select("What's wrong?");
-		mes "[Rice Mill Grandma]";
-		mes "Oh, I was just making";
-		mes "some rice cakes and";
-		mes "pastries to celebrate";
-		mes "the new year, but these";
-		mes "animals have been stealing";
-		mes "the Rice Pouches I've prepared.";
+		select("O que está errado?");
+		mes "[Rice Mill avó]";
+		mes "Oh, eu estava apenas fazendo";
+		mes "alguns bolos de arroz e";
+		mes "doces para comemorar";
+		mes "o ano novo, mas estes";
+		mes "Animais têm roubado";
+		mes "As bolsas de arroz que eu preparei.";
 		next;
-		select("Rice Pouches?");
-		mes "[Rice Mill Grandma]";
-		mes "Yes, my son needs those";
-		mes "Rice Pouches to pound the";
-		mes "rice in a mortar, but I can't";
-		mes "make any pastries if I don't";
-		mes "even have the rice. Do you";
-		mes "think you can help me?";
+		select("Bolsas de arroz?");
+		mes "[Rice Mill avó]";
+		mes "Sim, meu filho precisa desses";
+		mes "Bolsas de arroz para bater o";
+		mes "arroz em uma argamassa, mas eu não posso";
+		mes "faça bolos se eu não";
+		mes "até tem o arroz. Você";
+		mes "Acha que você pode me ajudar?";
 		next;
-		if (select("Of course.:I don't even know you.") == 1) {
+		if (select("Claro .: Eu nem te conheço.") == 1) {
 			set lunar_rat,1;
 			mes "[" + strcharinfo(0)+"]";
-			mes "Of course.";
-			mes "What can I do?";
+			mes "Claro.";
+			mes "O que posso fazer?";
 			next;
-			mes "[Rice Mill Grandma]";
-			mes "Well, do you think you";
-			mes "can catch the animals that";
-			mes "stole my Rice Pouches?";
-			mes "They're these blue and";
-			mes "white rats and these";
-			mes "nasty little moles.";
+			mes "[Rice Mill avó]";
+			mes "Bem, você pensa que você";
+			mes "pode pegar os animais que";
+			mes "roubou minhas bolsas de arroz?";
+			mes "Eles são esses azuis e";
+			mes "ratos brancos e estes";
+			mes "Pequenas moles desagradáveis.";
 			next;
-			select("Not a problem.");
+			select("Não é um problema.");
 			mes "[" + strcharinfo(0)+"]";
-			mes "Not a problem.";
-			mes "I'll catch those animals,";
-			mes "and bring back any Rice";
-			mes "Pouches that I can find.";
+			mes "Não é um problema.";
+			mes "Vou pegar esses animais,";
+			mes "e traga de volta qualquer arroz";
+			mes "Bolsas que eu posso encontrar.";
 			next;
-			mes "[Rice Mill Grandma]";
-			mes "Oh, thank you!";
-			mes "Good luck catching";
-			mes "those pests for me~";
+			mes "[Rice Mill avó]";
+			mes "Oh, obrigado!";
+			mes "Boa sorte pegando";
+			mes "aquelas pragas para mim ~";
 			close;
 		}
-		mes "[Rice Mill Grandma]";
-		mes "I... Well...";
-		mes "That's true, but I was";
-		mes "planning on giving you";
-		mes "something nice in return";
-		mes "for your help. I know you're";
-		mes "not a bad person, so...";
+		mes "[Rice Mill avó]";
+		mes "Eu ... bem ...";
+		mes "Isso é verdade, mas eu era";
+		mes "planejando te dar";
+		mes "Algo bom em troca";
+		mes "para sua ajuda. Eu sei que você é";
+		mes "Não é uma pessoa má, então ...";
 		close;
 	}
 	else if ((lunar_rat >= 1 && lunar_rat <= 2) || lunar_rat == 4) {
 		if (countitem(7770) >= 1 && lunar_rat == 2) {
-			mes "Oh, is that the";
-			mes "Sweet Rice my son made?";
-			mes "Would you let me have it?";
-			mes "Please wait here a moment,";
-			mes "and I'll make you some pastry~";
+			mes "Oh, é isso";
+			mes "Arroz doce que meu filho fez?";
+			mes "Você me deixaria ter isso?";
+			mes "Por favor, espere aqui um momento,";
+			mes "E vou fazer de você um pouco de massa ~";
 			delitem 7770,1; //Sweet_rice
 			set lunar_rat,3;
 			close;
 		}
 		else if (lunar_rat == 4) {
 			if (countitem(7770) >= 1) {
-				mes "Oh, is that the";
-				mes "Sweet Rice my son made?";
-				mes "Would you let me have it?";
-				mes "Please wait here a moment,";
-				mes "and I'll make you some pastry~";
+				mes "Oh, é isso";
+				mes "Arroz doce que meu filho fez?";
+				mes "Você me deixaria ter isso?";
+				mes "Por favor, espere aqui um momento,";
+				mes "E vou fazer de você um pouco de massa ~";
 				delitem 7770,1; //Sweet_rice
 				set lunar_rat,5;
 				close;
 			}
-			mes "Oh, where are all the";
-			mes "Rice Pouches? We need";
-			mes "them to make more rice cakes...";
+			mes "Oh, onde estão todos os";
+			mes "Bolsas de arroz? Nós precisamos";
+			mes "eles para fazer mais bolos de arroz ...";
 			close;
 		}
 		else if (countitem(7869) < 1 && lunar_rat <= 2) {
-			mes "Ooh, those white and";
-			mes "blue mouses might have";
-			mes "snatched my Rice Pouches";
-			mes "Those moles probably took";
-			mes "them too. Such nasty little";
-			mes "creatures, aren't they?";
+			mes "Ooh, aqueles brancos e";
+			mes "mouses azuis podem ter";
+			mes "pegou minhas bolsas de arroz";
+			mes "Essas toupeiras provavelmente tomaram";
+			mes "eles também. Tão desagradável";
+			mes "Criaturas, não são?";
 			close;
 		}
-		mes "Oh, is that one of my";
-		mes "Rice Pouches? I'm sorry,";
-		mes "but the pain my hips..";
-		mes "Would you mind being";
-		mes "a dear, and delivering";
-		mes "that to my son for me?";
+		mes "Oh, isso é um dos meus";
+		mes "Bolsas de arroz? Desculpe,";
+		mes "mas a dor meus quadris ..";
+		mes "Você se importaria de ser";
+		mes "um querido e entregando";
+		mes "Isso para meu filho para mim?";
 		set lunar_rat,2;
 		close;
 	}
@@ -156,18 +156,18 @@ payon_in01,193,30,4	script	Rice Mill Grandma#rat	78,{
 		// Set the quest accordingly for repeat turn-ins.
 		if (lunar_rat == 3) set lunar_rat,2;
 		else if (lunar_rat == 5) set lunar_rat,4;
-		mes "It's not nearly enough";
-		mes "to repay you for what you've";
-		mes "done for me, but I'd like";
-		mes "you to have this pastry that";
-		mes "I just made. Please enjoy it~";
+		mes "Não é o suficiente";
+		mes "para retribuir o que você";
+		mes "feito por mim, mas eu gostaria";
+		mes "você ter esta massa que";
+		mes "Acabei de fazer. Por favor, aproveite ~";
 		next;
-		mes "[Rice Mill Grandma]";
-		mes "Thank you for the";
-		mes "Sweet Rice! I'll be";
-		mes "sure to make something";
-		mes "delicious for you if you";
-		mes "bring me more, okay?";
+		mes "[Rice Mill avó]";
+		mes "Obrigado pelo";
+		mes "Doce arroz! Eu estarei";
+		mes "Certamente fazer algo";
+		mes "delicioso para você se você";
+		mes "Traga -me mais, ok?";
 		close;
 	}
 }
@@ -175,50 +175,50 @@ payon_in01,193,30,4	script	Rice Mill Grandma#rat	78,{
 payon,215,127,4	script	Rice Mill Man#rat	54,{
 	mes "[Rice Mill Man]";
 	if (!lunar_rat) {
-		mes "Breaks my heart...";
-		mes "My mom spends all this";
-		mes "time preparing rice for";
-		mes "the new year, and it's all";
-		mes "stolen by rats and vermin!";
+		mes "Quebra meu coração ...";
+		mes "Minha mãe passa tudo isso";
+		mes "tempo preparando arroz para";
+		mes "o ano novo, e é tudo";
+		mes "Roubado por ratos e vermes!";
 		close;
 	}
 	else if (lunar_rat == 1) {
-		mes "I hear from my mother";
-		mes "that you're helping her out.";
-		mes "She's a sweet old lady, huh?";
-		mes "If you find ang Rice Pouches,";
-		mes "you might want to have her";
-		mes "inspect them first.";
+		mes "Eu ouço minha mãe";
+		mes "que você está ajudando -a.";
+		mes "Ela é uma velha doce, hein?";
+		mes "Se você encontrar bolsas Ang Rice,";
+		mes "Você pode querer tê -la";
+		mes "Inspecione -os primeiro.";
 		close;
 	}
 	else if (lunar_rat >= 2) {
 		if (countitem(7869) < 1) {
-			mes "If you bring me some";
-			mes "Rice Pouches, then I can";
-			mes "pound into into Sweet Rice.";
-			mes "You're here to help out my";
-			mes "mother, right? Thanks,";
-			mes "I really appreciate that.";
+			mes "Se você me trazer alguns";
+			mes "Bolsas de arroz, então eu posso";
+			mes "Boste em arroz doce.";
+			mes "Você está aqui para ajudar meu";
+			mes "Mãe, certo? Obrigado,";
+			mes "Eu realmente aprecio isso.";
 			close;
 		}
-		mes "Oh, you brought me some";
-		mes "Rice Pouches from my mother?";
-		mes "Give me a second, and I'll";
-		mes "get this rice pounded into";
-		mes "paste, lickety split.";
+		mes "Oh, você me trouxe alguns";
+		mes "Bolsas de arroz da minha mãe?";
+		mes "Me dê um segundo, e eu vou";
+		mes "Obtenha esse arroz bater em";
+		mes "pasta, lambida dividida.";
 		next;
 		mes "[Rice Mill Man]";
-		mes "Hoo! Haa! Hi-yah!";
+		mes "sou! Sim! Ele-isso!";
 		mes "Woosha! Whoosha!";
 		mes "Ka-taaaaaaaaaa!";
-		mes "WOOOSHA!";
+		mes "Acenar!";
 		next;
 		mes "[Rice Mill Man]";
-		mes "All done. Here, this";
-		mes "Sweet Rice is ready to";
-		mes "be made into pastries";
-		mes "Would you please bring";
-		mes "this to my mother?";
+		mes "Tudo feito. Aqui, isso";
+		mes "Arroz doce está pronto para";
+		mes "ser transformado em doces";
+		mes "Você por favor trazia";
+		mes "isso para minha mãe?";
 		delitem 7869,1; //Rice_Pouch
 		getitem 7770,1; //Sweet_Rice
 		close;
@@ -229,55 +229,55 @@ payon,215,127,4	script	Rice Mill Man#rat	54,{
 payon,126,113,4	script	Miss Lunar#rat	719,{
 	mes "[Lunar]";
 	if ((MaxWeight-Weight) < 3000 || checkweight(1201,1) == 0) {
-		mes "Oh, I'm sorry, but we";
-		mes "can't do any business if";
-		mes "you're carry so much stuff.";
-		mes "Would you mind storing some of";
-		mes "your things with the Kafra Service?";
+		mes "Oh, me desculpe, mas nós";
+		mes "Não posso fazer nenhum negócio se";
+		mes "Você carrega tanta coisa.";
+		mes "Você se importaria de armazenar alguns de";
+		mes "Suas coisas com o serviço Kafra?";
 		close;
 	}
 	if (lunar_rat < 4) {
-		mes "I want to earn enough";
-		mes "money to buy that big";
-		mes "crescent silver pin.";
-		mes "I have to sell as much";
-		mes "of this Mojji as I can!";
+		mes "Eu quero ganhar o suficiente";
+		mes "dinheiro para comprar aquele grande";
+		mes "Pino de prata crescente.";
+		mes "Eu tenho que vender tanto";
+		mes "Desse mojji como eu posso!";
 		close;
 	}
 	else if (lunar_rat >= 4) {
-		mes "Oh, hello! I'm selling";
-		mes "special rice cakes made";
-		mes "from sweet rice. You can";
-		mes "eat it yourself, or feed it";
-		mes "to your New Year Doll if";
-		mes "you have one as a pet.";
+		mes "Oh, olá! Estou vendendo";
+		mes "Bolos de arroz especiais feitos";
+		mes "de arroz doce. Você pode";
+		mes "coma você mesmo ou alimente";
+		mes "para sua boneca de ano novo se";
+		mes "Você tem um como animal de estimação.";
 		next;
 		mes "[Lunar]";
-		mes "Anyway, I'm selling";
-		mes "10 Mojji for 3,000 zeny";
-		mes "Would you like to try some?";
+		mes "Enfim, estou vendendo";
+		mes "10 mojji para 3.000 mulheres";
+		mes "Você gostaria de experimentar alguns?";
 		next;
-		if (select("Yes:No") == 1) {
+		if (select("Sim: Não") == 1) {
 			if (Zeny >= 3000) {
 				set Zeny,Zeny-3000;
 				getitem 554,10; // Mojji
 				mes "[Lunar]";
-				mes "Thank you, and I hope you";
-				mes "have a happy new year!";
-				mes "Please come again~";
+				mes "Obrigado, e espero que você";
+				mes "Tenha um feliz ano novo!";
+				mes "Por favor, venha de novo ~";
 				close;
 			}
 			mes "[Lunar]";
-			mes "Oh, I'm sorry, but you";
-			mes "don't have enough";
-			mes "zeny right now....";
+			mes "Oh, me desculpe, mas você";
+			mes "não tem o suficiente";
+			mes "Zeny agora ....";
 			close;
 		}
 		mes "[Lunar]";
-		mes "Oh, alright. Well, I'll";
-		mes "be here if you or your";
-		mes "friends want some Mojji";
-		mes "later, alight? Goodbye~";
+		mes "Oh, tudo bem. Bem, eu vou";
+		mes "Esteja aqui se você ou seu";
+		mes "amigos querem um pouco de mojji";
+		mes "Mais tarde, aceita? Adeus ~";
 		close;
 	}
 }

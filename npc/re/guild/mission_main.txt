@@ -15,65 +15,65 @@ function calcexp;
 function calcjobexp;
 
 	if (!checkweight(1201,3)){
-		mes "You have too many items to proceed with the quest.";
-		mes "Please lighten your load and try again.";
+		mes "Você tem muitos itens para prosseguir com a missão.";
+		mes "Por favor, alivie sua carga e tente novamente.";
 		close;
 	}
 
 	.@zone$ = strnpcinfo(2);
-	if(.@zone$ == "gqaldeg"){
+	if(.@zone$ == "Gqaldeg"){
 		.@zoneid = 3;
 		.@edition = 1;
-	} else if(.@zone$ == "gqaru"){
+	} else if(.@zone$ == "Guraru"){
 		.@zoneid = 4;
 		.@edition = 2;
-	} else if(.@zone$ == "gqgefg"){
+	} else if(.@zone$ == "Gqgefg"){
 		.@zoneid = 2;
 		.@edition = 1;
 	} else if(.@zone$ == "gqpayg"){
 		.@zoneid = 1;
 		.@edition = 1;
-	} else if(.@zone$ == "gqprtg"){
+	} else if(.@zone$ == "Gqprtg"){
 		.@zoneid = 0;
 		.@edition = 1;
-	} else if(.@zone$ == "gqsch"){
+	} else if(.@zone$ == "GQTH"){
 		.@zoneid = 5;
 		.@edition = 2;
 	} else if(.@zone$ == "gqtealde"){
 		.@zoneid = 6;
 		.@edition = 3;
-	} else if(.@zone$ == "gqteprt"){
+	} else if(.@zone$ == "GiATAprt"){
 		.@zoneid = 7;
 		.@edition = 3;
 	} else {
 		// Custom error message.
-		debugmes "Guild mission script called from an unknown agit region [" + .@zone$ + "].";
+		debugmes "Script da Missão Guild chamado de uma região AGIT desconhecida [" + .@zone$ + "].";
 		end;
 	}
 	.@npcname$ = .npcname$[.@zoneid];
 
 	mes .@npcname$;
-	mes "We provide missions and daily quests that you can complete in the region of " + .region$[.@zoneid] + ".";
-	mes "There are simple daily quests as well as missions that you have to complete within the siege hours only. So, think about it~";
+	mes "Fornecemos missões e missões diárias que você pode concluir na região de" + .region$[.@zoneid] + ".";
+	mes "Existem missões diárias simples, bem como missões que você precisa concluir apenas nas horas de cerco. Então, pense nisso ~";
 	next;
-	switch(select("Conquering " + .region$[.@zoneid], "Guild Dungeon Daily Quests", "About quests", "I don't need it.")){
+	switch(select("Conquistando" + .region$[.@zoneid], "Missões diárias de masmorra da guilda", "Sobre missões", "Eu não preciso disso.")){
 		case 1: // Conquering.
 			.@gid = getcharid(2);
 			if(.@gid && is_guild_leader() == true){
 				.@time_check1 = checkquest(.conquer_delay_questid[.@zoneid], PLAYTIME);
 				if(.@time_check1 == 0){
 					mes .@npcname$;
-					mes "It's been less than an hour since the last time we've checked!";
-					mes "Come back when the waiting time is over.";
+					mes "Faz menos de uma hora desde a última vez que verificamos!";
+					mes "Volte quando o tempo de espera acabar.";
 					next;
 					mes .@npcname$;
-					mes "If you have luck on your side, you'll have good results.";
+					mes "Se você tiver sorte do seu lado, terá bons resultados.";
 					close;
 				} else if(.@time_check1 == 2){
 					erasequest .conquer_delay_questid[.@zoneid];
 					mes .@npcname$;
-					mes "I have confirmed that the waiting time for conquering missions has ended.";
-					mes "I'll delete unnecessary records for you.";
+					mes "Confirmei que o tempo de espera para as missões de conquista terminou.";
+					mes "Vou excluir registros desnecessários para você.";
 					close;
 				} else {
 					.@siege_check = (.@edition == 1 ? agitcheck() : .@edition == 2 ? agitcheck2() : agitcheck3());
@@ -82,13 +82,13 @@ function calcjobexp;
 
 					if(.@siege_check && .@after_time){
 						mes .@npcname$;
-						mes "According to ^4d4dffthe number of fortresses that your guild has conquered at this very moment,^000000 I'll give you a reward.";
-						mes "Do you want to check right now? You're aware that ^4d4dffthe number can change even as we speak,^000000 right?";
+						mes "De acordo com ^4d4dff, o número de fortalezas que sua guilda conquistou neste exato momento, ^000000 Eu te darei uma recompensa.";
+						mes "Você quer verificar agora? Você está ciente de que ^4d4dff O número pode mudar mesmo quando falamos, ^000000, certo?";
 						next;
-						if(select("I'll come back later.","Let's check right now!") == 1){
+						if(select("Vou voltar mais tarde.","Vamos verificar agora!") == 1){
 							mes .@npcname$;
-							mes "Right. Life is all about timing.";
-							mes "Come back when it's shining the most.";
+							mes "Certo. A vida é tudo sobre o tempo.";
+							mes "Volte quando estiver brilhando mais.";
 							close;
 						} else {
 							.@total = 0;
@@ -98,26 +98,26 @@ function calcjobexp;
 
 							if(!.@total){
 								mes .@npcname$;
-								mes "Unfortunately, there is no fortress that your guild has conquered.";
-								mes "Try again!";
+								mes "Infelizmente, não há não fortaleza que sua guilda tenha conquistado.";
+								mes "Tente de novo!";
 								close;
 							} else {
 								mes .@npcname$;
 								if(.@total == 5)
-									mes "Incredible.";
+									mes "Incrível.";
 								else
-									mes "Currently, the total number of fortresses that your guild has conquered";
+									mes "Atualmente, o número total de fortalezas que sua guilda conquistou";
 								for(.@i = 0; .@i < 5; ++.@i){
-									mes getcastlename(.castle$[.@i+.@zoneid*5]) + (.@gid == getcastledata(.castle$[.@i+.@zoneid*5],CD_GUILD_ID) ? ": ^4d4dffOccupied^000000" : "");
+									mes getcastlename(.castle$[.@i+.@zoneid*5]) + (.@gid == getcastledata(.castle$[.@i+.@zoneid*5],CD_GUILD_ID) ? ": ^4d4dfffocupied ^000000" : "");
 								}
 								if(.@total == 5)
-									mes "Your guild has conquered " + .region$[.@zoneid] + "!";
+									mes "Sua guilda conquistou" + .region$[.@zoneid] + "!";
 								else
-									mes "is " + .@total + "!";
+									mes "é" + .@total + "!";
 								next;
 								mes .@npcname$;
-								mes "I'll give you a reward accordingly. I hope you make good use of it.";
-								mes "You have an hour of waiting time until the next report. Keep that in mind and try again.";
+								mes "Vou te dar uma recompensa de acordo. Espero que você faça bom uso disso.";
+								mes "Você tem uma hora de tempo de espera até o próximo relatório. Lembre -se disso e tente novamente.";
 								setquest .conquer_delay_questid[.@zoneid];
 								getitem 6489,.@total;
 								getitem 6615,.@total;
@@ -127,39 +127,39 @@ function calcjobexp;
 						}
 					} else {
 						mes .@npcname$;
-						mes "I'm sorry but you can complete this mission only during the siege hours. I'm afraid I can't do anything here.";
+						mes "Sinto muito, mas você pode concluir esta missão apenas durante o horário do cerco. Receio não poder fazer nada aqui.";
 						close;
 					}
 				}
 			} else {
 				mes .@npcname$;
-				mes "I'm sorry but conquering missions are for guild masters only.";
-				mes "Members should try guild dungeon daily quests instead.";
+				mes "Sinto muito, mas as missões de conquista são apenas para mestres da guilda.";
+				mes "Em vez disso, os membros devem experimentar as missões diárias da masmorra da guilda.";
 				close;
 			}
 			break;
 		case 2: // Daily Quests
 			mes .@npcname$;
-			mes "These are missions that you can complete in guild dungeons of " + .region$[.@zoneid] + " area.";
-			mes "You can cancel them if you want to. Feel free to challenge yourself.";
+			mes "Essas são missões que você pode completar em masmorras de guilda de" + .region$[.@zoneid] + "área.";
+			mes "Você pode cancelá -los, se quiser. Sinta -se à vontade para se desafiar.";
 			next;
 			.@cancel_index = (.@edition == 1 ? 3 : 2);
 			for(.@i = 0; .@i < 3; ++.@i){
 				if(.daily_hunting_questid[.@zoneid*3 + .@i])
-					.@menu$ = .@menu$ + .region$[.@zoneid] + " Mission " + (.@i+1) + (isbegin_quest(.daily_hunting_questid[.@zoneid*3 + .@i]) ? " ^4d4dffCheck the result^000000" : "") + ":";
+					.@menu$ = .@menu$ + .region$[.@zoneid] + "Missão" + (.@i+1) + (isbegin_quest(.daily_hunting_questid[.@zoneid*3 + .@i]) ? "^4d4dffcheck o resultado^000000" : "") + ":";
 			}
 			.@sel = select(.@menu$) - 1;
 			.@index = .@zoneid*3 + .@sel;
 			if(.@sel == .@cancel_index){
 				mes .@npcname$;
-				mes "You don't need to rush since these missions take place in guild dungeons.";
-				mes "Feel free to give it a try whenever you want to.";
+				mes "Você não precisa se apressar, já que essas missões ocorrem nas masmorras da guilda.";
+				mes "Sinta -se à vontade para tentar sempre que quiser.";
 				close;
 			}
 			if(BaseLevel < .level_req[.@index]){
 				mes .@npcname$;
-				mes "Hmm, unfortunately, this mission is limited to users with ^4d4dfflevel " + .level_req[.@index] + "^000000 or higher only.";
-				mes "Your level is not high enough.";
+				mes "Hmm, infelizmente, esta missão é limitada a usuários com ^4d4dflevel" + .level_req[.@index] + "^000000 ou superior apenas.";
+				mes "Seu nível não é alto o suficiente.";
 				close;
 			}
 			.@hunting = checkquest(.daily_hunting_questid[.@index], HUNTING);
@@ -167,26 +167,26 @@ function calcjobexp;
 			if(.@hunting > -1){
 				if(.@hunting == 2){
 					mes .@npcname$;
-					mes "Oh, you've done a good job.";
-					mes "It isn't much, but hopefully it will be helpful.";
+					mes "Oh, você fez um bom trabalho.";
+					mes "Não é muito, mas espero que seja útil.";
 					setquest .daily_delay_questid[.@index];
 					erasequest .daily_hunting_questid[.@index];
 					getexp calcexp(.@zoneid,.@index),calcjobexp(.@edition);
 					getitem 6615,1;
 				} else {
 					mes .@npcname$;
-					mes "Hmm? It seems like you haven't completed the mission yet..";
-					mes "Is there any problem?";
+					mes "Hum? Parece que você ainda não concluiu a missão ..";
+					mes "Existe algum problema?";
 					next;
-					if(select("No.","Give up the quest.") == 1){
+					if(select("No.","Desista da missão.") == 1){
 						mes .@npcname$;
-						mes "I'm not sure how long you can use the guild dungeon, but good luck.";
+						mes "Não tenho certeza de quanto tempo você pode usar a masmorra da guilda, mas boa sorte.";
 						close;
 					} else {
 						mes .@npcname$;
-						mes "Well, no one's forcing you.";
-						mes "Do whatever you like to do.";
-						mes "I'll cancel the mission then.";
+						mes "Bem, ninguém está forçando você.";
+						mes "Faça o que quiser fazer.";
+						mes "Vou cancelar a missão então.";
 						erasequest .daily_hunting_questid[.@index];
 						close;
 					}
@@ -194,36 +194,36 @@ function calcjobexp;
 			} else {
 				if(.@playtime == 0 || .@playtime == 1){
 					mes .@npcname$;
-					mes "The rule is set here so that you're only allowed to complete one mission each day.";
-					mes "I would like you to come back when the waiting time is over.";
+					mes "A regra é estabelecida aqui para que você só tenha permissão para concluir uma missão todos os dias.";
+					mes "Eu gostaria que você voltasse quando o tempo de espera acabasse.";
 					close;
 				} else if(.@playtime == 2){
 					erasequest .daily_delay_questid[.@index];
 					mes .@npcname$;
-					mes "I have confirmed that the waiting time for this mission is over.";
-					mes "I'll delete the records used for confirmation.";
-					mes "Now, give it a try to complete the quest!";
+					mes "Confirmei que o tempo de espera dessa missão acabou.";
+					mes "Vou excluir os registros usados ​​para confirmação.";
+					mes "Agora, tente completar a missão!";
 					close;
 				} else {
 					mes .@npcname$;
-					mes "This is the " + .ordinal$[.@sel] + " mission in " + .region$[.@zoneid] + ".";
+					mes "Este é o" + .ordinal$[.@sel] + "missão em" + .region$[.@zoneid] + ".";
 					brief(.daily_hunting_questid[.@index]);
 					next;
 					mes .@npcname$;
 					if(mob_brief(.daily_hunting_questid[.@index]))
-						mes "I'll reward you accordingly upon completing this mission.";
+						mes "Vou recompensá -lo de acordo ao concluir esta missão.";
 					else
-						mes "I'll give you experience points in return.";
+						mes "Vou te dar pontos de experiência em troca.";
 					next;
-					if(select("Accept it.","Reject it.") == 1){
+					if(select("Aceite.","Rejeitar.") == 1){
 						mes .@npcname$;
-						mes "Entrance to the guild dungeon is restricted. But it's not like you can't find a way to go there, either.";
-						mes "I'll pray for your success in fighting those monsters.";
+						mes "A entrada da masmorra da guilda é restrita. Mas também não é como se você não pudesse encontrar um caminho a ir para lá.";
+						mes "Vou orar pelo seu sucesso em combater esses monstros.";
 						setquest .daily_hunting_questid[.@index];
 						close;
 					} else {
 						mes .@npcname$;
-						mes "Well, do as you wish.";
+						mes "Bem, faça o que desejar.";
 						close;
 					}
 				}
@@ -231,42 +231,42 @@ function calcjobexp;
 			break;
 		case 3: // About quests
 			mes .@npcname$;
-			mes "It's not difficult at all.";
-			mes "I give a reward ^4d4dffdepending on how many fortresses you have conquered.^000000";
-			mes "^4d4dffThe type and quality of the reward depend on the number of conquered fortresses at the very moment I check.^000000";
+			mes "Não é nada difícil.";
+			mes "Dou uma recompensa ^4d4dffdending sobre quantas fortalezas você conquistou. ^000000";
+			mes "^4d4dffthe tipo e qualidade da recompensa dependem do número de fortalezas conquistadas no momento em que verifiquei.^000000";
 			next;
 			mes .@npcname$;
-			mes "And of course, I check during the siege hours only.";
-			mes "^4d4dffReceiving a reward is followed by an hour of waiting time. So you'd better figure out the right timing as well.^000000";
+			mes "E, claro, verifico apenas durante o horário de cerco.";
+			mes "^4d4dffreceing Uma recompensa é seguida por uma hora de tempo de espera. Então é melhor você descobrir o tempo certo também.^000000";
 			next;
 			mes .@npcname$;
-			mes "If you are a master of a guild that is currently participating in siege battles, you should give it a try.";
+			mes "Se você é um mestre de uma guilda que atualmente está participando de batalhas de cerco, você deve tentar.";
 			next;
 			mes .@npcname$;
-			mes "Guild dungeon daily quests consist of combat quests that you can complete in guild dungeons.";
-			mes "It's simple.";
+			mes "As missões diárias da masmorra da guilda consistem em missões de combate que você pode concluir nas masmorras da guilda.";
+			mes "É simples.";
 			close;
 		case 4: // I don't need it.
 			mes .@npcname$;
-			mes "You're really something else~!";
+			mes "Você é realmente outra coisa ~!";
 			close;
 	}
 	end;
 
 OnInit:
 	setarray .castle$[0],
-		"prtg_cas01","prtg_cas02","prtg_cas03","prtg_cas04","prtg_cas05",
-		"payg_cas01","payg_cas02","payg_cas03","payg_cas04","payg_cas05",
+		"PRTG_CAS01","PRTG_CAS02","PRTG_CAS03","PRTG_CAS04","PRTG_CAS05",
+		"payg_cas01","Payg_cas02","Payg_cas03","payg_cas04","payg_cas05",
 		"gefg_cas01","gefg_cas02","gefg_cas03","gefg_cas04","gefg_cas05",
-		"aldeg_cas01","aldeg_cas02","aldeg_cas03","aldeg_cas04","aldeg_cas05",
-		"arug_cas01","arug_cas02","arug_cas03","arug_cas04","arug_cas05",
-		"schg_cas01","schg_cas02","schg_cas03","schg_cas04","schg_cas05",
+		"ALDEG_CAS01","ALDEG_CAS02","ALDEG_CAS03","ALDEG_CAS04","ALDEG_CAS05",
+		"ARUG_CAS01","ARUG_CAS02","ARUG_CAS03","ARUG_CAS04","ARUG_CAS05",
+		"SCHG_CAS01","SCHG_CAS02","SCHG_CAS03","SCHG_CAS04","SCHG_CAS05",
 		"te_aldecas1","te_aldecas2","te_aldecas3","te_aldecas4","te_aldecas5",
-		"te_prtcas01","te_prtcas02","te_prtcas03","te_prtcas04","te_prtcas05";
+		"in_prtcas01","in_prtcas02","TE_PRTCAS03","TE_PRTCAS04","TE_PRTCAS05";
 	setarray .npcname$[0],
-		"[Altir]","[Alshine]","[Denev]","[Tarazed]","[Mirah]","[Almark]","[Becrux]","[Acrux]";
+		"[Altir]","[Alshine]","inclinado","[Tarazed]","[Mirah]","[Almark]","[Becrux]","[Accrux]";
 	setarray .region$[0],
-		"Valkyrie Realm","Greenwood Lake","Britoria","Luina","Valfreyja","Nidhoggur","Kafragarten","Gloria";
+		"Reino de Valkyrie","Lago Greenwood","Britria","Luana","Eletivo","Nidhagar","CATAGRART","Gloria";
 	setarray .weekday[0], // Day of the week. 0 = Sunday, 6 = Saturday.
 		0,0,0,0,0,0,6,6;
 	setarray .start_time[0],
@@ -311,7 +311,7 @@ OnInit:
 		7555,7556,0,	//sch
 		7563,7564,0,	//tealde
 		7559,7560,0;	//teprt
-	setarray .ordinal$[0],"first","second","third";
+	setarray .ordinal$[0],"primeiro","segundo","terceiro";
 	end;
 
 	function brief {
@@ -320,10 +320,10 @@ OnInit:
 			case 7530:
 			case 7533:
 			case 7536:
-				mes "It is to deal with the powerful creatures that appear in the Corridor of the Abyss.";
+				mes "É para lidar com as poderosas criaturas que aparecem no corredor do abismo.";
 				break;
 			default:
-				mes "It is to eliminate the monsters that appear in the guild dungeon.";
+				mes "É eliminar os monstros que aparecem na masmorra da guilda.";
 				break;
 		}
 		return;
@@ -332,64 +332,64 @@ OnInit:
 	function mob_brief {
 		switch(getarg(0)){
 			case 7525:
-				mes "You should hunt 50 or more Caterpillars and Creamy Fear monsters..";
+				mes "Você deve caçar 50 ou mais lagartas e monstros cremosos de medo ..";
 				break;
 			case 7526:
-				mes "Hunt down 30 or more of all 3 types of Abyss Kobolds.";
+				mes "Hunt Down 30 ou mais de todos os 3 tipos de abismo Kobolds.";
 				break;
 			case 7527:
-				mes "^4d4dffYou should kill furious 'Pyuriel' and warrior 'Lora'.^000000";
+				mes "^4d4dffyou deve matar furioso 'pyuriel' e guerreiro 'lora'.^000000";
 				return 1;
 			case 7528:
-				mes "^4d4dffHunt 50 or more of Giant Hornets and Ancient Worms, respectively.^000000";
+				mes "^4d4dffhunt 50 ou mais de vespas gigantes e vermes antigos, respectivamente.^000000";
 				break;
 			case 7529:
-				mes "^4d4dffHunt 40 or more of Killer Mantises and 50 or more of Angra Mantises.^000000";
+				mes "^4d4dffhunt 40 ou mais dos assassinos e 50 ou mais de Angra Mantises.^000000";
 				break;
 			case 7530:
-				mes "They are ^4d4dff'Elvira' and 'Gioia,' which is a strange mechanical creature of heroes' tears.^000000";
+				mes "Eles são ^4d4dff'elvira 'e' gioia ', que é uma estranha criatura mecânica das lágrimas dos heróis. ^000000";
 				return 1;
 			case 7531:
-				mes "^4d4dffHunt 50 or more Zombie Masters and Wraith Deads, respectively.^000000";
+				mes "^4d4dffhunt 50 ou mais mestres de zumbis e mortos de wraith, respectivamente.^000000";
 				break;
 			case 7532:
-				mes "^4d4dffHunt 50 GLD_DARK_SHADOW, 20 GLD_DARK_FRAME, and 20 GLD_DARK_PRIEST monsters.^000000";
+				mes "^4d4dffhunt 50 GLD_DARK_SHADOW, 20 GLD_DARK_FRAME e 20 GLD_DARK_PRIEST Monsters.^000000";
 				break;
 			case 7533:
-				mes "They are ^4d4dff'Kades' and 'Rudo' who wander around the dead's hill.^000000";
+				mes "Eles são ^4d4dff'kades 'e' rudo 'que vagam pela colina dos mortos. ^000000";
 				return 1;
 			case 7534:
-				mes "^4d4dffHunt 50 or more Gullinbursti and Leib Olmai, respectively.^000000";
+				mes "^4d4dffhunt 50 ou mais Gullinbursti e Leib Olmai, respectivamente.^000000";
 				break;
 			case 7535:
-				mes "^4d4dffHunt 45 or more Skeleton General, 20 or more Am Mut and 25 or more Gajomart, respectively.^000000";
+				mes "^4d4dffhunt 45 ou mais esqueleto general, 20 ou mais am mut e 25 ou mais gajomart, respectivamente.^000000";
 				break;
 			case 7536:
-				mes "^4d4dffThey are Old Empire's General 'Daehyon' and Guard 'Soheon'.^000000";
+				mes "^4d4dffthey são o general do antigo império 'Daehyon' e o guarda 'Soheon'.^000000";
 				return 1;
 			case 7537:
-				mes "^4d4dffHunt 50 or more Hell Apocalypse and Zakudam, respectively.^000000";
+				mes "^4d4dffhunt 50 ou mais Apocalipse do inferno e zakudam, respectivamente.^000000";
 				break;
 			case 7538:
-				mes "^4d4dffHunt 35 or more Heavy Metaling and Cobalt Mineral, respectively.^000000";
+				mes "^4d4dffhunt 35 ou mais metal pesado e mineral de cobalto, respectivamente.^000000";
 				break;
 			case 7539:
-				mes "^4d4dffHunt more than 50 Banshee Masters and 30 Beholder Masters.^000000";
+				mes "^4d4dffhunt mais de 50 banshee mestres e 30 mestres de observação.^000000";
 				break;
 			case 7540:
-				mes "^4d4dffHunt 50 Aunoes, and 20 Fanats.^000000";
+				mes "^ 4d4dffhunt 50 aunos e 20 fanats";
 				break;
 			case 7541:
-				mes "^4d4dffHunt 30 or more Knight, Blacksmith, Assassin, respectively.^000000";
+				mes "^4d4dffhunt 30 ou mais cavaleiro, ferreiro, assassino, respectivamente.^000000";
 				break;
 			case 7542:
-				mes "^4d4dffHunt 30 or more Wizard, Priest, Hunter respectively.^000000";
+				mes "^4d4dffhunt 30 ou mais mago, padre, caçador, respectivamente.^000000";
 				break;
 			case 7561:
-				mes "^4d4dffHunt 30 or more, Crusader, Rogue, Alchemist, respectively.^000000";
+				mes "^4d4dffhunt 30 ou mais, cruzado, desonesto, alquimista, respectivamente.^000000";
 				break;
 			case 7562:
-				mes "^4d4dffHunt 30 or more Sage, Monk, Bard, respectively.^000000";
+				mes "^4d4dffhunt 30 ou mais sábio, monge, bardo, respectivamente.^000000";
 				break;
 		}
 		return 0;
@@ -412,13 +412,13 @@ OnInit:
 		.@edition = getarg(0);
 		
 		if(.@edition == 3){
-			if(jobcanentermap("te_prtcas01")){
+			if(jobcanentermap("in_prtcas01")){
 				if (JobLevel > 50)
 					return 1000 * (50 + ((JobLevel - 50) * 3));
 				else
 					return 5000;
 			} else {
-				debugmes "Unexpected case for Job: " + Class + "(" + jobname(Class) + ") for gld_mission#core::calcjobexp";
+				debugmes "Caso inesperado para o trabalho:" + Class + "(" + jobname(Class) + ") Para Gld_mission#Core :: CalcJobExp";
 				return 0;
 			}
 		} else if(.@edition == 2 ) {

@@ -16,82 +16,82 @@ payon_in02,64,71,4	script	Archer Guildsman#archer	85,{
 	if (Upper == 1) {
 		if (Class == Job_Novice_High && (ADVJOB == Job_Sniper || ADVJOB == Job_Clown || ADVJOB == Job_Gypsy)) {
 			mes "[Archer Guildsman]";
-			mes "Hey, I know you.";
-			mes "You took this test";
-			mes "before, didn't you?";
+			mes "Ei, eu te conheço.";
+			mes "Você fez este teste";
+			mes "Antes, não é?";
 			next;
 			mes "[Archer Guildsman]";
-			mes "Ah, you must have been";
-			mes "to Valhalla and been reborn.";
-			mes "Wow, that's so impressive!";
+			mes "Ah, você deve ter sido";
+			mes "a Valhalla e foi renascido.";
+			mes "Uau, isso é tão impressionante!";
 			next;
 			if (!callfunc("F_CanChangeJob")) {
 				mes "[Archer Guildsman]";
-				mes "Err...";
-				mes "You'd better learn all the Basic Skills first before you can become an Archer.";
+				mes "Errar...";
+				mes "É melhor você aprender todas as habilidades básicas antes de se tornar um arqueiro.";
 				next;
 				mes "[Archer Guildsman]";
-				mes "Alright, see you later.";
+				mes "Tudo bem, vejo você mais tarde.";
 				close;
 			}
 			mes "[Archer Guildsman]";
-			mes "Well then. I don't";
-			mes "need to say anything else.";
-			mes "I know you'll make a great Archer...";
+			mes "Bem então. Eu não";
+			mes "Precisa dizer qualquer outra coisa.";
+			mes "Eu sei que você fará um ótimo arqueiro ...";
 			next;
-			skill "NV_TRICKDEAD",0,SKILL_PERM;
+			skill "Nv_trickdead",0,SKILL_PERM;
 			jobchange Job_Archer_high;
-			skill "AC_MAKINGARROW",1,SKILL_PERM;
+			skill "Ac_makingarrow",1,SKILL_PERM;
 			skill "AC_CHARGEARROW",1,SKILL_PERM;
 			mes "[Archer Guildsman]";
-			mes "Although there's no special";
-			mes "reward for you this time, I hope you understand. Take care of yourself.";
+			mes "Embora não haja especial";
+			mes "Recompensa por você desta vez, espero que você entenda. Cuide-se.";
 			close;
 		}else{
 			mes "[Archer Guildsman]";
 			mes "Oh...?";
-			mes "Hey, what are";
-			mes "you doing here...?";
+			mes "Ei, o que é";
+			mes "Você está fazendo aqui ...?";
 			next;
 			mes "[Archer Guildsman]";
-			mes "I can tell that you're not cut out to be an Archer. It sort of feels like you're meant to do";
-			mes "something else...";
+			mes "Posso dizer que você não é cortado para ser um arqueiro. Parece que você deve fazer";
+			mes "outra coisa ...";
 			close;
 		}
 	}
 	mes "[Archer Guildsman]";
-	mes "Nice to meet you. How may I help you?";
+	mes "Prazer em conhecê-lo. Como posso ajudá -lo?";
 	next;
-	switch(select("I want to be an Archer.:I need the requirements, please.:Nothing, thanks.")) {
+	switch(select("Eu quero ser um arqueiro .: Eu preciso dos requisitos, por favor.")) {
 	case 1:
 		mes "[Archer Guildsman]";
 		if(BaseJob != Job_Novice) {
 			if(BaseJob == Job_Archer)
-				mes "Haha, you are kidding me...";
+				mes "Haha, você está brincando comigo ...";
 			else {
-				mes "I feel sorry but only Novices can change their job.";
-				mes "You already have your own decent job, don't you?";
+				mes "Sinto muito, mas apenas os novatos podem mudar seu trabalho.";
+				mes "Você já tem seu próprio trabalho decente, não é?";
 			}
 			close;
 		}else{
-			mes "You are... "+strcharinfo(0)+", right?";
+			mes "Você é..."+strcharinfo(0)+", certo?";
 			next;
 			if (!callfunc("F_CanChangeJob")) {
 				mes "[Archer Guildsman]";
-				mes "Well, you're not at the right skill level.";
-				mes "Your job level must be at least ^4A4AFF10^000000 and your Basic Skill level should reach ^4A4AFFlevel 9";
+				mes "Bem, você não está no nível de habilidade certo.";
+				mes "Seu nível de trabalho deve ser pelo menos ^4a4aff10 ^000000 e seu nível básico de habilidade deve atingir ^4a4fflevel 9";
 				next;
 				mes "[Archer Guildsman]";
-				mes "Because an Archer needs extremely high concentration, so we do not accept those who have little patience.";
+				mes "Como um arqueiro precisa de concentração extremamente alta, não aceitamos aqueles que têm pouca paciência.";
 				close;
 			}
 			mes "[Archer Guildsman]";
-			mes "Your Basic Skill is now enough..";
-			mes "....Hm~~ so you are now ready to be an Archer. I will take the step right away.";
+			mes "Sua habilidade básica agora é suficiente ..";
+			mes ".... hm ~~ então você está pronto para ser um arqueiro. Vou dar o passo imediatamente.";
 			next;
 			mes "[Archer Guildsman]";
-			mes "Congratulations! You are now an Archer! Also, we hope that you actively participate in many programs for the revival of the Archer Guild.";
-			mes "Ah, items have arrived from the Production Department. Here, take these! These are all yours!";
+			mes "Parabéns! Você agora é um arqueiro! Além disso, esperamos que você participe ativamente de muitos programas para o renascimento da guilda de Archer.";
+			mes "Ah, os itens chegaram do departamento de produção. Aqui, pegue estes! Estes são todos seus!";
 			callfunc "Job_Change",Job_Archer;
 			getitem 1742,1;	// N_Composite_Bow
 			getitem 12004,1;	// Arrow_Container
@@ -99,31 +99,31 @@ payon_in02,64,71,4	script	Archer Guildsman#archer	85,{
 			getitem 12008,1;	// Fire_Arrow_Container
 			next;
 			mes "[Archer Guildsman]";
-			mes "Having a bow and arrows, now you became a real Archer.";
-			mes "If you open the arrow container, there are arrows in it and then you can equip them.";
-			mes "Well, I expect to hear better news from you. It's time to say goodbye.";
-			mes "Bye.";
+			mes "Tendo um arco e flechas, agora você se tornou um verdadeiro arqueiro.";
+			mes "Se você abrir o recipiente de seta, há setas nele e você poderá equipá -las.";
+			mes "Bem, espero ouvir notícias melhores de você. É hora de dizer adeus.";
+			mes "Tchau.";
 			close;
 		}
 	case 2:
 		mes "[Archer Guildsman]";
-		mes "An Archer has skills using a bow and has various talents.";
-		mes "The greatest ability of an Archer is attacking enemies from a long distance.";
+		mes "Um arqueiro tem habilidades usando um arco e tem vários talentos.";
+		mes "A maior capacidade de um arqueiro está atacando inimigos a uma longa distância.";
 		next;
 		mes "[Archer Guildsman]";
-		mes "Although an Archer has weaker HP, he or she can shoot enemies at a long range,";
-		mes "so an Archer is safer in a real battle.";
+		mes "Embora um arqueiro tenha HP mais fraco, ele pode atirar em inimigos a um longo alcance,";
+		mes "Então, um arqueiro é mais seguro em uma verdadeira batalha.";
 		next;
 		mes "[Archer Guildsman]";
-		mes "Although an Archer in Ragnarok has lower HP, he or she has high accuracy and attack rate so that the archer can kill monsters before they get close to an Archer.";
+		mes "Embora um arqueiro em Ragnarok tenha HP mais baixo, ele tem alta precisão e taxa de ataque para que o arqueiro possa matar monstros antes de se aproximar de um arqueiro.";
 		next;
 		mes "[Archer Guildsman]";
-		mes "^8C2121An Archer can change jobs to a Hunter.^000000";
-		mes "^8C2121Other than Hunter, if you are a man, you can change your job to Bard and if you are a woman, you can change your job to Dancer.^000000";
+		mes "^8c2121u Arqueiro pode mudar de emprego para um caçador.^000000";
+		mes "^8C2121 OUTO que Hunter, se você é um homem, pode mudar seu trabalho para Bard e, se for uma mulher, pode mudar seu trabalho para dançarina.^000000";
 		close;
 	case 3:
 		mes "[Archer Guildsman]";
-		mes "If you have any questions, feel free to come and ask me.";
+		mes "Se você tiver alguma dúvida, sinta -se à vontade para vir me perguntar.";
 		close;
 	}
 }

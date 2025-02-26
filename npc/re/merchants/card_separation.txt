@@ -17,89 +17,89 @@
 -	script	::CardSeparation_mal	-1,{
 	disable_items;
 	if (checkweight(1201,1) == 0) {
-		mes "You have too many kinds of objects. Let's try to continue after reducing those objects.";
+		mes "Você tem muitos tipos de objetos. Vamos tentar continuar depois de reduzir esses objetos.";
 		close;
 	}
 	if (MaxWeight - Weight < 10000) {
-		mes "Can't continue because you have too many heavy objects. Let's try to continue after reducing the weight.";
+		mes "Não posso continuar porque você tem muitos objetos pesados. Vamos tentar continuar depois de reduzir o peso.";
 		close;
 	}
 	if (strnpcinfo(1) == "Jeremy") {
 		set .@Jeremy,1;
 		set .@n$, "[Jeremy]";
-		setarray .@equip_name$[0],  "Armor",  "Shoes",  "Garment", "Upper Hat";
+		setarray .@equip_name$[0],  "Armadura",  "Sapato",  "Vestuário", "Chapéu superior";
 		setarray .@equip_slot[0], EQI_ARMOR,EQI_SHOES,EQI_GARMENT,EQI_HEAD_TOP;
 
 		mes .@n$;
-		mes "Long time no see~";
-		mes "I have learned a new skill that separates cards from Armor, Shoes, Garment and Headgear. Do you want to try it?";
+		mes "Muito tempo sem ver ~";
+		mes "Aprendi uma nova habilidade que separa cartões de armadura, sapatos, roupas e arnês. Você quer experimentar?";
 	} else {
 		set .@Jeremy,0;
 		set .@n$, "[Richard]";
-		setarray .@equip_name$[0], "Left hand", "Right hand";
+		setarray .@equip_name$[0], "Mão esquerda", "Mão direita";
 		setarray .@equip_slot[0],   EQI_HAND_L,   EQI_HAND_R;
 
 		mes .@n$;
-		mes "Silly Jeremy does not want to touch weapons and shields because of picking several cards that might be damaged. That is why I prepared a card separaion skill for weapons and shields...";
+		mes "Bobo Jeremy não quer tocar em armas e escudos por causa de escolher várias cartas que podem ser danificadas. É por isso que preparei uma habilidade de separação de cartas para armas e escudos ...";
 	}
 	next;
 	mes .@n$;
-	mes "Generally the fee is 1,000,000 Zeny. During the card separation, you can use ^990000special items that reduce the rate of destroying equipment or cards^000000. We don't charge additional zeny for this.";
+	mes "Geralmente a taxa é de 1.000.000 de Zeny. Durante a separação do cartão, você pode usar ^990000 itens especiais que reduzem a taxa de destruição de equipamentos ou cartões ^000000. Não cobramos mais zeny por isso.";
 	next;
 	mes .@n$;
-	mes "There is a possibility of destroying them even using a special item. Also, ^ff0000the refine level might be lost^000000. Do you have any equipment to separate?";
+	mes "Existe a possibilidade de destruí -los mesmo usando um item especial. Além disso, ^ff0000 O nível de refino pode ser perdido ^000000. Você tem algum equipamento para se separar?";
 	next;
 
 	for(set .@i,0; .@i<getarraysize(.@equip_slot); set .@i,.@i+1) {
 		if (getequipisequiped(.@equip_slot[.@i]))
 			set .@menu$, .@menu$+getequipname(.@equip_slot[.@i])+":";
 		else
-			set .@menu$, .@menu$+"^999999"+.@equip_name$[.@i]+" (empty)^000000:";
+			set .@menu$, .@menu$+"^999999"+.@equip_name$[.@i]+"(vazio)^000000:";
 	}
 
-	set .@i, select("Stop the work:"+((.@Jeremy)?"How is it possible?":"")+":"+.@menu$);
+	set .@i, select("Pare o trabalho:"+((.@Jeremy)?"Como é possível?":"")+":"+.@menu$);
 	switch(.@i) {
 	case 1:
 		mes .@n$;
-		mes "Whenever you need the work, visit me here.";
+		mes "Sempre que você precisar do trabalho, visite -me aqui.";
 		close;
 	case 2:
 		mes .@n$;
-		mes "You wonder what is so special. Well, I hate to give only a guide, so let me tell you the story...";
+		mes "Você se pergunta o que é tão especial. Bem, eu odeio dar apenas um guia, então deixe -me contar a história ...";
 		next;
-		mes "^000099Jeremy is stretching his shoulders and hands. He might be waiting for someone to talk with him.^000000";
-		next;
-		mes .@n$;
-		mes "Do you know that Malangdo's specialty is canned food?";
-		next;
-		select("I knew that well. Is it that limited?");
-		mes .@n$;
-		mes "Hehe... Everyone loves it. But there were some problems before.";
-		next;
-		select("Problems? Is there any faulty fish?");
-		mes .@n$;
-		mes "No, the fish does not have any problem. The problem is lots of fish oil produced after processing. That is such an industrial waste.";
+		mes "^000099Jeremy está esticando os ombros e as mãos. Ele pode estar esperando alguém conversar com ele.^000000";
 		next;
 		mes .@n$;
-		mes "However, after a revitalizing refining process, this fish oil became valuable to use for old equipment care and industrial lubricant.";
+		mes "Você sabia que a especialidade de Malangdo é alimentos enlatados?";
+		next;
+		select("Eu sabia disso bem. É tão limitado?");
+		mes .@n$;
+		mes "Hehe ... todo mundo adora. Mas havia alguns problemas antes.";
+		next;
+		select("Problemas? Existe algum peixe com defeito?");
+		mes .@n$;
+		mes "Não, o peixe não tem nenhum problema. O problema é muito óleo de peixe produzido após o processamento. Isso é um desperdício industrial.";
 		next;
 		mes .@n$;
-		mes "In addition, this oil is so useful to separate relics from equipped weapons that we can't buy Premium Lubricant and Ordinary Lubricant with Zeny.";
+		mes "No entanto, após um processo de refino revitalizante, esse óleo de peixe se tornou valioso para usar para cuidados antigos de equipamentos e lubrificante industrial.";
 		next;
 		mes .@n$;
-		mes "Well, don't worry about money. Surely the Premium Lubricant is expensive. If you pay some zeny, I can give you cheaper lubricant.";
+		mes "Além disso, este óleo é tão útil para separar relíquias das armas equipadas que não podemos comprar lubrificante premium e lubrificante comum com Zeny.";
 		next;
 		mes .@n$;
-		mes "I'm not sure about the quality of success. Anyway, this is so cheap, right?";
+		mes "Bem, não se preocupe com dinheiro. Certamente o lubrificante premium é caro. Se você pagar um pouco de zeny, posso lhe dar um lubrificante mais barato.";
+		next;
+		mes .@n$;
+		mes "Não tenho certeza sobre a qualidade do sucesso. Enfim, isso é tão barato, certo?";
 		close;
 	default:
 		set .@equip_num, .@equip_slot[.@i-3];
 		if (!getequipisequiped(.@equip_num)) {
 			mes .@n$;
 			if (.@Jeremy)
-				mes "In this part, there is nothing?";
+				mes "Nesta parte, não há nada?";
 			else
-				mes "There is nothing on that part?";
+				mes "Não há nada nessa parte?";
 			close;
 		}
 		break;
@@ -125,7 +125,7 @@
 		}
 		if (!getarraysize(.@equip_card)) {
 			mes .@n$;
-			mes "The card is not equipped. Do you want to check again?";
+			mes "O cartão não está equipado. Você quer verificar novamente?";
 			close;
 		}
 		if ((.@equip_card[0] && compare(.@mvp_list$,"|"+.@equip_card[0]+"|")) ||
@@ -137,32 +137,32 @@
 		// Official "Richard" script uses a hardcoded list including every possible item.
 		//if (!getequipisequiped(.@equip_num)) {
 		//	mes "[Richard]";
-		//	mes "I'm sorry. We don't provide that equipment yet.";
+		//	mes "Desculpe. Ainda não fornecemos esse equipamento.";
 		//	close;
 		//}
 
 		mes "[Richard]";
-		mes "Which number socket do you want to separate the card? From the left socket, they are sorted 1,2,3,4.";
+		mes "Qual é o soquete que você deseja separar o cartão? Do soquete esquerdo, eles são classificados 1,2,3,4.";
 		next;
 		set .@menu$,"";
 		for ( .@i = 0; .@i < MAX_SLOTS; .@i++ ) {
 			if (.@equip_card[.@i] && getiteminfo(.@equip_card[.@i], ITEMINFO_SUBTYPE) == CARD_NORMAL) // Armor Enchant System
-				.@menu$ = .@menu$ + "Socket " + (.@i+1) + " - " + getitemname(.@equip_card[.@i])+":";
+				.@menu$ = .@menu$ + "Soquete" + (.@i+1) + "-" + getitemname(.@equip_card[.@i])+":";
 			else {
-				.@menu$ = .@menu$ + "^777777Socket " + (.@i+1) + " - No card^000000:";
+				.@menu$ = .@menu$ + "^Hahwakkar" + (.@i+1) + "- sem cartão^000000:";
 			}
 		}
-		set .@i, select("Stop the work:"+.@menu$);
+		set .@i, select("Pare o trabalho:"+.@menu$);
 		switch(.@i) {
 		case 1:
 			mes .@n$;
-			mes "Whenever you need to work, please come to me.";
+			mes "Sempre que você precisar trabalhar, venha até mim.";
 			close;
 		default:
 			set .@slot, .@i-2;
 			if (.@equip_card[.@slot] == 0 || getiteminfo(.@equip_card[.@slot], ITEMINFO_SUBTYPE) == CARD_ENCHANT) {
 				mes .@n$;
-				mes "This socket is not equipped with any card. Why don't you check again?";
+				mes "Este soquete não está equipado com nenhum cartão. Por que você não verifica novamente?";
 				close;
 			}
 			break;
@@ -173,32 +173,32 @@
 	if (.@boss_chk == 0) {
 		mes .@n$;
 		if (.@Jeremy)
-			mes "Except cards, ^ff0000all enchanted effects will disappear.^000000 If you agree to this, please choose the work type:";
+			mes "Exceto cartões, ^ff0000All ENCHANTED EFEITOS desaparecerão. ^000000 Se você concordar com isso, escolha o tipo de trabalho:";
 		else
-			mes "Please choose the working fee.";
+			mes "Escolha a taxa de trabalho.";
 		next;
 		set .@menu$,
-			"Next time...:"+
-			((Zeny >= 1000000)?"Use 1,000,000z (Do not use special item):":"^999999Use 1,000,000z (Insufficient)^000000:")+
-			((countitem(6441))?"Use Premium Lubricant:":"^999999Premium Lubricant (Insufficient)^000000:")+
-			((countitem(6440))?"Use Ordinary Lubricant":"^999999Ordinary Lubricant (Insufficient)^000000");
+			"Próxima vez...:"+
+			((Zeny >= 1000000)?"Use 1.000.000z (não use o item especial):":"^999999Use 1.000.000z (insuficiente)^000000:")+
+			((countitem(6441))?"Use Premium Lubricant:":"^9999999 LUBRICANTE DO PREMO (insuficiente)^000000:")+
+			((countitem(6440))?"Use lubrificante comum":"^99999999DINÁRIO LUBRICANTE (insuficiente)^000000");
 		switch(select(.@menu$)) {
 		case 1:
 			mes .@n$;
-			mes "Whenever you need the work, visit me here.";
+			mes "Sempre que você precisar do trabalho, visite -me aqui.";
 			close;
 		case 2:
 			if (Zeny < 1000000) {
 				mes .@n$;
-				mes "You don't have enough zeny. Please come back with enough fees.";
+				mes "Você não tem zeny suficiente. Por favor, volte com taxas suficientes.";
 				close;
 			}
 			mes .@n$;
-			mes "This is pretty old equipment. There is a high rate of destroying the cards or equipment during the work. Are you sure you want to continue?";
+			mes "Este é um equipamento bastante antigo. Há uma alta taxa de destruição dos cartões ou equipamentos durante o trabalho. Tem certeza de que deseja continuar?";
 			next;
-			if(select("Next time...:Continue") == 1) {
+			if(select("Da próxima vez ...: Continue") == 1) {
 				mes .@n$;
-				mes "Whenever you need the work, visit me here.";
+				mes "Sempre que você precisar do trabalho, visite -me aqui.";
 				close;
 			}
 			set .@sf_c_num,150;
@@ -209,15 +209,15 @@
 		case 3:
 			if (countitem(6441) == 0) {
 				mes .@n$;
-				mes "You don't have Premium Lubricant.";
+				mes "Você não tem lubrificante premium.";
 				close;
 			}
 			mes .@n$;
-			mes "If you use the Premium Lubricant, the rate of destruction will be decreased highly, but I can't give you a 100% guarantee. Are you sure you want to continue?";
+			mes "Se você usar o lubrificante premium, a taxa de destruição diminuirá muito, mas não posso lhe dar uma garantia de 100%. Tem certeza de que deseja continuar?";
 			next;
-			if(select("Next time...:Continue") == 1) {
+			if(select("Da próxima vez ...: Continue") == 1) {
 				mes .@n$;
-				mes "Whenever you need the work, visit me here.";
+				mes "Sempre que você precisar do trabalho, visite -me aqui.";
 				close;
 			}
 			set .@sf_c_num,75;
@@ -228,15 +228,15 @@
 		case 4:
 			if (countitem(6440) == 0) {
 				mes .@n$;
-				mes "You don't have Ordinary Lubricant.";
+				mes "Você não tem lubrificante comum.";
 				close;
 			}
 			mes .@n$;
-			mes "If you use the Ordinary Lubricant, the rate of destruction will be decreased highly, but I can't give you a 100% guarantee. Are you sure you want to continue?";
+			mes "Se você usar o lubrificante comum, a taxa de destruição diminuirá muito, mas não posso lhe dar uma garantia de 100%. Tem certeza de que deseja continuar?";
 			next;
-			if(select("Next time...:Continue") == 1) {
+			if(select("Da próxima vez ...: Continue") == 1) {
 				mes .@n$;
-				mes "Whenever you need the work, visit me here.";
+				mes "Sempre que você precisar do trabalho, visite -me aqui.";
 				close;
 			}
 			set .@sf_c_num,75;
@@ -247,34 +247,34 @@
 		}
 	} else if (.@boss_chk == 1) {
 		mes .@n$;
-		mes "This equipment contains a precious MVP card. This card can't be separated with lubricant. If you bring the super surfactant ^0000ffSillit Pong^000000, I will be able to work.";
+		mes "Este equipamento contém um cartão MVP precioso. Este cartão não pode ser separado com lubrificante. Se você trazer o super surfactante ^0000ffSillit pong ^000000, poderei trabalhar.";
 		next;
-		switch(select("Next time...:I have a Sillit Pong.")) {
+		switch(select("Da próxima vez ...: Eu tenho um pong de Sillit.")) {
 		case 1:
 			mes .@n$;
-			mes "Whenever you need the work, visit me here.";
+			mes "Sempre que você precisar do trabalho, visite -me aqui.";
 			close;
 		case 2:
 			if (countitem(6443) == 0) {
 				mes .@n$;
-				mes "You don't have Sillit Pong.";
+				mes "Você não tem Sillit Pong.";
 				close;
 			}
 			break;
 		}
 		mes .@n$;
 		if (.@Jeremy) {
-			mes "Except cards, ^ff0000all enchanted effects will disappear.^000000 If you agree to this, please choose the work type:";
-			set .@menu$,"Alright, let's do it!";
+			mes "Exceto cartões, ^ff0000All ENCHANTED EFEITOS desaparecerão. ^000000 Se você concordar com isso, escolha o tipo de trabalho:";
+			set .@menu$,"Tudo bem, vamos fazer isso!";
 		} else {
-			mes "May I continue?";
-			set .@menu$,"I got it. Just do it quickly!";
+			mes "Posso continuar?";
+			set .@menu$,"Eu entendi. Apenas faça isso rapidamente!";
 		}
 		next;
-		switch(select("Next time...:"+.@menu$)) {
+		switch(select("Próxima vez...:"+.@menu$)) {
 		case 1:
 			mes .@n$;
-			mes "Whenever you need the work, visit me here.";
+			mes "Sempre que você precisar do trabalho, visite -me aqui.";
 			close;
 		case 2:
 			set .@sf_c_num,60;
@@ -342,25 +342,25 @@
 		specialeffect2 EF_MAXPOWER;
 
 	// Output results.
-	mes "-- Result of Card Separation --";
+	mes "-resultado da separação de cartões-";
 	if (.@equip_safe) {
-		mes "Crack has not occured during the card separation process.";
-		mes "^0000FFEquipment separation is normal.^000000";
+		mes "O crack não ocorreu durante o processo de separação de cartões.";
+		mes "^0000fffEquipment Separation é normal.^000000";
 	} else {
-		mes "Crack has occured during the card separation process.";
-		mes "Equipment has been damaged. ^ff0000Unrecoverable.^000000";
+		mes "O crack ocorreu durante o processo de separação de cartões.";
+		mes "O equipamento foi danificado. ^ff0000UNRECOVABLE.^000000";
 	}
 	mes "-------------------";
 	if (!.@card_break) {
-		mes "Erosion of surface has not occured during the card separation process.";
-		mes "^0000ffCard separation has succeeded.^000000";
+		mes "A erosão da superfície não ocorreu durante o processo de separação de cartões.";
+		mes "^0000ffcard A separação foi bem -sucedida.^000000";
 	} else {
-		mes "Erosion of surface has occured during the card separation process.";
-		mes "Card has been damaged. ^ff0000Unrecoverable.^000000";
+		mes "A erosão da superfície ocorreu durante o processo de separação de cartões.";
+		mes "O cartão foi danificado. ^ff0000UNRECOVABLE.^000000";
 	}
 	next;
 	mes .@n$;
-	mes "That is all for the results of the card separation. Please come again.";
+	mes "Isso é tudo para os resultados da separação do cartão. Por favor, venha novamente.";
 	close;
 }
 malangdo,215,166,4	duplicate(CardSeparation_mal)	Jeremy#pa0829	553	// Armors :: mal_yong

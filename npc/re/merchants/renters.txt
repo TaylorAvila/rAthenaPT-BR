@@ -12,103 +12,103 @@
 // Dragon Breeder :: dragon
 //============================================================
 job3_rune01,88,62,5	script	Dragon Breeder	105,{
-	mes "[Dragon Breeder]";
+	mes "[Criador de dragão]";
 	if ((eaclass()&EAJ_THIRDMASK)==EAJ_RUNE_KNIGHT) {
-		mes "Welcome. Would you like to rent a Dragon?";
+		mes "Bem-vindo. Você gostaria de alugar um dragão?";
 		next;
-		switch(select("Yes:No")) {
+		switch(select("Sim: Não")) {
 		case 1:
-			//if (!getskilllv("RK_DRAGONTRAINING")) {
-			if (!getskilllv("KN_RIDING")) {
-				mes "[Dragon Breeder]";
-				mes "Please learn how to ride a Dragon first.";
+			//if (!getskilllv("Rk_dragonTreining")) {
+			if (!getskilllv("Kn_riding")) {
+				mes "[Criador de dragão]";
+				mes "Por favor, aprenda como montar um dragão primeiro.";
 				close;
 			}
 			else if (checkdragon()) {
-				mes "[Dragon Breeder]";
-				mes "You already have a Dragon.";
+				mes "[Criador de dragão]";
+				mes "Você já tem um dragão.";
 				close;
 			}
 			else if (ismounting()) {
-				mes "[Dragon Breeder]";
-				mes "Please remove your cash mount.";
+				mes "[Criador de dragão]";
+				mes "Por favor, remova sua montagem em dinheiro.";
 				close;
 			}
 			setdragon;
 			close;
 		case 2:
-			mes "[Dragon Breeder]";
-			mes "I see. Then have a great day.";
+			mes "[Criador de dragão]";
+			mes "Eu vejo. Então tenha um ótimo dia.";
 			close;
 		}
 	}
-	mes "What are you doing here?";
-	mes "Only Rune Knights can rent a Dragon.";
+	mes "O que você está fazendo aqui?";
+	mes "Apenas os cavaleiros de Rune podem alugar um dragão.";
 	close;
 }
 
 // Dragon/Gryphon Master :: dragon
 //============================================================
 prontera,130,213,5	script	Riding Creature Master	105,{
-	mes "[Riding Creature Master]";
+	mes "[Mestre da criatura de montaria]";
 	if ((eaclass()&EAJ_THIRDMASK)==EAJ_RUNE_KNIGHT) {
-		mes "Welcome. Would you like to rent a Dragon?";
+		mes "Bem-vindo. Você gostaria de alugar um dragão?";
 		next;
-		switch(select("Yes:No")) {
+		switch(select("Sim: Não")) {
 		case 1:
-			//if (!getskilllv("RK_DRAGONTRAINING")) {
-			if (!getskilllv("KN_RIDING")) {
-				mes "[Riding Creature Master]";
-				mes "Please learn how to ride a Dragon first.";
+			//if (!getskilllv("Rk_dragonTreining")) {
+			if (!getskilllv("Kn_riding")) {
+				mes "[Mestre da criatura de montaria]";
+				mes "Por favor, aprenda como montar um dragão primeiro.";
 				close;
 			}
 			else if (checkdragon()) {
-				mes "[Riding Creature Master]";
-				mes "You already have a Dragon.";
+				mes "[Mestre da criatura de montaria]";
+				mes "Você já tem um dragão.";
 				close;
 			}
 			else if (ismounting()) {
-				mes "[Riding Creature Master]";
-				mes "Please remove your cash mount.";
+				mes "[Mestre da criatura de montaria]";
+				mes "Por favor, remova sua montagem em dinheiro.";
 				close;
 			}
 			setdragon;
 			close;
 		case 2:
-			mes "[Riding Creature Master]";
-			mes "I see. Then have a great day.";
+			mes "[Mestre da criatura de montaria]";
+			mes "Eu vejo. Então tenha um ótimo dia.";
 			close;
 		}
 	}
 	if ((eaclass()&EAJ_THIRDMASK)==EAJ_ROYAL_GUARD) {
-		mes "Welcome. Would you like to rent a Gryphon?";
+		mes "Bem-vindo. Você gostaria de alugar um Gryphon?";
 		next;
-		switch(select("Yes:No")) {
+		switch(select("Sim: Não")) {
 		case 1:
-			if (!getskilllv("KN_RIDING")) {
-				mes "[Riding Creature Master]";
-				mes "Please learn how to ride a Gryphon first.";
+			if (!getskilllv("Kn_riding")) {
+				mes "[Mestre da criatura de montaria]";
+				mes "Aprenda como montar um Gryphon primeiro.";
 				close;
 			}
 			else if (checkriding()) {
-				mes "[Riding Creature Master]";
-				mes "You already have a Gryphon.";
+				mes "[Mestre da criatura de montaria]";
+				mes "Você já tem um Gryphon.";
 				close;
 			}
 			else if (ismounting()) {
-				mes "[Riding Creature Master]";
-				mes "Please remove your cash mount.";
+				mes "[Mestre da criatura de montaria]";
+				mes "Por favor, remova sua montagem em dinheiro.";
 				close;
 			}
 			setriding;
 			close;
 		case 2:
-			mes "[Riding Creature Master]";
-			mes "I see. Then have a great day.";
+			mes "[Mestre da criatura de montaria]";
+			mes "Eu vejo. Então tenha um ótimo dia.";
 			close;
 		}
 	}
-	mes "I'm here to provide Rune Knights and Royal Guards with riding creatures.";
+	mes "Estou aqui para fornecer a Rune Knights e Royal Guards com criaturas.";
 	close;
 }
 geffen,100,55,3	duplicate(Riding Creature Master)	Riding Creature Master#2	105
@@ -120,28 +120,28 @@ rachel,106,130,5	duplicate(Riding Creature Master)	Riding Creature Master#6	105
 // Peco removing NPC :: dragon
 //============================================================
 prontera,125,208,5	script	Peco Peco Remover	105,{
-	mes "[Soldier]";
-	mes "If you're unable to dismount from a Peco Peco";
-	mes "for some unknown reason,";
-	mes "please feel free to use my services.";
+	mes "[Soldado]";
+	mes "Se você não conseguir desmontar de um peco pico";
+	mes "por algum motivo desconhecido,";
+	mes "Sinta -se à vontade para usar meus serviços.";
 	if (checkriding()) {
 		next;
-		mes "[Soldier]";
-		mes "You're riding a Peco Peco.";
-		mes "Would you like to dismount?";
+		mes "[Soldado]";
+		mes "Você está montando um PECO PECO.";
+		mes "Você gostaria de desmontar?";
 		next;
-		switch(select("Yes:No")) {
+		switch(select("Sim: Não")) {
 		case 1:
 			setriding 0;
-			mes "[Soldier]";
-			mes "Say, how does it feel to";
-			mes "step on the ground on your own";
-			mes "feet again?";
+			mes "[Soldado]";
+			mes "Diga, como é";
+			mes "pise no chão por conta própria";
+			mes "pés de novo?";
 			close;
 		case 2:
-			mes "[Soldier]";
-			mes "I see. Please feel free to ask me";
-			mes "if you change your mind.";
+			mes "[Soldado]";
+			mes "Eu vejo. Por favor, fique à vontade para me perguntar";
+			mes "Se você mudar de idéia.";
 			close;
 		}
 	}
@@ -153,113 +153,113 @@ prontera,125,208,5	script	Peco Peco Remover	105,{
 -	script	::mgm	-1,{
 	mes "[Mado Gear Armorer]";
 	if ((eaclass()&EAJ_THIRDMASK)==EAJ_MECHANIC) {
-		mes "Welcome, Mechanic.";
-		mes "Would you like to rent a Pushcart or";
+		mes "Bem -vindo, mecânico.";
+		mes "Você gostaria de alugar um carrinho de pressão ou";
 		mes "ride a Mado Gear?";
 		next;
-		switch(select("Rent a Pushcart:Ride a Mado Gear:Buy Emergency Mado Gear:Upgrade Cooling Device:Cancel")) {
+		switch(select("Alugue um carrinho de pressão: Ande de um Mado Gear: Compre o Mado Gear: Upgrade Resfrying Dispositivo: Cancelar")) {
 		case 1:
 			if (checkcart()) {
 				mes "[Mado Gear Armorer]";
-				mes "I'm sorry, but you already";
-				mes "have a Pushcart.";
+				mes "Sinto muito, mas você já";
+				mes "Tenha um carrinho de pressão.";
 				close;
 			}
 			setcart;
 			mes "[Mado Gear Armorer]";
-			mes "There you go!";
+			mes "Lá vai você!";
 			close;
 		case 2:
 			if (checkmadogear()) {
 				mes "[Mado Gear Armorer]";
-				mes "I'm sorry, but you're already";
+				mes "Sinto muito, mas você já está";
 				mes "riding a Mado Gear.";
 				close;
 			}
-			else if (!getskilllv("NC_MADOLICENCE")) {
+			else if (!getskilllv("Nc_madolicence")) {
 				mes "[Mado Gear Armorer]";
-				mes "Please learn the skill to get the Mado Gear License first.";
+				mes "Aprenda a habilidade para obter a licença de equipamento Mado primeiro.";
 				close;
 			}
 			else if(ismounting()) {
 				mes "[Mado Gear Armorer]";
-				mes "Please remove your cash mount.";
+				mes "Por favor, remova sua montagem em dinheiro.";
 				close;
 			}
 			setmadogear;
 			mes "[Mado Gear Armorer]";
-			mes "Have fun, and please come again!";
+			mes "Divirta -se e, por favor, venha de novo!";
 			close;
 		case 3:
 			mes "[Mado Gear Armorer]";
-			mes "Emergency Mado Gear is really useful for emergency situations and it is sold at 1,000,000 Zeny.";
+			mes "A Mado Gear de emergência é realmente útil para situações de emergência e é vendida a 1.000.000 de Zeny.";
 			next;
-			if (select("Purchase:Cancel") == 2) {
+			if (select("Compra: Cancelar") == 2) {
 				mes "[Mado Gear Armorer]";
-				mes "I see. Please feel free to ask me";
-				mes "if you change your mind.";
+				mes "Eu vejo. Por favor, fique à vontade para me perguntar";
+				mes "Se você mudar de idéia.";
 				close;
 			}
 			if (countitem(23277) > 0) {
 				mes "[Mado Gear Armorer]";
-				mes "I'm sorry, but you already have an Emergency Mado Gear.";
+				mes "Sinto muito, mas você já tem um equipamento de emergência.";
 				close;
 			}
 			if (Zeny < 1000000) {
 				mes "[Mado Gear Armorer]";
-				mes "I'm sorry, but you don't have enough Zeny to purchase the Emergency Mado Gear.";
+				mes "Sinto muito, mas você não tem Zeny o suficiente para comprar o equipamento de emergência.";
 				close;
 			}
 			Zeny -= 1000000;
 			getitem 23277,1; //Mado_Box
 			mes "[Mado Gear Armorer]";
-			mes "There you go!";
+			mes "Lá vai você!";
 			close;
 		case 4:
 			mes "[Mado Gear Armorer]";
-			mes "Which device do you want to upgrade?";
+			mes "Qual dispositivo você deseja atualizar?";
 			next;
-			if (select("Cooling Device:High Quality Cooler") == 1) {
+			if (select("Dispositivo de resfriamento: refrigerador de alta qualidade") == 1) {
 				mes "[Mado Gear Armorer]";
-				mes "Upgrading Cooling Device to High Quality Cooler needs 1 Cooling Device and 2,000,000 Zeny.";
+				mes "Atualizar o dispositivo de resfriamento para o resfriador de alta qualidade precisa de 1 dispositivo de resfriamento e 2.000.000 de zeny.";
 				next;
 				.@itemid = 2804;
 				.@cost = 2000000;
 			} else {
 				mes "[Mado Gear Armorer]";
-				mes "Upgrading High Quality Cooler to Special Cooler needs 1 High Quality Cooler and 4,000,000 Zeny.";
+				mes "Atualizar o refrigerador de alta qualidade para um refrigerador especial precisa de 1 refrigerador de alta qualidade e 4.000.000 de zeny.";
 				next;
 				.@itemid = 2809;
 				.@cost = 4000000;
 			}
-			if (select("Upgrade:Cancel") == 2) {
+			if (select("Upgrade: Cancelar") == 2) {
 				mes "[Mado Gear Armorer]";
-				mes "I see. Please feel free to ask me";
-				mes "if you change your mind.";
+				mes "Eu vejo. Por favor, fique à vontade para me perguntar";
+				mes "Se você mudar de idéia.";
 				close;
 			}
 			if (!countitem(.@itemid)) {
 				mes "[Mado Gear Armorer]";
-				mes "I'm sorry, but you don't have the " + getitemname(.@itemid) + ".";
+				mes "Sinto muito, mas você não tem o" + getitemname(.@itemid) + ".";
 				close;
 			}
 			if (Zeny < .@cost) {
 				mes "[Mado Gear Armorer]";
-				mes "I'm sorry, but you don't have enough Zeny to upgrade the device.";
+				mes "Sinto muito, mas você não tem Zeny suficiente para atualizar o dispositivo.";
 				close;
 			}
 			Zeny -= .@cost;
 			delitem .@itemid,1;
 			getitem (.@itemid == 2804 ? 2809 : 2810),1; //High_Quality_Cooler,Special_Cooler
 			mes "[Mado Gear Armorer]";
-			mes "Here you are! Your very own " + getitemname(.@itemid) + ".";
+			mes "Olha Você aqui! Seu próprio" + getitemname(.@itemid) + ".";
 			close;
 		case 5:
 			close;
 		}
 	}
-	mes "How may I help you?";
-	mes "Mado Gears are only available for Mechanics.";
+	mes "Como posso ajudá -lo?";
+	mes "O Mado Gears está disponível apenas para mecânica.";
 	close;
 }
 prontera,163,178,3	duplicate(mgm)	Mado Gear Armorer#prt	105

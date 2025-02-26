@@ -16,54 +16,54 @@ geffen,115,107,5	script	Lord Kaho's Servant	61,{
 
 	setarray .@Items[0],7005, 968, 923, 734, 724,2268,7036,7020,5053,7018,741,742,743,750,751,752,753,754;
 	setarray .@Drops[0],1272,1087,1039,1260,1046,1115,1252,1147,1038,1059;
-	set .@n$, "[Lord Kaho's Servant]";
+	set .@n$, "[Servo do Senhor Kaho]";
 
 	mes .@n$;
-	mes "I worked myself to death trying to fulfill Lord Kaho's ridiculous expectations for a headgear!";
-	mes "Now that I've finally found the formula for the perfect headgear, I'm willing to share my time and talents.";
+	mes "Eu me trabalhei até a morte tentando cumprir as expectativas ridículas de Lord Kaho para um arnês!";
+	mes "Agora que finalmente encontrei a fórmula para o arnês perfeito, estou disposto a compartilhar meu tempo e talentos.";
 	next;
 	mes .@n$;
-	mes "You need the following to get the Kaho horns:";
-	mes "3x ^0055FFEmperium^000000";
+	mes "Você precisa do seguinte para obter os chifres de Kaho:";
+	mes "3x ^0055FEMPERIUM ^000000";
 	next;
 	mes .@n$;
-	mes "Oh yeah...";
-	mes "I also forgot to mention these...";
+	mes "Oh sim...";
+	mes "Eu também esqueci de mencionar isso ...";
 	next;
 	mes .@n$;
 	for(set .@i,0; .@i<10; set .@i,.@i+1)
-		mes "1x ^0055FF"+getitemname(.@Items[.@i])+"^000000 (from "+strmobinfo(1,.@Drops[.@i])+")";
+		mes "1x ^0055ff"+getitemname(.@Items[.@i])+"^000000 (de"+strmobinfo(1,.@Drops[.@i])+")";
 	next;
 	mes .@n$;
-	mes "We're not done yet, sweetie...";
-	mes "I'm a big fan of dolls, so you need to bring me these cuties!";
+	mes "Ainda não terminamos, querida ...";
+	mes "Eu sou um grande fã de bonecas, então você precisa me trazer essas cuties!";
 	for(set .@i,10; .@i<18; set .@i,.@i+1)
-		mes "1x ^0055FF"+getitemname(.@Items[.@i])+"^000000";
+		mes "1x ^0055ff"+getitemname(.@Items[.@i])+"^000000";
 	next;
 	mes .@n$;
-	mes "Finally, I've worked hard to make these horns for my master with all the items mentioned above...";
-	mes "Please include ^0055FF5 million Zeny^000000 for my efforts."; 
+	mes "Finalmente, trabalhei duro para fazer esses chifres para o meu mestre com todos os itens mencionados acima ...";
+	mes "Inclua ^0055ff5 milhões de zeny ^000000 para meus esforços."; 
 	next;
 	mes .@n$;
-	mes "Are you ready for me to make this special item?";
+	mes "Você está pronto para eu fazer este item especial?";
 	next;
-	if(select("Sure am!:These requirements are unfathomable!")==2) {
+	if(select("Claro AM !: Esses requisitos são insondáveis!")==2) {
 		mes .@n$;
-		mes "What I had to go through was more unfathomable...";
-		mes "If you succeed in getting these items, you will have incredible strength!";
+		mes "O que eu tinha que passar era mais insondável ...";
+		mes "Se você conseguir obter esses itens, terá uma força incrível!";
 		close; }
 	mes .@n$;
 	for(set .@i,0; .@i<18; set .@i,.@i+1)
 		if (!countitem(.@Items[.@i])) { set .@nr,1; break; }
 	if (.@nr || countitem(714) < 3 || Zeny < 5000000) {
-		mes "I can't afford to make this if you don't bring all materials needed. Please understand this is to benefit heroes such as yourself!";
+		mes "Não posso me dar ao luxo de fazer isso se você não trazer todos os materiais necessários. Por favor, entenda que isso é para beneficiar heróis como você!";
 		close; }
 	for(set .@i,0; .@i<18; set .@i,.@i+1)
 		delitem .@Items[.@i],1;
 	delitem 714,3;
 	set Zeny, Zeny-5000000;
-	mes "Wow! You are brave indeed!";
+	mes "Uau! Você é realmente corajoso!";
 	getitem 5013,1;
-	mes "Enjoy being God of Midgard!";
+	mes "Desfrute de ser Deus de Midgard!";
 	close;
 }

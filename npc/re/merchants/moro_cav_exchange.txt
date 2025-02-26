@@ -10,89 +10,89 @@
 
 moro_cav,32,73,5	script	Hero Token Exchanger#1	4_F_SHADOWCHASER,{
 	disable_items;
-	mes "[Hero Token Exchanger]";
-	mes "If you fought Morocc";
-	mes "and collected";
-	mes "Hero Tokens,";
-	mes "I can exchange them with a special ring for you.";
-	mes "Do you want to take a look at my ring?";
+	mes "[Hero Token Exchange]";
+	mes "Se você lutou";
+	mes "e coletado";
+	mes "Tokens de herói,";
+	mes "Eu posso trocá -los com um anel especial por você.";
+	mes "Você quer dar uma olhada no meu anel?";
 	while(true) {
 		next;
 		if (checkweight(2163,2) == 0) {
-			mes "[Hero Token Exchanger]";
-			mes "Your pack has a lot of items,";
-			mes "Please come again after arrange it!";
+			mes "[Hero Token Exchange]";
+			mes "Sua mochila tem muitos itens,";
+			mes "Por favor, volte depois de organizar!";
 			close;
 		}
-		switch( select( "Ring description", "Exchange with the ring.", "End conversation." ) ) {
+		switch( select( "Descrição do anel", "Trocar com o anel.", "END CONVERSA." ) ) {
 		case 1:
-			mes "[Hero Token Exchanger]";
-			mes "This Hero Ring";
-			mes "may not";
-			mes "look";
-			mes "impressive,";
+			mes "[Hero Token Exchange]";
+			mes "Este anel de herói";
+			mes "não pode";
+			mes "olhar";
+			mes "impressionante,";
 			next;
-			mes "[Hero Token Exchanger]";
-			mes "but take it to";
-			mes "Expert Enchanter Byrnes,";
-			mes "and he can Enchant";
-			mes "all 4 sockets in it";
-			mes "and bring out";
-			mes "its latent abilities.";
+			mes "[Hero Token Exchange]";
+			mes "Mas leve para";
+			mes "Especialista Enchanter Byrnes,";
+			mes "E ele pode encantar";
+			mes "Todos os 4 soquetes nele";
+			mes "e trazer para fora";
+			mes "suas habilidades latentes.";
 			next;
-			mes "[Hero Token Exchanger]";
-			mes "Hero Ring";
-			mes "can aid you";
-			mes "in subjugating";
-			mes "Morocc.";
-			mes "Any more questions?";
+			mes "[Hero Token Exchange]";
+			mes "Anel de herói";
+			mes "pode ajudá -lo";
+			mes "Ao subjugar";
+			mes "Marrocos.";
+			mes "Mais alguma pergunta?";
 			continue;
 		case 2:
-			mes "- Hero Ring -";
-			mes "^006400A ring made for warriors^000000";
-			mes "^006400on the quest to defeat Morocc..^000000";
+			mes "- anel de herói -";
+			mes "^006400A Ring feito para guerreiros^000000";
+			mes "^006400 na busca de derrotar os marrocc ..^000000";
 			mes "^006400When Enchanted,^000000";
-			mes "^006400it lends its owner^000000";
-			mes "^006400the power to confront Morocc.^000000";
-			mes "^006400Clas: Accessory/DEF: 0^000000";
-			mes "^006400Weight: 20/Required Level: 160^000000";
-			mes "^006400Slot: 0/Equip To: All Jobs^000000";
+			mes "^006400it empresta seu proprietário^000000";
+			mes "^006400 O poder de enfrentar os marrocc.^000000";
+			mes "^006400Clas: acessório/def: 0^000000";
+			mes "^006400 Weight: 20/Nível necessário: 160^000000";
+			mes "^006400SLOT: 0/Equipe para: todos os trabalhos^000000";
 			next;
-			mes "[Hero Token Exchanger]";
-			mes "Hero Ring requires";
-			mes "30 Hero Tokens";
-			mes "for the exchange.";
-			mes "Do you want to exchange?";
+			mes "[Hero Token Exchange]";
+			mes "O anel de herói exige";
+			mes "30 tokens de herói";
+			mes "para a troca.";
+			mes "Você quer trocar?";
 			next;
-			if (select( "Previous menu.", "Exchange 30 Hero Tokens." ) == 1) {
-				mes "[Hero Token Exchanger]";
-				mes "Think";
-				mes "again.";
+			if (select( "Menu anterior.", "Trocar 30 fichas de herói." ) == 1) {
+				mes "[Hero Token Exchange]";
+				mes "Pensar";
+				mes "de novo.";
 				continue;
 			}
 			if (countitem(6684) < 30) {
-				mes "[Hero Token Exchanger]";
-				mes "^006400Hero Token^000000";
-				mes "is given to";
-				mes "those who bravely fought Morocc.";
-				mes "You don't have";
-				mes "30 ^006400Hero Tokens^000000,";
-				mes "and therefore I can't assist you.";
+				mes "[Hero Token Exchange]";
+				mes "^006400 Token^000000";
+				mes "é dado a";
+				mes "Aqueles que corajosamente lutaram contra Morocc.";
+				mes "Você não tem";
+				mes "30 ^006400 TOKENS HOURO ^000000,";
+				mes "E, portanto, não posso ajudá -lo.";
 				continue;
 			}
-			mes "[Hero Token Exchanger]";
-			mes "I'll exchange";
-			mes "30 ^006400Hero Tokens^000000";
-			mes "with 1 ^006400Hero Ring^000000.";
-			mes "Anything else?";
+			mes "[Hero Token Exchange]";
+			mes "Vou trocar";
+			mes "30 ^006400 TOKENS HEROO ^000000";
+			mes "com 1 ^006400HERO Ring ^000000.";
+			mes "Algo mais?";
 			delitem 6684,30;	// TokenOfHero
 			getitem 2981,1;		// RingOfHero
 			continue;
 		case 3:
-			mes "[Hero Token Exchanger]";
-			mes "One day";
-			mes "you'll find yourself";
-			mes "in need of Hero Ring.";
+			mes "[Hero Token Exchange]";
+			mes "Um dia";
+			mes "Você se encontrará";
+			mes "Precisando de anel de herói.";
 			close;
 		}
 	}
@@ -101,26 +101,26 @@ moro_cav,32,73,5	script	Hero Token Exchanger#1	4_F_SHADOWCHASER,{
 moro_cav,34,65,5	script	Expert Enchanter Byrnes	1_M_03,{
 	disable_items;
 	mes "[Byrnes]";
-	mes "Have you heard of Hero Ring? Only true heroes deserve to possess that magnificent ring, and I've been waiting for one.";
-	mes "What can I do for you?";
+	mes "Você já ouviu falar do anel de herói? Somente os verdadeiros heróis merecem possuir aquele anel magnífico, e eu estava esperando por um.";
+	mes "O que posso fazer para você?";
 	next;
-	switch( select( "Enchant Hero Ring.", "Reset Enchantments on Hero Ring.", "Cancel." ) ) {
+	switch( select( "Anel de herói encantado.", "Redefinir encantamentos no anel de herói.", "Cancelar." ) ) {
 	case 1:
 		mes "[Byrnes]";
-		mes "I can Enchant only equipped rings. Which one of the equipped rings do you want to Enchant?";
+		mes "Eu posso encantar apenas anéis equipados. Qual dos anéis equipados você deseja encantar?";
 		next;
 		setarray .@eqi_slot[0], EQI_ACC_L, EQI_ACC_R;
-		.@s = select( "Left", "Right" ) - 1;
+		.@s = select( "Esquerda", "Certo" ) - 1;
 		switch( getequipid(.@eqi_slot[.@s]) ) {
 		case -1:
 			mes "[Byrnes]";
-			mes "Please equip the Hero Ring that you want to enchant.";
+			mes "Por favor, equipar o anel de herói que você deseja encantar.";
 			close;
 		case 2981:
 			break;
 		default:
 			mes "[Byrnes]";
-			mes "Please equip your Hero Ring. I can't Enchant anything else.";
+			mes "Por favor, equipar seu anel de herói. Não posso encantar mais nada.";
 			close;
 		}
 		// custom at this point
@@ -132,11 +132,11 @@ moro_cav,34,65,5	script	Expert Enchanter Byrnes	1_M_03,{
 
 		if (.@card[0] > 0) {
 			mes "[Byrnes]";
-			mes "A fully enchanted Hero Ring cannot be enchanted any further.";
+			mes "Um anel de herói totalmente encantado não pode se encantar mais.";
 			close;
 		}
 		if (.@card[3] == 0) {
-			setarray .@enchant_list$[0], "DEF", "MDEF";
+			setarray .@enchant_list$[0], "Def", "hospedar";
 			.@slot = 4;
 		}
 		else if (.@card[2] == 0) {
@@ -144,15 +144,15 @@ moro_cav,34,65,5	script	Expert Enchanter Byrnes	1_M_03,{
 			.@slot = 3;
 		}
 		else if (.@card[1] == 0) {
-			setarray .@enchant_list$[0], "Atk", "MAtk";
+			setarray .@enchant_list$[0], "ATK", "Caminhada";
 			.@slot = 2;
 		}
 		else {
-			setarray .@enchant_list$[0], "STR", "INT", "AGI", "VIT", "DEX", "LUK";
+			setarray .@enchant_list$[0], "Str", "Int", "Agi", "ANO", "Dex", "ARCO";
 			.@slot = 1;
 		}
 		mes "[Byrnes]";
-		mes "Which ability do you want as an enchantment on slot " + .@slot + "?";
+		mes "Qual habilidade você deseja como encantamento no slot" + .@slot + "?";
 		next;
 		.@enchant_list_size = getarraysize(.@enchant_list$);
 		for ( .@i = 0; .@i < .@enchant_list_size; ++.@i )
@@ -222,40 +222,40 @@ moro_cav,34,65,5	script	Expert Enchanter Byrnes	1_M_03,{
 		.@card[.@slot-1] = .@bonus[ rand(.@bonus_size) ];	// unknown rates
 		specialeffect2 EF_ANGEL2;
 		mes "[Byrnes]";
-		mes "Enchantment completed!";
+		mes "Encantamento concluído!";
 		delequip .@eqi_slot[.@s];
 		getitem2 2981,1,1,0,0,.@card[0],.@card[1],.@card[2],.@card[3];
 		close;
 	case 2:
 		mes "[Byrnes]";
-		mes "To reset Enchantments on your Hero Ring, I need 3 Hero Tokens.";
+		mes "Para redefinir encantamentos em seu anel de herói, preciso de três tokens de herói.";
 		next;
 		if (countitem(6684) < 3) {
 			mes "[Byrnes]";
-			mes "You don't have enough Hero Tokens. I can't reset your Hero Ring.";
+			mes "Você não tem tokens de herói suficientes. Não posso redefinir seu anel de herói.";
 			close;
 		}
 		mes "[Byrnes]";
-		mes "I can reset only equipped rings. Which one of the equipped rings do you want to reset?";
+		mes "Eu posso redefinir apenas anéis equipados. Qual dos anéis equipados você deseja redefinir?";
 		next;
 		setarray .@eqi_slot[0], EQI_ACC_L, EQI_ACC_R;
-		.@s = select( "Left", "Right" ) - 1;
+		.@s = select( "Esquerda", "Certo" ) - 1;
 		switch( getequipid(.@eqi_slot[.@s]) ) {
 		case -1:
 			mes "[Byrnes]";
-			mes "You first have to equip the item to reset its Enchantment status.";
+			mes "Você primeiro precisa equipar o item para redefinir seu status de encantamento.";
 			close;
 		case 2981:
 			break;
 		default:
 			mes "[Byrnes]";
-			mes "Please equip your Hero Ring. I can't reset anything else.";
+			mes "Por favor, equipar seu anel de herói. Não posso redefinir mais nada.";
 			close;
 		}
 		// custom at this point
 		if (countitem(6684) < 3) {
 			mes "[Byrnes]";
-			mes "You don't have enough Hero Tokens. I can't reset your Hero Ring.";
+			mes "Você não tem tokens de herói suficientes. Não posso redefinir seu anel de herói.";
 			close;
 		}
 		setarray .@card[0],
@@ -266,7 +266,7 @@ moro_cav,34,65,5	script	Expert Enchanter Byrnes	1_M_03,{
 
 		if (.@card[3] == 0) {
 			mes "[Byrnes]";
-			mes "Your Hero Ring is currently in a state without enchantment.";
+			mes "Seu anel de herói está atualmente em um estado sem encantamento.";
 			close;
 		}
 
@@ -276,7 +276,7 @@ moro_cav,34,65,5	script	Expert Enchanter Byrnes	1_M_03,{
 
 		specialeffect2 EF_ANGEL2;
 		mes "[Byrnes]";
-		mes "Initialization completed.";
+		mes "Inicialização concluída.";
 		delitem 6684,3;
 		delequip .@eqi_slot[.@s];
 		getitem 2981,1;

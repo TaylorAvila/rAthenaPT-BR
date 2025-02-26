@@ -18,121 +18,121 @@
 
 valkyrie,53,50,3	script	Biochemist#Valkyrie	122,{
 	if (Class == Job_Creator && bioeth == 13 && getskilllv("AM_BIOETHICS") == 0) {
-		mes "[Biochemist]";
-		mes "Ah, have you come to";
-		mes "retrieve the memories";
-		mes "lost to you? Yes, you";
-		mes "must be here for the";
-		mes "secrets of life that";
-		mes "were once yours...";
+		mes "[Bioquímico]";
+		mes "Ah, você veio para";
+		mes "recuperar as memórias";
+		mes "Perdido para você? Sim, você";
+		mes "deve estar aqui para o";
+		mes "Segredos da vida que";
+		mes "já foram seus ...";
 		next;
-		if (select("Yes:No") == 1) {
-			mes "[Biochemist]";
-			mes "Close your eyes and";
-			mes "put your mind at rest.";
-			mes "We will return to your";
-			mes "past to recollect the";
-			mes "fragments of your lost";
-			mes "memories.";
+		if (select("Sim: Não") == 1) {
+			mes "[Bioquímico]";
+			mes "Feche seus olhos e";
+			mes "Coloque sua mente em repouso.";
+			mes "Voltaremos ao seu";
+			mes "passado para lembrar o";
+			mes "Fragmentos do seu Lost";
+			mes "memórias.";
 			next;
-			mes "[Biochemist]";
-			mes "When you open your eyes,";
-			mes "you will clearly remember";
-			mes "the secret of life. You will";
-			mes "also remember the weight of";
-			mes "responsibility in using these";
-			mes "secrets for the right ends...";
+			mes "[Bioquímico]";
+			mes "Quando você abre seus olhos,";
+			mes "você vai se lembrar claramente";
+			mes "o segredo da vida. Você vai";
+			mes "Lembre -se também do peso de";
+			mes "responsabilidade em usar estes";
+			mes "Segredos para as extremidades certas ...";
 			next;
 			skill "AM_BIOETHICS",1,SKILL_PERM;
-			mes "[Biochemist]";
-			mes "Open your eyes...";
-			mes "Now that you have";
-			mes "remembered how to";
-			mes "create artificial life, I only";
-			mes "ask that you treat all of your";
-			mes "creations with respect.";
+			mes "[Bioquímico]";
+			mes "Abra seus olhos ...";
+			mes "Agora que você tem";
+			mes "lembrou -se de como";
+			mes "Crie vida artificial, eu só";
+			mes "Peça que você trate todos os seus";
+			mes "criações com respeito.";
 			close;
 		}
-		mes "[Biochemist]";
-		mes "If you wish to";
-		mes "retrieve your lost";
-		mes "memories, please";
-		mes "come back to me.";
-		mes "The secret to creating";
-		mes "life is no trifling thing...";
+		mes "[Bioquímico]";
+		mes "Se você deseja";
+		mes "Recupere você perdido";
+		mes "Memórias, por favor";
+		mes "volte para mim.";
+		mes "O segredo para criar";
+		mes "A vida não é uma coisa insignificante ...";
 		close;
 	}
 	else if (ADVJOB == 0 || Upper != 1) {
 		set .@karma_d,rand(1,10);
 		if (.@karma_d > 4) {
-			mes "[Biochemist]";
-			mes "Congratulations.";
-			mes "Honor to the warriors!";
+			mes "[Bioquímico]";
+			mes "Parabéns.";
+			mes "Honra para os Warriors!";
 			close;
 		}
-		mes "[Biochemist]";
-		mes "It's strange that";
-		mes "someone like me is here.";
-		mes "But even someone skilled";
-		mes "in the ways of science";
-		mes "can manage to be a hero.";
+		mes "[Bioquímico]";
+		mes "É estranho isso";
+		mes "Alguém como eu está aqui.";
+		mes "Mas até alguém hábil";
+		mes "nas maneiras da ciência";
+		mes "pode conseguir ser um herói.";
 		next;
-		mes "[Biochemist]";
-		mes "In this instance,";
-		mes "it's not necessarily";
-		mes "the means I've used, but";
-		mes "the ends for which I've";
-		mes "fought that earned me";
-		mes "a place in Valhalla...";
+		mes "[Bioquímico]";
+		mes "Neste caso,";
+		mes "Não é necessariamente";
+		mes "os meios que usei, mas";
+		mes "as pontas pelas quais eu";
+		mes "lutou que me ganhou";
+		mes "Um lugar em Valhalla ...";
 		close;
 	}
 	else if (ADVJOB == Job_Creator && Class == Job_Merchant_High && JobLevel > 39) {
-		mes "[Biochemist]";
-		mes "Yes...";
-		mes "It's about time.";
-		mes "We need more geniuses";
-		mes "like you on Midgard.";
+		mes "[Bioquímico]";
+		mes "Sim...";
+		mes "Está na hora.";
+		mes "Precisamos de mais gênios";
+		mes "Como você no Midgard.";
 		next;
-		mes "[Biochemist]";
-		mes "Would you like to";
-		mes "become a Biochemist?";
+		mes "[Bioquímico]";
+		mes "Você gostaria de";
+		mes "se tornar um bioquímico?";
 		next;
-		if (select("No.:Yes.") == 1) {
-			mes "[Biochemist]";
-			mes "When you're ready,";
-			mes "feel free to come back.";
-			mes "Honor to the warriors!";
+		if (select("Não.") == 1) {
+			mes "[Bioquímico]";
+			mes "Quando você está pronto,";
+			mes "Sinta -se à vontade para voltar.";
+			mes "Honra para os Warriors!";
 			close;
 		}
 		if (SkillPoint) {
-			mes "[Biochemist]";
-			mes "It is still possible for you to learn more skills. Please use";
-			mes "all of your remaining Skill Points before returning to me.";
+			mes "[Bioquímico]";
+			mes "Ainda é possível aprender mais habilidades. Por favor, use";
+			mes "Todos os seus pontos de habilidade restantes antes de voltar para mim.";
 			close;
 		}
 		jobchange Job_Creator;
 		if (bioeth == 13)
 			skill "AM_BIOETHICS",1,SKILL_PERM;
 		set ADVJOB,0;
-		mes "[Biochemist]";
-		mes "Congratulations!";
-		mes "As a Biochemist,";
-		mes "I hope you use your";
-		mes "vast knowledge for the";
-		mes "right purposes.";
+		mes "[Bioquímico]";
+		mes "Parabéns!";
+		mes "Como um bioquímico,";
+		mes "Espero que você use o seu";
+		mes "vasto conhecimento para o";
+		mes "propósitos certos.";
 		close;
 	}
 	else {
-		mes "[Biochemist]";
-		mes "Welcome";
-		mes "to Valhalla,";
-		mes "the Hall of Honor.";
+		mes "[Bioquímico]";
+		mes "Bem-vindo";
+		mes "para Valhalla,";
+		mes "o Hall de Honra.";
 		next;
-		mes "[Biochemist]";
-		mes "Please make";
-		mes "yourself comfortable";
-		mes "while you are here.";
-		mes "Honor to the warriors!";
+		mes "[Bioquímico]";
+		mes "Por favor, faça";
+		mes "você mesmo confortável";
+		mes "Enquanto você está aqui.";
+		mes "Honra para os Warriors!";
 		close;
 	}
 }

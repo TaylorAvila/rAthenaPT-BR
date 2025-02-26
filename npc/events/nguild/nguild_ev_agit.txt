@@ -24,7 +24,7 @@ function	script	F_AgitStart	{
 	set .@empy, getarg(3);
 
 	MapRespawnGuildID .@map$,GetCastleData(.@map$,1),2;
-	monster .@map$,.@empx,.@empy,"Emperium",1288,1,"Agit_"+.@castle$+"::OnAgitBreak";
+	monster .@map$,.@empx,.@empy,"Empeio",1288,1,"Agir_"+.@castle$+":: onagitbreak";
 	GvgOn .@map$;
 	if (GetCastleData(.@map$,1) != 0) return;
 	end;
@@ -37,7 +37,7 @@ function	script	F_GuildBreak	{
 
 	killmonsterall .@map$;
 
-	Announce "Guild Base [" + GetCastleName(.@map$) + "] has been abandoned.",0;
+	Announce "Base da guilda [" + GetCastleName(.@map$) + "] foi abandonado.",0;
 	disablenpc "Kafra Staff#"+.@castle$;
 
 	SetCastleData .@map$,0,0;
@@ -61,8 +61,8 @@ function	script	F_AgitBreak	{
 	SetCastleData .@map$, 3, .@Defence;
 
 	SetCastleData .@map$,1, .@GID;
-	MapAnnounce .@map$,"The emperium has been destroyed.",bc_map,0x00CCFF;
-	Announce "The [" + GetCastleName(.@map$) + "] castle has been conquered by the [" + GetGuildName(.@GID) + "] guild.",bc_all;
+	MapAnnounce .@map$,"O Empeio foi destruído.",bc_map,0x00CCFF;
+	Announce "O [" + GetCastleName(.@map$) + "] Castle foi conquistado pelo [" + GetGuildName(.@GID) + "] Guild.",bc_all;
 	donpcevent "::OnRecvCastle"+.@castle$;
 
 	disablenpc "Kafra Staff#"+.@castle$;
@@ -90,7 +90,7 @@ function	script	F_AgitEnd	{
 	// castles from being aquired after after WoE ends.
 	if (GetCastleData(.@map$,1) == 0) return;
 	MapRespawnGuildID .@map$,GetCastleData(.@map$,1),4;
-	KillMonster .@map$,"Agit_"+.@castle$+"::OnAgitBreak";
+	KillMonster .@map$,"Agir_"+.@castle$+":: onagitbreak";
 	end;
 }
 
@@ -100,7 +100,7 @@ OnInterIfInitOnce:
 	donpcevent "::OnRecvCastleN01";
 	end;
 OnRecvCastleN01:
-	RequestGuildInfo GetCastleData("nguild_alde",1);
+	RequestGuildInfo GetCastleData("nguild_de",1);
 	end;
 OnAgitStart:
 	callfunc "F_AgitStart","nguild_alde","N01",216,24;
@@ -113,8 +113,8 @@ OnGuildBreak:
 	callfunc "F_GuildBreak","nguild_alde","N01";
 	end;
 OnAgitEliminate:
-	MapRespawnGuildID "nguild_alde",GetCastleData("nguild_alde",1),6;
-	Monster "nguild_alde",216,24,"EMPERIUM",1288,1,"Agit_N01::OnAgitBreak";
+	MapRespawnGuildID "nguild_de",GetCastleData("nguild_de",1),6;
+	Monster "nguild_de",216,24,"Empeio",1288,1,"ACT_N01 :: OnAGatebreak";
 	end;
 OnAgitEnd:
 	callfunc "F_AgitEnd","nguild_alde","N01";
@@ -141,7 +141,7 @@ OnGuildBreak:
 	end;
 OnAgitEliminate:
 	MapRespawnGuildID "nguild_gef",GetCastleData("nguild_gef",1),6;
-	Monster "nguild_gef",198,182,"EMPERIUM",1288,1,"Agit_N02::OnAgitBreak";
+	Monster "nguild_gef",198,182,"Empeio",1288,1,"ACT_N02 :: onagatebreak";
 	end;
 OnAgitEnd:
 	callfunc "F_AgitEnd","nguild_gef","N02";
@@ -168,7 +168,7 @@ OnGuildBreak:
 	end;
 OnAgitEliminate:
 	MapRespawnGuildID "nguild_pay",GetCastleData("nguild_pay",1),6;
-	Monster "nguild_pay",139,139,"EMPERIUM",1288,1,"Agit_N03::OnAgitBreak";
+	Monster "nguild_pay",139,139,"Empeio",1288,1,"ACT_N03 :: OnAGatebreak";
 	end;
 OnAgitEnd:
 	callfunc "F_AgitEnd","nguild_pay","N03";
@@ -195,7 +195,7 @@ OnGuildBreak:
 	end;
 OnAgitEliminate:
 	MapRespawnGuildID "nguild_prt",GetCastleData("nguild_prt",1),6;
-	Monster "nguild_prt",197,197,"EMPERIUM",1288,1,"Agit_N04::OnAgitBreak";
+	Monster "nguild_prt",197,197,"Empeio",1288,1,"ACT_N04 :: OnAGateBreak";
 	end;
 OnAgitEnd:
 	callfunc "F_AgitEnd","nguild_prt","N04";

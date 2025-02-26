@@ -12,19 +12,19 @@
 	.@storage_ticket = 7059;	// Cargo_Free_Ticket
 	.@storage_ticket_name$ = getitemname(.@storage_ticket);
 
-	mes "Vending Machine for Novices.";
-	mes "There are many buttons.";
+	mes "Máquina de venda automática para iniciantes.";
+	mes "Existem muitos botões.";
 	next;
-	switch( select( "Manual", "Trade " + .@storage_ticket_name$, "Trade Novice equipments" ) ) {
+	switch( select( "Manual", "Troca" + .@storage_ticket_name$, "Equipamentos iniciantes comerciais" ) ) {
 	case 1:
-		mes "[Exchange " + .@storage_ticket_name$ + "]";
-		mes "4 " + .@storage_ticket_name$ + " can be exchanged into 1 Free Ticket for Warp, Airship or the Cart Service, or 1 Free Ticket for Peco Ride, 15 Novice Fly Wing, 5 Novice Butterfly Wing, 30 Novice Potion.";
+		mes "[Intercâmbio" + .@storage_ticket_name$ + "]";
+		mes "4" + .@storage_ticket_name$ + "Pode ser trocado em 1 bilhete gratuito por Warp, Airship ou Serviço de Carrinho, ou 1 bilhete gratuito por PECO Ride, 15 Wing Fly Novice, 5 asa de borboleta iniciante, 30 Poção de Novice.";
 		next;
-		mes "[Trade Novice Gears]";
-		mes "Armor, Hood, Sandals, Main Gauche and Guard for Novice from Criatura Academy can be exchanged into 4 " + .@storage_ticket_name$ + ".";
+		mes "[Comércio de equipamentos iniciantes]";
+		mes "Armadura, capuz, sandálias, gauche principal e guarda para iniciantes da Critura Academy podem ser trocados em 4" + .@storage_ticket_name$ + ".";
 		next;
-		mes "[Trade Novice Gears]";
-		mes "Novice Eggshell can be exchanged into Criatura Hair Coupon for changing your hairstyle.";
+		mes "[Comércio de equipamentos iniciantes]";
+		mes "A casca de ovo iniciante pode ser trocada em cupom de cabelo de Criatura por trocar seu penteado.";
 		close;
 	case 2:
 		setarray .@exchange[0],
@@ -39,29 +39,29 @@
 
 		for ( .@i = 0; .@i < .@size; .@i += 2 ) {
 			if (.@exchange[.@i+1] > 1)
-				.@menu$ += .@exchange[.@i+1] + " ";
+				.@menu$ += .@exchange[.@i+1] + "";
 			.@menu$ += getitemname(.@exchange[.@i]) + ":";
 		}
 		.@s = (select(.@menu$) - 1) * 2;
 		if (countitem(.@storage_ticket) < 4) {
-			mes "The number of " + .@storage_ticket_name$ + " is insufficient to proceed with the exchange.";
+			mes "O número de" + .@storage_ticket_name$ + "é insuficiente para prosseguir com a troca.";
 			close;
 		}
 		if (.@exchange[.@s+1] > 1)
-			.@amount$ = .@exchange[.@s+1] + " ";
-		mes "Exchanged 4 " + .@storage_ticket_name$ + " to " + .@amount$ + getitemname(.@exchange[.@s]);
+			.@amount$ = .@exchange[.@s+1] + "";
+		mes "Trocou 4" + .@storage_ticket_name$ + "para" + .@amount$ + getitemname(.@exchange[.@s]);
 		delitem .@storage_ticket,4;
 		getitem .@exchange[.@s],.@exchange[.@s+1];
 		close;
 	case 3:
-		mes "Exchange all Novice equipments into coupons.";
-		mes "Select continue to proceed.";
+		mes "Trocar todos os equipamentos iniciantes em cupons.";
+		mes "Selecione Continue a prosseguir.";
 		next;
-		if (select( "Continue", "Cancel." ) == 2) {
-			mes "The trade was interrupted.";
+		if (select( "Continuar", "Cancelar." ) == 2) {
+			mes "O comércio foi interrompido.";
 			close;
 		}
-		mes "Exchanging all equipment into coupons.";
+		mes "Trocando todos os equipamentos em cupons.";
 		setarray .@list[0],2352,2510,2414,1243,2112,5055;
 		.@size = getarraysize(.@list);
 		

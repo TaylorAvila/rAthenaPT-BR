@@ -22,50 +22,50 @@
 //= Illusion of Moonlight
 //============================================================
 pay_d03_i,160,45,3	script	Gemcutter#ilp20	4_TOWER_17,3,3,{
-	mes "[ Gemcutter ]";
-	mes "Do you have business with me?";
+	mes "[Gemcutter]";
+	mes "Você tem negócios comigo?";
 	next;
-	switch( select( "What are you doing here?", "Upgrade equipments" ) ) {
+	switch( select( "O que você está fazendo aqui?", "Equipamentos de atualização" ) ) {
 	case 1:
-		mes "[ Gemcutter ]";
-		mes "I came to the ruined village,";
-		mes "looking for some materials. Touched some strange light, and now I'm here.";
+		mes "[Gemcutter]";
+		mes "Eu vim para a vila em ruínas,";
+		mes "procurando alguns materiais. Tocou uma luz estranha, e agora estou aqui.";
 		next;
-		mes "[ Gemcutter ]";
-		mes "I've decided to stick around for a little while. Figured I'd be safe so long as I stay close to this soldier.";
-		mes "I have a proposition for you. I want some materials that can only be found in this place.";
+		mes "[Gemcutter]";
+		mes "Decidi ficar por um tempo. Imaginei que eu estaria seguro, desde que fique perto desse soldado.";
+		mes "Eu tenho uma proposta para você. Eu quero alguns materiais que só podem ser encontrados neste lugar.";
 		next;
-		mes "[ Gemcutter ]";
-		mes "Get them for me, and I'll improve your equipment in exchange. Just so you know, I can only improve certain types.";
+		mes "[Gemcutter]";
+		mes "Pegue -os para mim e melhorarei seu equipamento em troca. Só para você saber, só posso melhorar certos tipos.";
 		next;
-		mes "[ Gemcutter ]";
-		mes "If you're interested, we can discuss the details of our bargain.";
+		mes "[Gemcutter]";
+		mes "Se você estiver interessado, podemos discutir os detalhes de nossa barganha.";
 		close;
 	case 2:
-		mes "[ Gemcutter ]";
-		mes "Make sure ^0000FFyour equipment is refined to at least +9^000000 before bringing it to me.";
-		mes "That's the minimum requirement for my upgrade service to have any visible effects on your equipment.";
+		mes "[Gemcutter]";
+		mes "Certifique -se de que ^0000ffyour equipamento seja refinado para pelo menos +9 ^000000 antes de trazê -lo para mim.";
+		mes "Esse é o requisito mínimo para que meu serviço de atualização tenha efeitos visíveis no seu equipamento.";
 		next;
-		mes "[ Gemcutter ]";
-		mes "Make sure you're ^0000FFequipped with the item that you want to improve.^000000";
-		mes "Otherwise, I can't evaluate its condition.";
+		mes "[Gemcutter]";
+		mes "Certifique -se de que você está ^0000FFELIP COM O ITEM que deseja melhorar. ^000000";
+		mes "Caso contrário, não posso avaliar sua condição.";
 		next;
-		mes "[ Gemcutter ]";
-		mes "As you may have guessed, your equipment will transform into something new after this.";
-		mes "In other words, ^0000FFIt'll lose its current refining levels, cards and enchantments.^000000";
+		mes "[Gemcutter]";
+		mes "Como você deve ter adivinhado, seu equipamento se transformará em algo novo depois disso.";
+		mes "Em outras palavras, ^0000ffit perderá seus níveis atuais de refino, cartões e encantamentos. ^000000";
 		next;
-		mes "[ Gemcutter ]";
-		mes "And I need ^0000FFIllusion Stones and some other materials^000000 to upgrade your equipment.";
-		mes "Pick an item you want and I'll tell you what I need.";
+		mes "[Gemcutter]";
+		mes "E eu preciso de pedras de 0000filusion e alguns outros materiais ^000000 para atualizar seu equipamento.";
+		mes "Escolha um item que você deseja e eu vou lhe dizer o que preciso.";
 		close2;
-		callshop( "barter_ill_moonlight" );
+		callshop( "Barter_ill_moonlight" );
 		end;
 	}
 	end;
 
 OnTouch:
 	if (illusion_moonlight > 7)
-		npctalk "What kind of place is this?", "", bc_self;
+		npctalk "Que tipo de lugar é esse?", "", bc_self;
 	end;
 }
 
@@ -74,57 +74,57 @@ OnTouch:
 //= Illusion of Vampire
 //============================================================
 gef_dun01,139,228,3	script	Great Merchant#illgef	4_M_HUMERCHANT,{
-	mes "[Great Merchant]";
-	mes "Adventurer, do you have ^0000cdIllusion Stones^000000? If you have a ^0000cdweapon, a piece armor^000000, or ^0000cdan accessory at Refining Level 9 or higher^000000, ";
-	mes "then I can exchange it for something better at the cost of some Illusion Stones and other materials.";
+	mes "[Grande comerciante]";
+	mes "Aventureiro, você tem ^0000cdillusion Stones ^000000? Se você tiver um ^0000cdweapon, uma armadura de peça ^000000 ou ^0000cdan acessório no nível de refino 9 ou superior ^000000,";
+	mes "Então eu posso trocá -lo por algo melhor ao custo de algumas pedras ilusão e outros materiais.";
 	next;
-	mes "[Great Merchant]";
-	mes "So, what do you want?";
+	mes "[Grande comerciante]";
+	mes "Então, o que você quer?";
 	next;
-	switch( select( "Exchange illusion equipment", "What are Illusion Stones?", "Can I strengthen the exchanged item?", "Cancel" ) ) {
+	switch( select( "Troca de equipamentos de ilusão", "O que são pedras de ilusão?", "Posso fortalecer o item trocado?", "Cancelar" ) ) {
 	case 1:
 		specialeffect EF_HFLIMOON3;
 		emotion ET_BEST;
-		mes "[Great Merchant]";
-		mes "Use it well and come see me later if you find more Illusion Stones! *Chuckle*";
+		mes "[Grande comerciante]";
+		mes "Use bem e venha me ver mais tarde se encontrar mais pedras de ilusão! *Risada*";
 		close2;
-		callshop( "barter_ill_vampire" );
+		callshop( "Barter_ill_vampire" );
 		end;
 	case 2:
-		mes "[Great Merchant]";
-		mes "What are ^0000cdIllusion Stones^000000, you ask? Well... I don't think anyone knows exactly what they are.";
+		mes "[Grande comerciante]";
+		mes "O que são ^0000CDillus Stones ^000000, você pergunta? Bem ... acho que ninguém sabe exatamente o que é.";
 		next;
-		mes "[Great Merchant]";
-		mes "I only know they're rare and can only be found in some special places, and I'm here to collect them for my clients.";
+		mes "[Grande comerciante]";
+		mes "Só sei que eles são raros e só podem ser encontrados em alguns lugares especiais, e estou aqui para recolhê -los para meus clientes.";
 		next;
-		mes "[Great Merchant]";
-		mes "My clients want to figure out what these stones are. They're paying me a lot of money,";
+		mes "[Grande comerciante]";
+		mes "Meus clientes querem descobrir quais são essas pedras. Eles estão me pagando muito dinheiro,";
 		next;
-		mes "[Great Merchant]";
-		mes "so I could offer adventurers like you ^0000cdexpensive equipment in exchange for the stones^000000, and still fetch a profit.";
+		mes "[Grande comerciante]";
+		mes "Para que eu pudesse oferecer aventureiros como você ^0000cdexpensive Equipment em troca das pedras ^000000 e ainda obtém lucro.";
 		next;
-		mes "[Great Merchant]";
-		mes "Bring ^0000cda piece of refined equipment, Illusion Stones^000000, and various materials that are only found in this place. I'll ^0000cdupgrade the equipment, weapon, armor, or accessory?^000000for you.";
+		mes "[Grande comerciante]";
+		mes "Traga ^0000cda de equipamento refinado, pedras de ilusão ^000000 e vários materiais que são encontrados apenas neste local. Eu vou ^0000cdupgrade o equipamento, arma, armadura ou acessório? ^000000 para você.";
 		next;
-		mes "[Great Merchant]";
-		mes "This benefits both of us. Let me know if you're interested in my proposition.";
+		mes "[Grande comerciante]";
+		mes "Isso beneficia nós dois. Deixe -me saber se você estiver interessado na minha proposta.";
 		close;
 	case 3:
-		mes "[Great Merchant]";
-		mes "So, you want to reinforce the equipment you get. You're thorough. I like that!";
+		mes "[Grande comerciante]";
+		mes "Então, você deseja reforçar o equipamento que obtém. Você é completo. Eu gosto disso!";
 		next;
-		mes "[Great Merchant]";
-		mes "A while ago, an adventurer who passed through this place told me that a chemist in Prontera refines the Illusion equipment in exchange for Illusion Stones.";
+		mes "[Grande comerciante]";
+		mes "Há um tempo atrás, um aventureiro que passou por este lugar me disse que um químico em Pronntera refina o equipamento de ilusão em troca de pedras de ilusão.";
 		next;
-		mes "[Great Merchant]";
-		mes "It seems Illusion Stones are a popular topic everywhere. Everyone wants to know about what they are.";
+		mes "[Grande comerciante]";
+		mes "Parece que as pedras de ilusão são um tópico popular em todos os lugares. Todo mundo quer saber sobre o que é.";
 		next;
-		mes "[Great Merchant]";
-		mes "If you want to refine your equipment, then go to the <NAVI>Illusion Enchanter<INFO>prontera,90,115,000,0,</INFO></NAVI> near the Town Office.";
+		mes "[Grande comerciante]";
+		mes "Se você deseja refinar seu equipamento, vá para o <Vi> Illusion Enchanter <fiv, pronDera, 90.115.000,0, </foste> </avi> perto do escritório da cidade.";
 		close;
 	case 4:
-		mes "[Great Merchant]";
-		mes "Did you find anything you liked? If you need anything, please let me know at any time.";
+		mes "[Grande comerciante]";
+		mes "Você encontrou algo que você gostou? Se você precisar de alguma coisa, informe -me a qualquer momento.";
 		close;
 	}
 	end;
@@ -137,40 +137,40 @@ gef_dun01,139,228,3	script	Great Merchant#illgef	4_M_HUMERCHANT,{
 // illusion exchange npc - trade items for illusion gears
 ice_dun02,153,18,3	script	Illusion Stone Research	4_M_ALCHE_B,{
 	disable_items;
-	mes "[Illusion Stone Researcher]";
-	mes "Ah, Illusion Stones are truly mysterious...";
+	mes "[Pesquisador de Pedra Illusion]";
+	mes "Ah, as pedras de ilusão são verdadeiramente misteriosas ...";
 	next;
-	switch( select( "What are you doing here?", "Upgrade equipments", "Cancel" ) ) {
+	switch( select( "O que você está fazendo aqui?", "Equipamentos de atualização", "Cancelar" ) ) {
 	case 1:
-		mes "[Illusion Stone Researcher]";
-		mes "I'm here to find some Illusion Stones that I need for my research.";
+		mes "[Pesquisador de Pedra Illusion]";
+		mes "Estou aqui para encontrar algumas pedras de ilusão que preciso para minha pesquisa.";
 		next;
-		mes "[Illusion Stone Researcher]";
-		mes "This cave is very mysterious, but I'm not strong enough to explore it by myself.";
-		mes "If you go in there, could you procure some things for me?";
+		mes "[Pesquisador de Pedra Illusion]";
+		mes "Essa caverna é muito misteriosa, mas não sou forte o suficiente para explorá -la sozinha.";
+		mes "Se você entrar lá, você poderia adquirir algumas coisas para mim?";
 		next;
-		mes "[Illusion Stone Researcher]";
-		mes "In exchange, I'll improve your equipment.";
-		mes "What do you say?";
+		mes "[Pesquisador de Pedra Illusion]";
+		mes "Em troca, vou melhorar seu equipamento.";
+		mes "O que você diz?";
 		close;
 	case 2:
-		mes "[Illusion Stone Researcher]";
-		mes "Make sure ^4d4dffyour equipment is refined to at least +9^000000 before bringing it to me.";
-		mes "Make sure you're ^4d4dffequipped with the item that you want to improve^000000.";
+		mes "[Pesquisador de Pedra Illusion]";
+		mes "Certifique -se de que o equipamento 4d4dffyour seja refinado para pelo menos +9 ^000000 antes de trazê -lo para mim.";
+		mes "Certifique -se de que você está ^4D4DFFELIP COM O ITEM que deseja melhorar ^000000.";
 		next;
-		mes "[Illusion Stone Researcher]";
-		mes "As you may have guessed, your equipment will transform into something new after this.";
-		mes "In other words, ^4d4dffit'll lose its current Refining and Upgrade levels.^000000";
+		mes "[Pesquisador de Pedra Illusion]";
+		mes "Como você deve ter adivinhado, seu equipamento se transformará em algo novo depois disso.";
+		mes "Em outras palavras, ^4d4dffit vai perder seus níveis atuais de refino e atualização. ^000000";
 		next;
-		mes "[Illusion Stone Researcher]";
-		mes "And I need ^4d4dffIllusion Stones and some other materials^000000 to upgrade your equipment.";
-		mes "Pick an item you want. I'll tell you what I need.";
+		mes "[Pesquisador de Pedra Illusion]";
+		mes "E eu preciso de pedras de colisão e alguns outros materiais ^000000 para atualizar seu equipamento.";
+		mes "Escolha um item que você deseja. Vou te dizer o que preciso.";
 		close2;
-		callshop( "barter_ill_frozen" );
+		callshop( "Barter_ill_frozen" );
 		end;
 	case 3:
-		mes "[Illusion Stone Researcher]";
-		mes "It's just hard to get..";
+		mes "[Pesquisador de Pedra Illusion]";
+		mes "É apenas difícil de conseguir ..";
 		close;
 	}
 	end;
@@ -181,79 +181,79 @@ ice_dun02,153,18,3	script	Illusion Stone Research	4_M_ALCHE_B,{
 // note: unknown enhance rate
 prontera,90,115,5	script	Illusion Enchanter#0	4_GEFFEN_09,3,3,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 2000) {
-		mes "I'm overweight. I'd better lighten my bag first.";
+		mes "Estou acima do peso. Eu melhor eu aliviava minha bolsa primeiro.";
 		close;
 	}
 	disable_items;
 	if (isbegin_quest(12415) == 0) {
 		mes "[Illusion Enchanter]";
-		mes "Oh, do you have Illusion equipment?";
+		mes "Oh, você tem equipamentos de ilusão?";
 		next;
-		select("No. I don't even know what Illusion equipment is.");
+		select("Não. Eu nem sei o que é equipamento de ilusão.");
 		mes "[Illusion Enchanter]";
-		mes "Oops, I'm sorry. I should've introduced myself first.";
-		next;
-		mes "[Illusion Enchanter]";
-		mes "I'm a chemist specializing in the study of Illusion Stones, which have been circulating among adventurers.";
-		next;
-		select("Illusion Stones?");
-		mes "[Illusion Enchanter]";
-		mes "You don't know, don't you? They're the hottest trend these days.";
-		next;
-		select("I don't care about trends.");
-		mes "[Illusion Enchanter]";
-		mes "You must have heard about the strange places that have sprung up here and there lately. Illusion Stones are only found in those places,";
+		mes "Opa, me desculpe. Eu deveria ter me apresentado primeiro.";
 		next;
 		mes "[Illusion Enchanter]";
-		mes "and their atomic structure is unlike any mineral I've seen. *Blah Blah* ...Their chemical chains... *Blah Blah*";
+		mes "Sou um químico especializado no estudo de pedras ilusão, que circulava entre os aventureiros.";
 		next;
-		select("(Uh-oh, he's zoning out!)");
+		select("Pedras de Ilusão?");
 		mes "[Illusion Enchanter]";
-		mes "Anyway, I can enchant equipment that is exchanged for or purchased with Illusion Stones. I call them the Illusion equipment.";
+		mes "Você não sabe, não é? Eles são a tendência mais quente nos dias de hoje.";
 		next;
-		select("(He has no sense when it comes to names.)");
+		select("Eu não me importo com tendências.");
 		mes "[Illusion Enchanter]";
-		mes "This equipment at least responds positively to Illusion Stones, or it has the potential to be enchanted successfully.";
-		next;
-		mes "[Illusion Enchanter]";
-		mes "Explore the worlds of illusions, collect Illusion Stones, and exchange them for equipment. I can enchant the equipment for you.";
+		mes "Você deve ter ouvido falar sobre os lugares estranhos que surgiram aqui e ali ultimamente. Pedras de ilusão são encontradas apenas nesses lugares,";
 		next;
 		mes "[Illusion Enchanter]";
-		mes "This benefits both of us. I need Illusion Stones for my studies, and you need powerful equipment for your adventures.";
+		mes "E sua estrutura atômica é diferente de qualquer mineral que eu já vi. *Blá blá*... suas correntes químicas ...*blá blá*";
+		next;
+		select("(Uh-oh, ele está zoneando!)");
+		mes "[Illusion Enchanter]";
+		mes "De qualquer forma, posso encantar equipamentos trocados ou comprados com pedras de ilusão. Eu os chamo de equipamento de ilusão.";
+		next;
+		select("(Ele não tem sentido quando se trata de nomes.)");
+		mes "[Illusion Enchanter]";
+		mes "Esse equipamento responde pelo menos positivamente às pedras ilusão, ou tem o potencial de se encantar com sucesso.";
 		next;
 		mes "[Illusion Enchanter]";
-		mes "That said, my service is not for free. It requires a few Illusion Stones and Zeny.";
+		mes "Explore os mundos das ilusões, colete pedras de ilusão e troque -as por equipamentos. Eu posso encantar o equipamento para você.";
 		next;
 		mes "[Illusion Enchanter]";
-		mes "If you're interested, how'd you like to get a membership for my service? You can get discounts that way!";
+		mes "Isso beneficia nós dois. Preciso de pedras de ilusão para meus estudos e você precisa de equipamentos poderosos para suas aventuras.";
 		next;
-		if (select( "Sure!", "Not interested." ) == 2) {
+		mes "[Illusion Enchanter]";
+		mes "Dito isto, meu serviço não é de graça. Requer algumas pedras de ilusão e zeny.";
+		next;
+		mes "[Illusion Enchanter]";
+		mes "Se você estiver interessado, como você gostaria de obter uma associação para o meu serviço? Você pode obter descontos dessa maneira!";
+		next;
+		if (select( "Claro!", "Não está interessado." ) == 2) {
 			mes "[Illusion Enchanter]";
-			mes "Okay, but let me know if you change your mind.";
+			mes "Ok, mas deixe -me saber se você mudar de idéia.";
 			close;
 		}
 		mes "[Illusion Enchanter]";
-		mes "Alright, then I'll add you to my member list. I hope you'll have some Illusion equipment next time I see you.";
+		mes "Tudo bem, então vou adicioná -lo à minha lista de membros. Espero que você tenha algum equipamento de ilusão na próxima vez que te veja.";
 		setquest 12415;
 		completequest 12415;
 		close;
 	}
 	mes "[Illusion Enchanter]";
-	mes "I can enchant Illusion equipment.";
+	mes "Eu posso encantar equipamentos de ilusão.";
 	next;
-	switch( select( "How much do you charge?", "Add stats to Illusion equipment.", "Reset enchanted Illusion equipment." ) ) {
+	switch( select( "Quanto você cobra?", "Adicione estatísticas ao equipamento de ilusão.", "Redefinir equipamentos de ilusão encantados." ) ) {
 	case 1:
 		mes "[Illusion Enchanter]";
-		mes "First, let me tell you that I can only enchant certain types of Illusion equipment.";
+		mes "Primeiro, deixe -me dizer que só posso encantar certos tipos de equipamentos de ilusão.";
 		next;
 		mes "[Illusion Enchanter]";
-		mes "Up to 2 sockets can be enchanted, and enchanting each socket requires 5 Illusion Stones. You can reset enchanted Illusion equipment at any time.";
+		mes "Até 2 soquetes podem ser encantados, e encantar cada soquete requer 5 pedras de ilusão. Você pode redefinir equipamentos de ilusão encantados a qualquer momento.";
 		next;
 		mes "[Illusion Enchanter]";
-		mes "Enchanting never fails, but resetting sometimes failes. Even modern science can't change that.";
+		mes "Encantador nunca falha, mas a redefinição às vezes falha. Até a ciência moderna não pode mudar isso.";
 		next;
 		mes "[Illusion Enchanter]";
-		mes "Resetting requires a different amount of Zeny depending on the success chance you choose. Select the menu if you'd like to see the available payment options.";
+		mes "A redefinição requer uma quantidade diferente de Zeny, dependendo da chance de sucesso que você escolher. Selecione o menu se quiser ver as opções de pagamento disponíveis.";
 		close;
 	case 2:
 		.@reset = false;
@@ -263,7 +263,7 @@ prontera,90,115,5	script	Illusion Enchanter#0	4_GEFFEN_09,3,3,{
 		break;
 	}
 	setarray .@location[0], EQI_HAND_R, EQI_ARMOR, EQI_SHOES, EQI_GARMENT, EQI_ACC_R, EQI_ACC_L, EQI_HEAD_TOP, EQI_HAND_L;
-	.@s = select( "Right-handed Weapon", "Armor", "Shoes", "Garment", "Right Accessory", "Left accessory", "Helm (Upper)", "Left-handed Weapon/Shield" ) - 1;
+	.@s = select( "Arma destra", "Armadura", "Sapato", "Vestuário", "Acessório certo", "Acessório esquerdo", "Leme (superior)", "Arma/escudo canhoto" ) - 1;
 	.@loc = .@location[.@s];
 	.@eq_id = getequipid(.@loc);
 
@@ -352,17 +352,17 @@ prontera,90,115,5	script	Illusion Enchanter#0	4_GEFFEN_09,3,3,{
 			break;
 		case -1:
 			mes "[Illusion Enchanter]";
-			mes "You must be equipped with an item in the selected location to have it enchanted.";
+			mes "Você deve estar equipado com um item no local selecionado para encantá -lo.";
 			close;
 		default:
 			mes "[Illusion Enchanter]";
-			mes "This equipment is not from a world of fantastic illusions. I'm offended that you even showed it to me.";
+			mes "Este equipamento não é de um mundo de ilusões fantásticas. Estou ofendido por você ter me mostrado.";
 			close;
 	}
 
 	for ( .@i = 0; .@i < MAX_ITEM_RDM_OPT-1; ++.@i ) {
 		if (getequiprandomoption(.@loc, .@i, ROA_ID) > 0) {
-			mes "^ff0000Random options are checked for that equipment. The equipment cannot be enchanted.^000000";
+			mes "^FF0000Random Opções são verificadas para esse equipamento. O equipamento não pode ser encantado.^000000";
 			close;
 		}
 	}
@@ -381,13 +381,13 @@ prontera,90,115,5	script	Illusion Enchanter#0	4_GEFFEN_09,3,3,{
 		break;
 	default:	// illusion weapon level 4 can't be enhanced
 		mes "[Illusion Enchanter]";
-		mes "This is the best of all Illusion equipment. There's no technology available in this day and age that can enchant it. Even the most skilled enchanter can't do that.";
+		mes "Este é o melhor de todos os equipamentos de ilusão. Não há tecnologia disponível hoje em dia que possa encantá -la. Mesmo o encantador mais qualificado não pode fazer isso.";
 		next;
 		mes "[Illusion Enchanter]";
-		mes "Well, not unless he's willing to risk his mental and physical health.";
+		mes "Bem, a menos que ele esteja disposto a arriscar sua saúde mental e física.";
 		next;
 		mes "[Illusion Enchanter]";
-		mes "But who knows? Maybe someday you'll meet someone who is talented enough to handle this precious equipment.";
+		mes "Mas quem sabe? Talvez um dia você conheça alguém talentoso o suficiente para lidar com este equipamento precioso.";
 		close;
 	}
 
@@ -404,34 +404,34 @@ prontera,90,115,5	script	Illusion Enchanter#0	4_GEFFEN_09,3,3,{
 
 		if (.@card[2] > 0 && .@card[3] > 0) {
 			mes "[Illusion Enchanter]";
-			mes "This equipment is already enchanted to the maximum limit.";
+			mes "Este equipamento já está encantado com o limite máximo.";
 			close;
 		}
 		if (.@weapon_lvl > 0) {
 			mes "[Illusion Enchanter]";
-			mes "What kind of effect would you like to add?";
+			mes "Que tipo de efeito você gostaria de adicionar?";
 			next;
-			.@weapon_enchant_type = select( "Melee", "Ranged", "Magic" );
+			.@weapon_enchant_type = select( "Corpo a corpo", "A variou", "Magia" );
 		}
 		mes "[Illusion Enchanter]";
 		if (.@card[3] > 0) {
 			.@slot = 2;
-			.@string$ = "second";
+			.@string$ = "segundo";
 		}
 		else {
 			.@slot = 3;
-			.@string$ = "first";
+			.@string$ = "primeiro";
 		}
-		mes "I'll try to enchant the " + .@string$ + " ability for your item. ^ff0000Its existing Refining level and cards will not be damaged. It will not be destroyed, even if this attempt fails.^000000 Do you want to continue?";
+		mes "Vou tentar encantar o" + .@string$ + "capacidade para o seu item. ^FF0000ITS O nível de refino existente e os cartões não serão danificados. Não será destruído, mesmo que essa tentativa falhar.^000000 Você deseja continuar?";
 		next;
-		if (select( "I'll come back later.", "Sure!" ) == 1) {
+		if (select( "Vou voltar mais tarde.", "Claro!" ) == 1) {
 			mes "[Illusion Enchanter]";
-			mes "No problem. Come back if you change your mind.";
+			mes "Sem problemas. Volte se você mudar de idéia.";
 			close;
 		}
 		if (countitem(.@item_req) < .@item_req_count) {
 			mes "[Illusion Enchanter]";
-			mes "This item requires " + .@item_req_count + " " + getitemname(.@item_req) + ", and you don't have all that I need from you.";
+			mes "Este item requer" + .@item_req_count + "" + getitemname(.@item_req) + ", e você não tem tudo o que eu preciso de você.";
 			close;
 		}
 
@@ -444,23 +444,23 @@ prontera,90,115,5	script	Illusion Enchanter#0	4_GEFFEN_09,3,3,{
 		delequip .@loc;
 		getitem2 .@eq_id,1,1,.@refine,0,.@card[0],.@card[1],.@card[2],.@card[3];
 		mes "[Illusion Enchanter]";
-		mes "It's done. Please check.";
+		mes "Está feito. Por favor, verifique.";
 		specialeffect2 EF_REPAIRWEAPON;
 		close;
 
 	case true:
 		if (!F_IsCharm(.@card[2]) || !F_IsCharm(.@card[3])) {
 			mes "[Illusion Enchanter]";
-			mes "Only fully enchanted items can be reset. Please enchant it twice, and if you still want to reset it, then bring it to me.";
+			mes "Somente itens totalmente encantados podem ser redefinidos. Por favor, encanta duas vezes e, se você ainda quiser redefini -lo, traga -o para mim.";
 			close;
 		}
 		mes "[Illusion Enchanter]";
-		mes "Your resetting chance varies, depending on the amount of Zeny you pay. What would you like to do?";
+		mes "Sua chance de redefinição varia, dependendo da quantidade de Zeny que você paga. O que você gostaria de fazer?";
 		next;
-		.@s = select( "I'll come back later.", "100,000 Zeny (50%)", "200,000 Zeny (60%)", "300,000 Zeny (70%)", "400,000 Zeny (80%)", "500,000 Zeny (90%)" ) - 1;
+		.@s = select( "Vou voltar mais tarde.", "100.000 mulheres (50%)", "200.000 mulheres (60%)", "300.000 mulheres (70%)", "400.000 mulheres (80%)", "500.000 mulheres (90%)" ) - 1;
 		if (.@s == 0) {
 			mes "[Illusion Enchanter]";
-			mes "No problem. Come back if you change your mind.";
+			mes "Sem problemas. Volte se você mudar de idéia.";
 			close;
 		}
 		.@cost = 100000 * .@s;
@@ -468,7 +468,7 @@ prontera,90,115,5	script	Illusion Enchanter#0	4_GEFFEN_09,3,3,{
 
 		if (Zeny < .@cost) {
 			mes "[Illusion Enchanter]";
-			mes "You don't have enough money.";
+			mes "Você não tem dinheiro suficiente.";
 			close;
 		}
 
@@ -481,12 +481,12 @@ prontera,90,115,5	script	Illusion Enchanter#0	4_GEFFEN_09,3,3,{
 		if (rand(100) < .@rate) {
 			getitem2 .@eq_id,1,1,.@refine,0,.@card[0],.@card[1],0,0;
 			mes "[Illusion Enchanter]";
-			mes "It's done. Please check.";
+			mes "Está feito. Por favor, verifique.";
 			specialeffect2 EF_REPAIRWEAPON;
 			close;
 		}
 		mes "[Illusion Enchanter]";
-		mes "Ah, that was unfortunate. Well, you can't always be lucky.";
+		mes "Ah, isso foi lamentável. Bem, você nem sempre pode ter sorte.";
 		specialeffect2 EF_LORD;
 		close;
 	}
@@ -724,7 +724,7 @@ S_Enchant:
 
 OnTouch:
 	if (isbegin_quest(12415) == 0)
-		npctalk "Illusion Enchanter: Come talk to me if you're interested in the Illusion equipment!", "", bc_self;
+		npctalk "Ilusão Enchanter: Venha falar comigo se você estiver interessado no equipamento de ilusão!", "", bc_self;
 	end;
 }
 
@@ -737,35 +737,35 @@ OnTouch:
 alberta,226,28,3	script	Equipment Researcher	4_TOWER_15,{
 	.@illusion_stone_name$ = getitemname(25271);
 
-	mes "[Equipment Researcher]";
-	mes "I'm the one who researches " + .@illusion_stone_name$ + " to enhance armors and weapons.";
-	mes "If you have the materials I need for my research, wouldn't you hand them over?";
-	mes "If you give me some equipment and some materials, I'll exchange them for my reinforced equipment.";
+	mes "[Pesquisador de equipamentos]";
+	mes "Eu sou eu quem pesquisa" + .@illusion_stone_name$ + "para aprimorar armaduras e armas.";
+	mes "Se você tem os materiais de que preciso da minha pesquisa, não os entregaria?";
+	mes "Se você me der algum equipamento e alguns materiais, trocarei -os pelo meu equipamento reforçado.";
 	next;
-	switch( select( "What are you doing here?", "Exchange equipment" ) ) {
+	switch( select( "O que você está fazendo aqui?", "Equipamento de troca" ) ) {
 	case 1:
-		mes "[Equipment Researcher]";
-		mes "I'm working on how to use an " + .@illusion_stone_name$ + " to strengthen equipment.";
-		mes "I went to go to the place where " + .@illusion_stone_name$ + " was found, and I barely got back..";
+		mes "[Pesquisador de equipamentos]";
+		mes "Estou trabalhando em como usar um" + .@illusion_stone_name$ + "para fortalecer o equipamento.";
+		mes "Eu fui para o lugar onde" + .@illusion_stone_name$ + "foi encontrado, e eu mal voltei ..";
 		next;
-		mes "[Equipment Researcher]";
-		mes "I think I met a girl...";
-		mes "Anyway, after that, I couldn't find a way to go back.";
-		mes "Here, we're getting research materials from adventurers with " + .@illusion_stone_name$ + ", and I'm offering enhanced equipment instead.";
+		mes "[Pesquisador de equipamentos]";
+		mes "Eu acho que conheci uma garota ...";
+		mes "De qualquer forma, depois disso, não consegui encontrar uma maneira de voltar.";
+		mes "Aqui, estamos recebendo materiais de pesquisa de aventureiros com" + .@illusion_stone_name$ + ", e estou oferecendo equipamentos aprimorados.";
 		close;
 	case 2:
-		mes "[Equipment Researcher]";
-		mes "What are the equipment I can exchange? Wait a minute. I'll let you know.";
+		mes "[Pesquisador de equipamentos]";
+		mes "Quais são os equipamentos que posso trocar? Espere um minuto. Eu te aviso.";
 		next;
-		mes "[Equipment Researcher]";
-		mes "As a material, you can bring ^0000CDexisting equipment that have been refined to +9 or higher.^000000";
-		mes "And I need some ^0000CD" + .@illusion_stone_name$ + " and other materials.^000000";
+		mes "[Pesquisador de equipamentos]";
+		mes "Como material, você pode trazer ^0000CDexisting Equipment que foi refinado para +9 ou superior. ^000000";
+		mes "E eu preciso de alguns ^0000cd" + .@illusion_stone_name$ + "e outros materiais.^000000";
 		next;
-		mes "[Equipment Researcher]";
-		mes "Of course, we're giving you new equipment, so don't forget that all the existing ^0000CDsmelting and enchantments^000000 will disappear.";
-		mes "So, what kind of weapon do you want?";
+		mes "[Pesquisador de equipamentos]";
+		mes "Obviamente, estamos dando a você novos equipamentos, portanto, não esqueça que todos os ^0000cdsmelting e encantamentos existentes ^000000 desaparecerão.";
+		mes "Então, que tipo de arma você quer?";
 		close2;
-		callshop( "barter_ill_turtle" );
+		callshop( "Barter_ill_turtle" );
 		end;
 	}
 }
@@ -777,16 +777,16 @@ alberta,226,28,3	script	Equipment Researcher	4_TOWER_15,{
 
 // Exchange npc
 com_d02_i,234,266,6	script	Village Soap#Lu	4_M_ORIENT01,{
-	mes "[Village Soap]";
-	mes "I've also rolled up my sleeves for the adventurers who work hard for the village. Can I make your equipment stronger? Is there anything on the list you want?";
+	mes "[Soobro da vila]";
+	mes "Eu também enrolei minhas mangas para os aventureiros que trabalham duro para a vila. Posso tornar seu equipamento mais forte? Existe alguma coisa na lista que você deseja?";
 	next;
-	if (select( "Look at the illusion equipment", "Cancel" ) == 2) {
-		mes "[Village Soap]";
-		mes "Please come later. Just bring the ingredients and I'll make it for you.";
+	if (select( "Olhe para o equipamento de ilusão", "Cancelar" ) == 2) {
+		mes "[Soobro da vila]";
+		mes "Por favor, venha mais tarde. Basta trazer os ingredientes e eu farei isso para você.";
 		close;
 	}
-	mes "[Village Soap]";
-	mes "Who made it? It might be useful for you to take it with you.";
+	mes "[Soobro da vila]";
+	mes "Quem fez isso? Pode ser útil para você levá -lo com você.";
 	close2;
 	callshop( "barter_ill_luanda" );
 	end;
@@ -799,25 +799,25 @@ com_d02_i,234,266,6	script	Village Soap#Lu	4_M_ORIENT01,{
 
 iz_d04_i,134,228,4	script	Horen#Horen	4_M_BIBI,{
 	if (checkweight(1201,3) == 0) {
-		mes "Conversation cannot proceed because you have too many items.";
-		mes "Please clean up your inventory and try again.";
+		mes "A conversa não pode prosseguir porque você tem muitos itens.";
+		mes "Por favor, limpe seu inventário e tente novamente.";
 		close;
 	}
-	mes "[Horen]";
-	mes "Hello. If you have rare materials from this place, I can enhance your equipment.";
+	mes "[Pertencer]";
+	mes "Olá. Se você tem materiais raros deste local, posso aprimorar seu equipamento.";
 	next;
-	mes "[Horen]";
-	mes "Would you like to see upgradeable equipment?";
+	mes "[Pertencer]";
+	mes "Você gostaria de ver equipamentos atualizáveis?";
 	next;
-	if (select( "Yes", "No" ) == 2) {
-		mes "[Horen]";
-		mes "Come back if interested.";
+	if (select( "Sim", "No" ) == 2) {
+		mes "[Pertencer]";
+		mes "Volte se estiver interessado.";
 		close;
 	}
-	mes "[Horen]";
-	mes "There are many types, so take your time. If you want something, I can enhance it right away.";
+	mes "[Pertencer]";
+	mes "Existem muitos tipos, então não aceite seu tempo. Se você quiser algo, eu posso aprimorá -lo imediatamente.";
 	close2;
-	callshop( "barter_ill_underwater" );
+	callshop( "Barter_ill_underwater" );
 	end;
 }
 
@@ -827,14 +827,14 @@ iz_d04_i,134,228,4	script	Horen#Horen	4_M_BIBI,{
 // ant_d02_i,175,186,3	script	From#iltw	MECHANIC,{
 ant_d02_i,175,186,3	script	From#iltw	HIDDEN_NPC,{
 	if (checkweight(1201,3) == 0) {
-		mes "- You cannot proceed with the quest because you have too many items. -";
+		mes "- Você não pode prosseguir com a missão porque tem muitos itens. -";
 		close;
 	}
-	mes "[From]";
-	mes "I feel like I'm going crazy.";
-	mes "It's because of my mood. I'm human and it's not like you're mistaken.";
-	mes "I'll help you if you get a lot here.";
-	mes "Do you want to enhance your equipment?";
+	mes "[De]";
+	mes "Eu sinto que estou ficando louco.";
+	mes "É por causa do meu humor. Eu sou humano e não é como se você estivesse enganado.";
+	mes "Eu vou te ajudar se você chegar muito aqui.";
+	mes "Você quer aprimorar seu equipamento?";
 	close2;
 	callshop( "barter_ill_twins" );
 	end;
@@ -854,21 +854,21 @@ OnInit:
 //============================================================
 -	marketshop	market_resonance_stone	-1,100003:2000000:99999,100004:2000000:99999
 prontera,88,113,5	script	Illusion Merchant#0829	HIDDEN_NPC,{
-	mes "[Illusion Merchant]";
-	mes "I'm selling two random optional weapon grant scrolls that I made myself. You can choose the payment method you like.";
+	mes "[Mercador de Ilusão]";
+	mes "Estou vendendo dois pergaminhos de concessão de armas opcionais aleatórias que fiz. Você pode escolher o método de pagamento que você gosta.";
 	next;
-	switch( select( "Purchase with Zeny.", "Purchase with Illusion Stones" )) {
+	switch( select( "Compre com Zeny.", "Compre com Illusion Stones" )) {
 		case 1:
-			mes "[Illusion Merchant]";
-			mes "I hope you like it.";
+			mes "[Mercador de Ilusão]";
+			mes "Espero que gostem.";
 			close2;
-			callshop "market_resonance_stone";
+			callshop "Market_resonance_stone";
 			end;
 		case 2:
-			mes "[Illusion Merchant]";
-			mes "I hope you like it.";
+			mes "[Mercador de Ilusão]";
+			mes "Espero que gostem.";
 			close2;
-			callshop "resonance_stone_barter";
+			callshop "ressonância_stone_barter";
 			end;
 	}
 OnInit:
@@ -881,8 +881,8 @@ OnInit:
 	setunitdata .@npc_id,UNPC_HAIRCOLOR,2;
 
 	// Restock
-	npcshopupdate "market_resonance_stone",100003,2000000,99999;
-	npcshopupdate "market_resonance_stone",100004,2000000,99999;
+	npcshopupdate "Market_resonance_stone",100003,2000000,99999;
+	npcshopupdate "Market_resonance_stone",100004,2000000,99999;
 	end;
 }
 
@@ -893,44 +893,44 @@ OnInit:
 
 ein_d02_i,177,158,3	script	Bear Wanting Illusion Stone#ITB	4_NASARIAN,{
 	.@item_name$ = getitemname(25271); // IllusionStone
-	mes "[Bear Wanting " + .@item_name$ + "]";
-	mes "If you give me an " + .@item_name$ + ", I'll do something nice for you!";
+	mes "[Urso querendo" + .@item_name$ + "]";
+	mes "Se você me der um" + .@item_name$ + ", Farei algo de bom para você!";
 	next;
-	switch( select( "Reason for being here", "Good thing [Illusion equipment]", "Quit" ) ) {
+	switch( select( "Motivo para estar aqui", "Boa coisa [equipamento de ilusão]", "Desistir" ) ) {
 	case 1:
-		mes "[Bear Wanting " + .@item_name$ + "]";
-		mes "I don't know why...!";
-		mes "The other teddy bears were in line, so I was in line too!";
-		mes "Whoaaaaaa!!!!";
-		mes "I didn't know it was here!";
+		mes "[Urso querendo" + .@item_name$ + "]";
+		mes "Eu não sei por que ...!";
+		mes "Os outros ursos de pelúcia estavam na fila, então eu também estava na fila!";
+		mes "Whoaaaaaa !!!!";
+		mes "Eu não sabia que estava aqui!";
 		next;
-		mes "[Bear Wanting " + .@item_name$ + "]";
-		mes "A teddy bear with an " + .@item_name$ + "!";
-		mes "Strong!";
-		mes "I don't have any " + .@item_name$ + "s!";
-		mes "Less... stronger...";
+		mes "[Urso querendo" + .@item_name$ + "]";
+		mes "Um ursinho de pelúcia com um" + .@item_name$ + "!";
+		mes "Forte!";
+		mes "Eu não tenho nenhum" + .@item_name$ + "S!";
+		mes "Menos ... mais forte ...";
 		next;
-		mes "[Bear Wanting " + .@item_name$ + "]";
-		mes "What are " + .@item_name$ + "s?";
-		mes "I don't know but I want some!";
+		mes "[Urso querendo" + .@item_name$ + "]";
+		mes "O que são" + .@item_name$ + "s?";
+		mes "Eu não sei, mas quero um pouco!";
 		close;
 	case 2:
-		mes "[Bear Wanting " + .@item_name$ + "]";
-		mes "Makes you good with what you have!";
+		mes "[Urso querendo" + .@item_name$ + "]";
+		mes "Faz você bem com o que você tem!";
 		next;
-		mes "[Bear Wanting " + .@item_name$ + "]";
-		mes "If you want to do well, bring equipment refined to ^ff0000+9 or higher. It'll all disappear... haha?^000000";
+		mes "[Urso querendo" + .@item_name$ + "]";
+		mes "Se você quiser se sair bem, leve o equipamento refinado para ^FF0000+9 ou superior. Tudo vai desaparecer ... haha?^000000";
 		next;
-		mes "[Bear Wanting " + .@item_name$ + "]";
-		mes "^ff0000" + .@item_name$ + "^000000!!! " + .@item_name$ + " is the most important thing, but... other materials are also needed.";
-		mes "For every good thing you need another good thing.";
+		mes "[Urso querendo" + .@item_name$ + "]";
+		mes "^FF0000" + .@item_name$ + "^000000!!!" + .@item_name$ + "é a coisa mais importante, mas ... outros materiais também são necessários.";
+		mes "Para tudo de bom, você precisa de outra coisa boa.";
 		next;
 		close2;
-		callshop( "barter_ill_teddy" );
+		callshop( "Barter_ill_teddy" );
 		end;
 	case 3:
-		mes "[Bear Wanting " + .@item_name$ + "]";
-		mes "Okay...";
+		mes "[Urso querendo" + .@item_name$ + "]";
+		mes "OK...";
 		close;
 	}
 	end;

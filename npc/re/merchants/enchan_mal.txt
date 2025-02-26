@@ -22,37 +22,37 @@
 malangdo,213,167,4	script	Mayomayo#mal	555,{
 	disable_items;
 	if (checkweight(1201,1) == 0) {
-		mes "You have too many kinds of objects. Let's try to continue after reducing those objects.";
+		mes "Você tem muitos tipos de objetos. Vamos tentar continuar depois de reduzir esses objetos.";
 		close;
 	}
 	if (MaxWeight - Weight < 10000) {
-		mes "Can't continue because you have too many heavy objects. Let's try to continue after reducing the weight.";
+		mes "Não posso continuar porque você tem muitos objetos pesados. Vamos tentar continuar depois de reduzir o peso.";
 		close;
 	}
 	mes "[Mayomayo]";
-	mes "Wow welcome. It is new Mayomayo refinement store~ I enchant some luxury weapons including level 4 weapons.";
+	mes "Uau bem -vindo. É uma nova loja de refinamento de Mayomayo ~ Enchante algumas armas de luxo, incluindo armas de nível 4.";
 	next;
-	switch( select( "Any store policy changes?", "Enchant High Ranked Weapon", "Initialize Enchant (Need Silvervine Fruit)" ) ) {
+	switch( select( "Alguma alteração da política da loja?", "Arma de alta classificação encantada", "Inicialize o encantador (precisa de frutas Silvervine)" ) ) {
 	case 1:
 		mes "[Mayomayo]";
-		mes "When I enchant weapons, the slotted cards or refined level are dissipated sometimes. I hated it. However, one day I found how to do it without any extinction.";
+		mes "Quando encanta armas, as cartas com fenda ou o nível refinado às vezes são dissipadas. Eu odiava. No entanto, um dia eu descobri como fazê -lo sem qualquer extinção.";
 		next;
 		mes "[Mayomayo]";
-		mes "Have you ever seen a building of person of reinforcement capacity association?";
+		mes "Você já viu um edifício da Pessoa de Associação de Capacidade de Reforço?";
 		next;
-		if (select( "I've seen it before.", "I haven't seen it before." ) == 2) {
+		if (select( "Eu já vi isso antes.", "Eu não vi isso antes." ) == 2) {
 			mes "[Mayomayo]";
-			mes "That builiding is located to the southeast of where I am. Why don't you go on a field trip there?";
+			mes "Esse edifício está localizado a sudeste de onde estou. Por que você não faz uma viagem de campo lá?";
 			close;
 		}
 		mes "[Mayomayo]";
-		mes "If you go to the place, there is someone who enchants the Archangel Wing. At that time that was amazing, because that was impossible ability by my own skill.";
+		mes "Se você for ao local, há alguém que encanta a asa do arcanjo. Naquela época, isso era incrível, porque essa era a capacidade impossível de minha própria habilidade.";
 		next;
 		mes "[Mayomayo]";
-		mes "Every night I became his butler and did odd jobs. That is how I learned to enchant.";
+		mes "Todas as noites me tornava seu mordomo e fazia trabalhos estranhos. Foi assim que aprendi a encantar.";
 		next;
 		mes "[Mayomayo]";
-		mes "Several rules are changed. Well, you better have experience.";
+		mes "Várias regras são alteradas. Bem, é melhor você ter experiência.";
 		close;
 	case 2:
 		@mal_enchant_select = 1;
@@ -64,7 +64,7 @@ malangdo,213,167,4	script	Mayomayo#mal	555,{
 
 	if (!getequipisequiped(EQI_HAND_R)) {
 		mes "[Mayomayo]";
-		mes "Did you take off your equipment?";
+		mes "Você tirou seu equipamento?";
 		@mal_enchant_select = 0;
 		close;
 	}
@@ -335,9 +335,9 @@ malangdo,213,167,4	script	Mayomayo#mal	555,{
 	}
 	mes "[Mayomayo]";
 	if (@mal_enchant_select == 1)
-		mes "This is not a suitable equipment for the enchant. Don't forget we only take care of high class weapons, including level 4 weapons~";
+		mes "Este não é um equipamento adequado para o encantador. Não se esqueça que apenas cuidamos de armas de alta classe, incluindo armas de nível 4 ~";
 	else
-		mes "This equipment can not be initialized. Don't forget we only handle some luxury weapons, including level 4 weapons~";
+		mes "Este equipamento não pode ser inicializado. Não se esqueça que lidamos apenas com algumas armas de luxo, incluindo armas de nível 4 ~";
 	@mal_equip_id = 0;
 	@mal_enchant_select = 0;
 	close;
@@ -353,7 +353,7 @@ L_Socket:
 
 	if (.@select == 1) {
 		mes "[Mayomayo]";
-		mes "^0000ff" + .@equip_name$ + "^000000! Do you want to enchant this equipment? How will you pay for this?";
+		mes "^0000FF" + .@equip_name$ + "^000000! Você quer encantar este equipamento? Como você vai pagar por isso?";
 		next;
 
 		.@enccost = getarg(0);
@@ -361,24 +361,24 @@ L_Socket:
 		setarray .@coin[0],6422,6421,6420,6419,6418,6423;	//  Payment ID
 		setarray .@cost[0],  15,  10,   6,   3,   2,   1;	//  Payment multiplier
 
-		.@menu$ = "Stop:";
+		.@menu$ = "Parar:";
 		.@size_coin = getarraysize(.@coin);
 		for ( .@i = 0; .@i < .@size_coin; ++.@i) {
 			.@count[.@i] = countitem(.@coin[.@i]);
 			.@total[.@i] = .@enccost * .@cost[.@i];
 			if (.@count[.@i] < .@total[.@i])
-				.@menu$ += "^999999" + getitemname(.@coin[.@i]) + " (missing " + (.@total[.@i]-.@count[.@i]) + ")^000000:";
+				.@menu$ += "^999999" + getitemname(.@coin[.@i]) + "(ausente" + (.@total[.@i]-.@count[.@i]) + ")^000000:";
 			else
-				.@menu$ += getitemname(.@coin[.@i]) + " (have " + .@count[.@i] + ", need " + .@total[.@i] + "):";
+				.@menu$ += getitemname(.@coin[.@i]) + "(ter" + .@count[.@i] + ", precisar" + .@total[.@i] + "):";
 		}
 		.@coin_select = select(.@menu$) - 2;
 		if (.@coin_select == -1) {
 			mes "[Mayomayo]";
-			mes "Come back again if you change your mind.";
+			mes "Volte novamente se você mudar de idéia.";
 			close;
 		} else if (.@count[.@coin_select] < .@total[.@coin_select]) {
 			mes "[Mayomayo]";
-			mes "You don't have enough coins. Do you want to check again?";
+			mes "Você não tem moedas suficientes. Você quer verificar novamente?";
 			close;
 		}
 		switch(.@coin_select) {
@@ -397,12 +397,12 @@ L_Socket:
 		case 4:	// Agrade_Coin
 		case 5:	// Anger_Seagod
 			mes "[Mayomayo]";
-			mes "When you use the " + getitemname(.@coin[.@coin_select]) + ", you can choose the enchant type.";
+			mes "Quando você usa o" + getitemname(.@coin[.@coin_select]) + ", você pode escolher o tipo encantador.";
 			next;
-			switch( select( "Stop", "Short Range Type", "Long Range Type", "Caster Type") ) {
+			switch( select( "Parar", "Tipo de curto alcance", "Tipo de longo alcance", "Tipo de lançador") ) {
 			case 1:
 				mes "[Mayomayo]";
-				mes "Ok. If you change your mind, let me know.";
+				mes "OK. Se você mudar de idéia, me avise.";
 				close;
 			case 2:
 				.@enchant_type = ((.@coin_select == 4) ? 4 : 1);
@@ -418,21 +418,21 @@ L_Socket:
 		}
 		if (.@equip_card[3] == 0 && .@enclimit < 4) {
 			.@socket = 4;
-			.@str$ = "1st";
+			.@str$ = "1 caule";
 		} else if (.@equip_card[2] == 0 && .@enclimit < 3) {
 			.@socket = 3;
-			.@str$ = "2nd";
+			.@str$ = "Pera";
 		} else {
 			mes "[Mayomayo]";
-			mes "This equipment is at the end of enchant. Please initialize the enchant and you will be able to enchant it again, or bring another weapon.";
+			mes "Este equipamento está no final do Enchant. Inicialize o encantador e você poderá encantá -lo novamente ou trazer outra arma.";
 			close;
 		}
 		mes "[Mayomayo]";
-		mes "I'm trying for the " + .@str$ + " enchant. ^ff0000It will not touch previous refinement and cards. Also, the equipment will not be destroyed.^000000 Can I continue?";
+		mes "Estou tentando para o" + .@str$ + "encantar. ^FF0000IT não tocará em refinamento e cartões anteriores. Além disso, o equipamento não será destruído.^000000 Posso continuar?";
 		next;
-		if (select( "I'll come back later.", "Please, continue." ) == 1) {
+		if (select( "Vou voltar mais tarde.", "Por favor, continue." ) == 1) {
 			mes "[Mayomayo]";
-			mes "Ok. If you change your mind, come back again.";
+			mes "OK. Se você mudar de idéia, volte novamente.";
 			close;
 		}
 		switch(.@enchant_type) {
@@ -598,7 +598,7 @@ L_Socket:
 			break;
 		default:
 			mes "[Mayomayo]";
-			mes "There is something wrong. Please try again.";
+			mes "Há algo errado. Por favor, tente novamente.";
 			close;
 		}
 
@@ -613,24 +613,24 @@ L_Socket:
 		else if (.@equip_card[0] == 0 && .@enclimit < 1) .@equip_card[0] = .@enchant;
 		else {
 			mes "[Mayomayo]";
-			mes "This equipment is at the end of enchant. I provide enchant for two times maximum.";
+			mes "Este equipamento está no final do Enchant. Eu forneço encantamento por duas vezes no máximo.";
 			next;
 			mes "[Mayomayo]";
-			mes "Surely I don't enchant at card socket, therefore weapons that have 3 slots can be enchanted only 1 time. Don't forget this~";
+			mes "Certamente não me encanta no encaixe, portanto, as armas que têm 3 slots podem ser encantadas apenas 1 tempo. Não se esqueça disso ~";
 			close;
 		}
 		if (.@enchant == 9) {	//  Should never happen.
 			specialeffect2 EF_SUI_EXPLOSION;
 			mes "[Mayomayo]";
-			mes "Oh my god!";
-			mes "This equipment is destroyed because it could not endure powerful ability. I'm so sorry.";
+			mes "Oh meu Deus!";
+			mes "Este equipamento é destruído porque não poderia suportar habilidades poderosas. Eu sinto muito.";
 			delitem .@coin[.@coin_select],.@total[.@coin_select];
 			delequip EQI_HAND_R;
 			close;
 		}
 		specialeffect2 EF_REPAIRWEAPON;
 		mes "[Mayomayo]";
-		mes "I have enchanted ^990000slot " + .@socket + "^000000 of this equipment.";
+		mes "Eu encantei ^990000SLOT" + .@socket + "^000000 deste equipamento.";
 		delitem .@coin[.@coin_select], .@total[.@coin_select];
 		delequip EQI_HAND_R;
 
@@ -640,31 +640,31 @@ L_Socket:
 		close;
 	} else if (.@select == 2) {
 		mes "[Mayomayo]";
-		mes "I will only initialize the enchant effect without touching previous refined level and cards.";
+		mes "Só inicializarei o efeito encantado sem tocar no nível e cartões refinados anteriores.";
 		next;
-		if (select( "Stop", "Continue" ) == 1) {
+		if (select( "Parar", "Continuar" ) == 1) {
 			mes "[Mayomayo]";
-			mes "If you change your mind, come back anytime.";
+			mes "Se você mudar de idéia, volte a qualquer momento.";
 			close;
 		}
 		if (countitem(6417) == 0) {
 			mes "[Mayomayo]";
-			mes "I'm sorry. You don't have Silvervine Fruit. Please check your inventory again?";
+			mes "Desculpe. Você não tem frutas Silvervine. Por favor, verifique seu inventário novamente?";
 			close;
 		}
 		if (!getequipisequiped(EQI_HAND_R)) {
 			mes "[Mayomayo]";
-			mes "Did you take off the equipment?";
+			mes "Você tirou o equipamento?";
 			close;
 		}
 		if (.@equip_card[3] == 0) {
 			mes "[Mayomayo]";
-			mes "This equipment has nothing to initialize. Please check again.";
+			mes "Este equipamento não tem nada a inicializar. Por favor, verifique novamente.";
 			close;
 		}
 		specialeffect2 EF_REPAIRWEAPON;
 		mes "[Mayomayo]";
-		mes "Initialize the enchant effect from the equipment.";
+		mes "Inicialize o efeito encantador do equipamento.";
 		delitem 6417,1;	// Silvervine
 
 		// anti-hack

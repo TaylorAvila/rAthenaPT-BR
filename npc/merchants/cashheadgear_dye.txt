@@ -19,7 +19,7 @@ prt_in,253,168,4	script	Alora	862,{
 // Mysterious Dyestuff
 	set .@dyeID, 6220;
 // Headgear Choices
-	setarray .@hgn$[1], "Mage Hat","Beanie","Drooping Cat","Deviruchi Hat","Wig","Ribbon","Magestic Goat";
+	setarray .@hgn$[1], "Mago tem","Gorro","Gato caído","DeViruchi tem","Peruca","Fita","Goat Magestic";
 // Mage Hats - Normal, Yellow, Blue, Brown, Gray, Red
 	setarray .@hg_1[1], 5027, 5242, 5241, 5240, 5239, 5238;
 // Beanies - Normal, Pink, Blue, Brown
@@ -35,26 +35,26 @@ prt_in,253,168,4	script	Alora	862,{
 // Magestic Goats - Normal, Evolved
 	setarray .@hg_7[1], 2256, 5217;
 
-	mes "[Alora]";
-	mes "Hello, I can change your headgear's color if you bring me a Mysterious Dyestuff.";
+	mes "[Piorsor]";
+	mes "Olá, posso mudar a cor do seu arnês se você me trazer um corante misterioso.";
 	next;
-	mes "[Alora]";
-	mes "Do you have a headgear that you would like to dye?";
+	mes "[Piorsor]";
+	mes "Você tem um arnês que gostaria de tingir?";
 	next;
 	for(set .@i,1; .@i < getarraysize(.@hgn$); set .@i,.@i+1) {
 		if(.@i == 1)    set .@menu$, .@hgn$[.@i];
 		else            set .@menu$, .@menu$ +":"+ .@hgn$[.@i];
 	}
-	set .@menu$, .@menu$ +":Cancel";
+	set .@menu$, .@menu$ +":Cancelar";
 	set .@t, select(.@menu$);
 	if(.@t == getarraysize(.@hgn$)) {
-		mes "[Alora]";
-		mes "Have a good journey adventurer!";
-		mes "If you ever are curious to try a new color on your Kafra headgear or the ones you found on your adventures please come to me!";
+		mes "[Piorsor]";
+		mes "Tenha um bom aventureiro de jornada!";
+		mes "Se você está curioso para experimentar uma nova cor em seu arnês de kafra ou nos que você encontrou em suas aventuras, venha até mim!";
 		close;
 	}
-	mes "[Alora]";
-	mes "Okay, what color do you want to change it to?";
+	mes "[Piorsor]";
+	mes "Ok, para qual cor você deseja alterá -lo?";
 	next;
 	for(set .@i,1; .@i < getarraysize(getd(".@hg_"+.@t+"")); set .@i,.@i+1) {
 		if(.@i == 1 && .@t != 5)
@@ -66,52 +66,52 @@ prt_in,253,168,4	script	Alora	862,{
 			set .@menu$, .@menu$ +":"+ .@colour$;
 		}
 	}
-	set .@menu$, .@menu$ +":Cancel";
+	set .@menu$, .@menu$ +":Cancelar";
 	set .@c, select(.@menu$);
 	if(.@c == getarraysize(getd(".@hg_"+.@t+""))) {
-		mes "[Alora]";
-		mes "Oh, okay no problem!";
+		mes "[Piorsor]";
+		mes "Oh, ok, não há problema!";
 		close;
 	}
 	set .@dyHG, getd(".@hg_"+.@t+"["+.@c+"]");
-	mes "[Alora]";
-	mes "Oh I'm so excited aren't you?";
-	mes "And just to be sure, what color is the "+ .@hgn$[.@t] +" you want me to use?";
+	mes "[Piorsor]";
+	mes "Oh, estou tão animado, não é?";
+	mes "E só para ter certeza, qual é a cor"+ .@hgn$[.@t] +"Você quer que eu use?";
 	next;
-	mes "[Alora]";
-	mes "Please understand that I'm going to use the ^FF00001st "+ .@hgn$[.@t] +" of that color in your inventory!^000000";
+	mes "[Piorsor]";
+	mes "Por favor, entenda que vou usar o ^ff00001st"+ .@hgn$[.@t] +"daquela cor em seu inventário!^000000";
 	next;
-	mes "[Alora]";
-	mes "Any upgrades and cards will be dissolved by the mysterious dye, so be sure you are ok with having a ^0000FF+0 "+ getitemname(.@dyHG) +" without any cards.^000000";
+	mes "[Piorsor]";
+	mes "Quaisquer atualizações e cartões serão dissolvidos pelo corante misterioso, por isso, certifique -se de estar bem em ter um ^0000ff+0"+ getitemname(.@dyHG) +"sem cartões.^000000";
 	next;
 	mes "["+ strcharinfo(0) +"]";
-	mes "Ok, thanks for the warning, I think I'll give you my";
+	mes "Ok, obrigado pelo aviso, acho que vou te dar meu";
 	next;
-	set .@menu$, "Nevermind";
+	set .@menu$, "Deixa para lá";
 	for(set .@i,1; .@i < getarraysize(getd(".@hg_"+.@t+"")); set .@i,.@i+1) {
-		if(.@i == 1)    set .@menu$, .@menu$ +":Normal "+ getitemname(getd(".@hg_"+.@t+"["+.@i+"]"));
+		if(.@i == 1)    set .@menu$, .@menu$ +":Normal"+ getitemname(getd(".@hg_"+.@t+"["+.@i+"]"));
 		else            set .@menu$, .@menu$ +":"+ getitemname(getd(".@hg_"+.@t+"["+.@i+"]"));
 	}
 	set .@mine, select(.@menu$) - 1;
 	if(!.@mine) {
-		mes "[Alora]";
-		mes "It's best to be very sure, have a safe journey.";
+		mes "[Piorsor]";
+		mes "É melhor ter certeza, tenha uma jornada segura.";
 		close;
 	}
 	set .@myHG, getd(".@hg_"+.@t+"["+.@mine+"]");
 	if(.@dyHG == .@myHG) {
-		mes "[Alora]";
-		mes "Woah what happened?";
+		mes "[Piorsor]";
+		mes "Woah o que aconteceu?";
 		close;
 	}
 	if(!countitem(.@dyeID) || !countitem(.@myHG)) {
-		mes "[Alora]";
-		mes "Oh my, you seem to be missing something.";
+		mes "[Piorsor]";
+		mes "Oh meu, você parece estar perdendo alguma coisa.";
 		close;
 	}
-	mes "[Alora]";
-	mes "Looks great doesn't it?!";
-	mes "I hope you'll come back to dye more pretty headgears!";
+	mes "[Piorsor]";
+	mes "Parece ótimo, não é?!";
+	mes "Espero que você volte para tingir mais vasos bonitos!";
 	delitem .@dyeID,1; // Dyestuff
 	delitem .@myHG,1;  // Your headgear
 	getitem .@dyHG,1;  // Dyed headgear

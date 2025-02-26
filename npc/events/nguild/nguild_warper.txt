@@ -31,7 +31,7 @@
 prontera,146,163,6	script	Novice Castles	729,{
 	mes "[Cita]";
 	if (!getcharid(2)) {
-		mes "^FF0000You have to enter a guild to be able to hit Emperium!^000000";
+		mes "^Ff0000 Você tem que entrar em uma guilda para poder atingir o Empeium!^000000";
 	} else if (getgdskilllv(getcharid(2),10013) || 
 	         (getgdskilllv(getcharid(2),10000) +
 	          getgdskilllv(getcharid(2),10001) +
@@ -49,18 +49,18 @@ prontera,146,163,6	script	Novice Castles	729,{
 	          getgdskilllv(getcharid(2),10013) +
 	          getgdskilllv(getcharid(2),10014) > 9)
 	          ) {
-		mes "I see... your guild has Emergency Call mastered.";
-		mes "You cannot enter the Novice Castle area.";
+		mes "Entendo ... sua guilda tem uma chamada de emergência masterizada.";
+		mes "Você não pode entrar na área do castelo iniciante.";
 		emotion ET_SCRATCH;
 		emotion ET_KEK, playerattached();
 	} else {
-		mes "I'm a new usher of Novice Castles.";
+		mes "Sou um novo usher de castelos iniciantes.";
 		next;
 		mes "[Cita]";
 		if ((eaclass()&(EAJL_2|EAJL_UPPER)) || BaseLevel>=60) {
-			mes "I'm sorry, you can't enter the sacred Novice Castles place.";
+			mes "Sinto muito, você não pode entrar no lugar sagrado dos castelos iniciantes.";
 			emotion ET_SORRY;
-		} else if (select("Warp me to Novice Castles","Cancel") == 1) {
+		} else if (select("Distorcer -me para castelos iniciantes","Cancelar") == 1) {
 			// remove several unallowed buffs
 			sc_end SC_ASSUMPTIO;
 			sc_end SC_IMPOSITIO;
@@ -84,13 +84,13 @@ prontera,146,163,6	script	Novice Castles	729,{
 
 n_castle,102,107,5	script	Cita	729,{
 	mes "[Cita]";
-	mes "Hello, "+ strcharinfo(0) +". Can I help you?";
+	mes "Olá,"+ strcharinfo(0) +". Posso ajudar?";
 	next;
-	if (select("Warp me to Prontera!","Cancel") == 1) {
+	if (select("Deformar -me para prontário!","Cancelar") == 1) {
 		warp "prontera",155,177+rand(5);
 	} else {
 		mes "[Cita]";
-		mes "Ok.";
+		mes "OK.";
 	}
 	close;
 }

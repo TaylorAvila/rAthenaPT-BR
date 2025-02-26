@@ -16,145 +16,145 @@
 
 ama_in02,61,27,7	script	Alchemist#ama	749,{
 	mes "[Laspuchin Gregory]";
-	mes "KeekeekeeKeheheh.";
-	mes "This is amazing!";
-	mes "The results are extraordinary!!";
+	mes "Kekewheheh.";
+	mes "Isso é incrível!";
+	mes "Os resultados são extraordinários !!";
 	next;
 	mes "[Laspuchin Gregory]";
-	mes "Using my skills in this distant";
-	mes "land was unexpected...";
-	mes "Keheheh... The lord of palace";
-	mes "was quite accomodating.";
+	mes "Usando minhas habilidades neste distante";
+	mes "A terra foi inesperada ...";
+	mes "Keheheh ... o senhor do palácio";
+	mes "foi bastante flexível.";
 	next;
 	mes "[Laspuchin Gregory]";
-	mes "Oops, I better be careful...";
-	mes "If the guild finds out my";
-	mes "location, stupid Myster will";
-	mes "get mad at me. Kehehehkeh...";
+	mes "Opa, é melhor eu ter cuidado ...";
+	mes "Se a guilda descobrir meu";
+	mes "Localização, Myster Myster Will";
+	mes "fique bravo comigo. Kehehehkeh ...";
 	next;
 	mes "[Laspuchin Gregory]";
-	mes "What? Wanna say something?";
-	mes "If you are here for tourism,";
-	mes "enjoy your day off, then go back to your hometown.";
-	mes "Keekeekee... Or else,";
-	mes "I will let you taste my acid bottle...!";
+	mes "O que? Quer dizer alguma coisa?";
+	mes "Se você está aqui para o turismo,";
+	mes "Aproveite o seu dia de folga e depois volte para sua cidade natal.";
+	mes "KeepEkee ... ou então,";
+	mes "Vou deixar você provar minha garrafa de ácido ...!";
 	next;
-	if (select("Please, excuse me:Do you need help?") == 1) {
+	if (select("Por favor, com licença: você precisa de ajuda?") == 1) {
 		mes "[Laspuchin Gregory]";
-		mes "Keheheh... Did you hear";
-		mes "what I said? It would be";
-		mes "better to forget...";
-		mes "Keekeekeekeekee...";
+		mes "Keheheh ... você ouviu";
+		mes "O que eu disse? Seria";
+		mes "Melhor esquecer ...";
+		mes "Keke Inekeee Goode ...";
 		close;
 	}
 	mes "[Laspuchin Gregory]";
-	mes "Help, eh?...";
-	mes "Now that I think about it...";
-	mes "I need some items right now...";
-	mes "Keeheeheekeehee...";
+	mes "Ajuda, hein? ...";
+	mes "Agora que penso nisso ...";
+	mes "Eu preciso de alguns itens agora ...";
+	mes "Actsheekorehee ...";
 	next;
 	mes "[Laspuchin Gregory]";
-	mes "Sir Laspuchin needs some";
-	mes "enchant stones for an experiment.";
-	mes "I will use it efficiently...";
-	mes "Do you have them now?";
+	mes "Sir Laspuchin precisa de alguns";
+	mes "pedras encantadas para um experimento.";
+	mes "Vou usá -lo com eficiência ...";
+	mes "Você os tem agora?";
 	next;
-	if (select("Nope:I got some") == 1) {
+	if (select("Nope: Eu tenho alguns") == 1) {
 		mes "[Laspuchin Gregory]";
-		mes "Then, find 8 stones of one kind.";
-		mes "If you bring 8 of one kind of";
-		mes "enchant stones, I will change it";
-		mes "to a better one...";
+		mes "Em seguida, encontre 8 pedras de um tipo.";
+		mes "Se você trazer 8 de um tipo de";
+		mes "pedras encantadas, vou mudar isso";
+		mes "Para um melhor ...";
 		next;
 		mes "[Laspuchin Gregory]";
-		mes "Then, find 8 stones of one kind.";
-		mes "not the round gemstones but";
-		mes "enchant stones.";
-		mes "If you bring the wrong stones,";
-		mes "I will throw a flame bottle!";
+		mes "Em seguida, encontre 8 pedras de um tipo.";
+		mes "não as pedras redondas, mas";
+		mes "pedras encantadas.";
+		mes "Se você trazer as pedras erradas,";
+		mes "Vou jogar uma garrafa de chama!";
 		next;
 		mes "[Laspuchin Gregory]";
-		mes "Bring me stones, slave~!!";
-		mes "And keep your promise! Kehehehkehkeh...";
+		mes "Traga -me pedras, escravo ~ !!";
+		mes "E mantenha sua promessa! Kehehehkehkeh ...";
 		close;
 	}
 	mes "[Laspuchin Gregory]";
-	mes "Uh-huh, what did you bring?";
+	mes "Uh-huh, o que você trouxe?";
 	next;
 	setarray .@Items[1],995,997,994,996;
-	set .@i, .@Items[select("Mystic Frozen:Great Nature:Flame Heart:Rough Wind")];
+	set .@i, .@Items[select("Mystic Frozen: Grande natureza: Coração de chama: vento áspero")];
 	mes "[Laspuchin Gregory]";
 	if (countitem(.@i) > 7) {
-		mes "I will take 8 of them and";
-		mes "give you an enchant stone.";
-		mes "How's that sound?";
-		mes "Keheheh.....";
+		mes "Vou levar 8 deles e";
+		mes "Dê a você uma pedra encantada.";
+		mes "Como esse som?";
+		mes "Keeheh .....";
 		next;
 		mes "[Laspuchin Gregory]";
-		mes "HeeHee, what do you want? Choose one!";
+		mes "Heehee, o que você quer? Escolha um!";
 		next;
 		set .@menu$, "";
 		for(set .@j,1; .@j<5; set .@j,.@j+1) {
 			if (.@Items[.@j] != .@i) set .@menu$, .@menu$+getitemname(.@Items[.@j]);
 			set .@menu$, .@menu$+":";
 		}
-		set .@menu$, .@menu$+"Cancel the trade";
+		set .@menu$, .@menu$+"Cancelar o comércio";
 		set .@j, select(.@menu$);
 		mes "[Laspuchin Gregory]";
 		if (.@j == 5) {
-			mes "Oh, well.";
-			mes "Don't tell anyone about my location...";
-			mes "Keheheh...after all, you did promise~";
+			mes "Ah bem.";
+			mes "Não conte a ninguém sobre minha localização ...";
+			mes "Keheheh ... afinal, você prometeu ~";
 			close;
 		}
 		else if (.@j == 4) {
 			if (countitem(.@i) > 11) {
 				delitem .@i,12;
 				getitem 996,1;
-				mes "Kehhehheh, You know something?";
-				mes "I don't have many of those";
-				mes "so I'm going to take ^0000FF12^000000 of yours, okay?";
-				mes "Of course, it is okay.";
-				mes "It is an honor to help Laspuchin!";
+				mes "Kehhehheh, você sabe de alguma coisa?";
+				mes "Eu não tenho muitos deles";
+				mes "Então, eu vou levar ^0000ff12 ^000000 seu, ok?";
+				mes "Claro, está tudo bem.";
+				mes "É uma honra ajudar Laspuchin!";
 				close;
 			}
-			mes "Keheheh, You know something.";
-			mes "I don't have many of these so";
-			mes "I can't just get 8 of yours.";
-			mes "If you want to change them to Rough Wind,";
-			mes "bring me 4 more stones. 8 + 4 = 12...";
-			mes "Requires ^0000FF12^000000 stones.";
+			mes "Keheheh, você sabe de alguma coisa.";
+			mes "Eu não tenho muitos deles então";
+			mes "Eu não posso simplesmente obter 8 seus.";
+			mes "Se você quiser alterá -los para vento áspero,";
+			mes "Traga -me mais 4 pedras. 8 + 4 = 12 ...";
+			mes "Requer ^0000ff12 ^000000 Pedras.";
 			next;
 			mes "[Laspuchin Gregory]";
-			mes "Bring me stones, slave~!!";
-			mes "And keep your promise! Kehheheheheh...";
+			mes "Traga -me pedras, escravo ~ !!";
+			mes "E mantenha sua promessa! Kehheheheheheh ...";
 			close;
 		}
 		else {
 			delitem .@i,8;
 			getitem .@Items[.@j],1;
-			mes "Keheheh! You've chosen a good one!";
-			mes "Use it well...";
-			mes "Bring me other stones if you have them!";
+			mes "Keheheh! Você escolheu um bom!";
+			mes "Use bem ...";
+			mes "Traga -me outras pedras, se você as tiver!";
 			close;
 		}
 	} else if (countitem(.@i)) {
-		mes "You can't help Laspuchin with just a couple";
-		mes "of enchant stones... I said 8!";
-		mes "Bring me just 8 stones!";
-		mes "Keheheh.....";
+		mes "Você não pode ajudar Laspuchin com apenas um casal";
+		mes "de pedras encantadas ... eu disse 8!";
+		mes "Traga -me apenas 8 pedras!";
+		mes "Keeheh .....";
 		next;
 		mes "[Laspuchin Gregory]";
-		mes "Bring me stones, slave~!!";
-		mes "And keep your promise! Keheheheheh...";
+		mes "Traga -me pedras, escravo ~ !!";
+		mes "E mantenha sua promessa! Keheheheheheh ...";
 		close;
 	}
-	mes "Keheheh~ Check your pockets";
-	mes "before you tell me";
-	mes "how foolish you are.....";
+	mes "Keheheh ~ verifique seus bolsos";
+	mes "Antes de me dizer";
+	mes "Como você é tolo .....";
 	next;
 	mes "[Laspuchin Gregory]";
-	mes "Bring me stones! You said you are going to help me!";
-	mes "Keep your promises! Kehehehkehkeh...";
+	mes "Traga -me pedras! Você disse que vai me ajudar!";
+	mes "Mantenha suas promessas! Kehehehkehkeh ...";
 	close;
 }

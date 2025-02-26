@@ -14,60 +14,60 @@
 //============================================================
 
 prontera,148,174,5	script	Private MVP Room	100,{
-	mes "[Private MVP Room]";
-	mes "Please select a private MVP room.";
+	mes "[Sala MVP privada]";
+	mes "Selecione uma sala privada de MVP.";
 	if ( getvariableofnpc( .rentcost, "MVP Summoner" ) )
 		mes "The cost to rent a room for "+ getvariableofnpc( .timeout, "MVP Summoner" ) +" minutes is "+ callfunc("F_InsertComma", getvariableofnpc( .rentcost, "MVP Summoner" ) ) +" zeny.";
 	else
 		mes "You can only use the room for only "+ getvariableofnpc( .timeout, "MVP Summoner" ) +" minutes.";
-	mes " ";
+	mes "";
 	for ( .@i = 1; .@i <= 8; .@i++ )
 		if ( getvariableofnpc( .renttime[.@i], "MVP Summoner" ) )
-			mes "Room #"+ .@i +" = "+ .color$[ .type[.@i] ] + .whoinuse$[.@i] +"^000000";
+			mes "Sala #"+ .@i +"="+ .color$[ .type[.@i] ] + .whoinuse$[.@i] +"^000000";
 	next;
 	.@room = select(
-		"MVP Room 1 ["+ getmapusers("06guild_01") +"]",
-		"MVP Room 2 ["+ getmapusers("06guild_02") +"]",
-		"MVP Room 3 ["+ getmapusers("06guild_03") +"]",
-		"MVP Room 4 ["+ getmapusers("06guild_04") +"]",
-		"MVP Room 5 ["+ getmapusers("06guild_05") +"]",
-		"MVP Room 6 ["+ getmapusers("06guild_06") +"]",
-		"MVP Room 7 ["+ getmapusers("06guild_07") +"]",
-		"MVP Room 8 ["+ getmapusers("06guild_08") +"]");
+		"MVP Room 1 ["+ getmapusers("06Guild_01") +"]",
+		"MVP Room 2 ["+ getmapusers("06Guild_02") +"]",
+		"MVP Room 3 ["+ getmapusers("06Guild_03") +"]",
+		"MVP Room 4 ["+ getmapusers("06Guild_04") +"]",
+		"MVP Room 5 ["+ getmapusers("06Guild_05") +"]",
+		"MVP Room 6 ["+ getmapusers("06Guild_06") +"]",
+		"Sala de MVP 7 ["+ getmapusers("06Guild_07") +"]",
+		"MVP Room 8 ["+ getmapusers("06Guild_08") +"]");
 	if ( getvariableofnpc( .renttime[.@room], "MVP Summoner" ) ) {
 		if ( .inuseid[.@room] == getcharid( .type[.@room] ) ) {
 			warp "06guild_0"+ .@room, 0,0;
 			close;
 		} else {
-			mes "[Private MVP Room]";
-			mes "This room is reserved for ";
+			mes "[Sala MVP privada]";
+			mes "Esta sala é reservada para";
 			mes .color$[ .type[.@room] ] + .whoinuse$[.@room] +"^000000.";
-			mes "Please select another.";
+			mes "Selecione outro.";
 			close;
 		}
 	}
-	mes "[Private MVP Room]";
-	mes "Reserve this room for...";
+	mes "[Sala MVP privada]";
+	mes "Reserve este quarto para ...";
 	next;
-	set .@type, select( "For my party members", "For my guild members", "For personal account use" );
+	set .@type, select( "Para os membros do meu partido", "Para meus membros da guilda", "Para uso da conta pessoal" );
 	if ( !getcharid(.@type) ) {
-		mes "[Private MVP Room]";
-		mes "You do not own a "+( ( .@type == 1 )? "Party" : "Guild" )+".";
+		mes "[Sala MVP privada]";
+		mes "Você não possui um"+( ( .@type == 1 )? "Festa" : "Guilda" )+".";
 		close;
 	}
 	else if ( Zeny < getvariableofnpc( .rentcost, "MVP Summoner" ) ) {
-		mes "You don't have enough zeny to rent a room.";
+		mes "Você não tem Zeny suficiente para alugar um quarto.";
 		close;
 	}
 	else if ( getvariableofnpc( .renttime[.@room], "MVP Summoner" ) ) {
-		mes "[Private MVP Room]";
-		mes "I'm sorry, somebody else has already registered this room faster than you.";
+		mes "[Sala MVP privada]";
+		mes "Sinto muito, alguém já registrou esta sala mais rápido que você.";
 		close;
 	}
 	for ( .@i = 1; .@i <= 8; .@i++ ) {
 		if ( ( getvariableofnpc( .renttime[.@i], "MVP Summoner" ) ) && .@type == .type[.@i] && getcharid(.@type) == .inuseid[.@i] ) {
-			mes "[Private MVP Room]";
-			mes "You already rented Room#"+ .@i +". Use that room instead.";
+			mes "[Sala MVP privada]";
+			mes "Você já alugou o quarto#"+ .@i +". Use essa sala.";
 			close;
 		}
 	}
@@ -87,15 +87,15 @@ OnInit:
 }
 
 -	script	MVP Summoner	-1,{
-	mes "[MVP Summoner]";
+	mes "[MVP Invocador]";
 	mes "Time left: " + callfunc( "Time2Str", .renttime[ atoi( strnpcinfo(2) ) ] + .timeout * 60 );
-	mes "Hi, what can I do for you?";
+	mes "Oi, o que posso fazer por você?";
 	next;
 	switch ( select(.menu$) ) {
 	case 1:
-		mes "[MVP Summoner]";
-		if ( mobcount( "this", strnpcinfo(3)+"::OnMobDead" ) ) {
-			mes "I cannot offer heal service when there are monsters around.";
+		mes "[MVP Invocador]";
+		if ( mobcount( "esse", strnpcinfo(3)+":: OnMobdead" ) ) {
+			mes "Não posso oferecer serviço de cura quando há monstros por perto.";
 			close;
 		}
 		sc_end SC_STONE;
@@ -122,85 +122,85 @@ OnInit:
 		sc_end SC_SKA;
 		percentheal 100,100;
 		specialeffect2 EF_HEAL;
-		mes "You are completely healed.";
+		mes "Você está completamente curado.";
 		close;
 	case 2:
-		if ( mobcount( "this", strnpcinfo(3)+"::OnMobDead" ) ) {
-			mes "[MVP Summoner]";
-			mes "I cannot summon another MVP when there are monsters around.";
+		if ( mobcount( "esse", strnpcinfo(3)+":: OnMobdead" ) ) {
+			mes "[MVP Invocador]";
+			mes "Não posso convocar outro MVP quando há monstros por perto.";
 			close;
 		} else if ( .mvpcost ) {
-			mes "[MVP Summoner]";
+			mes "[MVP Invocador]";
 			mes "The cost to summon an MVP is "+ callfunc( "F_InsertComma", .mvpcost ) +" zeny.";
 			next;
 			set .@menu, select(.mvpid_menu$) -1;
-			mes "[MVP Summoner]";
+			mes "[MVP Invocador]";
 			if ( Zeny < .mvpcost ) {
-				mes "You don't have enough zeny to summon an MVP.";
+				mes "Você não tem Zeny suficiente para convocar um MVP.";
 				close;
 			}
 		} else {
 			set .@menu, select(.mvpid_menu$) -1;
-			mes "[MVP Summoner]";
+			mes "[MVP Invocador]";
 		}
-		mes "Please get ready.";
+		mes "Por favor, prepare -se.";
 		close2;
 		if ( Zeny < .mvpcost ) end;
 		Zeny -= .mvpcost;
-		monster "this", 0, 0, "--ja--", .mvpid[.@menu], 1, strnpcinfo(3)+"::OnMobDead";
+		monster "esse", 0, 0, "--- e--", .mvpid[.@menu], 1, strnpcinfo(3)+":: OnMobdead";
 		end;
 	case 3:
-		if ( mobcount( "this", strnpcinfo(3)+"::OnMobDead" ) ) {
-			mes "[MVP Summoner]";
-			mes "I cannot summon another mini-boss when there are monsters around.";
+		if ( mobcount( "esse", strnpcinfo(3)+":: OnMobdead" ) ) {
+			mes "[MVP Invocador]";
+			mes "Não posso convocar outro mini-chefe quando há monstros por perto.";
 			close;
 		} else if ( .bosscost ) {
-			mes "[MVP Summoner]";
+			mes "[MVP Invocador]";
 			mes "The cost to summon a mini-boss is "+ callfunc( "F_InsertComma", .bosscost ) +" zeny.";
 			next;
 			set .@menu, select(.bossid_menu$) -1;
-			mes "[MVP Summoner]";
+			mes "[MVP Invocador]";
 			if ( Zeny < .bosscost ) {
-				mes "You doesn't have enough zeny to summon a mini-boss.";
+				mes "Você não tem Zeny suficiente para convocar um mini-chefe.";
 				close;
 			}
 		} else {
 			set .@menu, select(.bossid_menu$) -1;
-			mes "[MVP Summoner]";
+			mes "[MVP Invocador]";
 		}
-		mes "Please get ready.";
+		mes "Por favor, prepare -se.";
 		close2;
 		if ( Zeny < .bosscost ) end;
 		Zeny -= .bosscost;
-		monster "this", 0, 0, "--ja--", .bossid[.@menu], 1, strnpcinfo(3)+"::OnMobDead";
+		monster "esse", 0, 0, "--- e--", .bossid[.@menu], 1, strnpcinfo(3)+":: OnMobdead";
 		end;
 	case 4:
-		if ( mobcount( "this", strnpcinfo(3)+"::OnMobDead" ) > 0 ) {
-			mes "[MVP Summoner]";
-			mes "I cannot offer this service when there are monsters around.";
+		if ( mobcount( "esse", strnpcinfo(3)+":: OnMobdead" ) > 0 ) {
+			mes "[MVP Invocador]";
+			mes "Não posso oferecer esse serviço quando há monstros por perto.";
 			close;
 		}
 		close2;
-		callshop "MVP room#branch", 1;
+		callshop "MVP Sala#Branch", 1;
 		end;
 	case 5:
-		mes "[MVP Summoner]";
-		mes "Are you sure you want to leave this room?";
+		mes "[MVP Invocador]";
+		mes "Tem certeza de que deseja sair desta sala?";
 		next;
-		if ( select( "Yes:No") == 1 )
+		if ( select( "Sim: Não") == 1 )
 			warp .respawnmap$, .respawnx, .respawny;
 		close;
 	case 6:
-		mes "[MVP Summoner]";
+		mes "[MVP Invocador]";
 		if ( getmapusers( strcharinfo(3) ) > 1 ) {
-			mes "There are still some players in this room. Make sure you are the last member in this room to use this option.";
+			mes "Ainda existem alguns jogadores nesta sala. Verifique se você é o último membro nesta sala a usar esta opção.";
 			close;
 		}
-		mes "Are you sure you want to give up this room?";
+		mes "Tem certeza de que deseja desistir deste quarto?";
 		if ( .rentcost )
-			mes "You will need to pay again to enter this room.";
+			mes "Você precisará pagar novamente para entrar nesta sala.";
 		next;
-		if ( select( "Yes", "No" ) == 2 ) close;
+		if ( select( "Sim", "No" ) == 2 ) close;
 		awake strnpcinfo(0);
 		end;
 	}
@@ -239,7 +239,7 @@ OnInit:
 	set .@menu[4], 0;	// Sell items (branches) On/Off (see shop below, before the mapflags)
 
 	// Respawn point when players leave the room
-	set .respawnmap$, "prontera";
+	set .respawnmap$, "Prontera";
 	set .respawnx, 150;
 	set .respawny, 174;
 
@@ -325,11 +325,11 @@ OnInit:
 //	Config Ends ------------------------------------------------------------------------
 
 		if ( !.timeout ) set .timeout, 60;
-		.menu$ = ( .@menu[1] ? "Heal" : "" ) +":" ;
-		.menu$ = .menu$ + ( .@menu[2] ? "Summon MVP" : "" ) +":";
-		.menu$ = .menu$ + ( .@menu[3] ? "Summon Mini-boss" : "" ) +":";
-		.menu$ = .menu$ + ( .@menu[4] ? "Buy branches" : "" ) +":";
-		.menu$ = .menu$ + "Leave this room:Give up this room";
+		.menu$ = ( .@menu[1] ? "Curar" : "" ) +":" ;
+		.menu$ = .menu$ + ( .@menu[2] ? "Invocar MVP" : "" ) +":";
+		.menu$ = .menu$ + ( .@menu[3] ? "Invocar mini-Boss" : "" ) +":";
+		.menu$ = .menu$ + ( .@menu[4] ? "Compre filiais" : "" ) +":";
+		.menu$ = .menu$ + "Deixe esta sala: Desista desta sala";
 		if ( .@menu[2] ) {
 			.@size = getarraysize( .mvpid );
 			for ( .@i = 0; .@i < .@size; .@i++ )
@@ -342,7 +342,7 @@ OnInit:
 		}
 	}
 	else {
-		mapannounce strnpcinfo(4), "An administrator has refreshed the server. Please re-register this room.", bc_map;
+		mapannounce strnpcinfo(4), "Um administrador atualizou o servidor. Por favor, registre novamente esta sala.", bc_map;
 		mapwarp strnpcinfo(4), .respawnmap$, .respawnx, .respawny;
 	}
 	end;
