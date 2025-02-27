@@ -17,97 +17,97 @@
 //============================================================
 
 gef_tower,102,34,5	script	Merito	742,{
-	mes "[MÃ©rito]";
+	mes "[Mérito]";
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 1000) {
-		mes "VocÃª fez muito as malas na sua bolsa. Tente novamente depois de esvaziar sua bolsa.";
+		mes "Você fez muito as malas na sua bolsa. Tente novamente depois de esvaziar sua bolsa.";
 		close;
 	}
 	if (Class == Job_Sorcerer || Class == Job_Sorcerer_T || Class == Job_Baby_Sorcerer) {
-		mes "Por favor, continue bem com os espÃ­ritos ~ vocÃª deveria ~!";
+		mes "Por favor, continue bem com os espíritos ~ você deveria ~!";
 		close;
 	}
 	if (BaseLevel < 99 || JobLevel < 50 || SkillPoint != 0) {
-		mes "Uau ~ vocÃª Ã© um jovem aventureiro. Eu te invejo.";
+		mes "Uau ~ você é um jovem aventureiro. Eu te invejo.";
 		close;
 	}
 	if (BaseJob != Job_Sage) {
-		mes "Ahh ~ Eu acho que vocÃª nÃ£o precisa ter uma conversa comigo.";
+		mes "Ahh ~ Eu acho que você não precisa ter uma conversa comigo.";
 		close;
 	}
 	if (job_soc == 0) {
-		mes "Bem-vindo. Com o que posso ajudÃ¡ -lo?";
+		mes "Bem-vindo. Com o que posso ajudá -lo?";
 		next;
-		select("VocÃª sabe sobre feiticeiros?");
-		mes "[MÃ©rito]";
-		mes "NÃ£o seria mais confortÃ¡vel viver como estudioso? Os feiticeiros estÃ£o ocupados se comunicando com os espÃ­ritos e nÃ£o tÃªm muito tempo para ler livros ...";
+		select("Você sabe sobre feiticeiros?");
+		mes "[Mérito]";
+		mes "Não seria mais confortável viver como estudioso? Os feiticeiros estão ocupados se comunicando com os espíritos e não têm muito tempo para ler livros ...";
 		next;
-		mes "[MÃ©rito]";
-		mes "O que fez vocÃª querer ser um feiticeiro?";
+		mes "[Mérito]";
+		mes "O que fez você querer ser um feiticeiro?";
 		next;
-		if(select("O espÃ­rito de fogo me levou aqui .: O espÃ­rito da Ã¡gua me levou aqui .: O EspÃ­rito da Terra me levou aqui: o espÃ­rito de carne me levou aqui.") == 4) {
-			mes "[MÃ©rito]";
-			mes "Esse tipo de espÃ­rito nÃ£o existe!";
+		if(select("O espírito de fogo me levou aqui .: O espírito da água me levou aqui .: O Espírito da Terra me levou aqui: o espírito de carne me levou aqui.") == 4) {
+			mes "[Mérito]";
+			mes "Esse tipo de espírito não existe!";
 			close;
 		}
-		mes "[MÃ©rito]";
+		mes "[Mérito]";
 		mes "Oh, eu vejo.";
-		mes "VocÃª deve nascer com a capacidade natural de ver que jÃ¡ se comunicou com os espÃ­ritos ou deve ser um excelente mentiroso.";
+		mes "Você deve nascer com a capacidade natural de ver que já se comunicou com os espíritos ou deve ser um excelente mentiroso.";
 		next;
-		mes "[MÃ©rito]";
-		mes "Hmm ... entÃ£o primeiro, vocÃª pode escrever seu nome nesta lista?";
+		mes "[Mérito]";
+		mes "Hmm ... então primeiro, você pode escrever seu nome nesta lista?";
 		next;
-		if(select("Escreva o nome .: Eu nÃ£o vou.") == 2) {
-			mes "[MÃ©rito]";
-			mes "Bem, ok. Vejo vocÃª novamente quando tiver uma chance.";
+		if(select("Escreva o nome .: Eu não vou.") == 2) {
+			mes "[Mérito]";
+			mes "Bem, ok. Vejo você novamente quando tiver uma chance.";
 			close;
 		}
-		mes "[MÃ©rito]";
-		mes "EntÃ£o, vocÃª Ã© [" + strcharinfo(0) + "].";
+		mes "[Mérito]";
+		mes "Então, você é [" + strcharinfo(0) + "].";
 		next;
-		mes "[MÃ©rito]";
-		mes "DÃª -me um segundo para registrar seu nome.";
+		mes "[Mérito]";
+		mes "Dê -me um segundo para registrar seu nome.";
 		mes "Fale comigo novamente em um segundo.";
 		set job_soc,1;
 		close;
 	} else if (job_soc == 1) {
-		mes "Bom, entÃ£o vou te dar uma breve explicaÃ§Ã£o sobre o feiticeiro.";
+		mes "Bom, então vou te dar uma breve explicação sobre o feiticeiro.";
 		next;
-		mes "[MÃ©rito]";
-		mes "[" + strcharinfo(0) + "], vocÃª pode lidar com mÃ¡gica com habilidade?";
+		mes "[Mérito]";
+		mes "[" + strcharinfo(0) + "], você pode lidar com mágica com habilidade?";
 		next;
-		if(select("Sim, eu posso .: NÃ£o, nÃ£o sou muito bom nisso.") == 2) {
-			mes "[MÃ©rito]";
-			mes "O que!? VocÃª nÃ£o sabe usar magia?";
-			mes "O que vocÃª estÃ¡ fazendo aqui entÃ£o? Saia daqui. Agora mesmo!";
+		if(select("Sim, eu posso .: Não, não sou muito bom nisso.") == 2) {
+			mes "[Mérito]";
+			mes "O que!? Você não sabe usar magia?";
+			mes "O que você está fazendo aqui então? Saia daqui. Agora mesmo!";
 			close;
 		}
-		mes "[MÃ©rito]";
-		mes "Ok, isso deve ser Ã³bvio.";
-		mes "Obviamente, os feiticeiros tambÃ©m usam magia. Mas vocÃª sabe que a principal diferenÃ§a que os feiticeiros tÃªm de outros trabalhos mÃ¡gicos?";
+		mes "[Mérito]";
+		mes "Ok, isso deve ser óbvio.";
+		mes "Obviamente, os feiticeiros também usam magia. Mas você sabe que a principal diferença que os feiticeiros têm de outros trabalhos mágicos?";
 		next;
 		switch(select("Eles sabem cantar.")) {
 		case 1:
-			mes "[MÃ©rito]";
-			mes "Bem, talvez alguns, mas essa nÃ£o Ã© a principal diferenÃ§a.";
+			mes "[Mérito]";
+			mes "Bem, talvez alguns, mas essa não é a principal diferença.";
 			close;
 		case 2:
-			mes "[MÃ©rito]";
-			mes "O que! Como vocÃª ousa!?!";
+			mes "[Mérito]";
+			mes "O que! Como você ousa!?!";
 			close;
 		case 3:
 			break;
 		}
-		mes "[MÃ©rito]";
-		mes "Isso mesmo. Essa Ã© a caracterÃ­stica mais distintiva que os feiticeiros tÃªm.";
+		mes "[Mérito]";
+		mes "Isso mesmo. Essa é a característica mais distintiva que os feiticeiros têm.";
 		next;
-		mes "[MÃ©rito]";
-		mes "Quando as pessoas que querem ser feiticeiras chegam, a primeira coisa que fazemos Ã© verificar se podem se comunicar com espÃ­ritos ou nÃ£o.";
+		mes "[Mérito]";
+		mes "Quando as pessoas que querem ser feiticeiras chegam, a primeira coisa que fazemos é verificar se podem se comunicar com espíritos ou não.";
 		next;
-		mes "[MÃ©rito]";
-		mes "Portanto, essa Ã© a introduÃ§Ã£o bÃ¡sica, entÃ£o vocÃª sÃ³ precisa decidir se deseja ou nÃ£o fazer o teste de qualificaÃ§Ã£o.";
+		mes "[Mérito]";
+		mes "Portanto, essa é a introdução básica, então você só precisa decidir se deseja ou não fazer o teste de qualificação.";
 		next;
-		mes "[MÃ©rito]";
-		mes "Bem, tudo depende de vocÃª. O que vocÃª vai fazer?";
+		mes "[Mérito]";
+		mes "Bem, tudo depende de você. O que você vai fazer?";
 		next;
 		switch(select("Vou fazer o teste .: Eu farei isso mais tarde.")) {
 		case 1:
@@ -117,19 +117,19 @@ gef_tower,102,34,5	script	Merito	742,{
 				setquest 12096;
 				next;
 			}
-			mes "[MÃ©rito]";
+			mes "[Mérito]";
 			mes "OK.";
-			mes "EntÃ£o eu entregarei a Karacas, que estÃ¡ no 4Âº andar. Ele o guiarÃ¡ pelo processo do teste.";
+			mes "Então eu entregarei a Karacas, que está no 4º andar. Ele o guiará pelo processo do teste.";
 			set job_soc,2;
 			setquest 12096;
 			close;
 		case 2:
-			mes "[MÃ©rito]";
-			mes "O que? Eu tinha certeza de que vocÃª queria se tornar um feiticeiro.";
+			mes "[Mérito]";
+			mes "O que? Eu tinha certeza de que você queria se tornar um feiticeiro.";
 			close;
 		}
 	} else {
-		mes "Que tal o seu teste? Bem, Karacas Ã© um pouco preguiÃ§oso, entÃ£o isso pode incomodÃ¡ -lo ... KKK";
+		mes "Que tal o seu teste? Bem, Karacas é um pouco preguiçoso, então isso pode incomodá -lo ... KKK";
 		close;
 	}
 }
@@ -137,23 +137,23 @@ gef_tower,102,34,5	script	Merito	742,{
 gef_tower,113,161,5	script	Karacas	754,{
 	mes "[Karacas]";
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 1000) {
-		mes "Oh, parece que vocÃª Ã© muito pesado. Esvazie sua bolsa e depois volte.";
+		mes "Oh, parece que você é muito pesado. Esvazie sua bolsa e depois volte.";
 		close;
 	}
 	if (Class == Job_Sorcerer || Class == Job_Sorcerer_T || Class == Job_Baby_Sorcerer) {
-		mes "VocÃª parece feliz. Tenha uma Ã³tima jornada.";
+		mes "Você parece feliz. Tenha uma ótima jornada.";
 		close;
 	}
 	if (BaseLevel < 99 || JobLevel < 50 || SkillPoint != 0) {
-		mes "HÃ¡ algo que eu possa fazer por vocÃª?";
+		mes "Há algo que eu possa fazer por você?";
 		close;
 	}
 	if (BaseJob != Job_Sage) {
-		mes "Eu pertenÃ§o Ã  AssociaÃ§Ã£o de Feiticeiros. Eu nÃ£o acho que vocÃª tem nenhum negÃ³cio comigo.";
+		mes "Eu pertenço à Associação de Feiticeiros. Eu não acho que você tem nenhum negócio comigo.";
 		close;
 	}
 	if (job_soc < 2) {
-		mes "Hoje em dia, mais pessoas estÃ£o visitando a Geffen Tower.";
+		mes "Hoje em dia, mais pessoas estão visitando a Geffen Tower.";
 		close;
 	} else if (job_soc == 2) {
 		mes "....";
@@ -168,62 +168,62 @@ gef_tower,113,161,5	script	Karacas	754,{
 		mes "Oh meu Deus...";
 		next;
 		mes "[Karacas]";
-		mes "Wh ... de onde vocÃª Ã©?";
+		mes "Wh ... de onde você é?";
 		next;
-		select("Merito me disse para visitÃ¡ -lo.");
+		select("Merito me disse para visitá -lo.");
 		mes "[Karacas]";
-		mes "Entendo, me dÃª um momento.";
-		mes "A lista ... jÃ¡ chegou.";
+		mes "Entendo, me dê um momento.";
+		mes "A lista ... já chegou.";
 		next;
 		mes "[Karacas]";
-		mes "EntÃ£o, vocÃª Ã© [" + strcharinfo(0) + "]... certo?";
+		mes "Então, você é [" + strcharinfo(0) + "]... certo?";
 		next;
 		if(select("Sim, eu sou.") == 2) {
 			mes "[Karacas]";
-			mes "Oh, acho que deve haver algum erro na lista. VocÃª voltarÃ¡ mais tarde?";
+			mes "Oh, acho que deve haver algum erro na lista. Você voltará mais tarde?";
 			close;
 		}
 		mes "[Karacas]";
-		mes "Antes de fazer o teste de feiticeiro, deixe -me fornecer as informaÃ§Ãµes bÃ¡sicas.";
+		mes "Antes de fazer o teste de feiticeiro, deixe -me fornecer as informações básicas.";
 		next;
 		mes "[Karacas]";
-		mes "A maneira de obter um bilhete de registro de feiticeiros Ã© realmente simples. VocÃª sÃ³ precisa ir e encontrar um de cada espÃ­rito espalhado pelo mundo e depois converter seu poder na forma de um determinado material.";
+		mes "A maneira de obter um bilhete de registro de feiticeiros é realmente simples. Você só precisa ir e encontrar um de cada espírito espalhado pelo mundo e depois converter seu poder na forma de um determinado material.";
 		next;
 		mes "[Karacas]";
-		mes "Parece fÃ¡cil, certo?";
+		mes "Parece fácil, certo?";
 		next;
-		select("Ahh ... senhor. Isso Ã© realmente possÃ­vel?");
+		select("Ahh ... senhor. Isso é realmente possível?");
 		mes "[Karacas]";
-		mes "Bem, Ã© impossÃ­vel encontrar todo espÃ­rito sozinho. VocÃª precisa se treinar muito para dar uma forma aos espÃ­ritos e vÃª -los claramente atravÃ©s dos seus olhos.";
-		next;
-		mes "[Karacas]";
-		mes "Portanto, geralmente realizamos um certo desfile de cerimÃ´nia em direÃ§Ã£o ao local onde podemos sentir os espÃ­ritos.";
+		mes "Bem, é impossível encontrar todo espírito sozinho. Você precisa se treinar muito para dar uma forma aos espíritos e vê -los claramente através dos seus olhos.";
 		next;
 		mes "[Karacas]";
-		mes "Vou te dizer como fazer isso. EntÃ£o ouÃ§a com cuidado.";
+		mes "Portanto, geralmente realizamos um certo desfile de cerimônia em direção ao local onde podemos sentir os espíritos.";
 		next;
 		mes "[Karacas]";
-		mes "Geralmente, nÃ£o podemos ver os espÃ­ritos com os olhos, mas hÃ¡ uma maneira de perceber a parte dos espÃ­ritos atravÃ©s de um meio especial.";
+		mes "Vou te dizer como fazer isso. Então ouça com cuidado.";
 		next;
 		mes "[Karacas]";
-		mes "Por exemplo, se vocÃª visitar o local onde o espÃ­rito do vento permanece com uma certa quantidade de vento de verdura, a reaÃ§Ã£o do espÃ­rito Ã© amplificada.";
+		mes "Geralmente, não podemos ver os espíritos com os olhos, mas há uma maneira de perceber a parte dos espíritos através de um meio especial.";
 		next;
 		mes "[Karacas]";
-		mes "Da mesma forma, se vocÃª se aproximar do lugar onde o espÃ­rito de fogo parece ficar enquanto vocÃª tem uma certa quantidade de sangue vermelho, o espÃ­rito mostrarÃ¡ a reaÃ§Ã£o adversa.";
+		mes "Por exemplo, se você visitar o local onde o espírito do vento permanece com uma certa quantidade de vento de verdura, a reação do espírito é amplificada.";
 		next;
 		mes "[Karacas]";
-		mes "Os feiticeiros usam esse princÃ­pio bÃ¡sico, esse Ã© o conhecimento essencial de que os feiticeiros precisam ter que alcanÃ§ar o espÃ­rito.";
+		mes "Da mesma forma, se você se aproximar do lugar onde o espírito de fogo parece ficar enquanto você tem uma certa quantidade de sangue vermelho, o espírito mostrará a reação adversa.";
 		next;
-		select("EntÃ£o, comunicando -se com espÃ­ritos ...");
+		mes "[Karacas]";
+		mes "Os feiticeiros usam esse princípio básico, esse é o conhecimento essencial de que os feiticeiros precisam ter que alcançar o espírito.";
+		next;
+		select("Então, comunicando -se com espíritos ...");
 		mes "[Karacas]";
 		mes "Direita ~";
-		mes "Este trabalho Ã© baseado no poder dos espÃ­ritos.";
+		mes "Este trabalho é baseado no poder dos espíritos.";
 		next;
 		mes "[Karacas]";
-		mes "Hmm, mas pode ser difÃ­cil para alguÃ©m como vocÃª que estÃ¡ focado apenas na leitura de livros ...";
+		mes "Hmm, mas pode ser difícil para alguém como você que está focado apenas na leitura de livros ...";
 		next;
 		mes "[Karacas]";
-		mes "Primeiro, vocÃª precisa trazer os seguintes materiais necessÃ¡rios para o teste.";
+		mes "Primeiro, você precisa trazer os seguintes materiais necessários para o teste.";
 		next;
 		mes "[Karacas]";
 		mes "3 vento da verdura.";
@@ -232,83 +232,83 @@ gef_tower,113,161,5	script	Karacas	754,{
 		mes "3 Green Live.";
 		next;
 		mes "[Karacas]";
-		mes "Quando vocÃª trazer esses materiais, eu lhe diremos o prÃ³ximo passo.";
+		mes "Quando você trazer esses materiais, eu lhe diremos o próximo passo.";
 		set job_soc,3;
 		changequest 12096,12097;
 		close;
 	} else if (job_soc == 3) {
 		if (countitem(992) > 2 && countitem(991) > 2 && countitem(990) > 2 && countitem(993) > 2) {
-			mes "Oh, vocÃª tem todos os materiais.";
+			mes "Oh, você tem todos os materiais.";
 			next;
 			select("O que devo fazer a seguir?");
 			mes "[Karacas]";
-			mes "Vou falar sobre isso agora. Primeiro, vou lhe contar os lugares para o teste. Ã‰ melhor vocÃª anotar.";
+			mes "Vou falar sobre isso agora. Primeiro, vou lhe contar os lugares para o teste. É melhor você anotar.";
 			next;
 			mes "[Karacas]";
-			mes "1. 1Âº andar da caverna de gelo";
-			mes "2. 1Âº andar da masmorra do vulcÃ£o Thor";
-			mes "3. 3Âº andar de Mjolnir Dead Pit";
-			mes "4. 2Âº andar da masmorra de Kunlun";
+			mes "1. 1º andar da caverna de gelo";
+			mes "2. 1º andar da masmorra do vulcão Thor";
+			mes "3. 3º andar de Mjolnir Dead Pit";
+			mes "4. 2º andar da masmorra de Kunlun";
 			next;
 			mes "[Karacas]";
-			mes "Criamos os postes de detecÃ§Ã£o nesses 4 lugares para que as pessoas comuns possam se comunicar com os espÃ­ritos.";
+			mes "Criamos os postes de detecção nesses 4 lugares para que as pessoas comuns possam se comunicar com os espíritos.";
 			next;
 			mes "[Karacas]";
-			mes "Esteja ciente de que esses pÃ³los de detecÃ§Ã£o sÃ£o ativados apenas quando vocÃª tem mais do que a quantidade de pedras de propriedade.";
+			mes "Esteja ciente de que esses pólos de detecção são ativados apenas quando você tem mais do que a quantidade de pedras de propriedade.";
 			next;
 			mes "[Karacas]";
-			mes "VocÃª precisa preparar pelo menos 3 pedras pequenas para cada propriedade. Por exemplo, vocÃª precisa de vento da verdura, nÃ£o do vento Ã¡spero.";
+			mes "Você precisa preparar pelo menos 3 pedras pequenas para cada propriedade. Por exemplo, você precisa de vento da verdura, não do vento áspero.";
 			next;
-			select("EntÃ£o eu preciso das pedras da propriedade ...");
+			select("Então eu preciso das pedras da propriedade ...");
 			mes "[Karacas]";
-			mes "Sim, vocÃª tem inteligÃªncia rÃ¡pida!";
-			next;
-			mes "[Karacas]";
-			mes "Depois de trazer as pedras para os postes, coloque -os na mÃ¡quina em decomposiÃ§Ã£o de propriedades, que Ã© anexada ao poste. O pÃ³lo de detecÃ§Ã£o serÃ¡ ativado e vocÃª poderÃ¡ se comunicar com o espÃ­rito.";
+			mes "Sim, você tem inteligência rápida!";
 			next;
 			mes "[Karacas]";
-			mes "Se vocÃª tiver sucesso, poderÃ¡ extrair uma parte do EspÃ­rito como um reagente. Se vocÃª falhar, a Pedra da Propriedade serÃ¡ interrompida.";
+			mes "Depois de trazer as pedras para os postes, coloque -os na máquina em decomposição de propriedades, que é anexada ao poste. O pólo de detecção será ativado e você poderá se comunicar com o espírito.";
 			next;
 			mes "[Karacas]";
-			mes "Ã‰ claro que se vocÃª tiver sorte o suficiente, se vocÃª falhar, um vento de verdura pode ser transformado em um vento difÃ­cil ... bem, essa nÃ£o Ã© uma situaÃ§Ã£o comum, entÃ£o vamos deixar isso fora da discussÃ£o por enquanto.";
+			mes "Se você tiver sucesso, poderá extrair uma parte do Espírito como um reagente. Se você falhar, a Pedra da Propriedade será interrompida.";
+			next;
+			mes "[Karacas]";
+			mes "É claro que se você tiver sorte o suficiente, se você falhar, um vento de verdura pode ser transformado em um vento difícil ... bem, essa não é uma situação comum, então vamos deixar isso fora da discussão por enquanto.";
 			next;
 			select("E se eu ficar sem pedras?");
 			mes "[Karacas]";
-			mes "Ahahaha ... se vocÃª ficar sem pedras de propriedade, simplesmente precisarÃ¡ obter mais.";
+			mes "Ahahaha ... se você ficar sem pedras de propriedade, simplesmente precisará obter mais.";
 			next;
 			mes "[Karacas]";
-			mes "Assim, as pessoas que tÃªm esse teste geralmente comeÃ§am com tantas pedras de propriedade quanto podem transportar. A quantidade que eu disse para vocÃª obter Ã© apenas o mÃ­nimo.";
+			mes "Assim, as pessoas que têm esse teste geralmente começam com tantas pedras de propriedade quanto podem transportar. A quantidade que eu disse para você obter é apenas o mínimo.";
 			next;
 			mes "[Karacas]";
-			mes "Se vocÃª Ã© um feiticeiro avanÃ§ado, poderÃ¡ conversar com espÃ­ritos sem passar por esse processo novamente. Mas os iniciantes precisam usar esse tipo de meio para conversar com eles.";
+			mes "Se você é um feiticeiro avançado, poderá conversar com espíritos sem passar por esse processo novamente. Mas os iniciantes precisam usar esse tipo de meio para conversar com eles.";
 			next;
-			select("EntÃ£o o reagente Ã© ...?");
+			select("Então o reagente é ...?");
 			mes "[Karacas]";
-			mes "NÃ£o sabemos qual reagente serÃ¡ feito dos espÃ­ritos. Difere pelo estado dos espÃ­ritos.";
-			next;
-			mes "[Karacas]";
-			mes "Quando vocÃª consegue obter trÃªs tipos diferentes de reagentes, vocÃª pode voltar.";
+			mes "Não sabemos qual reagente será feito dos espíritos. Difere pelo estado dos espíritos.";
 			next;
 			mes "[Karacas]";
-			mes "Um reagente que um espÃ­rito faz nÃ£o terÃ¡ mais de 2 tipos, por isso, se vocÃª for fazer trÃªs tipos de reagentes, sugiro que vocÃª percorra vÃ¡rios lugares.";
+			mes "Quando você consegue obter três tipos diferentes de reagentes, você pode voltar.";
 			next;
 			mes "[Karacas]";
-			mes "Tem alguma dÃºvida?";
+			mes "Um reagente que um espírito faz não terá mais de 2 tipos, por isso, se você for fazer três tipos de reagentes, sugiro que você percorra vários lugares.";
 			next;
-			if(select("NÃ£o .: Por favor, explique novamente.") == 2) {
+			mes "[Karacas]";
+			mes "Tem alguma dúvida?";
+			next;
+			if(select("Não .: Por favor, explique novamente.") == 2) {
 				mes "[Karacas]";
-				mes "Haha, entÃ£o posso ter um copo de Ã¡gua por um minuto? Por favor, venha e me encontre novamente mais tarde.";
+				mes "Haha, então posso ter um copo de água por um minuto? Por favor, venha e me encontre novamente mais tarde.";
 				next;
 			}
 			mes "[Karacas]";
 			mes "Depois, anotarei o progresso que resumi em breve. Espere...";
 			next;
-			mes "^000099 VocÃª recebeu um artigo no qual a maneira de se comunicar com espÃ­ritos Ã© escrita. Para mais informaÃ§Ãµes, abra sua janela de missÃ£o^000000.";
+			mes "^000099 Você recebeu um artigo no qual a maneira de se comunicar com espíritos é escrita. Para mais informações, abra sua janela de missão^000000.";
 			set job_soc,4;
 			changequest 12097,12098;
 			close;
 		}
-		mes "Antes de informar a maneira progressiva, vocÃª precisarÃ¡ trazer algum material necessÃ¡rio.";
+		mes "Antes de informar a maneira progressiva, você precisará trazer algum material necessário.";
 		next;
 		mes "[Karacas]";
 		mes "3 vento da verdura.";
@@ -317,14 +317,14 @@ gef_tower,113,161,5	script	Karacas	754,{
 		mes "3 Green Live.";
 		next;
 		mes "[Karacas]";
-		mes "Quando vocÃª trazer essas coisas bÃ¡sicas, eu o guiarei para a prÃ³xima etapa.";
+		mes "Quando você trazer essas coisas básicas, eu o guiarei para a próxima etapa.";
 		close;
 	} else if (job_soc == 4) {
 		if (countitem(6276) && countitem(6278) && countitem(6277)) {
-			mes "Uau ~ sua habilidade Ã© boa.";
-			mes "Eu pensei que vocÃª ficaria impressionado com os espÃ­ritos, mas vocÃª conseguiu obter o medicamento eficaz!";
+			mes "Uau ~ sua habilidade é boa.";
+			mes "Eu pensei que você ficaria impressionado com os espíritos, mas você conseguiu obter o medicamento eficaz!";
 			next;
-			select("Isso Ã© tudo o que preciso fazer?");
+			select("Isso é tudo o que preciso fazer?");
 			mes "[Karacas]";
 			mes "Bom trabalho. Primeiro, organizarei o medicamento milagroso, por favor, espere um momento.";
 			delitem 6276,1; //Clear_Reagent
@@ -334,47 +334,47 @@ gef_tower,113,161,5	script	Karacas	754,{
 			completequest 12098;
 			close;
 		}
-		mes "NÃ£o Ã© fÃ¡cil obter o efeito desejado ao se comunicar com espÃ­ritos.";
+		mes "Não é fácil obter o efeito desejado ao se comunicar com espíritos.";
 		next;
 		mes "[Karacas]";
-		mes "NÃ£o desista e continue tentando ~";
+		mes "Não desista e continue tentando ~";
 		close;
 	} else if (job_soc == 5) {
-		mes "Originalmente, meu professor precisa verificar a mudanÃ§a de cargo de feiticeiro, mas depois que ele saiu para encontrar o espÃ­rito de peixe, nÃ£o posso vÃª -lo. EntÃ£o eu vou verificar sozinho.";
+		mes "Originalmente, meu professor precisa verificar a mudança de cargo de feiticeiro, mas depois que ele saiu para encontrar o espírito de peixe, não posso vê -lo. Então eu vou verificar sozinho.";
 		next;
 		mes "[Karacas]";
 		mes "Querido [" + strcharinfo(0) + "],";
-		mes "VocÃª percorreu as Ã¡guas selvagens para abrir a porta como feiticeiro e passou por todos os requisitos que nossa academia deu.";
+		mes "Você percorreu as águas selvagens para abrir a porta como feiticeiro e passou por todos os requisitos que nossa academia deu.";
 		next;
 		mes "[Karacas]";
-		mes "Ã‰ claro que Ã© apenas um comeÃ§o, nÃ£o sabemos com qual espÃ­rito vocÃª vai comunicar ou que tipo de dificuldades o espera.";
+		mes "É claro que é apenas um começo, não sabemos com qual espírito você vai comunicar ou que tipo de dificuldades o espera.";
 		next;
 		mes "[Karacas]";
-		mes "Mas com a habilidade que vocÃª mostrou atÃ© agora, vocÃª serÃ¡ capaz de fazer qualquer coisa a partir de agora. Querido [" + strcharinfo(0) + "]";
+		mes "Mas com a habilidade que você mostrou até agora, você será capaz de fazer qualquer coisa a partir de agora. Querido [" + strcharinfo(0) + "]";
 		next;
 		mes "[Forte]";
 		if (BaseLevel < 99 || JobLevel < 50 || SkillPoint) {
-			mes "Antes de nomear vocÃª a necessidade de trabalho, verifique seu prÃ³prio status de corpo.";
+			mes "Antes de nomear você a necessidade de trabalho, verifique seu próprio status de corpo.";
 			next;
 			mes "[Forte]";
-			mes "VocÃª deve ter a etiqueta do seu trabalho agora antes de aceitar o novo emprego!";
+			mes "Você deve ter a etiqueta do seu trabalho agora antes de aceitar o novo emprego!";
 			close;
 		}
 		if (ismounting()) {
-			mes "Bom, antes de comeÃ§armos ...";
-			mes "Por favor, sem quieta seu animal de estimaÃ§Ã£o ~";
+			mes "Bom, antes de começarmos ...";
+			mes "Por favor, sem quieta seu animal de estimação ~";
 			close;
 		}
-		mes "AlÃ©m disso, reconheÃ§o formalmente que vocÃª concluiu todos os testes de transferÃªncia de emprego da academia de feiticeiros.";
+		mes "Além disso, reconheço formalmente que você concluiu todos os testes de transferência de emprego da academia de feiticeiros.";
 		next;
 		mes "[Karacas]";
-		mes "ParabÃ©ns, [" + strcharinfo(0) + "]";
+		mes "Parabéns, [" + strcharinfo(0) + "]";
 		jobchange roclass(eaclass()|EAJL_THIRD);
 		getitem 5756,1; //Wind_Whisper
 		getitem 2795,1; //Green_Apple_Ring
 		next;
 		mes "[Karacas]";
-		mes "Espero que vocÃª ganhe mais comunhÃ£o com os espÃ­ritos a partir de agora.";
+		mes "Espero que você ganhe mais comunhão com os espíritos a partir de agora.";
 		close;
 	}
 }
@@ -391,33 +391,33 @@ gef_tower,113,161,5	script	Karacas	754,{
 		set .@soc_ran, rand(1,70);
 		if (.@soc_ran < 10) {
 			if (countitem(.@id[2]) == 0) {
-				mes "VocÃª tem um reagente ao se comunicar com um espÃ­rito invisÃ­vel.";
+				mes "Você tem um reagente ao se comunicar com um espírito invisível.";
 				getitem .@id[2],1; //Clear_Reagent,Black_Reagent,Red_Reagent
 				close;
 			}
-			mes "NÃ£o parece que vocÃª tenha nada de especial dos espÃ­ritos.";
+			mes "Não parece que você tenha nada de especial dos espíritos.";
 			close;
 		} else if (.@soc_ran > 9 && .@soc_ran < 16) {
 			if (countitem(.@id[3]) == 0) {
-				mes "VocÃª tem um reagente ao se comunicar com um espÃ­rito invisÃ­vel.";
+				mes "Você tem um reagente ao se comunicar com um espírito invisível.";
 				getitem .@id[3],1; //Clear_Reagent,Black_Reagent,Red_Reagent
 				close;
 			}
-			mes "NÃ£o parece que vocÃª tenha nada de especial dos espÃ­ritos.";
+			mes "Não parece que você tenha nada de especial dos espíritos.";
 			close;
 		} else if (.@soc_ran == 56) {
-			mes "O espÃ­rito combinou as pedras da propriedade em uma enorme pedra de propriedade.";
+			mes "O espírito combinou as pedras da propriedade em uma enorme pedra de propriedade.";
 			getitem .@id[1],1; //Flame_Heart,Mistic_Frozen,Great_Nature,Rough_Wind
 			close;
 		} else {
-			mes "VocÃª usou as pedras da propriedade, mas parece que nÃ£o se comunica com os espÃ­ritos.";
+			mes "Você usou as pedras da propriedade, mas parece que não se comunica com os espíritos.";
 			close;
 		}
 	}
-	mes "Eu posso ver a equipe de detecÃ§Ã£o que foi instalada pela uniÃ£o de feiticeiros para se comunicar com os espÃ­ritos.";
+	mes "Eu posso ver a equipe de detecção que foi instalada pela união de feiticeiros para se comunicar com os espíritos.";
 	if (job_soc == 4 && countitem(.@id[0]) < 3) {
 		next;
-		mes "Se vocÃª tiver as pedras de propriedade adequadas, poderÃ¡ se comunicar com os espÃ­ritos.";
+		mes "Se você tiver as pedras de propriedade adequadas, poderá se comunicar com os espíritos.";
 	}
 	close;
 }

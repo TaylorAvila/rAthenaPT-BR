@@ -28,83 +28,83 @@ payon_in02,64,71,4	script	Archer Guildsman#archer	85,{
 	if (Upper == 1) {
 		if (Class == Job_Novice_High && (ADVJOB == Job_Sniper || ADVJOB == Job_Clown || ADVJOB == Job_Gypsy)) {
 			mes "[Archer Guildsman]";
-			mes "Ei, eu te conheÃ§o.";
-			mes "VocÃª fez este teste";
-			mes "Antes, nÃ£o Ã©?";
+			mes "Ei, eu te conheço.";
+			mes "Você fez este teste";
+			mes "Antes, não é?";
 			next;
 			mes "[Archer Guildsman]";
-			mes "Ah, vocÃª deve ter sido";
+			mes "Ah, você deve ter sido";
 			mes "a Valhalla e foi renascido.";
-			mes "Uau, isso Ã© tÃ£o impressionante!";
+			mes "Uau, isso é tão impressionante!";
 			next;
 			if (!callfunc("F_CanChangeJob")) {
 				mes "[Archer Guildsman]";
 				mes "Errar...";
-				mes "Ã‰ melhor vocÃª aprender todas as habilidades bÃ¡sicas antes de se tornar um arqueiro.";
+				mes "É melhor você aprender todas as habilidades básicas antes de se tornar um arqueiro.";
 				next;
 				mes "[Archer Guildsman]";
-				mes "Tudo bem, vejo vocÃª mais tarde.";
+				mes "Tudo bem, vejo você mais tarde.";
 				close;
 			}
 			mes "[Archer Guildsman]";
-			mes "Bem entÃ£o. Eu nÃ£o";
+			mes "Bem então. Eu não";
 			mes "Precisa dizer qualquer outra coisa.";
-			mes "Eu sei que vocÃª farÃ¡ um Ã³timo arqueiro ...";
+			mes "Eu sei que você fará um ótimo arqueiro ...";
 			next;
 			skill "Nv_trickdead",0,SKILL_PERM;
 			jobchange Job_Archer_high;
 			skill "Ac_makingarrow",1,SKILL_PERM;
 			skill "AC_CHARGEARROW",1,SKILL_PERM;
 			mes "[Archer Guildsman]";
-			mes "Embora nÃ£o haja especial";
-			mes "Recompensa por vocÃª desta vez, espero que vocÃª entenda. Cuide-se.";
+			mes "Embora não haja especial";
+			mes "Recompensa por você desta vez, espero que você entenda. Cuide-se.";
 			close;
 		}
 		else {
 			mes "[Archer Guildsman]";
 			mes "Oh...?";
-			mes "Ei, o que Ã©";
-			mes "VocÃª estÃ¡ fazendo aqui ...?";
+			mes "Ei, o que é";
+			mes "Você está fazendo aqui ...?";
 			next;
 			mes "[Archer Guildsman]";
-			mes "Posso dizer que vocÃª nÃ£o Ã© cortado para ser um arqueiro. Parece que vocÃª deve fazer";
+			mes "Posso dizer que você não é cortado para ser um arqueiro. Parece que você deve fazer";
 			mes "outra coisa ...";
 			close;
 		}
 	}
 	mes "[Archer Guildsman]";
-	mes "Bom dia. Como posso ajudÃ¡ -lo?";
+	mes "Bom dia. Como posso ajudá -lo?";
 	next;
 	switch(select("Eu quero ser um arqueiro .: Eu preciso dos requisitos, por favor.")) {
 	case 1:
 		if (BaseJob == Job_Archer) {
 			mes "[Archer Guildsman]";
-			mes "VocÃª jÃ¡ se tornou um arqueiro ...";
+			mes "Você já se tornou um arqueiro ...";
 			close;
 		}
 		else if (BaseJob != Job_Archer && BaseJob != Job_Novice) {
 			mes "[Archer Guildsman]";
 			mes "Hum...";
-			mes "VocÃª nÃ£o parece muito um novato ...";
+			mes "Você não parece muito um novato ...";
 			next;
 			mes "[Archer Guildsman]";
-			mes "De qualquer forma, seja o que for, vocÃª nÃ£o pode escolher um trabalho como arqueiro, porque jÃ¡ tem um emprego.";
+			mes "De qualquer forma, seja o que for, você não pode escolher um trabalho como arqueiro, porque já tem um emprego.";
 			close;
 		}
 		if (job_archer_q == 0) {
 			mes "[Archer Guildsman]";
-			mes "VocÃª quer ser um arqueiro?";
-			mes "Nesse caso, vocÃª precisa preencher este formulÃ¡rio de inscriÃ§Ã£o.";
+			mes "Você quer ser um arqueiro?";
+			mes "Nesse caso, você precisa preencher este formulário de inscrição.";
 			next;
 			if (select("Aplicar.:Cancel") == 1) {
 				set job_archer_q,1;
 				setquest 1004;
 				mes "[Archer Guildsman]";
-				mes "Ok, assine aqui. Tudo bem, hum, eu vou promovÃª -lo assim que atender aos requisitos.";
+				mes "Ok, assine aqui. Tudo bem, hum, eu vou promovê -lo assim que atender aos requisitos.";
 				next;
 				mes "[Archer Guildsman]";
-				mes "Se vocÃª acha que jÃ¡ os conheceu, podemos verificar isso agora.";
-				mes "VocÃª estÃ¡ pronto?";
+				mes "Se você acha que já os conheceu, podemos verificar isso agora.";
+				mes "Você está pronto?";
 				next;
 				if (select("Sim, eu sou.") == 1) {
 					mes "[Archer Guildsman]";
@@ -120,19 +120,19 @@ payon_in02,64,71,4	script	Archer Guildsman#archer	85,{
 			else {
 				mes "[Archer Guildsman]";
 				mes "Bem, tudo bem.";
-				mes "Vejo vocÃª na prÃ³xima vez.";
+				mes "Vejo você na próxima vez.";
 				close;
 			}
 		}
 		mes "[Archer Guildsman]";
-		mes "VocÃª Ã©..." + strcharinfo(0) + "?";
+		mes "Você é..." + strcharinfo(0) + "?";
 		next;
 		if (!callfunc("F_CanChangeJob")) {
 			mes "[Archer Guildsman]";
-			mes "Bem, vocÃª nÃ£o estÃ¡ no nÃ­vel certo. Por favor, verifique os requisitos novamente.";
+			mes "Bem, você não está no nível certo. Por favor, verifique os requisitos novamente.";
 			next;
 			mes "[Archer Guildsman]";
-			mes "Seu nÃ­vel de trabalho deve ter pelo menos 10 e nÃ£o se esqueÃ§a de que vocÃª deve aprender todas as habilidades bÃ¡sicas. Depois de fazer isso, volte.";
+			mes "Seu nível de trabalho deve ter pelo menos 10 e não se esqueça de que você deve aprender todas as habilidades básicas. Depois de fazer isso, volte.";
 			close;
 		}
 		if (job_archer_q == 1) {
@@ -144,16 +144,16 @@ payon_in02,64,71,4	script	Archer Guildsman#archer	85,{
 			set .@total_archer2,(((.@archer_item2 + .@archer_item3) * 2) + .@archer_item4);
 			mes "[Archer Guildsman]";
 			mes "Excelente!";
-			mes "Agora entÃ£o,";
+			mes "Agora então,";
 			mes "Vamos ver ...";
 			next;
 			mes "[Archer Guildsman]";
-			mes "Avaliarei o valor dos vÃ¡rios tipos de troncos, necessÃ¡rios para produzir um arco, que vocÃª trouxe.";
+			mes "Avaliarei o valor dos vários tipos de troncos, necessários para produzir um arco, que você trouxe.";
 			next;
 			if (countitem(1066) == 0 && countitem(1067) == 0 && countitem(1068) == 0 && countitem(1019) == 0) {
 				mes "[Archer Guildsman]";
 				mes "Um...";
-				mes "Infelizmente, vocÃª nÃ£o trouxe nenhum dos itens necessÃ¡rios. NÃ£o hÃ¡ nada para eu avaliar.";
+				mes "Infelizmente, você não trouxe nenhum dos itens necessários. Não há nada para eu avaliar.";
 				close;
 			}
 			mes "[Archer Guildsman]";
@@ -165,7 +165,7 @@ payon_in02,64,71,4	script	Archer Guildsman#archer	85,{
 				mes "Notas totais: ^FF0000" + .@total_archer + "^000000 / 40";
 				next;
 				mes "[Archer Guildsman]";
-				mes "Menos de 25!? VocÃª tem que obter uma nota de pelo menos 25! Vamos lÃ¡, tente mais!";
+				mes "Menos de 25!? Você tem que obter uma nota de pelo menos 25! Vamos lá, tente mais!";
 				close;
 			}
 			else {
@@ -174,19 +174,19 @@ payon_in02,64,71,4	script	Archer Guildsman#archer	85,{
 				mes "[Archer Guildsman]";
 				if (.@total_archer > 40) {
 					mes "Uau! Mais de 40!";
-					mes "Excelente! ParabÃ©ns!";
+					mes "Excelente! Parabéns!";
 				}
 				else if (.@total_archer > 30) {
 					mes "Mais de 30! Bom trabalho!";
-					mes "ParabÃ©ns!";
+					mes "Parabéns!";
 				}
 				else {
-					mes "* Suspiro* Bem, vocÃª mal passou ... de qualquer maneira, muito bem.";
+					mes "* Suspiro* Bem, você mal passou ... de qualquer maneira, muito bem.";
 				}
 			}
 			next;
 			mes "[Archer Guildsman]";
-			mes "Vou transferir esses troncos para o nosso departamento de produÃ§Ã£o de arco. Agora que vocÃª atendeu aos requisitos, deixe -me promovÃª -lo imediatamente!";
+			mes "Vou transferir esses troncos para o nosso departamento de produção de arco. Agora que você atendeu aos requisitos, deixe -me promovê -lo imediatamente!";
 			if (countitem(1066) != 0) delitem 1066,countitem(1066); //Tree_Of_Archer_1
 			if (countitem(1067) != 0) delitem 1067,countitem(1067); //Tree_Of_Archer_2
 			if (countitem(1068) != 0) delitem 1068,countitem(1068); //Tree_Of_Archer_3
@@ -197,19 +197,19 @@ payon_in02,64,71,4	script	Archer Guildsman#archer	85,{
 		callfunc "F_ClearJobVar";
 		completequest 1004;
 		mes "[Archer Guildsman]";
-		mes "ParabÃ©ns!";
-		mes "VocÃª agora Ã© um arqueiro!";
+		mes "Parabéns!";
+		mes "Você agora é um arqueiro!";
 		next;
 		mes "[Archer Guildsman]";
-		mes "Obviamente, esperamos que vocÃª ajude a contribuir para o futuro da guilda de Archer com seus esforÃ§os.";
+		mes "Obviamente, esperamos que você ajude a contribuir para o futuro da guilda de Archer com seus esforços.";
 		next;
 		mes "[Archer Guildsman]";
-		mes "Ah, seu arco chegou do departamento de produÃ§Ã£o de arco. Aqui, leve! Ã‰ seu ~";
+		mes "Ah, seu arco chegou do departamento de produção de arco. Aqui, leve! É seu ~";
 		getitem 1702,1; //Bow_
 		getitem 1750,.@total_archer2; //Arrow
 		next;
 		mes "[Archer Guildsman]";
-		mes "Agora, vocÃª vai. CaÃ§a de orgulho, sabendo que vocÃª foi treinado por um dos melhores!";
+		mes "Agora, você vai. Caça de orgulho, sabendo que você foi treinado por um dos melhores!";
 		close;
 	case 2:
 		mes "[Archer Guildsman]";
@@ -219,27 +219,27 @@ payon_in02,64,71,4	script	Archer Guildsman#archer	85,{
 				next;
 				mes "[Archer Guildsman]";
 				mes "Mas...";
-				mes "VocÃª jÃ¡ Ã© um arqueiro. VocÃª jÃ¡ deve saber isso ...";
+				mes "Você já é um arqueiro. Você já deve saber isso ...";
 			}
 			else {
 				next;
 				mes "[Archer Guildsman]";
-				mes "Espere um segundo. VocÃª jÃ¡ escolheu um trabalho diferente. VocÃª nÃ£o precisa saber disso ~";
+				mes "Espere um segundo. Você já escolheu um trabalho diferente. Você não precisa saber disso ~";
 			}
-			mes "EntÃ£o ... sim ... sem motivo real para lhe dizer os requisitos ...";
+			mes "Então ... sim ... sem motivo real para lhe dizer os requisitos ...";
 		}
 		next;
 		mes "[Archer Guildsman]";
-		mes "Primeiro de tudo, vocÃª tem o nÃ­vel 9 como um novato e conhece todas as habilidades bÃ¡sicas.";
+		mes "Primeiro de tudo, você tem o nível 9 como um novato e conhece todas as habilidades básicas.";
 		next;
 		mes "[Archer Guildsman]";
-		mes "Um arqueiro precisa de concentraÃ§Ãµes e reflexos extremamente altos, por isso nÃ£o aceitamos aqueles que tÃªm pouca paciÃªncia.";
+		mes "Um arqueiro precisa de concentrações e reflexos extremamente altos, por isso não aceitamos aqueles que têm pouca paciência.";
 		next;
 		mes "[Archer Guildsman]";
-		mes "VocÃª tambÃ©m precisa reunir ^ff0000Trunks ^000000. Existem 4 tipos diferentes de troncos, cada um com qualidade diferente. VocÃª receberÃ¡ graus diferentes para seus troncos, dependendo da qualidade deles.";
+		mes "Você também precisa reunir ^ff0000Trunks ^000000. Existem 4 tipos diferentes de troncos, cada um com qualidade diferente. Você receberá graus diferentes para seus troncos, dependendo da qualidade deles.";
 		next;
 		mes "[Archer Guildsman]";
-		mes "Para se tornar um arqueiro, vocÃª deve receber uma nota de pelo menos ^0000FF25 ^000000 pontos em 40. VocÃª pode obter troncos de 'Willow', a Ã¡rvore. Tenha cuidado, no entanto. Eles podem ser monstros difÃ­ceis.";
+		mes "Para se tornar um arqueiro, você deve receber uma nota de pelo menos ^0000FF25 ^000000 pontos em 40. Você pode obter troncos de 'Willow', a árvore. Tenha cuidado, no entanto. Eles podem ser monstros difíceis.";
 		close;
 	case 3:
 		close;

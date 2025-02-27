@@ -24,11 +24,11 @@ yuno,1,1,0	script	Festival Manager#gq_fes0	891,{
 	next;
 	if (callfunc("F_GM_NPC","07godsefes",1) == 0) {
 		mes "[Gerente do festival]";
-		mes "A senha estÃ¡ incorreta.";
+		mes "A senha está incorreta.";
 		close;
 	}
 	mes "[Gerente do festival]";
-	mes "O que vocÃª gostaria de fazer?";
+	mes "O que você gostaria de fazer?";
 	next;
 	switch(select("Desativar o Festival NPCS: Ativar NPCs do Festival")) {
 	case 1:
@@ -49,22 +49,22 @@ yuno,1,1,0	script	Festival Manager#gq_fes0	891,{
 yuno,118,192,5	script	Rmimi Ravies#gq_fes01	891,{
 	if (countitem(7840) > 0) {
 		mes "[RMIMI RAVIES]";
-		mes "Esta Ã© a flor.";
-		mes "Isso Ã© apenas uma formalidade, mas deixe -me verificar suas qualificaÃ§Ãµes.";
+		mes "Esta é a flor.";
+		mes "Isso é apenas uma formalidade, mas deixe -me verificar suas qualificações.";
 		next;
 		if (is_guild_leader() == true) {
 			mes "[RMIMI RAVIES]";
-			mes "Sua qualificaÃ§Ã£o Ã© verificada como mestre da guilda.";
+			mes "Sua qualificação é verificada como mestre da guilda.";
 			next;
 			mes "[RMIMI RAVIES]";
-			mes "Gostaria de saber se vocÃª sabe qual Ã© o uso desta flor ... deixe -me explicar isso para vocÃª.";
+			mes "Gostaria de saber se você sabe qual é o uso desta flor ... deixe -me explicar isso para você.";
 			next;
 			mes "[RMIMI RAVIES]";
-			mes "Esta Ã© a flor sagrada dada pela donzela do desejo em Valquyrie, ela pode convocar certos monstros por certos invocadores.";
+			mes "Esta é a flor sagrada dada pela donzela do desejo em Valquyrie, ela pode convocar certos monstros por certos invocadores.";
 			next;
 			mes "[RMIMI RAVIES]";
 			mes "Existem apenas dois convocadores neste mundo ...";
-			mes "Eu e minha irmÃ£ Rhehe ...";
+			mes "Eu e minha irmã Rhehe ...";
 			next;
 			mes "[RMIMI RAVIES]";
 			mes "Somos totalmente diferentes, mas podemos ...";
@@ -74,38 +74,38 @@ yuno,118,192,5	script	Rmimi Ravies#gq_fes01	891,{
 			next;
 			mes "[RMIMI RAVIES]";
 			mes "De qualquer forma,";
-			mes "VocÃª quer convocar monstros?";
+			mes "Você quer convocar monstros?";
 			next;
-			switch(select("NÃ£o convoce: convocar, por favor")) {
+			switch(select("Não convoce: convocar, por favor")) {
 			case 1:
 				mes "[RMIMI RAVIES]";
-				mes "Eu nÃ£o gosto de ser interrompido por outros ..";
+				mes "Eu não gosto de ser interrompido por outros ..";
 				next;
 				mes "[RMIMI RAVIES]";
-				mes "Mas Ã© apenas negÃ³cios.";
+				mes "Mas é apenas negócios.";
 				close;
 			case 2:
 				break;
 			}
 			mes "[RMIMI RAVIES]";
 			mes "Vou explicar como convocar monstros.";
-			mes "Esta flor pode convocar a bÃªnÃ§Ã£o de 'Valkyrie' de monstros e 'presente de Valkyrie' por uma hora aqui em Juno.";
+			mes "Esta flor pode convocar a bênção de 'Valkyrie' de monstros e 'presente de Valkyrie' por uma hora aqui em Juno.";
 			next;
 			mes "[RMIMI RAVIES]";
-			mes "Um anÃºncio serÃ¡ feito afirmando qual monstro foi convocado.";
-			mes "Este festival Ã© dado pelo Desejo Maiden para que todos os aventureiros desfrutem de todo o mundo.";
+			mes "Um anúncio será feito afirmando qual monstro foi convocado.";
+			mes "Este festival é dado pelo Desejo Maiden para que todos os aventureiros desfrutem de todo o mundo.";
 			next;
 			mes "[RMIMI RAVIES]";
-			mes "Agora, vocÃª estÃ¡ pronto para convocar monstros?";
+			mes "Agora, você está pronto para convocar monstros?";
 			next;
-			switch(select("NÃ£o, nÃ£o estou pronto agora. Estou pronto para isso.")) {
+			switch(select("Não, não estou pronto agora. Estou pronto para isso.")) {
 			case 1:
 				mes "[RMIMI RAVIES]";
-				mes "Se vocÃª nÃ£o estÃ¡ pronto, por que vocÃª veio atÃ© mim?";
+				mes "Se você não está pronto, por que você veio até mim?";
 				next;
 				mes "[RMIMI RAVIES]";
-				mes "Estarei esperando atÃ© vocÃª estar pronto.";
-				mes "Afinal, sÃ£o negÃ³cios.";
+				mes "Estarei esperando até você estar pronto.";
+				mes "Afinal, são negócios.";
 				close;
 			case 2:
 				break;
@@ -115,19 +115,19 @@ yuno,118,192,5	script	Rmimi Ravies#gq_fes01	891,{
 			next;
 			if ($@gqse_festival == 0) {
 				mes "[RMIMI RAVIES]";
-				mes "Ok, nÃ³s comeÃ§arÃ­amos a convocar monstros.";
+				mes "Ok, nós começaríamos a convocar monstros.";
 				delitem 7840,1; //Valkyrie's_Gift
 				next;
 				mes "[RMIMI RAVIES]";
 				mes "Divirta-se.";
 				donpcevent "Rmimi Ravies#gq_fes01::OnStart";
 				
-				announce "["+ strcharinfo(0) +"] membro de ["+ GetGuildName( getcharid(2) ) +"] estÃ¡ convocando um 'presente de valkyrie' em 'Juno'.",bc_all,"0x70dbdb";
+				announce "["+ strcharinfo(0) +"] membro de ["+ GetGuildName( getcharid(2) ) +"] está convocando um 'presente de valkyrie' em 'Juno'.",bc_all,"0x70dbdb";
 				close;
 			}
 			else {
 				mes "[RMIMI RAVIES]";
-				mes "Parece que o ritual de convocaÃ§Ã£o de bÃªnÃ§Ã£o de uma ValquÃ­ria jÃ¡ estÃ¡ em andamento em outros lugares.";
+				mes "Parece que o ritual de convocação de bênção de uma Valquíria já está em andamento em outros lugares.";
 				next;
 				mes "[RMIMI RAVIES]";
 				mes "Por favor, tente novamente mais tarde.";
@@ -136,20 +136,20 @@ yuno,118,192,5	script	Rmimi Ravies#gq_fes01	891,{
 		}
 		else {
 			mes "[RMIMI RAVIES]";
-			mes "Parece que vocÃª nÃ£o Ã© digno.";
+			mes "Parece que você não é digno.";
 			next;
 			mes "[RMIMI RAVIES]";
-			mes "NÃ£o sei como vocÃª obteve essa flor, mas se vocÃª nÃ£o Ã© capaz de liderar os outros. EntÃ£o vocÃª nÃ£o pode continuar.";
+			mes "Não sei como você obteve essa flor, mas se você não é capaz de liderar os outros. Então você não pode continuar.";
 			next;
 			mes "[RMIMI RAVIES]";
-			mes "Muito difÃ­cil?";
-			mes "Bem, o que vocÃª pode fazer, isso faz parte do trabalho.";
+			mes "Muito difícil?";
+			mes "Bem, o que você pode fazer, isso faz parte do trabalho.";
 			close;
 		}
 	}
 	else {
 		mes "[RMIMI RAVIES]";
-		mes "VocÃª nÃ£o tem um voucher?";
+		mes "Você não tem um voucher?";
 		close;
 	}
 
@@ -172,7 +172,7 @@ OnStart:
 
 Oncall:
 	if (mobcount("yuno","RMIMI RAVIES#GQ_FES01 :: OnMyMobdead") < 31) {
-		monster "yuno",0,0,"A bÃªnÃ§Ã£o de Valkyrie",1083,100,"RMIMI RAVIES#GQ_FES01 :: OnMyMobdead";
+		monster "yuno",0,0,"A bênção de Valkyrie",1083,100,"RMIMI RAVIES#GQ_FES01 :: OnMyMobdead";
 		monster "yuno",0,0,"Presente de Valkyrie",1951,25,"RMIMI RAVIES#GQ_FES01 :: OnMyMobdead";
 		monster "yuno",0,0,"Presente de Valkyrie",1952,25,"RMIMI RAVIES#GQ_FES01 :: OnMyMobdead";
 		monster "yuno",0,0,"Presente de Valkyrie",1953,25,"RMIMI RAVIES#GQ_FES01 :: OnMyMobdead";
@@ -180,14 +180,14 @@ Oncall:
 		monster "yuno",0,0,"Valkyrie's Prank",1002,10,"RMIMI RAVIES#GQ_FES01 :: OnMyMobdead";
 	}
 	else if (mobcount("yuno","RMIMI RAVIES#GQ_FES01 :: OnMyMobdead") > 149) {
-		monster "yuno",0,0,"A bÃªnÃ§Ã£o de Valkyrie",1083,1,"RMIMI RAVIES#GQ_FES01 :: OnMyMobdead";
+		monster "yuno",0,0,"A bênção de Valkyrie",1083,1,"RMIMI RAVIES#GQ_FES01 :: OnMyMobdead";
 		monster "yuno",0,0,"Presente de Valkyrie",1951,1,"RMIMI RAVIES#GQ_FES01 :: OnMyMobdead";
 		monster "yuno",0,0,"Presente de Valkyrie",1952,1,"RMIMI RAVIES#GQ_FES01 :: OnMyMobdead";
 		monster "yuno",0,0,"Presente de Valkyrie",1953,1,"RMIMI RAVIES#GQ_FES01 :: OnMyMobdead";
 		monster "yuno",0,0,"Presente de Valkyrie",1954,1,"RMIMI RAVIES#GQ_FES01 :: OnMyMobdead";
 	}
 	else {
-		monster "yuno",0,0,"A bÃªnÃ§Ã£o de Valkyrie",1083,50,"RMIMI RAVIES#GQ_FES01 :: OnMyMobdead";
+		monster "yuno",0,0,"A bênção de Valkyrie",1083,50,"RMIMI RAVIES#GQ_FES01 :: OnMyMobdead";
 		monster "yuno",0,0,"Presente de Valkyrie",1951,10,"RMIMI RAVIES#GQ_FES01 :: OnMyMobdead";
 		monster "yuno",0,0,"Presente de Valkyrie",1952,10,"RMIMI RAVIES#GQ_FES01 :: OnMyMobdead";
 		monster "yuno",0,0,"Presente de Valkyrie",1953,10,"RMIMI RAVIES#GQ_FES01 :: OnMyMobdead";
@@ -206,27 +206,27 @@ OnMyMobDead:
 	end;
 
 OnTimer10000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o comeÃ§arÃ¡ em 5 minutos em Juno.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação começará em 5 minutos em Juno.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer13000:
-	announce "Por favor, venha a Juno para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Juno para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer120000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o comeÃ§arÃ¡ em 3 minutos em Juno.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação começará em 3 minutos em Juno.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer123000:
-	announce "Por favor, venha a Juno para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Juno para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer240000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o comeÃ§arÃ¡ em 1 minuto em Juno.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação começará em 1 minuto em Juno.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer243000:
-	announce "Por favor, venha a Juno para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Juno para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer300000:
@@ -235,11 +235,11 @@ OnTimer300000:
 	end;
 
 OnTimer303000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o serÃ¡ realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação será realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer308000:
-	announce "Por favor, venha a Juno para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Juno para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer600000:
@@ -248,11 +248,11 @@ OnTimer600000:
 	end;
 
 OnTimer603000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o serÃ¡ realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação será realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer608000:
-	announce "Por favor, venha a Juno para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Juno para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer900000:
@@ -261,11 +261,11 @@ OnTimer900000:
 	end;
 
 OnTimer903000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o serÃ¡ realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação será realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer908000:
-	announce "Por favor, venha a Juno para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Juno para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1200000:
@@ -274,11 +274,11 @@ OnTimer1200000:
 	end;
 
 OnTimer1203000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o serÃ¡ realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação será realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1208000:
-	announce "Por favor, venha a Juno para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Juno para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1500000:
@@ -287,11 +287,11 @@ OnTimer1500000:
 	end;
 
 OnTimer1503000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o serÃ¡ realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação será realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1508000:
-	announce "Por favor, venha a Juno para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Juno para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1800000:
@@ -300,24 +300,24 @@ OnTimer1800000:
 	end;
 
 OnTimer1803000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o serÃ¡ realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação será realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1808000:
-	announce "Por favor, venha a Juno para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Juno para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2100000:
-	announce "O sÃ©timo 'presente de Valkyrie' foi convocado aqui em Juno pela Maiden Wish.",bc_all,"0x70dbdb";
+	announce "O sétimo 'presente de Valkyrie' foi convocado aqui em Juno pela Maiden Wish.",bc_all,"0x70dbdb";
 	donpcevent "Rmimi Ravies#gq_fes01::Oncall";
 	end;
 
 OnTimer2103000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o serÃ¡ realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação será realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2108000:
-	announce "Por favor, venha a Juno para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Juno para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2400000:
@@ -326,11 +326,11 @@ OnTimer2400000:
 	end;
 
 OnTimer2403000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o serÃ¡ realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação será realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2408000:
-	announce "Por favor, venha a Juno para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Juno para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2700000:
@@ -339,11 +339,11 @@ OnTimer2700000:
 	end;
 
 OnTimer2703000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o serÃ¡ realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação será realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2708000:
-	announce "Por favor, venha a Juno para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Juno para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3000000:
@@ -352,41 +352,41 @@ OnTimer3000000:
 	end;
 
 OnTimer3003000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o serÃ¡ realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação será realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3008000:
-	announce "Por favor, venha a Juno para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Juno para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3300000:
-	announce "O dÃ©cimo primeiro 'Valkyrie's presente' foi convocado aqui em Juno pela Maiden Wish.",bc_all,"0x70dbdb";
+	announce "O décimo primeiro 'Valkyrie's presente' foi convocado aqui em Juno pela Maiden Wish.",bc_all,"0x70dbdb";
 	donpcevent "Rmimi Ravies#gq_fes01::Oncall";
 	end;
 
 OnTimer3303000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o serÃ¡ realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação será realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3308000:
-	announce "Por favor, venha a Juno para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Juno para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3600000:
-	announce "O dÃ©cimo segundo 'presente de Valkyrie' foi convocado aqui em Juno pela Maiden Wish.",bc_all,"0x70dbdb";
+	announce "O décimo segundo 'presente de Valkyrie' foi convocado aqui em Juno pela Maiden Wish.",bc_all,"0x70dbdb";
 	donpcevent "Rmimi Ravies#gq_fes01::Oncall";
 	end;
 
 OnTimer3603000:
-	announce "A cerimÃ´nia final serÃ¡ realizada por 5 minutos.",bc_all,"0x70dbdb";
+	announce "A cerimônia final será realizada por 5 minutos.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3608000:
-	announce "Por favor, venha a Juno para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Juno para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3900000:
-	announce "A cerimÃ´nia inteira acabou agora, tenho certeza de que todos vocÃªs se divertiram.",bc_all,"0x70dbdb";
+	announce "A cerimônia inteira acabou agora, tenho certeza de que todos vocês se divertiram.",bc_all,"0x70dbdb";
 	donpcevent "Rmimi Ravies#gq_fes01::Onover";
 	end;
 }
@@ -401,11 +401,11 @@ rachel,1,1,0	script	Festival Manager#gq_fes2	891,{
 	next;
 	if (callfunc("F_GM_NPC","07godsefes",1) == 0) {
 		mes "[Gerente do festival]";
-		mes "A senha estÃ¡ incorreta.";
+		mes "A senha está incorreta.";
 		close;
 	}
 	mes "[Gerente do festival]";
-	mes "O que vocÃª gostaria de fazer?";
+	mes "O que você gostaria de fazer?";
 	next;
 	switch(select("Desativar o Festival NPCS: Ativar NPCs do Festival")) {
 	case 1:
@@ -431,84 +431,84 @@ rachel,132,117,3	script	Rhehe Ravies#gq_fes03	891,{
 		next;
 		if (is_guild_leader() == true) {
 			mes "[Rhehe Ravies]";
-			mes "Eeeeh, tÃ£o jovem e ainda Ã© um mestre da guilda? Seus guildes devem estar com ciÃºmes.";
+			mes "Eeeeh, tão jovem e ainda é um mestre da guilda? Seus guildes devem estar com ciúmes.";
 			next;
 			mes "[Reumimi Delights]";
-			mes "NÃ£o tenho certeza se vocÃª entende os usos dessa flor, entÃ£o explicarei brevemente.";
+			mes "Não tenho certeza se você entende os usos dessa flor, então explicarei brevemente.";
 			next;
 			mes "[Reumimi Delights]";
-			mes "Essa flor foi transmitida como um presente da prÃ³pria Valkyrie Wish Maiden.";
-			mes "Pode ser usado para convocar monstros especiais por meio de convocadores em Ã¡reas especiais.";
+			mes "Essa flor foi transmitida como um presente da própria Valkyrie Wish Maiden.";
+			mes "Pode ser usado para convocar monstros especiais por meio de convocadores em áreas especiais.";
 			next;
 			mes "[Rhehe Ravies]";
-			mes "Existem apenas dois convocadores existentes que sÃ£o capazes de usar essa flor.";
-			mes "Um sou eu, e o outro Ã© minha irmÃ£ gÃªmea Reumimi.";
+			mes "Existem apenas dois convocadores existentes que são capazes de usar essa flor.";
+			mes "Um sou eu, e o outro é minha irmã gêmea Reumimi.";
 			next;
 			mes "[Rhehe Ravies]";
-			mes "IrmÃ£s gÃªmeas, mas nÃ£o temos muito os dedos da sua frente ...";
+			mes "Irmãs gêmeas, mas não temos muito os dedos da sua frente ...";
 			next;
 			mes "[Rhehe Ravies]";
 			mes "..................................";
-			mes "..... opa! Eu nÃ£o deveria contar a ninguÃ©m ...";
+			mes "..... opa! Eu não deveria contar a ninguém ...";
 			next;
 			mes "[Rhehe Ravies]";
 			mes "... Hehehe, de qualquer maneira, vamos seguir em frente.";
-			mes "EntÃ£o vocÃª deseja convocar ou nÃ£o!?";
+			mes "Então você deseja convocar ou não!?";
 			next;
-			switch(select("NÃ£o convoce: convocar")) {
+			switch(select("Não convoce: convocar")) {
 			case 1:
 				mes "[Rhehe Ravies]";
 				mes "...*chora*.";
 				next;
 				mes "[Rhehe Ravies]";
-				mes "Se vocÃª nÃ£o tem negÃ³cios comigo, nÃ£o inicie uma conversa.";
-				mes "Se fosse minha irmÃ£, ela teria humilhado vocÃª por isso.";
+				mes "Se você não tem negócios comigo, não inicie uma conversa.";
+				mes "Se fosse minha irmã, ela teria humilhado você por isso.";
 				close;
 			case 2:
 				break;
 			}
 			mes "[Rhehe Ravies]";
-			mes "Ok, entÃ£o, vou explicar um pouco sobre o ritual de convocaÃ§Ã£o.";
-			mes "Aqui em Juno, o ritual de convocaÃ§Ã£o atravÃ©s do uso dessa flor convocarÃ¡ a bÃªnÃ§Ã£o de Valkyrie e o presente de Valkyrie.";
-			mes "Os efeitos do ritual de convocaÃ§Ã£o durarÃ£o aproximadamente uma hora.";
+			mes "Ok, então, vou explicar um pouco sobre o ritual de convocação.";
+			mes "Aqui em Juno, o ritual de convocação através do uso dessa flor convocará a bênção de Valkyrie e o presente de Valkyrie.";
+			mes "Os efeitos do ritual de convocação durarão aproximadamente uma hora.";
 			next;
 			mes "[Rhehe Ravies]";
-			mes "Durante o ritual de convocaÃ§Ã£o, serÃ£o feitas transmissÃµes contÃ­nuas.";
-			mes "Ã‰ uma cortesia da Valkyrie Wish Maiden, a fim de unir aventureiros de todo o mundo para participar do festival.";
+			mes "Durante o ritual de convocação, serão feitas transmissões contínuas.";
+			mes "É uma cortesia da Valkyrie Wish Maiden, a fim de unir aventureiros de todo o mundo para participar do festival.";
 			next;
 			mes "[Rhehe Ravies]";
-			mes "VocÃª estÃ¡ pronto para comeÃ§ar o ritual de convocaÃ§Ã£o ~?";
+			mes "Você está pronto para começar o ritual de convocação ~?";
 			next;
-			switch(select("NÃ£o, ainda nÃ£o. Estou pronto!")) {
+			switch(select("Não, ainda não. Estou pronto!")) {
 			case 1:
 				mes "[Rhehe Ravies]";
-				mes "VocÃª nem estÃ¡ pronto, por que se preocupar em falar comigo?";
+				mes "Você nem está pronto, por que se preocupar em falar comigo?";
 				next;
 				mes "[Rhehe Ravies]";
-				mes "Bem, se vocÃª tem outras coisas para fazer, vou esperar.";
-				mes "Afinal, isso tambÃ©m faz parte do meu trabalho.";
+				mes "Bem, se você tem outras coisas para fazer, vou esperar.";
+				mes "Afinal, isso também faz parte do meu trabalho.";
 				close;
 			case 2:
 				break;
 			}
 			mes "[Rhehe Ravies]";
-			mes "Muito bem, entÃ£o verificarei um tempo razoÃ¡vel para comeÃ§ar o ritual de convocaÃ§Ã£o.";
+			mes "Muito bem, então verificarei um tempo razoável para começar o ritual de convocação.";
 			next;
 			if ($@gqse_festival == 0) {
 				mes "[Rhehe Ravies]";
-				mes "Bom! Agora parece um bom momento, entÃ£o vamos comeÃ§ar!";
+				mes "Bom! Agora parece um bom momento, então vamos começar!";
 				delitem 7840,1; //Valkyrie_Gift
 				next;
 				mes "[Rhehe Ravies]";
-				mes "Espero que vocÃª se divirta!";
+				mes "Espero que você se divirta!";
 				donpcevent "Rhehe Ravies#gq_fes03::OnStart";
-				announce "["+ strcharinfo(0) +"] membro de ["+ GetGuildName( getcharid(2) ) +"] estÃ¡ convocando um 'presente de valquÃ­ria' em 'Rachel'.",bc_all,"0x70dbdb";
+				announce "["+ strcharinfo(0) +"] membro de ["+ GetGuildName( getcharid(2) ) +"] está convocando um 'presente de valquíria' em 'Rachel'.",bc_all,"0x70dbdb";
 				close;
 			}
 			else {
 				mes "[Rhehe Ravies]";
 				mes "*Chora*";
-				mes "NÃ£o parece que agora Ã© um bom momento.";
+				mes "Não parece que agora é um bom momento.";
 				next;
 				mes "[Rhehe Ravies]";
 				mes "Por favor, tente novamente mais tarde.";
@@ -517,20 +517,20 @@ rachel,132,117,3	script	Rhehe Ravies#gq_fes03	891,{
 		}
 		else {
 			mes "[Rhehe Ravies]";
-			mes "... Parece que vocÃª nÃ£o estÃ¡ em uma posiÃ§Ã£o digna para eu conversar?";
+			mes "... Parece que você não está em uma posição digna para eu conversar?";
 			next;
 			mes "[Rhehe Ravies]";
-			mes "NÃ£o sei como vocÃª obteve essa flor, mas se vocÃª nÃ£o Ã© capaz de liderar os outros. EntÃ£o vocÃª nÃ£o pode continuar.";
+			mes "Não sei como você obteve essa flor, mas se você não é capaz de liderar os outros. Então você não pode continuar.";
 			next;
 			mes "[Rhehe Ravies]";
-			mes "Muito difÃ­cil?";
-			mes "Bem, o que vocÃª pode fazer, isso faz parte do trabalho.";
+			mes "Muito difícil?";
+			mes "Bem, o que você pode fazer, isso faz parte do trabalho.";
 			close;
 		}
 	}
 	else {
 		mes "[Rhehe Ravies]";
-		mes "VocÃª nÃ£o tem nada para me dar para provar a si mesmo?";
+		mes "Você não tem nada para me dar para provar a si mesmo?";
 		close;
 	}
 
@@ -553,7 +553,7 @@ OnStart:
 
 Oncall:
 	if (mobcount("Rachel","RHEHE RAVIES#GQ_FES03 :: OnMyMobdead") < 31) {
-		monster "Rachel",0,0,"A bÃªnÃ§Ã£o de Valkyrie",1083,100,"RHEHE RAVIES#GQ_FES03 :: OnMyMobdead";
+		monster "Rachel",0,0,"A bênção de Valkyrie",1083,100,"RHEHE RAVIES#GQ_FES03 :: OnMyMobdead";
 		monster "Rachel",0,0,"Presente de Valkyrie",1951,25,"RHEHE RAVIES#GQ_FES03 :: OnMyMobdead";
 		monster "Rachel",0,0,"Presente de Valkyrie",1952,25,"RHEHE RAVIES#GQ_FES03 :: OnMyMobdead";
 		monster "Rachel",0,0,"Presente de Valkyrie",1953,25,"RHEHE RAVIES#GQ_FES03 :: OnMyMobdead";
@@ -561,14 +561,14 @@ Oncall:
 		monster "Rachel",0,0,"Valkyrie's Prank",1002,10,"RHEHE RAVIES#GQ_FES03 :: OnMyMobdead";
 	}
 	else if (mobcount("Rachel","RHEHE RAVIES#GQ_FES03 :: OnMyMobdead") > 149) {
-		monster "Rachel",0,0,"A bÃªnÃ§Ã£o de Valkyrie",1083,1,"RHEHE RAVIES#GQ_FES03 :: OnMyMobdead";
+		monster "Rachel",0,0,"A bênção de Valkyrie",1083,1,"RHEHE RAVIES#GQ_FES03 :: OnMyMobdead";
 		monster "Rachel",0,0,"Presente de Valkyrie",1951,1,"RHEHE RAVIES#GQ_FES03 :: OnMyMobdead";
 		monster "Rachel",0,0,"Presente de Valkyrie",1952,1,"RHEHE RAVIES#GQ_FES03 :: OnMyMobdead";
 		monster "Rachel",0,0,"Presente de Valkyrie",1953,1,"RHEHE RAVIES#GQ_FES03 :: OnMyMobdead";
 		monster "Rachel",0,0,"Presente de Valkyrie",1954,1,"RHEHE RAVIES#GQ_FES03 :: OnMyMobdead";
 	}
 	else {
-		monster "Rachel",0,0,"A bÃªnÃ§Ã£o de Valkyrie",1083,50,"RHEHE RAVIES#GQ_FES03 :: OnMyMobdead";
+		monster "Rachel",0,0,"A bênção de Valkyrie",1083,50,"RHEHE RAVIES#GQ_FES03 :: OnMyMobdead";
 		monster "Rachel",0,0,"Presente de Valkyrie",1951,10,"RHEHE RAVIES#GQ_FES03 :: OnMyMobdead";
 		monster "Rachel",0,0,"Presente de Valkyrie",1952,10,"RHEHE RAVIES#GQ_FES03 :: OnMyMobdead";
 		monster "Rachel",0,0,"Presente de Valkyrie",1953,10,"RHEHE RAVIES#GQ_FES03 :: OnMyMobdead";
@@ -587,27 +587,27 @@ OnMyMobDead:
 	end;
 
 OnTimer10000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o comeÃ§arÃ¡ em 5 min em Rachel.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação começará em 5 min em Rachel.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer13000:
-	announce "Por favor, venha a Rachel para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Rachel para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer120000:
-	announce "A convocaÃ§Ã£o do presente de Valkyrie comeÃ§arÃ¡ em aproximadamente 3 minutos em Rachel.",bc_all,"0x70dbdb";
+	announce "A convocação do presente de Valkyrie começará em aproximadamente 3 minutos em Rachel.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer123000:
-	announce "Por favor, venha a Rachel para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Rachel para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer240000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o comeÃ§arÃ¡ em 1 min em Rachel.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação começará em 1 min em Rachel.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer243000:
-	announce "Por favor, venha a Rachel para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Rachel para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer300000:
@@ -616,11 +616,11 @@ OnTimer300000:
 	end;
 
 OnTimer303000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o serÃ¡ realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação será realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer308000:
-	announce "Por favor, venha a Rachel para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Rachel para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer600000:
@@ -629,11 +629,11 @@ OnTimer600000:
 	end;
 
 OnTimer603000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o serÃ¡ realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação será realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer608000:
-	announce "Por favor, venha a Rachel para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Rachel para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer900000:
@@ -642,11 +642,11 @@ OnTimer900000:
 	end;
 
 OnTimer903000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o serÃ¡ realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação será realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer908000:
-	announce "Por favor, venha a Rachel para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Rachel para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1200000:
@@ -655,11 +655,11 @@ OnTimer1200000:
 	end;
 
 OnTimer1203000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o serÃ¡ realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação será realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1208000:
-	announce "Por favor, venha a Rachel para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Rachel para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1500000:
@@ -668,11 +668,11 @@ OnTimer1500000:
 	end;
 
 OnTimer1503000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o serÃ¡ realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação será realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1508000:
-	announce "Por favor, venha a Rachel para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Rachel para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1800000:
@@ -681,24 +681,24 @@ OnTimer1800000:
 	end;
 
 OnTimer1803000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o serÃ¡ realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação será realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1808000:
-	announce "Por favor, venha a Rachel para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Rachel para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2100000:
-	announce "O sÃ©timo 'presente de Valkyrie' foi convocado aqui em Rachel por The Wish Maiden.",bc_all,"0x70dbdb";
+	announce "O sétimo 'presente de Valkyrie' foi convocado aqui em Rachel por The Wish Maiden.",bc_all,"0x70dbdb";
 	donpcevent "Rhehe Ravies#gq_fes03::Oncall";
 	end;
 
 OnTimer2103000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o serÃ¡ realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação será realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2108000:
-	announce "Por favor, venha a Rachel para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Rachel para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2400000:
@@ -707,11 +707,11 @@ OnTimer2400000:
 	end;
 
 OnTimer2403000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o serÃ¡ realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação será realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2408000:
-	announce "Por favor, venha a Rachel para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Rachel para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2700000:
@@ -720,54 +720,54 @@ OnTimer2700000:
 	end;
 
 OnTimer2703000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o serÃ¡ realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação será realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2708000:
-	announce "Por favor, venha a Rachel para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Rachel para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3000000:
-	announce "O dÃ©cimo 'presente de Valkyrie' foi convocado aqui em Rachel por The Wish Maiden.",bc_all,"0x70dbdb";
+	announce "O décimo 'presente de Valkyrie' foi convocado aqui em Rachel por The Wish Maiden.",bc_all,"0x70dbdb";
 	donpcevent "Rhehe Ravies#gq_fes03::Oncall";
 	end;
 
 OnTimer3003000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o serÃ¡ realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação será realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3008000:
-	announce "Por favor, venha a Rachel para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Rachel para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3300000:
-	announce "A dÃ©cima primeira 'Valkyrie's presente' foi convocada aqui em Rachel por The Wish Maiden.",bc_all,"0x70dbdb";
+	announce "A décima primeira 'Valkyrie's presente' foi convocada aqui em Rachel por The Wish Maiden.",bc_all,"0x70dbdb";
 	donpcevent "Rhehe Ravies#gq_fes03::Oncall";
 	end;
 
 OnTimer3303000:
-	announce "A cerimÃ´nia de convocaÃ§Ã£o serÃ¡ realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
+	announce "A cerimônia de convocação será realizada 12 vezes em intervalos de cinco minutos por cerca de uma hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3308000:
-	announce "Por favor, venha a Rachel para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Rachel para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3600000:
-	announce "O dÃ©cimo segundo 'presente de Valkyrie' foi convocado aqui em Rachel por The Wish Maiden.",bc_all,"0x70dbdb";
+	announce "O décimo segundo 'presente de Valkyrie' foi convocado aqui em Rachel por The Wish Maiden.",bc_all,"0x70dbdb";
 	donpcevent "Rhehe Ravies#gq_fes03::Oncall";
 	end;
 
 OnTimer3603000:
-	announce "A cerimÃ´nia final serÃ¡ realizada por 5 minutos.",bc_all,"0x70dbdb";
+	announce "A cerimônia final será realizada por 5 minutos.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3608000:
-	announce "Por favor, venha a Rachel para encontrar a cerimÃ´nia de convocaÃ§Ã£o.",bc_all,"0x70dbdb";
+	announce "Por favor, venha a Rachel para encontrar a cerimônia de convocação.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3900000:
-	announce "A cerimÃ´nia inteira acabou agora, tenho certeza de que todos vocÃªs se divertiram.",bc_all,"0x70dbdb";
+	announce "A cerimônia inteira acabou agora, tenho certeza de que todos vocês se divertiram.",bc_all,"0x70dbdb";
 	donpcevent "Rhehe Ravies#gq_fes03::Onover";
 	end;
 }

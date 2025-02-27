@@ -19,13 +19,13 @@ morocc,148,86,5	script	Shifty Assassin	725,{
 	// STARTS THE MENU //
 M_Start:
 	mes "[Assassino sombrio]";
-	mes "O que vocÃª quer?";
+	mes "O que você quer?";
 	next;
-	menu "Compre ninjas",M_Buy,"Assassinato alguÃ©m",M_Kill,"Verifique seus ninjas",M_Check, ( getgmlevel() > 90 ? "Adicione ninjas" : "" ),-,"Cancelar",M_Exit;
+	menu "Compre ninjas",M_Buy,"Assassinato alguém",M_Kill,"Verifique seus ninjas",M_Check, ( getgmlevel() > 90 ? "Adicione ninjas" : "" ),-,"Cancelar",M_Exit;
 
 	// GM MENU TO ADD NINJAS //
 	mes "[Assassino sombrio]";
-	mes "Quantos ninjas vocÃª deseja disponibilizar?";
+	mes "Quantos ninjas você deseja disponibilizar?";
 	next;
 	input .@add;
 	set $ninja_avail, $ninja_avail+.@add;
@@ -35,8 +35,8 @@ M_Start:
 	// BUY NINJAS //
 M_Buy:
 	mes "[Assassino sombrio]";
-	mes "Quantos ninjas vocÃª quer comprar?";
-	mes "Existem ^0000ff" + $ninja_avail + "^000000 Ninjas disponÃ­veis.";
+	mes "Quantos ninjas você quer comprar?";
+	mes "Existem ^0000ff" + $ninja_avail + "^000000 Ninjas disponíveis.";
 	mes "Eles custam ^0000ff" + .@ninja_price + "Zeny ^000000ECH.";
 
 	input .@buy;
@@ -64,20 +64,20 @@ M_Kill:
 	if (agitcheck()) goto M_Busy;
 	mes "[Assassino sombrio]";
 	mes "Digite o nome do alvo.";
-	mes "^Ff0000TYPE exatamente o nome, caso contrÃ¡rio, nÃ£o poderei encontrar a vÃ­tima.^000000";
+	mes "^Ff0000TYPE exatamente o nome, caso contrário, não poderei encontrar a vítima.^000000";
 	next;
 	menu "Continuar",-,"Cancelar",M_Exit;
 	input .@name$;
 	if ( !getcharid( 3,.@name$ ) ) {
 		mes "[Assassino sombrio]";
-		mes .@name$ +"nÃ£o estÃ¡ online.";
+		mes .@name$ +"não está online.";
 		close;
 	}
 	next;
 	mes "[Assassino sombrio]";
 	mes "Ninjas ativos:"+#ninjas;
 	mes "Ninjas de descanso:"+#ninjasr;
-	mes "Quantos vocÃª quer enviar?";
+	mes "Quantos você quer enviar?";
 	input .@number;
 	if (.@number < 1) goto NoNinjasSent;
 	if (.@number > #ninjas) goto NotEnoughNinjas1;
@@ -110,19 +110,19 @@ M_Failure:
 	set #ninjasr, .@number-.@ninjasurvived;
 	mes "Seu ataque falhou e apenas ^ff0000" + #ninjasr + "^000000 Ninjas sobreviveu.";
 
-	announce .@name$+"sobreviveu" + strcharinfo(0) +"Ã© um ataque ninja.",8;
+	announce .@name$+"sobreviveu" + strcharinfo(0) +"é um ataque ninja.",8;
 	close;
 
 	// NINJAS BUSY FOR WOE //
 M_Busy:
 	mes "[Assassino sombrio]";
-	mes "Desculpe, todos os meus ninjas estÃ£o ocupados fazendo guerra de Empeio.";
+	mes "Desculpe, todos os meus ninjas estão ocupados fazendo guerra de Empeio.";
 	close;
 
 	// CHECK YOUR NINJAS //
 M_Check:
 	mes "[Assassino sombrio]";
-	mes "VocÃª tem:";
+	mes "Você tem:";
 	mes "^FF0000" + #ninjas + "^000000 Ninjas ativos.";
 	mes "^0000FF" + #ninjasr + "^000000 Ninjas de repouso.";
 	next;
@@ -132,35 +132,35 @@ M_Check:
 	// LIMIT //
 NoNinjasSent:
 	mes "[Assassino sombrio]";
-	mes "VocÃª nÃ£o pode matar ninguÃ©m sem ninjas.";
+	mes "Você não pode matar ninguém sem ninjas.";
 	next;
 	goto M_Start;
 
 TooManyNinjas:
 	mes "[Assassino sombrio]";
-	mes "VocÃª sÃ³ pode enviar 10 ninjas mÃ¡x.";
+	mes "Você só pode enviar 10 ninjas máx.";
 	next;
 	goto M_Start;
 
 NoZeny:
 	mes "[Assassino sombrio]";
-	mes "VocÃª nÃ£o tem Zeny suficiente.";
+	mes "Você não tem Zeny suficiente.";
 	close;
 
 NotEnoughNinjas:
 	mes "[Assassino sombrio]";
-	mes "NÃ£o hÃ¡ muitos ninjas para comprar.";
+	mes "Não há muitos ninjas para comprar.";
 	next;
 	goto M_Start;
 
 NoNinjas:
 	mes "[Assassino sombrio]";
-	mes "NÃ£o hÃ¡ ninjas para comprar.";
+	mes "Não há ninjas para comprar.";
 	close;
 
 NotEnoughNinjas1:
 	mes "[Assassino sombrio]";
-	mes "VocÃª nÃ£o tem tantos ninjas.";
+	mes "Você não tem tantos ninjas.";
 	next;
 	goto M_Start;
 

@@ -13,59 +13,59 @@ moro_vol,94,110,5	script	Guardian Nidhogg#143nyd01	4_F_NYDHOG,{
 	mes "[Nidhogg]";
 	if (ep4_3_mockill == 0) {
 		mes "Em breve, enfrentaremos uma guerra decisiva.";
-		mes "Farei o meu melhor para cumprir meu dever como guardiÃ£o.";
+		mes "Farei o meu melhor para cumprir meu dever como guardião.";
 		cutin "ep14_nyd04.bmp",2;
 		next;
 		mes "[Nidhogg]";
-		mes "Estou preparando um presente para vocÃª compensar minhas transgressÃµes anteriores contra vocÃª.";
+		mes "Estou preparando um presente para você compensar minhas transgressões anteriores contra você.";
 		close3;
 	}
 	if ($ep143_3_expbuff == 1) {
-		mes "Espero que vocÃª goste do meu presente. A bÃªnÃ§Ã£o de Yggdrasil nÃ£o dura para sempre,";
-		mes "Mas vai durar pelo menos o suficiente para ajudar vocÃª e sua festa na batalha.";
+		mes "Espero que você goste do meu presente. A bênção de Yggdrasil não dura para sempre,";
+		mes "Mas vai durar pelo menos o suficiente para ajudar você e sua festa na batalha.";
 		cutin "ep14_nyd04.bmp",2;
 		close3;
 	}
 	if (ep4_3_mockill == 1 && countitem(6715) > 0) {
-		mes "Oh, Ã© um fragmento de sua alma.";
-		mes "Ele estÃ¡ destinado a percorrer sem parar o mundo que criou em sua mente.";
-		mes "A vinganÃ§a Ã© eliminada, mas os resultados nÃ£o sÃ£o tÃ£o satisfatÃ³rios quanto eu pensava.";
+		mes "Oh, é um fragmento de sua alma.";
+		mes "Ele está destinado a percorrer sem parar o mundo que criou em sua mente.";
+		mes "A vingança é eliminada, mas os resultados não são tão satisfatórios quanto eu pensava.";
 		cutin "ep14_nyd01.bmp",2;
 		next;
 		mes "[Nidhogg]";
 		mes "Posso ter esse fragmento de alma?";
-		mes "Em troca, eu vou dar a vocÃª e sua festa";
+		mes "Em troca, eu vou dar a você e sua festa";
 		mes "O maior presente que posso dar.";
 		cutin "ep14_nyd03.bmp",2;
 		next;
-		if (select( "DÃª o fragmento da alma.", "DeclÃ­nio." ) == 2) {
+		if (select( "Dê o fragmento da alma.", "Declínio." ) == 2) {
 			mes "[Nidhogg]";
-			mes "Cuidado com a influÃªncia negativa do deus demÃ´nio sobre vocÃª.";
+			mes "Cuidado com a influência negativa do deus demônio sobre você.";
 			cutin "ep14_nyd04.bmp",2;
 			close3;
 		}
 		if ($ep143_3_expbuff == 1) {
 			mes "[Nidhogg]";
-			mes "Oh, vocÃª jÃ¡ recebeu a bÃªnÃ§Ã£o de Yggdrasil.";
-			mes "Vou fazer uma verificaÃ§Ã£o de chuva sobre isso.";
+			mes "Oh, você já recebeu a bênção de Yggdrasil.";
+			mes "Vou fazer uma verificação de chuva sobre isso.";
 			cutin "ep14_nyd01.bmp",2;
 			close3;
 		}
 		cutin "ep14_nyd04.bmp",2;
 		mes "[Nidhogg]";
 		mes "Obrigado.";
-		mes "Que yggdrasil te abenÃ§oe.";
+		mes "Que yggdrasil te abençoe.";
 		delitem 6715,1;// P_Of_Evil_Soul
 		$ep143_3_expbuff = 1;
 		$ep143_3_exptime = 0;
 		ep4_3_mockill = 2;
-		announce "Nidhogg: Que Yggdrasil abenÃ§oe os matadores de Deus demonÃ­aco" + strcharinfo(0) + "e outros.", bc_all, "0xff0000";
+		announce "Nidhogg: Que Yggdrasil abençoe os matadores de Deus demoníaco" + strcharinfo(0) + "e outros.", bc_all, "0xff0000";
 		donpcevent "Loki#1432loki01::OnEventOn";
 		next;
-		mes "^4d4dfffgood JÃ³, tirando o deus demonÃ­aco marrocc. A taxa de expansÃ£o do servidor aumentou 10% por cerca de 1 hora.^000000";
+		mes "^4d4dfffgood Jó, tirando o deus demoníaco marrocc. A taxa de expansão do servidor aumentou 10% por cerca de 1 hora.^000000";
 		close3;
 	}
-	mes "Eu nÃ£o entendo isso;";
+	mes "Eu não entendo isso;";
 	mes "Eu queria muito me livrar dele deste mundo,";
 	mes "No entanto, sinto que estou vazio por dentro.";
 	cutin "ep14_nyd02.bmp",2;
@@ -120,15 +120,15 @@ OnInterIfInitOnce:
 moro_vol,97,110,3	script	Loki#1432loki01	4_M_ROKI2,{
 	cutin "ep14_roki01.bmp",2;
 	mes "[Loki]";
-	mes "As coisas ainda nem comeÃ§aram;";
-	mes "Eles sÃ³ vÃ£o quando suas verdadeiras cores forem reveladas.";
+	mes "As coisas ainda nem começaram;";
+	mes "Eles só vão quando suas verdadeiras cores forem reveladas.";
 	close3;
 
 OnEventOn:
 	initnpctimer;
 	end;
 OnTimer5000:
-	announce "Por derrotar Morocc, vocÃª foi recompensado com uma recompensa extras de 10% do servidor por 1 hora.", bc_all, "0xff0000";
+	announce "Por derrotar Morocc, você foi recompensado com uma recompensa extras de 10% do servidor por 1 hora.", bc_all, "0xff0000";
 	end;
 OnTimer11500:
 	announce "", bc_all, "0xff0000";
@@ -141,28 +141,28 @@ OnTimer12000:
 
 moro_vol,98,107,3	script	Magic Scholar#143avt01	4_M_FAIRYAVANT,{
 	if (checkweight(1304,3) == 0) {
-		mes "VocÃª estÃ¡ carregando muitos itens para prosseguir com a missÃ£o.";
-		mes "Por favor, abre algum espaÃ§o em seu inventÃ¡rio.";
+		mes "Você está carregando muitos itens para prosseguir com a missão.";
+		mes "Por favor, abre algum espaço em seu inventário.";
 		close;
 	}
 	cutin "avant01.bmp",1;
 	if (ep14_2_mylord < 33) {
 		mes "[Magic Scholar]";
 		mes "Pare de me incomodar.";
-		mes "Se vocÃª estiver aqui para doar seu corpo para o meu experimento, poderÃ¡ ficar.";
+		mes "Se você estiver aqui para doar seu corpo para o meu experimento, poderá ficar.";
 		mes "Ou scram!";
 		close3;
 	}
 	if (ep14_2_mylord == 33) {
 		mes "[Antes]";
 		mes "O que te traz, novato?";
-		mes "VocÃª veio rir da minha misÃ©ria, como todo mundo?";
+		mes "Você veio rir da minha miséria, como todo mundo?";
 		next;
-		select( "Por que vocÃª estÃ¡ aqui?", "VocÃª estÃ¡ arrependido pelo que fez?" );
+		select( "Por que você está aqui?", "Você está arrependido pelo que fez?" );
 		mes "[Antes]";
 		mes "*Bufo*";
-		mes "Esta Ã© uma questÃ£o de orgulho.";
-		mes "Admito que minha aÃ§Ã£o enviou meus parentes em perigo.";
+		mes "Esta é uma questão de orgulho.";
+		mes "Admito que minha ação enviou meus parentes em perigo.";
 		next;
 		cutin "avant02.bmp",1;
 		mes "[Antes]";
@@ -174,14 +174,14 @@ moro_vol,98,107,3	script	Magic Scholar#143avt01	4_M_FAIRYAVANT,{
 		mes "Estou fazendo isso para voltar a Shnaim e Morocc por me usarem como uma ferramenta.";
 		next;
 		mes "[Antes]";
-		mes "Estou planejando ser o Ãºltimo em pÃ© depois de tudo cair.";
+		mes "Estou planejando ser o último em pé depois de tudo cair.";
 		ep14_2_mylord = 34;
 		close3;
 	}
 	if (BaseLevel < 140) {
 		mes "[Antes]";
-		mes "NÃ£o tenho utilidade para fracos.";
-		mes "Volte quando vocÃª ficar mais forte.";
+		mes "Não tenho utilidade para fracos.";
+		mes "Volte quando você ficar mais forte.";
 		close3;
 	}
 	switch( checkquest(7584,PLAYTIME) ) {
@@ -199,47 +199,47 @@ moro_vol,98,107,3	script	Magic Scholar#143avt01	4_M_FAIRYAVANT,{
 				close3;
 			}
 			mes "[Antes]";
-			mes "Greenhorn, se vocÃª derrotar esses demÃ´nios fortes, encontrarÃ¡ alguns cristalinos de mana.";
-			mes "Eu quero que vocÃª os traga para mim,";
-			mes "pelo menos trÃªs de cada vez. Entendi?";
+			mes "Greenhorn, se você derrotar esses demônios fortes, encontrará alguns cristalinos de mana.";
+			mes "Eu quero que você os traga para mim,";
+			mes "pelo menos três de cada vez. Entendi?";
 			close3;
 		}
 		if (checkquest(7581,HUNTING) == 0 || checkquest(7581,HUNTING) == 1) {
 			mes "[Antes]";
 			mes "Ei, novato.";
-			mes "VocÃª vÃª aqueles capangas enormes?";
-			mes "Se vocÃª caÃ§ar aqueles distorcidos,";
+			mes "Você vê aqueles capangas enormes?";
+			mes "Se você caçar aqueles distorcidos,";
 			next;
 			mes "[Antes]";
-			mes "RevelanÃ§Ãµes de armas e congeladas, vocÃª encontrarÃ¡ alguns cristalinos de mana.";
-			mes "Parte de mana roubada da esfera, os cristalinos sÃ£o o que";
-			mes "Torne esses runos demonÃ­acos tÃ£o fortes.";
+			mes "Revelanções de armas e congeladas, você encontrará alguns cristalinos de mana.";
+			mes "Parte de mana roubada da esfera, os cristalinos são o que";
+			mes "Torne esses runos demoníacos tão fortes.";
 			next;
 			mes "[Antes]";
-			mes "Eu quero vocÃª";
+			mes "Eu quero você";
 			mes "Livre -se deles e me traga cristalinos de mana.";
-			mes "NÃ£o tente mantÃª -los de mim: eles nÃ£o sÃ£o Ãºteis para vocÃª.";
+			mes "Não tente mantê -los de mim: eles não são úteis para você.";
 			next;
 			mes "[Antes]";
-			mes "TrÃªs reencarnaÃ§Ãµes, assim, trÃªs cristalinos de mana.";
+			mes "Três reencarnações, assim, três cristalinos de mana.";
 			mes "Traga -os pelo menos para Kardui do Eclage.";
 			setquest 7583;// Collecting Mana
 			close3;
 		}
 		mes "[Antes]";
-		mes "HM, eu nÃ£o sabia que uma quantidade tÃ£o pequena de mana poderia produzir";
-		mes "TÃ£o grande poder.";
-		mes "DemÃ´nios sujos.";
+		mes "HM, eu não sabia que uma quantidade tão pequena de mana poderia produzir";
+		mes "Tão grande poder.";
+		mes "Demônios sujos.";
 		close3;
 	case 0:
 	case 1:
 		mes "[Antes]";
-		mes "Espero que vocÃª volte para a prÃ³xima subjugaÃ§Ã£o.";
+		mes "Espero que você volte para a próxima subjugação.";
 		close3;
 	case 2:
 		mes "[Antes]";
-		mes "Em breve, a alianÃ§a humana enviarÃ¡ uma festa de subjugaÃ§Ã£o demonÃ­aca. Venha antes de sair.";
-		mes "VocÃª quer coletar a mana, nÃ£o Ã©?";
+		mes "Em breve, a aliança humana enviará uma festa de subjugação demoníaca. Venha antes de sair.";
+		mes "Você quer coletar a mana, não é?";
 		erasequest 7584;
 		close3;
 	}
@@ -254,37 +254,37 @@ moro_vol,95,108,7	script	Hishieh#143hisie01	4_M_FARIY_HISIE,{
 	cutin "hisie01.bmp",0;
 	mes "[Hishieh]";
 	if (ep14_2_mylord < 15) {
-		mes "VocÃª Ã© da AlianÃ§a Humana?";
-		mes "NÃ£o me lembro de pedir sua ajuda, ainda.";
+		mes "Você é da Aliança Humana?";
+		mes "Não me lembro de pedir sua ajuda, ainda.";
 		next;
 		mes "[Hishieh]";
-		mes "Se algo acontecesse, eu enviaria uma notÃ­cia ao seu comandante em chefe, Hibba Agip.";
+		mes "Se algo acontecesse, eu enviaria uma notícia ao seu comandante em chefe, Hibba Agip.";
 		close3;
 	}
 	if (ep14_2_mylord < 33) {
-		mes "Podemos realmente aprender a verdade sobre o deus demÃ´nio neste lugar?";
-		mes "EstÃ¡ cheio de criaturas que nunca vi.";
+		mes "Podemos realmente aprender a verdade sobre o deus demônio neste lugar?";
+		mes "Está cheio de criaturas que nunca vi.";
 		next;
 		mes "[Hishieh]";
 		mes "Repugnante...";
 		close3;
 	}
 	if (ep14_2_mylord == 33) {
-		mes "O instigador de todas as coisas ruins estÃ¡ realmente escondido aqui, hein?";
+		mes "O instigador de todas as coisas ruins está realmente escondido aqui, hein?";
 		mes "Que emocionante!";
 		next;
 		mes "[Hishieh]";
 		mes "Oh, por que estou aqui?";
 		mes "Eu vim em nome de Kar.";
-		mes "Ele nÃ£o pode deixar o Eclage enquanto fornece mana que o Orb nÃ£o pode.";
+		mes "Ele não pode deixar o Eclage enquanto fornece mana que o Orb não pode.";
 		next;
 		mes "[Hishieh]";
-		mes "Nossas prioridades estÃ£o com Yggdrasil e seu guardiÃ£o.";
-		mes "AlÃ©m disso, nÃ£o podemos nos dar ao luxo de perder o prefeito recÃ©m -nascido.";
+		mes "Nossas prioridades estão com Yggdrasil e seu guardião.";
+		mes "Além disso, não podemos nos dar ao luxo de perder o prefeito recém -nascido.";
 		next;
 		cutin "hisie04.bmp",0;
 		mes "[Hishieh]";
-		mes "Consegui convencer os anciÃ£os a me deixar comandar o exÃ©rcito,";
+		mes "Consegui convencer os anciãos a me deixar comandar o exército,";
 		mes "Mas ainda sou um comandante em nome.";
 		next;
 		select("O que aconteceu com Avant?");
@@ -292,23 +292,23 @@ moro_vol,95,108,7	script	Hishieh#143hisie01	4_M_FARIY_HISIE,{
 		mes "[Hishieh]";
 		mes "HM ...";
 		mes "Estamos usando o conhecimento dele.";
-		mes "PoderÃ­amos tÃª -lo matado, mas isso teria sido muito fÃ¡cil.";
+		mes "Poderíamos tê -lo matado, mas isso teria sido muito fácil.";
 		next;
 		mes "[Hishieh]";
-		mes "Ã‰ uma espÃ©cie de vinganÃ§a, eu acho, hein.";
-		mes "Afinal, sua Ãºnica transgressÃ£o Ã© que ele ama demais sua ciÃªncia.";
+		mes "É uma espécie de vingança, eu acho, hein.";
+		mes "Afinal, sua única transgressão é que ele ama demais sua ciência.";
 		next;
 		mes "[Hishieh]";
-		mes "AtÃ© os anciÃ£os reconheceram seu talento e decidiram salvar sua vida.";
+		mes "Até os anciãos reconheceram seu talento e decidiram salvar sua vida.";
 		mes "Sobretudo...";
 		next;
 		mes "[Hishieh]";
 		mes "(Abaixando sua voz)";
-		mes "NinguÃ©m mais sabe que a mana do Orb foi roubada.";
-		mes "Na medida em que outros sabem, a Avant Ã© apenas responsÃ¡vel por mim e Kar.";
+		mes "Ninguém mais sabe que a mana do Orb foi roubada.";
+		mes "Na medida em que outros sabem, a Avant é apenas responsável por mim e Kar.";
 		next;
 		mes "[Hishieh]";
-		mes "Avant estÃ¡ lÃ¡. VocÃª pode fazer perguntas a ele, se quiser.";
+		mes "Avant está lá. Você pode fazer perguntas a ele, se quiser.";
 		mes "Hah, hah.";
 		close3;
 	}
@@ -317,13 +317,13 @@ moro_vol,95,108,7	script	Hishieh#143hisie01	4_M_FARIY_HISIE,{
 		switch( checkquest(7595,HUNTING) ) {
 		case -1:
 			if (isbegin_quest(7593) == 1) {
-				mes "O templo do deus demonÃ­aco, hein? Ok, bem, se vocÃª encontrar mana vadio da esfera lÃ¡ dentro, vocÃª poderia cuidar disso?";
-				mes "NÃ£o sei que tipo de forma a mana estÃ¡ levando no momento, mas vocÃª nÃ£o vai confundir com mais nada.";
+				mes "O templo do deus demoníaco, hein? Ok, bem, se você encontrar mana vadio da esfera lá dentro, você poderia cuidar disso?";
+				mes "Não sei que tipo de forma a mana está levando no momento, mas você não vai confundir com mais nada.";
 				next;
 				mes "[Hishieh]";
-				mes "Se vocÃª encontrar mana vadio da Orb, pressione e disperse -a.";
-				mes "Ele encontrarÃ¡ o caminho de volta para Yggdrasil e a Orb.";
-				mes "VocÃª pode fazer isso por nÃ³s?";
+				mes "Se você encontrar mana vadio da Orb, pressione e disperse -a.";
+				mes "Ele encontrará o caminho de volta para Yggdrasil e a Orb.";
+				mes "Você pode fazer isso por nós?";
 				next;
 				if (select( "De bom grado.", "Desculpe." ) == 2) {
 					cutin "hisie02.bmp",0;
@@ -335,57 +335,57 @@ moro_vol,95,108,7	script	Hishieh#143hisie01	4_M_FARIY_HISIE,{
 				}
 				mes "[Hishieh]";
 				mes "Eu te devo muito,";
-				mes "Eu nÃ£o sei como retribuir vocÃª.";
+				mes "Eu não sei como retribuir você.";
 				mes "Obrigado.";
 				next;
 				mes "[Hishieh]";
 				mes "Liberte 3 manas brilhantes, 3 manas de vida e 3 manas da terra.";
-				mes "Eu vou contar com vocÃª.";
-				mes "Volte com seguranÃ§a, vocÃª ouve?";
+				mes "Eu vou contar com você.";
+				mes "Volte com segurança, você ouve?";
 				setquest 7595;// Wandering Orb Magic
 				close3;
 			}
 			mes "Avant conhece a mana da esfera melhor do que qualquer outra pessoa.";
-			mes "AtÃ© Kar e eu mal conseguimos ficar de avant, mas ele realmente precisa da sua ajuda.";
+			mes "Até Kar e eu mal conseguimos ficar de avant, mas ele realmente precisa da sua ajuda.";
 			next;
 			mes "[Hishieh]";
-			mes "NÃ£o se trata apenas de coletar a mana da esfera, mas tambÃ©m tem a ver com o deus demonÃ­aco.";
-			mes "A maioria dos meus parentes ainda nÃ£o sabe que a mana principal do Orb foi roubada.";
+			mes "Não se trata apenas de coletar a mana da esfera, mas também tem a ver com o deus demoníaco.";
+			mes "A maioria dos meus parentes ainda não sabe que a mana principal do Orb foi roubada.";
 			next;
 			cutin "hisie02.bmp",0;
 			mes "[Hishieh]";
 			mes "E eu quero continuar assim.";
 			mes "Por favor nos ajude.";
-			mes "Kar e eu realmente precisamos de vocÃª.";
+			mes "Kar e eu realmente precisamos de você.";
 			close3;
 		case 0:
 		case 1:
-			mes "Tudo o que vocÃª precisa fazer Ã© apenas atingir e dispersar os globos em movimento de mana no templo do deus demÃ´nio.";
-			mes "EntÃ£o a mana serÃ¡ devolvida a Yggdrasil.";
+			mes "Tudo o que você precisa fazer é apenas atingir e dispersar os globos em movimento de mana no templo do deus demônio.";
+			mes "Então a mana será devolvida a Yggdrasil.";
 			next;
 			mes "[Hishieh]";
-			mes "Se vocÃª encontrar mana solidificada, imÃ³vel, basta absorvÃª -los";
+			mes "Se você encontrar mana solidificada, imóvel, basta absorvê -los";
 			mes "tocando isso.";
 			next;
 			mes "[Hishieh]";
-			mes "NÃ£o Ã© mais Ãºtil para nÃ³s, mas isso Ã© para vocÃª";
-			mes "para lutar contra os demÃ´nios.";
+			mes "Não é mais útil para nós, mas isso é para você";
+			mes "para lutar contra os demônios.";
 			close3;
 		case 2:
 			cutin "hisie04.bmp",0;
 			mes "Bom trabalho!";
 			mes "Eu senti a mana retornando.";
-			mes "VocÃª fez muito bem. Kar ficarÃ¡ animado!";
+			mes "Você fez muito bem. Kar ficará animado!";
 			next;
 			cutin "hisie01.bmp",0;
 			mes "[Hishieh]";
-			mes "Isso nÃ£o Ã© muito, mas eu quero que vocÃª tenha.";
-			mes "Espero que vocÃª goste.";
+			mes "Isso não é muito, mas eu quero que você tenha.";
+			mes "Espero que você goste.";
 			mes "Uma quantidade substancial de mana foi vazada da esfera.";
 			next;
 			mes "[Hishieh]";
-			mes "Se vocÃª estÃ¡ planejando entrar novamente no templo do deus demonÃ­aco, procure mais globos de mana.";
-			mes "VocÃª deve descansar por enquanto.";
+			mes "Se você está planejando entrar novamente no templo do deus demoníaco, procure mais globos de mana.";
+			mes "Você deve descansar por enquanto.";
 			erasequest 7595;// Wandering Orb Magic
 			setquest 7600;// Promising Tomorrow
 			getitem 22567,1;// Squad_Prize
@@ -396,12 +396,12 @@ moro_vol,95,108,7	script	Hishieh#143hisie01	4_M_FARIY_HISIE,{
 	case 1:
 		mes "Nem todos os globos perdidos da mana do Orb foram recuperados,";
 		mes "Embora estejamos progredindo.";
-		mes "AgradeÃ§o se vocÃª puder voltar amanhÃ£ e nos ajudar novamente.";
+		mes "Agradeço se você puder voltar amanhã e nos ajudar novamente.";
 		close3;
 	case 2:
 		erasequest 7600;// Promising Tomorrow
-		mes "Se vocÃª planeja entrar novamente no templo do deus demonÃ­aco, gostaria de lhe pedir um favor.";
-		mes "Sim, Ã© a mesma coisa que eu perguntei antes:";
+		mes "Se você planeja entrar novamente no templo do deus demoníaco, gostaria de lhe pedir um favor.";
+		mes "Sim, é a mesma coisa que eu perguntei antes:";
 		mes "devolver a mana.";
 		next;
 		mes "[Hishieh]";
@@ -419,54 +419,54 @@ moro_vol,108,88,5	script	Commander Hibba Agip#14301	4_M_REDSWORD,{
 	cutin "ep13_captin_edq.bmp",2;
 	mes "[HIBBA AGIP]";
 	if (ep14_3_mors01 == 0 || BaseLevel < 160) {
-		mes "Este lugar Ã© bizarro alÃ©m da compreensÃ£o.";
-		mes "Morocc estÃ¡ aqui em algum lugar.";
+		mes "Este lugar é bizarro além da compreensão.";
+		mes "Morocc está aqui em algum lugar.";
 		next;
 		mes "[HIBBA AGIP]";
-		mes "Isso definitivamente parece abismal o suficiente para alguÃ©m como ele ficar por aÃ­.";
+		mes "Isso definitivamente parece abismal o suficiente para alguém como ele ficar por aí.";
 		mes "Aqueles devem ter sido arrastados do deserto de Morocc, depois contaminados por sua energia maligna.";
 		next;
 		mes "[HIBBA AGIP]";
 		mes "Suspirar...";
-		mes "Temos uma carga longa e sinuosa Ã  nossa frente.";
+		mes "Temos uma carga longa e sinuosa à nossa frente.";
 		mes "...";
 		next;
 		mes "[HIBBA AGIP]";
 		mes "Suspirar.";
-		mes "Ligarei para vocÃª quando precisar de vocÃª.";
-		mes "AtÃ© entÃ£o, concentre -se em permanecer vivo.";
+		mes "Ligarei para você quando precisar de você.";
+		mes "Até então, concentre -se em permanecer vivo.";
 		close3;
 	}
 	if (ep4_3_mockill == 0) {
 		if (isbegin_quest(7597) == 1) {
-			mes "Ah, nosso herÃ³i estÃ¡ de volta!";
-			mes "Mwah Hah Hah, finalmente chegamos ao fim de nossa expediÃ§Ã£o!";
+			mes "Ah, nosso herói está de volta!";
+			mes "Mwah Hah Hah, finalmente chegamos ao fim de nossa expedição!";
 			mes "Bom trabalho!";
-			mes "AgradeÃ§o em nome de toda a humanidade.";
+			mes "Agradeço em nome de toda a humanidade.";
 			next;
 			mes "[Djetana Abidal]";
-			mes "VocÃª Ã© incrÃ­vel!";
-			mes "VocÃª salvou o mundo!";
+			mes "Você é incrível!";
+			mes "Você salvou o mundo!";
 			mes "Depois disso, vou voltar para casa ...";
 			next;
 			mes "[Este quadril]";
 			mes "Assuntos, suficientes!";
-			mes "VocÃª estÃ¡ tentando criar uma bandeira vermelha?!";
+			mes "Você está tentando criar uma bandeira vermelha?!";
 			next;
 			mes "[Este quadril]";
-			mes "Isso nÃ£o Ã© muito, mas eu quero que vocÃª tenha.";
-			mes "Obrigado pelo seu serviÃ§o.";
+			mes "Isso não é muito, mas eu quero que você tenha.";
+			mes "Obrigado pelo seu serviço.";
 			mes "Hah, hah.";
 			mes "Finalmente eu posso dormir!";
 			next;
 			mes "[Este quadril]";
-			mes "Espere, sinto algo ameaÃ§ador ao seu redor ...";
-			mes "Oh deuses, o que Ã© isso?!";
-			mes "VocÃª estÃ¡ tentando ter sua alma devorada pelo deus demonÃ­aco?!";
+			mes "Espere, sinto algo ameaçador ao seu redor ...";
+			mes "Oh deuses, o que é isso?!";
+			mes "Você está tentando ter sua alma devorada pelo deus demoníaco?!";
 			next;
 			mes "[Este quadril]";
-			mes "DÃª para mim, e eu vou cristalizar para vocÃª.";
-			mes "E eu quero que vocÃª encontre aquela senhora guardiÃ£o no acampamento de Laphine.";
+			mes "Dê para mim, e eu vou cristalizar para você.";
+			mes "E eu quero que você encontre aquela senhora guardião no acampamento de Laphine.";
 			mes "Ela pode saber disso.";
 			ep4_3_mockill = 1;
 			erasequest 7597;// Fall of the False God
@@ -477,63 +477,63 @@ moro_vol,108,88,5	script	Commander Hibba Agip#14301	4_M_REDSWORD,{
 			close3;
 		}
 		if (isbegin_quest(7593) == 1) {
-			mes "O templo do deus demonÃ­aco Ã© descoberto dentro da caverna na colina central.";
-			mes "Uma Ã¡rvore estÃ¡ bloqueando a entrada no templo.";
+			mes "O templo do deus demoníaco é descoberto dentro da caverna na colina central.";
+			mes "Uma árvore está bloqueando a entrada no templo.";
 			next;
 			mes "[HIBBA AGIP]";
-			mes "Aquela senhora roxa ligou para o Guardian disse que iria lÃ¡ em breve.";
-			mes "VocÃª deveria encontrÃ¡ -la.";
+			mes "Aquela senhora roxa ligou para o Guardian disse que iria lá em breve.";
+			mes "Você deveria encontrá -la.";
 			close3;
 		}
-		mes "PoÃ§o-meta.";
+		mes "Poço-meta.";
 		mes "Ouvi dizer que um caminho foi limpo naquela caverna escura.";
-		mes "Ã€s vezes acho que essa bacia condenada estÃ¡ viva.";
+		mes "Às vezes acho que essa bacia condenada está viva.";
 		next;
 		mes "[HIBBA AGIP]";
-		mes "VocÃª Ã© inteligente e capaz. NÃ£o preciso explicar por que estou lhe dizendo isso, nÃ£o Ã©?";
-		mes "NÃ£o se preocupe. Enviei uma parte avanÃ§ada.";
+		mes "Você é inteligente e capaz. Não preciso explicar por que estou lhe dizendo isso, não é?";
+		mes "Não se preocupe. Enviei uma parte avançada.";
 		next;
 		mes "[HIBBA AGIP]";
 		mes "Seja alegre, camarada!";
-		mes "NÃ£o demorarÃ¡ muito para que nossa perigosa jornada terminasse!";
-		mes "E vocÃª serÃ¡ o Ãºnico a terminar.";
+		mes "Não demorará muito para que nossa perigosa jornada terminasse!";
+		mes "E você será o único a terminar.";
 		next;
 		mes "[HIBBA AGIP]";
-		mes "Decidimos chamar o recÃ©m -descoberto de lugar o templo do deus demonÃ­aco.";
+		mes "Decidimos chamar o recém -descoberto de lugar o templo do deus demoníaco.";
 		mes "Na verdade, o primeiro escoteiro o chamou, e o nome ficou preso.";
 		next;
 		mes "[HIBBA AGIP]";
-		mes "Eu gostaria de colocÃ¡ -lo em uma missÃ£o de subjugaÃ§Ã£o no templo do deus demÃ´nio.";
-		mes "Este nÃ£o Ã© um pedido, mas um pedido;";
-		mes "VocÃª decide assumir a missÃ£o por sua conta e risco.";
+		mes "Eu gostaria de colocá -lo em uma missão de subjugação no templo do deus demônio.";
+		mes "Este não é um pedido, mas um pedido;";
+		mes "Você decide assumir a missão por sua conta e risco.";
 		next;
 		if (select( "Eu vou fazer isso.", "No." ) == 2) {
 			mes "[HIBBA AGIP]";
 			mes "Eu entendo";
-			mes "VocÃª nÃ£o quer arriscar sua vida pela paz mundial.";
-			mes "Desfrute de viver atÃ© o fim do mundo.";
+			mes "Você não quer arriscar sua vida pela paz mundial.";
+			mes "Desfrute de viver até o fim do mundo.";
 			close3;
 		}
 		mes "[HIBBA AGIP]";
 		mes "Eu sabia que escolhi a pessoa certa para o trabalho.";
-		mes "Loki disse que o deus demonÃ­aco nÃ£o havia se recuperado totalmente de";
-		mes "Os danos recebidos apÃ³s o intervalo de seu selo.";
+		mes "Loki disse que o deus demoníaco não havia se recuperado totalmente de";
+		mes "Os danos recebidos após o intervalo de seu selo.";
 		next;
 		mes "[HIBBA AGIP]";
-		mes "Ele ainda estÃ¡ lambendo suas feridas,";
-		mes "O que nos dÃ¡ uma oportunidade perfeita para chegar a ele.";
+		mes "Ele ainda está lambendo suas feridas,";
+		mes "O que nos dá uma oportunidade perfeita para chegar a ele.";
 		mes "Boa sorte.";
 		setquest 7593;// Demon God Subjugation
 		close3;
 	}
 	if (isbegin_quest(7597) == 1) {
 		mes "* Apito* bom trabalho!";
-		mes "Como estÃ¡ o templo do deus demonÃ­aco?";
+		mes "Como está o templo do deus demoníaco?";
 		mes "Ainda assim?";
 		next;
 		mes "[Este quadril]";
 		mes "Pegue sua recompensa.";
-		mes "Vejo vocÃª de novo.";
+		mes "Vejo você de novo.";
 		erasequest 7597;// Fall of the False God
 		setquest 7598;// Caged God
 		getitem 22567,1;// Squad_Prize
@@ -542,45 +542,45 @@ moro_vol,108,88,5	script	Commander Hibba Agip#14301	4_M_REDSWORD,{
 	}
 	switch( checkquest(7598,PLAYTIME) ) {
 	case -1:
-		mes "Para a minha vida, nÃ£o consigo descobrir o que estÃ¡ acontecendo.";
-		mes "Este lugar foi para os cÃ£es desde que o monstro proclamou que ele substituiria Deus.";
+		mes "Para a minha vida, não consigo descobrir o que está acontecendo.";
+		mes "Este lugar foi para os cães desde que o monstro proclamou que ele substituiria Deus.";
 		next;
 		mes "[Este quadril]";
 		mes "I'm afraid once warped, dimensions can never be the same.";
-		mes "VocÃª poderia voltar ao templo do deus demonÃ­aco mais uma vez?";
+		mes "Você poderia voltar ao templo do deus demoníaco mais uma vez?";
 		next;
 		if (select( "Claro.", "No." ) == 2) {
 			mes "[Este quadril]";
 			mes "Eu entendo.";
-			mes "VocÃª jÃ¡ fez o suficiente.";
+			mes "Você já fez o suficiente.";
 			mes "Vou mandar outra pessoa.";
 			close3;
 		}
 		mes "[Este quadril]";
-		mes "O templo do deus demonÃ­aco estÃ¡ preso em um loop de tempo perpÃ©tuo,";
+		mes "O templo do deus demoníaco está preso em um loop de tempo perpétuo,";
 		mes "Assim como todas as outras rachaduras dimensionais.";
 		next;
 		mes "[Este quadril]";
 		mes "Ele tentou desesperadamente escapar deste mundo, mas tudo sem sucesso.";
-		mes "Esse mundo dele agora estÃ¡ cheio de lembranÃ§as infernais que se repetem repetidamente.";
+		mes "Esse mundo dele agora está cheio de lembranças infernais que se repetem repetidamente.";
 		next;
 		mes "[Este quadril]";
-		mes "Boa sorte explorando o templo. Se vocÃª vir Morocc novamente, nÃ£o hesite em matar o Deus demonÃ­aco novamente.";
-		mes "Ele nÃ£o merece comiseraÃ§Ã£o.";
-		mes "AmÃ©rica de Deus.";
+		mes "Boa sorte explorando o templo. Se você vir Morocc novamente, não hesite em matar o Deus demoníaco novamente.";
+		mes "Ele não merece comiseração.";
+		mes "América de Deus.";
 		if (isbegin_quest(7593) == 0)
 			setquest 7593;// Demon God Subjugation
 		close3;
 	case 0:
 	case 1:
 		mes "Agora que cuidamos do corpo principal, podemos levar as coisas devagar.";
-		mes "Por que vocÃª nÃ£o vai descansar por enquanto?";
-		mes "Deixe o resto para nÃ³s.";
+		mes "Por que você não vai descansar por enquanto?";
+		mes "Deixe o resto para nós.";
 		close3;
 	case 2:
 		erasequest 7598;// Caged God
-		mes "Eu nÃ£o acreditaria que vocÃª teve uma intensa batalha ontem se eu ainda nÃ£o soubesse.";
-		mes "VocÃª estÃ¡ pronto para outra batalha?";
+		mes "Eu não acreditaria que você teve uma intensa batalha ontem se eu ainda não soubesse.";
+		mes "Você está pronto para outra batalha?";
 		next;
 		mes "[Este quadril]";
 		mes "Avise -me quando estiver pronto.";
@@ -588,7 +588,7 @@ moro_vol,108,88,5	script	Commander Hibba Agip#14301	4_M_REDSWORD,{
 		mes "Pode ter algo a ver com a rachadura dimensional.";
 		next;
 		mes "[Este quadril]";
-		mes "Oh, nÃ£o se preocupe. NÃ£o estou pensando em mandar vocÃª lÃ¡ fora.";
+		mes "Oh, não se preocupe. Não estou pensando em mandar você lá fora.";
 		mes "Hah hah hah!";
 		close3;
 	}
@@ -607,56 +607,56 @@ moro_vol,110,90,3	script	Adjutant Abidal#14302	4_M_SAGE_C,{
 		case -1:
 			if (isbegin_quest(7593) == 1) {
 				mes "[Abidal]";
-				mes "VocÃª estÃ¡ em busca de subjugar o templo do deus demÃ´nio?";
-				mes "EntÃ£o, por favor me faÃ§a um favor.";
-				mes "Nossos escoteiros relataram a presenÃ§a de uma aranha de geada e um lobo de fogo que provou a geada de gÃªnese.";
+				mes "Você está em busca de subjugar o templo do deus demônio?";
+				mes "Então, por favor me faça um favor.";
+				mes "Nossos escoteiros relataram a presença de uma aranha de geada e um lobo de fogo que provou a geada de gênese.";
 				next;
 				mes "[Abidal]";
-				mes "Eles sÃ£o tÃ£o maus quanto seu mestre marrocc.";
+				mes "Eles são tão maus quanto seu mestre marrocc.";
 				mes "Por favor, extermine a aranha de geada e o lobo do fogo.";
 				next;
-				if (select( "Aceitar.", "DeclÃ­nio." ) == 2) {
+				if (select( "Aceitar.", "Declínio." ) == 2) {
 					mes "[Abidal]";
-					mes "VocÃª tem medo de que nÃ£o possa lidar com eles?";
+					mes "Você tem medo de que não possa lidar com eles?";
 					mes "Eu entendo.";
-					mes "Eles sÃ£o inimigos formidÃ¡veis.";
+					mes "Eles são inimigos formidáveis.";
 					close;
 				}
 				mes "[Abidal]";
 				mes "Obrigado.";
-				mes "A aranha -fogo Ã© chamada Brinaranea; O lobo do fogo, Muspellskoll.";
-				mes "Por favor, extermine as criaturas do deus demÃ´nio.";
+				mes "A aranha -fogo é chamada Brinaranea; O lobo do fogo, Muspellskoll.";
+				mes "Por favor, extermine as criaturas do deus demônio.";
 				mes "Boa sorte.";
 				setquest 7594;// Frost Spider and Fire Wolf
 				close;
 			}
 			mes "[Abidal]";
-			mes "VocÃª veio nos ajudar a subjugar o deus demÃ´nio?";
+			mes "Você veio nos ajudar a subjugar o deus demônio?";
 			mes "Por favor, tenha cuidado; O ambiente deste lugar continua mudando sem nenhum aviso.";
 			close;
 		case 0:
 		case 1:
 			mes "[Abidal]";
-			mes "Segundo minha Intel, o Deus demonÃ­aco tem vÃ¡rios capangas.";
-			mes "Gostaria que vocÃª elimine a maior ameaÃ§a entre eles.";
+			mes "Segundo minha Intel, o Deus demoníaco tem vários capangas.";
+			mes "Gostaria que você elimine a maior ameaça entre eles.";
 			next;
 			mes "[Abidal]";
-			mes "NÃ£o serÃ¡ fÃ¡cil, mas eu tenho fÃ© em vocÃª.";
+			mes "Não será fácil, mas eu tenho fé em você.";
 			mes "O futuro do Midgard repousa sobre seus ombros.";
 			close;
 		case 2:
 			mes "[Abidal]";
-			mes "VocÃª fez isso!";
-			mes "Eu sabia que vocÃª faria!";
-			mes "ParabÃ©ns!";
+			mes "Você fez isso!";
+			mes "Eu sabia que você faria!";
+			mes "Parabéns!";
 			next;
 			mes "[Abidal]";
-			mes "Mas temo que isso ainda nÃ£o tenha terminado.";
+			mes "Mas temo que isso ainda não tenha terminado.";
 			mes "Eu tenho esse sentimento inchado de julgamento.";
 			mes "Desculpe. Talvez eu esteja pensando irracionalmente.";
 			next;
 			mes "[Abidal]";
-			mes "Eu preparei um pequeno sinal de agradecimento por vocÃª.";
+			mes "Eu preparei um pequeno sinal de agradecimento por você.";
 			mes "Lamento que este seja o melhor que posso fazer.";
 			mes "Obrigado pelo seu trabalho duro.";
 			erasequest 7594;// Frost Spider and Fire Wolf
@@ -667,18 +667,18 @@ moro_vol,110,90,3	script	Adjutant Abidal#14302	4_M_SAGE_C,{
 	case 0:
 	case 1:
 		mes "[Abidal]";
-		mes "VocÃª fez muito bem. VocÃª deveria ir descansar.";
+		mes "Você fez muito bem. Você deveria ir descansar.";
 		close;
 	case 2:
 		erasequest 7599;// Unending Hunt
 		mes "[Abidal]";
-		mes "VocÃª estÃ¡ bem descansado?";
-		mes "VocÃª parece que vocÃª Ã©.";
-		mes "Isso Ã© Ã³timo porque estamos preocupados com o templo do deus demonÃ­aco. NÃ£o parecemos fechÃ¡ -lo.";
+		mes "Você está bem descansado?";
+		mes "Você parece que você é.";
+		mes "Isso é ótimo porque estamos preocupados com o templo do deus demoníaco. Não parecemos fechá -lo.";
 		next;
 		mes "[Abidal]";
 		mes "Eu poderia pedir -lhe novamente para exterminar aranhas de geada e disparar lobos.";
-		mes "Por que o templo do deus demonÃ­aco nÃ£o desapareceu?";
+		mes "Por que o templo do deus demoníaco não desapareceu?";
 		close;
 	}
 	end;
@@ -691,9 +691,9 @@ OnInit:
 moro_vol,111,87,1	script	 Instructor Igrid#14303	4_M_CRU,{
 	if (BaseLevel < 140) {
 		mes "[Instrutor IGRID]";
-		mes "VocÃª.";
-		mes "(BalanÃ§ando a cabeÃ§a) VocÃª nÃ£o farÃ¡.";
-		mes "VocÃª Ã© muito fraco para combater esses demÃ´nios.";
+		mes "Você.";
+		mes "(Balançando a cabeça) Você não fará.";
+		mes "Você é muito fraco para combater esses demônios.";
 		mes "Volte e treine um pouco mais.";
 		close;
 	}
@@ -704,52 +704,52 @@ moro_vol,111,87,1	script	 Instructor Igrid#14303	4_M_CRU,{
 			mes "[Instrutor IGRID]";
 			mes "Ei, bem-meta.";
 			mes "Eu preciso de sua ajuda.";
-			mes "Alguns desses demÃ´nios que saem da bacia em chamas sÃ£o uma verdadeira dor no pescoÃ§o.";
+			mes "Alguns desses demônios que saem da bacia em chamas são uma verdadeira dor no pescoço.";
 			next;
 			mes "[Instrutor IGRID]";
-			mes "As reencarnaÃ§Ãµes de marrocc tambÃ©m invadiram aqui, e algumas delas sÃ£o visivelmente fortes.";
-			mes "Eu quero que vocÃª se livre deles.";
+			mes "As reencarnações de marrocc também invadiram aqui, e algumas delas são visivelmente fortes.";
+			mes "Eu quero que você se livre deles.";
 			next;
 			if (select( "Por que eu?", "Claro." ) == 1) {
 				mes "[Instrutor IGRID]";
-				mes "Hum, isso Ã© inesperado.";
-				mes "Eu pensei que vocÃª veio proteger a paz e a prosperidade de Midgard. VocÃª nÃ£o?";
+				mes "Hum, isso é inesperado.";
+				mes "Eu pensei que você veio proteger a paz e a prosperidade de Midgard. Você não?";
 				next;
 				mes "[Instrutor IGRID]";
-				mes "Talvez eu te dei muito crÃ©dito.";
+				mes "Talvez eu te dei muito crédito.";
 				mes "Tudo bem, vou perguntar a outra pessoa.";
-				mes "Estou muito decepcionado com vocÃª.";
+				mes "Estou muito decepcionado com você.";
 				close;
 			}
 			mes "[Instrutor IGRID]";
-			mes "VocÃª nÃ£o me decepciona.";
-			mes "Escute, no centro da bacia Ã© uma colina alta.";
-			mes "Em quatro direÃ§Ãµes do centro, percorre um forte demÃ´nio.";
+			mes "Você não me decepciona.";
+			mes "Escute, no centro da bacia é uma colina alta.";
+			mes "Em quatro direções do centro, percorre um forte demônio.";
 			next;
 			mes "[Instrutor IGRID]";
-			mes "Eles se parecem com aquelas reencarnaÃ§Ãµes que atacaram a cidade de Morocc,";
+			mes "Eles se parecem com aquelas reencarnações que atacaram a cidade de Morocc,";
 			mes "Mas maior e mais forte.";
 			next;
 			mes "[Instrutor IGRID]";
-			mes "Para a operaÃ§Ã£o suave da missÃ£o de subjugaÃ§Ã£o,";
-			mes "4d4dfffeliminate reencarnaÃ§Ã£o marrocc distorcida, reencarnaÃ§Ã£o de marrocc ardentes e reencarnaÃ§Ã£o morro de marrogo. ^000000";
-			mes "Eu vou contar com vocÃª.";
+			mes "Para a operação suave da missão de subjugação,";
+			mes "4d4dfffeliminate reencarnação marrocc distorcida, reencarnação de marrocc ardentes e reencarnação morro de marrogo. ^000000";
+			mes "Eu vou contar com você.";
 			setquest 7581;// Eliminating Risks
 			close;
 		case 0:
 		case 1:
 			mes "[Instrutor IGRID]";
-			mes "4d4dfffeliminate reencarnaÃ§Ã£o marrocc distorcida, reencarnaÃ§Ã£o de marrocc ardentes e reencarnaÃ§Ã£o morro de marrogo. ^000000";
-			mes "VocÃª pode encontrÃ¡ -los estacionados em quatro direÃ§Ãµes do centro da bacia.";
+			mes "4d4dfffeliminate reencarnação marrocc distorcida, reencarnação de marrocc ardentes e reencarnação morro de marrogo. ^000000";
+			mes "Você pode encontrá -los estacionados em quatro direções do centro da bacia.";
 			close;
 		case 2:
 			mes "[Instrutor IGRID]";
-			mes "VocÃª realmente tirou esses demÃ´nios fortes.";
-			mes "Isso deve ser suficiente para quebrar o espÃ­rito do resto.";
+			mes "Você realmente tirou esses demônios fortes.";
+			mes "Isso deve ser suficiente para quebrar o espírito do resto.";
 			mes "Bom trabalho.";
 			next;
 			mes "[Instrutor IGRID]";
-			mes "Espero que vocÃª volte para me ajudar novamente.";
+			mes "Espero que você volte para me ajudar novamente.";
 			mes "Vamos voltar para casa juntos, sim?";
 			erasequest 7581;// Eliminating Risks
 			setquest 7582;// Daily Cleaning
@@ -759,17 +759,17 @@ moro_vol,111,87,1	script	 Instructor Igrid#14303	4_M_CRU,{
 	case 0:
 	case 1:
 		mes "[Instrutor IGRID]";
-		mes "VocÃª.";
-		mes "VocÃª quer dizer essas reencarnaÃ§Ãµes gigantes?";
+		mes "Você.";
+		mes "Você quer dizer essas reencarnações gigantes?";
 		mes "Designei mais alguns aventureiros para cuidar deles.";
 		next;
 		mes "[Instrutor IGRID]";
-		mes "VocÃª deve descansar para o dia. Volte para caÃ§ar amanhÃ£.";
+		mes "Você deve descansar para o dia. Volte para caçar amanhã.";
 		close;
 	case 2:
 		mes "[Instrutor IGRID]";
-		mes "EstÃ¡ quase na hora de uma caÃ§a aos demÃ´nios.";
-		mes "VocÃª nÃ£o estÃ¡ animado? Porque eu sou! Hah hah!";
+		mes "Está quase na hora de uma caça aos demônios.";
+		mes "Você não está animado? Porque eu sou! Hah hah!";
 		erasequest 7582;// Daily Cleaning
 		close;
 	}
@@ -782,20 +782,20 @@ OnInit:
 
 moro_vol,136,84,3	script	Jeruth Hesranta#ep143	4_MAN_JERUTOO,{
 	if (checkweight(1304,3) == 0) {
-		mes "VocÃª estÃ¡ carregando muitos itens para prosseguir com a missÃ£o.";
-		mes "Por favor, abre algum espaÃ§o em seu inventÃ¡rio.";
+		mes "Você está carregando muitos itens para prosseguir com a missão.";
+		mes "Por favor, abre algum espaço em seu inventário.";
 		close;
 	}
 	cutin "ep13_heslanta.bmp",2;
 	mes "[Jeruth Hesranta]";
 	if (ep13_3_secret < 22) {
-		mes "Eu sou Hesranta, comandante do exÃ©rcito de Sappha.";
-		mes "Ã‰ minha honra lutar ao seu lado humanos.";
+		mes "Eu sou Hesranta, comandante do exército de Sappha.";
+		mes "É minha honra lutar ao seu lado humanos.";
 		close3;
 	}
 	if (ep13_3_secret < 24) {// custom translation
-		mes "Eu nÃ£o esperava te ver aqui!";
-		mes "... Embora muitas coisas aconteÃ§am, ainda estou esperando vocÃª completar a primeira coisa que perguntei!";
+		mes "Eu não esperava te ver aqui!";
+		mes "... Embora muitas coisas aconteçam, ainda estou esperando você completar a primeira coisa que perguntei!";
 		next;
 		mes "[Jeruth Hesranta]";
 		mes "Por favor, volte para me ajudar!";
@@ -803,43 +803,43 @@ moro_vol,136,84,3	script	Jeruth Hesranta#ep143	4_MAN_JERUTOO,{
 	}
 	if (ep13_3_secret == 24) {
 		mes "Muito tempo sem ver.";
-		mes "VocÃª se lembra de mim?";
-		mes "Tivemos uma discussÃ£o importante em Diel.";
+		mes "Você se lembra de mim?";
+		mes "Tivemos uma discussão importante em Diel.";
 		next;
-		select("Por que vocÃª estÃ¡ aqui?");
+		select("Por que você está aqui?");
 		mes "[Jeruth Hesranta]";
-		mes "Eu convenci os anciÃ£os a me deixar trazer um exÃ©rcito aqui.";
-		mes "Como vocÃª suspeitava, Ahat nÃ£o Ã© um Sappha.";
+		mes "Eu convenci os anciãos a me deixar trazer um exército aqui.";
+		mes "Como você suspeitava, Ahat não é um Sappha.";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "SÃ³ estou ciente desse conhecimento no momento.";
-		mes "Todo mundo esqueceu praticamente que ele jÃ¡ existiu.";
+		mes "Só estou ciente desse conhecimento no momento.";
+		mes "Todo mundo esqueceu praticamente que ele já existiu.";
 		next;
 		mes "[Jeruth Hesranta]";
 		mes "Minha suspeita eterna sobre ele me manteve a salvo da hipnose de Ahat.";
-		mes "Ele usou o talento indescritÃ­vel para desaparecer.";
+		mes "Ele usou o talento indescritível para desaparecer.";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "Depois que ele desapareceu, convenci os anciÃ£os de que devemos nos juntar Ã  subjugaÃ§Ã£o do deus demÃ´nio.";
-		mes "Outros safas estavam contra mim, pela seguranÃ§a do nosso tipo,";
+		mes "Depois que ele desapareceu, convenci os anciãos de que devemos nos juntar à subjugação do deus demônio.";
+		mes "Outros safas estavam contra mim, pela segurança do nosso tipo,";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "Mas Ã© de nossa natureza ajudar nossos amigos a todo custo.";
-		mes "EntÃ£o, eu trouxe nossos garto mais corajosos para o campo de batalha.";
+		mes "Mas é de nossa natureza ajudar nossos amigos a todo custo.";
+		mes "Então, eu trouxe nossos garto mais corajosos para o campo de batalha.";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "Longa histÃ³ria curta,";
-		mes "VocÃª nÃ£o precisa mais trabalhar para quÃª.";
-		mes "Se vocÃª precisar do certificado de contribuiÃ§Ã£o, faÃ§a -me um favor mais tarde e eu lhe darei um.";
+		mes "Longa história curta,";
+		mes "Você não precisa mais trabalhar para quê.";
+		mes "Se você precisar do certificado de contribuição, faça -me um favor mais tarde e eu lhe darei um.";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "VocÃª conhece Chesher, nÃ£o Ã©?";
+		mes "Você conhece Chesher, não é?";
 		mes "Quando se trata dele,";
-		mes "NÃ£o posso confiar em mais ninguÃ©m.";
+		mes "Não posso confiar em mais ninguém.";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "Quero coletar informaÃ§Ãµes sobre ele antes de prosseguir com meu plano.";
-		mes "Por favor, fique seguro atÃ© falar com vocÃª novamente.";
+		mes "Quero coletar informações sobre ele antes de prosseguir com meu plano.";
+		mes "Por favor, fique seguro até falar com você novamente.";
 		ep13_3_secret = 25;
 		ep13_3_ahtdayq = 0;
 		if (isbegin_quest(7200) > 0)
@@ -854,46 +854,46 @@ moro_vol,136,84,3	script	Jeruth Hesranta#ep143	4_MAN_JERUTOO,{
 	}
 	if (ep13_3_secret == 25) {
 		if (BaseLevel < 140) {// custom translation
-			mes "VocÃª se lembra que conversamos sobre Chesher?";
-			mes "Ele Ã© uma questÃ£o sensÃ­vel, entÃ£o nÃ£o posso falar com outras safas sobre ele.";
+			mes "Você se lembra que conversamos sobre Chesher?";
+			mes "Ele é uma questão sensível, então não posso falar com outras safas sobre ele.";
 			next;
 			mes "[Jeruth Hesranta]";
-			mes "Mas ... nÃ£o parece te agradar,";
+			mes "Mas ... não parece te agradar,";
 			mes "Volte e treine um pouco mais.";
 			close3;
 		}
-		mes "VocÃª se lembra que conversamos sobre Chesher?";
-		mes "Ele Ã© uma questÃ£o sensÃ­vel, entÃ£o nÃ£o posso falar com outras safas sobre ele.";
+		mes "Você se lembra que conversamos sobre Chesher?";
+		mes "Ele é uma questão sensível, então não posso falar com outras safas sobre ele.";
 		mes "E eu estava pensando ...";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "Talvez vocÃª possa me ajudar a confirmar minha suspeita.";
+		mes "Talvez você possa me ajudar a confirmar minha suspeita.";
 		next;
 		select("Que suspeita?");
 		mes "[Jeruth Hesranta]";
-		mes "HÃ¡ algumas coisas que parecem nÃ£o pertencer a esta bacia em chamas.";
-		mes "SÃ£o caixas de algum tipo.";
+		mes "Há algumas coisas que parecem não pertencer a esta bacia em chamas.";
+		mes "São caixas de algum tipo.";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "Animados pela energia maligna do deus demÃ´nio, essas caixas estÃ£o correndo sobre a bacia.";
+		mes "Animados pela energia maligna do deus demônio, essas caixas estão correndo sobre a bacia.";
 		mes "Agora estou preocupado ...";
 		next;
-		select("VocÃª estÃ¡ preocupado?");
+		select("Você está preocupado?");
 		mes "[Jeruth Hesranta]";
-		mes "SÃ£o as imagens cuspidas de caixas de bradium em dicastes.";
-		mes "VocÃª poderia exterminÃ¡ -los e me ajudar a determinar sua identidade?";
+		mes "São as imagens cuspidas de caixas de bradium em dicastes.";
+		mes "Você poderia exterminá -los e me ajudar a determinar sua identidade?";
 		next;
 		mes "[Jeruth Hesranta]";
 		mes "Eles realmente poderiam ser as caixas de bradium que Chesher roubou de dicastes.";
-		mes "Nesse caso, posso usar as caixas para reabastecer meu exÃ©rcito.";
+		mes "Nesse caso, posso usar as caixas para reabastecer meu exército.";
 		next;
-		select("E recuperar os bradiums roubados tambÃ©m.");
+		select("E recuperar os bradiums roubados também.");
 		mes "[Jeruth Hesranta]";
-		mes "Correto. Meu exÃ©rcito nÃ£o estÃ¡ recebendo muito apoio, jÃ¡ que essa expediÃ§Ã£o foi apenas a minha ideia.";
-		mes "Ã‰ apenas um pensamento ilusÃ£o; NÃ£o saberemos atÃ© termos as caixas.";
+		mes "Correto. Meu exército não está recebendo muito apoio, já que essa expedição foi apenas a minha ideia.";
+		mes "É apenas um pensamento ilusão; Não saberemos até termos as caixas.";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "Por enquanto, caÃ§a uma caixa e deixe -me saber o que vocÃª encontra.";
+		mes "Por enquanto, caça uma caixa e deixe -me saber o que você encontra.";
 		mes "Eu estarei esperando.";
 		setquest 7578;// Rampaging Box
 		ep13_3_secret = 26;
@@ -903,38 +903,38 @@ moro_vol,136,84,3	script	Jeruth Hesranta#ep143	4_MAN_JERUTOO,{
 		if (checkquest(7578,HUNTING) != 2) {
 			cutin "ep13_heslanta.bmp",2;
 			mes "[Jeruth Hesranta]";
-			mes "Basta caÃ§ar 1 ^4d4dffRampaging caixa ^000000 e traga -me o que vocÃª encontra dentro dela.";
+			mes "Basta caçar 1 ^4d4dffRampaging caixa ^000000 e traga -me o que você encontra dentro dela.";
 			if (isbegin_quest(7578) == 0)
 				setquest 7578;
 			close3;
 		}
 		if (countitem(6392) < 1) {// Bradium_Box
-			mes "Vejo que vocÃª subjugou uma caixa violenta,";
-			mes "Mas meu verdadeiro objetivo era verificar seu conteÃºdo.";
-			mes "^4D4DFFPLEETE Externine uma caixa e traga -me o item que vocÃª encontrou.^000000";
+			mes "Vejo que você subjugou uma caixa violenta,";
+			mes "Mas meu verdadeiro objetivo era verificar seu conteúdo.";
+			mes "^4D4DFFPLEETE Externine uma caixa e traga -me o item que você encontrou.^000000";
 			close3;
 		}
 		mes "Eu estava certo.";
-		mes "Ã‰ incrÃ­vel como um objeto tÃ£o animado pode se mover por conta prÃ³pria.";
-		mes "Deve estar encantado, vocÃª nÃ£o acha?";
+		mes "É incrível como um objeto tão animado pode se mover por conta própria.";
+		mes "Deve estar encantado, você não acha?";
 		next;
 		mes "[Jeruth Hesranta]";
 		mes "Isso confirma minha suspeita:";
-		mes "Essas caixas na bacia de flamejamento sÃ£o caixas de bradium da El Dicastes.";
+		mes "Essas caixas na bacia de flamejamento são caixas de bradium da El Dicastes.";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "NÃ£o quero impor sua gentileza, mas espero que vocÃª continue a caÃ§ar essas caixas.";
-		mes "VocÃª Ã© o Ãºnico em que posso confiar com isso, pelo menos por enquanto.";
-		mes "Gartens sÃ£o corajosos, mas eles querem entender por que as caixas de bradium sÃ£o encontradas neste lugar.";
+		mes "Não quero impor sua gentileza, mas espero que você continue a caçar essas caixas.";
+		mes "Você é o único em que posso confiar com isso, pelo menos por enquanto.";
+		mes "Gartens são corajosos, mas eles querem entender por que as caixas de bradium são encontradas neste lugar.";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "EntÃ£o terei que contar tudo a eles,";
-		mes "ComeÃ§ando com Ahat, e que a maioria dos safas se esqueceu dele tornarÃ¡ as coisas realmente complicadas.";
+		mes "Então terei que contar tudo a eles,";
+		mes "Começando com Ahat, e que a maioria dos safas se esqueceu dele tornará as coisas realmente complicadas.";
 		next;
-		select("Quando eu comeÃ§o?");
+		select("Quando eu começo?");
 		mes "[Jeruth Hesranta]";
 		mes "Que tal agora?";
-		mes "^4d4dffflease caÃ§a essas caixas de ranhura e colete 10 caixas de bradium.^000000";
+		mes "^4d4dffflease caça essas caixas de ranhura e colete 10 caixas de bradium.^000000";
 		delitem 6392,1;// Bradium_Box
 		completequest 7578;// Rampaging Box
 		setquest 7579;// Collecting Bradiums
@@ -949,31 +949,31 @@ moro_vol,136,84,3	script	Jeruth Hesranta#ep143	4_MAN_JERUTOO,{
 			cutin "ep13_heslanta.bmp",2;
 			mes "[Jeruth Hesranta]";
 			mes "Bem vindo de volta.";
-			mes "VocÃª estÃ¡ pronto para o dia?";
+			mes "Você está pronto para o dia?";
 			break;
 		case 1:
 			cutin "ep13_heslanta.bmp",2;
 			mes "[Jeruth Hesranta]";
-			mes "As prÃ³prias caixas de ranhura nÃ£o sÃ£o ameaÃ§adoras, mas sÃ£o cercadas por monstros perigosos. Por favor, tenha cuidado.";
+			mes "As próprias caixas de ranhura não são ameaçadoras, mas são cercadas por monstros perigosos. Por favor, tenha cuidado.";
 			next;
 			mes "[Jeruth Hesranta]";
-			mes "Feliz caÃ§a!";
+			mes "Feliz caça!";
 			close3;
 		case 2:
 			if (countitem(6392) < 10) {
-				mes "Ã‰ incrÃ­vel como essas caixas cheias de minÃ©rio estÃ£o se movendo por conta prÃ³pria.";
-				mes "Talvez seja assim que o Deus demonÃ­aco estÃ¡ recrutando seus soldados.";
+				mes "É incrível como essas caixas cheias de minério estão se movendo por conta própria.";
+				mes "Talvez seja assim que o Deus demoníaco está recrutando seus soldados.";
 				close3;
 			}
 			cutin "ep13_heslanta.bmp",2;
 			mes "[Jeruth Hesranta]";
 			mes "Bom trabalho.";
-			mes "NÃ£o posso agradecer o suficiente.";
+			mes "Não posso agradecer o suficiente.";
 			mes "Deixe -me pegar todas as caixas de bradium.";
 			next;
 			mes "[Jeruth Hesranta]";
-			mes "Eu posso sentir os olhos de outras pessoas em nÃ³s. Hah hah.";
-			mes "Vejo vocÃª de novo.";
+			mes "Eu posso sentir os olhos de outras pessoas em nós. Hah hah.";
+			mes "Vejo você de novo.";
 			delitem 6392, countitem(6392);// Bradium_Box
 			erasequest 7579;// Collecting Bradiums
 			setquest 7580;// Collecting Every Day
@@ -984,7 +984,7 @@ moro_vol,136,84,3	script	Jeruth Hesranta#ep143	4_MAN_JERUTOO,{
 		break;
 	case 0:
 	case 1:
-		mes "Hah Hah, nÃ£o estamos com pressa no momento.";
+		mes "Hah Hah, não estamos com pressa no momento.";
 		mes "Gostaria de saber se Chesher sabe que estamos roubando suas caixas de bradium.";
 		next;
 		mes "[Jeruth Hesranta]";
@@ -994,7 +994,7 @@ moro_vol,136,84,3	script	Jeruth Hesranta#ep143	4_MAN_JERUTOO,{
 	case 2:
 		cutin "ep13_heslanta.bmp",2;
 		mes "[Jeruth Hesranta]";
-		mes "Ã‰ hora de coletar caixas de bradium.";
+		mes "É hora de coletar caixas de bradium.";
 		erasequest 7580;// Collecting Every Day
 		break;
 	}
@@ -1006,12 +1006,12 @@ moro_vol,136,84,3	script	Jeruth Hesranta#ep143	4_MAN_JERUTOO,{
 		next;
 		mes "[Jeruth Hesranta]";
 		mes "Sinto muito";
-		mes "NÃ£o consigo parar de pedir favores.";
+		mes "Não consigo parar de pedir favores.";
 		close3;
 	}
 	mes "[Jeruth Hesranta]";
-	mes "Esse Ã© o espÃ­rito!";
-	mes "CaÃ§a caixas violentas e colete bradiums.";
+	mes "Esse é o espírito!";
+	mes "Caça caixas violentas e colete bradiums.";
 	setquest 7579;// Collecting Bradiums
 	close3;
 
@@ -1038,44 +1038,44 @@ function	script	kick_mob	{
 moro_vol,88,107,5	script	Magic Scholar Dophe#143vol01	4_F_FAIRYKID5,{
  	mes "[Tarde]";
  	mes "Um humano, eu vejo.";
- 	mes "Olhando para vocÃª, nÃ£o posso deixar de mencionar nossa situaÃ§Ã£o.";
- 	mes "VocÃª e eu estamos conversando.";
+ 	mes "Olhando para você, não posso deixar de mencionar nossa situação.";
+ 	mes "Você e eu estamos conversando.";
  	next;
  	mes "[Tarde]";
- 	mes "Esse chamado rachadura dimensional, onde o deus demonÃ­aco se tornou residÃªncia, cai na jurisdiÃ§Ã£o de Bifrost.";
+ 	mes "Esse chamado rachadura dimensional, onde o deus demoníaco se tornou residência, cai na jurisdição de Bifrost.";
  	next;
 	mes "[Tarde]";
-	mes "Ele e nÃ³s somos como dois lados da moeda, ou acima e abaixo da linha d'Ã¡gua.";
+	mes "Ele e nós somos como dois lados da moeda, ou acima e abaixo da linha d'água.";
 	next;
 	mes "[Tarde]";
-	mes "Ele e nÃ³s nÃ£o estamos correndo exatamente paralelos um ao outro, mas talvez em um universo paralelo um ao outro.";
+	mes "Ele e nós não estamos correndo exatamente paralelos um ao outro, mas talvez em um universo paralelo um ao outro.";
 	next;
 	mes "[Tarde]";
 	mes "...";
 	next;
 	mes "[Tarde]";
-	mes "Meu ponto Ã©:";
-	mes "Ele poderia estar debaixo do nosso nariz e nÃ£o podemos vÃª -lo.";
-	mes "Se o covil dele estiver localizado em algum lugar no territÃ³rio de Bifrost,";
+	mes "Meu ponto é:";
+	mes "Ele poderia estar debaixo do nosso nariz e não podemos vê -lo.";
+	mes "Se o covil dele estiver localizado em algum lugar no território de Bifrost,";
 	next;
 	mes "[Tarde]";
-	mes "O Ãºnico cenÃ¡rio possÃ­vel para nÃ³s Ã©";
-	mes "obliteraÃ§Ã£o.";
+	mes "O único cenário possível para nós é";
+	mes "obliteração.";
 	close;
 }
 
 moro_vol,87,104,5	script	Magic Scholar Konpana#143vol02	4_M_FAIRYKID5,{
 	mes "[Companhia]";
-	mes "Este lugar nÃ£o Ã© nada como eu imaginei.";
+	mes "Este lugar não é nada como eu imaginei.";
 	mes "Sem campo gramado ou floresta, realmente?";
 	close;
 }
 
 moro_vol,88,102,6	script	Magic Scholar Makia#143vol03	4_M_FAIRYKID3,{
 	mes "[Fluxo dele]";
-	mes "Este lugar Ã© invadido por criaturas estranhas.";
-	mes "Em todos os lugares estÃ¡ queimando com fogo, mas o ar nÃ£o estÃ¡ sufocante.";
-	mes "IncrÃ­vel.";
+	mes "Este lugar é invadido por criaturas estranhas.";
+	mes "Em todos os lugares está queimando com fogo, mas o ar não está sufocante.";
+	mes "Incrível.";
 	close;
 }
 
@@ -1091,8 +1091,8 @@ moro_vol,108,105,0	duplicate(Combat Laphine#sol01)	Combat Laphine#sol09	4_M_FAIR
 
 moro_vol,106,111,3	script	Battle Commander#sol10	4_M_FAIRYSOLDIER,3,3,{
 	mes "[Comandante Laphine]";
-	mes "Estamos em processo de reagrupar para a prÃ³xima batalha.";
-	mes "Por favor, nÃ£o nos incomode.";
+	mes "Estamos em processo de reagrupar para a próxima batalha.";
+	mes "Por favor, não nos incomode.";
 	close;
 
 OnTouch:
@@ -1107,13 +1107,13 @@ OnEventOn:
 	.is_enabled = 1;
 	enablenpc "#soltalk01";
 	sleep 3000;
-	npctalk "Comandante: Soldados, finalmente Ã© hora de usar seu treinamento!", "Battle Commander#sol10";
+	npctalk "Comandante: Soldados, finalmente é hora de usar seu treinamento!", "Battle Commander#sol10";
 	sleep 3000;
-	npctalk "Comandante: NÃ³s somos!", "Battle Commander#sol10";
+	npctalk "Comandante: Nós somos!", "Battle Commander#sol10";
 	sleep 2000;
-	npctalk "NÃ“S SOMOS!", "Combat Laphine#sol01";
-	npctalk "NÃ“S SOMOS!", "Combat Laphine#sol02";
-	npctalk "NÃ“S SOMOS!", "Combat Laphine#sol03";
+	npctalk "NÓS SOMOS!", "Combat Laphine#sol01";
+	npctalk "NÓS SOMOS!", "Combat Laphine#sol02";
+	npctalk "NÓS SOMOS!", "Combat Laphine#sol03";
 	sleep 1500;
 	npctalk "O orgulhoso!", "Combat Laphine#sol04";
 	npctalk "O orgulhoso!", "Combat Laphine#sol05";
@@ -1149,13 +1149,13 @@ moro_vol,101,102,0	script	Laphine Magician#wsol01	4_F_FAIRY2,{
 	if (.@ttemp == 1)
 		npctalk "... congele todos eles! Congelar!";
 	else if (.@ttemp == 2)
-		npctalk "(Expirando atravÃ©s de sua boca)";
+		npctalk "(Expirando através de sua boca)";
 	else if (.@ttemp == 3)
 		npctalk "...";
 	else if (.@ttemp == 4)
 		npctalk "...";
 	else
-		npctalk "O Guardian estÃ¡ assistindo. NÃ£o posso cometer erros.";
+		npctalk "O Guardian está assistindo. Não posso cometer erros.";
 	end;
 }
 
@@ -1170,9 +1170,9 @@ moro_vol,103,102,0	script	Laphine Magician#wsol02	4_F_MORAFINE1,{
 moro_vol,105,102,0	script	Laphine Magician#wsol03	4_M_FAIRYKID5,{
 	.@ttemp = rand(1,5);
 	if (.@ttemp == 1)
-		npctalk "Aqueles humanos atrÃ¡s de nÃ³s estÃ£o me incomodando.";
+		npctalk "Aqueles humanos atrás de nós estão me incomodando.";
 	else if (.@ttemp == 2)
-		npctalk "Eu nÃ£o deveria ter me voluntariado para vir aqui. Sinto falta do meu yai ...";
+		npctalk "Eu não deveria ter me voluntariado para vir aqui. Sinto falta do meu yai ...";
 	else if (.@ttemp == 3)
 		npctalk "...";
 	else if (.@ttemp == 4)
@@ -1187,7 +1187,7 @@ moro_vol,107,102,0	script	Laphine Magician#wsol04	4_F_FAIRYKID5,{
 	if (.@ttemp == 1)
 		npctalk "Estou nervoso.";
 	else if (.@ttemp == 2)
-		npctalk "Os safas nÃ£o sÃ£o inimigos ... os safas nÃ£o sÃ£o inimigos ... Argh, mas eu quero vencÃª -los sem sentido!";
+		npctalk "Os safas não são inimigos ... os safas não são inimigos ... Argh, mas eu quero vencê -los sem sentido!";
 	else if (.@ttemp == 3)
 		npctalk "...";
 	else if (.@ttemp == 4)
@@ -1202,7 +1202,7 @@ moro_vol,109,102,0	script	Laphine Magician#wsol05	4_M_FAIRYKID5,{
 	if (.@ttemp == 1)
 		npctalk "Estou tentando lembrar de disparar no momento em que vejo o inimigo.";
 	else if (.@ttemp == 2)
-		npctalk "Eu gosto de tensÃ£o-isso me mantÃ©m no limite. Heh heh.";
+		npctalk "Eu gosto de tensão-isso me mantém no limite. Heh heh.";
 	else if (.@ttemp == 3)
 		npctalk "...";
 	else if (.@ttemp == 4)
@@ -1217,23 +1217,23 @@ moro_vol,93,128,1	script	Combat Laphine#line01	4_M_FAIRYSOLDIER2,2,3,{
 	if (.@ttemp == 1)
 		npctalk "Sim, sim ~";
 	else if (.@ttemp == 2)
-		npctalk "AtenÃ§Ã£o!";
+		npctalk "Atenção!";
 	else if (.@ttemp == 3)
 		npctalk "*Bocejar*";
 	else if (.@ttemp == 4)
 		npctalk "Por favor, tenha cuidado.";
 	else
-		npctalk "Voltar-Ã© perigoso!";
+		npctalk "Voltar-é perigoso!";
 	end;
 
 OnTouch:	// prevent the player from triggering the text
 	end;
 OnTouchNPC:
 	.@hidden_name$ = strnpcinfo(2);
-	if (.@hidden_name$ == "Linha1")      kick_mob( "Inimigo Ã  vista!",2000 );
+	if (.@hidden_name$ == "Linha1")      kick_mob( "Inimigo à vista!",2000 );
 	else if (.@hidden_name$ == "Linha03") kick_mob( "G-Ger longe!",2000 );
-	else if (.@hidden_name$ == "Linha05") kick_mob( "NÃ£o se atreva!",2000 );
-	else if (.@hidden_name$ == "Linha07") kick_mob( "Inimigo Ã  vista!",2000 );
+	else if (.@hidden_name$ == "Linha05") kick_mob( "Não se atreva!",2000 );
+	else if (.@hidden_name$ == "Linha07") kick_mob( "Inimigo à vista!",2000 );
 	end;
 }
 
@@ -1249,9 +1249,9 @@ moro_vol,85,117,1	script	Combat Laphine#line11	4_F_FAIRYSOLDIER,2,2,{
 	if (.@ttemp == 1)
 		npctalk "Sim, sim ~";
 	else if (.@ttemp == 2)
-		npctalk "AtenÃ§Ã£o!";
+		npctalk "Atenção!";
 	else if (.@ttemp == 3)
-		npctalk "VocÃª estÃ¡ em uma zona de guerra. NÃ£o diminua sua guarda.";
+		npctalk "Você está em uma zona de guerra. Não diminua sua guarda.";
 	else if (.@ttemp == 4)
 		npctalk "Por favor, tenha cuidado.";
 	else
@@ -1262,11 +1262,11 @@ OnTouch:
 	end;
 OnTouchNPC:
 	.@hidden_name$ = strnpcinfo(2);
-	if (.@hidden_name$ == "Linha11")      kick_mob( "VocÃª chegou tÃ£o longe, hein?",2000 );
-	else if (.@hidden_name$ == "Linha13") kick_mob( "Inimigo Ã  vista!",2000 );
-	else if (.@hidden_name$ == "Linha15") kick_mob( "Vou limpar o chÃ£o com vocÃª!",2000 );
+	if (.@hidden_name$ == "Linha11")      kick_mob( "Você chegou tão longe, hein?",2000 );
+	else if (.@hidden_name$ == "Linha13") kick_mob( "Inimigo à vista!",2000 );
+	else if (.@hidden_name$ == "Linha15") kick_mob( "Vou limpar o chão com você!",2000 );
 	else if (.@hidden_name$ == "Linha17") kick_mob( "Yap-!",2000 );
-	else if (.@hidden_name$ == "Linha19") kick_mob( "Inimigo Ã  vista!",2000 );
+	else if (.@hidden_name$ == "Linha19") kick_mob( "Inimigo à vista!",2000 );
 	end;
 }
 
@@ -1280,11 +1280,11 @@ moro_vol,114,114,7	duplicate(Combat Laphine#line11)	Combat Laphine#line19	4_M_FA
 moro_vol,103,118,1	script	Combat Laphine#line16	4_F_FAIRYSOLDIER,{
 	.@ttemp = rand(1,5);
 	if (.@ttemp == 1)
-		npctalk "Ã‰ melhor que os safas nÃ£o nos flanquem.";
+		npctalk "É melhor que os safas não nos flanquem.";
 	else if (.@ttemp == 2)
-		npctalk "AtenÃ§Ã£o!";
+		npctalk "Atenção!";
 	else if (.@ttemp == 3)
-		npctalk "VocÃª estÃ¡ em uma zona de guerra. NÃ£o diminua sua guarda.";
+		npctalk "Você está em uma zona de guerra. Não diminua sua guarda.";
 	else if (.@ttemp == 4)
 		npctalk "Por favor, tenha cuidado.";
 	else
@@ -1296,15 +1296,15 @@ moro_vol,110,117,7	duplicate(Combat Laphine#line16)	Combat Laphine#line18	4_M_FA
 
 moro_vol,104,86,3	script	Ryoson#14304	4_M_ALCHE_A,{
 	mes "[Ro Village]";
-	mes "Claro que estou nervoso. VocÃª nÃ£o precisa me perguntar isso.";
-	mes "Por que o oficial administrativo me encarregou dos Cavaleiros estÃ¡ alÃ©m de mim.";
+	mes "Claro que estou nervoso. Você não precisa me perguntar isso.";
+	mes "Por que o oficial administrativo me encarregou dos Cavaleiros está além de mim.";
 	next;
 	mes "[Ro Village]";
-	mes "Eles nÃ£o sÃ£o cavaleiros em treinamento, nem mesmo aprendizes de cavaleiros. Eles estÃ£o enlouquecendo Rune Knights.";
+	mes "Eles não são cavaleiros em treinamento, nem mesmo aprendizes de cavaleiros. Eles estão enlouquecendo Rune Knights.";
 	mes "Ah, sou muito inexperiente e impotente para fazer qualquer coisa com eles.";
 	next;
 	mes "[Ro Village]";
-	mes "Pelo menos minha seguranÃ§a Ã© garantida enquanto os trÃªs cavaleiros estÃ£o comigo.";
+	mes "Pelo menos minha segurança é garantida enquanto os três cavaleiros estão comigo.";
 	mes "Espero.";
 	close;
 }
@@ -1329,26 +1329,26 @@ moro_vol,101,85,5	script	Rune-Midgarts Knight#mid02	4_M_KNIGHT_GOLD,{
 	if (.@ttemp == 1)
 		npctalk "Estou aqui para proteger pessoal importante.";
 	else if (.@ttemp == 2)
-		npctalk "Ryoson, nÃ£o entre em pÃ¢nico-o filme se espalha como um incÃªndio.";
+		npctalk "Ryoson, não entre em pânico-o filme se espalha como um incêndio.";
 	else if (.@ttemp == 3)
-		npctalk "Eu realmente espero poder cumprir minha missÃ£o.";
+		npctalk "Eu realmente espero poder cumprir minha missão.";
 	else if (.@ttemp == 4)
 		npctalk "Suspirar.";
 	else
-		npctalk "AtÃ© agora tudo bem.";
+		npctalk "Até agora tudo bem.";
 	end;
 }
 
 moro_vol,103,83,1	script	Rune-Midgarts Knight#mid03	4_M_KNIGHT_SILVER,{
 	.@ttemp = rand(1,5);
 	if (.@ttemp == 1)
-		npctalk "Ryoson, ninguÃ©m vai te morder. NÃ£o tenha tanto medo.";
+		npctalk "Ryoson, ninguém vai te morder. Não tenha tanto medo.";
 	else if (.@ttemp == 2)
-		npctalk "Lutar contra o deus demonÃ­aco Ã© como se o sonho molhado de todos os cavaleiros se tornasse realidade.";
+		npctalk "Lutar contra o deus demoníaco é como se o sonho molhado de todos os cavaleiros se tornasse realidade.";
 	else if (.@ttemp == 3)
 		npctalk "Hum...";
 	else if (.@ttemp == 4)
-		npctalk "A tensÃ£o no campo de batalha sempre me emociona.";
+		npctalk "A tensão no campo de batalha sempre me emociona.";
 	else
 		npctalk "...";
 	end;
@@ -1357,31 +1357,31 @@ moro_vol,103,83,1	script	Rune-Midgarts Knight#mid03	4_M_KNIGHT_SILVER,{
 moro_vol,110,83,3	script	Hugh#14305	4_M_LGTGUARD,{
 	mes "[Hugh]";
 	mes "Finalmente estamos aqui.";
-	mes "No comeÃ§o, eu nÃ£o podia acreditar em todos esses rumores sobre o esconderijo e a fortaleza do deus demÃ´nio.";
+	mes "No começo, eu não podia acreditar em todos esses rumores sobre o esconderijo e a fortaleza do deus demônio.";
 	next;
 	mes "[Hugh]";
-	mes "Como as coisas estÃ£o, nÃ£o tenho esperanÃ§a de voltar para o continente em breve.";
+	mes "Como as coisas estão, não tenho esperança de voltar para o continente em breve.";
 	next;
 	mes "[Hugh]";
 	mes "Puxa, estou cansado desses caras.";
-	mes "Ã‰ melhor encontrar o deus demonÃ­aco rapidamente.";
+	mes "É melhor encontrar o deus demoníaco rapidamente.";
 	next;
 	mes "[Hugh]";
 	mes "Eu pensei em perder?";
-	mes "Eu tenho, mas tento nÃ£o.";
+	mes "Eu tenho, mas tento não.";
 	mes "Eu nunca vou ganhar se me deixar acreditar que vou perder.";
 	next;
 	mes "[Hugh]";
-	mes "NÃ³s Schwarzwaldians nascemos para vencer.";
+	mes "Nós Schwarzwaldians nascemos para vencer.";
 	close;
 }
 
 moro_vol,108,81,7	script	Schwarzwald Elite#sch01	4_M_EIN_SOLDIER,{
 	.@ttemp = rand(1,5);
 	if (.@ttemp == 1)
-		npctalk "Para a glÃ³ria de Schwarzwald!";
+		npctalk "Para a glória de Schwarzwald!";
 	else if (.@ttemp == 2)
-		npctalk "Eu pensei que Einbroch tinha ar ruim, e este lugar nÃ£o Ã© melhor.";
+		npctalk "Eu pensei que Einbroch tinha ar ruim, e este lugar não é melhor.";
 	else if (.@ttemp == 3)
 		npctalk "...";
 	else if (.@ttemp == 4)
@@ -1394,7 +1394,7 @@ moro_vol,108,81,7	script	Schwarzwald Elite#sch01	4_M_EIN_SOLDIER,{
 moro_vol,111,80,1	script	Schwarzwald Elite#sch02	4_M_EIN_SOLDIER,{
 	.@ttemp = rand(1,5);
 	if (.@ttemp == 1)
-		npctalk "Para a glÃ³ria de Schwarzwald!";
+		npctalk "Para a glória de Schwarzwald!";
 	else if (.@ttemp == 2)
 		npctalk "Para Midgard!";
 	else if (.@ttemp == 3)
@@ -1411,11 +1411,11 @@ moro_vol,113,81,3	script	Schwarzwald Elite#sch03	4_M_EIN_SOLDIER,{
 	if (.@ttemp == 1)
 		npctalk "Suspirar.";
 	else if (.@ttemp == 2)
-		npctalk "Qual vocÃª prefere: lutar contra o deus demÃ´nio ou assistir em Einbroch?";
+		npctalk "Qual você prefere: lutar contra o deus demônio ou assistir em Einbroch?";
 	else if (.@ttemp == 3)
-		npctalk "Meus olhos estÃ£o de repente enevoados ... Ã© melhor que eu chame ... *inspire *";
+		npctalk "Meus olhos estão de repente enevoados ... é melhor que eu chame ... *inspire *";
 	else if (.@ttemp == 4)
-		npctalk "NÃ³s vamos ganhar, no entanto.";
+		npctalk "Nós vamos ganhar, no entanto.";
 	else
 		npctalk "Eu gostaria de ter treinado mais.";
 	end;
@@ -1424,8 +1424,8 @@ moro_vol,113,81,3	script	Schwarzwald Elite#sch03	4_M_EIN_SOLDIER,{
 
 moro_vol,118,86,5	script	Henjinne#14306	4_M_RACHMAN1,{
 	mes "[Henjinne]";
-	mes "Este lugar Ã© muito mais emocionante do que eu imaginava!";
-	mes "Onde estÃ¡ o deus demonÃ­aco, afinal?";
+	mes "Este lugar é muito mais emocionante do que eu imaginava!";
+	mes "Onde está o deus demoníaco, afinal?";
 	next;
 	mes "[Henjinne]";
 	mes "Nem se esconder nem cabelos dele devem ser vistos.";
@@ -1436,13 +1436,13 @@ moro_vol,118,86,5	script	Henjinne#14306	4_M_RACHMAN1,{
 moro_vol,116,84,7	script	Arunafeltz Crusader#aru01	4_M_TRAINEE,{
 	.@ttemp = rand(1,5);
 	if (.@ttemp == 1)
-		npctalk "Tudo Ã© a vontade dela.";
+		npctalk "Tudo é a vontade dela.";
 	else if (.@ttemp == 2)
 		npctalk "Tendo que coexistir com heregs ...";
 	else if (.@ttemp == 3)
-		npctalk "Eu nunca vi tantos grupos diferentes de hereges se reunindo em um sÃ³ lugar.";
+		npctalk "Eu nunca vi tantos grupos diferentes de hereges se reunindo em um só lugar.";
 	else if (.@ttemp == 4)
-		npctalk "Que a deusa te abenÃ§oe.";
+		npctalk "Que a deusa te abençoe.";
 	else
 		npctalk "...";
 	end;
@@ -1451,13 +1451,13 @@ moro_vol,116,84,7	script	Arunafeltz Crusader#aru01	4_M_TRAINEE,{
 moro_vol,118,83,7	script	Arunafeltz Crusader#aru02	4_F_MASK,{
 	.@ttemp = rand(1,5);
 	if (.@ttemp == 1)
-		npctalk "Tudo Ã© a vontade dela.";
+		npctalk "Tudo é a vontade dela.";
 	else if (.@ttemp == 2)
 		npctalk "Tendo que coexistir com heregs ...";
 	else if (.@ttemp == 3)
-		npctalk "Eu nunca vi tantos grupos diferentes de hereges se reunindo em um sÃ³ lugar.";
+		npctalk "Eu nunca vi tantos grupos diferentes de hereges se reunindo em um só lugar.";
 	else if (.@ttemp == 4)
-		npctalk "Que a deusa te abenÃ§oe.";
+		npctalk "Que a deusa te abençoe.";
 	else
 		npctalk "...";
 	end;
@@ -1466,11 +1466,11 @@ moro_vol,118,83,7	script	Arunafeltz Crusader#aru02	4_F_MASK,{
 moro_vol,121,84,1	script	Arunafeltz Crusader#aru03	4_F_TRAINEE,{
 	.@ttemp = rand(1,5);
 	if (.@ttemp == 1)
-		npctalk "Deusa estÃ¡ nos vigiando.";
+		npctalk "Deusa está nos vigiando.";
 	else if (.@ttemp == 2)
-		npctalk "Que a deusa te abenÃ§oe.";
+		npctalk "Que a deusa te abençoe.";
 	else if (.@ttemp == 3)
-		npctalk "Tudo Ã© a vontade dela.";
+		npctalk "Tudo é a vontade dela.";
 	else if (.@ttemp == 4)
 		npctalk "Tendo que coexistir com heregs ...";
 	else
@@ -1480,15 +1480,15 @@ moro_vol,121,84,1	script	Arunafeltz Crusader#aru03	4_F_TRAINEE,{
 
 moro_vol,119,106,3	script	Instructor Jakken#h_sol01	4_M_YOUNGKNIGHT,3,3,{
 	mes "[Instrutor Jakken]";
-	mes "Quando me ofereci para a expediÃ§Ã£o de cinzas-bakum, eu sabia que esse dia chegaria.";
+	mes "Quando me ofereci para a expedição de cinzas-bakum, eu sabia que esse dia chegaria.";
 	next;
 	mes "[Instrutor Jakken]";
 	mes "Estou pronto.";
-	mes "Vou lutar atÃ© a morte pela paz do continente Midgard.";
+	mes "Vou lutar até a morte pela paz do continente Midgard.";
 	next;
 	mes "[Instrutor Jakken]";
 	mes "Mas estou nervoso da mesma forma.";
-	mes "Eu realmente preciso trabalhar no meu controle emocional. NÃ£o quero assustar ninguÃ©m.";
+	mes "Eu realmente preciso trabalhar no meu controle emocional. Não quero assustar ninguém.";
 	close;
 
 OnTouch:
@@ -1503,11 +1503,11 @@ OnEventOn:
 	.is_enabled = 1;
 	enablenpc "#soltalk02";
 	sleep 3000;
-	npctalk "Jakken: Soldados, somos de diferentes paÃ­ses, mas nos reunimos aqui para um gol!", "Instructor Jakken#h_sol01";
+	npctalk "Jakken: Soldados, somos de diferentes países, mas nos reunimos aqui para um gol!", "Instructor Jakken#h_sol01";
 	sleep 3000;
-	npctalk "Jakken: Vamos mostrar ao inimigo o poder de nossa uniÃ£o!", "Instructor Jakken#h_sol01";
+	npctalk "Jakken: Vamos mostrar ao inimigo o poder de nossa união!", "Instructor Jakken#h_sol01";
 	sleep 2000;
-	npctalk "Jakken: Comece sua marcha para a glÃ³ria!", "Instructor Jakken#h_sol01";
+	npctalk "Jakken: Comece sua marcha para a glória!", "Instructor Jakken#h_sol01";
 	sleep 1500;
 	npctalk "E amanhecer ~", "Midgard Alliance Soldier#h_sol02";
 	npctalk "Eu tive um sonho ~", "Midgard Alliance Soldier#h_sol03";
@@ -1519,23 +1519,23 @@ OnEventOn:
 	sleep 3000;
 	npctalk "Estou pronto ~", "Midgard Alliance Soldier#h_sol08";
 	npctalk "Eu uso minha espada ~", "Midgard Alliance Soldier#h_sol09";
-	npctalk "Saia sob o sol da manhÃ£ ~", "Midgard Alliance Soldier#h_sol10";
+	npctalk "Saia sob o sol da manhã ~", "Midgard Alliance Soldier#h_sol10";
 	sleep 3000;
 	npctalk "Eu olho para cima ~", "Midgard Alliance Soldier#h_sol11";
 	npctalk "Eu olho para cima ~", "Midgard Alliance Soldier#h_sol12";
 	npctalk "Aguarde ~", "Midgard Alliance Soldier#h_sol13";
 	sleep 3000;
-	npctalk "A Ã¡gua Ã© pura ~", "Midgard Alliance Soldier#h_sol02";
-	npctalk "As montanhas sÃ£o verdes ~", "Midgard Alliance Soldier#h_sol03";
+	npctalk "A água é pura ~", "Midgard Alliance Soldier#h_sol02";
+	npctalk "As montanhas são verdes ~", "Midgard Alliance Soldier#h_sol03";
 	npctalk "Para minha casa ~", "Midgard Alliance Soldier#h_sol04";
 	sleep 3000;
-	npctalk "Eu nÃ£o vou parar ~", "Midgard Alliance Soldier#h_sol05";
-	npctalk "AtÃ© eu derrotar", "Midgard Alliance Soldier#h_sol06";
-	npctalk "O deus demonÃ­aco!", "Midgard Alliance Soldier#h_sol07";
+	npctalk "Eu não vou parar ~", "Midgard Alliance Soldier#h_sol05";
+	npctalk "Até eu derrotar", "Midgard Alliance Soldier#h_sol06";
+	npctalk "O deus demoníaco!", "Midgard Alliance Soldier#h_sol07";
 	sleep 3000;
-	npctalk "Eu nÃ£o vou parar ~", "Midgard Alliance Soldier#h_sol08";
-	npctalk "AtÃ© eu derrotar", "Midgard Alliance Soldier#h_sol09";
-	npctalk "O deus demonÃ­aco!", "Midgard Alliance Soldier#h_sol10";
+	npctalk "Eu não vou parar ~", "Midgard Alliance Soldier#h_sol08";
+	npctalk "Até eu derrotar", "Midgard Alliance Soldier#h_sol09";
+	npctalk "O deus demoníaco!", "Midgard Alliance Soldier#h_sol10";
 	sleep 3000;
 	npctalk "Waaaah-!", "Midgard Alliance Soldier#h_sol11";
 	npctalk "Haaaaah-!", "Midgard Alliance Soldier#h_sol12";
@@ -1564,43 +1564,43 @@ moro_vol,121,100,1	duplicate(Combat Laphine#sol01)	Midgard Alliance Soldier#h_so
 moro_vol,121,98,1	duplicate(Combat Laphine#sol01)	Midgard Alliance Soldier#h_sol13	4_DST_SOLDIER
 
 moro_vol,105,97,3	script	Expedition Assassin#ass01	4_M_ACROSS,{
-	mes "[Assassino da expediÃ§Ã£o]";
-	mes "Uma nova missÃ£o serÃ¡ anunciada em breve.";
-	mes "Nosso objetivo Ã© localizar o deus demÃ´nio.";
+	mes "[Assassino da expedição]";
+	mes "Uma nova missão será anunciada em breve.";
+	mes "Nosso objetivo é localizar o deus demônio.";
 	next;
-	mes "[Assassino da expediÃ§Ã£o]";
-	mes "Deixe -me verificar a Intel que nossos antecessores deixaram para nÃ³s.";
+	mes "[Assassino da expedição]";
+	mes "Deixe -me verificar a Intel que nossos antecessores deixaram para nós.";
 	next;
-	mes "[Assassino da expediÃ§Ã£o]";
+	mes "[Assassino da expedição]";
 	mes "...";
-	mes "Ã‰ rude espionar os outros, mesmo que sejam seus colegas.";
+	mes "É rude espionar os outros, mesmo que sejam seus colegas.";
 	close;
 }
 
 moro_vol,103,96,5	script	Expedition Assassin#ass02	4_F_ACROSS,{
-	mes "[Assassino da expediÃ§Ã£o]";
-	mes "Esta Ã¡rea ... bem,";
+	mes "[Assassino da expedição]";
+	mes "Esta área ... bem,";
 	mes "Vou verificar mais tarde.";
 	next;
-	mes "[Assassino da expediÃ§Ã£o]";
+	mes "[Assassino da expedição]";
 	mes "Suspirar.";
-	mes "VocÃª nÃ£o vÃª que estamos tendo uma reuniÃ£o? Por favor, saia.";
+	mes "Você não vê que estamos tendo uma reunião? Por favor, saia.";
 	close;
 }
 
 moro_vol,105,95,1	script	Expedition Assassin#ass03	4_TOWER_15,{
-	mes "[Assassino da expediÃ§Ã£o]";
+	mes "[Assassino da expedição]";
 	mes "...";
 	mes "Bem, estou no fundo da cadeia alimentar.";
 	mes "Eu apenas assisto o que meus idosos fazem.";
-	mes "Isso Ã© tudo.";
+	mes "Isso é tudo.";
 	close;
 }
 
 moro_vol,114,128,1	script	Continental Guard#line01	4_M_MOCASS1,2,2,{
 	.@ttemp = rand(1,3);
 	if (.@ttemp == 1)
-		npctalk "Ã‰ perigoso apÃ³s esse ponto. Por favor, volte.";
+		npctalk "É perigoso após esse ponto. Por favor, volte.";
 	else if (.@ttemp == 2)
 		npctalk "Tudo claro.";
 	else
@@ -1610,7 +1610,7 @@ moro_vol,114,128,1	script	Continental Guard#line01	4_M_MOCASS1,2,2,{
 OnTouch:
 	end;
 OnTouchNPC:
-	kick_mob( "NÃ£o se atreva!",1000 );
+	kick_mob( "Não se atreva!",1000 );
 	end;
 }
 
@@ -1622,17 +1622,17 @@ moro_vol,127,127,7	duplicate(Continental Guard#line01)	Continental Guard#line05	
 moro_vol,135,123,1	script	Midgard Alliance Soldier#line21	4_M_MONK,2,2,{
 	.@ttemp = rand(1,3);
 	if (.@ttemp == 1)
-		npctalk "Esses continentais sÃ£o bons lutadores.";
+		npctalk "Esses continentais são bons lutadores.";
 	else if (.@ttemp == 2)
-		npctalk "Aqueles arunafeltz knuckleheads, por que eles nÃ£o se apresentam?";
+		npctalk "Aqueles arunafeltz knuckleheads, por que eles não se apresentam?";
 	else
-		npctalk "Eu posso derrubar qualquer um de vocÃªs!";
+		npctalk "Eu posso derrubar qualquer um de vocês!";
 	end;
 
 OnTouch:
 	end;
 OnTouchNPC:
-	kick_mob( "NÃ£o se atreva!",1000 );
+	kick_mob( "Não se atreva!",1000 );
 	end;
 }
 
@@ -1643,16 +1643,16 @@ moro_vol,139,124,1	script	Midgard Alliance Soldier#line22	4_F_CRU,{
 	else if (.@ttemp == 2)
 		npctalk "Por favor, tenha cuidado.";
 	else
-		npctalk "Eles nÃ£o param de vir.";
+		npctalk "Eles não param de vir.";
 	end;
 }
 
 moro_vol,143,124,1	script	Midgard Alliance Soldier#line23	4_M_JOB_WIZARD,{
 	.@ttemp = rand(1,3);
 	if (.@ttemp == 1)
-		npctalk "Os GuardiÃµes estÃ£o facilitando as coisas, mas ...";
+		npctalk "Os Guardiões estão facilitando as coisas, mas ...";
 	else if (.@ttemp == 2)
-		npctalk "Solte para trÃ¡s.";
+		npctalk "Solte para trás.";
 	else
 		npctalk "Suspirar...";
 	end;
@@ -1671,27 +1671,27 @@ moro_vol,147,124,7	script	Midgard Alliance Soldier#line24	4_M_MOC_SOLDIER,2,2,{
 OnTouch:
 	end;
 OnTouchNPC:
-	kick_mob( "Inimigo Ã  vista!",1000 );
+	kick_mob( "Inimigo à vista!",1000 );
 	end;
 }
 
 moro_vol,150,121,7	script	Midgard Alliance Soldier#line25	4_M_MOC_SOLDIER,{
 	.@ttemp = rand(1,3);
 	if (.@ttemp == 1)
-		npctalk "OS-onde Ã© o prÃ³ximo alÃ­vio?!";
+		npctalk "OS-onde é o próximo alívio?!";
 	else if (.@ttemp == 2)
-		npctalk "Por que somos os Ãºnicos na linha de frente?";
+		npctalk "Por que somos os únicos na linha de frente?";
 	else
-		npctalk "D-Don nÃ£o chega mais perto!";
+		npctalk "D-Don não chega mais perto!";
 	end;
 }
 
 moro_vol,151,119,7	script	Midgard Alliance Soldier#line26	4_M_EIN_SOLDIER,{
 	.@ttemp = rand(1,3);
 	if (.@ttemp == 1)
-		npctalk "Pare de agir como um herÃ³i e volte!";
+		npctalk "Pare de agir como um herói e volte!";
 	else if (.@ttemp == 2)
-		npctalk "Estou sempre em guarda de guarda onde quer que eu vÃ¡.";
+		npctalk "Estou sempre em guarda de guarda onde quer que eu vá.";
 	else
 		npctalk "Eu posso passar a noite. Devo.";
 	end;
@@ -1702,7 +1702,7 @@ moro_vol,153,116,7	script	Midgard Alliance Soldier#line27	4_M_EIN_SOLDIER,2,2,{
 	if (.@ttemp == 1)
 		npctalk "...";
 	else if (.@ttemp == 2)
-		npctalk "Eles nÃ£o param de vir.";
+		npctalk "Eles não param de vir.";
 	else
 		npctalk "Por favor, tenha cuidado.";
 	end;
@@ -1721,7 +1721,7 @@ moro_vol,118,115,1	script	Midgard Alliance Soldier#line31	4_M_JOB_WIZARD,2,2,{
 	else if (.@ttemp == 2)
 		npctalk "Estou cansado de ouvi -los gritando hereges.";
 	else
-		npctalk "Ugh, como eu me entrei nessa bagunÃ§a?";
+		npctalk "Ugh, como eu me entrei nessa bagunça?";
 	end;
 
 OnTouch:
@@ -1736,7 +1736,7 @@ moro_vol,121,115,1	script	Midgard Alliance Soldier#line32	4_M_EIN_SOLDIER,{
 	if (.@ttemp == 1)
 		npctalk "...Alto.";
 	else if (.@ttemp == 2)
-		npctalk "As linhas de frente sÃ£o mais perigosas.";
+		npctalk "As linhas de frente são mais perigosas.";
 	else
 		npctalk "Suspirar...";
 	end;
@@ -1749,7 +1749,7 @@ moro_vol,124,116,1	script	Midgard Alliance Soldier#line33	4_M_EIN_SOLDIER,2,2,{
 	else if (.@ttemp == 2)
 		npctalk "Vou proteger esta linha de defesa.";
 	else
-		npctalk "AtenÃ§Ã£o!";
+		npctalk "Atenção!";
 	end;
 
 OnTouch:
@@ -1762,9 +1762,9 @@ OnTouchNPC:
 moro_vol,128,116,1	script	Midgard Alliance Soldier#line34	4_M_EIN_SOLDIER,{
 	.@ttemp = rand(1,3);
 	if (.@ttemp == 1)
-		npctalk "Eu nÃ£o estava cochilando!";
+		npctalk "Eu não estava cochilando!";
 	else if (.@ttemp == 2)
-		npctalk "... Sim, sim ... tudo estÃ¡ claro, senhor!";
+		npctalk "... Sim, sim ... tudo está claro, senhor!";
 	else
 		npctalk "Sim, sim, claro.";
 	end;
@@ -1773,22 +1773,22 @@ moro_vol,128,116,1	script	Midgard Alliance Soldier#line34	4_M_EIN_SOLDIER,{
 moro_vol,131,115,7	script	Midgard Alliance Soldier#line35	4_M_RASWORD,{
 	.@ttemp = rand(1,3);
 	if (.@ttemp == 1)
-		npctalk "NÃ£o acredito que estou lutando ao lado dos hereges.";
+		npctalk "Não acredito que estou lutando ao lado dos hereges.";
 	else if (.@ttemp == 2)
 		npctalk "...";
 	else
-		npctalk "Que a deusa te abenÃ§oe.";
+		npctalk "Que a deusa te abençoe.";
 	end;
 }
 
 moro_vol,133,113,7	script	Midgard Alliance Soldier#line36	4_DST_SOLDIER,{
 	.@ttemp = rand(1,3);
 	if (.@ttemp == 1)
-		npctalk "* Bocejo* Onde estÃ¡ o prÃ³ximo alÃ­vio?";
+		npctalk "* Bocejo* Onde está o próximo alívio?";
 	else if (.@ttemp == 2)
-		npctalk "Ei, pare de Loiting. VocÃª vai se matar.";
+		npctalk "Ei, pare de Loiting. Você vai se matar.";
 	else
-		npctalk "... isso Ã© cansativo.";
+		npctalk "... isso é cansativo.";
 	end;
 }
 
@@ -1797,7 +1797,7 @@ moro_vol,136,111,7	script	Midgard Alliance Soldier#line37	4_M_RASWORD,2,2,{
 	if (.@ttemp == 1)
 		npctalk "Por favor, volte.";
 	else if (.@ttemp == 2)
-		npctalk "Nossa linha de defesa estÃ¡ intacta.";
+		npctalk "Nossa linha de defesa está intacta.";
 	else
 		npctalk "Por favor, tenha cuidado.";
 	end;
@@ -1805,16 +1805,16 @@ moro_vol,136,111,7	script	Midgard Alliance Soldier#line37	4_M_RASWORD,2,2,{
 OnTouch:
 	end;
 OnTouchNPC:
-	kick_mob( "Inimigo Ã  vista!",1000 );
+	kick_mob( "Inimigo à vista!",1000 );
 	end;
 }
 
 moro_vol,138,108,7	script	Midgard Alliance Soldier#line38	4_DST_SOLDIER,{
 	.@ttemp = rand(1,3);
 	if (.@ttemp == 1)
-		npctalk "Que a deusa te abenÃ§oe.";
+		npctalk "Que a deusa te abençoe.";
 	else if (.@ttemp == 2)
-		npctalk "Mantenha seus olhos para a frente! Tudo estÃ¡ claro!";
+		npctalk "Mantenha seus olhos para a frente! Tudo está claro!";
 	else
 		npctalk "Tudo claro!";
 	end;
@@ -1822,11 +1822,11 @@ moro_vol,138,108,7	script	Midgard Alliance Soldier#line38	4_DST_SOLDIER,{
 
 moro_vol,134,83,5	script	Jeruth Vehanus#ep143	4_MAN_JERUTOO,{
 	mes "[Vehicane]";
-	mes "VocÃª veio aqui tambÃ©m.";
-	mes "VocÃª pode se comunicar comigo sem o anel, eu vejo.";
+	mes "Você veio aqui também.";
+	mes "Você pode se comunicar comigo sem o anel, eu vejo.";
 	next;
 	mes "[Vehicane]";
-	mes "Agora eu me pergunto o quÃ£o longe a graÃ§a de Bifrost chega.";
+	mes "Agora eu me pergunto o quão longe a graça de Bifrost chega.";
 	mes "Talvez eu deva aproveitar esta oportunidade para conhecer os Laphines.";
 	next;
 	mes "[Vehicane]";
@@ -1834,7 +1834,7 @@ moro_vol,134,83,5	script	Jeruth Vehanus#ep143	4_MAN_JERUTOO,{
 	mes "Ele veio ao campo de batalha, disposto a se aliar com nossos laphines inimigos.";
 	next;
 	mes "[Vehicane]";
-	mes "Eu realmente espero que nÃ£o tenhamos que lutar contra Laphines aqui.";
+	mes "Eu realmente espero que não tenhamos que lutar contra Laphines aqui.";
 	close;
 }
 
@@ -1844,26 +1844,26 @@ moro_vol,138,84,3	script	Adjutant Tiera#ep143	4_MAN_NITT,{
 	next;
 	mes "[Apertado]";
 	mes "Mas estou completamente com ele nisso.";
-	mes "Nossos inimigos sÃ£o nossos amigos diante de um inimigo comum: Deus demonÃ­aco.";
+	mes "Nossos inimigos são nossos amigos diante de um inimigo comum: Deus demoníaco.";
 	next;
 	mes "[Apertado]";
-	mes "Podemos ser covardes e deixar que outros lutem por nÃ³s, com certeza,";
-	mes "Mas e se eles perderem? Vamos descer com eles, e isso estarÃ¡ por nÃ³s.";
+	mes "Podemos ser covardes e deixar que outros lutem por nós, com certeza,";
+	mes "Mas e se eles perderem? Vamos descer com eles, e isso estará por nós.";
 	next;
 	mes "[Apertado]";
-	mes "O mesmo vale para vocÃª, humanos.";
+	mes "O mesmo vale para você, humanos.";
 	mes "Lutamos por essa luta para vencer.";
 	close;
 }
 
 moro_vol,134,87,1	script	Advance Captain Avaranc#ep143	4_MAN_GALTUN,{
 	mes "[Terra]";
-	mes "Minha unidade consiste no melhor dos melhores garÃµes.";
+	mes "Minha unidade consiste no melhor dos melhores garões.";
 	mes "Guerreiro humano,";
 	mes "Esperei por este dia para lutar ao seu lado.";
 	next;
 	mes "[Terra]";
-	mes "Juro pela minha vida que nÃ£o vou parar de lutar atÃ© que o deus demonÃ­aco seja derrotado!";
+	mes "Juro pela minha vida que não vou parar de lutar até que o deus demoníaco seja derrotado!";
 	close;
 }
 
@@ -1873,15 +1873,15 @@ moro_vol,131,86,1	script	Dicastes Garten#gal01	4_MAN_GALTUN1,{
 	mes "Quando?";
 	next;
 	mes "[Dicastes Garden]";
-	mes "NÃ£o acredito que tenho que lutar ao lado daquelas amaldiÃ§oadas laphines.";
-	mes "Ainda me lembro do que eles fizeram conosco na Ãºltima batalha.";
+	mes "Não acredito que tenho que lutar ao lado daquelas amaldiçoadas laphines.";
+	mes "Ainda me lembro do que eles fizeram conosco na última batalha.";
 	close;
 }
 
 moro_vol,138,87,7	script	Dicastes Garten#gal02	4_MAN_GALTUN1,{
 	mes "[Dicastes Garden]";
-	mes "Meu dever Ã© proteger Jeruth Hesranta.";
-	mes "Ã‰ melhor vocÃª dar um passo atrÃ¡s,";
+	mes "Meu dever é proteger Jeruth Hesranta.";
+	mes "É melhor você dar um passo atrás,";
 	mes "Ou eu vou te considerar meu inimigo.";
 	close;
 }
@@ -1913,7 +1913,7 @@ moro_vol,139,104,1	script	Manuk Defender#line01	4_MAN_GALTUN1,{
 OnTouch:
 	end;
 OnTouchNPC:
-	kick_mob( "Inimigo Ã  vista!",1000 );
+	kick_mob( "Inimigo à vista!",1000 );
 	end;
 }
 
@@ -1922,7 +1922,7 @@ moro_vol,143,106,1	duplicate(Manuk Defender#line01)	Manuk Defender#line02	4_MAN_
 moro_vol,147,108,1	script	Manuk Defender#line03	4_MAN_GALTUN1,{
 	.@ttemp = rand(1,3);
 	if (.@ttemp == 1)
-		npctalk "VocÃª ouve alguns insetos zumbindo?";
+		npctalk "Você ouve alguns insetos zumbindo?";
 	else if (.@ttemp == 2)
 		npctalk "Tudo claro.";
 	else
@@ -1943,14 +1943,14 @@ moro_vol,152,109,1	script	Manuk Defender#line04	4_MAN_GALTUN1,2,2,{
 OnTouch:
 	end;
 OnTouchNPC:
-	kick_mob( "NÃ£o Ã© uma chance!",1000 );
+	kick_mob( "Não é uma chance!",1000 );
 	end;
 }
 
 moro_vol,156,110,1	script	Manuk Defender#line05	4_MAN_GALTUN1,{
 	.@ttemp = rand(1,3);
 	if (.@ttemp == 1)
-		npctalk "NÃ£o nos compare com aqueles idiotas alados!";
+		npctalk "Não nos compare com aqueles idiotas alados!";
 	else if (.@ttemp == 2)
 		npctalk "Tudo claro.";
 	else
@@ -1999,7 +1999,7 @@ moro_vol,167,107,7	script	Manuk Defender#line08	4_MAN_GALTUN1,2,2,{
 OnTouch:
 	end;
 OnTouchNPC:
-	kick_mob( "VocÃª Ã© um inimigo?",1000 );
+	kick_mob( "Você é um inimigo?",1000 );
 	end;
 }
 
@@ -2027,7 +2027,7 @@ moro_vol,171,100,5	script	Manuk Defender#line10	4_MAN_GALTUN1,2,2,{
 OnTouch:
 	end;
 OnTouchNPC:
-	kick_mob( "NÃ£o nos subestime!",1000 );
+	kick_mob( "Não nos subestime!",1000 );
 	end;
 }
 
@@ -2055,7 +2055,7 @@ moro_vol,173,89,5	script	Manuk Defender#line12	4_MAN_GALTUN1,2,2,{
 OnTouch:
 	end;
 OnTouchNPC:
-	kick_mob( "NÃ£o Ã© uma chance!",1000 );
+	kick_mob( "Não é uma chance!",1000 );
 	end;
 }
 
@@ -2063,27 +2063,27 @@ OnTouchNPC:
 // Dimensional Travel Quest
 morocc,138,238,4	script	Piled Rags#ep14bs	4_M_DIEMAN,{
 	if (BaseLevel < 140) {
-		mes "- HÃ¡ uma pilha de trapos sujos. -";
+		mes "- Há uma pilha de trapos sujos. -";
 		close;
 	}
 	if (checkweight(1119,3) == 0) {
-		mes "- VocÃª estÃ¡ carregando muitos itens para prosseguir com a missÃ£o. -";
+		mes "- Você está carregando muitos itens para prosseguir com a missão. -";
 		close;
 	}
 	if (ep14_3_newerabs == 0) {
-		mes "- HÃ¡ uma pilha de trapos sujos. -";
+		mes "- Há uma pilha de trapos sujos. -";
 		next;
 		if (select( "Deixe.", "Remova." ) == 1) {
-			mes "- VocÃª deixou a pilha de trapos sujos onde estÃ¡. -";
+			mes "- Você deixou a pilha de trapos sujos onde está. -";
 			close;
 		}
 		mes "[???]";
 		mes "Eca...";
 		next;
-		mes "- Um gemido Ã© ouvido embaixo da pilha de trapos. -";
+		mes "- Um gemido é ouvido embaixo da pilha de trapos. -";
 		next;
 		if (select( "Correr.", "Agite os trapos." ) == 1) {
-			mes "- Assustado, vocÃª correu. -";
+			mes "- Assustado, você correu. -";
 			close;
 		}
 		mes "[" + strcharinfo(0) + "]";
@@ -2094,15 +2094,15 @@ morocc,138,238,4	script	Piled Rags#ep14bs	4_M_DIEMAN,{
 		mes "Eca...";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "VocÃª estÃ¡ bem?";
+		mes "Você está bem?";
 		next;
 		mes "[???]";
 		mes "Eca...";
-		mes "Eu n-necessÃ¡ria comida ...";
-		mes "Eu poderia atÃ© comer ^0000ffmonster's Feed ^000000. Por favor...";
+		mes "Eu n-necessária comida ...";
+		mes "Eu poderia até comer ^0000ffmonster's Feed ^000000. Por favor...";
 		next;
-		mes "- Mais uma vez, ele perdeu a consciÃªncia, exausta apenas por falar.";
-		mes "VocÃª deve alimentÃ¡ -lo ^0000ffmonster feed ^000000. -";
+		mes "- Mais uma vez, ele perdeu a consciência, exausta apenas por falar.";
+		mes "Você deve alimentá -lo ^0000ffmonster feed ^000000. -";
 		setquest 11349;// Dimensional Travel
 		ep14_3_newerabs = 1;
 		close;
@@ -2110,14 +2110,14 @@ morocc,138,238,4	script	Piled Rags#ep14bs	4_M_DIEMAN,{
 	if (ep14_3_newerabs < 5) {
 		if (ep14_3_newerabs == 1) {
 			if (countitem(528) < 1) {
-				mes "- Mais uma vez, ele perdeu a consciÃªncia, exausta apenas por falar.";
-				mes "VocÃª deve alimentÃ¡ -lo ^0000ffmonster feed ^000000. -";
+				mes "- Mais uma vez, ele perdeu a consciência, exausta apenas por falar.";
+				mes "Você deve alimentá -lo ^0000ffmonster feed ^000000. -";
 				close;
 			}
 			mes "[???]";
 			mes "Eca...";
 			next;
-			if (select( "Deixe.", "DÃª um feed de monstro." ) == 1) {
+			if (select( "Deixe.", "Dê um feed de monstro." ) == 1) {
 				mes "[???]";
 				mes "Ugh ... h-help ...";
 				close;
@@ -2141,7 +2141,7 @@ morocc,138,238,4	script	Piled Rags#ep14bs	4_M_DIEMAN,{
 		}
 		if (ep14_3_newerabs == 2) {
 			mes "[" + strcharinfo(0) + "]";
-			mes "VocÃª estÃ¡ bem?";
+			mes "Você está bem?";
 			next;
 			mes "[???]";
 			mes "* Retch* Oh, sim, obrigado.";
@@ -2152,13 +2152,13 @@ morocc,138,238,4	script	Piled Rags#ep14bs	4_M_DIEMAN,{
 			mes "Eu pensei que ia morrer. Tenho sorte de estar vivo.";
 			next;
 			mes "[???]";
-			mes "Ultimamente, tenho nÃ£o tenho nada alÃ©m de azar.";
+			mes "Ultimamente, tenho não tenho nada além de azar.";
 			next;
 			mes "[???]";
-			mes "Fui sugado para um lugar estranho, separado do resto da minha festa. O lugar que cheguei foi terrÃ­vel. NÃ£o havia sinal de habitaÃ§Ã£o humana.";
+			mes "Fui sugado para um lugar estranho, separado do resto da minha festa. O lugar que cheguei foi terrível. Não havia sinal de habitação humana.";
 			next;
 			mes "[???]";
-			mes "Ã‰ um milagre que estou aqui.";
+			mes "É um milagre que estou aqui.";
 			next;
 			mes "[???]";
 			mes "Eu tive sorte.";
@@ -2167,37 +2167,37 @@ morocc,138,238,4	script	Piled Rags#ep14bs	4_M_DIEMAN,{
 			next;
 			mes "[???]";
 			mes "Oh!";
-			mes "Onde estÃ£o minhas maneiras? Esqueci de agradecer corretamente.";
+			mes "Onde estão minhas maneiras? Esqueci de agradecer corretamente.";
 			next;
 			mes "[???]";
 			mes "Obrigado";
-			mes "por me alimentar, embora o feed tenha um sabor horrÃ­vel.";
+			mes "por me alimentar, embora o feed tenha um sabor horrível.";
 			next;
 			mes "[???]";
-			mes "Estou feliz por nÃ£o ter morrido na rua. O mundo ainda Ã© um lugar bonito.";
+			mes "Estou feliz por não ter morrido na rua. O mundo ainda é um lugar bonito.";
 			mes "Estou comovido.";
 			next;
 			mes "[Tamarindo]";
-			mes "Meu nome Ã© ^0000fftamarin ^000000.";
-			mes "Sou um aventureiro, e nÃ£o, este nÃ£o Ã© o meu traje preferido.";
+			mes "Meu nome é ^0000fftamarin ^000000.";
+			mes "Sou um aventureiro, e não, este não é o meu traje preferido.";
 			next;
 			select("Apresente -se.");
 			mes "[Tamarindo]";
-			mes "" + strcharinfo(0) + ", huh? Esse Ã© um bom nome.";
+			mes "" + strcharinfo(0) + ", huh? Esse é um bom nome.";
 			next;
 		}
 		if (ep14_3_newerabs <= 3) {
 			mes "[Tamarindo]";
 			mes "De,";
-			mes "Ã‰ melhor eu fazer algo antes que as pessoas comecem a perguntar se eu sou um sem -teto.";
+			mes "É melhor eu fazer algo antes que as pessoas comecem a perguntar se eu sou um sem -teto.";
 			cutin "ep143_tadir.bmp",2;
 			next;
 			mes "[Tamarindo]";
-			mes "VocÃª conhece um lugar onde eu posso me lavar?";
+			mes "Você conhece um lugar onde eu posso me lavar?";
 			next;
-			if (select( "Diga a ele o lugar.", "Diga que vocÃª nÃ£o sabe." ) == 2) {
+			if (select( "Diga a ele o lugar.", "Diga que você não sabe." ) == 2) {
 				mes "[Tamarindo]";
-				mes "A Ã¡gua Ã© escassa no deserto, hein?";
+				mes "A água é escassa no deserto, hein?";
 				ep14_3_newerabs = 3;
 				close3;
 			}
@@ -2205,24 +2205,24 @@ morocc,138,238,4	script	Piled Rags#ep14bs	4_M_DIEMAN,{
 		if (ep14_3_newerabs <= 4) {
 			mes "[Tamarindo]";
 			mes "De,";
-			mes "VocÃª quer dizer o ^0000ffOasis perto da Sphinx noroeste ^000000?";
+			mes "Você quer dizer o ^0000ffOasis perto da Sphinx noroeste ^000000?";
 			cutin "ep143_tadir.bmp",2;
 			next;
 			mes "[Tamarindo]";
-			mes "Eu estive em Marrocc, mas esta Ã© a minha primeira vez dentro da vila.";
-			mes "Lembro -me de ouvir que o local possui Ã¡gua especial.";
+			mes "Eu estive em Marrocc, mas esta é a minha primeira vez dentro da vila.";
+			mes "Lembro -me de ouvir que o local possui água especial.";
 			next;
 			mes "[Tamarindo]";
-			mes "Sinto -me animado para me lavar com a Ã¡gua especial!";
-			mes "Estou indo para o oÃ¡sis agora. VocÃª poderia esperar por mim?";
+			mes "Sinto -me animado para me lavar com a água especial!";
+			mes "Estou indo para o oásis agora. Você poderia esperar por mim?";
 			next;
 			mes "[Tamarindo]";
 			mes "Vai demorar um pouco antes que eu me sinta forte novamente, mas pelo menos eu posso andar sozinho.";
 			mes "Hah hah hah!";
 			next;
-			if (select( "Assista -o.", "AcompanhÃ¡ -lo." ) == 1) {
+			if (select( "Assista -o.", "Acompanhá -lo." ) == 1) {
 				mes "[Tamarindo]";
-				mes "(O prÃ³prio apara e inala.)";
+				mes "(O próprio apara e inala.)";
 				mes "Espere, espere.";
 				mes "Eu posso me levantar sozinho.";
 				next;
@@ -2232,11 +2232,11 @@ morocc,138,238,4	script	Piled Rags#ep14bs	4_M_DIEMAN,{
 				close3;
 			}
 			mes "[Tamarindo]";
-			mes "Que gentileza de vocÃª!";
-			mes "O mundo ainda Ã© um bom lugar para morar.";
+			mes "Que gentileza de você!";
+			mes "O mundo ainda é um bom lugar para morar.";
 			next;
 			mes "[Tamarindo]";
-			mes "EntÃ£o, vamos para os ^0000ffOasis perto do noroeste de Sphinx ^000000.";
+			mes "Então, vamos para os ^0000ffOasis perto do noroeste de Sphinx ^000000.";
 			changequest 11350,11351;
 			ep14_3_newerabs = 5;
 			close3;
@@ -2244,15 +2244,15 @@ morocc,138,238,4	script	Piled Rags#ep14bs	4_M_DIEMAN,{
 	}
 	if (ep14_3_newerabs == 5) {
 		mes "[Tamarindo]";
-		mes "Que gentileza de vocÃª!";
-		mes "O mundo ainda Ã© um bom lugar para morar.";
+		mes "Que gentileza de você!";
+		mes "O mundo ainda é um bom lugar para morar.";
 		cutin "ep143_tadir.bmp",2;
 		next;
 		mes "[Tamarindo]";
-		mes "EntÃ£o, vamos para os ^0000ffOasis perto do noroeste de Sphinx ^000000.";
+		mes "Então, vamos para os ^0000ffOasis perto do noroeste de Sphinx ^000000.";
 		close3;
 	}
-	mes "- HÃ¡ uma pilha de trapos sujos. -";
+	mes "- Há uma pilha de trapos sujos. -";
 	close;
 
 OnInit:
@@ -2265,40 +2265,40 @@ moc_ruins,106,140,4	script	Tamarin#ep14bs_ru	4_M_TAMARIN,{
 		if (ep14_3_newerabs == 5) {
 			mes "[Tamarindo]";
 			mes "PAH!";
-			mes "Isso Ã© Ã³timo!";
+			mes "Isso é ótimo!";
 			cutin "ep143_tasmi.bmp",2;
 			next;
 			mes "[Tamarindo]";
-			mes "A Ã¡gua parece muito quente para o meu gosto, mas os mendigos nÃ£o podem ser escolhidos.";
+			mes "A água parece muito quente para o meu gosto, mas os mendigos não podem ser escolhidos.";
 			cutin "ep143_tasta.bmp",2;
 			next;
 			mes "[Tamarindo]";
-			mes "VocÃª me salvou da fome e me levou a este Ã³timo lugar. Eu devo ter sido uma Ã³tima pessoa na vida passada";
+			mes "Você me salvou da fome e me levou a este ótimo lugar. Eu devo ter sido uma ótima pessoa na vida passada";
 			mes "para merecer tanta bondade.";
 			cutin "ep143_tahuk.bmp",2;
 			next;
 			mes "[Tamarindo]";
-			mes "Eu quero pagar vocÃª, colega aventureiro.";
-			mes "Perdi todos os meus pertences quando caÃ­ naquele buraco estranho e me separei da minha festa,";
+			mes "Eu quero pagar você, colega aventureiro.";
+			mes "Perdi todos os meus pertences quando caí naquele buraco estranho e me separei da minha festa,";
 			cutin "ep143_tasta.bmp",2;
 			next;
 			mes "[Tamarindo]";
-			mes "Mas pelo menos eu posso contar uma histÃ³ria ^0000ffvesting ^000000.";
+			mes "Mas pelo menos eu posso contar uma história ^0000ffvesting ^000000.";
 			cutin "ep143_tasmi.bmp",2;
 			next;
 			mes "[Tamarindo]";
-			mes "Ã‰ sobre o lugar estranho em que estive.";
+			mes "É sobre o lugar estranho em que estive.";
 			cutin "ep143_tahuk.bmp",2;
 			next;
-			if (select( "NÃ£o estÃ¡ interessado.", "Estou ouvindo." ) == 1) {
+			if (select( "Não está interessado.", "Estou ouvindo." ) == 1) {
 				mes "[Tamarindo]";
-				mes "Tudo bem, entÃ£o.";
-				mes "Eu pensei que vocÃª estava falando sÃ©rio sobre se aventurar.";
+				mes "Tudo bem, então.";
+				mes "Eu pensei que você estava falando sério sobre se aventurar.";
 				cutin "ep143_tahuk.bmp",2;
 				next;
 				mes "[Tamarindo]";
-				mes "EntÃ£o";
-				mes "VocÃª quer o feed de seu monstro?";
+				mes "Então";
+				mes "Você quer o feed de seu monstro?";
 				cutin "ep143_tasta.bmp",2;
 				next;
 				mes "[Tamarindo]";
@@ -2307,13 +2307,13 @@ moc_ruins,106,140,4	script	Tamarin#ep14bs_ru	4_M_TAMARIN,{
 				close3;
 			}
 			mes "[Tamarindo]";
-			mes "Eu sabia que vocÃª estaria interessado!";
-			mes "Nada desperta o interesse dos aventureiros como a histÃ³ria de um lugar estranho, certo?";
+			mes "Eu sabia que você estaria interessado!";
+			mes "Nada desperta o interesse dos aventureiros como a história de um lugar estranho, certo?";
 			cutin "ep143_tasmi.bmp",2;
 			next;
 			mes "[Tamarindo]";
 			mes "Ahem.";
-			mes "A histÃ³ria comeÃ§a com minha jornada para o outro mundo ^000000, o mais recente hot spot para aventureiros.";
+			mes "A história começa com minha jornada para o outro mundo ^000000, o mais recente hot spot para aventureiros.";
 			cutin "ep143_tahuk.bmp",2;
 			next;
 			mes "[Tamarindo]";
@@ -2321,7 +2321,7 @@ moc_ruins,106,140,4	script	Tamarin#ep14bs_ru	4_M_TAMARIN,{
 			cutin "ep143_tasmi.bmp",2;
 			next;
 			mes "[Tamarindo]";
-			mes "A jornada deles foi perigosa, mas eles corajosamente avanÃ§aram.";
+			mes "A jornada deles foi perigosa, mas eles corajosamente avançaram.";
 			cutin "ep143_taang.bmp",2;
 			next;
 			mes "[Tamarindo]";
@@ -2330,20 +2330,20 @@ moc_ruins,106,140,4	script	Tamarin#ep14bs_ru	4_M_TAMARIN,{
 			cutin "ep143_tahuk.bmp",2;
 			next;
 			mes "[Tamarindo]";
-			mes "Minha inspiraÃ§Ã£o original foi Bard, mas entÃ£o me tornei caÃ§ador porque meus amigos pensavam que isso me convidava melhor.";
+			mes "Minha inspiração original foi Bard, mas então me tornei caçador porque meus amigos pensavam que isso me convidava melhor.";
 			cutin "ep143_tasmi.bmp",2;
 			next;
-			select("PeÃ§a a ele para ser mais direto.");
+			select("Peça a ele para ser mais direto.");
 			mes "[Tamarindo]";
 			mes "Sim.";
 			cutin "ep143_tahuk.bmp",2;
 			next;
 			mes "[Tamarindo]";
-			mes "HÃ¡ um tempo atrÃ¡s, meus amigos e eu decidimos explorar o outro mundo juntos.";
+			mes "Há um tempo atrás, meus amigos e eu decidimos explorar o outro mundo juntos.";
 			cutin "ep143_tasta.bmp",2;
 			next;
 			mes "[Tamarindo]";
-			mes "Como seria nossa primeira visita ao outro mundo, querÃ­amos ir a um local mais popular, mas um de nÃ³s nÃ£o o teria-ele estava tÃ£o empolgado que ele comeÃ§ou a agir fora de controle.";
+			mes "Como seria nossa primeira visita ao outro mundo, queríamos ir a um local mais popular, mas um de nós não o teria-ele estava tão empolgado que ele começou a agir fora de controle.";
 			cutin "ep143_taang.bmp",2;
 			next;
 			mes "[Tamarindo]";
@@ -2351,56 +2351,56 @@ moc_ruins,106,140,4	script	Tamarin#ep14bs_ru	4_M_TAMARIN,{
 			cutin "ep143_tahuk.bmp",2;
 			next;
 			mes "[Tamarindo]";
-			mes "O ^0000ffland estava queimando com chamas perpÃ©tuas ^000000 que nÃ£o estavam muito quentes para tocar, e as plantas e insetos de aparÃªncia ^0000ffstrange estavam rastejando por todo o lugar.";
+			mes "O ^0000ffland estava queimando com chamas perpétuas ^000000 que não estavam muito quentes para tocar, e as plantas e insetos de aparência ^0000ffstrange estavam rastejando por todo o lugar.";
 			next;
 			mes "[Tamarindo]";
-			mes "No comeÃ§o, gritei para obter ajuda e me movi na esperanÃ§a de encontrar outros, mas tudo sem sucesso.";
+			mes "No começo, gritei para obter ajuda e me movi na esperança de encontrar outros, mas tudo sem sucesso.";
 			next;
 			mes "[Tamarindo]";
-			mes "Depois de alguns dias nÃ£o tendo nada para comer, comecei a comer qualquer coisa que vi no chÃ£o e tive a pior diarrÃ©ia de todos os tempos.";
+			mes "Depois de alguns dias não tendo nada para comer, comecei a comer qualquer coisa que vi no chão e tive a pior diarréia de todos os tempos.";
 			cutin "ep143_taang.bmp",2;
 			next;
 			mes "[Tamarindo]";
-			mes "Eu nÃ£o sabia quantos dias se passaram antes de ver um grupo de algumas entidades que eu pensava que eram homens de relance.";
+			mes "Eu não sabia quantos dias se passaram antes de ver um grupo de algumas entidades que eu pensava que eram homens de relance.";
 			cutin "ep143_tahuk.bmp",2;
 			next;
 			mes "[Tamarindo]";
 			mes "Mas ^0000ffHey parecia estranho demais para passar como humano ^000000.";
-			mes "Eu nÃ£o conseguia falar com eles, entÃ£o eu apenas pulei na rachadura que eles passaram.";
+			mes "Eu não conseguia falar com eles, então eu apenas pulei na rachadura que eles passaram.";
 			next;
 			mes "[Tamarindo]";
-			mes "Meus joelhos cederam e eu rolei ao meu lado. Quando olhei em volta, estava de volta Ã  rachadura dimensional de ^0000FF ^000000, onde meus amigos e eu chegamos.";
+			mes "Meus joelhos cederam e eu rolei ao meu lado. Quando olhei em volta, estava de volta à rachadura dimensional de ^0000FF ^000000, onde meus amigos e eu chegamos.";
 			next;
 			mes "[Tamarindo]";
-			mes "SaÃ­ atravÃ©s do teleporter dimensional ^0000ffMorocc ^000000 e usei cada grama da minha energia para chegar a Morocc.";
+			mes "Saí através do teleporter dimensional ^0000ffMorocc ^000000 e usei cada grama da minha energia para chegar a Morocc.";
 			next;
 			mes "[Tamarindo]";
 			mes "Suspirar...";
-			mes "Gostaria de saber se meus amigos estÃ£o seguros.";
+			mes "Gostaria de saber se meus amigos estão seguros.";
 			cutin "ep143_tasta.bmp",2;
 			next;
 		}
 		mes "[Tamarindo]";
-		mes "Eu deveria procurÃ¡ -los,";
-		mes "Mas primeiro eu quero voltar para aquele lugar estranho quando recuperar minha forÃ§a total. Muitas pessoas nÃ£o tÃªm a chance de ver um lugar tÃ£o especial, vocÃª sabe.";
+		mes "Eu deveria procurá -los,";
+		mes "Mas primeiro eu quero voltar para aquele lugar estranho quando recuperar minha força total. Muitas pessoas não têm a chance de ver um lugar tão especial, você sabe.";
 		cutin "ep143_tasmi.bmp",2;
 		next;
 		mes "[Tamarindo]";
-		mes "Felizmente para mim, com o trabalho de restauraÃ§Ã£o ^0000ffMorocc ^000000 em andamento, nÃ£o deveria ter problemas para ganhar dinheiro com alguns empregos de meio perÃ­odo.";
+		mes "Felizmente para mim, com o trabalho de restauração ^0000ffMorocc ^000000 em andamento, não deveria ter problemas para ganhar dinheiro com alguns empregos de meio período.";
 		next;
-		if (select( "Diga a ele ter uma viagem segura.", "Diga a ele que vocÃª quer acompanhar." ) == 1) {
+		if (select( "Diga a ele ter uma viagem segura.", "Diga a ele que você quer acompanhar." ) == 1) {
 			mes "[Tamarindo]";
 			mes "Eu vou.";
 			mes "Obrigado por me salvar.";
 			cutin "ep143_tahuk.bmp",2;
 			next;
 			mes "[Tamarindo]";
-			mes "Esta Ã© a beleza de aventurar:";
+			mes "Esta é a beleza de aventurar:";
 			mes "Fazendo novos amigos!";
 			cutin "ep143_tasmi.bmp",2;
 			next;
 			mes "[Tamarindo]";
-			mes "Estarei em Marrocc por um tempo, ganhando dinheiro e me preparando para outra aventura. Espero poder vÃª -lo novamente antes de sair.";
+			mes "Estarei em Marrocc por um tempo, ganhando dinheiro e me preparando para outra aventura. Espero poder vê -lo novamente antes de sair.";
 			ep14_3_newerabs = 6;
 			close3;
 		}
@@ -2409,7 +2409,7 @@ moc_ruins,106,140,4	script	Tamarin#ep14bs_ru	4_M_TAMARIN,{
 		cutin "ep143_tahuk.bmp",2;
 		next;
 		mes "[Tamarindo]";
-		mes "VocÃª quer dizer isso?";
+		mes "Você quer dizer isso?";
 		next;
 		mes "[Tamarindo]";
 		mes "Pelos deuses, sou um bastardo da sorte!";
@@ -2421,7 +2421,7 @@ moc_ruins,106,140,4	script	Tamarin#ep14bs_ru	4_M_TAMARIN,{
 		cutin "ep143_tasta.bmp",2;
 		next;
 		mes "[Tamarindo]";
-		mes "Pode demorar um pouco para eu colocar tudo embalado, entÃ£o faÃ§a o seu outro negÃ³cio. Enquanto isso.";
+		mes "Pode demorar um pouco para eu colocar tudo embalado, então faça o seu outro negócio. Enquanto isso.";
 		erasequest 11351;// Dimensional Travel
 		setquest 11352;// Dimensional Travel
 		ep14_3_newerabs = 7;
@@ -2433,12 +2433,12 @@ moc_ruins,106,140,4	script	Tamarin#ep14bs_ru	4_M_TAMARIN,{
 		cutin "ep143_tasta.bmp",2;
 		next;
 		mes "[Tamarindo]";
-		mes "Pode demorar um pouco para eu colocar tudo embalado, entÃ£o faÃ§a o seu outro negÃ³cio. Enquanto isso.";
+		mes "Pode demorar um pouco para eu colocar tudo embalado, então faça o seu outro negócio. Enquanto isso.";
 		close3;
 	}
 	mes "[Tamarindo]";
 	mes "PAH!";
-	mes "Isso Ã© Ã³timo!";
+	mes "Isso é ótimo!";
 	cutin "ep143_tasmi.bmp",2;
 	close3;
 }
@@ -2447,25 +2447,25 @@ dali,112,69,4	script	Tamarin#ep14bs_cha	4_M_TAMARIN,{
 	if (ep14_3_newerabs == 7) {
 		mes "[Tamarindo]";
 		mes "" + strcharinfo(0) + ", aqui!";
-		mes "VocÃª Ã© cedo.";
+		mes "Você é cedo.";
 		cutin "ep143_tasta.bmp",2;
 		next;
 		mes "[Tamarindo]";
 		mes "(Olhando para o redor do clandestino)";
-		mes "Espero que ninguÃ©m esteja nos observando.";
+		mes "Espero que ninguém esteja nos observando.";
 		cutin "ep143_tahuk.bmp",2;
 		next;
 		mes "[Tamarindo]";
-		mes "Eu escondi a abertura para aquele lugar: eu nÃ£o queria que ninguÃ©m chegasse lÃ¡ antes de mim.";
+		mes "Eu escondi a abertura para aquele lugar: eu não queria que ninguém chegasse lá antes de mim.";
 		cutin "ep143_tasmi.bmp",2;
 		next;
 		mes "[Tamarindo]";
-		mes "Naquela Ã©poca, eu estava muito distraÃ­do para lembrar onde estava a abertura, mas acho que Ã© definitivamente ^0000ff em algum lugar no 2Âº andar ^000000.";
+		mes "Naquela época, eu estava muito distraído para lembrar onde estava a abertura, mas acho que é definitivamente ^0000ff em algum lugar no 2º andar ^000000.";
 		cutin "ep143_tasta.bmp",2;
 		next;
 		mes "[Tamarindo]";
-		mes "Encontre -me na frente da rachadura ^0000ffhiddid ^000000. Certifique -se de que ninguÃ©m o siga lÃ¡.";
-		mes "Eu ^0000FFCoveri a abertura com sujeira ^000000. Espero que ninguÃ©m tenha aberto.";
+		mes "Encontre -me na frente da rachadura ^0000ffhiddid ^000000. Certifique -se de que ninguém o siga lá.";
+		mes "Eu ^0000FFCoveri a abertura com sujeira ^000000. Espero que ninguém tenha aberto.";
 		erasequest 11352;// Dimensional Travel
 		setquest 11353;// Dimensional Travel
 		ep14_3_newerabs = 8;
@@ -2473,20 +2473,20 @@ dali,112,69,4	script	Tamarin#ep14bs_cha	4_M_TAMARIN,{
 	}
 	if (ep14_3_newerabs == 8) {
 		mes "[Tamarindo]";
-		mes "Eu escondi a abertura para aquele lugar: eu nÃ£o queria que ninguÃ©m chegasse lÃ¡ antes de mim.";
+		mes "Eu escondi a abertura para aquele lugar: eu não queria que ninguém chegasse lá antes de mim.";
 		cutin "ep143_tasmi.bmp",2;
 		next;
 		mes "[Tamarindo]";
-		mes "Naquela Ã©poca, eu estava muito distraÃ­do para lembrar onde estava a abertura, mas acho que Ã© definitivamente ^0000ff em algum lugar no 2Âº andar ^000000.";
+		mes "Naquela época, eu estava muito distraído para lembrar onde estava a abertura, mas acho que é definitivamente ^0000ff em algum lugar no 2º andar ^000000.";
 		cutin "ep143_tasta.bmp",2;
 		next;
 		mes "[Tamarindo]";
-		mes "Encontre -me na frente da rachadura ^0000ffhiddid ^000000. Certifique -se de que ninguÃ©m o siga lÃ¡.";
-		mes "Eu ^0000FFCoveri a abertura com sujeira ^000000. Espero que ninguÃ©m tenha aberto.";
+		mes "Encontre -me na frente da rachadura ^0000ffhiddid ^000000. Certifique -se de que ninguém o siga lá.";
+		mes "Eu ^0000FFCoveri a abertura com sujeira ^000000. Espero que ninguém tenha aberto.";
 		close3;
 	}
 	mes "[Tamarindo]";
-	mes "HM, Ã© melhor minha marca ficar onde eu a deixei.";
+	mes "HM, é melhor minha marca ficar onde eu a deixei.";
 	cutin "ep143_tahuk.bmp",2;
 	close3;
 }
@@ -2501,21 +2501,21 @@ dali02,90,62,0	script	Sand Mound#ep14bs	4_SOIL,{
 		next;
 		mes "[Tamarindo]";
 		mes "Ufa!";
-		mes "Estou feliz que vocÃª me encontrou.";
+		mes "Estou feliz que você me encontrou.";
 		cutin "ep143_tasmi.bmp",2;
 		next;
 		mes "[Tamarindo]";
 		mes "Deixe -me limpar a sujeira ...";
-		mes "Esteja atento Ã  abertura. Ã‰ bastante estreito.";
+		mes "Esteja atento à abertura. É bastante estreito.";
 		cutin "ep143_tasta.bmp",2;
 		next;
 		if (select( "Digitar.", "Desistir." ) == 2) {
 			mes "[Tamarindo]";
-			mes "VocÃª nÃ£o estÃ¡ entrando?";
+			mes "Você não está entrando?";
 			cutin "ep143_tahuk.bmp",2;
 			close3;
 		}
-		mes "- A passagem Ã© quase ampla o suficiente para conter uma pessoa. -";
+		mes "- A passagem é quase ampla o suficiente para conter uma pessoa. -";
 		completequest 11353;// Dimensional Travel
 		ep14_3_newerabs = 9;
 		close2;
@@ -2525,10 +2525,10 @@ dali02,90,62,0	script	Sand Mound#ep14bs	4_SOIL,{
 	mes "- Um monte de areia fica desajeitado, olhando fora do lugar. -";
 	next;
 	if (select( "Digitar.", "Desistir." ) == 2) {
-		mes "VocÃª decidiu nÃ£o entrar.";
+		mes "Você decidiu não entrar.";
 		close;
 	}
-	mes "- A passagem Ã© quase ampla o suficiente para conter uma pessoa. -";
+	mes "- A passagem é quase ampla o suficiente para conter uma pessoa. -";
 	close2;
 	warp "moro_vol",136,135;
 	end;
@@ -2542,10 +2542,10 @@ moro_vol,137,136,0	script	Sand Mound#ep14bs_	4_SOIL,{
 	mes "- Um monte de areia fica desajeitado, olhando fora do lugar. -";
 	next;
 	if (select( "Volte para a rachadura dimensional.", "Desistir." ) == 2) {
-		mes "VocÃª decidiu nÃ£o entrar.";
+		mes "Você decidiu não entrar.";
 		close;
 	}
-	mes "- A passagem Ã© quase ampla o suficiente para conter uma pessoa. -";
+	mes "- A passagem é quase ampla o suficiente para conter uma pessoa. -";
 	close2;
 	warp "dali02",91,63;
 	end;
@@ -2555,11 +2555,11 @@ moro_vol,132,140,4	script	Tamarin#ep14bs_ju	4_M_TAMARIN,{
 	if (ep14_3_newerabs == 9) {
 		mes "[Tamarindo]";
 		mes "Uau!";
-		mes "Eu nÃ£o esperava ver tantas pessoas.";
+		mes "Eu não esperava ver tantas pessoas.";
 		cutin "ep143_tahuk.bmp",2;
 		next;
 		mes "[Tamarindo]";
-		mes "Estou desapontado por nÃ£o ser o primeiro a descobrir o lugar e estou feliz por nÃ£o estar sozinho neste lugar sombrio.";
+		mes "Estou desapontado por não ser o primeiro a descobrir o lugar e estou feliz por não estar sozinho neste lugar sombrio.";
 		cutin "ep143_taang.bmp",2;
 		next;
 		mes "[Tamarindo]";
@@ -2569,13 +2569,13 @@ moro_vol,132,140,4	script	Tamarin#ep14bs_ju	4_M_TAMARIN,{
 		next;
 		mes "[Tamarindo]";
 		mes "Olhar!";
-		mes "Ãrvores andando!";
+		mes "Árvores andando!";
 		mes "Grrr-!";
 		cutin "ep143_tahuk.bmp",2;
 		next;
 		mes "[Barget Tiblack]";
 		mes "EI!";
-		mes "O que diabos vocÃª acha que estÃ¡ fazendo?!";
+		mes "O que diabos você acha que está fazendo?!";
 		cutin "",255;
 		setquest 11354;// Specimen Collection
 		ep14_3_newerabs = 15;
@@ -2584,13 +2584,13 @@ moro_vol,132,140,4	script	Tamarin#ep14bs_ju	4_M_TAMARIN,{
 	if (ep14_3_newerabs == 15) {
 		mes "[Tamarindo]";
 		mes "Olhar!";
-		mes "Ãrvores andando!";
+		mes "Árvores andando!";
 		mes "Grrr-!";
 		cutin "ep143_tahuk.bmp",2;
 		next;
 		mes "[Barget Tiblack]";
 		mes "EI!";
-		mes "O que diabos vocÃª acha que estÃ¡ fazendo?!";
+		mes "O que diabos você acha que está fazendo?!";
 		cutin "",255;
 		close;
 	}
@@ -2603,11 +2603,11 @@ moro_vol,132,140,4	script	Tamarin#ep14bs_ju	4_M_TAMARIN,{
 	}
 	if (ep14_3_newerabs == 17 || ep14_3_newerabs == 18) {
 		mes "[Tamarindo]";
-		mes "A coleta das amostras de plantas nÃ£o parece muito difÃ­cil. Podemos dividi -los entre nÃ³s.";
+		mes "A coleta das amostras de plantas não parece muito difícil. Podemos dividi -los entre nós.";
 		cutin "ep143_tasta.bmp",2;
 		next;
 		mes "[Tamarindo]";
-		mes "^0000ff Quando vocÃª coletar 25 caules de Sonia, encontre -me pela grande rocha no centro deste local^000000.";
+		mes "^0000ff Quando você coletar 25 caules de Sonia, encontre -me pela grande rocha no centro deste local^000000.";
 		if (ep14_3_newerabs == 17) {
 			erasequest 11356;// Specimen Collection
 			setquest 11357;// Specimen Collection
@@ -2619,7 +2619,7 @@ moro_vol,132,140,4	script	Tamarin#ep14bs_ju	4_M_TAMARIN,{
 		if (countitem(6690) < 25) {// YummyStem
 			mes "[Tamarindo]";
 			mes "Ooh! (Estremecendo)";
-			mes "VocÃª nÃ£o tem hastes suficientes.";
+			mes "Você não tem hastes suficientes.";
 			mes "Pegue mais e leve -os para Barget.";
 			cutin "ep143_tahuk.bmp",2;
 			close3;
@@ -2638,7 +2638,7 @@ moro_vol,132,140,4	script	Tamarin#ep14bs_ju	4_M_TAMARIN,{
 	}
 	if (ep14_3_newerabs == 23) {
 		mes "[Tamarindo]";
-		mes "AgradeÃ§a aos deuses, quem sabia que eu comi da fome me salvaria?";
+		mes "Agradeça aos deuses, quem sabia que eu comi da fome me salvaria?";
 		mes "Vamos nos reportar ao Barget.";
 		cutin "ep143_tahuk.bmp",2;
 		close3;
@@ -2659,26 +2659,26 @@ moro_vol,132,140,4	script	Tamarin#ep14bs_ju	4_M_TAMARIN,{
 
 moro_vol,142,131,5	script	Barget Tiblack#ep14bs	4_M_ALCHE_D,{
 	if (checkweight(1119,3) == 0) {
-		mes "- VocÃª estÃ¡ carregando muitos itens para prosseguir com a missÃ£o. -";
+		mes "- Você está carregando muitos itens para prosseguir com a missão. -";
 		close;
 	}
 	if (ep14_3_newerabs < 15) {
 		mes "[Barget Tiblack]";
 		mes "Ugh, estou exausto.";
-		mes "Eu entendo a urgÃªncia, mas isso nÃ£o significa que eu gosto de ser mandeado.";
+		mes "Eu entendo a urgência, mas isso não significa que eu gosto de ser mandeado.";
 		close;
 	}
 	if (ep14_3_newerabs == 15) {
 		mes "[Barget Tiblack]";
-		mes "VocÃª arruinou minhas preciosas amostras!";
-		mes "Perguntei Ã s pessoas do seu tipo para evitar a minha zona de trabalho. Seus superiores nÃ£o lhe disseram isso?";
+		mes "Você arruinou minhas preciosas amostras!";
+		mes "Perguntei às pessoas do seu tipo para evitar a minha zona de trabalho. Seus superiores não lhe disseram isso?";
 		next;
 		mes "[Barget Tiblack]";
 		mes "Eu nem terminei a pesquisa no acampamento e eles me arrastaram para mais um projeto sobrecarregado.";
 		next;
 		mes "[Barget Tiblack]";
 		mes "Eu exijo um assistente!";
-		mes "Chega com esse problema orÃ§amentÃ¡rio!";
+		mes "Chega com esse problema orçamentário!";
 		mes "Argh!";
 		next;
 		mes "[Barget Tiblack]";
@@ -2687,25 +2687,25 @@ moro_vol,142,131,5	script	Barget Tiblack#ep14bs	4_M_ALCHE_D,{
 		next;
 		mes "[Barget Tiblack]";
 		mes "Tudo bem.";
-		mes "VocÃªs dois ali!";
-		mes "VocÃª deve ter muito tempo em suas mÃ£os, ficando sem rumo. Torne -se Ãºtil e me ajude a coletar amostras.";
+		mes "Vocês dois ali!";
+		mes "Você deve ter muito tempo em suas mãos, ficando sem rumo. Torne -se útil e me ajude a coletar amostras.";
 		next;
 		mes "[Barget Tiblack]";
-		mes "VocÃª arruinou minhas amostras existentes, afinal.";
+		mes "Você arruinou minhas amostras existentes, afinal.";
 		next;
 		mes "[Barget Tiblack]";
-		mes "Primeiro, quero coletar espÃ©cimes de animais.";
-		mes "NÃ£o Ã© incomum ver animais mutantes por aqui. Recentemente, um deles foi confirmado como um ^0000FFCOMPLETY NOVAS espÃ©cies ^000000.";
+		mes "Primeiro, quero coletar espécimes de animais.";
+		mes "Não é incomum ver animais mutantes por aqui. Recentemente, um deles foi confirmado como um ^0000FFCOMPLETY NOVAS espécies ^000000.";
 		next;
 		mes "[Barget Tiblack]";
-		mes "^0000ffishis novas espÃ©cies de inseto sÃ£o chamadas de Firebugs porque elas sÃ£o cercadas por chamas e vivem em fogueiras como aquele lÃ¡^000000.";
+		mes "^0000ffishis novas espécies de inseto são chamadas de Firebugs porque elas são cercadas por chamas e vivem em fogueiras como aquele lá^000000.";
 		next;
 		mes "[Barget Tiblack]";
-		mes "Firebugs que saem de seus poÃ§os morrem logo depois.";
+		mes "Firebugs que saem de seus poços morrem logo depois.";
 		next;
 		mes "[Barget Tiblack]";
-		mes "Investigue ^0000FF20 PITs de incÃªndio e colete 50 conchas de insetos em chamas de Firebugs ^000000.";
-		mes "Cuidado para nÃ£o se queimar no processo.";
+		mes "Investigue ^0000FF20 PITs de incêndio e colete 50 conchas de insetos em chamas de Firebugs ^000000.";
+		mes "Cuidado para não se queimar no processo.";
 		erasequest 11354;// Specimen Collection
 		setquest 11355;// Specimen Collection
 		ep14_3_newerabs = 16;
@@ -2715,24 +2715,24 @@ moro_vol,142,131,5	script	Barget Tiblack#ep14bs	4_M_ALCHE_D,{
 		if (ep14_3_newerabs == 16) {
 			if (countitem(6689) < 50 || checkquest(11355,HUNTING) != 2) {
 				mes "[Barget Tiblack]";
-				mes "Primeiro, quero coletar espÃ©cimes de animais.";
-				mes "NÃ£o Ã© incomum ver animais mutantes por aqui. Recentemente, um deles foi confirmado como um ^0000FFCOMPLETY NOVAS espÃ©cies ^000000.";
+				mes "Primeiro, quero coletar espécimes de animais.";
+				mes "Não é incomum ver animais mutantes por aqui. Recentemente, um deles foi confirmado como um ^0000FFCOMPLETY NOVAS espécies ^000000.";
 				next;
 				mes "[Barget Tiblack]";
-				mes "^0000ffishis novas espÃ©cies de inseto sÃ£o chamadas de Firebugs porque elas sÃ£o cercadas por chamas e vivem em fogueiras como aquele lÃ¡^000000.";
+				mes "^0000ffishis novas espécies de inseto são chamadas de Firebugs porque elas são cercadas por chamas e vivem em fogueiras como aquele lá^000000.";
 				next;
 				mes "[Barget Tiblack]";
-				mes "Firebugs que saem de seus poÃ§os morrem logo depois.";
+				mes "Firebugs que saem de seus poços morrem logo depois.";
 				next;
 				mes "[Barget Tiblack]";
-				mes "Investigue ^0000FF20 PITs de incÃªndio e colete 50 conchas de insetos em chamas de Firebugs ^000000.";
-				mes "Cuidado para nÃ£o se queimar no processo.";
+				mes "Investigue ^0000FF20 PITs de incêndio e colete 50 conchas de insetos em chamas de Firebugs ^000000.";
+				mes "Cuidado para não se queimar no processo.";
 				close;
 			}
 			mes "[Barget Tiblack]";
 			mes "Oh,";
 			mes "bom trabalho!";
-			mes "VocÃª terminou sua tarefa mais rapidamente do que eu previa.";
+			mes "Você terminou sua tarefa mais rapidamente do que eu previa.";
 			delitem 6689,50;// BurningSkin
 			erasequest 11355;// Specimen Collection
 			setquest 11356;// Specimen Collection
@@ -2741,25 +2741,25 @@ moro_vol,142,131,5	script	Barget Tiblack#ep14bs	4_M_ALCHE_D,{
 			mes "[Barget Tiblack]";
 			mes "Ai quente!";
 			mes "*Bufando bufando*";
-			mes "Deixe -me engarrafÃ¡ -los antes que eles esfriem e envie -os para o laboratÃ³rio.";
+			mes "Deixe -me engarrafá -los antes que eles esfriem e envie -os para o laboratório.";
 			next;
 		}
 		mes "[Barget Tiblack]";
-		mes "Agora, Ã© hora de espÃ©cimes vegetais.";
-		mes "Nossa planta -alvo Ã© chamada Sonia, um tipo muito primitivo de planta.";
+		mes "Agora, é hora de espécimes vegetais.";
+		mes "Nossa planta -alvo é chamada Sonia, um tipo muito primitivo de planta.";
 		next;
 		mes "[Barget Tiblack]";
-		mes "Ã€ primeira vista, Sonias se parecem com tubos de plÃ¡stico, mas sua estrutura Ã© muito mÃ­nima.";
+		mes "À primeira vista, Sonias se parecem com tubos de plástico, mas sua estrutura é muito mínima.";
 		next;
 		mes "[Barget Tiblack]";
-		mes "Eles nÃ£o sÃ£o difÃ­ceis de reunir. Por favor, ^0000ffpick 50 Sonias e traga -me 50 hastes ^000000.";
+		mes "Eles não são difíceis de reunir. Por favor, ^0000ffpick 50 Sonias e traga -me 50 hastes ^000000.";
 		next;
 		mes "[Barget Tiblack]";
-		mes "Os espÃ©cimes de Sonia sÃ£o os Ãºltimos da minha coleÃ§Ã£o de amostras. Se vocÃª acontecer com ^0000ffsee peculiar Sonias ^000000, por favor, nÃ£o hesite em me avisar.";
+		mes "Os espécimes de Sonia são os últimos da minha coleção de amostras. Se você acontecer com ^0000ffsee peculiar Sonias ^000000, por favor, não hesite em me avisar.";
 		next;
 		mes "[Barget Tiblack]";
-		mes "Tente nÃ£o se afastar muito da base. Ã‰ muito perigoso lÃ¡ fora.";
-		mes "Volte com seguranÃ§a.";
+		mes "Tente não se afastar muito da base. É muito perigoso lá fora.";
+		mes "Volte com segurança.";
 		next;
 		mes "[Tamarindo]";
 		mes "HM ...";
@@ -2770,19 +2770,19 @@ moro_vol,142,131,5	script	Barget Tiblack#ep14bs	4_M_ALCHE_D,{
 	if (ep14_3_newerabs == 19) {
 		if (countitem(6690) < 25) {
 			mes "[Barget Tiblack]";
-			mes "Como vocÃª estÃ¡ com a coleta de Sonias?";
+			mes "Como você está com a coleta de Sonias?";
 			close;
 		}
 		mes "[Barget Tiblack]";
 		mes "De,";
 		mes "bem vindo de volta!";
-		mes "Esqueci de dizer a vocÃª ^0000ffNot para chegar perto da rocha no centro deste local ^000000.";
+		mes "Esqueci de dizer a você ^0000ffNot para chegar perto da rocha no centro deste local ^000000.";
 		next;
 		mes "[Barget Tiblack]";
-		mes "Quando percebi meu erro, liguei para uma festa de resgate, tÃ£o preocupada com a sua seguranÃ§a. Estou feliz por vocÃª estar de volta ileso.";
+		mes "Quando percebi meu erro, liguei para uma festa de resgate, tão preocupada com a sua segurança. Estou feliz por você estar de volta ileso.";
 		next;
 		mes "[Barget Tiblack]";
-		mes "PeÃ§o desculpas por ser um idiota total.";
+		mes "Peço desculpas por ser um idiota total.";
 		mes "Fiquei estressado com a minha carga de trabalho pesada.";
 		next;
 		mes "[Barget Tiblack]";
@@ -2791,36 +2791,36 @@ moro_vol,142,131,5	script	Barget Tiblack#ep14bs	4_M_ALCHE_D,{
 		select("Conte a ela sobre a rocha central.");
 		mes "[Barget Tiblack]";
 		mes "Dizer o que?!";
-		mes "VocÃª foi lÃ¡?!";
-		mes "E vocÃª voltou ileso? Como?";
+		mes "Você foi lá?!";
+		mes "E você voltou ileso? Como?";
 		next;
 		mes "[Barget Tiblack]";
-		mes "Todos os outros que foram lÃ¡ ^0000fffell em coma devido ao gÃ¡s nocivo liberado do rock ^000000.";
+		mes "Todos os outros que foram lá ^0000fffell em coma devido ao gás nocivo liberado do rock ^000000.";
 		next;
 		mes "[Barget Tiblack]";
-		mes "O que vocÃª fez?";
-		mes "Esta Ã© uma Ã³tima descoberta!";
+		mes "O que você fez?";
+		mes "Esta é uma ótima descoberta!";
 		next;
 		select("Retransmitir o que aconteceu.");
 		mes "[Barget Tiblack]";
-		mes "VocÃª comeu um caule Sonia.";
-		mes "Ok, eu sei que o caule nÃ£o Ã© tÃ³xico, mas ainda nÃ£o terminei sua pesquisa de substÃ¢ncias. VocÃª experimentou algum efeito colateral?";
+		mes "Você comeu um caule Sonia.";
+		mes "Ok, eu sei que o caule não é tóxico, mas ainda não terminei sua pesquisa de substâncias. Você experimentou algum efeito colateral?";
 		next;
 		mes "[Barget Tiblack]";
 		mes "Uau!";
-		mes "Esta Ã© realmente uma Ã³tima descoberta!";
+		mes "Esta é realmente uma ótima descoberta!";
 		next;
 		mes "[Barget Tiblack]";
-		mes "Ã‰ melhor eu voltar para a pesquisa ...";
-		mes "NÃ£o, primeiro devemos ^0000fftrere os pacientes que precisam de Sonia hastes. Por favor, traga -os para mim.^000000";
+		mes "É melhor eu voltar para a pesquisa ...";
+		mes "Não, primeiro devemos ^0000fftrere os pacientes que precisam de Sonia hastes. Por favor, traga -os para mim.^000000";
 		next;
 		mes "[Barget Tiblack]";
-		mes "^0000ffinstructor Rugen os gerencia^000000, para que vocÃª possa trazÃª -los para ele.";
-		mes "Por favor, me entregue o documento. Vou assinar para vocÃª.";
+		mes "^0000ffinstructor Rugen os gerencia^000000, para que você possa trazê -los para ele.";
+		mes "Por favor, me entregue o documento. Vou assinar para você.";
 		next;
 		mes "[Barget Tiblack]";
-		mes "Ã‰ melhor eu voltar Ã  minha pesquisa com STEM. Vou pedir ajuda a outra pessoa.";
-		mes "VocÃª teve sorte desta vez. Melhor nÃ£o criar o hÃ¡bito de comer coisas do chÃ£o.";
+		mes "É melhor eu voltar à minha pesquisa com STEM. Vou pedir ajuda a outra pessoa.";
+		mes "Você teve sorte desta vez. Melhor não criar o hábito de comer coisas do chão.";
 		erasequest 11358;// Specimen Collection
 		setquest 11359;// Antidote
 		ep14_3_newerabs = 20;
@@ -2828,47 +2828,47 @@ moro_vol,142,131,5	script	Barget Tiblack#ep14bs	4_M_ALCHE_D,{
 	}
 	if (ep14_3_newerabs == 20) {
 		mes "[Barget Tiblack]";
-		mes "Ã‰ melhor eu voltar para a pesquisa ...";
-		mes "NÃ£o, primeiro devemos ^0000fftrere os pacientes que precisam de Sonia hastes. Por favor, traga -os para mim.^000000";
+		mes "É melhor eu voltar para a pesquisa ...";
+		mes "Não, primeiro devemos ^0000fftrere os pacientes que precisam de Sonia hastes. Por favor, traga -os para mim.^000000";
 		next;
 		mes "[Barget Tiblack]";
-		mes "^0000ffinstructor Rugen os gerencia^000000, para que vocÃª possa trazÃª -los para ele.";
-		mes "Por favor, me entregue o documento. Vou assinar para vocÃª.";
+		mes "^0000ffinstructor Rugen os gerencia^000000, para que você possa trazê -los para ele.";
+		mes "Por favor, me entregue o documento. Vou assinar para você.";
 		next;
 		mes "[Barget Tiblack]";
-		mes "Ã‰ melhor eu voltar Ã  minha pesquisa com STEM. Vou pedir ajuda a outra pessoa.";
-		mes "VocÃª teve sorte desta vez. Melhor nÃ£o criar o hÃ¡bito de comer coisas do chÃ£o.";
+		mes "É melhor eu voltar à minha pesquisa com STEM. Vou pedir ajuda a outra pessoa.";
+		mes "Você teve sorte desta vez. Melhor não criar o hábito de comer coisas do chão.";
 		close;
 	}
 	if (ep14_3_newerabs < 23) {
 		mes "[Barget Tiblack]";
-		mes "VocÃª viu o instrutor Rugen?";
+		mes "Você viu o instrutor Rugen?";
 		close;
 	}
 	if (ep14_3_newerabs == 23) {
 		mes "[Barget Tiblack]";
 		mes "Hah hah hah!";
 		mes "Como foi?";
-		mes "Eles trabalharam, nÃ£o?";
+		mes "Eles trabalharam, não?";
 		next;
 		mes "[Barget Tiblack]";
-		mes "Tenho grandes esperanÃ§as para minha pesquisa.";
-		mes "Sua decisÃ£o aparentemente imprudente salvou muitas vidas.";
+		mes "Tenho grandes esperanças para minha pesquisa.";
+		mes "Sua decisão aparentemente imprudente salvou muitas vidas.";
 		next;
 		mes "[Barget Tiblack]";
 		mes "Com isso, em breve poderemos investigar essa caverna ^0000ffsuspicicous ^000000 de dentro para fora!";
 		next;
 		select("Que caverna?");
 		mes "[Barget Tiblack]";
-		mes "Oh, a caverna que libera o gÃ¡s nocivo.";
-		mes "O gÃ¡s Ã© ^0000ff tÃ£o espesso no ar que vocÃª nÃ£o pode ver a entrada da caverna claramente ^000000.";
+		mes "Oh, a caverna que libera o gás nocivo.";
+		mes "O gás é ^0000ff tão espesso no ar que você não pode ver a entrada da caverna claramente ^000000.";
 		next;
 		mes "[Barget Tiblack]";
-		mes "Aqueles que demos o primeiro lote da vacina jÃ¡ deixados para a caverna.";
-		mes "Ainda nÃ£o ouvimos falar deles. Eu gostaria de acreditar que Ã© um bom sinal.";
+		mes "Aqueles que demos o primeiro lote da vacina já deixados para a caverna.";
+		mes "Ainda não ouvimos falar deles. Eu gostaria de acreditar que é um bom sinal.";
 		next;
 		mes "[Barget Tiblack]";
-		mes "Se nÃ£o fosse dois de vocÃªs, eu poderia ter puxado todo o meu cabelo de frustraÃ§Ã£o.";
+		mes "Se não fosse dois de vocês, eu poderia ter puxado todo o meu cabelo de frustração.";
 		mes "Bom trabalho, pessoal!";
 		getexp 0,1500000;
 		completequest 11362;// Antidote
@@ -2876,11 +2876,11 @@ moro_vol,142,131,5	script	Barget Tiblack#ep14bs	4_M_ALCHE_D,{
 		close;
 	}
 	mes "[Barget Tiblack]";
-	mes "Aqueles que demos o primeiro lote da vacina jÃ¡ deixados para a caverna.";
-	mes "Ainda nÃ£o ouvimos falar deles. Eu gostaria de acreditar que Ã© um bom sinal.";
+	mes "Aqueles que demos o primeiro lote da vacina já deixados para a caverna.";
+	mes "Ainda não ouvimos falar deles. Eu gostaria de acreditar que é um bom sinal.";
 	next;
 	mes "[Barget Tiblack]";
-	mes "Se nÃ£o fosse dois de vocÃªs, eu poderia ter puxado todo o meu cabelo de frustraÃ§Ã£o.";
+	mes "Se não fosse dois de vocês, eu poderia ter puxado todo o meu cabelo de frustração.";
 	mes "Bom trabalho, pessoal!";
 	close;
 }
@@ -2889,36 +2889,36 @@ moro_vol,198,179,4	script	Tamarin#ep14bs_st	4_M_TAMARIN,{
 	if (ep14_3_newerabs < 18) {
 		mes "[Tamarindo]";
 		mes "HM ...";
-		mes "NÃ£o temos tempo para isso!";
+		mes "Não temos tempo para isso!";
 		cutin "ep143_taang.bmp",2;
 		close3;
 	}
 	if (ep14_3_newerabs == 18) {
 		if (countitem(6690) < 25 || checkquest(11357,HUNTING) != 2) {
 			mes "[Tamarindo]";
-			mes "^0000ff Quando vocÃª coletar 25 caules de Sonia, encontre -me aqui^000000.";
+			mes "^0000ff Quando você coletar 25 caules de Sonia, encontre -me aqui^000000.";
 			cutin "ep143_tasta.bmp",2;
 			close3;
 		}
 		mes "[Tamarindo]";
-		mes "NÃ£o me lembro que essa rocha era tÃ£o grande.";
+		mes "Não me lembro que essa rocha era tão grande.";
 		mes "Ou vendo essas coisas estranhas ao seu redor.";
-		mes "Eu tambÃ©m cheiro ^0000ffsmoke ^000000.";
+		mes "Eu também cheiro ^0000ffsmoke ^000000.";
 		cutin "ep143_tahuk.bmp",2;
 		next;
 		mes "[Tamarindo]";
 		mes "De novo,";
-		mes "TambÃ©m nÃ£o me lembro de ver ^0000ffs, alÃ©m de muitos animais e plantas estranhas ^000000.";
-		mes "Estes sÃ£o Sonias, certo? Eles nÃ£o eram tantos antes.";
+		mes "Também não me lembro de ver ^0000ffs, além de muitos animais e plantas estranhas ^000000.";
+		mes "Estes são Sonias, certo? Eles não eram tantos antes.";
 		next;
 		mes "[Tamarindo]";
-		mes "Se fossem, eu nÃ£o teria que passar fome.";
-		mes "Sonias foram as mais deliciosas e menos tÃ³xicas entre todas as plantas que tentei.";
+		mes "Se fossem, eu não teria que passar fome.";
+		mes "Sonias foram as mais deliciosas e menos tóxicas entre todas as plantas que tentei.";
 		cutin "ep143_taang.bmp",2;
 		next;
 		mes "[Tamarindo]";
-		mes "" + strcharinfo(0) + ", vocÃª quer provar isso?";
-		mes "Eu trouxe algumas hastes por causa das memÃ³rias.";
+		mes "" + strcharinfo(0) + ", você quer provar isso?";
+		mes "Eu trouxe algumas hastes por causa das memórias.";
 		cutin "ep143_tasmi.bmp",2;
 		next;
 		cutin "",255;
@@ -2926,7 +2926,7 @@ moro_vol,198,179,4	script	Tamarin#ep14bs_st	4_M_TAMARIN,{
 		mes "Sua seiva grossa e aquecedora enche sua boca com delicioso aroma.";
 		next;
 		mes "[Tamarindo]";
-		mes "O que vocÃª acha?";
+		mes "O que você acha?";
 		mes "Delicioso, hein?";
 		cutin "ep143_tahuk.bmp",2;
 		next;
@@ -2953,14 +2953,14 @@ moro_vol,198,179,4	script	Tamarin#ep14bs_st	4_M_TAMARIN,{
 	}
 	if (ep14_3_newerabs == 23) {
 		mes "[Tamarindo]";
-		mes "AgradeÃ§a aos deuses, quem sabia que eu comi da fome me salvaria?";
+		mes "Agradeça aos deuses, quem sabia que eu comi da fome me salvaria?";
 		mes "Vamos nos reportar ao Barget.";
 		cutin "ep143_tahuk.bmp",2;
 		close3;
 	}
 	mes "[Tamarindo]";
 	mes "ARRGH!";
-	mes "" + strcharinfo(0) + "Entre lÃ¡ antes que todos os outros o explorem!";
+	mes "" + strcharinfo(0) + "Entre lá antes que todos os outros o explorem!";
 	cutin "ep143_tahuk.bmp",2;
 	next;
 	if (select( "Digitar.", "Desistir." ) == 2) {
@@ -2970,7 +2970,7 @@ moro_vol,198,179,4	script	Tamarin#ep14bs_st	4_M_TAMARIN,{
 		close3;
 	}
 	mes "[Tamarindo]";
-	mes "O chÃ£o estÃ¡ escuro. Assista seu passo!";
+	mes "O chão está escuro. Assista seu passo!";
 	close2;
 	warp "moro_cav",40,50;
 	end;
@@ -2980,7 +2980,7 @@ moro_vol,105,71,5	script	Instructor Rugen#ep14bs	4_M_YOUNGKNIGHT,{
 	if (ep14_3_newerabs < 20) {
 		mes "[ROYE do instrutor]";
 		mes "Ufa ...";
-		mes "Por que vocÃª era tÃ£o imprudente?";
+		mes "Por que você era tão imprudente?";
 		next;
 		mes "[ROYE do instrutor]";
 		mes "Vale a pena?";
@@ -2990,33 +2990,33 @@ moro_vol,105,71,5	script	Instructor Rugen#ep14bs	4_M_YOUNGKNIGHT,{
 	if (ep14_3_newerabs == 20) {
 		mes "[ROYE do instrutor]";
 		mes "Ufa ...";
-		mes "Por que vocÃª era tÃ£o imprudente?";
+		mes "Por que você era tão imprudente?";
 		next;
 		mes "[ROYE do instrutor]";
 		mes "Vale a pena?";
 		mes "...";
 		next;
-		if (select( "Fale com ele.", "NÃ£o, ele parece muito chateado para falar." ) == 2) {
+		if (select( "Fale com ele.", "Não, ele parece muito chateado para falar." ) == 2) {
 			mes "[ROYE do instrutor]";
 			mes "Suspirar...";
-			mes "Isso Ã© apenas ...";
+			mes "Isso é apenas ...";
 			close;
 		}
 		mes "[ROYE do instrutor]";
-		mes "Como posso ajudÃ¡ -lo?";
-		mes "Se vocÃª estiver buscando assistÃªncia mÃ©dica, descreva seus sintomas no balcÃ£o de recepÃ§Ã£o e aguarde atÃ© que a ajuda chegue.";
+		mes "Como posso ajudá -lo?";
+		mes "Se você estiver buscando assistência médica, descreva seus sintomas no balcão de recepção e aguarde até que a ajuda chegue.";
 		next;
-		select("DÃª a Sonia caules.");
+		select("Dê a Sonia caules.");
 		if (countitem(6690) < 25) {
 			mes "[ROYE do instrutor]";
-			mes "Isso nÃ£o Ã© suficiente.";
-			mes "VocÃª poderia verificar o nÃºmero de hastes de sua Sonia?";
+			mes "Isso não é suficiente.";
+			mes "Você poderia verificar o número de hastes de sua Sonia?";
 			close;
 		}
 		mes "[ROYE do instrutor]";
-		mes "VocÃª estÃ¡ falando sÃ©rio?";
-		mes "Dr. Tiblack enviou vocÃª, entÃ£o eu deveria acreditar em vocÃª.";
-		mes "Vou alimentÃ¡ -los com os pacientes.";
+		mes "Você está falando sério?";
+		mes "Dr. Tiblack enviou você, então eu deveria acreditar em você.";
+		mes "Vou alimentá -los com os pacientes.";
 		delitem 6690,25;// YummyStem
 		erasequest 11359;// Antidote
 		setquest 11360;// Antidote
@@ -3025,16 +3025,16 @@ moro_vol,105,71,5	script	Instructor Rugen#ep14bs	4_M_YOUNGKNIGHT,{
 	}
 	if (ep14_3_newerabs == 21) {
 		mes "[ROYE do instrutor]";
-		mes "VocÃª estÃ¡ falando sÃ©rio?";
-		mes "Dr. Tiblack enviou vocÃª, entÃ£o eu deveria acreditar em vocÃª.";
-		mes "Vou alimentÃ¡ -los com os pacientes.";
+		mes "Você está falando sério?";
+		mes "Dr. Tiblack enviou você, então eu deveria acreditar em você.";
+		mes "Vou alimentá -los com os pacientes.";
 		close;
 	}
 	if (ep14_3_newerabs == 22) {
 		mes "[ROYE do instrutor]";
 		mes "Oh!";
 		mes "Otto!";
-		mes "VocÃª consegue me ver?";
+		mes "Você consegue me ver?";
 		next;
 		mes "[Otto]";
 		mes "Eca...";
@@ -3044,11 +3044,11 @@ moro_vol,105,71,5	script	Instructor Rugen#ep14bs	4_M_YOUNGKNIGHT,{
 		mes "Funcionou!";
 		next;
 		mes "[ROYE do instrutor]";
-		mes "Os pacientes estÃ£o mostrando melhorias notÃ¡veis, embora precisem ficar na cama por enquanto.";
-		mes "Vou alimentar as hastes para os pacientes mais crÃ­ticos e esperar que a Dra. Tiblack termine sua pesquisa.";
+		mes "Os pacientes estão mostrando melhorias notáveis, embora precisem ficar na cama por enquanto.";
+		mes "Vou alimentar as hastes para os pacientes mais críticos e esperar que a Dra. Tiblack termine sua pesquisa.";
 		next;
 		mes "[ROYE do instrutor]";
-		mes "Vou lhe dar um relatÃ³rio sobre as respostas dos pacientes ao STEM. Por favor, traga o relatÃ³rio para ^0000FFDR. Tiblack^000000.";
+		mes "Vou lhe dar um relatório sobre as respostas dos pacientes ao STEM. Por favor, traga o relatório para ^0000FFDR. Tiblack^000000.";
 		mes "Hah, hah.";
 		mes "Funcionou!";
 		erasequest 11361;// Antidote
@@ -3058,19 +3058,19 @@ moro_vol,105,71,5	script	Instructor Rugen#ep14bs	4_M_YOUNGKNIGHT,{
 	}
 	if (ep14_3_newerabs == 23) {
 		mes "[ROYE do instrutor]";
-		mes "Os pacientes estÃ£o mostrando melhorias notÃ¡veis, embora precisem ficar na cama por enquanto.";
-		mes "Vou alimentar as hastes para os pacientes mais crÃ­ticos e esperar que a Dra. Tiblack termine sua pesquisa.";
+		mes "Os pacientes estão mostrando melhorias notáveis, embora precisem ficar na cama por enquanto.";
+		mes "Vou alimentar as hastes para os pacientes mais críticos e esperar que a Dra. Tiblack termine sua pesquisa.";
 		next;
 		mes "[ROYE do instrutor]";
-		mes "Vou lhe dar um relatÃ³rio sobre as respostas dos pacientes ao STEM. Por favor, traga o relatÃ³rio para ^0000FFDR. Tiblack^000000.";
+		mes "Vou lhe dar um relatório sobre as respostas dos pacientes ao STEM. Por favor, traga o relatório para ^0000FFDR. Tiblack^000000.";
 		mes "Hah, hah.";
 		mes "Funcionou!";
 		close;
 	}
 	mes "[ROYE do instrutor]";
 	mes "Fico feliz que a pesquisa tenha resultado em nosso favor.";
-	mes "Meus camaradas estÃ£o a caminho de uma recuperaÃ§Ã£o completa.";
-	mes "Obrigado a vocÃª.";
+	mes "Meus camaradas estão a caminho de uma recuperação completa.";
+	mes "Obrigado a você.";
 	close;
 }
 
@@ -3079,7 +3079,7 @@ moro_vol,104,70,4	script	Intoxicated Patient#ep14bs	4_M_LIEMAN,{
 		mes "[Paciente envenenado]";
 		mes "Eca...";
 		next;
-		mes "- VocÃª alimenta um caule para ele. A cor retorna instantaneamente ao seu rosto. -";
+		mes "- Você alimenta um caule para ele. A cor retorna instantaneamente ao seu rosto. -";
 		erasequest 11360;// Antidote
 		setquest 11361;// Antidote
 		ep14_3_newerabs = 22;
@@ -3089,7 +3089,7 @@ moro_vol,104,70,4	script	Intoxicated Patient#ep14bs	4_M_LIEMAN,{
 		mes "[Paciente envenenado]";
 		mes "Eca...";
 		next;
-		mes "- VocÃª alimenta um caule para ele. A cor retorna instantaneamente ao seu rosto. -";
+		mes "- Você alimenta um caule para ele. A cor retorna instantaneamente ao seu rosto. -";
 		mes "- Fale com o instrutor de centeio. E";
 		close;
 	}
@@ -3184,7 +3184,7 @@ S_M_chk:
 	if (unitexists(.gid[.@index]) == true) {
 		getunitdata .gid[.@index], .@data;
 		if ((.@data[UMOB_X] < (getarg(1) - 15)) || (.@data[UMOB_X] > (getarg(1) + 15)) || (.@data[UMOB_Y] < (getarg(2) - 15)) || (.@data[UMOB_Y] > (getarg(2) + 15))) {
-			unittalk .gid[.@index], "Eu tenho que voltar Ã  minha posiÃ§Ã£o, esta Ã© a ordem dele.!";
+			unittalk .gid[.@index], "Eu tenho que voltar à minha posição, esta é a ordem dele.!";
 			donpcevent "#f_boss_c::OnFail" + .@index;
 		}
 	}
@@ -3215,26 +3215,26 @@ moro_vol,1,2,3	duplicate(#f_boss0)	#f_boss1	CLEAR_NPC
 moro_vol,1,2,3	duplicate(#f_boss0)	#f_boss2	CLEAR_NPC
 
 moro_vol,86,167,7	script	Advance Base Defender#1	4_M_CRU_HEAD,3,3,{
-	mes "[Defensor da base avanÃ§ada]";
+	mes "[Defensor da base avançada]";
 	.@num = atoi(strnpcinfo(2));
 	if (.@num == 1 || .@num == 11)
-		mes "Este lugar Ã© muito perigoso. Volte Ã  base, agora!";
+		mes "Este lugar é muito perigoso. Volte à base, agora!";
 	else if (.@num == 2 || .@num == 12)
 		mes "Vou ver que nenhum monstro entrou na base.";
 	else if (.@num == 3 || .@num == 13)
 		mes "Suspiro, quanto tempo eu tenho que fazer isso?";
 	else if (.@num == 4 || .@num == 14)
-		mes "NÃ£o se preocupe. Estou aqui para protegÃª -lo.";
+		mes "Não se preocupe. Estou aqui para protegê -lo.";
 	else if (.@num == 5 || .@num == 15)
-		mes "Estamos no meio do campo de batalha. NÃ£o posso falar por muito tempo.";
+		mes "Estamos no meio do campo de batalha. Não posso falar por muito tempo.";
 	else if (.@num == 6 || .@num == 16)
-		mes "Por favor, afaste -se. VocÃª estÃ¡ bloqueando minha visÃ£o.";
+		mes "Por favor, afaste -se. Você está bloqueando minha visão.";
 	else if (.@num == 7 || .@num == 17)
-		mes "Se vocÃª tiver tempo para chat, mate mais um inimigo.";
+		mes "Se você tiver tempo para chat, mate mais um inimigo.";
 	else if (.@num == 8 || .@num == 18)
 		mes "Bah, estou com frio e com fome ... oh, eu estava apenas conversando comigo mesma.";
 	else if (.@num == 9 || .@num == 19)
-		mes "Tenha cuidado: este lugar Ã© invadido por monstros perigosos.";
+		mes "Tenha cuidado: este lugar é invadido por monstros perigosos.";
 	else if (.@num == 10 || .@num == 20)
 		mes "Para cada monstro que mato, um ou mais parecem tomar seu lugar.";
 	close;
@@ -3244,13 +3244,13 @@ OnTouch:
 OnTouchNPC:
 	.@t_rnd = rand(1,4);
 	if (.@t_rnd == 1)
-		npctalk "Defensor da base antecipada: Criatura da depravaÃ§Ã£o, eu ordeno que vocÃª retorne ao Wetherworld.";
+		npctalk "Defensor da base antecipada: Criatura da depravação, eu ordeno que você retorne ao Wetherworld.";
 	else if (.@t_rnd == 2)
-		npctalk "Defensor da base avanÃ§ada: nÃ£o Ã© um passo mais perto da minha base, monstros!";
+		npctalk "Defensor da base avançada: não é um passo mais perto da minha base, monstros!";
 	else if (.@t_rnd == 3)
-		npctalk "Defensor da base avanÃ§ada: pare ali, monstros! NÃ£o se atreva perto do nosso santuÃ¡rio!";
+		npctalk "Defensor da base avançada: pare ali, monstros! Não se atreva perto do nosso santuário!";
 	else if (.@t_rnd == 4)
-		npctalk "Defensor da base avanÃ§ada: Begone, monstros! Esta terra pertence ao ExÃ©rcito da Luz Santa!";
+		npctalk "Defensor da base avançada: Begone, monstros! Esta terra pertence ao Exército da Luz Santa!";
 	specialeffect EF_BEGINSPELL;
 	sleep2 1000;
 	.@c_rnd = rand(1,4);
@@ -3291,77 +3291,77 @@ moro_vol,191,81,6	duplicate(Advance Base Defender#1)	Advance Base Defender#20	4_
 // gef_fild02,106,225,4	script	Base Investigator#bl	4_M_KY_HEAD,{
 moro_vol,131,103,3	script	Base Investigator#bl	4_M_KY_HEAD,{
 	if (checkweight(1301,3) == 0) {
-		mes "- NÃ£o pode progredir com o diÃ¡logo porque vocÃª tem muitos itens. -";
+		mes "- Não pode progredir com o diálogo porque você tem muitos itens. -";
 		close;
 	}
 	if (BaseLevel < 150) {
 		mes "[Investigador base]";
-		mes "VocÃª parece super fraco!";
-		mes "Por que vocÃª estÃ¡ aqui ??";
+		mes "Você parece super fraco!";
+		mes "Por que você está aqui ??";
 		next;
 		mes "[Investigador base]";
-		mes "Bem, nÃ£o hÃ¡ pessoas suficientes!";
-		mes "Mas vamos esperar atÃ© vocÃª atingir o nÃ­vel 150.";
+		mes "Bem, não há pessoas suficientes!";
+		mes "Mas vamos esperar até você atingir o nível 150.";
 		mes "Por favor, volte mais tarde!";
 		close;
 	}
 	if (ep14_3_fall_bless == 0) {
 		mes "[Investigador base]";
-		mes "VocÃª jÃ¡ notou isso tambÃ©m?";
-		mes "Sim, os monstros nesta Ã¡rea sÃ£o realmente estranhos.";
+		mes "Você já notou isso também?";
+		mes "Sim, os monstros nesta área são realmente estranhos.";
 		next;
 		mes "[Investigador base]";
-		mes "Eles parecem ser versÃµes mutantes de monstros Midgard";
+		mes "Eles parecem ser versões mutantes de monstros Midgard";
 		next;
 		mes "[Investigador base]";
-		mes "Pior ainda, o nÃºmero deles tem aumentado rapidamente.";
+		mes "Pior ainda, o número deles tem aumentado rapidamente.";
 		mes "Devemos ficar de olho neles.";
 		next;
 		mes "[Investigador base]";
-		mes "Para meu arrependimento, todos parecem tÃ£o ocupados que nÃ£o posso pedir ajuda a eles, apesar da seriedade da investigaÃ§Ã£o.";
-		mes "Este nÃ£o Ã© um ambiente seguro.";
+		mes "Para meu arrependimento, todos parecem tão ocupados que não posso pedir ajuda a eles, apesar da seriedade da investigação.";
+		mes "Este não é um ambiente seguro.";
 		next;
-		switch( select( "O que estÃ¡ acontecendo?", "Por que vocÃª nÃ£o pode fazer isso sozinho?", "VocÃª quer que eu faÃ§a isso?" ) ) {
+		switch( select( "O que está acontecendo?", "Por que você não pode fazer isso sozinho?", "Você quer que eu faça isso?" ) ) {
 		case 1:
 			mes "[Investigador base]";
-			mes "As caracterÃ­sticas ambientais dessa Ã¡rea estÃ£o dificultando muito a investigaÃ§Ã£o.";
-			mes "O cenÃ¡rio parece familiar, mas de certa forma ... estranho.";
-			mes "O lugar parece que estÃ¡ prestes a colapso absoluto, mas .. Eu posso ver explosÃµes de crescimento vibrante.";
+			mes "As características ambientais dessa área estão dificultando muito a investigação.";
+			mes "O cenário parece familiar, mas de certa forma ... estranho.";
+			mes "O lugar parece que está prestes a colapso absoluto, mas .. Eu posso ver explosões de crescimento vibrante.";
 			next;
 			mes "[Investigador base]";
-			mes "O que Ã© este lugar?";
+			mes "O que é este lugar?";
 			close;
 		case 2:
 			mes "[Investigador base]";
 			mes "Como todo mundo de um fundo nobre,";
-			mes "Eu sÃ³ sei como comandar os outros.";
+			mes "Eu só sei como comandar os outros.";
 			emotion 4, playerattached();
 			close;
 		case 3:
 			mes "[Investigador base]";
 			mes "De todos aqueles monstros,";
 			mes "^0000ffffire condores^000000 parecem mais perigosos.";
-			mes "Aqueles pÃ¡ssaros com caudas ardentes cobram de cabeÃ§a para todos que vÃªem. VocÃª poderÃ¡ fugir deles, mas sempre serÃ¡ canto.";
+			mes "Aqueles pássaros com caudas ardentes cobram de cabeça para todos que vêem. Você poderá fugir deles, mas sempre será canto.";
 			next;
-			select("VocÃª quer que eu caÃ§a condores de bombeiros?");
+			select("Você quer que eu caça condores de bombeiros?");
 			mes "[Investigador base]";
-			mes "NÃ£o, nÃ£o tenho ninguÃ©m para descartar suas carcaÃ§as.";
-			mes "Meu objetivo Ã©, afinal, uma investigaÃ§Ã£o.";
+			mes "Não, não tenho ninguém para descartar suas carcaças.";
+			mes "Meu objetivo é, afinal, uma investigação.";
 			mes "Apenas me traga";
 			mes "15 ^FF0000 queimando penas ^000000";
 			mes "De ^0000FFFFIRE CONDORS ^000000.";
 			next;
-			if (select( "Estou tÃ£o ocupado quanto vocÃª!", "Entendi." ) == 1) {
+			if (select( "Estou tão ocupado quanto você!", "Entendi." ) == 1) {
 				mes "[Investigador base]";
-				mes "VocÃª agiu como se me ajudasse.";
-				mes "VocÃª estava brincando comigo?";
+				mes "Você agiu como se me ajudasse.";
+				mes "Você estava brincando comigo?";
 				close;
 			}
 			mes "[Investigador base]";
 			mes "Traga -me";
 			mes "^FF000015 PENAS DE queimando^000000";
 			mes "De ^0000FFFFIRE CONDORS ^000000.";
-			mes "Apresse -se antes que mais pessoas sejam vÃ­timas daqueles pÃ¡ssaros cruÃ©is!";
+			mes "Apresse -se antes que mais pessoas sejam vítimas daqueles pássaros cruéis!";
 			setquest 1264;	// Flaming Basin and Doom Prayers
 			ep14_3_fall_bless = 1;
 			close;
@@ -3370,50 +3370,50 @@ moro_vol,131,103,3	script	Base Investigator#bl	4_M_KY_HEAD,{
 	if (ep14_3_fall_bless == 1) {
 		if (countitem(6691) < 15) {
 			mes "[Investigador base]";
-			mes "Eu pensei que vocÃª estaria trabalhando duro agora,";
-			mes "ReuniÃ£o ^ff000015 penas queimadas ^000000";
+			mes "Eu pensei que você estaria trabalhando duro agora,";
+			mes "Reunião ^ff000015 penas queimadas ^000000";
 			mes "de ^0000fffire condores ^000000,";
-			mes "EntÃ£o eu liguei para uma reuniÃ£o de emergÃªncia de";
+			mes "Então eu liguei para uma reunião de emergência de";
 			mes "meus investigadores.";
 			next;
 			mes "[Investigador base]";
-			mes "E vocÃª ainda estÃ¡ na cidade,";
+			mes "E você ainda está na cidade,";
 			mes "desfrutando de uma caminhada de lazer.";
 			close;
 		}
 		mes "[Investigador base]";
-		mes "VocÃª trouxe";
+		mes "Você trouxe";
 		mes "todas as penas queimando ^ff000015 ^000000.";
 		mes "Obrigado. Agora eu posso";
-		mes "prossiga com minha investigaÃ§Ã£o.";
+		mes "prossiga com minha investigação.";
 		next;
 		mes "[Investigador base]";
-		mes "Acima de tudo, posso finalmente aproveitar o calor de um incÃªndio!";
+		mes "Acima de tudo, posso finalmente aproveitar o calor de um incêndio!";
 		emotion 21;
 		next;
 		mes "[Investigador base]";
-		mes "VocÃª notou a expressÃ£o preocupante no meu rosto?";
+		mes "Você notou a expressão preocupante no meu rosto?";
 		next;
-		if (select( "NÃ£o. Nunca.", "Eu fiz, instantaneamente." ) == 1) {
+		if (select( "Não. Nunca.", "Eu fiz, instantaneamente." ) == 1) {
 			mes "[Investigador base]";
-			mes "Essa nÃ£o Ã© a resposta que eu esperava,";
+			mes "Essa não é a resposta que eu esperava,";
 			mes "Mas eu continuarei com o spiel";
 			mes "Eu preparei.";
 			mes "Suspirar...";
 			next;
 			mes "[Investigador base]";
-			mes "Um batedor nÃ£o voltou";
+			mes "Um batedor não voltou";
 			mes "da bacia de flamejamento.";
-			mes "Eu quero que vocÃª vÃ¡ verificar";
+			mes "Eu quero que você vá verificar";
 			mes "O que aconteceu com ele.";
 			next;
-			if (select( "NÃ£o pode fazer.", "Claro." ) == 1) {
+			if (select( "Não pode fazer.", "Claro." ) == 1) {
 				mes "[Investigador base]";
-				mes "Eu sei que vocÃª farÃ¡ de qualquer maneira!";
+				mes "Eu sei que você fará de qualquer maneira!";
 				close;
 			}
 			mes "[Investigador base]";
-			mes "O batedor foi para a Ã¡rea repleta de monstros.";
+			mes "O batedor foi para a área repleta de monstros.";
 			mes "Mantenha seus olhos abertos por ele.";
 			delitem 6691,15;// BurningFeather
 			completequest 1264;	// Flaming Basin and Doom Prayers
@@ -3423,22 +3423,22 @@ moro_vol,131,103,3	script	Base Investigator#bl	4_M_KY_HEAD,{
 		}
 		mes "[Investigador base]";
 		// google translate..
-		mes "Nada mal! VocÃªs .... ....";
-		mes "Por favor, coma trÃªs tigelas de gongos!";
+		mes "Nada mal! Vocês .... ....";
+		mes "Por favor, coma três tigelas de gongos!";
 		next;
 		mes "[Investigador base]";
-		mes "Um batedor nÃ£o voltou";
+		mes "Um batedor não voltou";
 		mes "da bacia de flamejamento.";
-		mes "Eu quero que vocÃª vÃ¡ verificar";
+		mes "Eu quero que você vá verificar";
 		mes "O que aconteceu com ele.";
 		next;
-		if (select( "NÃ£o pode fazer.", "Claro." ) == 1) {
+		if (select( "Não pode fazer.", "Claro." ) == 1) {
 			mes "[Investigador base]";
-			mes "Eu sei que vocÃª farÃ¡ de qualquer maneira!";
+			mes "Eu sei que você fará de qualquer maneira!";
 			close;
 		}
 		mes "[Investigador base]";
-		mes "O batedor foi para a Ã¡rea repleta de monstros.";
+		mes "O batedor foi para a área repleta de monstros.";
 		mes "Mantenha seus olhos abertos por ele.";
 		delitem 6691,15;// BurningFeather
 		completequest 1264;	// Flaming Basin and Doom Prayers
@@ -3449,29 +3449,29 @@ moro_vol,131,103,3	script	Base Investigator#bl	4_M_KY_HEAD,{
 	if (ep14_3_fall_bless < 4) {
 		mes "[Investigador base]";
 		mes "Eu te enviei para procurar o batedor.";
-		mes "VocÃª voltou ou nÃ£o foi deixado?";
+		mes "Você voltou ou não foi deixado?";
 		next;
 		mes "[Investigador base]";
-		mes "VÃ¡ procurar o escoteiro no local repleto de monstros!";
+		mes "Vá procurar o escoteiro no local repleto de monstros!";
 		close;
 	}
 	if (ep14_3_fall_bless == 4) {
 		mes "[Investigador base]";
-		mes "VocÃª encontrou o escoteiro?";
-		mes "Ele estÃ¡ descansando e reescrevendo seu diÃ¡rio de escoteiros?";
+		mes "Você encontrou o escoteiro?";
+		mes "Ele está descansando e reescrevendo seu diário de escoteiros?";
 		next;
 		mes "[Investigador base]";
-		mes "Ele nÃ£o me decepciona.";
-		mes "Ele Ã© um bom soldado!";
+		mes "Ele não me decepciona.";
+		mes "Ele é um bom soldado!";
 		emotion 21;
 		emotion 4, playerattached();
 		next;
 		mes "[Investigador base]";
 		mes "Agora que encontramos o escoteiro que falta,";
-		mes "Eu quero que vocÃª vÃ¡ para a prÃ³xima missÃ£o.";
+		mes "Eu quero que você vá para a próxima missão.";
 		next;
 		mes "[Investigador base]";
-		mes "VocÃª conhece o nÃºmero de monstros misteriosos";
+		mes "Você conhece o número de monstros misteriosos";
 		mes "Nesta bacia de flamejante, tem aumentado continuamente.";
 		next;
 		select("Eu sei.");
@@ -3482,29 +3482,29 @@ moro_vol,131,103,3	script	Base Investigator#bl	4_M_KY_HEAD,{
 		mes "Eles poderiam fazer um tumulto,";
 		next;
 		mes "[Investigador base]";
-		mes "poderia espalhar vÃ­rus mortal,";
+		mes "poderia espalhar vírus mortal,";
 		mes "poderia procriar mutantes poderosos,";
 		mes "ou pior.";
 		next;
 		mes "[Investigador base]";
-		mes "Por enquanto, a melhor soluÃ§Ã£o seria";
-		mes "Um abate grande, e eu quero que vocÃª faÃ§a isso.";
+		mes "Por enquanto, a melhor solução seria";
+		mes "Um abate grande, e eu quero que você faça isso.";
 		next;
 		mes "[Investigador base]";
 		mes "Por favor, extermine";
 		mes "20 ^0000fffire Sandmen ^000000";
 		mes "e ^0000fffire Frilldoras ^000000.";
 		next;
-		if (select( "FaÃ§a vocÃª mesmo!", "Vou fazer o meu melhor." ) == 1) {
+		if (select( "Faça você mesmo!", "Vou fazer o meu melhor." ) == 1) {
 			mes "[Investigador base]";
 			mes "Eu odeio me repetir,";
 			mes "Mas como todo mundo de um fundo nobre,";
-			mes "Eu sÃ³ sei como comandar os outros.";
+			mes "Eu só sei como comandar os outros.";
 			emotion 19, playerattached();
 			close;
 		}
 		mes "[Investigador base]";
-		mes "Depressa, esses monstros estÃ£o se reproduzindo mesmo quando falamos.";
+		mes "Depressa, esses monstros estão se reproduzindo mesmo quando falamos.";
 		next;
 		mes "[Investigador base]";
 		mes "Por favor, extermine";
@@ -3519,15 +3519,15 @@ moro_vol,131,103,3	script	Base Investigator#bl	4_M_KY_HEAD,{
 	if (ep14_3_fall_bless == 5) {
 		if (checkquest(1268,HUNTING) == 2 && checkquest(1269,HUNTING) == 2) {
 			mes "[Investigador base]";
-			mes "VocÃª exterminou";
+			mes "Você exterminou";
 			mes "20 ^0000fffire Sandmen ^000000";
 			mes "e 20 ^0000fffire frilldoras ^000000 como eu pedi.";
 			next;
 			mes "[Investigador base]";
-			mes "GraÃ§as a vocÃª, encontramos uma maneira eficaz de lidar com os monstros.";
+			mes "Graças a você, encontramos uma maneira eficaz de lidar com os monstros.";
 			next;
 			mes "[Investigador base]";
-			mes "A partir deste momento, meus soldados assumirÃ£o o controle.";
+			mes "A partir deste momento, meus soldados assumirão o controle.";
 			completequest 1268;	// Flaming Basin and Doom Prayers
 			completequest 1269;	// Flaming Basin and Doom Prayers
 			setquest 1297;	// Flaming Basin and Doom Prayers
@@ -3536,7 +3536,7 @@ moro_vol,131,103,3	script	Base Investigator#bl	4_M_KY_HEAD,{
 			close;
 		}
 		mes "[Investigador base]";
-		mes "Apresse -se, esses monstros sÃ£o";
+		mes "Apresse -se, esses monstros são";
 		mes "multiplicando -se mesmo enquanto falamos.";
 		next;
 		mes "[Investigador base]";
@@ -3546,8 +3546,8 @@ moro_vol,131,103,3	script	Base Investigator#bl	4_M_KY_HEAD,{
 		close;
 	}
 	mes "[Investigador base]";
-	mes "Portanto, deixe para nÃ³s cuidar dessa Ã¡rea, e vÃ¡ em frente e siga para o norte.";
-	mes "Eu quero que vocÃª faÃ§a algo sobre aquele estranho grupo de pessoas por lÃ¡.";
+	mes "Portanto, deixe para nós cuidar dessa área, e vá em frente e siga para o norte.";
+	mes "Eu quero que você faça algo sobre aquele estranho grupo de pessoas por lá.";
 	next;
 	mes "[Investigador base]";
 	mes "Eles apareceram do nada.";
@@ -3563,24 +3563,24 @@ OnInit:
 //gef_fild02,106,225,4	script	Scout#bl	4_M_CRU_SOLD,{
 moro_vol,234,301,3	script	Scout#bl	4_M_CRU_SOLD,{
 	if (checkweight(1301,3) == 0) {
-		mes "- NÃ£o pode progredir com o diÃ¡logo porque vocÃª tem muitos itens. -";
+		mes "- Não pode progredir com o diálogo porque você tem muitos itens. -";
 		close;
 	}
 	if (ep14_3_fall_bless == 0) {
 		mes "[Scout]";
 		mes "Fui enviado para investigar esses monstros.";
-		mes "Ã‰ injusto que eu esteja sozinho";
+		mes "É injusto que eu esteja sozinho";
 		mes "Neste lugar perigoso, sem backup!";
 		close;
 	}
 	if (ep14_3_fall_bless == 1) {
 		mes "[Scout]";
 		mes "Fui enviado para investigar esses monstros.";
-		mes "Ã‰ injusto que eu esteja sozinho";
+		mes "É injusto que eu esteja sozinho";
 		mes "Neste lugar perigoso, sem backup!";
 		next;
 		mes "[Scout]";
-		mes "ARGH, eu sÃ³ vou AWOL!";
+		mes "ARGH, eu só vou AWOL!";
 		close;
 	}
 	if (ep14_3_fall_bless == 2) {
@@ -3589,49 +3589,49 @@ moro_vol,234,301,3	script	Scout#bl	4_M_CRU_SOLD,{
 		mes "Estou precisando urgentemente de ajuda!";
 		next;
 		mes "[Scout]";
-		mes "Eu vim aqui sozinho em uma missÃ£o de reconhecimento.";
+		mes "Eu vim aqui sozinho em uma missão de reconhecimento.";
 		mes "Uma horda de monstros me cercou, impedindo -me de sair,";
-		mes "EntÃ£o, eu nÃ£o tive escolha a nÃ£o ser ficar por aqui.";
+		mes "Então, eu não tive escolha a não ser ficar por aqui.";
 		next;
-		if (select("Fique arrepiante entÃ£o.", "Vamos voltar comigo.") == 1) {
+		if (select("Fique arrepiante então.", "Vamos voltar comigo.") == 1) {
 			mes "[Scout]";
-			mes "VocÃª tem medo de pedir ajuda,";
+			mes "Você tem medo de pedir ajuda,";
 			mes "Eu vejo.";
 			close;
 		}
 		mes "[Scout]";
-		mes "NÃ£o estou ferido, exceto alguns arranhÃµes,";
+		mes "Não estou ferido, exceto alguns arranhões,";
 		mes "mas ^0000fffire Sandmen ^000000 roubado";
 		mes "meu ^ff0000Scout Journal ^000000.";
 		next;
 		mes "[Scout]";
-		mes "Sem o ^ff0000Scout Journal ^000000, nÃ£o posso voltar.";
+		mes "Sem o ^ff0000Scout Journal ^000000, não posso voltar.";
 		mes "Terei sorte";
-		mes "Se meus superiores nÃ£o me cortejarem marcial.";
+		mes "Se meus superiores não me cortejarem marcial.";
 		next;
 		mes "[Scout]";
-		mes "NÃ£o pareÃ§o lamentÃ¡vel?";
-		mes "NÃ£o o inspira a me ajudar?";
+		mes "Não pareço lamentável?";
+		mes "Não o inspira a me ajudar?";
 		next;
 		if (select("Neh.", "Isso faz.") == 1) {
 			mes "[Scout]";
-			mes "Tudo bem, entÃ£o vou ter que";
-			mes "Fique aqui e relaxe atÃ© que a ajuda chegue.";
+			mes "Tudo bem, então vou ter que";
+			mes "Fique aqui e relaxe até que a ajuda chegue.";
 			close;
 		}
 		mes "[Scout]";
-		mes "Ok, aqui estÃ¡ o que vocÃª pode fazer para ajudar:";
+		mes "Ok, aqui está o que você pode fazer para ajudar:";
 		mes "Por favor, traga ^FF0000SCOUT Journals ^000000";
 		mes "De ^0000fffire Sandmen ^000000.";
 		next;
 		mes "[Scout]";
-		mes "O diÃ¡rio poderia ter sido separado em pÃ¡ginas, tiradas por esses monstros selvagens.";
-		mes "Eu nÃ£o ligo; Eu ainda preciso deles para mostrar aos meus superiores.";
+		mes "O diário poderia ter sido separado em páginas, tiradas por esses monstros selvagens.";
+		mes "Eu não ligo; Eu ainda preciso deles para mostrar aos meus superiores.";
 		mes "Por favor me traga";
 		mes "20 ^FF0000SCOUT Journals ^000000.";
 		next;
 		mes "[Scout]";
-		mes "Tenha cuidado-eles podem emboscar vocÃª e arrebatar os periÃ³dicos ff0000Scout ^000000 antes que vocÃª perceba.";
+		mes "Tenha cuidado-eles podem emboscar você e arrebatar os periódicos ff0000Scout ^000000 antes que você perceba.";
 		completequest 1265;	// Flaming Basin and Doom Prayers
 		setquest 1266;	// Flaming Basin and Doom Prayers
 		ep14_3_fall_bless = 3;
@@ -3644,20 +3644,20 @@ moro_vol,234,301,3	script	Scout#bl	4_M_CRU_SOLD,{
 			mes "De ^0000fffire Sandmen ^000000.";
 			next;
 			mes "[Scout]";
-			mes "Tenha cuidado-eles podem emboscar vocÃª e arrebatar os periÃ³dicos ff0000Scout ^000000 antes que vocÃª perceba.";
+			mes "Tenha cuidado-eles podem emboscar você e arrebatar os periódicos ff0000Scout ^000000 antes que você perceba.";
 			close;
 		}
 		mes "[Scout]";
-		mes "VocÃª jÃ¡ encontrou";
+		mes "Você já encontrou";
 		mes "20 ^FF0000SCOUT Journals ^000000?";
-		mes "Se eu soubesse que vocÃª Ã© tÃ£o rÃ¡pido, teria pedido 100 pÃ¡ginas.";
+		mes "Se eu soubesse que você é tão rápido, teria pedido 100 páginas.";
 		next;
 		mes "[Scout]";
-		mes "Minhas feridas estÃ£o latejando do pensamento de puniÃ§Ã£o";
+		mes "Minhas feridas estão latejando do pensamento de punição";
 		mes "Isso pode me esperar na base.";
 		next;
 		mes "[Scout]";
-		mes "Vou segui -lo assim que terminar de reorganizar essas pÃ¡ginas.";
+		mes "Vou segui -lo assim que terminar de reorganizar essas páginas.";
 		mes "Por favor, relate ao investigador";
 		mes "e colocar uma boa palavra";
 		mes "para mim.";
@@ -3669,7 +3669,7 @@ moro_vol,234,301,3	script	Scout#bl	4_M_CRU_SOLD,{
 	}
 	if (ep14_3_fall_bless == 4) {
 		mes "[Scout]";
-		mes "Vou segui -lo assim que terminar de reorganizar essas pÃ¡ginas.";
+		mes "Vou segui -lo assim que terminar de reorganizar essas páginas.";
 		mes "Por favor, relate ao investigador";
 		mes "e colocar uma boa palavra";
 		mes "para mim.";
@@ -3677,7 +3677,7 @@ moro_vol,234,301,3	script	Scout#bl	4_M_CRU_SOLD,{
 	}
 	mes "[Scout]";
 	mes "Fui enviado para investigar esses monstros.";
-	mes "Ã‰ injusto que eu esteja sozinho";
+	mes "É injusto que eu esteja sozinho";
 	mes "Neste lugar perigoso, sem backup!";
 	close;
 }
@@ -3698,7 +3698,7 @@ OnTouch:
 	else
 		.@count = 2;
 	if (countitem(6692) >= .@count) {
-		mes "VocÃª foi emboscado por Sandmen de fogo!";
+		mes "Você foi emboscado por Sandmen de fogo!";
 		delitem 6692, .@count;// PatrolLog
 		monster "moro_vol",.@x,(.@y-2),"",3021,1;
 		monster "moro_vol",.@x,(.@y-1),"",3021,1;
@@ -3721,124 +3721,124 @@ moro_vol,232,266,0	duplicate(#bg1)	#bg10	HIDDEN_WARP_NPC,2,2
 // moro_vol,104,141,3	script	Doom Prayers Leader#bl	4_M_BELIEVER01,{
 moro_vol,91,197,3	script	Doom Prayers Leader#bl	4_M_BELIEVER01,{
 	if (checkweight(1301,3) == 0) {
-		mes "- NÃ£o pode progredir com o diÃ¡logo porque vocÃª tem muitos itens. -";
+		mes "- Não pode progredir com o diálogo porque você tem muitos itens. -";
 		close;
 	}
 	if (ep14_3_fall_bless < 6) {
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-		mes "Finalmente, o dia do juÃ­zo final chegou!";
-		mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
+		mes "[Líder de orações do Doom]";
+		mes "Finalmente, o dia do juízo final chegou!";
+		mes "A destruição é uma bênção!";
 		next;
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
+		mes "[Líder de orações do Doom]";
 		mes "Guie -nos para dentro!";
 		mes "Somos escolhidos pelos deuses!";
-		mes "O dia em que a destruiÃ§Ã£o do mundo comeÃ§a.";
+		mes "O dia em que a destruição do mundo começa.";
 		next;
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
+		mes "[Líder de orações do Doom]";
 		mes "Sangue para o sangue vai ~~";
-		mes "Quero dizer, a destruiÃ§Ã£o Ã© boa!";
-		mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
+		mes "Quero dizer, a destruição é boa!";
+		mes "A destruição é uma bênção!";
 		close;
 	}
 	if (ep14_3_fall_bless == 6) {
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-		mes "Finalmente, o dia do juÃ­zo final chegou!";
-		mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
+		mes "[Líder de orações do Doom]";
+		mes "Finalmente, o dia do juízo final chegou!";
+		mes "A destruição é uma bênção!";
 		next;
-		mes "[OraÃ§Ãµes da Doom]";
-		mes "DestruiÃ§Ã£o! Ã‰! UM! BÃªnÃ§Ã£o!";
-		mes "DestruiÃ§Ã£o! Ã‰! UM! BÃªnÃ§Ã£o!";
+		mes "[Orações da Doom]";
+		mes "Destruição! É! UM! Bênção!";
+		mes "Destruição! É! UM! Bênção!";
 		next;
-		mes "[OraÃ§Ãµes da Doom]";
-		mes "DestruiÃ§Ã£o! BÃªnÃ§Ã£o!";
-		mes "NÃ³s somos os escolhidos!";
+		mes "[Orações da Doom]";
+		mes "Destruição! Bênção!";
+		mes "Nós somos os escolhidos!";
 		next;
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
+		mes "[Líder de orações do Doom]";
 		mes "Guie -nos para dentro!";
 		mes "Somos escolhidos pelos deuses!";
-		mes "O dia em que a destruiÃ§Ã£o do mundo comeÃ§a,";
+		mes "O dia em que a destruição do mundo começa,";
 		next;
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-		mes "A arma Ã© boa!";
-		mes "O hode Ã© mau!";
+		mes "[Líder de orações do Doom]";
+		mes "A arma é boa!";
+		mes "O hode é mau!";
 		next;
-		switch( select( "Que Deus vocÃª serve?", "Quem Ã© vocÃª?", "Volte!" ) ) {
+		switch( select( "Que Deus você serve?", "Quem é você?", "Volte!" ) ) {
 		case 1:
-			mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-			mes "Servimos o deus da destruiÃ§Ã£o!";
-			mes "Ele supervisiona a destruiÃ§Ã£o de tudo-da destruiÃ§Ã£o de uma estrela para a de uma galÃ¡xia inteira,";
-			mes "E desde a deterioraÃ§Ã£o do meu cafÃ© da manhÃ£ atÃ© o do meu jantar.";
+			mes "[Líder de orações do Doom]";
+			mes "Servimos o deus da destruição!";
+			mes "Ele supervisiona a destruição de tudo-da destruição de uma estrela para a de uma galáxia inteira,";
+			mes "E desde a deterioração do meu café da manhã até o do meu jantar.";
 			close;
 		case 2:
-			mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-			mes "Somos as oraÃ§Ãµes do Doom!";
-			mes "Servimos o deus da destruiÃ§Ã£o,";
-			mes "e ore a ele para nos abenÃ§oar com o fim do mundo.";
+			mes "[Líder de orações do Doom]";
+			mes "Somos as orações do Doom!";
+			mes "Servimos o deus da destruição,";
+			mes "e ore a ele para nos abençoar com o fim do mundo.";
 			next;
-			mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-			mes "Somente depois que tudo o mais Ã© destruÃ­do,";
-			mes "Podemos ser verdadeiramente abenÃ§oados.";
+			mes "[Líder de orações do Doom]";
+			mes "Somente depois que tudo o mais é destruído,";
+			mes "Podemos ser verdadeiramente abençoados.";
 			next;
-			mes "[LÃ­der de oraÃ§Ãµes do Doom]";
+			mes "[Líder de orações do Doom]";
 			mes "Aquelas rachaduras repentinas";
-			mes "no chÃ£o.";
+			mes "no chão.";
 			mes "Aqueles gatos que falam.";
 			mes "Aqueles gigantes verdes.";
 			next;
-			mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-			mes "Eles provam que o fim estÃ¡ prÃ³ximo!";
-			mes "Oh, o dia do juÃ­zo final chegou!";
-			mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
+			mes "[Líder de orações do Doom]";
+			mes "Eles provam que o fim está próximo!";
+			mes "Oh, o dia do juízo final chegou!";
+			mes "A destruição é uma bênção!";
 			close;
 		case 3:
-			mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-			mes "NÃ£o, nÃ£o vamos!";
-			mes "Finalmente, o dia do juÃ­zo final chegou!";
-			mes "Estamos morrendo de vontade de a bÃªnÃ§Ã£o!";
-			mes "Eu quero estar lÃ¡ antes de todos os outros!";
+			mes "[Líder de orações do Doom]";
+			mes "Não, não vamos!";
+			mes "Finalmente, o dia do juízo final chegou!";
+			mes "Estamos morrendo de vontade de a bênção!";
+			mes "Eu quero estar lá antes de todos os outros!";
 			next;
-			mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-			mes "Inferno nÃ£o, nÃ£o vamos!";
-			mes "Vamos lÃ¡ lÃ¡!";
-			mes "Fomos escolhidos pelo deus da destruiÃ§Ã£o.";
-			mes "Ao contrÃ¡rio de vocÃª, somos invencÃ­veis!";
+			mes "[Líder de orações do Doom]";
+			mes "Inferno não, não vamos!";
+			mes "Vamos lá lá!";
+			mes "Fomos escolhidos pelo deus da destruição.";
+			mes "Ao contrário de você, somos invencíveis!";
 			next;
-			select("VocÃª pode provar isso?");
-			mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-			mes "Como vocÃª ousa me desafiar?!";
-			mes "Tudo bem, eu vou provar isso para vocÃª!";
+			select("Você pode provar isso?");
+			mes "[Líder de orações do Doom]";
+			mes "Como você ousa me desafiar?!";
+			mes "Tudo bem, eu vou provar isso para você!";
 			next;
-			mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-			mes "Pesquise este junto e encontre pedras de bÃªnÃ§Ã£o ^ff000040 ^000000.";
-			mes "Jogue -os para nÃ³s e vocÃª verÃ¡.";
+			mes "[Líder de orações do Doom]";
+			mes "Pesquise este junto e encontre pedras de bênção ^ff000040 ^000000.";
+			mes "Jogue -os para nós e você verá.";
 			next;
-			mes "[LÃ­der de oraÃ§Ãµes do Doom]";
+			mes "[Líder de orações do Doom]";
 			mes "No momento em que eles atingem nossos corpos,";
-			mes "Eles vÃ£o se transformar em pÃ©talas de flores com um pop alto!";
-			mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
+			mes "Eles vão se transformar em pétalas de flores com um pop alto!";
+			mes "A destruição é uma bênção!";
 			next;
 			select("Doomsland?");
 			mes "[Guarda]";
-			mes "Ã‰ isso que aquelas pessoas loucas chamam isso de bacia em chamas.";
+			mes "É isso que aquelas pessoas loucas chamam isso de bacia em chamas.";
 			next;
 			mes "[Guarda]";
-			mes "E o que eles chamam de pedras de beliscÃ£o ^000000 sÃ£o simplesmente os detritos caÃ­ram ^0000fffire golems ^000000.";
+			mes "E o que eles chamam de pedras de beliscão ^000000 são simplesmente os detritos caíram ^0000fffire golems ^000000.";
 			next;
-			mes "A Ãºnica maneira de enviar essas pessoas loucas deve provar que estÃ£o erradas.";
-			mes "VocÃª quer caÃ§ar ^0000fffire golems ^000000";
+			mes "A única maneira de enviar essas pessoas loucas deve provar que estão erradas.";
+			mes "Você quer caçar ^0000fffire golems ^000000";
 			mes "e coletar 40 ^FF0000 BLEESSING Stones ^000000?";
 			next;
-			if (select( "NÃ£o, eu nÃ£o poderia me importar menos!", "Vou coletar as pedras." ) == 1) {
-				mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-				mes "Vejo que vocÃª tem medo de testemunhar a graÃ§a de nosso Deus para que isso possa mudar de idÃ©ia.";
+			if (select( "Não, eu não poderia me importar menos!", "Vou coletar as pedras." ) == 1) {
+				mes "[Líder de orações do Doom]";
+				mes "Vejo que você tem medo de testemunhar a graça de nosso Deus para que isso possa mudar de idéia.";
 				mes "Pare de me incomodar e scram!";
-				mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
+				mes "A destruição é uma bênção!";
 				close;
 			}
-			mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-			mes "VÃ¡ em frente, traga ^ff0000 Bolessing Stones ^000000 e jogue -as para nÃ³s!";
-			mes "VocÃª verÃ¡ aquelas pedras se transformando em pÃ©talas de flores em queda!";
-			mes "EntÃ£o vocÃª vai chorar e me implorar para deixar vocÃª se juntar a nÃ³s.";
+			mes "[Líder de orações do Doom]";
+			mes "Vá em frente, traga ^ff0000 Bolessing Stones ^000000 e jogue -as para nós!";
+			mes "Você verá aquelas pedras se transformando em pétalas de flores em queda!";
+			mes "Então você vai chorar e me implorar para deixar você se juntar a nós.";
 			completequest 1297;	// Flaming Basin and Doom Prayers
 			setquest 1270;	// Flaming Basin and Doom Prayers
 			ep14_3_fall_bless = 7;
@@ -3847,26 +3847,26 @@ moro_vol,91,197,3	script	Doom Prayers Leader#bl	4_M_BELIEVER01,{
 	}
 	if (ep14_3_fall_bless == 7) {
 		if (countitem(6693) < 39) {	// Stone_Of_Blessing
-			mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-			mes "Pesquise este junto e encontre pedras de bÃªnÃ§Ã£o ^ff000040 ^000000.";
-			mes "Jogue -os para nÃ³s e vocÃª verÃ¡.";
+			mes "[Líder de orações do Doom]";
+			mes "Pesquise este junto e encontre pedras de bênção ^ff000040 ^000000.";
+			mes "Jogue -os para nós e você verá.";
 			next;
-			mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-			mes "No momento em que eles atingem nossos corpos, eles se transformam em pÃ©talas de flores com um pop alto!";
-			mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
+			mes "[Líder de orações do Doom]";
+			mes "No momento em que eles atingem nossos corpos, eles se transformam em pétalas de flores com um pop alto!";
+			mes "A destruição é uma bênção!";
 			next;
 			mes "Hunt ^0000fffire golems ^000000 e colete 40 ^ff0000 belishing pedras ^000000.";
 			close;
 		}
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-		mes "VocÃª trouxe 40 ^FF0000 BLEESSING Stones ^000000.";
+		mes "[Líder de orações do Doom]";
+		mes "Você trouxe 40 ^FF0000 BLEESSING Stones ^000000.";
 		mes "Ok, estamos prontos.";
-		mes "Jogue as pedras para nÃ³s!";
+		mes "Jogue as pedras para nós!";
 		next;
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
+		mes "[Líder de orações do Doom]";
 		mes "Esteja preparado para o milagre!";
-		mes "Vamos lÃ¡, nos dÃª um dura!";
-		mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
+		mes "Vamos lá, nos dê um dura!";
+		mes "A destruição é uma bênção!";
 		next;
 		mes "*Whize*";
 		mes "*Whize*";
@@ -3876,7 +3876,7 @@ moro_vol,91,197,3	script	Doom Prayers Leader#bl	4_M_BELIEVER01,{
 		mes "*Whize*";
 		mes "*Whize*";
 		next;
-		mes "[OraÃ§Ãµes da Doom]";
+		mes "[Orações da Doom]";
 		mes "Yelp!";
 		emotion 19;
 		emotion 19, getnpcid(0, "Doom Prayers Second-in-command#bl");
@@ -3885,7 +3885,7 @@ moro_vol,91,197,3	script	Doom Prayers Leader#bl	4_M_BELIEVER01,{
 		emotion 19, getnpcid(0, "Doom Prayer#bl3");
 		emotion 28, getnpcid(0, "Doom Prayer#bl4");
 		next;
-		mes "[OraÃ§Ãµes da Doom]";
+		mes "[Orações da Doom]";
 		mes "Yelp!";
 		mes "Ai! Nossa!";
 		emotion 19;
@@ -3899,7 +3899,7 @@ moro_vol,91,197,3	script	Doom Prayers Leader#bl	4_M_BELIEVER01,{
 		emotion 28, getnpcid(0, "Doom Prayer#bl0");
 		emotion 19, getnpcid(0, "Doom Prayer#bl12");
 		next;
-		mes "[OraÃ§Ãµes da Doom]";
+		mes "[Orações da Doom]";
 		mes "KHANH -!";
 		mes "Aww! Errar!";
 		emotion 19;
@@ -3917,23 +3917,23 @@ moro_vol,91,197,3	script	Doom Prayers Leader#bl	4_M_BELIEVER01,{
 		emotion 19, getnpcid(0, "Doom Prayer#bl11");
 		emotion 19, getnpcid(0, "Doom Prayer#bl12");
 		next;
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-		mes "Isso dÃ³i!";
-		mes "Isso dÃ³i como o inferno!";
+		mes "[Líder de orações do Doom]";
+		mes "Isso dói!";
+		mes "Isso dói como o inferno!";
 		mes "PARAR! Pare de me bater na cara!";
 		next;
 		if (select( "Continue jogando.", "Pare de jogar.") == 2) {
-			mes "Em vez de se transformar em pÃ©talas de flores, as pedras infligiram imensa dor Ã queles que foram atingidos.";
-			mes "VocÃª decidiu parar de jogar as pedras.";
+			mes "Em vez de se transformar em pétalas de flores, as pedras infligiram imensa dor àqueles que foram atingidos.";
+			mes "Você decidiu parar de jogar as pedras.";
 			delitem 6693,40;// Stone_Of_Blessing
 			completequest 1270;	// Flaming Basin and Doom Prayers
 			setquest 1271;	// Flaming Basin and Doom Prayers
 			ep14_3_fall_bless = 8;
 			close;
 		}
-		mes "[OraÃ§Ãµes da Doom]";
+		mes "[Orações da Doom]";
 		mes "Yelp!";
-		mes "Minha cabeÃ§a!";
+		mes "Minha cabeça!";
 		mes "Aww! Kysaoh-!";
 		emotion 19;
 		emotion 19, getnpcid(0, "Doom Prayers Second-in-command#bl");
@@ -3942,7 +3942,7 @@ moro_vol,91,197,3	script	Doom Prayers Leader#bl	4_M_BELIEVER01,{
 		emotion 19, getnpcid(0, "Doom Prayer#bl3");
 		emotion 28, getnpcid(0, "Doom Prayer#bl4");
 		next;
-		mes "[OraÃ§Ãµes da Doom]";
+		mes "[Orações da Doom]";
 		mes "KHANH -!";
 		mes "Meu nariz!";
 		mes "O que-! Kyarr-!";
@@ -3961,22 +3961,22 @@ moro_vol,91,197,3	script	Doom Prayers Leader#bl	4_M_BELIEVER01,{
 		emotion 19, getnpcid(0, "Doom Prayer#bl11");
 		emotion 19, getnpcid(0, "Doom Prayer#bl12");
 		next;
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
+		mes "[Líder de orações do Doom]";
 		mes "Ferir!";
 		mes "Machucar como o inferno!";
-		mes "Eu nÃ£o estava pronto!";
+		mes "Eu não estava pronto!";
 		mes "Parar! Vamos fazer o excesso!";
 		close;
 	}
 	if (ep14_3_fall_bless == 8) {
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-		mes "IrmÃ£os e irmÃ£s, acalme -se!";
+		mes "[Líder de orações do Doom]";
+		mes "Irmãos e irmãs, acalme -se!";
 		mes "Esse herege nos enganou as pedras erradas!";
 		next;
-		mes "[OraÃ§Ãµes da Doom]";
+		mes "[Orações da Doom]";
 		mes "Eu sabia!";
 		next;
-		mes "[OraÃ§Ãµes da Doom]";
+		mes "[Orações da Doom]";
 		mes "Vaia!";
 		mes "Vaia!";
 		emotion 32;
@@ -3994,41 +3994,41 @@ moro_vol,91,197,3	script	Doom Prayers Leader#bl	4_M_BELIEVER01,{
 		emotion 6, getnpcid(0, "Doom Prayer#bl11");
 		emotion 6, getnpcid(0, "Doom Prayer#bl12");
 		next;
-		mes "[OraÃ§Ãµes da Doom]";
-		mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
-		mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
+		mes "[Orações da Doom]";
+		mes "A destruição é uma bênção!";
+		mes "A destruição é uma bênção!";
 		next;
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-		mes "VocÃª Ã© um covarde!";
-		mes "Eu comandando vocÃª de novo.";
+		mes "[Líder de orações do Doom]";
+		mes "Você é um covarde!";
+		mes "Eu comandando você de novo.";
 		next;
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
+		mes "[Líder de orações do Doom]";
 		mes "Traga o sangue dos monstros que vagam por Doomsland.";
-		mes "Vou beber e levitar para guiar todos vocÃªs Ã  verdadeira fÃ©!";
+		mes "Vou beber e levitar para guiar todos vocês à verdadeira fé!";
 		next;
 		mes "[Guarda]";
 		mes "Ele quer dizer os sangue ^ff0000monster ^000000";
 		mes "De ^0000fffire Frilldoras ^000000 e ^0000ffffire Sandmen ^000000.";
 		mes "Presumo que 30 garrafas devem ser suficientes.";
 		next;
-		if (select( "NÃ£o, eu nÃ£o poderia me importar menos!", "Vou coletar sangue monstro.") == 1) {
-			mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-			mes "Eu sabia que vocÃª diria que sim!";
-			mes "Eu posso sentir seu medo sobre a possibilidade de testemunhar a graÃ§a do Deus da destruiÃ§Ã£o.";
+		if (select( "Não, eu não poderia me importar menos!", "Vou coletar sangue monstro.") == 1) {
+			mes "[Líder de orações do Doom]";
+			mes "Eu sabia que você diria que sim!";
+			mes "Eu posso sentir seu medo sobre a possibilidade de testemunhar a graça do Deus da destruição.";
 			next;
-			mes "[LÃ­der de oraÃ§Ãµes do Doom]";
+			mes "[Líder de orações do Doom]";
 			mes "Pare de me incomodar e scram!";
-			mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
+			mes "A destruição é uma bênção!";
 			close;
 		}
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-		mes "Agora vÃ¡ me trazer sangue monstro!";
+		mes "[Líder de orações do Doom]";
+		mes "Agora vá me trazer sangue monstro!";
 		mes "Hunt aqueles hediondos ^0000fffire frilldoras ^000000 e ^0000fffire sandmen ^000000 e traga -me 30 ^ff0000Monster Bloods ^000000.";
 		next;
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-		mes "Esta Ã© uma tarefa perigosa.";
-		mes "Vou entender se vocÃª quiser correr.";
-		mes "Se vocÃª realmente quer fazer isso no meu conselho, faÃ§a o que desejar.";
+		mes "[Líder de orações do Doom]";
+		mes "Esta é uma tarefa perigosa.";
+		mes "Vou entender se você quiser correr.";
+		mes "Se você realmente quer fazer isso no meu conselho, faça o que desejar.";
 		mes "Mwah hah hah!";
 		completequest 1271;	// Flaming Basin and Doom Prayers
 		setquest 1272;	// Flaming Basin and Doom Prayers
@@ -4037,48 +4037,48 @@ moro_vol,91,197,3	script	Doom Prayers Leader#bl	4_M_BELIEVER01,{
 	}
 	if (ep14_3_fall_bless == 9) {
 		if (countitem(6694) < 29) {
-			mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-			mes "Agora vÃ¡ me trazer sangue monstro!";
+			mes "[Líder de orações do Doom]";
+			mes "Agora vá me trazer sangue monstro!";
 			mes "Hunt aqueles hediondos ^0000fffire frilldoras ^000000 e ^0000fffire sandmen ^000000 e traga -me 30 ^ff0000Monster Bloods ^000000.";
 			next;
-			mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-			mes "Esta Ã© uma tarefa perigosa.";
-			mes "Vou entender se vocÃª quiser correr.";
-			mes "Se vocÃª realmente quer fazer isso no meu conselho, faÃ§a o que desejar.";
+			mes "[Líder de orações do Doom]";
+			mes "Esta é uma tarefa perigosa.";
+			mes "Vou entender se você quiser correr.";
+			mes "Se você realmente quer fazer isso no meu conselho, faça o que desejar.";
 			mes "Mwah hah hah!";
 			close;
 		}
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-		mes "VocÃª deve ter muito tempo em suas mÃ£os, herege: vocÃª realmente trouxe todos os sangue ^ff0000monster ^000000.";
+		mes "[Líder de orações do Doom]";
+		mes "Você deve ter muito tempo em suas mãos, herege: você realmente trouxe todos os sangue ^ff0000monster ^000000.";
 		next;
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
+		mes "[Líder de orações do Doom]";
 		mes "Lo e eis!";
 		mes "Vou beber isso e me levitar com seu poder!";
 		next;
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
+		mes "[Líder de orações do Doom]";
 		mes "*Gulp gulp*";
 		next;
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
+		mes "[Líder de orações do Doom]";
 		mes "*Slosh Slosh*";
 		next;
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
+		mes "[Líder de orações do Doom]";
 		mes "*Guzzle Guzzle*";
 		next;
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
+		mes "[Líder de orações do Doom]";
 		mes "*Arrotar*";
 		next;
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
+		mes "[Líder de orações do Doom]";
 		mes "*Rumble*";
 		next;
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
+		mes "[Líder de orações do Doom]";
 		mes "...";
 		mes "Eca...";
 		emotion 4;
 		next;
 		mes "A cor drena do rosto dele.";
-		mes "VocÃª pega um cheiro do que cheira a diarrÃ©ia.";
+		mes "Você pega um cheiro do que cheira a diarréia.";
 		next;
-		mes "Seus lÃ¡bios magram em vergonha silenciosa.";
+		mes "Seus lábios magram em vergonha silenciosa.";
 		emotion 28;
 		delitem 6694,30;// Monster_Blood
 		completequest 1272;	// Flaming Basin and Doom Prayers
@@ -4087,39 +4087,39 @@ moro_vol,91,197,3	script	Doom Prayers Leader#bl	4_M_BELIEVER01,{
 		close;
 	}
 	if (ep14_3_fall_bless < 12) {
-		mes "Envolto em uma nuvem de fedor vil, ele permanece em silÃªncio.";
+		mes "Envolto em uma nuvem de fedor vil, ele permanece em silêncio.";
 		next;
-		mes "Seu segundo em comando estÃ¡ apontando com raiva o dedo para vocÃª.";
-		mes "VocÃª deveria falar com ele.";
+		mes "Seu segundo em comando está apontando com raiva o dedo para você.";
+		mes "Você deveria falar com ele.";
 		close;
 	}
 	if (ep14_3_fall_bless == 12) {
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-		mes "Suspiro, o mundo nÃ£o terminou novamente.";
-		mes "O que eu nÃ£o daria para voltar para casa agora e mudar para algumas roupas Ã­ntimas frescas ...";
+		mes "[Líder de orações do Doom]";
+		mes "Suspiro, o mundo não terminou novamente.";
+		mes "O que eu não daria para voltar para casa agora e mudar para algumas roupas íntimas frescas ...";
 		next;
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-		mes "Vou esperar o prÃ³ximo desastre natural e reunir mais seguidores para chamar o deus da destruiÃ§Ã£o!";
+		mes "[Líder de orações do Doom]";
+		mes "Vou esperar o próximo desastre natural e reunir mais seguidores para chamar o deus da destruição!";
 		next;
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-		mes "GraÃ§as a vocÃª, porÃ©m, que o acidente chocou a todos e os colocou em seu lugar.";
+		mes "[Líder de orações do Doom]";
+		mes "Graças a você, porém, que o acidente chocou a todos e os colocou em seu lugar.";
 		next;
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-		mes "Meus seguidores estÃ£o duvidando de sua fÃ© em mim e nÃ£o pagaram suas associaÃ§Ãµes hÃ¡ meses.";
-		mes "Devo recompensÃ¡ -lo por sua ajuda.";
+		mes "[Líder de orações do Doom]";
+		mes "Meus seguidores estão duvidando de sua fé em mim e não pagaram suas associações há meses.";
+		mes "Devo recompensá -lo por sua ajuda.";
 		next;
-		mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-		mes "Espero que vocÃª venha para o nosso prÃ³ximo encontro e trabalhe seu milagre novamente.";
+		mes "[Líder de orações do Doom]";
+		mes "Espero que você venha para o nosso próximo encontro e trabalhe seu milagre novamente.";
 		completequest 1275;	// Flaming Basin and Doom Prayers
 		ep14_3_fall_bless = 13;
 		getexp 2000000,0;
 		close;
 	}
-	mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-	mes "GraÃ§as a vocÃª, se o acidente chocou a todos e os colocou em seu lugar.";
+	mes "[Líder de orações do Doom]";
+	mes "Graças a você, se o acidente chocou a todos e os colocou em seu lugar.";
 	next;
-	mes "[LÃ­der de oraÃ§Ãµes do Doom]";
-	mes "Espero que vocÃª venha para o nosso prÃ³ximo encontro e trabalhe seu milagre novamente.";
+	mes "[Líder de orações do Doom]";
+	mes "Espero que você venha para o nosso próximo encontro e trabalhe seu milagre novamente.";
 	close;
 
 OnInit:
@@ -4129,72 +4129,72 @@ OnInit:
 
 moro_vol,95,195,3	script	Doom Prayers Second-in-command#bl	4_F_BELIEVER01,{
 	if (checkweight(1301,3) == 0) {
-		mes "- NÃ£o pode progredir com o diÃ¡logo porque vocÃª tem muitos itens. -";
+		mes "- Não pode progredir com o diálogo porque você tem muitos itens. -";
 		close;
 	}
 	if (ep14_3_fall_bless < 10) {
-		mes "[OraÃ§Ãµes Doom Segundo em comando]";
-		mes "OraÃ§Ãµes desgraÃ§adas!";
+		mes "[Orações Doom Segundo em comando]";
+		mes "Orações desgraçadas!";
 		mes "Ore mais!";
-		mes "DestruiÃ§Ã£o! BÃªnÃ§Ã£o!";
+		mes "Destruição! Bênção!";
 		next;
-		mes "[OraÃ§Ãµes da Doom]";
-		mes "DestruiÃ§Ã£o! BÃªnÃ§Ã£o!";
-		mes "DestruiÃ§Ã£o! BÃªnÃ§Ã£o!";
+		mes "[Orações da Doom]";
+		mes "Destruição! Bênção!";
+		mes "Destruição! Bênção!";
 		close;
 	}
 	if (ep14_3_fall_bless == 10) {
-		mes "[OraÃ§Ãµes Doom Segundo em comando]";
-		mes "OraÃ§Ãµes desgraÃ§adas, nÃ£o entre em pÃ¢nico! Fique calmo!";
+		mes "[Orações Doom Segundo em comando]";
+		mes "Orações desgraçadas, não entre em pânico! Fique calmo!";
 		next;
-		mes "[OraÃ§Ãµes Doom Segundo em comando]";
-		mes "Em breve, o julgamento comeÃ§arÃ¡ e seremos abenÃ§oados.";
+		mes "[Orações Doom Segundo em comando]";
+		mes "Em breve, o julgamento começará e seremos abençoados.";
 		mes "Vamos querer nada!";
 		next;
-		mes "[OraÃ§Ãµes Doom Segundo em comando]";
-		mes "Vamos orar juntos e criar o portÃ£o de bÃªnÃ§Ã£o!";
-		mes "DestruiÃ§Ã£o! BÃªnÃ§Ã£o!";
+		mes "[Orações Doom Segundo em comando]";
+		mes "Vamos orar juntos e criar o portão de bênção!";
+		mes "Destruição! Bênção!";
 		next;
-		mes "[OraÃ§Ãµes da Doom]";
-		mes "DestruiÃ§Ã£o! BÃªnÃ§Ã£o!";
-		mes "DestruiÃ§Ã£o! BÃªnÃ§Ã£o!";
+		mes "[Orações da Doom]";
+		mes "Destruição! Bênção!";
+		mes "Destruição! Bênção!";
 		next;
-		mes "[OraÃ§Ãµes Doom Segundo em comando]";
+		mes "[Orações Doom Segundo em comando]";
 		mes "Oh, eu vejo uma luz!";
-		mes "Se ao menos eu puder segurar 30 ^ff0000FIR GOLEM's Stone dentes ^000000 e 30 ^FF0000FIRA FRILLDORA's NaPes ^000000 em minhas mÃ£os!";
+		mes "Se ao menos eu puder segurar 30 ^ff0000FIR GOLEM's Stone dentes ^000000 e 30 ^FF0000FIRA FRILLDORA's NaPes ^000000 em minhas mãos!";
 		next;
-		mes "[OraÃ§Ãµes Doom Segundo em comando]";
-		mes "O portÃ£o de bÃªnÃ§Ã£o alto aparecerÃ¡ diante de nÃ³s, bem aberto para nÃ³s!";
+		mes "[Orações Doom Segundo em comando]";
+		mes "O portão de bênção alto aparecerá diante de nós, bem aberto para nós!";
 		next;
-		mes "[OraÃ§Ãµes da Doom]";
+		mes "[Orações da Doom]";
 		mes "Oh!";
 		next;
-		mes "[OraÃ§Ãµes Doom Segundo em comando]";
-		mes "As oraÃ§Ãµes desgraÃ§adas, atacam, quebre tudo em seu caminho e balanÃ§am sem medo as mÃ£os nesses monstros perigosos!";
+		mes "[Orações Doom Segundo em comando]";
+		mes "As orações desgraçadas, atacam, quebre tudo em seu caminho e balançam sem medo as mãos nesses monstros perigosos!";
 		next;
-		mes "[OraÃ§Ãµes Doom Segundo em comando]";
+		mes "[Orações Doom Segundo em comando]";
 		mes "Traga -me 30 ^ff0000FIRE GOLEM DERATH STONE ^000000 e 30 ^FF0000FIRA FRILLDORA's NAPES ^000000.";
 		next;
-		if (select( "NÃ£o, eu nÃ£o poderia me importar menos!", "Vou trazÃª -los." ) == 1) {
-			mes "[OraÃ§Ãµes Doom Segundo em comando]";
-			mes "OuÃ§a, oraÃ§Ãµes desgraÃ§adas!";
-			mes "Esse herege sem coraÃ§Ã£o nÃ£o se importa menos conosco.";
-			mes "Que alÃ­vio!";
+		if (select( "Não, eu não poderia me importar menos!", "Vou trazê -los." ) == 1) {
+			mes "[Orações Doom Segundo em comando]";
+			mes "Ouça, orações desgraçadas!";
+			mes "Esse herege sem coração não se importa menos conosco.";
+			mes "Que alívio!";
 			next;
-			mes "[OraÃ§Ãµes Doom Segundo em comando]";
-			mes "Agora, caÃ§a a esses monstros hediondos com as mÃ£os nuas e pegue -me os materiais!";
+			mes "[Orações Doom Segundo em comando]";
+			mes "Agora, caça a esses monstros hediondos com as mãos nuas e pegue -me os materiais!";
 			next;
-			mes "[OraÃ§Ãµes Doom Segundo em comando]";
-			mes "NÃ£o tenha medo se vocÃª nÃ£o puder lutar contra poros;";
-			mes "Eu sei em sua mente, vocÃª Ã© tÃ£o forte quanto Baphomet!";
+			mes "[Orações Doom Segundo em comando]";
+			mes "Não tenha medo se você não puder lutar contra poros;";
+			mes "Eu sei em sua mente, você é tão forte quanto Baphomet!";
 			emotion 19, playerattached();
 			close;
 		}
-		mes "[OraÃ§Ãµes Doom Segundo em comando]";
-		mes "Tudo bem, oraÃ§Ãµes desgraÃ§adas!";
-		mes "Vamos dar a este herege mais uma chance com a bÃªnÃ§Ã£o!";
+		mes "[Orações Doom Segundo em comando]";
+		mes "Tudo bem, orações desgraçadas!";
+		mes "Vamos dar a este herege mais uma chance com a bênção!";
 		next;
-		mes "[OraÃ§Ãµes Doom Segundo em comando]";
+		mes "[Orações Doom Segundo em comando]";
 		mes "Agora me traga 30 ^ff0000FIRE GOLEM DEDERETH ^000000 e 30 ^FF0000FIRA FRILLDORA's NaPes ^000000.";
 		completequest 1273;	// Flaming Basin and Doom Prayers
 		setquest 1274;	// Flaming Basin and Doom Prayers
@@ -4203,32 +4203,32 @@ moro_vol,95,195,3	script	Doom Prayers Second-in-command#bl	4_F_BELIEVER01,{
 	}
 	if (ep14_3_fall_bless == 11) {
 		if (countitem(6695) < 30 || countitem(6696) < 30) {
-			mes "[OraÃ§Ãµes Doom Segundo em comando]";
+			mes "[Orações Doom Segundo em comando]";
 			mes "Agora me traga 30 ^ff0000FIRE GOLEM DEDERETH ^000000 e 30 ^FF0000FIRA FRILLDORA's NaPes ^000000.";
 			close;
 		}
-		mes "[OraÃ§Ãµes Doom Segundo em comando]";
-		mes "Oh, oraÃ§Ãµes, seja alegre-finalmente, temos todos os materiais!";
-		mes "DestruiÃ§Ã£o! BÃªnÃ§Ã£o!";
+		mes "[Orações Doom Segundo em comando]";
+		mes "Oh, orações, seja alegre-finalmente, temos todos os materiais!";
+		mes "Destruição! Bênção!";
 		next;
-		mes "[OraÃ§Ãµes da Doom]";
-		mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
-		mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
+		mes "[Orações da Doom]";
+		mes "A destruição é uma bênção!";
+		mes "A destruição é uma bênção!";
 		next;
-		mes "[OraÃ§Ãµes Doom Segundo em comando]";
-		mes "Vamos orar juntos e criar o portÃ£o de bÃªnÃ§Ã£o!";
+		mes "[Orações Doom Segundo em comando]";
+		mes "Vamos orar juntos e criar o portão de bênção!";
 		next;
-		mes "[OraÃ§Ãµes da Doom]";
-		mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
-		mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
+		mes "[Orações da Doom]";
+		mes "A destruição é uma bênção!";
+		mes "A destruição é uma bênção!";
 		next;
-		mes "[OraÃ§Ãµes da Doom]";
+		mes "[Orações da Doom]";
 		mes "...";
 		next;
-		mes "[OraÃ§Ãµes da Doom]";
+		mes "[Orações da Doom]";
 		mes "!!!";
 		next;
-		mes "[OraÃ§Ãµes da Doom]";
+		mes "[Orações da Doom]";
 		mes "KHANH -!";
 		mes "Aww! Errar!";
 		specialeffect EF_SUI_EXPLOSION, AREA, "Doom Prayers Leader#bl";
@@ -4246,10 +4246,10 @@ moro_vol,95,195,3	script	Doom Prayers Second-in-command#bl	4_F_BELIEVER01,{
 		specialeffect EF_SUI_EXPLOSION, AREA, "Doom Prayer#bl11";
 		specialeffect EF_SUI_EXPLOSION, AREA, "Doom Prayer#bl12";
 		next;
-		mes "[OraÃ§Ãµes da Doom]";
+		mes "[Orações da Doom]";
 		mes "KHANH -!";
-		mes "Ã‰ realmente o fim do mundo!";
-		mes "NÃ³s vamos morrer! Kyaah-!";
+		mes "É realmente o fim do mundo!";
+		mes "Nós vamos morrer! Kyaah-!";
 		specialeffect EF_SUI_EXPLOSION, AREA, "Doom Prayers Leader#bl";
 		specialeffect EF_SUI_EXPLOSION;
 		specialeffect EF_SUI_EXPLOSION, AREA, "Doom Prayer#bl1";
@@ -4265,8 +4265,8 @@ moro_vol,95,195,3	script	Doom Prayers Second-in-command#bl	4_F_BELIEVER01,{
 		specialeffect EF_SUI_EXPLOSION, AREA, "Doom Prayer#bl11";
 		specialeffect EF_SUI_EXPLOSION, AREA, "Doom Prayer#bl12";
 		next;
-		mes "Se o deus da destruiÃ§Ã£o realmente existe ou nÃ£o, esse pequeno grupo de fanÃ¡ticos nÃ£o Ã© tÃ£o especial quanto eles gostariam de acreditar.";
-		mes "VocÃª deve falar com o lÃ­der das oraÃ§Ãµes contra a Doom novamente.";
+		mes "Se o deus da destruição realmente existe ou não, esse pequeno grupo de fanáticos não é tão especial quanto eles gostariam de acreditar.";
+		mes "Você deve falar com o líder das orações contra a Doom novamente.";
 		delitem 6695,30;// ToothOfFlameGolem
 		delitem 6696,30;// ToothOfFlameFrilldora
 		completequest 1274;	// Flaming Basin and Doom Prayers
@@ -4274,17 +4274,17 @@ moro_vol,95,195,3	script	Doom Prayers Second-in-command#bl	4_F_BELIEVER01,{
 		ep14_3_fall_bless = 12;
 		close;
 	}
-	mes "[OraÃ§Ãµes Doom Segundo em comando]";
+	mes "[Orações Doom Segundo em comando]";
 	mes "Aww ... estou com medo ...";
-	mes "Eu jÃ¡ poderia ter corrido se estivesse sozinha.";
-	mes "Isso Ã© assustador demais. Vou chorar um pouco mais ...";
+	mes "Eu já poderia ter corrido se estivesse sozinha.";
+	mes "Isso é assustador demais. Vou chorar um pouco mais ...";
 	close;
 }
 
 moro_vol,100,183,1	script	Base Sentry#bl	4_M_KY_SOLD,{
 	mes "[Sentry Base]";
-	mes "Esta Ã¡rea Ã© perigosa.";
-	mes "Por favor, evite explorÃ¡ -lo sozinho.";
+	mes "Esta área é perigosa.";
+	mes "Por favor, evite explorá -lo sozinho.";
 	close;
 }
 moro_vol,102,188,1	duplicate(Base Sentry#bl)	Base Sentry#bl1	4_M_KY_SOLD
@@ -4294,12 +4294,12 @@ moro_vol,90,181,7	duplicate(Base Sentry#bl)	Base Sentry#bl4	4_M_KY_SOLD
 
 moro_vol,85,196,7	script	Doom Prayer#bl1	4_M_BELIEVER02,{
 	if (ep14_3_fall_bless < 12) {
-		mes "[OraÃ§Ã£o do Doom]";
-		mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
-		mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
+		mes "[Oração do Doom]";
+		mes "A destruição é uma bênção!";
+		mes "A destruição é uma bênção!";
 		close;
 	}
-	mes "[OraÃ§Ã£o do Doom]";
+	mes "[Oração do Doom]";
 	mes "Aww, assustador!";
 	mes "Eu realmente quero ir para casa!";
 	close;
@@ -4307,41 +4307,41 @@ moro_vol,85,196,7	script	Doom Prayer#bl1	4_M_BELIEVER02,{
 
 moro_vol,87,193,7	script	Doom Prayer#bl2	4_M_BELIEVER02,{
 	if (ep14_3_fall_bless < 12) {
-		mes "[OraÃ§Ã£o do Doom]";
-		mes "DestruiÃ§Ã£o! BÃªnÃ§Ã£o!";
-		mes "NÃ³s somos os escolhidos!";
+		mes "[Oração do Doom]";
+		mes "Destruição! Bênção!";
+		mes "Nós somos os escolhidos!";
 		close;
 	}
-	mes "[OraÃ§Ã£o do Doom]";
-	mes "QuÃ£o aterrorizante!";
+	mes "[Oração do Doom]";
+	mes "Quão aterrorizante!";
 	mes "Eu vou ter a primeira chance que tenho!";
 	close;
 }
 
 moro_vol,90,191,7	script	Doom Prayer#bl3	4_M_BELIEVER02,{
 	if (ep14_3_fall_bless < 12) {
-		mes "[OraÃ§Ã£o do Doom]";
-		mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
-		mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
+		mes "[Oração do Doom]";
+		mes "A destruição é uma bênção!";
+		mes "A destruição é uma bênção!";
 		close;
 	}
-	mes "[OraÃ§Ã£o do Doom]";
-	mes "Eu abandonei tudo o que tive ao lÃ­der, mas para quÃª?!";
+	mes "[Oração do Doom]";
+	mes "Eu abandonei tudo o que tive ao líder, mas para quê?!";
 	next;
-	mes "[OraÃ§Ã£o do Doom]";
+	mes "[Oração do Doom]";
 	mes "...";
-	mes "Talvez eu nÃ£o tenha orado o suficiente.";
+	mes "Talvez eu não tenha orado o suficiente.";
 	close;
 }
 
 moro_vol,93,189,7	script	Doom Prayer#bl4	4_M_BELIEVER02,{
 	if (ep14_3_fall_bless < 12) {
-		mes "[OraÃ§Ã£o do Doom]";
-		mes "DestruiÃ§Ã£o! BÃªnÃ§Ã£o!";
-		mes "NÃ³s somos os escolhidos!";
+		mes "[Oração do Doom]";
+		mes "Destruição! Bênção!";
+		mes "Nós somos os escolhidos!";
 		close;
 	}
-	mes "[OraÃ§Ã£o do Doom]";
+	mes "[Oração do Doom]";
 	mes "Aww, assustador!";
 	mes "Eu realmente quero ir para casa!";
 	close;
@@ -4349,12 +4349,12 @@ moro_vol,93,189,7	script	Doom Prayer#bl4	4_M_BELIEVER02,{
 
 moro_vol,83,193,7	script	Doom Prayer#bl5	4_M_BELIEVER02,{
 	if (ep14_3_fall_bless < 12) {
-		mes "[OraÃ§Ã£o do Doom]";
-		mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
-		mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
+		mes "[Oração do Doom]";
+		mes "A destruição é uma bênção!";
+		mes "A destruição é uma bênção!";
 		close;
 	}
-	mes "[OraÃ§Ã£o do Doom]";
+	mes "[Oração do Doom]";
 	mes "*Lamento*";
 	mes "Argh, estou com medo!";
 	close;
@@ -4362,12 +4362,12 @@ moro_vol,83,193,7	script	Doom Prayer#bl5	4_M_BELIEVER02,{
 
 moro_vol,86,190,7	script	Doom Prayer#bl6	4_M_BELIEVER02,{
 	if (ep14_3_fall_bless < 12) {
-		mes "[OraÃ§Ã£o do Doom]";
-		mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
-		mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
+		mes "[Oração do Doom]";
+		mes "A destruição é uma bênção!";
+		mes "A destruição é uma bênção!";
 		close;
 	}
-	mes "[OraÃ§Ã£o do Doom]";
+	mes "[Oração do Doom]";
 	mes "Aww, assustador!";
 	mes "Eu realmente quero ir para casa!";
 	close;
@@ -4375,83 +4375,83 @@ moro_vol,86,190,7	script	Doom Prayer#bl6	4_M_BELIEVER02,{
 
 moro_vol,89,188,7	script	Doom Prayer#bl7	4_M_BELIEVER02,{
 	if (ep14_3_fall_bless < 12) {
-		mes "[OraÃ§Ã£o do Doom]";
-		mes "DestruiÃ§Ã£o! BÃªnÃ§Ã£o!";
-		mes "NÃ³s somos os escolhidos!";
+		mes "[Oração do Doom]";
+		mes "Destruição! Bênção!";
+		mes "Nós somos os escolhidos!";
 		close;
 	}
-	mes "[OraÃ§Ã£o do Doom]";
+	mes "[Oração do Doom]";
 	mes "Err, estou com medo!";
-	mes "Eu nÃ£o deveria ter vindo!";
+	mes "Eu não deveria ter vindo!";
 	close;
 }
 
 moro_vol,93,185,7	script	Doom Prayer#bl8	4_M_BELIEVER02,{
 	if (ep14_3_fall_bless < 12) {
-		mes "[OraÃ§Ã£o do Doom]";
-		mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
-		mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
+		mes "[Oração do Doom]";
+		mes "A destruição é uma bênção!";
+		mes "A destruição é uma bênção!";
 		close;
 	}
-	mes "[OraÃ§Ã£o do Doom]";
+	mes "[Oração do Doom]";
 	mes "Aww, assustador!";
 	mes "Eu realmente quero ir para casa!";
-	mes "Eu odeio o lÃ­der!";
+	mes "Eu odeio o líder!";
 	close;
 }
 
 moro_vol,81,197,7	script	Doom Prayer#bl9	4_M_BELIEVER02,{
 	if (ep14_3_fall_bless < 12) {
-		mes "[OraÃ§Ã£o do Doom]";
-		mes "DestruiÃ§Ã£o! BÃªnÃ§Ã£o!";
-		mes "NÃ³s somos os escolhidos!";
+		mes "[Oração do Doom]";
+		mes "Destruição! Bênção!";
+		mes "Nós somos os escolhidos!";
 		close;
 	}
-	mes "[OraÃ§Ã£o do Doom]";
-	mes "NÃ£o acredito mais no lÃ­der!";
-	mes "Provavelmente vou fazer um lÃ­der melhor que ele!";
+	mes "[Oração do Doom]";
+	mes "Não acredito mais no líder!";
+	mes "Provavelmente vou fazer um líder melhor que ele!";
 	close;
 }
 
 moro_vol,84,201,5	script	Doom Prayer#bl0	4_M_BELIEVER02,{
 	if (ep14_3_fall_bless < 12) {
-		mes "[OraÃ§Ã£o do Doom]";
-		mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
-		mes "A destruiÃ§Ã£o Ã© uma bÃªnÃ§Ã£o!";
+		mes "[Oração do Doom]";
+		mes "A destruição é uma bênção!";
+		mes "A destruição é uma bênção!";
 		close;
 	}
-	mes "[OraÃ§Ã£o do Doom]";
+	mes "[Oração do Doom]";
 	mes "Aww, assustador!";
-	mes "TÃ£o assustador, vou molhar minhas calÃ§as!";
+	mes "Tão assustador, vou molhar minhas calças!";
 	close;
 }
 
 moro_vol,97,187,5	script	Doom Prayer#bl11	4_M_BELIEVER02,{
 	if (ep14_3_fall_bless < 12) {
-		mes "[OraÃ§Ã£o do Doom]";
-		mes "DestruiÃ§Ã£o! BÃªnÃ§Ã£o!";
-		mes "NÃ³s somos os escolhidos!";
+		mes "[Oração do Doom]";
+		mes "Destruição! Bênção!";
+		mes "Nós somos os escolhidos!";
 		close;
 	}
-	mes "[OraÃ§Ã£o do Doom]";
-	mes "Isso Ã© muito aterrorizante ...";
-	mes "Talvez minha fÃ© nÃ£o seja profunda o suficiente ...";
-	mes "Ã‰ melhor eu oferecer mais dinheiro!";
+	mes "[Oração do Doom]";
+	mes "Isso é muito aterrorizante ...";
+	mes "Talvez minha fé não seja profunda o suficiente ...";
+	mes "É melhor eu oferecer mais dinheiro!";
 	close;
 }
 
 moro_vol,82,189,7	script	Doom Prayer#bl12	4_M_BELIEVER02,{
 	if (ep14_3_fall_bless < 12) {
-		mes "[OraÃ§Ã£o do Doom]";
-		mes "Oh, Deus da destruiÃ§Ã£o!";
+		mes "[Oração do Doom]";
+		mes "Oh, Deus da destruição!";
 		mes "Deixe sua ira cair para este mundo!";
-		mes "Deixe -me ser o Ãºnico benfeitor de sua bÃªnÃ§Ã£o!";
+		mes "Deixe -me ser o único benfeitor de sua bênção!";
 		close;
 	}
-	mes "[OraÃ§Ã£o do Doom]";
-	mes "Isso Ã© muito aterrorizante ...";
-	mes "Talvez minha fÃ© nÃ£o seja profunda o suficiente ...";
-	mes "Ã‰ melhor eu oferecer mais dinheiro!";
+	mes "[Oração do Doom]";
+	mes "Isso é muito aterrorizante ...";
+	mes "Talvez minha fé não seja profunda o suficiente ...";
+	mes "É melhor eu oferecer mais dinheiro!";
 	close;
 }
 
@@ -4473,16 +4473,16 @@ moro_vol,78,185,0	duplicate(#bp1)	#bp6	HIDDEN_WARP_NPC,2,2
 moro_vol,5,1,3	script	#timemaster	CLEAR_NPC,{
 	if (callfunc("F_GM_NPC",1854,0,0,9999) < 1)
 		end;
-	mes "Status da experiÃªncia do servidor atual:" + $ep143_3_expbuff;
+	mes "Status da experiência do servidor atual:" + $ep143_3_expbuff;
 	mes "Atualmente decorrido:" + $ep143_3_exptime;
-	mes "O que vocÃª quer fazer?";
+	mes "O que você quer fazer?";
 	next;
-	switch( select( "Ajuste o temporizador", "Pausa horas", "Reiniciar o horÃ¡rio", "InicializaÃ§Ã£o" ) ) {
+	switch( select( "Ajuste o temporizador", "Pausa horas", "Reiniciar o horário", "Inicialização" ) ) {
 	case 1:
-		mes "Por favor, insira o cronÃ´metro.";
+		mes "Por favor, insira o cronômetro.";
 		next;
 		input .@input,0,9999;
-		mes "O tempo estÃ¡ definido como" + .@input;
+		mes "O tempo está definido como" + .@input;
 		$ep143_3_exptime = .@input;
 		close;
 	case 2:
@@ -4490,7 +4490,7 @@ moro_vol,5,1,3	script	#timemaster	CLEAR_NPC,{
 		stopnpctimer "Guardian Nidhogg#143nyd01";
 		close;
 	case 3:
-		mes "Reinicie o relÃ³gio.";
+		mes "Reinicie o relógio.";
 		initnpctimer "Guardian Nidhogg#143nyd01";
 		close;
 	case 4:
@@ -4506,15 +4506,15 @@ moro_vol,1,3,4	script	Perishing Blessing Assistant#bl	4_FROG,{
 		mes "Tosse!";
 		close;
 	}
-	mes "[Assistente de bÃªnÃ§Ã£o por pereciÃ§Ã£o]";
-	mes "O que vocÃª quer?";
+	mes "[Assistente de bênção por perecição]";
+	mes "O que você quer?";
 	mes "Fale em voz alta!";
 	next;
 	switch( select(
-		"InicializaÃ§Ã£o da tarefa", "Pena de chama 15", "Log de patrulha 20", "Antes de caÃ§ar",
-		"BÃªnÃ§Ã£o Pedra 40", "Blood de monstro 30", "Recompensa final", "Antes da porta da bÃªnÃ§Ã£o ser aberta" ) ) {
+		"Inicialização da tarefa", "Pena de chama 15", "Log de patrulha 20", "Antes de caçar",
+		"Bênção Pedra 40", "Blood de monstro 30", "Recompensa final", "Antes da porta da bênção ser aberta" ) ) {
 	case 1:
-		mes "[Assistente de bÃªnÃ§Ã£o por pereciÃ§Ã£o]";
+		mes "[Assistente de bênção por perecição]";
 		mes "Feito!";
 		ep14_3_fall_bless = 0;
 		for ( .@i = 1264; .@i <= 1275; .@i++ ) {
@@ -4525,17 +4525,17 @@ moro_vol,1,3,4	script	Perishing Blessing Assistant#bl	4_FROG,{
 			erasequest 1297;
 		close;
 	case 2:
-		mes "[Assistente de bÃªnÃ§Ã£o por pereciÃ§Ã£o]";
+		mes "[Assistente de bênção por perecição]";
 		mes "Feito!";
 		getitem 6691,15;// BurningFeather
 		close;
 	case 3:
-		mes "[Assistente de bÃªnÃ§Ã£o por pereciÃ§Ã£o]";
+		mes "[Assistente de bênção por perecição]";
 		mes "Feito!";
 		getitem 6692,20;// PatrolLog
 		close;
 	case 4:
-		mes "[Assistente de bÃªnÃ§Ã£o por pereciÃ§Ã£o]";
+		mes "[Assistente de bênção por perecição]";
 		mes "Feito!";
 		setquest 1268;
 		setquest 1269;
@@ -4552,23 +4552,23 @@ moro_vol,1,3,4	script	Perishing Blessing Assistant#bl	4_FROG,{
 		ep14_3_fall_bless = 4;
 		close;
 	case 5:
-		mes "[Assistente de bÃªnÃ§Ã£o por pereciÃ§Ã£o]";
+		mes "[Assistente de bênção por perecição]";
 		mes "Feito!";
 		getitem 6693,40;// Stone_Of_Blessing
 		close;
 	case 6:
-		mes "[Assistente de bÃªnÃ§Ã£o por pereciÃ§Ã£o]";
+		mes "[Assistente de bênção por perecição]";
 		mes "Feito!";
 		getitem 6694,30;// Monster_Blood
 		close;
 	case 7:
-		mes "[Assistente de bÃªnÃ§Ã£o por pereciÃ§Ã£o]";
+		mes "[Assistente de bênção por perecição]";
 		mes "Feito!";
 		getitem 6695,30;// ToothOfFlameGolem
 		getitem 6696,30;// ToothOfFlameFrilldora
 		close;
 	case 8:
-		mes "[Assistente de bÃªnÃ§Ã£o por pereciÃ§Ã£o]";
+		mes "[Assistente de bênção por perecição]";
 		mes "Feito!";
 		setquest 1274;
 		ep14_3_fall_bless = 11;

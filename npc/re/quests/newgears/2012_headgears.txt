@@ -24,11 +24,11 @@ moc_para01,41,169,3	script	Reno#2012hat	64,{
 
 	//custom translation -  all checks below
 	if (checkweight(1301,1) == 0 || MaxWeight - Weight < 800) {
-		mes "- carregar muitos itens, nÃ£o pode prosseguir. -";
+		mes "- carregar muitos itens, não pode prosseguir. -";
 		close;
 	}
 
-	setarray .@type$[0],"mais baixo","intermediÃ¡rio","AvanÃ§ado","mais alto";
+	setarray .@type$[0],"mais baixo","intermediário","Avançado","mais alto";
 	setarray .@crystal$[0],"Duro","Purificado","Alto";
 
 	// playtime checks
@@ -38,9 +38,9 @@ moc_para01,41,169,3	script	Reno#2012hat	64,{
 			erasequest .@quests_playtime[.@i];
 			mes "[Reno]";
 			if (.@i < 3)	// hunting quest wait time
-				mes "O tempo de espera para um"+.@type$[.@i]+"A missÃ£o da coleÃ§Ã£o expirou. Agora vocÃª pode fazer outro pedido.";
+				mes "O tempo de espera para um"+.@type$[.@i]+"A missão da coleção expirou. Agora você pode fazer outro pedido.";
 			else        	// buff wait time
-				mes "O tempo de espera para armazenar"+.@crystal$[.@i]+"Cristais de energia expirou. Agora vocÃª pode armazenÃ¡ -los novamente.";
+				mes "O tempo de espera para armazenar"+.@crystal$[.@i]+"Cristais de energia expirou. Agora você pode armazená -los novamente.";
 			close;
 		}
 	}
@@ -59,13 +59,13 @@ moc_para01,41,169,3	script	Reno#2012hat	64,{
 				set .@item, 6623 + .@i;
 				set .@amount, 2 + rand(3);
 				mes "[Reno]";
-				mes getitemname(.@item)+"O armazenamento agora estÃ¡ completo.";
+				mes getitemname(.@item)+"O armazenamento agora está completo.";
 				next;
 				setquest 5225 + .@i;
 				erasequest 5222 + .@i;
 				getitem .@item,.@amount;
 				mes "[Reno]";
-				mes "^0000FF"+.@amount+""+getitemname(.@item)+"S^000000 foram extraÃ­dos.";
+				mes "^0000FF"+.@amount+""+getitemname(.@item)+"S^000000 foram extraídos.";
 				close;
 			}
 		}
@@ -74,36 +74,36 @@ moc_para01,41,169,3	script	Reno#2012hat	64,{
 	mes "[Reno]";
 	mes "Oi? Sou Reno da Energy Crystal Research Association, ou ECRA.";
 	next;
-	switch(select("ECRA?: Procura para obter cristais de energia: Buffs de cristal de energia: Cristais de energia de comprimir: Cristais de troca para capacete: equipamento aleatÃ³rio para cristais" + ((.@features_iRO)?": Consulte Lista de equipamentos":""))) {
+	switch(select("ECRA?: Procura para obter cristais de energia: Buffs de cristal de energia: Cristais de energia de comprimir: Cristais de troca para capacete: equipamento aleatório para cristais" + ((.@features_iRO)?": Consulte Lista de equipamentos":""))) {
 	case 1:
 		mes "[Reno]";
-		mes "A ECRA Ã© o instituto que pesquisa os cristais de 000000fenergia^000000 'que devem ser usados â€‹â€‹como uma fonte de energia alternativa no reino de Rune-Midgarts, que sofre com a escassez de energia.";
+		mes "A ECRA é o instituto que pesquisa os cristais de 000000fenergia^000000 'que devem ser usados como uma fonte de energia alternativa no reino de Rune-Midgarts, que sofre com a escassez de energia.";
 		next;
-		select("A razÃ£o para fazer isso?");
+		select("A razão para fazer isso?");
 		mes "[Reno]";
-		mes "Gostaria de explicar que nÃ£o estamos tentando fazer uma desculpa para me afastar de enfrentar o problema antes de explicar o motivo. Nunca! EntÃ£o, por favor, deixe -me terminar.";
+		mes "Gostaria de explicar que não estamos tentando fazer uma desculpa para me afastar de enfrentar o problema antes de explicar o motivo. Nunca! Então, por favor, deixe -me terminar.";
 		next;
 		mes "[Reno]";
 		mes "A equipe de pesquisa me enviou os resultados que encontraram.";
 		next;
 		mes "[Reno]";
-		mes "Os cristais energÃ©ticos acabaram sendo gerados dentro dos corpos de alguns monstros ^000000 e, de acordo com a pesquisa, monstros mais fortes geram cristais de energia de classe alta em seus corpos.";
+		mes "Os cristais energéticos acabaram sendo gerados dentro dos corpos de alguns monstros ^000000 e, de acordo com a pesquisa, monstros mais fortes geram cristais de energia de classe alta em seus corpos.";
 		next;
 		mes "[Reno]";
 		mes "A equipe de pesquisa decidiu coletar cristais de energia, dando pedidos aos aventureiros, com recompensas apropriadas. Isso nos permite coletar melhor e ter mais ^ff0000 eficiente ^000000.";
 		next;
 		mes "[Reno]";
-		mes "Os cristais de energia, acumulados atravÃ©s de monstros de caÃ§a pelo meu pedido, devem ser usados â€‹â€‹para minha pesquisa. ^0000ffsome deles estÃ£o planejados para serem devolvidos aos aventureiros.^000000";
+		mes "Os cristais de energia, acumulados através de monstros de caça pelo meu pedido, devem ser usados para minha pesquisa. ^0000ffsome deles estão planejados para serem devolvidos aos aventureiros.^000000";
 		next;
 		mes "[Reno]";
-		mes "Os aventureiros podem usar cristais de energia coletados para os equipamentos de graduaÃ§Ã£o de FF0000 ^000000 atravÃ©s de mim.";
+		mes "Os aventureiros podem usar cristais de energia coletados para os equipamentos de graduação de FF0000 ^000000 através de mim.";
 		next;
 		mes "[Reno]";
 		mes "Se funcionar bem, parece ser bom para a ECRA e os aventureiros.";
 		close;
 	case 2:
 		mes "[Reno]";
-		mes "As missÃµes de caÃ§a sÃ£o classificadas pelo nÃ­vel e dificuldade dos monstros. As faixas sÃ£o mais baixas, intermediÃ¡rias e altas e sÃ³ podem ser tomadas uma vez por dia.";
+		mes "As missões de caça são classificadas pelo nível e dificuldade dos monstros. As faixas são mais baixas, intermediárias e altas e só podem ser tomadas uma vez por dia.";
 		next;
 
 		setarray .@quest_status[0],
@@ -112,30 +112,30 @@ moc_para01,41,169,3	script	Reno#2012hat	64,{
 			isbegin_quest(5175) + isbegin_quest(5176) + isbegin_quest(5177) + isbegin_quest(5178) + isbegin_quest(5179) + isbegin_quest(5180) + isbegin_quest(5181) + isbegin_quest(5182);
 		setarray .@quest_index[0],5161,5169,5174;
 
-		set .@select, select("CaÃ§a de nÃ­vel inferior [61-80]: CaÃ§a em nÃ­vel intermediÃ¡rio [80-99]: CaÃ§a de alto nÃ­vel [90 ou mais]: Cancelar minha busca atual.") - 1;
+		set .@select, select("Caça de nível inferior [61-80]: Caça em nível intermediário [80-99]: Caça de alto nível [90 ou mais]: Cancelar minha busca atual.") - 1;
 		if (.@select < 3) {
 			setarray .@min_level[0],60,80,90,100;
 			if (BaseLevel < .@min_level[.@select]) {
 				mes "[Reno]";
-				mes "Sinto muito, mas o pedido para o"+.@type$[.@select]+"A coleÃ§Ã£o estÃ¡ disponÃ­vel apenas para esses nÃ­veis"+.@min_level[.@select]+"e mais alto. VocÃª nÃ£o parece ser capaz de executar esse pedido.";
+				mes "Sinto muito, mas o pedido para o"+.@type$[.@select]+"A coleção está disponível apenas para esses níveis"+.@min_level[.@select]+"e mais alto. Você não parece ser capaz de executar esse pedido.";
 				close;
 			}
 			if (.@quest_status[.@select]) {
 				mes "[Reno]";
-				mes "VocÃª parece estar sob o outro pedido de"+.@type$[.@select]+"coleÃ§Ã£o. Se a missÃ£o parece ser muito difÃ­cil ... e vocÃª ^ff0000Give na solicitaÃ§Ã£o ^000000?";
+				mes "Você parece estar sob o outro pedido de"+.@type$[.@select]+"coleção. Se a missão parece ser muito difícil ... e você ^ff0000Give na solicitação ^000000?";
 				close;
 			}
 			set .@playtime, checkquest(.@quest_index[.@select],PLAYTIME);
 			if (.@playtime == 0 || .@playtime == 1) {
 				mes "[Reno]";
-				mes "Atualmente esperando pelo"+.@type$[.@select]+"ComissÃ£o de Coleta. As tarefas em cada coleÃ§Ã£o sÃ³ podem ser concluÃ­das uma vez por dia."; //custom translation
+				mes "Atualmente esperando pelo"+.@type$[.@select]+"Comissão de Coleta. As tarefas em cada coleção só podem ser concluídas uma vez por dia."; //custom translation
 				close;
 			}
 			mes "[Reno]";
-			mes "VocÃª selecionou para caÃ§ar um monstro do"+.@type$[.@select]+"coleÃ§Ã£o. Depois de caÃ§ar esses monstros, vocÃª receberÃ¡"+((.@features_iRO)?"10":"")+"^0000FF"+.@crystal$[.@select]+"Cristais de energia^000000 Quando vocÃª voltar para mim.";
+			mes "Você selecionou para caçar um monstro do"+.@type$[.@select]+"coleção. Depois de caçar esses monstros, você receberá"+((.@features_iRO)?"10":"")+"^0000FF"+.@crystal$[.@select]+"Cristais de energia^000000 Quando você voltar para mim.";
 			next;
 			mes "[Reno]";
-			mes "Selecione o monstro que vocÃª acha que pode caÃ§ar facilmente da lista.";
+			mes "Selecione o monstro que você acha que pode caçar facilmente da lista.";
 			next;
 			switch (.@select) {
 			case 0:
@@ -146,47 +146,47 @@ moc_para01,41,169,3	script	Reno#2012hat	64,{
 					"[Classe baixa] dorminhoco",
 					"[Classe Baixa] Druida Mal",
 					"[Classe Baixa] Petite Ground",
-					"[Classe Baixa] RelÃ³gio"
+					"[Classe Baixa] Relógio"
 				);
 				break;
 			case 1:
 				set .@quest, select(
-					"[Classe intermediÃ¡ria] Siroma",
-					"[Classe IntermediÃ¡ria] Sacerdote das Trevas",
-					"[Classe intermediÃ¡ria] Stapo",
-					"[Classe intermediÃ¡ria] Soldado"
+					"[Classe intermediária] Siroma",
+					"[Classe Intermediária] Sacerdote das Trevas",
+					"[Classe intermediária] Stapo",
+					"[Classe intermediária] Soldado"
 				);
 				break;
 			case 2:
 				set .@quest, select(
-					"[AvanÃ§ado] Desert Wolf",
-					"[AvanÃ§ado] Medusa",
-					"[AvanÃ§ado] Pinguicula",
-					"[AvanÃ§ado] Majoruros",
+					"[Avançado] Desert Wolf",
+					"[Avançado] Medusa",
+					"[Avançado] Pinguicula",
+					"[Avançado] Majoruros",
 					"[Mais alto] Raydric",
 					"[Mais alto] Naga",
-					"[Maior] MÃºmia antiga",
+					"[Maior] Múmia antiga",
 					"[Maior] imitador antigo"
 				);
 				if (.@quest > 4 && BaseLevel < .@min_level[3]) {
 					mes "[Reno]";
-					mes "Sinto muito, mas o pedido de coleÃ§Ã£o mais avanÃ§ado estÃ¡ disponÃ­vel apenas para esses nÃ­veis"+.@min_level[3]+"e mais alto. VocÃª nÃ£o parece ser capaz de executar esse pedido.";
+					mes "Sinto muito, mas o pedido de coleção mais avançado está disponível apenas para esses níveis"+.@min_level[3]+"e mais alto. Você não parece ser capaz de executar esse pedido.";
 					close;
 				}
 				break;
 			}
 			setquest .@quest_index[.@select] + .@quest;
 			mes "[Reno]";
-			mes "O pedido para"+.@type$[.@select]+"Monstros de coleÃ§Ã£o foram emitidos. Verifique os detalhes do documento emitido.";
+			mes "O pedido para"+.@type$[.@select]+"Monstros de coleção foram emitidos. Verifique os detalhes do documento emitido.";
 			close;
 		} else {
 			setarray .@quest_count[0],7,4,8;
 			for (set .@i,0; .@i<3; set .@i,.@i+1) {
 				if (.@quest_status[.@i]) {
 					mes "[Reno]";
-					mes "VocÃª estÃ¡ atualmente sob o pedido do"+.@type$[.@i]+"coleÃ§Ã£o. Se vocÃª desistir agora, toda a sua histÃ³ria serÃ¡ perdida. VocÃª realmente quer desistir?";
+					mes "Você está atualmente sob o pedido do"+.@type$[.@i]+"coleção. Se você desistir agora, toda a sua história será perdida. Você realmente quer desistir?";
 					next;
-					set .@erase_quest, select("Sim: NÃ£o");
+					set .@erase_quest, select("Sim: Não");
 					switch (.@erase_quest) {
 					case 1:
 						for (set .@quest,.@quest_index[.@i]+1; .@quest<=.@quest_index[.@i]+.@quest_count[.@i]; set.@quest,.@quest+1) {
@@ -202,11 +202,11 @@ moc_para01,41,169,3	script	Reno#2012hat	64,{
 			switch (.@erase_quest) {
 			case 0:
 				mes "[Reno]";
-				mes "VocÃª nÃ£o estÃ¡ sob nenhum pedido.";
+				mes "Você não está sob nenhum pedido.";
 				close;
 			case 1:
 				mes "[Reno]";
-				mes "O pedido por escrito para vocÃª foi retirado.";
+				mes "O pedido por escrito para você foi retirado.";
 				close;
 			case 2:
 				mes "[Reno]";
@@ -218,17 +218,17 @@ moc_para01,41,169,3	script	Reno#2012hat	64,{
 		mes "[Reno]";
 		mes "Deseja acumular cristais de energia dentro do seu corpo para receber um buff?";
 		next;
-		set .@select, select("AcumulaÃ§Ã£o de cristais de energia?: Acumular o cristal de energia Ã¡spera: acumular cristal de energia purificada: acumular cristal de alta energia");
+		set .@select, select("Acumulação de cristais de energia?: Acumular o cristal de energia áspera: acumular cristal de energia purificada: acumular cristal de alta energia");
 		switch (.@select) {
 		case 1:
 			mes "[Reno]";
-			mes "Os cristais de energia sÃ£o acumulados em seu corpo quando vocÃª caÃ§a os monstros que pedimos.";
+			mes "Os cristais de energia são acumulados em seu corpo quando você caça os monstros que pedimos.";
 			next;
 			mes "[Reno]";
-			mes "Nossa pesquisa mostra que alguns mÃ©todos permitem que os humanos acumulem os cristais de energia dentro do corpo na forma de um buff.";
+			mes "Nossa pesquisa mostra que alguns métodos permitem que os humanos acumulem os cristais de energia dentro do corpo na forma de um buff.";
 			next;
 			mes "[Reno]";
-			mes "Se vocÃª gastar cerca de 3 horas, poderÃ¡ ganhar uma pequena quantidade de cristais de energia. EntÃ£o vocÃª quer receber o buff?";
+			mes "Se você gastar cerca de 3 horas, poderá ganhar uma pequena quantidade de cristais de energia. Então você quer receber o buff?";
 			close;
 		case 2:
 			set .@playtime, checkquest(5225,PLAYTIME);
@@ -254,17 +254,17 @@ moc_para01,41,169,3	script	Reno#2012hat	64,{
 		}
 		if (.@playtime == 0 || .@playtime == 1) {
 			mes "[Reno]";
-			mes "VocÃª teve sucesso? Embora o armazenamento de outros cristais de energia nÃ£o terÃ¡ muito efeito no seu corpo, armazenar o mesmo pode causar prejudicar."; //custom translation
+			mes "Você teve sucesso? Embora o armazenamento de outros cristais de energia não terá muito efeito no seu corpo, armazenar o mesmo pode causar prejudicar."; //custom translation
 			close;
 		}
 		if (BaseLevel < .@min_level) {
 			mes "[Reno]";
-			mes "Com um corpo assim, vocÃª nÃ£o pode acumular"+.@crystal$[.@select-2]+"Cristais de energia. VocÃª deve estar nivelado"+.@min_level+"Ou seu corpo serÃ¡ prejudicado no processo."; //custom translation
+			mes "Com um corpo assim, você não pode acumular"+.@crystal$[.@select-2]+"Cristais de energia. Você deve estar nivelado"+.@min_level+"Ou seu corpo será prejudicado no processo."; //custom translation
 			close;
 		}
 		if (.@energy_buf00) {
 			mes "[Reno]";
-			mes "A acumulaÃ§Ã£o de energia de energia jÃ¡ comeÃ§ou. Sinto muito, mas Ã© impossÃ­vel acumular dois tipos diferentes de cristais de energia por vez.";
+			mes "A acumulação de energia de energia já começou. Sinto muito, mas é impossível acumular dois tipos diferentes de cristais de energia por vez.";
 			close;
 		}
 		if (isbegin_quest(.@quest) > 0) {
@@ -274,15 +274,15 @@ moc_para01,41,169,3	script	Reno#2012hat	64,{
 			close;
 		}
 		mes "[Reno]";
-		mes "Leva 3 horas para o seu corpo acumular 2 a 4"+.@crystal$[.@select-2]+"Cristais de energia. VocÃª quer comeÃ§ar?";
+		mes "Leva 3 horas para o seu corpo acumular 2 a 4"+.@crystal$[.@select-2]+"Cristais de energia. Você quer começar?";
 		next;
 		if(select("Cancelar: Iniciar") == 1) {
 			mes "[Reno]";
-			mes "Eu recomendo que vocÃª tente ccumular o cristal de energia quando tiver tempo.";
+			mes "Eu recomendo que você tente ccumular o cristal de energia quando tiver tempo.";
 			close;
 		}
 		mes "[Reno]";
-		mes "VocÃª pode sentir um pequeno formigamento.";
+		mes "Você pode sentir um pequeno formigamento.";
 		next;
 		specialeffect2 EF_BASH3D;
 		percentheal .@rate * -5,0;
@@ -293,24 +293,24 @@ moc_para01,41,169,3	script	Reno#2012hat	64,{
 		mes "- Puck -";
 		next;
 		mes "[Reno]";
-		mes "Tudo parece estar em ordem. Vamos comeÃ§ar a acumular"+.@crystal$[.@select-2]+"Cristais de energia. Lembre -se de voltar para mim depois de 3 horas para obter o"+.@crystal$[.@select-2]+"Cristais de energia.";
+		mes "Tudo parece estar em ordem. Vamos começar a acumular"+.@crystal$[.@select-2]+"Cristais de energia. Lembre -se de voltar para mim depois de 3 horas para obter o"+.@crystal$[.@select-2]+"Cristais de energia.";
 		close;
 	case 4:
 		mes "[Reno]";
-		mes "VocÃª quer comprimir os cristais de energia?";
+		mes "Você quer comprimir os cristais de energia?";
 		next;
-		switch(select("O que a compactaÃ§Ã£o faz ?: Compressa o cristal purificado: compactar purificado para um cristal alto")) {
+		switch(select("O que a compactação faz ?: Compressa o cristal purificado: compactar purificado para um cristal alto")) {
 		case 1:
 			mes "[Reno]";
-			mes "VocÃª estÃ¡ curioso sobre a compressÃ£o de cristal de energia? Eu posso comprimir cristais de energia de nÃ­vel inferior em outros mais altos.";
+			mes "Você está curioso sobre a compressão de cristal de energia? Eu posso comprimir cristais de energia de nível inferior em outros mais altos.";
 			next;
 			mes "[Reno]";
-			mes "Aqui estÃ¡ o que eu posso fazer.";
+			mes "Aqui está o que eu posso fazer.";
 			mes "^FF000010 CRISTAS DE ENERGIA RUDE^000000 =^FF00001 CRISTAL DE ENERGIA PURIFICADO^000000";
 			mes "^FF00005 Cristais de energia purificada^000000 =^FF00001 Cristal de alta energia^000000";
 			next;
 			mes "[Reno]";
-			mes "Se vocÃª precisar de cristais de energia de nÃ­vel superior, essa Ã© uma boa maneira de obtÃª -los, pois os mais baixos sÃ£o mais fÃ¡ceis de obter.";
+			mes "Se você precisar de cristais de energia de nível superior, essa é uma boa maneira de obtê -los, pois os mais baixos são mais fáceis de obter.";
 			close;
 		case 2:
 			set .@crystal,6623;  //Rough_Energy_Crystal
@@ -329,8 +329,8 @@ moc_para01,41,169,3	script	Reno#2012hat	64,{
 		mes sprintf("^Ff0000 %d %s^000000 =^ff00001 %S^000000",.@rate,getitemname(.@crystal),getitemname(.@crystal_));
 		next;
 		mes "[Reno]";
-		mes sprintf("%d %ss serÃ¡ comprimido para %d %ss.",.@crystal_count,getitemname(.@crystal),.@crystal_get,getitemname(.@crystal_));
-		mes "VocÃª quer comprimir?";
+		mes sprintf("%d %ss será comprimido para %d %ss.",.@crystal_count,getitemname(.@crystal),.@crystal_get,getitemname(.@crystal_));
+		mes "Você quer comprimir?";
 		next;
 		if(select("Compressa: pare") == 2) {
 			mes "[Reno]";
@@ -344,31 +344,31 @@ moc_para01,41,169,3	script	Reno#2012hat	64,{
 				set .@crystal_count, countitem(.@crystal);
 				set .@crystal_get, .@crystal_count / .@rate;
 				mes "[Reno]";
-				mes "A compressÃ£o foi muito bem -sucedida.";
-				mes "HÃ¡"+.@crystal_count+"Cristais de energia restantes, que podem se comprimir em"+.@crystal_get+"Cristais de energia. VocÃª quer continuar?";
+				mes "A compressão foi muito bem -sucedida.";
+				mes "Há"+.@crystal_count+"Cristais de energia restantes, que podem se comprimir em"+.@crystal_get+"Cristais de energia. Você quer continuar?";
 				next;
 				if(select("Compressa: pare") == 2)
 					break;
 			} else {
 				mes "[Reno]";
-				mes "VocÃª nÃ£o tem o suficiente"+getitemname(.@crystal)+"s.";
+				mes "Você não tem o suficiente"+getitemname(.@crystal)+"s.";
 				next;
 				break;
 			}
 		}
 		mes "[Reno]";
-		mes "CompressÃ£o concluÃ­da.";
+		mes "Compressão concluída.";
 		close;
 	case 5:
 		disable_items;
 		mes "[Reno]";
-		mes "Deseja trocar cristais de energia por equipamentos? Selecione o tipo de cristal de energia que vocÃª deseja trocar.";
+		mes "Deseja trocar cristais de energia por equipamentos? Selecione o tipo de cristal de energia que você deseja trocar.";
 		next;
 		setarray .@crystals[0], countitem(6623), countitem(6624), countitem(6625);
-		switch(select("Veja a lista de equipamentos: ["+.@crystals[0]+"] Cristal de energia Ã¡spera: ["+.@crystals[1]+"] Cristal de energia purificada: ["+.@crystals[2]+"] Cristal de alta energia")) {
+		switch(select("Veja a lista de equipamentos: ["+.@crystals[0]+"] Cristal de energia áspera: ["+.@crystals[1]+"] Cristal de energia purificada: ["+.@crystals[2]+"] Cristal de alta energia")) {
 		case 1:
 			mes "[Reno]";
-			mes "Esta Ã© a brochura sobre a atualizaÃ§Ã£o do equipamento que nossa AssociaÃ§Ã£o de Pesquisa de Cristais de Energia oferece. Por favor, dÃª uma olhada em volta.";
+			mes "Esta é a brochura sobre a atualização do equipamento que nossa Associação de Pesquisa de Cristais de Energia oferece. Por favor, dê uma olhada em volta.";
 			close2;
 			readbook 11060,1; //Energy_Xtal_Combi_Book
 			end;
@@ -421,38 +421,38 @@ moc_para01,41,169,3	script	Reno#2012hat	64,{
 			if (countitem(2615) < 1 || countitem(2621) < 1 || countitem(2622) < 1 || countitem(2624) < 1 ||
 			    countitem(2625) < 1 || countitem(2623) < 1 || countitem(2626) < 1 || countitem(.@crystal) < .@cost) {
 				mes "[Reno]";
-				mes "Os materiais para fazer um anel de seguranÃ§a [1] sÃ£o insuficientes. Por favor, verifique seu inventÃ¡rio.";
+				mes "Os materiais para fazer um anel de segurança [1] são insuficientes. Por favor, verifique seu inventário.";
 				close;
 			}
 			mes "[Reno]";
-			mes "Antes de atualizar seu anel de seguranÃ§a, ouÃ§a essas ^ff0000PrecAuÃ§Ãµes ^000000.";
+			mes "Antes de atualizar seu anel de segurança, ouça essas ^ff0000PrecAuções ^000000.";
 			next;
 			mes "[Reno]";
-			mes "^Ff0000in adiÃ§Ã£o ao anel de seguranÃ§a, todos os refinamentos e cartÃµes dos materiais necessÃ¡rios tambÃ©m desaparecerÃ£o.^000000";
+			mes "^Ff0000in adição ao anel de segurança, todos os refinamentos e cartões dos materiais necessários também desaparecerão.^000000";
 			next;
 		} else {
 			if (countitem(.@material) < 1 || countitem(.@crystal) < .@cost) {
 				mes "[Reno]";
-				mes "Os materiais sÃ£o insuficientes. Por favor, verifique seus materiais.";
+				mes "Os materiais são insuficientes. Por favor, verifique seus materiais.";
 				close;
 			}
 			mes "[Reno]";
-			mes "Antes de atualizar seu equipamento, ouÃ§a essas ^ff0000PrecaÃ§Ãµes ^000000.";
+			mes "Antes de atualizar seu equipamento, ouça essas ^ff0000Precações ^000000.";
 			next;
 			mes "[Reno]";
-			mes "^FF0000 Quando o uso de cristais de energia para atualizar equipamentos, todos os refinamentos, encantamentos e cartÃµes anteriores serÃ£o perdidos.^000000";
+			mes "^FF0000 Quando o uso de cristais de energia para atualizar equipamentos, todos os refinamentos, encantamentos e cartões anteriores serão perdidos.^000000";
 			next;
 		}
 		mes "[Reno]";
-		mes "VocÃª estÃ¡ familiarizado com as preceraÃ§Ãµes ^ff0000 ^000000?";
+		mes "Você está familiarizado com as precerações ^ff0000 ^000000?";
 		next;
 		if(select("Eu sou.") == 2) {
 			mes "[Reno]";
-			mes "OK. Da prÃ³xima vez, entÃ£o.";
+			mes "OK. Da próxima vez, então.";
 			close;
 		}
 		mes "[Reno]";
-		mes "EntÃ£o vamos comeÃ§ar a atualizar"+.@item_name$+".";
+		mes "Então vamos começar a atualizar"+.@item_name$+".";
 		next;
 		specialeffect2 EF_REPAIRWEAPON;
 		progressbar "FFFF00",2;
@@ -468,52 +468,52 @@ moc_para01,41,169,3	script	Reno#2012hat	64,{
 		delitem .@crystal,.@cost;
 		getitem .@reward,1;
 		mes "[Reno]";
-		mes "A atualizaÃ§Ã£o foi bem -sucedida. Seus cristais de energia ajudarÃ£o muito a nossa pesquisa.";
+		mes "A atualização foi bem -sucedida. Seus cristais de energia ajudarão muito a nossa pesquisa.";
 		close;
 	case 6:
 		mes "[Reno]";
-		mes "Deseja doar cristais de energia para obter um novo capacete aleatÃ³rio?";
+		mes "Deseja doar cristais de energia para obter um novo capacete aleatório?";
 		next;
-		switch(select("Doe Cristais de Energia ?: Doe 300 Cristais de Energia RÃºssica.")) {
+		switch(select("Doe Cristais de Energia ?: Doe 300 Cristais de Energia Rússica.")) {
 		case 1:
 			mes "[Reno]";
-			mes "Estamos coletando cristais de energia para que possamos pesquisar mais combinaÃ§Ãµes de arnÃªs para aventureiros.";
+			mes "Estamos coletando cristais de energia para que possamos pesquisar mais combinações de arnês para aventureiros.";
 			next;
 			mes "[Reno]";
-			mes "GraÃ§as ao apoio de aventureiros, podemos usar esses cristais de energia para promover nossa pesquisa.";
+			mes "Graças ao apoio de aventureiros, podemos usar esses cristais de energia para promover nossa pesquisa.";
 			next;
 			mes "[Reno]";
-			mes "Portanto, recebemos um mÃ­nimo de 300 cristais de energia Ã¡spera, 600 cristais de energia purificados e 900 cristais de alta energia.";
+			mes "Portanto, recebemos um mínimo de 300 cristais de energia áspera, 600 cristais de energia purificados e 900 cristais de alta energia.";
 			if (!.@features_iRO) {
 				next;
 				mes "[Reno]";
-				mes "VocÃª pode sentir que isso Ã© um fardo, mas, para o bem de nossa pesquisa, continue."; //custom translation
+				mes "Você pode sentir que isso é um fardo, mas, para o bem de nossa pesquisa, continue."; //custom translation
 				close;
 			}
-			mes "Para a doaÃ§Ã£o, eu lhe darei um novo capacete aleatÃ³rio.";
+			mes "Para a doação, eu lhe darei um novo capacete aleatório.";
 			next;
 			mes "[Reno]";
-			mes "300 cristais de energia Ã¡spera";
+			mes "300 cristais de energia áspera";
 			mes "- New Mage Hat";
-			mes "- novo chapÃ©u mÃ¡gico";
-			mes "- Nova mÃ¡scara de kitsune";
+			mes "- novo chapéu mágico";
+			mes "- Nova máscara de kitsune";
 			mes "- New Joker Jester";
 			mes "- New Bunny Band";
 			mes "- Newah";
-			mes "- Novo chapÃ©u de Bongun";
-			mes "- Nova mÃ¡scara de Ã³pera fantasma";
+			mes "- Novo chapéu de Bongun";
+			mes "- Nova máscara de ópera fantasma";
 			next;
 			mes "[Reno]";
 			mes "600 cristais de energia purificada";
-			mes "- Bons binÃ³culos";
+			mes "- Bons binóculos";
 			mes "- Boa leme de barbatana";
-			mes "- boa mÃ¡scara de assassino";
-			mes "- boa mÃ¡scara de soldagem";
-			mes "- Boa anel de seguranÃ§a";
-			mes "- boa proteÃ§Ã£o angelical";
+			mes "- boa máscara de assassino";
+			mes "- boa máscara de soldagem";
+			mes "- Boa anel de segurança";
+			mes "- boa proteção angelical";
 			mes "- boa guarda angelical";
-			mes "- bom cardigÃ£ angelical";
-			mes "- ReencarnaÃ§Ã£o de bom anjo";
+			mes "- bom cardigã angelical";
+			mes "- Reencarnação de bom anjo";
 			next;
 			mes "[Reno]";
 			mes "900 cristais de alta energia";
@@ -522,12 +522,12 @@ moc_para01,41,169,3	script	Reno#2012hat	64,{
 			mes "- Comando aprimorado de anjo";
 			mes "- sapatos de variante aprimorados";
 			mes "- Anel aprimorado do Senhor da Chama";
-			mes "- Anel de ressonÃ¢ncia aprimorado";
+			mes "- Anel de ressonância aprimorado";
 			close;
 		case 2:
 			if (countitem(6623) < 300) {
 				mes "[Reno]";
-				mes "Obrigado pelo seu apoio, mas precisamos de 300 cristais de energia Ã¡spera.";
+				mes "Obrigado pelo seu apoio, mas precisamos de 300 cristais de energia áspera.";
 				close;
 			}
 			delitem 6623,300; //Rough_Energy_Crystal
@@ -577,11 +577,11 @@ moc_para01,41,169,3	script	Reno#2012hat	64,{
 			break;
 		}
 		mes "[Reno]";
-		mes "Muito obrigado. Os cristais de energia que vocÃª doou serÃ£o muito Ãºteis para nossa pesquisa. Esta Ã© a sua recompensa por sua doaÃ§Ã£o."; //custom translation
+		mes "Muito obrigado. Os cristais de energia que você doou serão muito úteis para nossa pesquisa. Esta é a sua recompensa por sua doação."; //custom translation
 		close;
 	case 7:  // iRO only
 		mes "[Reno]";
-		mes "Esta Ã© a brochura sobre a atualizaÃ§Ã£o do equipamento que nossa AssociaÃ§Ã£o de Pesquisa de Cristais de Energia oferece. Por favor, dÃª uma olhada em volta.";
+		mes "Esta é a brochura sobre a atualização do equipamento que nossa Associação de Pesquisa de Cristais de Energia oferece. Por favor, dê uma olhada em volta.";
 		close2;
 		readbook 11060,1; //Energy_Xtal_Combi_Book
 		end;
@@ -592,12 +592,12 @@ L_CheckHunting:
 	for (set .@quest,getarg(0)+1; .@quest<getarg(1)+getarg(2); set .@quest,.@quest+1) {
 		if (checkquest(.@quest,HUNTING) == 2) {
 			mes "[Reno]";
-			mes "Finalizado"+getarg(3)+"ColeÃ§Ã£o de caÃ§a Ã  busca.";
+			mes "Finalizado"+getarg(3)+"Coleção de caça à busca.";
 			next;
 			setquest getarg(0);
 			erasequest .@quest;
 			getitem getarg(4),getarg(5);
-			mes "VocÃª recebe"+getarg(5)+""+getitemname(getarg(4))+"s como o"+getarg(3)+"Recompensa da coleÃ§Ã£o.";
+			mes "Você recebe"+getarg(5)+""+getitemname(getarg(4))+"s como o"+getarg(3)+"Recompensa da coleção.";
 			close;
 		}
 	}

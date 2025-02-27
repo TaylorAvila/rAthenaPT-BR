@@ -51,7 +51,7 @@ OnInit:
 
 // -----------------------------------------------------------
 //  Points variable -- optional quest requirement.
-//	setarray .Points$[0],"<nome da vari√°vel>","<nome de exibi√ß√£o>";
+//	setarray .Points$[0],"<nome da vari·vel>","<nome de exibiÁ„o>";
 // -----------------------------------------------------------
 
 	setarray .Points$[0],
@@ -134,10 +134,10 @@ OnBuyItem:
 	copyarray .@q[3],getd(".Q_"+@shop_index+"_"+.@q[0]+"[0]"),getarraysize(getd(".Q_"+@shop_index+"_"+.@q[0]));
 	set .@q[2],.@q[1]*.@q[3];
 	if (!.@q[2] || .@q[2] > 30000) {
-		message strcharinfo(0),"Voc√™ n√£o pode comprar tantos"+getitemname(.@q[0])+".";
+		message strcharinfo(0),"VocÍ n„o pode comprar tantos"+getitemname(.@q[0])+".";
 		end;
 	}
-	mes "[Loja de miss√µes]";
+	mes "[Loja de missıes]";
 	mes "Recompensa: ^0055ff"+((.@q[2] > 1)?.@q[2]+"x":"")+Slot(.@q[0])+"^000000";
 	mes "Requisitos:";
 	disable_items;
@@ -154,13 +154,13 @@ OnBuyItem:
 		switch(select("~ Compra ^0055ff"+getitemname(.@q[0])+"^000000:"+((.@preview && !@qe[7])?"~ Visualizar ...":"")+": ~ ^Hahakkkalcal ^000")) {
 		case 1:
 			if (@qe[0]) {
-				mes "[Loja de miss√µes]";
-				mes "Voc√™ est√° perdendo um ou mais requisitos de miss√£o.";
+				mes "[Loja de missıes]";
+				mes "VocÍ est· perdendo um ou mais requisitos de miss„o.";
 				close;
 			}
 			if (!checkweight(.@q[0],.@q[2])) {
-				mes "[Loja de miss√µes]";
-				mes "^Ff0000 Voc√™ precisa"+(((.@q[2]*getiteminfo(.@q[0], ITEMINFO_WEIGHT))+Weight-MaxWeight)/10)+"Capacidade de peso adicional para concluir esta negocia√ß√£o.^000000";
+				mes "[Loja de missıes]";
+				mes "^Ff0000 VocÍ precisa"+(((.@q[2]*getiteminfo(.@q[0], ITEMINFO_WEIGHT))+Weight-MaxWeight)/10)+"Capacidade de peso adicional para concluir esta negociaÁ„o.^000000";
 				close;
 			}
 			if (.@q[4]) set Zeny, Zeny-(.@q[4]*.@q[1]);
@@ -195,13 +195,13 @@ OnEnd:
 
 function Add {
 	if (getitemname(getarg(1)) == "nulo") {
-		debugmes "Recompensa da miss√£o #"+getarg(1)+"inv√°lido (ignorado).";
+		debugmes "Recompensa da miss„o #"+getarg(1)+"inv·lido (ignorado).";
 		return;
 	}
 	setarray .@j[0],getarg(2),getarg(3),getarg(4);
 	for(set .@i,5; .@i<getargcount(); set .@i,.@i+2) {
 		if (getitemname(getarg(.@i)) == "nulo") {
-			debugmes "Requisito de miss√£o #"+getarg(.@i)+"inv√°lido (ignorado).";
+			debugmes "Requisito de miss„o #"+getarg(.@i)+"inv·lido (ignorado).";
 			return;
 		} else
 			setarray .@j[.@i-2],getarg(.@i),getarg(.@i+1);

@@ -17,7 +17,7 @@ malangdo,221,174,6	script	Holink#mal_cash	559,{
 	mes "Eu sou o miaw ~ Blacksmith Holink ~";
 	mes "Mestre em Refinamento, Holink ~";
 	mes "Eu sou o Catholink especial que aprendeu com o Marrocos ~";
-	mes "Minha filha estÃ¡ tÃ£o orgulhosa de mim, Holink ~";
+	mes "Minha filha está tão orgulhosa de mim, Holink ~";
 	mes "O que Holink ~ refinar hoje?";
 	next;
 
@@ -31,37 +31,37 @@ malangdo,221,174,6	script	Holink#mal_cash	559,{
 		switch(.@part) {
 		case EQI_HEAD_TOP:
 			mes "Meu professor Aragam disse miau ~";
-			mes "NÃ£o hÃ¡ cura para a estupidez ...";
+			mes "Não há cura para a estupidez ...";
 			break;
 		case EQI_ARMOR:
-			mes "NÃ£o hÃ¡ nada para ver aqui, miaw !!";
+			mes "Não há nada para ver aqui, miaw !!";
 			break;
 		case EQI_HAND_L:
-			mes "Miau? O que vocÃª quer que eu faÃ§a com esta mÃ£o esquerda ...?";
+			mes "Miau? O que você quer que eu faça com esta mão esquerda ...?";
 			break;
 		case EQI_HAND_R:
-			mes "Miau? O que vocÃª quer que eu faÃ§a com essa mÃ£o direita ...?";
+			mes "Miau? O que você quer que eu faça com essa mão direita ...?";
 			break;
 		case EQI_GARMENT:
-			mes "Miau? VocÃª nÃ£o tem nada.";
+			mes "Miau? Você não tem nada.";
 			break;
 		case EQI_SHOES:
-			mes "Kyang ~! NÃ£o mexa com o meu olfativo sensÃ­vel, miaw ~.";
+			mes "Kyang ~! Não mexa com o meu olfativo sensível, miaw ~.";
 			break;
 		case EQI_ACC_L:
 		case EQI_ACC_R:
-			mes "Miau? Onde estÃ¡ o acessÃ³rio?";
+			mes "Miau? Onde está o acessório?";
 			break;
 		case EQI_HEAD_MID:
 		case EQI_HEAD_LOW:
-			mes "Miau? VocÃª estÃ¡ falando sobre as outras partes da cabeÃ§a, miau? ~";
+			mes "Miau? Você está falando sobre as outras partes da cabeça, miau? ~";
 			break;
 		}
 		close;
 	}
 	if (!getequipisenableref(.@part)) {
 		mes "[Holink]";
-		mes "AtÃ© Aragam nÃ£o pode refinar isso, miau.";
+		mes "Até Aragam não pode refinar isso, miau.";
 		close;
 	}
 	if (getequiprefinerycnt(.@part) >= 10) {
@@ -81,7 +81,7 @@ malangdo,221,174,6	script	Holink#mal_cash	559,{
 	if( .@itemtype == IT_ARMOR ){
 		.@equip_lv = getequiparmorlv( .@part );
 		.@type$ = "armadura";
-		mes "VocÃª escolheu uma armadura, miau ~";
+		mes "Você escolheu uma armadura, miau ~";
 
 		switch(.@equip_lv) {
 			case 1:
@@ -98,20 +98,20 @@ malangdo,221,174,6	script	Holink#mal_cash	559,{
 		switch( .@equip_lv ){
 			case 1: // Level 1 Weapon
 				.@price = 500;
-				mes "Uma arma de nÃ­vel 1 ...?";
+				mes "Uma arma de nível 1 ...?";
 				break;
 			case 2: // Level 2 Weapon
 				.@price = 2000;
-				mes "Miau, uma arma de nÃ­vel 2 ...?";
+				mes "Miau, uma arma de nível 2 ...?";
 				break;
 			case 3: // Level 3 Weapon
 				.@price = 20000;
-				mes "Miau miau ~~ uma arma de nÃ­vel 3 ~~";
+				mes "Miau miau ~~ uma arma de nível 3 ~~";
 				break;
 			case 4: // Level 4 Weapon
 				.@price = 50000;
-				mes "Me-me-mew! ... uma arma de nÃ­vel 4 ...!";
-				mes "Eu sÃ³ vi isso duas vezes enquanto";
+				mes "Me-me-mew! ... uma arma de nível 4 ...!";
+				mes "Eu só vi isso duas vezes enquanto";
 				mes "Aprendendo com Aragam ... Me-Meow !!";
 				break;
 			default:
@@ -123,48 +123,48 @@ malangdo,221,174,6	script	Holink#mal_cash	559,{
 		close;
 	}
 
-	mes "VocÃª precisa ^ff9999"+getitemname(.@material)+"^000000 e ^ff9999"+.@price+"^000000 Zeny para esta refina, miaw ~";
+	mes "Você precisa ^ff9999"+getitemname(.@material)+"^000000 e ^ff9999"+.@price+"^000000 Zeny para esta refina, miaw ~";
 	mes "Quer continuar, miau? ~";
 	next;
-	if(select("SIM !!: NÃ£o !!") == 2) {
+	if(select("SIM !!: Não !!") == 2) {
 		mes "[Holink]";
 		mes "Caiaque!!";
-		mes "VocÃª nÃ£o acredita em Refine Mestre Holink, miaw? ~";
+		mes "Você não acredita em Refine Mestre Holink, miaw? ~";
 		close;
 	}
 	if (getequippercentrefinery(.@part, true) < 100) {
 		mes "[Holink]";
 		mes "Miau!!";
 		if (.@type$ == "armadura")
-			mes "Essa armadura jÃ¡ estava refinada tantas vezes, miau.";
+			mes "Essa armadura já estava refinada tantas vezes, miau.";
 		else {
 			mes "Perigo. Perigo ~";
 			mes "Esta arma foi muito refinada, miau ~";
 			next;
 			mes "[Holink]";
 		}
-		mes "VocÃª pode quebrÃ¡ -lo se continuar";
+		mes "Você pode quebrá -lo se continuar";
 		mes "Para tentar refinar ainda mais esse item, miaw.";
 		next;
 		mes "[Holink]";
-		mes "Uma vez o"+.@type$+"estÃ¡ quebrado, vocÃª pode";
+		mes "Uma vez o"+.@type$+"está quebrado, você pode";
 		mes "Nunca mais use -o, MEOW. Sem mencionar ... tudo atual";
-		mes "^FF0000CARDS E ENCHANTES desaparecerÃ£o com certeza^000000.";
-		mes "VocÃª ainda quer experimentar, miau ~?";
+		mes "^FF0000CARDS E ENCHANTES desaparecerão com certeza^000000.";
+		mes "Você ainda quer experimentar, miau ~?";
 		next;
-		if(select("Sim, eu faÃ§o !!: EsqueÃ§a isso !!") == 2) {
+		if(select("Sim, eu faço !!: Esqueça isso !!") == 2) {
 			mes "[Holink]";
-			mes "Miau! Escolha sÃ¡bia, miau.";
+			mes "Miau! Escolha sábia, miau.";
 			mes "Mas!!";
-			mes "NÃ£o fico feliz em ver vocÃª duvidando do mestre refino Holink, miau ~";
+			mes "Não fico feliz em ver você duvidando do mestre refino Holink, miau ~";
 			close;
 		}
 	}
 	if (countitem(.@material) == 0 || Zeny < .@price) {
 		mes "[Holink]";
-		mes "VocÃª nÃ£o tem os ingredientes.";
-		mes "VocÃª precisa ^ff9999"+getitemname(.@material)+"^000000 e ^ff9999"+.@price+"^000000 Zeny, miaw ~";
-		mes "VÃ¡ pegar, miau ~";
+		mes "Você não tem os ingredientes.";
+		mes "Você precisa ^ff9999"+getitemname(.@material)+"^000000 e ^ff9999"+.@price+"^000000 Zeny, miaw ~";
+		mes "Vá pegar, miau ~";
 		close;
 	}
 	delitem .@material,1;
@@ -176,20 +176,20 @@ malangdo,221,174,6	script	Holink#mal_cash	559,{
 		mes "[Holink]";
 		emotion ET_FRET;
 		mes "Espere um segundo ...";
-		mes "VocÃª acha que eu sou estÃºpido?!";
-		mes "VocÃª mudou o item enquanto eu nÃ£o estava olhando! Saia daqui!";
+		mes "Você acha que eu sou estúpido?!";
+		mes "Você mudou o item enquanto eu não estava olhando! Saia daqui!";
 		close;
 	}
 
 	if (getequippercentrefinery(.@part, true) > rand(100)) {
 		successrefitem .@part;
 		mes "[Holink]";
-		mes "Eu ~ eu ~ mEow! Refino divertido de diversÃ£o ~";
+		mes "Eu ~ eu ~ mEow! Refino divertido de diversão ~";
 		next;
 		emotion ET_CHUP;
 		mes "[Holink]";
 		mes "Perfeito!! Perfeito, miau !!";
-		mes "Eu sou o discÃ­pulo do mago de refino Aragam ~";
+		mes "Eu sou o discípulo do mago de refino Aragam ~";
 		mes "Holink !!";
 		mes "Outro dia de refino bem -sucedido, meow !!";
 		close;
@@ -217,6 +217,6 @@ malangdo,221,174,6	script	Holink#mal_cash	559,{
 	mes "[Holink]";
 	mes "Miau .... mestre aragam disse uma vez,";
 	mes "Aprenda com suas falhas ...";
-	mes "Humano, este fracasso serÃ¡ o comeÃ§o do seu sucesso no futuro.";
+	mes "Humano, este fracasso será o começo do seu sucesso no futuro.";
 	close;
 }

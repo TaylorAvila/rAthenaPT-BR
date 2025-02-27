@@ -5,7 +5,7 @@
 //= Refiners that use Blessed ores to refine equipment.
 //= Upon failure, the equipment is not destroyed. The success
 //= rate is identical to that for Enriched ores.
-//= - "Blacksmith IntÃ©ricos" only refines from +6~12.
+//= - "Blacksmith Intéricos" only refines from +6~12.
 //= NOTE: This NPC is currently disabled on official servers.
 //===== Changelog: ===========================================
 //= 1.0 First version. [Euphy]
@@ -18,54 +18,54 @@
 	disable_items;
 	mes "[Blacksmith Dister]";
 	mes "Nesta sociedade altamente competitiva, devemos ser diferentes para sobreviver!";
-	mes "Eu sÃ³ refino o equipamento nos nÃ­veis +6 ~ 12.";
+	mes "Eu só refino o equipamento nos níveis +6 ~ 12.";
 	next;
 	mes "[Blacksmith Dister]";
-	mes "Vou precisar de ^ff9999 OrideCon abenÃ§oado ^000000 para armas e o elunium abenÃ§oado ^000000 para armaduras.";
-	mes "As refinas falhadas ^ff0000 nÃ£o quebram ou reduzirÃ£o o nÃ­vel de refino ^000000.";
+	mes "Vou precisar de ^ff9999 OrideCon abençoado ^000000 para armas e o elunium abençoado ^000000 para armaduras.";
+	mes "As refinas falhadas ^ff0000 não quebram ou reduzirão o nível de refino ^000000.";
 	next;
 	mes "[Blacksmith Dister]";
-	mes "Que tal? VocÃª quer refinar?";
+	mes "Que tal? Você quer refinar?";
 	next;
 	setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
 	for(set .@i,1; .@i<=10; set .@i,.@i+1)
-		set .@menu$, .@menu$ + ( getequipisequiped(.@indices[.@i]) ? getequipname(.@indices[.@i]) : F_getpositionname(.@indices[.@i]) +"-[nÃ£o equipado]" ) +":";
+		set .@menu$, .@menu$ + ( getequipisequiped(.@indices[.@i]) ? getequipname(.@indices[.@i]) : F_getpositionname(.@indices[.@i]) +"-[não equipado]" ) +":";
 	set .@part, .@indices[ select(.@menu$) ];
 	if (!getequipisequiped(.@part)) {
 		mes "[Blacksmith Dister]";
 		switch(.@part) {
 		case EQI_HEAD_TOP:
-			mes "Eu sou um ferreiro, nÃ£o um cabeleireiro.";
+			mes "Eu sou um ferreiro, não um cabeleireiro.";
 			break;
 		case EQI_ARMOR:
-			mes "Com meu martelo, farei de vocÃª uma estrela do cÃ©u.";
+			mes "Com meu martelo, farei de você uma estrela do céu.";
 			break;
 		case EQI_HAND_L:
 		case EQI_HAND_R:
-			mes "Fazer mÃ£os artificiais nÃ£o Ã© minha especialidade.";
+			mes "Fazer mãos artificiais não é minha especialidade.";
 			break;
 		case EQI_GARMENT:
-			mes "Traga o item para que eu possa refinÃ¡ -lo!";
+			mes "Traga o item para que eu possa refiná -lo!";
 			break;
 		case EQI_SHOES:
 			mes "De onde vem esse cheiro estranho?";
 			break;
 		case EQI_ACC_L:
 		case EQI_ACC_R:
-			mes "Onde estÃ¡ o acessÃ³rio?";
+			mes "Onde está o acessório?";
 			break;
 		case EQI_HEAD_MID:
-			mes "O que vocÃª quer que eu refine?";
+			mes "O que você quer que eu refine?";
 			break;
 		case EQI_HEAD_LOW:
-			mes "Huh? O que vocÃª quer que eu faÃ§a?";
+			mes "Huh? O que você quer que eu faça?";
 			break;
 		}
 		close;
 	}
 	if (!getequipisenableref(.@part)) {
 		mes "[Blacksmith Dister]";
-		mes "Este item nÃ£o pode ser refinado.";
+		mes "Este item não pode ser refinado.";
 		close;
 	}
 	.@equip_id = getequipid(.@part);
@@ -75,7 +75,7 @@
 
 	if (.@equip_refine < 6 || .@equip_refine > 12) {
 		mes "[Blacksmith Dister]";
-		mes "Este equipamento se refinou para"+.@equip_refine+". Eu apenas lido com itens com nÃ­veis de refino de +6 a +12!";
+		mes "Este equipamento se refinou para"+.@equip_refine+". Eu apenas lido com itens com níveis de refino de +6 a +12!";
 		close;
 	}
 	if( .@itemtype == IT_ARMOR ){
@@ -123,23 +123,23 @@
 	set .@ore$,"^ff9999Benoud"+.@type$+"Ore^000000";
 	mes "[Blacksmith Dister]";
 	mes "This "+.@type$+" has been refined to "+.@equip_refine+". To refine it, I need "+.@ore$+" and a "+callfunc("F_InsertComma",.@price)+" zeny refining fee.";
-	mes "VocÃª quer prosseguir?";
+	mes "Você quer prosseguir?";
 	next;
-	if(select("Sim: NÃ£o") == 2) {
+	if(select("Sim: Não") == 2) {
 		mes "[Blacksmith Dister]";
-		mes "Estou ocupado, nÃ£o brinca comigo!";
+		mes "Estou ocupado, não brinca comigo!";
 		close;
 	}
 	if (getequippercentrefinery(.@part) < 100) {
 		mes "[Blacksmith Dister]";
-		mes "Esse"+.@type$+"Foi refinado muitas vezes. Embora nÃ£o desapareÃ§a apÃ³s o fracasso, o"+.@ore$+"vai desaparecer!";
+		mes "Esse"+.@type$+"Foi refinado muitas vezes. Embora não desapareça após o fracasso, o"+.@ore$+"vai desaparecer!";
 		next;
 		mes "[Blacksmith Dister]";
-		mes "Obviamente, a taxa de refino nÃ£o serÃ¡ devolvida! VocÃª quer continuar?";
+		mes "Obviamente, a taxa de refino não será devolvida! Você quer continuar?";
 		next;
-		if(select("Sim: NÃ£o") == 2) {
+		if(select("Sim: Não") == 2) {
 			mes "[Blacksmith Dister]";
-			mes "Bom. Eu ficaria triste se falhasse tambÃ©m.";
+			mes "Bom. Eu ficaria triste se falhasse também.";
 			close;
 		}
 	}
@@ -174,13 +174,13 @@
 	next;
 	emotion (!rand(5))?ET_ANGER:ET_HUK;
 	mes "[Blacksmith Dister]";
-	mes "Ã“ meu Deus!!!!";
+	mes "Ó meu Deus!!!!";
 	next;
 	mes "[Blacksmith Dister]";
-	mes "Oh! Embora tenha sido abenÃ§oado por"+.@ore$+"Para manter o equipamento ...";
+	mes "Oh! Embora tenha sido abençoado por"+.@ore$+"Para manter o equipamento ...";
 	next;
 	mes "[Blacksmith Dister]";
-	mes "Meu humor Ã© pior quando falhar !!";
+	mes "Meu humor é pior quando falhar !!";
 	close;
 }
 prt_in,52,56,3	duplicate(BlacksmithDister)	Blacksmith Dister#prt	826

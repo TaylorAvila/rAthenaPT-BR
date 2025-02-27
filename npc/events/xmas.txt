@@ -28,81 +28,81 @@ xmas_in,100,96,4	script	Father Christmas::Santa2	718,{
 	if(#event_xmas > 0 && #event_xmas < 30 ) goto L_Start;
 	mes "Feliz Natal!";
 	if(Class==0 || #event_xmas>=30 ) close; //anti exploit protection
-	mes "Eu tenho um presente para vocÃª! Ho Ho Ho!";
+	mes "Eu tenho um presente para você! Ho Ho Ho!";
 	getitem rand(664,667),1; //gives one of 4 gift boxes
 	set #event_xmas,#event_xmas+1;
 	close;
 
 L_Start:
 	mes "Estou tendo um pouco de problema ...";
-	mes "VocÃª se importa de ouvir?";
+	mes "Você se importa de ouvir?";
 	next;
-	menu "OuÃ§a o Papai Noel.",M_0, "DÃª Ã  prova de Papai Noel.",M_1, "Cancelar.",M_End;
+	menu "Ouça o Papai Noel.",M_0, "Dê à prova de Papai Noel.",M_1, "Cancelar.",M_End;
 
 	M_0:
 		mes "[Santa Claus]";
-		mes "Meu problema Ã© esse.";
-		mes "Parece haver um homem lÃ¡ fora";
-		mes "Isso estÃ¡ me personificando e se espalhando";
+		mes "Meu problema é esse.";
+		mes "Parece haver um homem lá fora";
+		mes "Isso está me personificando e se espalhando";
 		mes "terror por toda a terra.";
 		next;
 		mes "[Santa Claus]";
-		mes "Como o Grinch of Legend, ele estÃ¡ levando";
-		mes "todos os brinquedos de crianÃ§as e mantÃª -los";
+		mes "Como o Grinch of Legend, ele está levando";
+		mes "todos os brinquedos de crianças e mantê -los";
 		mes "por si mesmo.";
 		next;
 		mes "[Santa Claus]";
 		mes "Estou muito ocupado aqui criando meu lote de";
-		mes "brinquedos para o prÃ³ximo ano, entÃ£o eu nÃ£o posso ir";
+		mes "brinquedos para o próximo ano, então eu não posso ir";
 		mes "e encontre -o sozinho.";
-		mes "EntÃ£o eu gostaria que vocÃª saÃ­sse e";
+		mes "Então eu gostaria que você saísse e";
 		mes "Destrua este homem para mim.";
 		next;
 		mes "[Santa Claus]";
-		mes "Ele tem em sua posiÃ§Ã£o um dos meus";
-		mes "sacos mÃ¡gicos, no entanto, entÃ£o ele vai";
+		mes "Ele tem em sua posição um dos meus";
+		mes "sacos mágicos, no entanto, então ele vai";
 		mes "escapar para ele para outro lugar cada";
-		mes "tempo vocÃª o ataca.";
+		mes "tempo você o ataca.";
 		next;
 		mes "[Santa Claus]";
 		mes "No entanto,";
 		mes "Na sua pressa, ele tende a largar as coisas.";
 		mes "Se por acaso ele solta uma de suas meias";
-		mes "Com orifÃ­cios que ele usa para roubar o";
-		mes "Brinquedos pobres de crianÃ§as, pegue -o.";
+		mes "Com orifícios que ele usa para roubar o";
+		mes "Brinquedos pobres de crianças, pegue -o.";
 		next;
 		mes "[Santa Claus]";
-		mes "Se vocÃª coletar 3 deles, vou dar";
-		mes "vocÃª Ã© um protÃ³tipo de caixa de mistÃ©rio que";
+		mes "Se você coletar 3 deles, vou dar";
+		mes "você é um protótipo de caixa de mistério que";
 		mes "Eu tenho mantido ao redor do";
-		mes "laboratÃ³rio. Chave presentes aleatÃ³rios";
+		mes "laboratório. Chave presentes aleatórios";
 		mes "e me salva uma tonelada de trabalho.";
 		close;
 	M_1:
 		mes "[Santa Claus]";
 		if(countitem(7034) < 3) goto L_NotEnuf;
 		delitem 7034,3;
-		mes "Parece que vocÃª tem feito um";
+		mes "Parece que você tem feito um";
 		mes "Bom trabalho de derrubar aqueles";
 		mes "Santos falso. Mantem!";
 		next;
 		getitem 644,1; //Gift Box Prototype
 		set #event_xmas,#event_xmas+1;
 		mes "[Santa Claus]";
-		mes "AÃ­ estÃ¡ a sua recompensa.";
-		mes "Se vocÃª receber mais 3, eu te darei outro.";
-		mes "Espero que vocÃª obtenha um bom item.";
+		mes "Aí está a sua recompensa.";
+		mes "Se você receber mais 3, eu te darei outro.";
+		mes "Espero que você obtenha um bom item.";
 		close;
 	
 		L_NotEnuf:
-			mes "VocÃª nÃ£o tem meias suficientes como prova.";
-			mes "VÃ¡ derrubar aqueles santos do mal";
-			mes "E obtenha mais para mim e eu vou recompensÃ¡ -lo.";
+			mes "Você não tem meias suficientes como prova.";
+			mes "Vá derrubar aqueles santos do mal";
+			mes "E obtenha mais para mim e eu vou recompensá -lo.";
 			close;
 	M_End:
 		mes "[Santa Claus]";
 		mes "Eu vejo. Bem, pelo menos";
-		mes "Nos encontraremos novamente na manhÃ£ de Natal.";
+		mes "Nos encontraremos novamente na manhã de Natal.";
 		close;
 
 OnInit:

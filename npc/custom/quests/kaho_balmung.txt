@@ -20,19 +20,19 @@ prontera,158,356,4	script	Royal Messenger	105,{
 	
 	mes "[Royal Messenger]";
 	mes "Bem -vindo ao Protera.";
-	mes "Eu sou o mensageiro encarregado das missÃµes reais.";
+	mes "Eu sou o mensageiro encarregado das missões reais.";
 	next;
-	if(select("OuÃ§a ...: vÃ¡ embora")==2) close;
+	if(select("Ouça ...: vá embora")==2) close;
 	mes "[Royal Messenger]";
-	mes "Existem duas missÃµes.";
-	mes "Escolha o que vocÃª gosta.";
+	mes "Existem duas missões.";
+	mes "Escolha o que você gosta.";
 	next;
 	set .@i, select("Balmung: Horns de Lord Kaho:^7777777Never Mind.^000000");
 	mes "[Royal Messenger]";
 	if (.@i==3) {
 		mes "Tenha um bom dia.";
 		close; }
-	mes "VocÃª precisarÃ¡ dos seguintes itens:";
+	mes "Você precisará dos seguintes itens:";
 	for(set .@j,1; .@j<13; set .@j,.@j+2) {
 		mes "~"+getd(".@Req"+.@i+"["+(.@j+1)+"]")+"X ^0055FF"+getitemname(getd(".@Req"+.@i+"["+.@j+"]"))+"^000000";
 		if (!.@nr && countitem(getd(".@Req"+.@i+"["+.@j+"]")) < getd(".@Req"+.@i+"["+(.@j+1)+"]")) set .@nr,1; }
@@ -45,7 +45,7 @@ prontera,158,356,4	script	Royal Messenger	105,{
 	for(set .@j,1; .@j<13; set .@j,.@j+2)
 		delitem getd(".@Req"+.@i+"["+.@j+"]"), getd(".@Req"+.@i+"["+(.@j+1)+"]");
 	set Zeny, Zeny-1000000;
-	mes "Vejo que vocÃª jÃ¡ tem todos os itens que vocÃª precisa. Aqui estÃ¡ o seu"+getitemname(getd(".@Req"+.@i+"[0]"))+", como prometido.";
+	mes "Vejo que você já tem todos os itens que você precisa. Aqui está o seu"+getitemname(getd(".@Req"+.@i+"[0]"))+", como prometido.";
 	getitem getd(".@Req"+.@i+"[0]"),1;
 	close;
 }

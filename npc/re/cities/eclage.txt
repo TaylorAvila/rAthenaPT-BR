@@ -14,41 +14,41 @@
 //============================================================ 
 
 ecl_in02,96,22,3	script	sign#prison_inn	545,{
-	mes "[Norte] pris√£o";
-	mes "[Oeste] Cl√≠nica";
+	mes "[Norte] pris„o";
+	mes "[Oeste] ClÌnica";
 	close;
 }
 
 ecl_in01,8,71,5	script	Eclage Guard#pri_inn	447,{
 	mes "[Guarda do Eclage]";
-	mes "Este caminho o levar√° √†s partes inferiores do eclage. Voc√™ encontrar√° uma pris√£o e uma cl√≠nica l√°.";
+	mes "Este caminho o levar· ‡s partes inferiores do eclage. VocÍ encontrar· uma pris„o e uma clÌnica l·.";
 	close;
 }
 
 ecl_in02,164,56,3	script	Receptionist#Laphine	835,{
 	mes "[Recepcionista]";
-	mes "Bem -vindo √† cl√≠nica Eclage.";
+	mes "Bem -vindo ‡ clÌnica Eclage.";
 	next;
 	switch (select("Salvar Local: Rest: Termine a conversa")) {
 	case 1:
 		mes "[Recepcionista]";
-		mes "A cl√≠nica foi definida como seu ponto de salvamento. Tenha cuidado, embora ~";
+		mes "A clÌnica foi definida como seu ponto de salvamento. Tenha cuidado, embora ~";
 		savepoint "ECL_IN02",162,50,1,1;
 		close;
 	case 2:
 		mes "[Recepcionista]";
-		mes "Restaure sua mente e corpo em nossa cl√≠nica. Est√° cheio de energia limpa do Eclage.";
-		mes "Carregamos 1 moeda esplendida normalmente, mas oferecemos um desconto especial para os viajantes. Seu total √© de 5.000 Zeny.";
+		mes "Restaure sua mente e corpo em nossa clÌnica. Est· cheio de energia limpa do Eclage.";
+		mes "Carregamos 1 moeda esplendida normalmente, mas oferecemos um desconto especial para os viajantes. Seu total È de 5.000 Zeny.";
 		next;
-		switch (select("Pague com moeda esplendida: pague com zeny: esque√ßa")) {
+		switch (select("Pague com moeda esplendida: pague com zeny: esqueÁa")) {
 		case 1:
 			if (!countitem(6081)) {
 				mes "[Recepcionista]";
-				mes "Parece que voc√™ n√£o tem moedas suficientes. Voc√™ veria sua conta novamente, por favor?";
+				mes "Parece que vocÍ n„o tem moedas suficientes. VocÍ veria sua conta novamente, por favor?";
 				close;
 			}
 			mes "[Recepcionista]";
-			mes "Fa√ßa -se em casa ~";
+			mes "FaÁa -se em casa ~";
 			close2;
 			delitem 6081,1; //6081
 			percentheal 100,100;
@@ -57,11 +57,11 @@ ecl_in02,164,56,3	script	Receptionist#Laphine	835,{
 		case 2:
 			if (Zeny < 5000) {
 				mes "[Recepcionista]";
-				mes "Parece que voc√™ n√£o tem recursos suficientes para prosseguir. Voc√™ se importa de verificar sua conta novamente?";
+				mes "Parece que vocÍ n„o tem recursos suficientes para prosseguir. VocÍ se importa de verificar sua conta novamente?";
 				close;
 			}
 			mes "[Recepcionista]";
-			mes "Fa√ßa -se em casa ~";
+			mes "FaÁa -se em casa ~";
 			close2;
 			Zeny = Zeny - 5000;
 			percentheal 100,100;
@@ -81,26 +81,26 @@ ecl_in02,135,45,5	script	Injured Laphine	442,{
 	mes "Onde ... estou ... eu?";
 	next;
 	mes "[Doutor]";
-	mes "Voc√™ est√° em uma cl√≠nica. N√£o se preocupe.";
-	mes "Paramos o sangramento e lan√ßamos feiti√ßos de emerg√™ncia.";
-	mes "Voc√™ estava sangrando muito. Isso foi perto, voc√™ sabe.";
+	mes "VocÍ est· em uma clÌnica. N„o se preocupe.";
+	mes "Paramos o sangramento e lanÁamos feitiÁos de emergÍncia.";
+	mes "VocÍ estava sangrando muito. Isso foi perto, vocÍ sabe.";
 	next;
 	mes "[Laphina ferida]";
 	mes "......";
-	mes "O que, n√£o, eu ... n√£o sinto nada ... o que est√° acontecendo?";
+	mes "O que, n„o, eu ... n„o sinto nada ... o que est· acontecendo?";
 	next;
 	mes "[Doutor]";
 	mes "Umm ... a flecha danificou sua asa muito mal ...";
 	next;
 	mes "[Laphina ferida]";
-	mes "...o que voc√™ quer dizer?";
+	mes "...o que vocÍ quer dizer?";
 	next;
 	mes "[Doutor]";
-	mes "Bem ... eu ia lhe contar depois que voc√™ se recuperar, mas voc√™ deveria saber. Voc√™ n√£o pode mais decorar o Yai.";
-	mes "Em outras palavras, voc√™ machucou sua asa. A flecha passou pela parte mais cr√≠tica da asa.";
+	mes "Bem ... eu ia lhe contar depois que vocÍ se recuperar, mas vocÍ deveria saber. VocÍ n„o pode mais decorar o Yai.";
+	mes "Em outras palavras, vocÍ machucou sua asa. A flecha passou pela parte mais crÌtica da asa.";
 	next;
 	mes "[Laphina ferida]";
-	mes "O que? De jeito nenhum ... por favor ... doutor !! N√£o!!";
+	mes "O que? De jeito nenhum ... por favor ... doutor !! N„o!!";
 	close;
 }
 ecl_in02,137,44,3	duplicate(Injured Laphine)	Doctor Laphine#doctor	441

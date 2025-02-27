@@ -32,7 +32,7 @@ OnInit:
 	setarray $locationsname$[6],"Marrocos"; 
 	setarray $locationsname$[7],"Chip"; 
 	setarray $locationsname$[8],"Cor"; 
-	setarray $locationsname$[9],"Confort√°vel"; 
+	setarray $locationsname$[9],"Confort·vel"; 
 	setarray $locationsname$[10],"Amazu"; 
 	setarray $locationsname$[11],"Niflheim"; 
 	setarray $locationsname$[12],"eu ferro"; 
@@ -43,8 +43,8 @@ OnInit:
 	setarray $locationsname$[17],"Download"; 
 	setarray $locationsname$[18],"Vila orc"; 
 	setarray $locationsname$[19],"Mjolnir Coal Mines"; 
-	setarray $locationsname$[20],"Ru√≠nas de Gefenia"; 
-	setarray $locationsname$[21],"Eles v√£o"; 
+	setarray $locationsname$[20],"RuÌnas de Gefenia"; 
+	setarray $locationsname$[21],"Eles v„o"; 
 	setarray $locationsname$[22],"Lighthalzen"; 
 	setarray $locationsname$[23],"Juperos"; 
 	setarray $locationsmap$[0],"aeroporto"; 
@@ -56,7 +56,7 @@ OnInit:
 	setarray $locationsmap$[6],"MOC_FILD10"; 
 	setarray $locationsmap$[7],"GLAST_01"; 
 	setarray $locationsmap$[8],"cor"; 
-	setarray $locationsmap$[9],"confort√°vel"; 
+	setarray $locationsmap$[9],"confort·vel"; 
 	setarray $locationsmap$[10],"Amazu"; 
 	setarray $locationsmap$[11],"niflheim"; 
 	setarray $locationsmap$[12],"Natal"; 
@@ -68,7 +68,7 @@ OnInit:
 	setarray $locationsmap$[18],"Gef_fild10"; 
 	setarray $locationsmap$[19],"Mjolnir_02"; 
 	setarray $locationsmap$[20],"Gefenia01"; 
-	setarray $locationsmap$[21],"eles v√£o"; 
+	setarray $locationsmap$[21],"eles v„o"; 
 	setarray $locationsmap$[22],"Lighthalzen";
 	setarray $locationsmap$[23],"Skirt_gate";
 	setarray $locationsx[0],148; 
@@ -239,9 +239,9 @@ function	script	F_Porter	{
 
 Board:
 	mes "^Ff0000 [Porter]^000000";
-	mes "O avi√£o est√° atualmente portado.  Voc√™ gostaria de embarcar?";
+	mes "O avi„o est· atualmente portado.  VocÍ gostaria de embarcar?";
 	next;
-	menu "Sim.",L_Yes,"No.",L_Nope,"Veja o itiner√°rio por hora.",Itin;
+	menu "Sim.",L_Yes,"No.",L_Nope,"Veja o itiner·rio por hora.",Itin;
 
 L_Yes:
 	if($destination!=getarg(0))goto Notime;
@@ -254,10 +254,10 @@ L_Nope:
 
 Notime:
 	mes "^Ff0000 [Porter]^000000";
-	if(Sex==SEX_FEMALE) mes "Desculpe, senhora, mas o avi√£o atualmente n√£o √© portado.  No entanto, voc√™ pode ver o itiner√°rio por hora do avi√£o.";
-	else mes "Desculpe, senhor, mas o avi√£o atualmente n√£o √© portado.  No entanto, voc√™ pode ver o itiner√°rio por hora do avi√£o.";
+	if(Sex==SEX_FEMALE) mes "Desculpe, senhora, mas o avi„o atualmente n„o È portado.  No entanto, vocÍ pode ver o itiner·rio por hora do avi„o.";
+	else mes "Desculpe, senhor, mas o avi„o atualmente n„o È portado.  No entanto, vocÍ pode ver o itiner·rio por hora do avi„o.";
 	next;
-	menu "Sim, por favor.",Itin,"N√£o, obrigado.",L_Nope;
+	menu "Sim, por favor.",Itin,"N„o, obrigado.",L_Nope;
 	close;
 	end;
 
@@ -339,16 +339,16 @@ jupe_gate,46,18,7	script	Porter#23	774,{
 	callfunc "F_Porter",23;
 }
 airport,141,43,5	script	Itinerary Schedule	837,{
-	mes "^Ff0000 [itiner√°rio]^000000";
+	mes "^Ff0000 [itiner·rio]^000000";
 	callfunc "F_Itin";
 }
 
 airplane,102,68,5	script	Docker	852,{
 	if($destination == 250) goto Nowhere;
-	mes "^FF0000 [Atendente do avi√£o]^000000";
+	mes "^FF0000 [Atendente do avi„o]^000000";
 	if($destination == 250)goto Notime;
 	set @dockky, $destination;
-	if($destination != 250)mes "Atualmente, estamos ancorados em"+$locationsname$[$destination]+".  Voc√™ gostaria de sair?";
+	if($destination != 250)mes "Atualmente, estamos ancorados em"+$locationsname$[$destination]+".  VocÍ gostaria de sair?";
 	next;
 	menu "Sim.",Lyes,"No.",Lnope;
 
@@ -359,25 +359,25 @@ Lyes:
 	specialeffect2 EF_CASTSPIN;
 
 Lnope:
-	mes "^FF0000 [Atendente do avi√£o]^000000";
+	mes "^FF0000 [Atendente do avi„o]^000000";
 	mes "Tenha um bom dia.  Obrigado por viajar conosco.";
 	close;
 
 Notime:
-	mes "^FF0000 [Atendente do avi√£o]^000000";
-	if(Sex==SEX_FEMALE) mes "Desculpe, senhora, mas o avi√£o atualmente n√£o est√° ancorado.  Por favor, aguarde.";
-	else mes "Desculpe, senhor, mas o avi√£o atualmente n√£o est√° ancorado.  Por favor, aguarde.";
+	mes "^FF0000 [Atendente do avi„o]^000000";
+	if(Sex==SEX_FEMALE) mes "Desculpe, senhora, mas o avi„o atualmente n„o est· ancorado.  Por favor, aguarde.";
+	else mes "Desculpe, senhor, mas o avi„o atualmente n„o est· ancorado.  Por favor, aguarde.";
 	close;
 
 Nowhere:
-	mes "^FF0000 [Atendente do avi√£o]^000000";
-	mes "Estamos atualmente no ar. Por favor, espere at√© que o piloto tenha anunciado que desembarcamos com seguran√ßa.";
+	mes "^FF0000 [Atendente do avi„o]^000000";
+	mes "Estamos atualmente no ar. Por favor, espere atÈ que o piloto tenha anunciado que desembarcamos com seguranÁa.";
 	close;
 }
 
 function	script	F_Itin	{
 	//This is the itinerary's function.  It should work well enough.
-	if($@currenttime==0)mes "Tente novamente mais tarde.  Uma reinicializa√ß√£o recente de servidor ou Rehash despertou um pouco o itiner√°rio.";
+	if($@currenttime==0)mes "Tente novamente mais tarde.  Uma reinicializaÁ„o recente de servidor ou Rehash despertou um pouco o itiner·rio.";
 	if($@currenttime==0)close;
 	if($@currenttime==0)end;
 	set @tempo, 0;
@@ -437,6 +437,6 @@ sest:
 	if($alreadygoneto[$locationn[getarg(0)]]==1)goto sest;
 	setarray $alreadygoneto[$locationn[getarg(0)]], 1;
 	set $destination,$locationn[$@currenttime];
-	announce "Piloto: o avi√£o chegou a"+$locationsname$[$locationn[getarg(1)]]+".  Partida para"+ $locationsname$[$locationn[getarg(2)]] + "est√° em 3 minutos.",16;
+	announce "Piloto: o avi„o chegou a"+$locationsname$[$locationn[getarg(1)]]+".  Partida para"+ $locationsname$[$locationn[getarg(2)]] + "est· em 3 minutos.",16;
 	end;
 }

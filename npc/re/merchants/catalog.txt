@@ -19,92 +19,92 @@
 //============================================================
 moc_para01,22,16,5	script	Catalog Magician#catal01	704,{
 	if (!checkweight(1301,3)) {
-		mes "- Voc√™ tem muitos itens. Por favor, fa√ßa espa√ßo. -";
+		mes "- VocÍ tem muitos itens. Por favor, faÁa espaÁo. -";
 		close;
 	}
 	set .@ticket_cost, 200;
-	mes "[Magiciano do cat√°logo]";
-	mes "Olha ... a Academia M√°gica";
-	mes "em Geffen est√° agora diretamente";
+	mes "[Magiciano do cat·logo]";
+	mes "Olha ... a Academia M·gica";
+	mes "em Geffen est· agora diretamente";
 	mes "vendendo o novo";
-	mes "^007777 CAT√ÅLOGO UNRIVERSAL PRATA^000000!";
+	mes "^007777 CAT¡LOGO UNRIVERSAL PRATA^000000!";
 	next;
-	mes "Ele est√° olhando para as palavras";
-	mes "escrito em sua m√£o.";
+	mes "Ele est· olhando para as palavras";
+	mes "escrito em sua m„o.";
 	mes "Ele parece muito ocupado";
-	mes "olhar para voc√™.";
+	mes "olhar para vocÍ.";
 	next;
-	mes "[Magiciano do cat√°logo]";
-	mes "Um novo cat√°logo";
+	mes "[Magiciano do cat·logo]";
+	mes "Um novo cat·logo";
 	mes "acabou de sair!";
-	mes "Voc√™ pode verificar";
-	mes "Quais itens voc√™ pode negociar";
-	mes "e quais itens est√£o √† venda";
+	mes "VocÍ pode verificar";
+	mes "Quais itens vocÍ pode negociar";
+	mes "e quais itens est„o ‡ venda";
 	mes "do fornecedor.";
 	next;
-	mes "[Magiciano do cat√°logo]";
-	mes "O cat√°logo ^007777";
+	mes "[Magiciano do cat·logo]";
+	mes "O cat·logo ^007777";
 	mes "Custa apenas 200z!";
-	mes "Voc√™ pode comprar at√© 50 pe√ßas de uma vez!";
+	mes "VocÍ pode comprar atÈ 50 peÁas de uma vez!";
 	next;
-	switch(select("Compre A ^007777 CAT√ÅLOGO UNIVERSAL PRATA ^000000: Eu n√£o preciso disso!: Voc√™ n√£o parece um fornecedor!")) {
+	switch(select("Compre A ^007777 CAT¡LOGO UNIVERSAL PRATA ^000000: Eu n„o preciso disso!: VocÍ n„o parece um fornecedor!")) {
 	case 1:
-		mes "[Magiciano do cat√°logo]";
-		mes "Voc√™ ... quer todas as 50 pe√ßas?";
-		mes "Ou quantos voc√™ precisa?";
+		mes "[Magiciano do cat·logo]";
+		mes "VocÍ ... quer todas as 50 peÁas?";
+		mes "Ou quantos vocÍ precisa?";
 		next;
 		while (1) {
 			input .@input;
-			mes "[Magiciano do cat√°logo]";
+			mes "[Magiciano do cat·logo]";
 			if (.@input == 0) {
-				mes "O com√©rcio foi interrompido!";
-				mes "Eu n√£o sei o que fazer a seguir ...";
+				mes "O comÈrcio foi interrompido!";
+				mes "Eu n„o sei o que fazer a seguir ...";
 				mes "O que devo fazer?";
 				emotion ET_PROFUSELY_SWEAT, playerattached();
 				close;
 			} else if (.@input < 1 || .@input > 50) {
-				mes "Deve ser menos de 50 pe√ßas.";
+				mes "Deve ser menos de 50 peÁas.";
 				next;
 			} else
 				break;
 		}
 		set .@sell, .@ticket_cost * .@input;
-		mes "O n√∫mero total de cat√°logos que voc√™ est√° tentando comprar √©" + .@input + "peda√ßos.";
+		mes "O n˙mero total de cat·logos que vocÍ est· tentando comprar È" + .@input + "pedaÁos.";
 		mes "Custa" + .@sell + "Com.";
 		if (Zeny < .@sell) {
-			mes "Parece que voc√™ n√£o tem dinheiro suficiente.";
-			mes "Voc√™ pode vender seu equipamento";
-			mes "Para ganhar mais dinheiro ... se voc√™ quiser.";
+			mes "Parece que vocÍ n„o tem dinheiro suficiente.";
+			mes "VocÍ pode vender seu equipamento";
+			mes "Para ganhar mais dinheiro ... se vocÍ quiser.";
 			close;
 		}
-		mes "Ok, aqui est√°.";
+		mes "Ok, aqui est·.";
 		set Zeny, Zeny - .@sell;
 		getitem 12580,.@input; //Vending_Search_Scroll
 		close;
 	case 2:
-		mes "[Magiciano do cat√°logo]";
-		mes "Argh ... voc√™ realmente precisa disso";
-		mes "item ... voc√™ quer que eu";
-		mes "explicar de novo? N√£o sei";
+		mes "[Magiciano do cat·logo]";
+		mes "Argh ... vocÍ realmente precisa disso";
+		mes "item ... vocÍ quer que eu";
+		mes "explicar de novo? N„o sei";
 		mes "O que fazer a seguir ...";
 		mes "O que devo fazer?";
 		emotion ET_PROFUSELY_SWEAT, playerattached();
 		close;
 	case 3:
-		mes "[Magiciano do cat√°logo]";
-		mes "Meu verdadeiro trabalho √© um m√°gico.";
+		mes "[Magiciano do cat·logo]";
+		mes "Meu verdadeiro trabalho È um m·gico.";
 		mes "Eu ia perguntar ao comerciante";
-		mes "guilda para vend√™ -los, mas eles eram";
-		mes "tentando us√° -los como um ap√™ndice";
-		mes "em vendas de vassouras. √â por isso";
+		mes "guilda para vendÍ -los, mas eles eram";
+		mes "tentando us· -los como um apÍndice";
+		mes "em vendas de vassouras. … por isso";
 		mes "Estou vendendo isso sozinho.";
 		next;
-		mes "[Magiciano do cat√°logo]";
+		mes "[Magiciano do cat·logo]";
 		mes "Existem muitos aventureiros";
 		mes "aqui quem vem e vai.";
 		mes "Tenho certeza de que posso vender para todos eles em breve.";
-		mes "Voc√™ n√£o acha?";
-		mes "Ent√£o ... vamos come√ßar !! Compre mais deles, por favor! POR FAVOR...!";
+		mes "VocÍ n„o acha?";
+		mes "Ent„o ... vamos comeÁar !! Compre mais deles, por favor! POR FAVOR...!";
 		close;
 	}
 }

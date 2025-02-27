@@ -12,88 +12,88 @@ moro_cav,41,73,4	script	Guardian Nidhogg#epeom01	4_F_NYDHOG,{
 		erasequest 7605;
 	if (getcharid(1) < 1) {
 		mes "[Nidhogg]";
-		mes "Este lugar Ã© muito perigoso para vocÃª explorar sozinho.";
+		mes "Este lugar é muito perigoso para você explorar sozinho.";
 		mes "Por favor, forme uma festa e venha com seus camaradas.";
 		cutin "ep14_nyd01.bmp",2;
 		close3;
 	}
 	if (is_party_leader() == false) {
 		mes "[Nidhogg]";
-		mes "Somente os lÃ­deres do partido podem controlar o acesso ao templo do deus demÃ´nio.";
-		mes "Ã‰ para garantir a seguranÃ§a de toda a expediÃ§Ã£o. Por favor, deixe seu lÃ­der falar comigo.";
+		mes "Somente os líderes do partido podem controlar o acesso ao templo do deus demônio.";
+		mes "É para garantir a segurança de toda a expedição. Por favor, deixe seu líder falar comigo.";
 		cutin "ep14_nyd01.bmp",2;
 		close3;
 	}
 	switch( checkquest(7593,HUNTING) ) {
 	case -1:
 		mes "[Nidhogg]";
-		mes "Sinto muito, mas vocÃª nÃ£o pode entrar neste lugar sem a aprovaÃ§Ã£o do comandante.";
-		mes "VocÃª deve estar na busca de subjugar o deus demÃ´nio para entrar neste lugar.";
+		mes "Sinto muito, mas você não pode entrar neste lugar sem a aprovação do comandante.";
+		mes "Você deve estar na busca de subjugar o deus demônio para entrar neste lugar.";
 		cutin "ep14_nyd01.bmp",2;
 		next;
 		mes "[Nidhogg]";
-		mes "Por favor, vÃ¡ para o comandante Hiva Agip e receba a busca de subjugaÃ§Ã£o de Deus demonÃ­aca.";
+		mes "Por favor, vá para o comandante Hiva Agip e receba a busca de subjugação de Deus demoníaca.";
 		close3;
 	case 0:
 	case 1:
 		mes "[Nidhogg]";
-		mes "Eu estive esperando por vocÃª, herÃ³i-espera.";
-		mes "Deixe -me guiÃ¡ -lo para a profundidade do templo, onde Morroc estÃ¡ Ã  espera.";
+		mes "Eu estive esperando por você, herói-espera.";
+		mes "Deixe -me guiá -lo para a profundidade do templo, onde Morroc está à espera.";
 		cutin "ep14_nyd03.bmp",2;
 		next;
 		mes "[Nidhogg]";
-		mes "Esta Ã¡rvore Ã© a imagem cuspida de Yggdrasil.";
-		mes "SÃ³ espero que Morroc nÃ£o tenha a intenÃ§Ã£o do que mais temo.";
-		mes "AtravÃ©s desta Ã¡rvore, a porta Ã© aberta.";
+		mes "Esta árvore é a imagem cuspida de Yggdrasil.";
+		mes "Só espero que Morroc não tenha a intenção do que mais temo.";
+		mes "Através desta árvore, a porta é aberta.";
 		next;
 		mes "[Nidhogg]";
 		mes "Eu posso sentir isso";
-		mes "Esta Ã¡rvore estÃ¡ gerando mana em determinados intervalos como se estivesse respirando.";
-		mes "Vou pegar um momento entre suas respiraÃ§Ãµes para abrir um caminho para vocÃª. VocÃª estÃ¡ pronto?";
+		mes "Esta árvore está gerando mana em determinados intervalos como se estivesse respirando.";
+		mes "Vou pegar um momento entre suas respirações para abrir um caminho para você. Você está pronto?";
 		cutin "ep14_nyd04.bmp",2;
 		next;
-		if (select( "Entre agora.", "NÃ£o entre." ) == 2) {
+		if (select( "Entre agora.", "Não entre." ) == 2) {
 			mes "[Nidhogg]";
 			mes "OK.";
-			mes "Eu entendo se vocÃª precisar de tempo.";
-			mes "Sem pressa. Eu posso esperar o tempo que vocÃª quiser.";
+			mes "Eu entendo se você precisar de tempo.";
+			mes "Sem pressa. Eu posso esperar o tempo que você quiser.";
 			cutin "ep14_nyd04.bmp",2;
 			close3;
 		}
 		if (instance_create("Temple of the Demon God") < 1) {	// todo, custom text
 			mes "Nome da festa:" + getpartyname(.@party_id);
-			mes "LÃ­der do partido:" + strcharinfo(0);
+			mes "Líder do partido:" + strcharinfo(0);
 			mes "^0000FF" + .@md_name$ + "^000000 - A reserva falhou.";
 			close;
 		}
 		if (isbegin_quest(7596) == 1)
 			erasequest 7596;
 		mes "[Nidhogg]";
-		mes "Espere um tempo e a entrada serÃ¡ aberta.";
-		mes "Entre na Ã¡rvore.";
-		mes "NÃ£o tenha medo, mesmo que nÃ£o seja uma Ã¡rvore comum.";
+		mes "Espere um tempo e a entrada será aberta.";
+		mes "Entre na árvore.";
+		mes "Não tenha medo, mesmo que não seja uma árvore comum.";
 		cutin "ep14_nyd04.bmp",2;
 		close3;
 	case 2:	// todo, custom text
 		mes "[Nidhogg]";
-		mes "VocÃª eliminou o deus do desespero!?";
-		mes "SÃ³ posso dizer que a ambiÃ§Ã£o dele era muito grande ...";
+		mes "Você eliminou o deus do desespero!?";
+		mes "Só posso dizer que a ambição dele era muito grande ...";
 		mes "Sempre fale sobre criar um novo mundo e se tornar um deus ...";
 		cutin "ep14_nyd03.bmp",2;
 		next;
 		mes "[Nidhogg]";
-		mes "Mas, falando sÃ©rio, ele nÃ£o criou nada!";
-		mes "Abandone o corpo que costumava ser um demÃ´nio, e a aparÃªncia apÃ³s o renascimento estÃ¡ apenas imitando o deus ...";
+		mes "Mas, falando sério, ele não criou nada!";
+		mes "Abandone o corpo que costumava ser um demônio, e a aparência após o renascimento está apenas imitando o deus ...";
 		next;
 		mes "[Nidhogg]";
-		mes "O resultado Ã© exatamente como Ã© um humano,";
-		mes "Ele nÃ£o pode escapar do chamado deus moldura,";
-		mes "... VocÃª sÃ³ pode dizer que estÃ¡ comendo azar!";
+		mes "O resultado é exatamente como é um humano,";
+		mes "Ele não pode escapar do chamado deus moldura,";
+		mes "... Você só pode dizer que está comendo azar!";
 		cutin "ep14_nyd02.bmp",2;
 		next;
 		cutin "ep14_nyd04.bmp",2;
 		mes "[Nidhogg]";
-		mes "Vou dar -lhe aprovaÃ§Ã£o para a missÃ£o e vocÃª pode se reportar ao comandante.";
+		mes "Vou dar -lhe aprovação para a missão e você pode se reportar ao comandante.";
 		mes "Obrigado!";
 		setquest 7597;
 		erasequest 7593;
@@ -111,76 +111,76 @@ moro_cav,45,75,0	script	Yggdrasil Lookalike#eom_gate	CLEAR_NPC,{
 	switch( checkquest(7593,HUNTING) ) {
 	case -1:
 		mes "[Nidhogg]";
-		mes "Sinto muito, mas vocÃª nÃ£o pode entrar neste lugar sem a aprovaÃ§Ã£o do comandante.";
-		mes "VocÃª deve estar na busca de subjugar o deus demÃ´nio para entrar neste lugar.";
+		mes "Sinto muito, mas você não pode entrar neste lugar sem a aprovação do comandante.";
+		mes "Você deve estar na busca de subjugar o deus demônio para entrar neste lugar.";
 		cutin "ep14_nyd01.bmp",2;
 		next;
 		mes "[Nidhogg]";
-		mes "Por favor, vÃ¡ para o comandante Hiva Agip e receba a busca da 'subjugaÃ§Ã£o de Deus demonÃ­aca'.";
+		mes "Por favor, vá para o comandante Hiva Agip e receba a busca da 'subjugação de Deus demoníaca'.";
 		close3;
 	case 0:
 	case 1:
-		mes "VocÃª tocou a Ã¡rvore e sentiu um estranho fluxo de mana.";
-		mes "Talvez o fluxo de mana o guie atÃ© a profundidade do templo.";
+		mes "Você tocou a árvore e sentiu um estranho fluxo de mana.";
+		mes "Talvez o fluxo de mana o guie até a profundidade do templo.";
 		next;
 		if (select( "Digitar.", "Desistir." ) == 2) {
 			mes "[Nidhogg]";
 			mes "OK.";
-			mes "Eu entendo se vocÃª precisar de tempo.";
-			mes "Sem pressa. Eu posso esperar o tempo que vocÃª quiser.";
+			mes "Eu entendo se você precisar de tempo.";
+			mes "Sem pressa. Eu posso esperar o tempo que você quiser.";
 			cutin "ep14_nyd04.bmp",2;
 			close3;
 		}
 		switch( instance_enter("Temple of the Demon God") ) {
 		case IE_NOMEMBER:
 			mes "[Nidhogg]";
-			mes "Este lugar Ã© muito perigoso para vocÃª explorar sozinho.";
+			mes "Este lugar é muito perigoso para você explorar sozinho.";
 			mes "Por favor, forme uma festa e venha com seus camaradas.";
 			cutin "ep14_nyd01.bmp",2;
 			close3;
 		case IE_NOINSTANCE:
 			mes "[Nidhogg]";
-			mes "Nenhuma permissÃ£o de entrada foi emitida sob o nome da sua parte.";
-			mes "Por favor, deixe seu lÃ­der do partido enviar uma solicitaÃ§Ã£o de inscriÃ§Ã£o e abrirei o portÃ£o para o templo.";
+			mes "Nenhuma permissão de entrada foi emitida sob o nome da sua parte.";
+			mes "Por favor, deixe seu líder do partido enviar uma solicitação de inscrição e abrirei o portão para o templo.";
 			cutin "ep14_nyd01.bmp",2;
 			next;
 			mes "[Nidhogg]";
-			mes "VocÃª deve cumprir as regras estabelecidas pela expediÃ§Ã£o.";
-			mes "Ã‰ para a seguranÃ§a de todos.";
+			mes "Você deve cumprir as regras estabelecidas pela expedição.";
+			mes "É para a segurança de todos.";
 			close3;
 		case IE_OTHER:	// todo, custom text
 			mes "[Nidhogg]";
-			mes "Hum ... como isso poderia acontecer ... o fluxo de poder mÃ¡gico se torna instÃ¡vel,";
-			mes "DÃ³i meu cÃ©rebro, essa Ã© a lacuna que finalmente fiz ...";
-			mes "pode nÃ£o ser capaz de entrar no momento ...";
+			mes "Hum ... como isso poderia acontecer ... o fluxo de poder mágico se torna instável,";
+			mes "Dói meu cérebro, essa é a lacuna que finalmente fiz ...";
+			mes "pode não ser capaz de entrar no momento ...";
 			cutin "ep14_nyd01.bmp",2;
 			close3;
 		case IE_OK:
-			mapannounce "moro_cav", "" + strcharinfo(0) + "da festa" + getpartyname( getcharid(1) ) + ", estÃ¡ entrando no Templo do Deus demonÃ­aco.",bc_map;
+			mapannounce "moro_cav", "" + strcharinfo(0) + "da festa" + getpartyname( getcharid(1) ) + ", está entrando no Templo do Deus demoníaco.",bc_map;
 			// warp "1@eom",101,16;
 			end;
 		}
 	case 2:	// todo, custom text
 		mes "[Nidhogg]";
-		mes "VocÃª eliminou o deus do desespero!?";
-		mes "SÃ³ posso dizer que a ambiÃ§Ã£o dele era muito grande ...";
+		mes "Você eliminou o deus do desespero!?";
+		mes "Só posso dizer que a ambição dele era muito grande ...";
 		mes "Sempre fale sobre criar um novo mundo e se tornar um deus ...";
 		cutin "ep14_nyd01.bmp",2;
 		next;
 		mes "[Nidhogg]";
-		mes "Mas, falando sÃ©rio, ele nÃ£o criou nada!";
-		mes "Abandone o corpo que costumava ser um demÃ´nio, e a aparÃªncia apÃ³s o renascimento estÃ¡ apenas imitando o deus ...";
+		mes "Mas, falando sério, ele não criou nada!";
+		mes "Abandone o corpo que costumava ser um demônio, e a aparência após o renascimento está apenas imitando o deus ...";
 		cutin "ep14_nyd02.bmp",2;
 		next;
 		mes "[Nidhogg]";
-		mes "O resultado Ã© exatamente como Ã© um humano,";
-		mes "Ele nÃ£o pode escapar do chamado deus moldura,";
-		mes "... VocÃª sÃ³ pode dizer que estÃ¡ comendo azar!";
+		mes "O resultado é exatamente como é um humano,";
+		mes "Ele não pode escapar do chamado deus moldura,";
+		mes "... Você só pode dizer que está comendo azar!";
 		cutin "ep14_nyd03.bmp",2;
 		next;
 		cutin "ep14_nyd04.bmp",2;
 		mes "[Nidhogg]";
-		mes "Vou dar -lhe aprovaÃ§Ã£o para a missÃ£o e vocÃª pode se reportar ao comandante.";
+		mes "Vou dar -lhe aprovação para a missão e você pode se reportar ao comandante.";
 		mes "Obrigado!";
 		setquest 7597;
 		erasequest 7593;
@@ -282,42 +282,42 @@ OnInstanceInit:
 	if (is_party_leader() == false || checkquest(7593,HUNTING) != 1 || 'step != 0) {
 		mes "[Uahat]";
 		mes "Bem-vindo";
-		mes "ao templo do deus demÃ´nio.";
-		mes "Ã‰ minha honra ser seu anfitriÃ£o hoje.";
+		mes "ao templo do deus demônio.";
+		mes "É minha honra ser seu anfitrião hoje.";
 		close3;
 	}
 	.@ahat$ = instance_npcname("Demon God's Apostle Aha#ahat");
 	mes "[Uahat]";
-	mes "EntÃ£o, vocÃª veio.";
-	mes "Puxa, vocÃª Ã© tÃ£o persistente.";
-	mes "Hah hah, vocÃª estÃ¡ surpreso ao me ver aqui?";
-	npctalk "O que: EntÃ£o, vocÃª veio.", .@ahat$;
+	mes "Então, você veio.";
+	mes "Puxa, você é tão persistente.";
+	mes "Hah hah, você está surpreso ao me ver aqui?";
+	npctalk "O que: Então, você veio.", .@ahat$;
 	next;
 	mes "[Uahat]";
-	mes "VocÃª nÃ£o esperava nada disso?";
-	mes "Por que nÃ£o me apresento oficialmente?";
-	mes "Eu sou ahat, o primeiro servo do deus demonÃ­aco.";
-	npctalk "O quÃª: Por que eu nÃ£o me apresento oficialmente? Eu sou o que, o primeiro servo do deus demonÃ­aco.", .@ahat$;
+	mes "Você não esperava nada disso?";
+	mes "Por que não me apresento oficialmente?";
+	mes "Eu sou ahat, o primeiro servo do deus demoníaco.";
+	npctalk "O quê: Por que eu não me apresento oficialmente? Eu sou o que, o primeiro servo do deus demoníaco.", .@ahat$;
 	next;
 	mes "[Uahat]";
 	mes "Bem, bem, talvez eu perdi minha vida hoje.";
-	mes "NÃ£o me olhe assim. Tudo Ã© o planejado.";
-	npctalk "AHAT: Bem, bem, talvez eu perdi minha vida hoje. NÃ£o me olhe assim. Tudo Ã© o planejado.", .@ahat$;
+	mes "Não me olhe assim. Tudo é o planejado.";
+	npctalk "AHAT: Bem, bem, talvez eu perdi minha vida hoje. Não me olhe assim. Tudo é o planejado.", .@ahat$;
 	next;
 	mes "[Uahat]";
-	mes "Meu mestre deseja Shnaim e eu o colocamos Ã  prova.";
-	mes "Para ver se vocÃª merece ser nossos convidados.";
-	npctalk "AHAT: Meu mestre deseja Shnaim e eu para testÃ¡ -lo. Para ver se vocÃª merece ser nossos convidados.", .@ahat$;
+	mes "Meu mestre deseja Shnaim e eu o colocamos à prova.";
+	mes "Para ver se você merece ser nossos convidados.";
+	npctalk "AHAT: Meu mestre deseja Shnaim e eu para testá -lo. Para ver se você merece ser nossos convidados.", .@ahat$;
 	next;
 	mes "[Uahat]";
-	mes "Se vocÃª acha que chegou tÃ£o longe por conta prÃ³pria,";
-	mes "VocÃª estÃ¡ enganado.";
-	npctalk "O que: se vocÃª acha que chegou tÃ£o longe por conta prÃ³pria, estÃ¡ enganado.", .@ahat$;
+	mes "Se você acha que chegou tão longe por conta própria,";
+	mes "Você está enganado.";
+	npctalk "O que: se você acha que chegou tão longe por conta própria, está enganado.", .@ahat$;
 	next;
 	mes "[Uahat]";
-	mes "Tudo Ã© como o mestre planejou.";
-	mes "Por enquanto, vamos ver se vocÃª pode abrir esta porta.";
-	npctalk "O que: tudo Ã© como o mestre planejou. Por enquanto, vamos ver se vocÃª pode abrir esta porta.", .@ahat$;
+	mes "Tudo é como o mestre planejou.";
+	mes "Por enquanto, vamos ver se você pode abrir esta porta.";
+	npctalk "O que: tudo é como o mestre planejou. Por enquanto, vamos ver se você pode abrir esta porta.", .@ahat$;
 	if (isbegin_quest(7596) == 0)
 		setquest 7596;
 	if ('step != 0)
@@ -340,22 +340,22 @@ OnStart:
 	'apostle = 10;
 	enablenpc instance_npcname("#door_mobmaster");
 	.@label$ = instance_npcname("#door_mobmaster") + "::OnMyMobDead";
-	monster 'map_eom$,102,30, "ApÃ³stolo de Deus demonÃ­aco ahat",3105,1, .@label$;	// MM_GB_MOROCC_1
+	monster 'map_eom$,102,30, "Apóstolo de Deus demoníaco ahat",3105,1, .@label$;	// MM_GB_MOROCC_1
 	setunitdata $@mobid[0], UMOB_HP, 5000000;
-	monster 'map_eom$, 98,30, "Fragmento de Deus demonÃ­aco",1918,1, .@label$;
-	monster 'map_eom$,100,30, "Fragmento de Deus demonÃ­aco",1918,1, .@label$;
-	monster 'map_eom$,104,30, "Fragmento de Deus demonÃ­aco",1918,1, .@label$;
-	monster 'map_eom$,106,30, "Fragmento de Deus demonÃ­aco",1918,1, .@label$;
+	monster 'map_eom$, 98,30, "Fragmento de Deus demoníaco",1918,1, .@label$;
+	monster 'map_eom$,100,30, "Fragmento de Deus demoníaco",1918,1, .@label$;
+	monster 'map_eom$,104,30, "Fragmento de Deus demoníaco",1918,1, .@label$;
+	monster 'map_eom$,106,30, "Fragmento de Deus demoníaco",1918,1, .@label$;
 	sleep 2000;
-	mapannounce 'map_eom$, "Elimine os apÃ³stolos do deus demÃ´nio, Ahat e Shnaim, e colete suas almas.", bc_map, 0x00ff00;
-	monster 'map_eom$,102,40, "Snim do apÃ³stolo de Deus demonÃ­aco",3106,1, .@label$;	// MM_GB_MOROCC_4
+	mapannounce 'map_eom$, "Elimine os apóstolos do deus demônio, Ahat e Shnaim, e colete suas almas.", bc_map, 0x00ff00;
+	monster 'map_eom$,102,40, "Snim do apóstolo de Deus demoníaco",3106,1, .@label$;	// MM_GB_MOROCC_4
 	setunitdata $@mobid[0], UMOB_HP, 5000000;
-	monster 'map_eom$, 98,40, "Fragmento de Deus demonÃ­aco",1921,1, .@label$;
-	monster 'map_eom$,100,40, "Fragmento de Deus demonÃ­aco",1921,1, .@label$;
-	monster 'map_eom$,104,40, "Fragmento de Deus demonÃ­aco",1921,1, .@label$;
-	monster 'map_eom$,106,40, "Fragmento de Deus demonÃ­aco",1921,1, .@label$;
+	monster 'map_eom$, 98,40, "Fragmento de Deus demoníaco",1921,1, .@label$;
+	monster 'map_eom$,100,40, "Fragmento de Deus demoníaco",1921,1, .@label$;
+	monster 'map_eom$,104,40, "Fragmento de Deus demoníaco",1921,1, .@label$;
+	monster 'map_eom$,106,40, "Fragmento de Deus demoníaco",1921,1, .@label$;
 	sleep 3000;
-	mapannounce 'map_eom$, "As almas dos apÃ³stolos sÃ£o a chave para abrir o templo do deus demÃ´nio.", bc_map, 0x00ff00;
+	mapannounce 'map_eom$, "As almas dos apóstolos são a chave para abrir o templo do deus demônio.", bc_map, 0x00ff00;
 	end;
 OnMyMobDead:
 	'apostle -= 1;
@@ -364,7 +364,7 @@ OnMyMobDead:
 		disablenpc instance_npcname("#door_mobmaster");
 		enablenpc instance_npcname("Empty Soul Globe#shnaim01");
 		enablenpc instance_npcname("Empty Soul Globe#ahat01");
-		mapannounce 'map_eom$, "Ativou os globos da alma usados â€‹â€‹para abrir o templo do deus demÃ´nio.", bc_map, 0x00ff00;
+		mapannounce 'map_eom$, "Ativou os globos da alma usados para abrir o templo do deus demônio.", bc_map, 0x00ff00;
 	}
 	end;
 }
@@ -385,11 +385,11 @@ S_Globe:
 
 	disable_items;
 	if (is_party_leader() == false || isbegin_quest(7596) != 1 || 'step != 2) {
-		mes "Somente lÃ­deres do partido podem realizar este evento.";
+		mes "Somente líderes do partido podem realizar este evento.";
 		close;
 	}
 	if (countitem(.@item_id) < 1) {
-		mes "Se vocÃª deseja ativar os globos da alma, precisa da alma de Shnaim.";
+		mes "Se você deseja ativar os globos da alma, precisa da alma de Shnaim.";
 		close;
 	}
 	mes "Injetar" + .@visible_npc_name$ + "A alma do Globo da Alma vazia.";
@@ -437,32 +437,32 @@ OnTouch_:
 	if (is_party_leader() == false || checkquest(7593,HUNTING) != 1) {
 		mes "[Garoto]";
 		mes "Sua criatura insignificante.";
-		mes "Como vocÃª se atreve a colocar a mÃ£o em um deus-espera?!";
+		mes "Como você se atreve a colocar a mão em um deus-espera?!";
 		close;
 	}
 	cutin "morocc_kid.bmp",2;
 	mes "[Garoto]";
-	mes "Primeiro, deixe -me aplaudir por vir atÃ© aqui.";
-	mes "VocÃª tem sido um bom peÃ£o.";
+	mes "Primeiro, deixe -me aplaudir por vir até aqui.";
+	mes "Você tem sido um bom peão.";
 	next;
-	select("O que vocÃª estÃ¡ falando?");
-	unittalk getcharid(3), "" + strcharinfo(0) + ": O que vocÃª estÃ¡ falando?";
+	select("O que você está falando?");
+	unittalk getcharid(3), "" + strcharinfo(0) + ": O que você está falando?";
 	mes "[Garoto]";
 	mes "Eu estive esperando por este dia.";
-	mes "Sair daquele canto do mundo demonÃ­aco e governar todo o universo.";
-	npctalk "Garoto: Eu estive esperando por este dia. Sair daquele canto do mundo demonÃ­aco e governar todo o universo.";
+	mes "Sair daquele canto do mundo demoníaco e governar todo o universo.";
+	npctalk "Garoto: Eu estive esperando por este dia. Sair daquele canto do mundo demoníaco e governar todo o universo.";
 	sleep2 2000;
 	next;
 	mes "[Garoto]";
 	mes "Para conseguir isso, percebi que devia abandonar meu antigo corpo.";
-	mes "EntÃ£o eu morri-bem, deixei vocÃª me matar.";
-	npctalk "Menino: Para conseguir isso, percebi que devia abandonar meu corpo antigo. EntÃ£o eu morri-bem, deixei vocÃª me matar.";
+	mes "Então eu morri-bem, deixei você me matar.";
+	npctalk "Menino: Para conseguir isso, percebi que devia abandonar meu corpo antigo. Então eu morri-bem, deixei você me matar.";
 	sleep2 2000;
 	next;
 	mes "[Garoto]";
-	mes "A morte Ã© um passo inevitÃ¡vel para dar antes do renascimento.";
-	mes "EntÃ£o, eu estou renascido-de novo, vocÃª me trouxe de volta.";
-	npctalk "Menino: A morte Ã© um passo inevitÃ¡vel a ser dado antes do renascimento. EntÃ£o, eu tenho renascido-novamente, vocÃª me trouxe de volta.";
+	mes "A morte é um passo inevitável para dar antes do renascimento.";
+	mes "Então, eu estou renascido-de novo, você me trouxe de volta.";
+	npctalk "Menino: A morte é um passo inevitável a ser dado antes do renascimento. Então, eu tenho renascido-novamente, você me trouxe de volta.";
 	sleep2 2000;
 	next;
 	mes "[Garoto]";
@@ -471,21 +471,21 @@ OnTouch_:
 	sleep2 2000;
 	next;
 	mes "[Morroc]";
-	mes "Ã‰ isso mesmo, seus humanos tolos!";
-	mes "Eu morri uma vez, para poder circular pelo mundo e abraÃ§Ã¡ -lo em meus braÃ§os.";
+	mes "É isso mesmo, seus humanos tolos!";
+	mes "Eu morri uma vez, para poder circular pelo mundo e abraçá -lo em meus braços.";
 	mes "Eu me renascei ao envolver este mundo.";
-	npctalk "Morocc: Eu morri uma vez, para que eu pudesse circular pelo mundo e abraÃ§Ã¡ -lo em meus braÃ§os. Eu me renascei ao envolver este mundo.";
+	npctalk "Morocc: Eu morri uma vez, para que eu pudesse circular pelo mundo e abraçá -lo em meus braços. Eu me renascei ao envolver este mundo.";
 	sleep2 2000;
 	next;
 	mes "[Morroc]";
 	mes "Vou criar um novo mundo e me tornar seu criador.";
-	mes "Deixe -me perguntar, as primeiras criaturas que entraram em minha terra recÃ©m -nascida.";
-	npctalk "MOROCC: Vou criar um novo mundo e me tornar seu criador. Deixe -me perguntar, as primeiras criaturas que entraram em minha terra recÃ©m -nascida.";
+	mes "Deixe -me perguntar, as primeiras criaturas que entraram em minha terra recém -nascida.";
+	npctalk "MOROCC: Vou criar um novo mundo e me tornar seu criador. Deixe -me perguntar, as primeiras criaturas que entraram em minha terra recém -nascida.";
 	sleep2 2000;
 	next;
 	mes "[Morroc]";
-	mes "Como vocÃª gostaria de me seguir e assistir ao nascimento de um novo mundo?";
-	npctalk "MOROCC: Como vocÃª gostaria de me seguir e assistir ao nascimento de um novo mundo?";
+	mes "Como você gostaria de me seguir e assistir ao nascimento de um novo mundo?";
+	npctalk "MOROCC: Como você gostaria de me seguir e assistir ao nascimento de um novo mundo?";
 	close2;
 	setpcblock PCBLOCK_NPC, true;
 	cutin "",255;
@@ -494,33 +494,33 @@ OnTouch_:
 	.@nidhogg$ = instance_npcname("Nidhogg#eomnyd01");
 	enablenpc .@loki$;
 	enablenpc .@nidhogg$;
-	npctalk "Loki: Chega de bobagem. Apenas diga que vocÃª gosta de destruir coisas.", .@loki$;
+	npctalk "Loki: Chega de bobagem. Apenas diga que você gosta de destruir coisas.", .@loki$;
 	sleep2 5000;
-	npctalk "Loki: Crie um novo mundo e se torne seu criador? Se este Ã© o novo mundo de que vocÃª estÃ¡ falando, estou decepcionado.", .@loki$;
+	npctalk "Loki: Crie um novo mundo e se torne seu criador? Se este é o novo mundo de que você está falando, estou decepcionado.", .@loki$;
 	sleep2 5000;
-	npctalk "Loki: Mesmo se vocÃª queimar seu corpo, seu poder nÃ£o Ã© tÃ£o potente quanto o de Ymir da GÃªnesis.", .@loki$;
+	npctalk "Loki: Mesmo se você queimar seu corpo, seu poder não é tão potente quanto o de Ymir da Gênesis.", .@loki$;
 	sleep2 5000;
-	npctalk "Loki: Apenas o fato de vocÃª ter que roubar Yggdrasil mostra sua falta de criatividade.", .@loki$;
+	npctalk "Loki: Apenas o fato de você ter que roubar Yggdrasil mostra sua falta de criatividade.", .@loki$;
 	sleep2 5000;
-	npctalk "Loki: DÃª uma boa olhada em si mesmo. VocÃª Ã© ilusÃ³rio se acha que parece um criador de qualquer tipo.", .@loki$;
+	npctalk "Loki: Dê uma boa olhada em si mesmo. Você é ilusório se acha que parece um criador de qualquer tipo.", .@loki$;
 	sleep2 5000;
-	npctalk "Nidhogg: Eu segundo isso. VocÃª Ã© desnecessÃ¡rio para este mundo. VocÃª nÃ£o pertence aqui.", .@nidhogg$;
+	npctalk "Nidhogg: Eu segundo isso. Você é desnecessário para este mundo. Você não pertence aqui.", .@nidhogg$;
 	sleep2 4000;
-	npctalk "Nidhogg: AtÃ© Yggdrasil nega sua existÃªncia!", .@nidhogg$;
+	npctalk "Nidhogg: Até Yggdrasil nega sua existência!", .@nidhogg$;
 	sleep2 4000;
-	npctalk "Nidhogg: Como o guardiÃ£o de Yggdrasil, tenho que removÃª -lo deste mundo.", .@nidhogg$;
+	npctalk "Nidhogg: Como o guardião de Yggdrasil, tenho que removê -lo deste mundo.", .@nidhogg$;
 	sleep2 2000;
 	npctalk "Mordow: Pah!";
 	sleep2 2000;
-	npctalk "Morroc: Mortal, vocÃª deve ter um desejo de morte para mim assim.";
+	npctalk "Morroc: Mortal, você deve ter um desejo de morte para mim assim.";
 	sleep2 3000;
-	npctalk "Morroc: Vou pegar sua carne e sangue como presentes de inauguraÃ§Ã£o de casa para o meu novo mundo.";
+	npctalk "Morroc: Vou pegar sua carne e sangue como presentes de inauguração de casa para o meu novo mundo.";
 	sleep2 3000;
-	npctalk "Morroc: VocÃª jÃ¡ viu a escuridÃ£o da gÃªnese?";
+	npctalk "Morroc: Você já viu a escuridão da gênese?";
 	sleep2 3000;
-	npctalk "Morroc: VocÃª jÃ¡ viu Frost, o comeÃ§o da vida?";
+	npctalk "Morroc: Você já viu Frost, o começo da vida?";
 	sleep2 6000;
-	npctalk "Morroc: Eis a geada de Audhumla que trouxe de volta Ã  vida, para este mundo.";
+	npctalk "Morroc: Eis a geada de Audhumla que trouxe de volta à vida, para este mundo.";
 	sleep2 3000;
 	specialeffect EF_ENTRY;
 	if ('step == 3) {
@@ -529,7 +529,7 @@ OnTouch_:
 		donpcevent instance_npcname("#gate_to_ice") + "::OnEnable";
 		enablenpc instance_npcname("Nidhogg#eomnyd01");
 		enablenpc instance_npcname("Brinaranea#brinpc01");
-		npctalk "Loki: VocÃª estÃ¡ correndo?", .@loki$;
+		npctalk "Loki: Você está correndo?", .@loki$;
 		sleep2 2000;
 		disablenpc .@loki$;
 	}
@@ -555,7 +555,7 @@ OnTouch_:
 
 1@eom,95,122,5	script	Loki#eomloki01	4_M_ROKI2,{
 	mes "[Loki]";
-	mes "VocÃª estÃ¡ impotente.";
+	mes "Você está impotente.";
 	mes "E nojento.";
 	close;
 }
@@ -565,8 +565,8 @@ OnTouch_:
 		end;
 	if (getmercinfo(0) > 0) {
 		mes "[Nidhogg]";
-		mes "VocÃª estÃ¡ com um mercenÃ¡rio.";
-		mes "VocÃª poderia descartar seu mercenÃ¡rio atual e me contratar?";
+		mes "Você está com um mercenário.";
+		mes "Você poderia descartar seu mercenário atual e me contratar?";
 		close;
 	}
 	switch( checkquest(7605,PLAYTIME) ) {
@@ -575,7 +575,7 @@ OnTouch_:
 	case 0:
 	case 1:
 		mes "[Nidhogg]";
-		mes "Eu jÃ¡ o ajudei uma vez.";
+		mes "Eu já o ajudei uma vez.";
 		mes "Por favor, tenha cuidado!";
 		close;
 	case 2:
@@ -585,13 +585,13 @@ OnTouch_:
 	setnpcdisplay instance_npcname("Nidhogg#eomnyd01"), 3087;
 	mes "[Nidhogg]";
 	mes "" + strcharinfo(0) + ",";
-	mes "Permita -me ajudÃ¡ -lo nesta batalha.";
-	npctalk "Nidhogg: Permita -me ajudÃ¡ -lo nesta batalha.";
+	mes "Permita -me ajudá -lo nesta batalha.";
+	npctalk "Nidhogg: Permita -me ajudá -lo nesta batalha.";
 	specialeffect EF_SPHERE;
 	next;
 	mes "[Nidhogg]";
-	mes "Meu dever como o guardiÃ£o ainda nÃ£o acabou.";
-	npctalk "Nidhogg: Meu dever como o Guardian ainda nÃ£o acabou.";
+	mes "Meu dever como o guardião ainda não acabou.";
+	npctalk "Nidhogg: Meu dever como o Guardian ainda não acabou.";
 	next;
 	mercenary_create 3087,1800000;// M_NYDHOG
 	mes "^4d4dffguardian nidhogg ingressou na sua festa.^000000";
@@ -662,7 +662,7 @@ OnTouch_:
 	}
 	end;
 OnTimer3000:
-	npctalk "Brinaranea: Meus filhos terÃ£o um banquete hoje Ã  noite. Ho Ho Ho!";
+	npctalk "Brinaranea: Meus filhos terão um banquete hoje à noite. Ho Ho Ho!";
 	disablenpc instance_npcname("Brinaranea#brinpc01");
 	donpcevent instance_npcname("#ice_hpcheck") + "::OnSpawn";
 	end;
@@ -705,15 +705,15 @@ OnTimer3000:
 	'boss_hp = .@hp;
 
 	if (.@hp > 69500000 && .@hp < 70000000) {
-		unittalk 'boss_id, "Saia, meus filhos. Um banquete requintado se entregou a nÃ³s!";
+		unittalk 'boss_id, "Saia, meus filhos. Um banquete requintado se entregou a nós!";
 		donpcevent instance_npcname("#ice_hpcheck") + "::OnCallBaby";
 	}
 	else if (.@hp > 59500000 && .@hp < 60000000) {
-		unittalk 'boss_id, "Filhos, Ã© hora do jantar!";
+		unittalk 'boss_id, "Filhos, é hora do jantar!";
 		donpcevent instance_npcname("#ice_hpcheck") + "::OnCallBaby";
 	}
 	else if (.@hp > 49500000 && .@hp < 50000000) {
-		unittalk 'boss_id, "Todos vocÃªs jÃ¡ se alimentaram? Saia agora!";
+		unittalk 'boss_id, "Todos vocês já se alimentaram? Saia agora!";
 		donpcevent instance_npcname("#ice_hpcheck") + "::OnCallBaby";
 	}
 	else if (.@hp < 22200000 && 'icestunami == false)
@@ -792,7 +792,7 @@ OnTimer10000:
 	end;
 OnStart:
 	initnpctimer;
-	unittalk 'boss_id, "Um horÃ¡rio de show!";
+	unittalk 'boss_id, "Um horário de show!";
 	end;
 OnTimer1000:
 	unitskilluseid 'boss_id, "NPC_WIDEFREEZE",5;
@@ -901,14 +901,14 @@ OnTimer3000:
 	end;
 OnStart:
 	initnpctimer;
-	unittalk 'boss_id, "VocÃª Ã© irritante! NÃ£o mexa com a geada de Audhumla!";
+	unittalk 'boss_id, "Você é irritante! Não mexa com a geada de Audhumla!";
 	unitskilluseid 'boss_id, "NPC_ALLHEAL",1;
 	getunitdata 'boss_id, .@data;
 	'boss_hp = .@data[UMOB_HP];
 	end;
 OnTimer2000:
 	stopnpctimer;
-	mapannounce 'map_eom$, "Nidhogg: NÃ£o ... ela se regenerou perfeitamente.", bc_map, 0x00ff00;
+	mapannounce 'map_eom$, "Nidhogg: Não ... ela se regenerou perfeitamente.", bc_map, 0x00ff00;
 	end;
 }
 
@@ -917,7 +917,7 @@ OnTimer2000:
 OnStart:
 	'icestunami = true;
 	initnpctimer;
-	unittalk 'boss_id, "VocÃªs hellhounds, vocÃª pode aceitar isso tambÃ©m?";
+	unittalk 'boss_id, "Vocês hellhounds, você pode aceitar isso também?";
 	getunitdata 'boss_id, .@data;
 	'x_icemine = .@data[UMOB_X];
 	'y_icemine = .@data[UMOB_Y];
@@ -953,8 +953,8 @@ OnMobDead:
 		end;
 	if (isbegin_quest(7602) == 0 && checkquest(7601,HUNTING) == 2) {
 		mes "[Nidhogg]";
-		mes "Foi uma batalha difÃ­cil.";
-		mes "Isso pode nÃ£o ser bom o suficiente, mas espero que ajude seu crescimento.";
+		mes "Foi uma batalha difícil.";
+		mes "Isso pode não ser bom o suficiente, mas espero que ajude seu crescimento.";
 		next;
 		mes "^4d4dffguardian nidhogg o recompensou com uma grande quantidade de exp por derrotar Brinaranea.^000000";
 		erasequest 7601;// Temple of the Demon God Phase 1
@@ -963,9 +963,9 @@ OnMobDead:
 		close;
 	}
 	mes "[Nidhogg]";
-	mes "Este lugar terrÃ­vel pode competir com a geada da gÃªnese?";
-	mes "Eu nÃ£o posso dizer.";
-	mes "Ele nÃ£o criou nada por conta prÃ³pria. Como ele se convenceu a pensar que poderia ser um criador?";
+	mes "Este lugar terrível pode competir com a geada da gênese?";
+	mes "Eu não posso dizer.";
+	mes "Ele não criou nada por conta própria. Como ele se convenceu a pensar que poderia ser um criador?";
 	close;
 }
 
@@ -974,8 +974,8 @@ OnMobDead:
 OnTouch_:
 	if (isbegin_quest(7602) == 0 && checkquest(7601,HUNTING) == 2) {
 		mes "[Nidhogg]";
-		mes "Foi uma batalha difÃ­cil.";
-		mes "Isso pode nÃ£o ser bom o suficiente, mas espero que ajude seu crescimento.";
+		mes "Foi uma batalha difícil.";
+		mes "Isso pode não ser bom o suficiente, mas espero que ajude seu crescimento.";
 		next;
 		mes "^4d4dffguardian nidhogg o recompensou com uma grande quantidade de exp por derrotar Brinaranea.^000000";
 		setquest 7602;
@@ -993,13 +993,13 @@ OnTouch_:
 		end;
 	cutin "morocc_kid.bmp",2;
 	mes "[Morroc]";
-	mes "VocÃª Ã© bom.";
-	mes "VocÃª pode enfrentar o lobo que engoliu o sol?";
-	npctalk "Morroc: VocÃª Ã© bom. VocÃª pode levar o lobo que engoliu o sol?";
+	mes "Você é bom.";
+	mes "Você pode enfrentar o lobo que engoliu o sol?";
+	npctalk "Morroc: Você é bom. Você pode levar o lobo que engoliu o sol?";
 	next;
 	mes "[Morroc]";
-	mes "Se vocÃª nÃ£o pode lidar com ele, entÃ£o nÃ£o pode lidar com um deus agora, pode?";
-	npctalk "Morroc: Se vocÃª nÃ£o consegue lidar com ele, entÃ£o nÃ£o pode lidar com um deus agora, pode?";
+	mes "Se você não pode lidar com ele, então não pode lidar com um deus agora, pode?";
+	npctalk "Morroc: Se você não consegue lidar com ele, então não pode lidar com um deus agora, pode?";
 	next;
 	mes "[Morroc]";
 	mes "Eu vou te assistir. Mwa hah hah!";
@@ -1082,7 +1082,7 @@ OnStart:
 	'boss_hp = .@data[UMOB_MAXHP];
 	sleep 1000;
 	if ('boss_id)
-		unittalk 'boss_id, "VocÃªs sÃ£o os ... grr ... bom, eu vou esmagar seus ossos! Grr ...";
+		unittalk 'boss_id, "Vocês são os ... grr ... bom, eu vou esmagar seus ossos! Grr ...";
 	sleep 4000;
 	if ('boss_id)
 		donpcevent instance_npcname("#skollmaster") + "::OnLava_heal";
@@ -1129,7 +1129,7 @@ S_Event:
 		}
 		unitskilluseid 'boss_id, "AL_HEAL",11;
 	}
-	mapannounce 'map_eom$, "Nidhogg: Muspellskoll estÃ¡ tentando se regenerar usando a lava!", bc_map, 0x00ff00;
+	mapannounce 'map_eom$, "Nidhogg: Muspellskoll está tentando se regenerar usando a lava!", bc_map, 0x00ff00;
 	getunitdata 'boss_id, .@data;
 	'boss_hp = .@data[UMOB_HP];
 	donpcevent instance_npcname("#loco_call") + "::OnSpawn";
@@ -1182,7 +1182,7 @@ OnTimer3000:
 
 	if ('lava_heal == false) {
 		if (.@hp > 29500000 && .@hp < 30000000 || .@hp > 35500000 && .@hp < 36000000 || .@hp > 39500000 && .@hp < 40000000 || .@hp > 44500000 && .@hp < 45000000) {
-			unittalk 'boss_id, "NÃ£o vou descer sem lutar!";
+			unittalk 'boss_id, "Não vou descer sem lutar!";
 			donpcevent instance_npcname("#skollmaster") + "::OnLava_heal";
 		}
 	}
@@ -1192,7 +1192,7 @@ OnTimer3000:
 OnHeal:
 	if ('fire_combo)
 		donpcevent instance_npcname("#fire_combo") + "::OnEnd";
-	unittalk 'boss_id, "Eu pareÃ§o fÃ¡cil para vocÃª? Vou queimar vocÃª em cinzas!";
+	unittalk 'boss_id, "Eu pareço fácil para você? Vou queimar você em cinzas!";
 	sleep 2000;
 	if ('boss_id == 0)
 		end;
@@ -1300,7 +1300,7 @@ OnTimer19000:
 	end;
 OnEvent:
 	initnpctimer;
-	unittalk 'boss_id, "Meu fogo vai engolir vocÃª inteiro!";
+	unittalk 'boss_id, "Meu fogo vai engolir você inteiro!";
 	end;
 OnTimer1000:
 	unitskilluseid 'boss_id, "NPC_FIRESTORM",3;
@@ -1403,7 +1403,7 @@ OnMobDead:
 		end;
 	mes "Pode ser usado para bloquear o fluxo de lava usando um cristal de geada.";
 	next;
-	if (select( "Use um cristal de geada", "NÃ£o use um cristal de geada" ) == 2)
+	if (select( "Use um cristal de geada", "Não use um cristal de geada" ) == 2)
 		end;
 	if ('flowing_lava_deactivate[0] == true)
 		end;
@@ -1420,7 +1420,7 @@ OnTimer120000:
 	'flowing_lava_deactivate[0] = false;
 	donpcevent instance_npcname("Hardened Lava#lavaseal01") + "::OnDisable";
 	enablenpc instance_npcname("Flowing Lava#lavapond01");
-	mapannounce 'map_eom$, "Nidhogg: A geada derreteu. A lava estÃ¡ fluindo novamente!", bc_map, 0x00ff00;
+	mapannounce 'map_eom$, "Nidhogg: A geada derreteu. A lava está fluindo novamente!", bc_map, 0x00ff00;
 	stopnpctimer;
 	end;
 }
@@ -1430,7 +1430,7 @@ OnTimer120000:
 		end;
 	mes "Pode ser usado para bloquear o fluxo de lava usando um cristal de geada.";
 	next;
-	if (select( "Use um cristal de geada", "NÃ£o use um cristal de geada" ) == 2)
+	if (select( "Use um cristal de geada", "Não use um cristal de geada" ) == 2)
 		end;
 	if ('flowing_lava_deactivate[1] == true)
 		end;
@@ -1447,7 +1447,7 @@ OnTimer120000:
 	'flowing_lava_deactivate[1] = false;
 	donpcevent instance_npcname("Hardened Lava#lavaseal02") + "::OnDisable";
 	enablenpc instance_npcname("Flowing Lava#lavapond02");
-	mapannounce 'map_eom$, "Nidhogg: A geada derreteu. A lava estÃ¡ fluindo novamente!", bc_map, 0x00ff00;
+	mapannounce 'map_eom$, "Nidhogg: A geada derreteu. A lava está fluindo novamente!", bc_map, 0x00ff00;
 	stopnpctimer;
 	end;
 }
@@ -1511,7 +1511,7 @@ OnTouch:
 	if (checkquest(7603,HUNTING) == 2 && isbegin_quest(7604) == 0) {
 		mes "[Nidhogg]";
 		mes "Bom trabalho, novamente.";
-		mes "Isso pode nÃ£o ser bom o suficiente, mas espero que ajude seu crescimento.";
+		mes "Isso pode não ser bom o suficiente, mas espero que ajude seu crescimento.";
 		next;
 		mes "^4d4dffguardian nidhogg o recompensou com uma grande quantidade de exp por derrotar Muspellskoll.^000000";
 		erasequest 7603;// Temple of the Demon God Phase 2
@@ -1520,9 +1520,9 @@ OnTouch:
 		close;
 	}
 	mes "[Nidhogg]";
-	mes "EntÃ£o, Mover ... Sund e Haati ...";
-	mes "Tudo aqui Ã© uma mera cÃ³pia do mundo exterior.";
-	mes "Ele nÃ£o Ã© um criador.";
+	mes "Então, Mover ... Sund e Haati ...";
+	mes "Tudo aqui é uma mera cópia do mundo exterior.";
+	mes "Ele não é um criador.";
 	close;
 }
 
@@ -1532,7 +1532,7 @@ OnTouch_:
 	if (checkquest(7603,HUNTING) == 2 && isbegin_quest(7604) == 0) {
 		mes "[Nidhogg]";
 		mes "Bom trabalho, novamente.";
-		mes "Isso pode nÃ£o ser bom o suficiente, mas espero que ajude seu crescimento.";
+		mes "Isso pode não ser bom o suficiente, mas espero que ajude seu crescimento.";
 		next;
 		mes "^4d4dffguardian nidhogg o recompensou com uma grande quantidade de exp por derrotar Muspellskoll.^000000";
 		setquest 7604;
@@ -1554,7 +1554,7 @@ OnTouch_:
 	}
 	end;
 OnTimer1000:
-	npctalk "VocÃª excede minhas expectativas.";
+	npctalk "Você excede minhas expectativas.";
 	end;
 OnTimer4000:
 	npctalk "Vou aceitar seu desafio.";
@@ -1586,12 +1586,12 @@ OnTouch_:
 	if ('step != 9)
 		end;
 	'step = 10;
-	npctalk "Morroc: VocÃª jÃ¡ estÃ¡ aqui, entÃ£o nÃ£o vamos desperdiÃ§ar nosso tempo conversando.";
+	npctalk "Morroc: Você já está aqui, então não vamos desperdiçar nosso tempo conversando.";
 	initnpctimer;
 	end;
 OnTimer2000:
 	stopnpctimer;
-	npctalk "Morroc: Vamos lÃ¡, mortais!";
+	npctalk "Morroc: Vamos lá, mortais!";
 	disablenpc instance_npcname("#moc_master");
 	donpcevent instance_npcname("#despair_god_main") + "::OnStart";
 	end;
@@ -1624,7 +1624,7 @@ OnPhase02:
 	stopnpctimer instance_npcname("#demigod_event_3");
 	stopnpctimer instance_npcname("#mk_hpcheck");
 	stopnpctimer instance_npcname("#mk_combo");
-	unittalk 'boss_id, "VocÃª terÃ¡ que fazer melhor do que isso!";
+	unittalk 'boss_id, "Você terá que fazer melhor do que isso!";
 	sleep 2000;
 	if ('boss_id == 0)
 		end;
@@ -1652,7 +1652,7 @@ OnPhase03:
 	monster 'map_eom$,101,194, "Demigod",3096,1, instance_npcname("#despair_god_main") + "::OnMobDead";	// MM_MOROCC_KID
 	'boss_id = $@mobid[0];
 	setunitdata 'boss_id, UMOB_HP, 'boss_hp;
-	unittalk 'boss_id, "Pare de ser tÃ£o persistente!";
+	unittalk 'boss_id, "Pare de ser tão persistente!";
 	sleep 2000;
 	if ('boss_id == 0)
 		end;
@@ -1727,7 +1727,7 @@ OnTimer6000:
 			.@hp_b = .@hp + (.@hp_a - 200000) * 3;
 			.@hp_b = min(80000000, .@hp_b);
 			setunitdata 'boss_id, UMOB_HP, .@hp_b;
-			mapannounce 'map_eom$, "Nidhogg: Uau, seu poder regenerativo Ã© inÃ©dito! NÃ£o o deixe se regenerar novamente!", bc_map, 0x00ff00;
+			mapannounce 'map_eom$, "Nidhogg: Uau, seu poder regenerativo é inédito! Não o deixe se regenerar novamente!", bc_map, 0x00ff00;
 		}
 		unitskilluseid 'boss_id, "AL_HEAL",11;
 		getunitdata 'boss_id, .@data;
@@ -1781,7 +1781,7 @@ OnTimer7000:
 	end;
 OnEvent:
 	initnpctimer;
-	unittalk 'boss_id, "Uma rapsÃ³dia para almas fracas ...";
+	unittalk 'boss_id, "Uma rapsódia para almas fracas ...";
 	end;
 OnTimer2000:
 	unitskilluseid 'boss_id, "NPC_WIDEWEB",1;
@@ -1836,7 +1836,7 @@ OnTimer7000:
 	end;
 OnEvent:
 	initnpctimer;
-	unittalk 'boss_id, "Para quem a fuga Ã© tocada? Para quem o requiem Ã© jogado?";
+	unittalk 'boss_id, "Para quem a fuga é tocada? Para quem o requiem é jogado?";
 	end;
 OnTimer2000:
 	unitskilluseid 'boss_id, "NPC_WIDEWEB",1;
@@ -1917,7 +1917,7 @@ S_Dead:
 		donpcevent instance_npcname("#despair_god_main") + "::OnPhase03";
 	}
 	else {
-		unittalk 'miniboss_id[1], "Vou colocÃ¡ -lo para descansar. Ã‰ minha misericÃ³rdia !!!"; // todo, custom text
+		unittalk 'miniboss_id[1], "Vou colocá -lo para descansar. É minha misericórdia !!!"; // todo, custom text
 		setunitdata 'miniboss_id[1], UMOB_HP, 1000000;
 		donpcevent instance_npcname("#moc_meddling") + "::OnStart";
 	}
@@ -1967,10 +1967,10 @@ OnStart:
 	initnpctimer;
 	end;
 OnTimer2000:
-	mapannounce 'map_eom$, "Isso estÃ¡ ficando mais interessante. *Risador*", bc_map, 0xff0000;
+	mapannounce 'map_eom$, "Isso está ficando mais interessante. *Risador*", bc_map, 0xff0000;
 	end;
 OnTimer6000:
-	mapannounce 'map_eom$, "Ei, vocÃª nÃ£o acha que isso jÃ¡ acabou, nÃ£o Ã©?", bc_map, 0xff0000;
+	mapannounce 'map_eom$, "Ei, você não acha que isso já acabou, não é?", bc_map, 0xff0000;
 	end;
 OnTimer10000:
 	disablenpc instance_npcname("#morocc_god");
@@ -1979,7 +1979,7 @@ OnTimer12000:
 	donpcevent instance_npcname("#despair_main") + "::OnStart";
 	end;
 OnTimer13000:
-	unittalk 'boss_id, "O que vocÃª estÃ¡ esperando?!";
+	unittalk 'boss_id, "O que você está esperando?!";
 	end;
 OnTimer14000:
 	unitskilluseid 'boss_id, "NPC_WIDEWEB",1;
@@ -2012,7 +2012,7 @@ OnMobDead:
 	stopnpctimer instance_npcname("#despair_event_3");
 	stopnpctimer instance_npcname("#despair_event_4");
 	stopnpctimer instance_npcname("#despair_event_5");
-	mapannounce 'map_eom$, "D-Don nÃ£o pensa ... Th-This ... acabou .. vocÃª Ã© ... jÃ¡ ... tempo ...", bc_map, 0xff0000;
+	mapannounce 'map_eom$, "D-Don não pensa ... Th-This ... acabou .. você é ... já ... tempo ...", bc_map, 0xff0000;
 	initnpctimer;
 
 	'step = 11;
@@ -2064,7 +2064,7 @@ OnTimer5000:
 	end;
 OnEvent:
 	initnpctimer;
-	unittalk 'boss_id, "VocÃª pode ouvir a Rhapsody? Ã‰ o som da sua alma se contorcendo e gritando de dor!";
+	unittalk 'boss_id, "Você pode ouvir a Rhapsody? É o som da sua alma se contorcendo e gritando de dor!";
 	end;
 OnTimer2000:
 	unitskilluseid 'boss_id, "NPC_WIDEWEB",1;
@@ -2118,7 +2118,7 @@ OnTimer7000:
 	end;
 OnEvent:
 	initnpctimer;
-	unittalk 'boss_id, "Este Ã© o raio da morte!";
+	unittalk 'boss_id, "Este é o raio da morte!";
 	end;
 OnTimer2000:
 	unitskilluseid 'boss_id, "NPC_WIDEWEB",1;
@@ -2134,7 +2134,7 @@ OnTimer6000:
 	unitskillusepos 'boss_id,"Wz_vermilion",5,.@data[UMOB_X],(.@data[UMOB_Y]-7),-50;
 	end;
 OnTimer10000:
-	unittalk 'boss_id, "Queime e faÃ§a lindas chamas!";
+	unittalk 'boss_id, "Queime e faça lindas chamas!";
 	end;
 OnTimer12000:
 	getunitdata 'boss_id, .@data;
@@ -2187,50 +2187,50 @@ OnTimer8000:
 		end;
 	if (isbegin_quest(7597) == 0 && checkquest(7593,HUNTING) == 2) {
 		mes "[Nidhogg]";
-		mes "NÃ£o sei o que dizer.";
+		mes "Não sei o que dizer.";
 		mes "Paramos o Deus em espera.";
 		mes "Conseguimos nosso objetivo.";
 		mes "Mas ainda estou nervoso.";
 		cutin "ep14_nyd03.bmp",2;
 		next;
 		mes "[Nidhogg]";
-		mes "Este mundo Ã© criado na mente dos Morroc.";
-		mes "Ele viverÃ¡ para sempre neste jardim que nÃ£o conseguiu terminar.";
+		mes "Este mundo é criado na mente dos Morroc.";
+		mes "Ele viverá para sempre neste jardim que não conseguiu terminar.";
 		cutin "ep14_nyd02.bmp",2;
 		next;
 		mes "[Nidhogg]";
-		mes "Ele provavelmente nÃ£o sabe que seu corpo Ã© destruÃ­do para sempre.";
+		mes "Ele provavelmente não sabe que seu corpo é destruído para sempre.";
 		mes "Ele era muito ambicioso, mesmo para ele.";
 		mes "Ele queria criar um novo mundo e se tornar seu criador,";
 		next;
 		mes "[Nidhogg]";
-		mes "Mas ele nÃ£o podia criar nada por conta prÃ³pria.";
-		mes "Ele abandonou seu corpo demonÃ­aco, apenas para se tornar um mero fac -sÃ­mile de um Deus existente.";
+		mes "Mas ele não podia criar nada por conta própria.";
+		mes "Ele abandonou seu corpo demoníaco, apenas para se tornar um mero fac -símile de um Deus existente.";
 		cutin "ep14_nyd03.bmp",2;
 		next;
 		mes "[Nidhogg]";
 		mes "Ele assumiu a forma de um homem.";
-		mes "Ele nÃ£o era criativo o suficiente para reinventar o conceito de Deus.";
+		mes "Ele não era criativo o suficiente para reinventar o conceito de Deus.";
 		mes "Ele era um paradoxo.";
 		next;
 		mes "[Nidhogg]";
 		mes "Agora precisamos sair dessa armadilha no tempo e acabar; para a realidade.";
-		mes "Este mundo sÃ³ existe na mente de Deus demonÃ­aco. O mesmo dia se repete para sempre.";
+		mes "Este mundo só existe na mente de Deus demoníaco. O mesmo dia se repete para sempre.";
 		next;
 		mes "[Nidhogg]";
-		mes "Todo mundo que entrar neste mundo serÃ¡ arrastado para o mesmo loop.";
-		mes "Nesse sentido, ele conseguiu fazer seu prÃ³prio mundo.";
+		mes "Todo mundo que entrar neste mundo será arrastado para o mesmo loop.";
+		mes "Nesse sentido, ele conseguiu fazer seu próprio mundo.";
 		cutin "ep14_nyd02.bmp",2;
 		next;
 		mes "[Nidhogg]";
-		mes "O desespero de hoje se repetirÃ¡ dia apÃ³s dia.";
-		mes "Mesmo sabendo disso, voltaremos a seguir o mesmo caminho novamente. Espero poder lutar por vocÃª todas as vezes ...";
+		mes "O desespero de hoje se repetirá dia após dia.";
+		mes "Mesmo sabendo disso, voltaremos a seguir o mesmo caminho novamente. Espero poder lutar por você todas as vezes ...";
 		cutin "ep14_nyd03.bmp",2;
 		next;
 		cutin "ep14_nyd04.bmp",2;
 		mes "[Nidhogg]";
-		mes "Eu falei demais. O comandante deve estar esperando. Deixe -me validar seu feito, para que vocÃª possa se reportar a ele.";
-		mes "VocÃª fez Ã³timo hoje.";
+		mes "Eu falei demais. O comandante deve estar esperando. Deixe -me validar seu feito, para que você possa se reportar a ele.";
+		mes "Você fez ótimo hoje.";
 		if (isbegin_quest(7593) == 1) {
 			erasequest 7593;// Demon God Subjugation
 			setquest 7597;// Fall of the False God
@@ -2248,16 +2248,16 @@ OnTimer8000:
 	}
 	else {	// todo, custom text
 		mes "[Nidhogg]";
-		mes "... parece que as coisas ainda nÃ£o acabaram,";
-		mes "Isso Ã© muito prÃ³ximo do mundo espiritual de Morroc,";
+		mes "... parece que as coisas ainda não acabaram,";
+		mes "Isso é muito próximo do mundo espiritual de Morroc,";
 		mes "Ele deveria estar aqui para continuar pensando no passado!";
 		cutin "ep14_nyd03.bmp",2;
 	}
 	next;
-	select("SaÃ­da.");
+	select("Saída.");
 	mes "[Nidhogg]";
-	mes "Claro. VocÃª deve estar exausto.";
-	mes "Deixe -me enviÃ¡ -lo para os outros membros da sua expediÃ§Ã£o, gratuitamente.";
+	mes "Claro. Você deve estar exausto.";
+	mes "Deixe -me enviá -lo para os outros membros da sua expedição, gratuitamente.";
 	close2;
 	warp "moro_vol",91,87;
 	end;
@@ -2283,12 +2283,12 @@ OnTimer8000:
 		close;
 
 	case 3:
-		mes "A saÃºde do semideus foi definida como 2.000.000.";
+		mes "A saúde do semideus foi definida como 2.000.000.";
 		donpcevent instance_npcname("#despair_god_main") + "::OnTest_hp";
 		close;
 
 	case 4:
-		mes "Desespero Deus A saÃºde foi definida como 2.000.000.";
+		mes "Desespero Deus A saúde foi definida como 2.000.000.";
 		donpcevent instance_npcname("#despair_main") + "::OnTest_hp";
 		close;
 	}

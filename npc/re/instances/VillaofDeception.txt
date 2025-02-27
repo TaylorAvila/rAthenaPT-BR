@@ -31,7 +31,7 @@ wolfvill,79,260,4	script(CLOAKED)	Aira#con	4_M_BRZ_JACI,{
 	case 0:
 	case 1:
 		mes "[Aira]";
-		mes "Por favor, aguarde o final do atraso da miss√£o.";
+		mes "Por favor, aguarde o final do atraso da miss„o.";
 		close;
 	case 2:
 		erasequest 12522;
@@ -39,7 +39,7 @@ wolfvill,79,260,4	script(CLOAKED)	Aira#con	4_M_BRZ_JACI,{
 		close;
 	}
 	mes "[Aira]";
-	mes "" + strcharinfo(0) + "Gra√ßas ao Sr., cheguei em seguran√ßa na vila.";
+	mes "" + strcharinfo(0) + "GraÁas ao Sr., cheguei em seguranÁa na vila.";
 	mes "Mas parece que algo foi revivido na vila. Eu acho que preciso obter ajuda mais uma vez.";
 	next;
 	.@md_name_normal$ = "Vila de engano";
@@ -55,7 +55,7 @@ wolfvill,79,260,4	script(CLOAKED)	Aira#con	4_M_BRZ_JACI,{
 		if (select( .@md_name_normal$, .@md_name_hard$ ) == 1) {
 			if (BaseLevel < 170) {
 				mes "[Aira]";
-				mes "Voc√™ deve estar pelo menos BaseEvel 170 para entrar.";
+				mes "VocÍ deve estar pelo menos BaseEvel 170 para entrar.";
 				close;
 			}
 			.@enter_to$ = .@md_name_normal$;
@@ -63,7 +63,7 @@ wolfvill,79,260,4	script(CLOAKED)	Aira#con	4_M_BRZ_JACI,{
 		else {
 			if (BaseLevel < 200) {
 				mes "[Aira]";
-				mes "Voc√™ deve ser pelo menos Baselevel 200 para entrar.";
+				mes "VocÍ deve ser pelo menos Baselevel 200 para entrar.";
 				close;
 			}
 			.@enter_to$ = .@md_name_hard$;
@@ -74,13 +74,13 @@ wolfvill,79,260,4	script(CLOAKED)	Aira#con	4_M_BRZ_JACI,{
 			mes "^ff0000ENO Ocorreu um erro desconhecido.^000000";
 			close;
 		case IE_NOINSTANCE:
-			mes "^0000FF A masmorra n√£o foi criada ou voc√™ est√° tentando entrar em uma masmorra diferente do l√≠der do partido.^000000";
+			mes "^0000FF A masmorra n„o foi criada ou vocÍ est· tentando entrar em uma masmorra diferente do lÌder do partido.^000000";
 			close;
 		case IE_NOMEMBER:
 			mes "^ff0000ONO Um membro da parte pode entrar na masmorra memorial.^000000";
 			close;
 		case IE_OK:
-			mapannounce "Wolfvill", "" + strcharinfo(0) + "da festa," + getpartyname( getcharid(1) ) + ", est√° entrando" + .@enter_to$ + ".",bc_map,"0 buceta 00",FW_NORMAL,12;
+			mapannounce "Wolfvill", "" + strcharinfo(0) + "da festa," + getpartyname( getcharid(1) ) + ", est· entrando" + .@enter_to$ + ".",bc_map,"0 buceta 00",FW_NORMAL,12;
 			if (.@enter_to$ == .@md_name_normal$)
 				setquest 12520;
 			else
@@ -93,12 +93,12 @@ wolfvill,79,260,4	script(CLOAKED)	Aira#con	4_M_BRZ_JACI,{
 	case 2:
 		if (BaseLevel < 170) {
 			mes "[Aira]";
-			mes "Voc√™ deve ser pelo menos Baseevel 170 para criar a inst√¢ncia.";
+			mes "VocÍ deve ser pelo menos Baseevel 170 para criar a inst‚ncia.";
 			close;
 		}
 		if (instance_create(.@md_name_normal$) < 0) {
 			mes "Festa:" + getpartyname(getcharid(1)) + "";
-			mes "L√≠der:" + strcharinfo(0) + "";
+			mes "LÌder:" + strcharinfo(0) + "";
 			mes "^0000FF" + .@md_name_normal$ + "^000000- Erro desconhecido";
 			close;
 		}
@@ -106,17 +106,17 @@ wolfvill,79,260,4	script(CLOAKED)	Aira#con	4_M_BRZ_JACI,{
 	case 3:
 		if (BaseLevel < 200) {
 			mes "[Aira]";
-			mes "Voc√™ deve ser pelo menos Baseevel 200 para criar a inst√¢ncia.";
+			mes "VocÍ deve ser pelo menos Baseevel 200 para criar a inst‚ncia.";
 			close;
 		}
 		if (countitem(1000471) < 1) {
 			mes "[Aira]";
-			mes "Onde est√° o" + getitemname(1000471) + "?";
+			mes "Onde est· o" + getitemname(1000471) + "?";
 			close;
 		}
 		if (instance_create(.@md_name_hard$) < 0) {
 			mes "Festa:" + getpartyname(getcharid(1)) + "";
-			mes "L√≠der:" + strcharinfo(0) + "";
+			mes "LÌder:" + strcharinfo(0) + "";
 			mes "^0000FF" + .@md_name_hard$ + "^000000- Erro desconhecido";
 			close;
 		}
@@ -316,7 +316,7 @@ OnMobDead:
 OnTimer2000:
 	stopnpctimer;
 	.@alive = mobcount('map_advs$, instance_npcname("#advs_step_1") + "::OnMobDead");
-	mapannounce 'map_advs$, "N√∫mero de monstros restantes:" + .@alive, bc_map, 0xAAAAFF;
+	mapannounce 'map_advs$, "N˙mero de monstros restantes:" + .@alive, bc_map, 0xAAAAFF;
 	end;
 S_Spawn:
 	.@label$ = instance_npcname("#advs_step_1") + "::OnMobDead";
@@ -338,10 +338,10 @@ S_Spawn:
 1@advs,67,182,5	script	#sw_1	4_NFWISP,1,1,{
 	if ('advs_step != 0)
 		end;
-	mes "[GRATO N√ÉO IDENTIFICADO]";
-	mes "Voc√™ est√° aqui para me libertar?";
+	mes "[GRATO N√O IDENTIFICADO]";
+	mes "VocÍ est· aqui para me libertar?";
 	next;
-	if (select( "Parar", "Fa√ßa isso" ) == 1)
+	if (select( "Parar", "FaÁa isso" ) == 1)
 		end;
 	if ('advs_step != 0)
 		end;
@@ -357,10 +357,10 @@ OnTouch_:
 1@advs,180,182,5	script	#sw_2	4_NFWISP,1,1,{
 	if ('advs_step != 0)
 		end;
-	mes "[GRATO N√ÉO IDENTIFICADO]";
-	mes "Voc√™ est√° aqui para me libertar?";
+	mes "[GRATO N√O IDENTIFICADO]";
+	mes "VocÍ est· aqui para me libertar?";
 	next;
-	if (select( "Parar", "Fa√ßa isso" ) == 1)
+	if (select( "Parar", "FaÁa isso" ) == 1)
 		end;
 	if ('advs_step != 0)
 		end;
@@ -394,12 +394,12 @@ OnTimer3000:
 		'sw[1] = 0;
 		npctalk "Ah... my half soul beyond this hallway is still unfulfilled...", instance_npcname("#sw_1");
 		npctalk "Ah... my half soul beyond this hallway is still unfulfilled...", instance_npcname("#sw_2");
-		mapannounce 'map_advs$, "Voc√™ deve libertar as duas almas √† esquerda e √† direita do corredor ao mesmo tempo.", bc_map, 0xAAAAFF;
+		mapannounce 'map_advs$, "VocÍ deve libertar as duas almas ‡ esquerda e ‡ direita do corredor ao mesmo tempo.", bc_map, 0xAAAAFF;
 		end;
 	}
 	if ('advs_step != 0)
 		end;
-	mapannounce 'map_advs$, "Duas almas s√£o libertadas simultaneamente, abrindo a porta para o centro.", bc_map, 0xAAAAFF;
+	mapannounce 'map_advs$, "Duas almas s„o libertadas simultaneamente, abrindo a porta para o centro.", bc_map, 0xAAAAFF;
 	donpcevent instance_npcname("#advs_step_2") + "::OnStart";
 	end;
 }
@@ -501,7 +501,7 @@ OnMobDead:
 OnTimer2000:
 	stopnpctimer;
 	.@alive = mobcount('map_advs$, instance_npcname("#advs_step_2") + "::OnMobDead");
-	mapannounce 'map_advs$, "N√∫mero de monstros restantes:" + .@alive, bc_map, 0xAAAAFF;
+	mapannounce 'map_advs$, "N˙mero de monstros restantes:" + .@alive, bc_map, 0xAAAAFF;
 	if ('advs_step == 1 && 'mob_to_respawn == 0 && .@alive == 0)
 		donpcevent instance_npcname("#advs_step_3_A") + "::OnStart";
 	end;
@@ -524,7 +524,7 @@ S_Spawn:
 
 1@advs,101,159,5	script	#food1	4_EP16_FOOD,1,1,{
 	if ('max_food <= 0) {
-		mapannounce 'map_advs$, "??? : Voc√™ realmente n√£o sabe como cozinhar bem, voc√™ merece um tour casual pelo meu jardim.", bc_map, 0xAAAAFF;
+		mapannounce 'map_advs$, "??? : VocÍ realmente n„o sabe como cozinhar bem, vocÍ merece um tour casual pelo meu jardim.", bc_map, 0xAAAAFF;
 		end;
 	}
 	progressbar "",4;
@@ -613,7 +613,7 @@ OnMobDead:
 OnTimer2000:
 	stopnpctimer;
 	.@alive = mobcount('map_advs$, instance_npcname("#advs_step_3_B") + "::OnMobDead");
-	mapannounce 'map_advs$, "N√∫mero de monstros restantes:" + .@alive, bc_map, 0xAAAAFF;
+	mapannounce 'map_advs$, "N˙mero de monstros restantes:" + .@alive, bc_map, 0xAAAAFF;
 	if ('advs_step == 2 && 'mob_to_respawn == 0 && .@alive == 0)
 		donpcevent instance_npcname("#boss1_advs") + "::OnStart";
 	end;
@@ -667,7 +667,7 @@ OnMobDead:
 	if (is_party_leader() == false)
 		end;
 	'advs_step = 4;
-	npctalk "Isso √© tudo humano.";
+	npctalk "Isso È tudo humano.";
 	unitwalk getnpcid(0), 124,290, instance_npcname("#boss1") + "::OnMove";
 	end;
 
@@ -760,7 +760,7 @@ OnMove:
 	'freyja_gid = $@mobid[0];
 	donpcevent instance_npcname("#advs_boss_relieve") + "::OnStart";
 	sleep 3000;
-	mapannounce 'map_advs$, "Dica: Deus torcido Freyja est√° enfraquecido √† medida que se aproxima do lustre.", bc_map, 0xFFCC;
+	mapannounce 'map_advs$, "Dica: Deus torcido Freyja est· enfraquecido ‡ medida que se aproxima do lustre.", bc_map, 0xFFCC;
 	if ('advs_difficult == 1)
 		sleep 8000;
 	else
@@ -867,7 +867,7 @@ OnStop:
 
 // stop the circles from moving
 1@advs,108,358,4	script	#b_sw1	4_ENERGY_YELLOW,2,2,{
-	mes "Ddispel O c√≠rculo ^ff0000Rencapra sua sa√∫de e mana.";
+	mes "Ddispel O cÌrculo ^ff0000Rencapra sua sa˙de e mana.";
 	next;
 	if (select( "Cancelar", "Prosseguir" ) == 1)
 		end;
@@ -875,7 +875,7 @@ OnStop:
 		end;
 	// this part need to be checked when more information are available
 	.@success = callsub( S_Venom );
-	mes "^0000ff A pedra m√°gica que absorveu sua resist√™ncia e m√°gica ressoa. O c√≠rculo m√°gico que est√° vagando desaparece.^000000";
+	mes "^0000ff A pedra m·gica que absorveu sua resistÍncia e m·gica ressoa. O cÌrculo m·gico que est· vagando desaparece.^000000";
 	specialeffect EF_BASH3D6;
 	if (.@success == true && 'circle_move == 1) {
 		disablenpc();
@@ -931,8 +931,8 @@ OnTouch:	// effect ?
 	if (isbegin_quest(12520) == 1 && !.@is_hard || isbegin_quest(12521) == 1 && .@is_hard) {
 		if (checkweight(1000405,10, 1000471,1) == 0) {
 			mes "- Espere um minuto !! -";
-			mes "- Atualmente voc√™ est√° carregando -";
-			mes "- Muitos itens com voc√™. -";
+			mes "- Atualmente vocÍ est· carregando -";
+			mes "- Muitos itens com vocÍ. -";
 			mes "- Por favor, tente novamente -";
 			mes "- Depois de perder algum peso. -";
 			close;
@@ -949,9 +949,9 @@ OnTouch:	// effect ?
 			getitem 1000471,1;
 		close;
 	}
-	mes "^0000ffi acho que voc√™ pode sair agora.^000000";
+	mes "^0000ffi acho que vocÍ pode sair agora.^000000";
 	next;
-	if (select( "Cancelar", "Sa√≠da" ) == 1)
+	if (select( "Cancelar", "SaÌda" ) == 1)
 		end;
 	warp "wolfvill",77,258;
 	end;

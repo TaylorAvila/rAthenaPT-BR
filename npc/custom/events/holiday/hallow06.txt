@@ -14,83 +14,83 @@
 //============================================================
 
 prontera,151,190,5	script	Hallows' Eve Event	807,{
-	mes "[Evento da vÃ©spera de Hallows]";
+	mes "[Evento da véspera de Hallows]";
 	if(Class == Job_Novice){
-		mes "Sinto muito, mas vocÃª tem que ter um emprego para concluir o evento.";
+		mes "Sinto muito, mas você tem que ter um emprego para concluir o evento.";
 		emotion ET_SWEAT, playerattached();
 		close;
 	}
 	if((EVENT_HALWN06&1) && (EVENT_HALWN06&2)){
-		mes "Sinto muito, mas vocÃª jÃ¡ concluiu o evento.";
+		mes "Sinto muito, mas você já concluiu o evento.";
 		emotion ET_SORRY;
 		close;
 	}
-	mes "SaudaÃ§Ãµes companheiro humano animado.";
+	mes "Saudações companheiro humano animado.";
 	next;
-	mes "[Evento da vÃ©spera de Hallows]";
-	mes "O Halloween estÃ¡ chegando e Ã© quase hora de se aventurar em lugares que poucos se atrevem.";
+	mes "[Evento da véspera de Hallows]";
+	mes "O Halloween está chegando e é quase hora de se aventurar em lugares que poucos se atrevem.";
 	next;
-	mes "[Evento da vÃ©spera de Hallows]";
-	mes "Truque ou tratamento, qual vocÃª prefere?";
+	mes "[Evento da véspera de Hallows]";
+	mes "Truque ou tratamento, qual você prefere?";
 	next;
 	menu "Truque",-, "Tratar",L_Treat;
 
-	mes "[Evento da vÃ©spera de Hallows]";
+	mes "[Evento da véspera de Hallows]";
 	if(EVENT_HALWN06&2){
-		mes "Sinto muito, mas vocÃª jÃ¡ teve um truque. Por que vocÃª nÃ£o vai escolher um deleite agora.";
+		mes "Sinto muito, mas você já teve um truque. Por que você não vai escolher um deleite agora.";
 		emotion ET_SORRY;
 		close;
 	}
-	mes "Me dÃª um min ...";
+	mes "Me dê um min ...";
 	next;
 	set BaseExp,BaseExp+BaseLevel*1000;
 	set EVENT_HALWN06,EVENT_HALWN06|2;
 
-	mes "[Evento da vÃ©spera de Hallows]";
-	mes "Aqui estÃ¡ o seu tratamento. Seu Exp base foi aumentado um pouco.";
+	mes "[Evento da véspera de Hallows]";
+	mes "Aqui está o seu tratamento. Seu Exp base foi aumentado um pouco.";
 	next;
-	mes "[Evento da vÃ©spera de Hallows]";
-	mes "Espero que vocÃª goste do seu truque e do feliz Halloween!";
+	mes "[Evento da véspera de Hallows]";
+	mes "Espero que você goste do seu truque e do feliz Halloween!";
 	close;
 
 L_Treat:
-	mes "[Evento da vÃ©spera de Hallows]";
+	mes "[Evento da véspera de Hallows]";
 	if(EVENT_HALWN06&1){
-		mes "Sinto muito, mas vocÃª jÃ¡ teve um prazer. Por que vocÃª nÃ£o vai escolher uma truque agora.";
+		mes "Sinto muito, mas você já teve um prazer. Por que você não vai escolher uma truque agora.";
 		emotion ET_SORRY;
 		close;
 	}
 	if(!(EVENT_HALWN06&4)){
-		mes "Ã“timo! Isso deve ser muito divertido.";
+		mes "Ótimo! Isso deve ser muito divertido.";
 		next;
-		mes "[Evento da vÃ©spera de Hallows]";
-		mes "Eu estarei enviando vocÃª em uma caÃ§a ao tesouro para itens.";
+		mes "[Evento da véspera de Hallows]";
+		mes "Eu estarei enviando você em uma caça ao tesouro para itens.";
 		next;
-		mes "[Evento da vÃ©spera de Hallows]";
-		mes "Traga de volta todos os itens necessÃ¡rios e criarei um prazer para vocÃª.";
+		mes "[Evento da véspera de Hallows]";
+		mes "Traga de volta todos os itens necessários e criarei um prazer para você.";
 		next;
-		mes "[Evento da vÃ©spera de Hallows]";
-		mes "TambÃ©m nÃ£o Ã© um tratamento normal que vocÃª pode comer, mas Ã© algo que vocÃª pode usar na sua cabeÃ§a.";
+		mes "[Evento da véspera de Hallows]";
+		mes "Também não é um tratamento normal que você pode comer, mas é algo que você pode usar na sua cabeça.";
 		next;
-		mes "[Evento da vÃ©spera de Hallows]";
-		mes "Mas com todas as coisas feitas, alguns itens sÃ£o necessÃ¡rios primeiro.";
+		mes "[Evento da véspera de Hallows]";
+		mes "Mas com todas as coisas feitas, alguns itens são necessários primeiro.";
 		mes "A lista:";
 		mes "1 tem,";
-		mes "30 abÃ³bora e";
-		mes "20 pedaÃ§os de pano pretos";
+		mes "30 abóbora e";
+		mes "20 pedaços de pano pretos";
 		next;
-		mes "[Evento da vÃ©spera de Hallows]";
+		mes "[Evento da véspera de Hallows]";
 		mes "Apresse -se agora.";
 		set EVENT_HALWN06,EVENT_HALWN06|4;
 		close;
 	}
-	mes "VocÃª recebeu os itens que solicitei ou precisa ver a lista novamente?";
+	mes "Você recebeu os itens que solicitei ou precisa ver a lista novamente?";
 	next;
-	menu "Got'em",-, "NÃ£o tem",L_Dont_Have, "Veja a lista",L_List;
+	menu "Got'em",-, "Não tem",L_Dont_Have, "Veja a lista",L_List;
 
-	mes "[Evento da vÃ©spera de Hallows]";
+	mes "[Evento da véspera de Hallows]";
 	if((countitem(2220) < 1) || (countitem(535) < 30) || (countitem(7205) < 20)){
-		mes "VocÃª nÃ£o tem itens suficientes. Volte quando vocÃª o fizer.";
+		mes "Você não tem itens suficientes. Volte quando você o fizer.";
 		emotion ET_SORRY;
 		close;
 	}
@@ -99,26 +99,26 @@ L_Treat:
 	delitem 7205,20;
 	getitem 5134,1;
 	set EVENT_HALWN06,EVENT_HALWN06|1;
-	mes "Bom trabalho! Espero que vocÃª esteja feliz com seu item.";
+	mes "Bom trabalho! Espero que você esteja feliz com seu item.";
 	emotion ET_CONGRATULATION;
 	next;
-	mes "[Evento da vÃ©spera de Hallows]";
+	mes "[Evento da véspera de Hallows]";
 	mes "Aproveite o resto do seu Halloween.";
 	emotion ET_SCISSOR, playerattached();
 	close;
 
 L_Dont_Have:
-	mes "[Evento da vÃ©spera de Hallows]";
-	mes "Volte e procure por eles. VocÃª gostaria de ver a lista?";
+	mes "[Evento da véspera de Hallows]";
+	mes "Volte e procure por eles. Você gostaria de ver a lista?";
 	next;
 	menu "No",-, "Sim",L_List;
 	close;
 
 L_List:
-	mes "[Evento da vÃ©spera de Hallows]";
+	mes "[Evento da véspera de Hallows]";
 	mes "Eu preciso dos seguintes itens:";
 	mes "1 tem,";
-	mes "30 abÃ³bora e";
-	mes "20 pedaÃ§os de pano pretos.";
+	mes "30 abóbora e";
+	mes "20 pedaços de pano pretos.";
 	close;
 }

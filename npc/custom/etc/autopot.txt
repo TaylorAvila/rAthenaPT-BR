@@ -15,7 +15,7 @@ OnInit:
 	setarray .blackList[0],0;	//Array of black listed item ID
 
 	if(!.HP_Option && !.SP_Option){
-		debugmes "Aviso: @Autopot HP e SP est√£o desativados";
+		debugmes "Aviso: @Autopot HP e SP est„o desativados";
 		debugmes "Aviso: o script @Autopot foi desativado!";
 		end;
 	}
@@ -23,7 +23,7 @@ OnInit:
 end;
 
 L_Help:
-	dispbottom "Comandos dispon√≠veis:";
+	dispbottom "Comandos disponÌveis:";
 	if(.HP_Option && .SP_Option){
 		dispbottom "@AUPOPOT <hp | sp> <item id> {<min hp | sp % [1..100]> {<atraso" + .MinDelay + ".."+.MaxDelay+"]>}}";
 		dispbottom "@AUTOPOT <hp | sp> lista";
@@ -39,9 +39,9 @@ L_Help:
 	return;
 
 L_Info:
-	dispbottom "---------- Informa√ß√µes sobre Potion Auto -----------";
+	dispbottom "---------- InformaÁıes sobre Potion Auto -----------";
 	if(.HP_Option){
-		dispbottom "Po√ß√£o HP:" + getitemname(@autopot_hp_ID) + "(" + @autopot_hp_ID + ")";
+		dispbottom "PoÁ„o HP:" + getitemname(@autopot_hp_ID) + "(" + @autopot_hp_ID + ")";
 		dispbottom "Min HP:" + @autopot_hp_Min + "%";
 	}
 	if(.SP_Option){
@@ -63,27 +63,27 @@ L_Start:
 	if (@autopot_delay < .MinDelay) @autopot_delay = .MinDelay;
 	if (@autopot_delay > .MaxDelay) @autopot_delay = .MaxDelay;
 	if (getiteminfo(.@potion, ITEMINFO_TYPE) != IT_HEALING) {
-		dispbottom getitemname(.@potion) + "n√£o √© um item de cura.";
+		dispbottom getitemname(.@potion) + "n„o È um item de cura.";
 		end;
 	}
 	if(inarray(.blackList[0],.@potion) != -1){
-		message strcharinfo(0), "'" + getitemname(.@potion) + "'est√° listado preto e n√£o pode ser usado.";
+		message strcharinfo(0), "'" + getitemname(.@potion) + "'est· listado preto e n„o pode ser usado.";
 		end;
 	}
 	if (BaseLevel < getiteminfo(.@potion, ITEMINFO_EQUIPLEVELMIN)) {
-		message strcharinfo(0), "Seu n√≠vel base √© muito baixo para usar '" + getitemname(.@potion) + "'.";
+		message strcharinfo(0), "Seu nÌvel base È muito baixo para usar '" + getitemname(.@potion) + "'.";
 		end;
 	}
 	setd "@Autopot_" + .@type$ + "_EU IA",.@potion;
 	setd "@Autopot_" + .@type$ + "_Active",true;
 	addtimer @autopot_delay,strnpcinfo(3) + ":: OnStart";
-	message strcharinfo(0), "Potion autom√°tico" + strtoupper(.@type$) + "habilitado.";
+	message strcharinfo(0), "Potion autom·tico" + strtoupper(.@type$) + "habilitado.";
 	callsub L_Info;
 	return;
 
 OnCommand:
 	if (!getarraysize(.@atcmd_parameters$)) {
-		message strcharinfo(0), "Sintaxe inv√°lida.";
+		message strcharinfo(0), "Sintaxe inv·lida.";
 		callsub L_Help;
 		end;
 	}
@@ -92,16 +92,16 @@ OnCommand:
 	
 	if(.@command$[0] == "HP" || .@command$[0] == "sp"){
 		if((!.HP_Option && .@command$[0] == "HP") || (!.SP_Option && .@command$[0] == "sp")){
-			message strcharinfo(0), "Potion autom√°tico" + strtoupper(.@command$[0]) + "est√° desativado do servidor.";
+			message strcharinfo(0), "Potion autom·tico" + strtoupper(.@command$[0]) + "est· desativado do servidor.";
 			end;
 		}
 		if(.@command$[1] == "sobre"){
 			if(getd("@Autopot_" + .@command$[0] + "_Active")){
-				message strcharinfo(0), "Potion autom√°tico" + strtoupper(.@command$[0]) + "j√° est√° ligado.";
+				message strcharinfo(0), "Potion autom·tico" + strtoupper(.@command$[0]) + "j· est· ligado.";
 				end;
 			}
 			if(!getd("@Autopot_" + .@command$[0] + "_EU IA")){
-				dispbottom "Voc√™ precisa definir um" + strtoupper(.@command$[0]) + "Po√ß√£o a ser usada.";
+				dispbottom "VocÍ precisa definir um" + strtoupper(.@command$[0]) + "PoÁ„o a ser usada.";
 				callsub L_Help;
 				end;
 			}
@@ -109,7 +109,7 @@ OnCommand:
 			end;
 		}
 		if(.@command$[1] == "desligado"){
-			message strcharinfo(0), "Potion autom√°tico" + strtoupper(.@command$[0]) + "desabilitado.";
+			message strcharinfo(0), "Potion autom·tico" + strtoupper(.@command$[0]) + "desabilitado.";
 			setd "@Autopot_" + .@command$[0] + "_Active",false;
 			if(!@autopot_hp_Active || !@autopot_sp_Active)
 				deltimer strnpcinfo(3) + ":: OnStart";
@@ -120,19 +120,19 @@ OnCommand:
 			for(.@i = 0;.@i < @inventorylist_count;.@i++){
 				if (getiteminfo(@inventorylist_id[.@i], ITEMINFO_TYPE) == IT_HEALING) {
 					.@items[.@count] = @inventorylist_id[.@i];
-					.@menu$ = .@menu$ + sprintf("~ ^0055ff%s ^000000 (%dx)" + (inarray(.blackList[0],@inventorylist_id[.@i]) != -1? "^364022black listado^000000":"") + (BaseLevel < getiteminfo(@inventorylist_id[.@i], ITEMINFO_EQUIPLEVELMIN)? "^E82C0CNEED N√≠vel mais alto^000000":"") + ":", getitemname(@inventorylist_id[.@i]), countitem(@inventorylist_id[.@i]));
+					.@menu$ = .@menu$ + sprintf("~ ^0055ff%s ^000000 (%dx)" + (inarray(.blackList[0],@inventorylist_id[.@i]) != -1? "^364022black listado^000000":"") + (BaseLevel < getiteminfo(@inventorylist_id[.@i], ITEMINFO_EQUIPLEVELMIN)? "^E82C0CNEED NÌvel mais alto^000000":"") + ":", getitemname(@inventorylist_id[.@i]), countitem(@inventorylist_id[.@i]));
 					.@count++;
 				}
 			}
 			if(.@count){
-				mes "[Potion autom√°tico]";
+				mes "[Potion autom·tico]";
 				mes "Selecione a" + strtoupper(.@command$[0]) + "item.";
 				.@select = select(.@menu$ + "^Hahakknak^000") - 1;
 				if (.@select != .@count)
 					callsub L_Start,.@command$[0],.@items[.@select];
 				close2;
 			}else{
-				message strcharinfo(0), "N√£o h√° itens de cura em seu invent√°rio.";
+				message strcharinfo(0), "N„o h· itens de cura em seu invent·rio.";
 			}
 			end;
 		}
@@ -155,22 +155,22 @@ OnCommand:
 		dispbottom "---------------------------------------------";
 		end;
 	}
-	if(.@command$[0] == "informa√ß√µes"){
+	if(.@command$[0] == "informaÁıes"){
 		if(@autopot_hp_Active || @autopot_sp_Active){
-			message strcharinfo(0), "As informa√ß√µes de p√≥s autom√°ticas s√£o exibidas abaixo.";
+			message strcharinfo(0), "As informaÁıes de pÛs autom·ticas s„o exibidas abaixo.";
 			callsub L_Info;
 		}else{
-			message strcharinfo(0), "O Potion Auto n√£o est√° ativado.";
+			message strcharinfo(0), "O Potion Auto n„o est· ativado.";
 		}
 		end;
 	}
 	if(.@command$[0] == "ajuda"){
-		message strcharinfo(0), "A lista de comandos √© exibida abaixo.";
+		message strcharinfo(0), "A lista de comandos È exibida abaixo.";
 		callsub L_Help;
 		end;
 	}
 	
-	message strcharinfo(0), "Sintaxe inv√°lida.";
+	message strcharinfo(0), "Sintaxe inv·lida.";
 	callsub L_Help;
 end;
 

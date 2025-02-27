@@ -19,27 +19,27 @@ har_in01,17,74,7	script	Contraband Processor#pa	4_DR_SOLDIER,{
 	}
 	disable_items;
 	mes "[Processador de contrabando]";
-	mes "VocÃª jÃ¡ tentou comprar alguns itens de contrabando com moedas de Rock Ridge? Eu posso melhorar seus itens de contrabando.";
+	mes "Você já tentou comprar alguns itens de contrabando com moedas de Rock Ridge? Eu posso melhorar seus itens de contrabando.";
 	next;
-	.@reset = select( "TornÃ¡ -los melhores? Como?", "Itens de contrabando encantadores.", "Redefina o nÃ­vel de encantamento do item de contrabando." ) - 2;
+	.@reset = select( "Torná -los melhores? Como?", "Itens de contrabando encantadores.", "Redefina o nível de encantamento do item de contrabando." ) - 2;
 	if (.@reset == -1) {
 		mes "[Processador de contrabando]";
-		mes "Ah, jÃ¡ nos conhecemos antes? ConheÃ§o tantas pessoas todos os dias que nÃ£o me lembro de todos os seus rostos. Deixe -me pegar vocÃª atÃ© acelerar.";
+		mes "Ah, já nos conhecemos antes? Conheço tantas pessoas todos os dias que não me lembro de todos os seus rostos. Deixe -me pegar você até acelerar.";
 		next;
 		mes "[Processador de contrabando]";
-		mes "Posso encantar o equipamento que vocÃª pode comprar com moedas de Rock Ridge, para atÃ© 3 soquetes para armaduras e roupas e atÃ© 2 soquetes para acessÃ³rios.";
+		mes "Posso encantar o equipamento que você pode comprar com moedas de Rock Ridge, para até 3 soquetes para armaduras e roupas e até 2 soquetes para acessórios.";
 		next;
 		mes "[Processador de contrabando]";
-		mes "Carrego 2 moedas de cume de rock por soquete por encantador e redefiniÃ§Ã£o.";
+		mes "Carrego 2 moedas de cume de rock por soquete por encantador e redefinição.";
 		next;
 		mes "[Processador de contrabando]";
-		mes "Ah, e observe que esses itens de contrabando sÃ£o propensos Ã  destruiÃ§Ã£o, especialmente quando sÃ£o redefinidos.";
+		mes "Ah, e observe que esses itens de contrabando são propensos à destruição, especialmente quando são redefinidos.";
 		close;
 	}
-	switch( select( "Cancelar", "Armadura", "VestuÃ¡rio", "AcessÃ³rio (slot direito)" ) ) {
+	switch( select( "Cancelar", "Armadura", "Vestuário", "Acessório (slot direito)" ) ) {
 	case 1:
 		mes "[Processador de contrabando]";
-		mes "VocÃª Ã© bobo.";
+		mes "Você é bobo.";
 		close;
 	case 2:
 		.@part = EQI_ARMOR;
@@ -68,11 +68,11 @@ har_in01,17,74,7	script	Contraband Processor#pa	4_DR_SOLDIER,{
 		break;
 	case -1:
 		mes "[Processador de contrabando]";
-		mes "Por que vocÃª estÃ¡ perdendo meu tempo? VÃ¡ usar seu equipamento primeiro.";
+		mes "Por que você está perdendo meu tempo? Vá usar seu equipamento primeiro.";
 		close;
 	default:
 		mes "[Processador de contrabando]";
-		mes "Eu nÃ£o lido com itens como este.";
+		mes "Eu não lido com itens como este.";
 		close;
 	}
 	.@refine = getequiprefinerycnt(.@part);
@@ -87,14 +87,14 @@ har_in01,17,74,7	script	Contraband Processor#pa	4_DR_SOLDIER,{
 	case TRUE:
 		if (.@card[3] == 0) {
 			mes "[Processador de contrabando]";
-			mes "NÃ£o estÃ¡ encantado. O que vocÃª espera que eu seja redefinido?";
+			mes "Não está encantado. O que você espera que eu seja redefinido?";
 			close;
 		}
 		mes "[Processador de contrabando]";
-		mes "Oh, vocÃª realmente quer redefini -lo? Como eu disse antes, os crachÃ¡s de vigilantes contrabandeados sÃ£o propensos Ã  destruiÃ§Ã£o.";
-		if (select( "Vou voltar mais tarde.", "Vamos fazÃª-lo." ) == 1) {
+		mes "Oh, você realmente quer redefini -lo? Como eu disse antes, os crachás de vigilantes contrabandeados são propensos à destruição.";
+		if (select( "Vou voltar mais tarde.", "Vamos fazê-lo." ) == 1) {
 			mes "[Processador de contrabando]";
-			mes "Tudo bem, volte se vocÃª mudar de idÃ©ia.";
+			mes "Tudo bem, volte se você mudar de idéia.";
 			close;
 		}
 		if (.@part == EQI_ACC_R)
@@ -109,7 +109,7 @@ har_in01,17,74,7	script	Contraband Processor#pa	4_DR_SOLDIER,{
 		case EQI_GARMENT:
 			if (.@card[1] > 0) {
 				mes "[Processador de contrabando]";
-				mes "Isso foi encantado com o limite mÃ¡ximo. Talvez vocÃª deva redefini -lo.";
+				mes "Isso foi encantado com o limite máximo. Talvez você deva redefini -lo.";
 				close;
 			}
 			if (.@card[3] == 0)
@@ -122,12 +122,12 @@ har_in01,17,74,7	script	Contraband Processor#pa	4_DR_SOLDIER,{
 				.@r = rand(1,215);
 				if (.@r < 16) .@card[.@enchant_slot] = getiteminfo("Agilidade2", ITEMINFO_ID);
 				else if (.@r < 31) .@card[.@enchant_slot] = getiteminfo("DeSterity2", ITEMINFO_ID);
-				else if (.@r < 46) .@card[.@enchant_slot] = getiteminfo("ForÃ§a2", ITEMINFO_ID);
-				else if (.@r < 61) .@card[.@enchant_slot] = getiteminfo("InteligÃªncia2", ITEMINFO_ID);
+				else if (.@r < 46) .@card[.@enchant_slot] = getiteminfo("Força2", ITEMINFO_ID);
+				else if (.@r < 61) .@card[.@enchant_slot] = getiteminfo("Inteligência2", ITEMINFO_ID);
 				else if (.@r < 76) .@card[.@enchant_slot] = getiteminfo("Def20", ITEMINFO_ID);
 				else if (.@r < 91) .@card[.@enchant_slot] = getiteminfo("Mdef5", ITEMINFO_ID);
-				else if (.@r < 106) .@card[.@enchant_slot] = getiteminfo("CrÃ­tico3", ITEMINFO_ID);
-				else if (.@r < 121) .@card[.@enchant_slot] = getiteminfo("EvasÃ£o6", ITEMINFO_ID);
+				else if (.@r < 106) .@card[.@enchant_slot] = getiteminfo("Crítico3", ITEMINFO_ID);
+				else if (.@r < 121) .@card[.@enchant_slot] = getiteminfo("Evasão6", ITEMINFO_ID);
 				else if (.@r < 135) .@card[.@enchant_slot] = getiteminfo("Expert_archer1", ITEMINFO_ID);
 				else if (.@r < 149) .@card[.@enchant_slot] = getiteminfo("Fatal1", ITEMINFO_ID);
 				else if (.@r < 163) .@card[.@enchant_slot] = getiteminfo("Spell1", ITEMINFO_ID);
@@ -147,20 +147,20 @@ har_in01,17,74,7	script	Contraband Processor#pa	4_DR_SOLDIER,{
 				.@r = rand(1,206);
 				if (.@r < 14) .@card[.@enchant_slot] = getiteminfo("Agilidade1", ITEMINFO_ID);
 				else if (.@r < 27) .@card[.@enchant_slot] = getiteminfo("Destreza1", ITEMINFO_ID);
-				else if (.@r < 40) .@card[.@enchant_slot] = getiteminfo("ForÃ§a1", ITEMINFO_ID);
+				else if (.@r < 40) .@card[.@enchant_slot] = getiteminfo("Força1", ITEMINFO_ID);
 				else if (.@r < 53) .@card[.@enchant_slot] = getiteminfo("Inteligence1", ITEMINFO_ID);
 				else if (.@r < 66) .@card[.@enchant_slot] = getiteminfo("Def15", ITEMINFO_ID);
 				else if (.@r < 79) .@card[.@enchant_slot] = getiteminfo("Mdef2", ITEMINFO_ID);
-				else if (.@r < 92) .@card[.@enchant_slot] = getiteminfo("CrÃ­tico1", ITEMINFO_ID);
-				else if (.@r < 105) .@card[.@enchant_slot] = getiteminfo("EvasÃ£o3", ITEMINFO_ID);
+				else if (.@r < 92) .@card[.@enchant_slot] = getiteminfo("Crítico1", ITEMINFO_ID);
+				else if (.@r < 105) .@card[.@enchant_slot] = getiteminfo("Evasão3", ITEMINFO_ID);
 				else if (.@r < 114) .@card[.@enchant_slot] = getiteminfo("Agilidade2", ITEMINFO_ID);
 				else if (.@r < 123) .@card[.@enchant_slot] = getiteminfo("DeSterity2", ITEMINFO_ID);
-				else if (.@r < 132) .@card[.@enchant_slot] = getiteminfo("ForÃ§a2", ITEMINFO_ID);
-				else if (.@r < 141) .@card[.@enchant_slot] = getiteminfo("InteligÃªncia2", ITEMINFO_ID);
+				else if (.@r < 132) .@card[.@enchant_slot] = getiteminfo("Força2", ITEMINFO_ID);
+				else if (.@r < 141) .@card[.@enchant_slot] = getiteminfo("Inteligência2", ITEMINFO_ID);
 				else if (.@r < 150) .@card[.@enchant_slot] = getiteminfo("Def20", ITEMINFO_ID);
 				else if (.@r < 159) .@card[.@enchant_slot] = getiteminfo("Mdef5", ITEMINFO_ID);
-				else if (.@r < 168) .@card[.@enchant_slot] = getiteminfo("CrÃ­tico3", ITEMINFO_ID);
-				else if (.@r < 177) .@card[.@enchant_slot] = getiteminfo("EvasÃ£o6", ITEMINFO_ID);
+				else if (.@r < 168) .@card[.@enchant_slot] = getiteminfo("Crítico3", ITEMINFO_ID);
+				else if (.@r < 177) .@card[.@enchant_slot] = getiteminfo("Evasão6", ITEMINFO_ID);
 				else if (.@r < 184) .@card[.@enchant_slot] = getiteminfo("Expert_archer1", ITEMINFO_ID);
 				else if (.@r < 191) .@card[.@enchant_slot] = getiteminfo("Fatal1", ITEMINFO_ID);
 				else if (.@r < 198) .@card[.@enchant_slot] = getiteminfo("Spell1", ITEMINFO_ID);
@@ -172,7 +172,7 @@ har_in01,17,74,7	script	Contraband Processor#pa	4_DR_SOLDIER,{
 		case EQI_ACC_R:
 			if (.@card[2] > 0) {
 				mes "[Processador de contrabando]";
-				mes "Isso foi encantado com o limite mÃ¡ximo. Talvez vocÃª deva redefini -lo.";
+				mes "Isso foi encantado com o limite máximo. Talvez você deva redefini -lo.";
 				close;
 			}
 			if (.@card[3] == 0)
@@ -182,7 +182,7 @@ har_in01,17,74,7	script	Contraband Processor#pa	4_DR_SOLDIER,{
 			.@r = rand(1,236);
 			if (.@r < 16) .@card[.@enchant_slot] = getiteminfo("Agilidade1", ITEMINFO_ID);
 			else if (.@r < 31) .@card[.@enchant_slot] = getiteminfo("Destreza1", ITEMINFO_ID);
-			else if (.@r < 46) .@card[.@enchant_slot] = getiteminfo("ForÃ§a1", ITEMINFO_ID);
+			else if (.@r < 46) .@card[.@enchant_slot] = getiteminfo("Força1", ITEMINFO_ID);
 			else if (.@r < 61) .@card[.@enchant_slot] = getiteminfo("Inteligence1", ITEMINFO_ID);
 			else if (.@r < 76) .@card[.@enchant_slot] = getiteminfo("Vitalidade1", ITEMINFO_ID);
 			else if (.@r < 91) .@card[.@enchant_slot] = getiteminfo("LUCK1", ITEMINFO_ID);
@@ -190,8 +190,8 @@ har_in01,17,74,7	script	Contraband Processor#pa	4_DR_SOLDIER,{
 			else if (.@r < 121) .@card[.@enchant_slot] = getiteminfo("SP50", ITEMINFO_ID);
 			else if (.@r < 131) .@card[.@enchant_slot] = getiteminfo("Agilidade2", ITEMINFO_ID);
 			else if (.@r < 141) .@card[.@enchant_slot] = getiteminfo("DeSterity2", ITEMINFO_ID);
-			else if (.@r < 151) .@card[.@enchant_slot] = getiteminfo("ForÃ§a2", ITEMINFO_ID);
-			else if (.@r < 161) .@card[.@enchant_slot] = getiteminfo("InteligÃªncia2", ITEMINFO_ID);
+			else if (.@r < 151) .@card[.@enchant_slot] = getiteminfo("Força2", ITEMINFO_ID);
+			else if (.@r < 161) .@card[.@enchant_slot] = getiteminfo("Inteligência2", ITEMINFO_ID);
 			else if (.@r < 171) .@card[.@enchant_slot] = getiteminfo("Vitalidade2", ITEMINFO_ID);
 			else if (.@r < 181) .@card[.@enchant_slot] = getiteminfo("LUCK2", ITEMINFO_ID);
 			else if (.@r < 191) .@card[.@enchant_slot] = getiteminfo("HP200", ITEMINFO_ID);
@@ -205,14 +205,14 @@ har_in01,17,74,7	script	Contraband Processor#pa	4_DR_SOLDIER,{
 			break;
 		default:
 			mes "[Processador de contrabando]";
-			mes "VocÃª acabou de tentar trocar de equipamento?";
+			mes "Você acabou de tentar trocar de equipamento?";
 			close;
 		}
 		break;
 	}
 	if (countitem(25250) < 2) {
 		mes "[Processador de contrabando]";
-		mes "Eu carrego 2 moedas de Rock Ridge por este serviÃ§o. Traga -os para mim.";
+		mes "Eu carrego 2 moedas de Rock Ridge por este serviço. Traga -os para mim.";
 		close;
 	}
 	delitem 25250,2;// Rock_Ridge_Coin
@@ -225,7 +225,7 @@ har_in01,17,74,7	script	Contraband Processor#pa	4_DR_SOLDIER,{
 	if (rand(100) < .@chance_of_breaking_on_reset) {
 		specialeffect2 EF_LORD;
 		mes "[Processador de contrabando]";
-		mes "Ah, isso nÃ£o acabou bem.";
+		mes "Ah, isso não acabou bem.";
 		mes "Bem, apenas minha sorte.";
 		close;
 	}
@@ -239,118 +239,118 @@ har_in01,17,74,7	script	Contraband Processor#pa	4_DR_SOLDIER,{
 
 har_in01,24,69,3	script	Affable Lady#rockridge0	1_F_MERCHANT_02,{
 	if (checkweight(1301,3) == 0) {
-		mes "[Dama afÃ¡vel]";
-		mes "VocÃª deve ser muito forte para levar muito com vocÃª.";
+		mes "[Dama afável]";
+		mes "Você deve ser muito forte para levar muito com você.";
 		next;
-		mes "[Dama afÃ¡vel]";
-		mes "Se vocÃª deseja aliviar sua bolsa, hÃ¡ um funcionÃ¡rio da Kafra na direÃ§Ã£o do escritÃ³rio do xerife.";
+		mes "[Dama afável]";
+		mes "Se você deseja aliviar sua bolsa, há um funcionário da Kafra na direção do escritório do xerife.";
 		close;
 	}
-	mes "[Dama afÃ¡vel]";
-	mes "VocÃª Ã© um aventureiro. Eu gosto de pessoas como vocÃª que tÃªm paixÃ£o.";
-	mes "EntÃ£o, vocÃª estÃ¡ aqui por causa de ^0000cdit ^000000?";
+	mes "[Dama afável]";
+	mes "Você é um aventureiro. Eu gosto de pessoas como você que têm paixão.";
+	mes "Então, você está aqui por causa de ^0000cdit ^000000?";
 	next;
-	if (select( "Por causa de quÃª?", "Eu sou." ) == 1) {
-		mes "[Dama afÃ¡vel]";
-		mes "HMPF, nÃ£o aja como se vocÃª nÃ£o soubesse. Estou falando sobre o equipamento especial que vocÃª pode comprar em Rock Ridge.";
+	if (select( "Por causa de quê?", "Eu sou." ) == 1) {
+		mes "[Dama afável]";
+		mes "HMPF, não aja como se você não soubesse. Estou falando sobre o equipamento especial que você pode comprar em Rock Ridge.";
 		next;
-		mes "[Dama afÃ¡vel]";
-		mes "O traficante de armaduras traz novas aÃ§Ãµes toda sexta -feira e Ã© vendido quase assim que chegar, sempre.";
+		mes "[Dama afável]";
+		mes "O traficante de armaduras traz novas ações toda sexta -feira e é vendido quase assim que chegar, sempre.";
 		close;
 	}
-	mes "[Dama afÃ¡vel]";
-	mes "* Risada* Qual vocÃª quer: um para os seus ^0000cdshoulders ^000000, ^0000cdneck ou baÃº ^000000?";
+	mes "[Dama afável]";
+	mes "* Risada* Qual você quer: um para os seus ^0000cdshoulders ^000000, ^0000cdneck ou baú ^000000?";
 	next;
-	switch( select( "Um, anything.", "Para meus ombros", "Para o meu pescoÃ§o ou peito" ) ) {
+	switch( select( "Um, anything.", "Para meus ombros", "Para o meu pescoço ou peito" ) ) {
 	case 1:
-		mes "[Dama afÃ¡vel]";
-		mes "* Risada* Claro, os jovens sempre parecem bem, nÃ£o importa o que vestem.";
-		mes "Mas se vocÃª quiser algo especial, vÃ¡ verificar a loja de armaduras.";
+		mes "[Dama afável]";
+		mes "* Risada* Claro, os jovens sempre parecem bem, não importa o que vestem.";
+		mes "Mas se você quiser algo especial, vá verificar a loja de armaduras.";
 		close;
 	case 2:
-		mes "[Dama afÃ¡vel]";
-		mes "Escolha um de que vocÃª gosta, e eu vou falar sobre isso.";
-		mes "Todo o equipamento Ã© ^0000cd3.000.000 Zeny ^000000, independentemente do seu tipo.";
+		mes "[Dama afável]";
+		mes "Escolha um de que você gosta, e eu vou falar sobre isso.";
+		mes "Todo o equipamento é ^0000cd3.000.000 Zeny ^000000, independentemente do seu tipo.";
 		next;
 		.@cost = 3000000;
 		setarray .@item_id[0],20820,20821,20822;
-		setarray .@item_name$[0], "Cabo Elementar", "LenÃ§o dourado", "Mochila trabalhadora da mina";
-		.@s = select( "Cabo Elementar", "LenÃ§o dourado", "Mochila trabalhadora da mina", "Eu nÃ£o tenho ideia do que vocÃª estÃ¡ falando." ) - 1;
+		setarray .@item_name$[0], "Cabo Elementar", "Lenço dourado", "Mochila trabalhadora da mina";
+		.@s = select( "Cabo Elementar", "Lenço dourado", "Mochila trabalhadora da mina", "Eu não tenho ideia do que você está falando." ) - 1;
 		break;
 	case 3:
-		mes "[Dama afÃ¡vel]";
-		mes "Escolha um de que vocÃª gosta, e eu vou falar sobre isso.";
-		mes "Todo o equipamento Ã© ^0000cd1.500.000 zeny ^000000, independentemente do seu tipo.";
+		mes "[Dama afável]";
+		mes "Escolha um de que você gosta, e eu vou falar sobre isso.";
+		mes "Todo o equipamento é ^0000cd1.500.000 zeny ^000000, independentemente do seu tipo.";
 		next;
 		.@cost = 1500000;
 		setarray .@item_id[0],28441,28442;
 		setarray .@item_name$[0], "Vigilante Badge", "Hippie Feather";
-		.@s = select( "Vigilante Badge", "Hippie Feather", "Eu nÃ£o tenho ideia do que vocÃª estÃ¡ falando." ) - 1;
+		.@s = select( "Vigilante Badge", "Hippie Feather", "Eu não tenho ideia do que você está falando." ) - 1;
 		break;
 	}
 	if (.@item_id[.@s] == 0) {
-		mes "[Dama afÃ¡vel]";
-		mes "Opa, acho que vocÃª Ã© inocente demais para ouvir o que acabei de dizer.";
-		mes "VocÃª deve esquecer, para o seu prÃ³prio bem.";
+		mes "[Dama afável]";
+		mes "Opa, acho que você é inocente demais para ouvir o que acabei de dizer.";
+		mes "Você deve esquecer, para o seu próprio bem.";
 		close;
 	}
-	mes "[Dama afÃ¡vel]";
-	mes "Ah, vocÃª estÃ¡ interessado no";
+	mes "[Dama afável]";
+	mes "Ah, você está interessado no";
 	mes "[" + mesitemlink( .@item_id[.@s], false, .@item_name$[.@s] ) + "].";
-	mes "Clique no nome para a descriÃ§Ã£o detalhada.";
-	mes "Como eu te disse, sÃ£o ^0000cd3.000.000 Zeny ^000000. VocÃª quer comprÃ¡ -lo?";
+	mes "Clique no nome para a descrição detalhada.";
+	mes "Como eu te disse, são ^0000cd3.000.000 Zeny ^000000. Você quer comprá -lo?";
 	next;
 	if (select( "Sim.", "No." ) == 2) {
-		mes "[Dama afÃ¡vel]";
-		mes "Huh. EntÃ£o eu perdi a respiraÃ§Ã£o em alguÃ©m que nÃ£o quer comprar.";
-		mes "Todo e qualquer pedaÃ§o desse equipamento tem uma histÃ³ria para contar, e pode segurar um rancor se vocÃª nÃ£o levar com vocÃª.";
+		mes "[Dama afável]";
+		mes "Huh. Então eu perdi a respiração em alguém que não quer comprar.";
+		mes "Todo e qualquer pedaço desse equipamento tem uma história para contar, e pode segurar um rancor se você não levar com você.";
 		next;
-		mes "[Dama afÃ¡vel]";
-		mes "Eu sugiro que vocÃª nÃ£o conte mais ninguÃ©m sobre isso,";
-		mes "E prometa -me que vocÃª estarÃ¡ de volta. Vou manter o equipamento para vocÃª.";
+		mes "[Dama afável]";
+		mes "Eu sugiro que você não conte mais ninguém sobre isso,";
+		mes "E prometa -me que você estará de volta. Vou manter o equipamento para você.";
 		close;
 	}
 	if (Zeny < .@cost) {
-		mes "[Dama afÃ¡vel]";
-		mes "Uh-oh, vocÃª nÃ£o tem dinheiro suficiente para comprar isso.";
-		mes "Por que vocÃª nÃ£o volta mais tarde? Eu sempre estarei aqui.";
+		mes "[Dama afável]";
+		mes "Uh-oh, você não tem dinheiro suficiente para comprar isso.";
+		mes "Por que você não volta mais tarde? Eu sempre estarei aqui.";
 		close;
 	}
-	mes "[Dama afÃ¡vel]";
-	mes "Claro. Aqui estÃ¡ o seu" + .@item_name$[.@s] + ".";
+	mes "[Dama afável]";
+	mes "Claro. Aqui está o seu" + .@item_name$[.@s] + ".";
 	Zeny = Zeny - .@cost;
 	getitem .@item_id[.@s],1;
 	next;
-	mes "[Dama afÃ¡vel]";
-	mes "As pessoas costumam deixar suas noÃ§Ãµes preconcebidas as enganarem. A maioria das pessoas nÃ£o acha que uma velha como eu venderia itens tÃ£o especiais.";
-	mes "Volte se vocÃª quiser mais equipamentos. Eu sempre estarei aqui. *Risada*";
+	mes "[Dama afável]";
+	mes "As pessoas costumam deixar suas noções preconcebidas as enganarem. A maioria das pessoas não acha que uma velha como eu venderia itens tão especiais.";
+	mes "Volte se você quiser mais equipamentos. Eu sempre estarei aqui. *Risada*";
 	close;
 }
 
 har_in01,34,81,5	script	Howard#rr	4_M_TATIO,{
 	if (checkweight(1301,1) == 0) {
 		mes "[Howard]";
-		mes "Err, vocÃª estÃ¡ carregando muitas coisas.";
-		mes "Por que vocÃª nÃ£o vai";
+		mes "Err, você está carregando muitas coisas.";
+		mes "Por que você não vai";
 		mes "Iluminar sua bolsa primeiro?";
 		close;
 	}
 	mes "[Howard]";
-	mes "OlÃ¡. Como posso ajudÃ¡ -lo hoje?";
+	mes "Olá. Como posso ajudá -lo hoje?";
 	next;
 	if (countitem(25250) < 1) {
 		mes "[Howard]";
-		mes "HM, vocÃª nÃ£o tem as moedas.";
-		mes "Por que vocÃª nÃ£o os coleciona primeiro?";
+		mes "HM, você não tem as moedas.";
+		mes "Por que você não os coleciona primeiro?";
 		close;
 	}
 	mes "[Howard]";
-	mes "Ah, vocÃª tem as moedas.";
+	mes "Ah, você tem as moedas.";
 	mes "Obrigado por ajudar Rock Ridge.";
-	mes "DÃª uma olhada ao redor e veja se hÃ¡ algo que vocÃª deseja.";
+	mes "Dê uma olhada ao redor e veja se há algo que você deseja.";
 	next;
 	mes "[Howard]";
-	mes "O que vocÃª gostaria de ter?";
+	mes "O que você gostaria de ter?";
 	next;
 	setarray .@data$[0],
 		 24, 15176, "Traje vigilante",	// <cost>, <item ID>, <item name>
@@ -361,9 +361,9 @@ har_in01,34,81,5	script	Howard#rr	4_M_TATIO,{
 		150, 20834, "Cabo de Drifter",
 		150, 22131, "Botas estimuladas",
 		180, 16060, "Garrafa de licor",
-		300, 26107, "FuncionÃ¡rios mais velhos",
-		100, 31140, "Fantasia de chapÃ©u de cowboy preto",
-		100, 31141, "CorsÃ¡rio de flores de cacto de fantasia";
+		300, 26107, "Funcionários mais velhos",
+		100, 31140, "Fantasia de chapéu de cowboy preto",
+		100, 31141, "Corsário de flores de cacto de fantasia";
 
 	.@size = getarraysize(.@data$);
 	for ( .@i = 0; .@i < .@size; .@i += 3 )
@@ -372,22 +372,22 @@ har_in01,34,81,5	script	Howard#rr	4_M_TATIO,{
 
 	mes "[Howard]";
 	mes mesitemlink( atoi( .@data$[.@s+1] ), false, .@data$[.@s+2] ) + ", got it.";
-	mes "Isso serÃ¡" + .@data$[.@s] + "Moedas de Rock Ridge.";
-	mes "VocÃª tem certeza de que deseja este item?";
+	mes "Isso será" + .@data$[.@s] + "Moedas de Rock Ridge.";
+	mes "Você tem certeza de que deseja este item?";
 	next;
 	if (select( "Sim.", "No." ) == 2) {
 		mes "[Howard]";
-		mes "Se vocÃª se decidiu, fale comigo novamente.";
+		mes "Se você se decidiu, fale comigo novamente.";
 		close;
 	}
 	if (countitem(25250) < atoi(.@data$[.@s])) {
 		mes "[Howard]";
-		mes "VocÃª nÃ£o tem moedas suficientes.";
+		mes "Você não tem moedas suficientes.";
 		mes "Por favor, traga mais.";
 		close;
 	}
 	mes "[Howard]";
-	mes "LÃ¡ vai vocÃª. Aproveitar!";
+	mes "Lá vai você. Aproveitar!";
 	delitem 25250, atoi(.@data$[.@s]);// Rock Ridge Coin
 	getitem atoi(.@data$[.@s+1]),1;
 	close;
@@ -400,40 +400,40 @@ har_in01,34,81,5	script	Howard#rr	4_M_TATIO,{
 har_in01,19,86,4	script	Weapon Dealer#rockridge01	1_F_02,{
 	if (checkweight(1301,3) == 0) {
 		mes "[Revendedor de armas]";
-		mes "VocÃª estÃ¡ carregando muito para comprar armas.";
-		mes "Por favor, vÃ¡ clarear sua bolsa primeiro.";
+		mes "Você está carregando muito para comprar armas.";
+		mes "Por favor, vá clarear sua bolsa primeiro.";
 		close;
 	}
 	mes "[Revendedor de armas]";
-	mes "Eu carrego espingardas, revÃ³lveres e balas.";
-	mes "Diga -me que tipo de item vocÃª deseja e eu mostrarei uma lista.";
+	mes "Eu carrego espingardas, revólveres e balas.";
+	mes "Diga -me que tipo de item você deseja e eu mostrarei uma lista.";
 	next;
-	switch( select( "Espingardas", "RevÃ³lveres", "Balas", "Vender itens.", "Cancelar." ) ) {
+	switch( select( "Espingardas", "Revólveres", "Balas", "Vender itens.", "Cancelar." ) ) {
 	case 1:
 		mes "[Revendedor de armas]";
-		mes "VocÃª quer navegar por espingardas? Eu vejo.";
+		mes "Você quer navegar por espingardas? Eu vejo.";
 		mes "Deixe -me mostrar alguns bons modelos.";
 		close2;
 		callshop "Shotguns_rockridge", 1;
 		end;
 	case 2:
 		mes "[Revendedor de armas]";
-		mes "VocÃª quer navegar revÃ³lveres? Eu vejo.";
+		mes "Você quer navegar revólveres? Eu vejo.";
 		mes "Acabei de trazer alguns bons modelos.";
 		close2;
 		callshop "Revolvers_rockridge", 1;
 		end;
 	case 3:
 		mes "[Revendedor de armas]";
-		mes "VocÃª quer balas, eu vejo.";
-		mes "Todas as minhas balas sÃ£o da melhor qualidade.";
+		mes "Você quer balas, eu vejo.";
+		mes "Todas as minhas balas são da melhor qualidade.";
 		close2;
 		callshop "Bullets_rockridge", 1;
 		end;
 	case 4:
 		mes "[Revendedor de armas]";
-		mes "Claro, se vocÃª tiver coisas que eu possa vender.";
-		mes "Mostre -me o que vocÃª tem.";
+		mes "Claro, se você tiver coisas que eu possa vender.";
+		mes "Mostre -me o que você tem.";
 		close2;
 		callshop "Bullets_rockridge", 2;
 		end;
@@ -452,8 +452,8 @@ har_in01,19,86,4	script	Weapon Dealer#rockridge01	1_F_02,{
 har_in01,16,86,4	script	Armor Dealer#rockridge02	1_M_04,{
 	if (checkweight(1301,3) == 0) {
 		mes "[Dealer Armour]";
-		mes "VocÃª estÃ¡ carregando muito para comprar qualquer coisa.";
-		mes "Por favor, vÃ¡ clarear sua bolsa primeiro.";
+		mes "Você está carregando muito para comprar qualquer coisa.";
+		mes "Por favor, vá clarear sua bolsa primeiro.";
 		close;
 	}
 	.@day = gettime(DT_DAYOFWEEK);
@@ -463,32 +463,32 @@ har_in01,16,86,4	script	Armor Dealer#rockridge02	1_M_04,{
 		mes "Uma vez por semana, fecho minha loja e passo o dia agradecendo pelo que tenho.";
 		next;
 		mes "[Dealer Armour]";
-		mes "... e Ã© no mesmo dia que nÃ£o hÃ¡ entregas.";
+		mes "... e é no mesmo dia que não há entregas.";
 		close;
 	}
 	if (.@day == MONDAY)
-		.@string$ = "Gents romÃ¢nticos, graÃ§as ocidentais e capÃ´ de penas";
+		.@string$ = "Gents românticos, graças ocidentais e capô de penas";
 	else if (.@day == TUESDAY)
-		.@string$ = "ChapÃ©us, bandanas indianas e chapÃ©us de cowboy";
+		.@string$ = "Chapéus, bandanas indianas e chapéus de cowboy";
 	else if (.@day == WEDNESDAY)
 		.@string$ = "Cigarros, tubos e barbas";
 	else if (.@day == THURSDAY)
-		.@string$ = "Gents romÃ¢nticos, graÃ§as ocidentais e capÃ´ de penas";
+		.@string$ = "Gents românticos, graças ocidentais e capô de penas";
 	else if (.@day == FRIDAY)
-		.@string$ = "Sombreos, bandanas indianas, chapÃ©us de cowboy e faixas de penas indianas, o Ãºltimo dos raros trajes que estÃ£o disponÃ­veis em quantidades limitadas a cada semana,";
+		.@string$ = "Sombreos, bandanas indianas, chapéus de cowboy e faixas de penas indianas, o último dos raros trajes que estão disponíveis em quantidades limitadas a cada semana,";
 	else
 		.@string$ = "Cigarros, tubos e barbas";
 	mes "[Dealer Armour]";
-	mes "OlÃ¡. Bem -vindo Ã  loja Rock Ridge Armour.";
-	mes "Hoje," +.@string$ + "estÃ£o em estoque.";
+	mes "Olá. Bem -vindo à loja Rock Ridge Armour.";
+	mes "Hoje," +.@string$ + "estão em estoque.";
 	next;
 	mes "[Dealer Armour]";
-	mes "A armadura Ã© mais volumosa que as armas, entÃ£o eu sÃ³ posso ter um nÃºmero definido de produtos entregues a cada semana.";
-	mes "Vou mostrar a lista de itens disponÃ­veis. ^0000CDIFE estÃ¡ em branco, entÃ£o tudo estÃ¡ vendido^000000.";
+	mes "A armadura é mais volumosa que as armas, então eu só posso ter um número definido de produtos entregues a cada semana.";
+	mes "Vou mostrar a lista de itens disponíveis. ^0000CDIFE está em branco, então tudo está vendido^000000.";
 	next;
 	mes "[Dealer Armour]";
-	mes "E por esse mesmo motivo, nÃ£o posso dar ^0000cdspecial descontos ^000000.";
-	mes "Mas ^0000cdall meus produtos sÃ£o difÃ­ceis de encontrar em outros lugares ^000000. Por que vocÃª nÃ£o dÃ¡ uma olhada neles?";
+	mes "E por esse mesmo motivo, não posso dar ^0000cdspecial descontos ^000000.";
+	mes "Mas ^0000cdall meus produtos são difíceis de encontrar em outros lugares ^000000. Por que você não dá uma olhada neles?";
 	close2;
 	if (.@day == MONDAY || .@day == THURSDAY)
 		callshop "armor_rockridge_1", 1;

@@ -114,15 +114,15 @@ function	script	F_Invest_Status	{
 //callfunc "F_Invest_Abyss","<variable>","<NPC name>"{,"<addon message>"};
 function	script	F_Invest_Abyss	{
 	.@npc_name$ = getarg(1);
-	mes "Existem 2 maneiras de investir, por Zeny ou pelo certificado de investimento distribu√≠do pela Cat Paw Merchant Guild.";
-	mes "De que maneira voc√™ gostaria de fazer seu investimento?";
+	mes "Existem 2 maneiras de investir, por Zeny ou pelo certificado de investimento distribuÌdo pela Cat Paw Merchant Guild.";
+	mes "De que maneira vocÍ gostaria de fazer seu investimento?";
 	next;
 	switch(select("Invista com Zeny.: Invest com certificados de investimento.")) {
 	case 1:
 		mes .@npc_name$;
-		mes "Ent√£o voc√™ decidiu investir em Zeny.";
-		mes "A unidade m√≠nima de investimento √© ^4d4dff10.000 zeny ^000000.";
-		mes "Voc√™ pode investir no m√°ximo 50 unidades que s√£o ^4d4dff500.000 zeny ^000000.";
+		mes "Ent„o vocÍ decidiu investir em Zeny.";
+		mes "A unidade mÌnima de investimento È ^4d4dff10.000 zeny ^000000.";
+		mes "VocÍ pode investir no m·ximo 50 unidades que s„o ^4d4dff500.000 zeny ^000000.";
 		next;
 		switch(select("1 Unidade 10.000 Zeny: 10 unidades 100.000 Zeny: 50 unidades 500.000 Zeny: Outra quantia: Cancelar")) {
 		case 1:
@@ -143,7 +143,7 @@ function	script	F_Invest_Abyss	{
 			input .@units;
 			if (.@units < 0 || .@units > 200) {
 				mes .@npc_name$;
-				mes "Voc√™ excedeu o valor por investimento.";
+				mes "VocÍ excedeu o valor por investimento.";
 				mes "Por favor, tente novamente.";
 				close;
 			} else if (.@units == 0) {
@@ -160,20 +160,20 @@ function	script	F_Invest_Abyss	{
 		set .@zeny, .@units * 10000;
 		if (Zeny < .@zeny) {
 			mes .@npc_name$;
-			mes "Voc√™ n√£o tem dinheiro suficiente.";
+			mes "VocÍ n„o tem dinheiro suficiente.";
 			close;
 		}
 		mes .@npc_name$;
 		mes "You've invested "+callfunc("F_InsertPlural",.@units,"unit")+" "+callfunc("F_InsertComma",.@zeny)+" Zeny"+getarg(2,"")+".";
-		mes "N√£o muito, mas este √© um pequeno presente. Voc√™ pode troc√° -lo com itens em Malangdo.";
+		mes "N„o muito, mas este È um pequeno presente. VocÍ pode troc· -lo com itens em Malangdo.";
 		set Zeny, Zeny-.@zeny;
 		setd getarg(0), getd(getarg(0)) + .@units;
 		getitem 6488,.@units; //Thanks_Invest_Ticket
 		close;
 	case 2:
 		mes .@npc_name$;
-		mes "Uau, voc√™ trouxe certificados de investimento.";
-		mes "Quantos certificados voc√™ enviar√°?";
+		mes "Uau, vocÍ trouxe certificados de investimento.";
+		mes "Quantos certificados vocÍ enviar·?";
 		next;
 		switch(select("1 Certificado de investimento: 5 Certificados de investimento: Outro valor: Cancelar")) {
 		case 1:
@@ -184,14 +184,14 @@ function	script	F_Invest_Abyss	{
 			break;
 		case 3:
 			mes .@npc_name$;
-			mes "Por favor, insira o n√∫mero de certificados de investimento que voc√™ deseja enviar.";
+			mes "Por favor, insira o n˙mero de certificados de investimento que vocÍ deseja enviar.";
 			mes "Escolha entre 1 a 20.";
 			mes "Por favor, digite 0 para cancelar.";
 			next;
 			input .@tickets;
 			if (.@tickets < 0 || .@tickets > 20) {
 				mes .@npc_name$;
-				mes "Voc√™ excedeu o valor por investimento.";
+				mes "VocÍ excedeu o valor por investimento.";
 				mes "Por favor, tente novamente.";
 				close;
 			} else if (.@tickets == 0) {
@@ -207,13 +207,13 @@ function	script	F_Invest_Abyss	{
 		}
 		if (countitem(6489) < .@tickets) {
 			mes .@npc_name$;
-			mes "Parece que voc√™ tem menos certificados de investimento do que deseja enviar.";
+			mes "Parece que vocÍ tem menos certificados de investimento do que deseja enviar.";
 			close;
 		}
 		set .@units, .@tickets * 10;
 		mes .@npc_name$;
-		mes .@tickets+"Certificado de investimento"+((.@tickets == 1)?"√©":"S s√£o")+"o mesmo que um investimento de"+.@units+"unidades ("+((.@units < 100)?.@units:insertchar(""+.@units,",",1))+"0.000z)"+getarg(2,"")+".";
-		mes "N√£o muito, mas este √© um pequeno presente. Voc√™ pode troc√° -lo com itens em Malangdo.";
+		mes .@tickets+"Certificado de investimento"+((.@tickets == 1)?"È":"S s„o")+"o mesmo que um investimento de"+.@units+"unidades ("+((.@units < 100)?.@units:insertchar(""+.@units,",",1))+"0.000z)"+getarg(2,"")+".";
+		mes "N„o muito, mas este È um pequeno presente. VocÍ pode troc· -lo com itens em Malangdo.";
 		delitem 6489,.@tickets; //Cats_Invest_Certif
 		setd getarg(0), getd(getarg(0)) + .@units;
 		getitem 6488,.@units; //Thanks_Invest_Ticket
@@ -325,7 +325,7 @@ OnCalculate:
 	}
 	end;
 OnInvest_start:
-	announce "A partir de agora, vamos iniciar os investimentos para conectar o 'Abyss Gate' nas √°reas de afli√ß√£o: Reino Valkyrie, Lago Greenwood, Luina, Britroniah.",bc_all,0xFF0000; //FW_NORMAL 10
+	announce "A partir de agora, vamos iniciar os investimentos para conectar o 'Abyss Gate' nas ·reas de afliÁ„o: Reino Valkyrie, Lago Greenwood, Luina, Britroniah.",bc_all,0xFF0000; //FW_NORMAL 10
 	set $fund_prt01,0;
 	set $fund_prt02,0;
 	set $fund_prt03,0;
@@ -354,7 +354,7 @@ OnInvest_stop:
 	donpcevent "#fund_master::OnCalculate_Election";
 	end;
 OnResult:
-	announce "Temos os resultados dos investimentos para o 'Abyss Gate'. Voc√™ pode verificar o conselho de status de investimento em cada √°rea de afli√ß√£o.",bc_all,0xFF0000; //FW_NORMAL 10
+	announce "Temos os resultados dos investimentos para o 'Abyss Gate'. VocÍ pode verificar o conselho de status de investimento em cada ·rea de afliÁ„o.",bc_all,0xFF0000; //FW_NORMAL 10
 	if ($2011_agit_invest == 4) {
 		set $fund_prt01,0;
 		set $fund_prt02,0;
@@ -391,22 +391,22 @@ OnReset:
 
 prt_gld,2,2,0	script	Investment_total#fund00	844,{
 	callfunc "F_GM_NPC";
-	mes "Isso n√£o est√° funcionando corretamente?";
+	mes "Isso n„o est· funcionando corretamente?";
 	next;
 	if (callfunc("F_GM_NPC",1854,0) == 1) {
-		mes "Se voc√™ acha que o cron√¥metro de investimento est√° morto, por favor ajuste o cron√¥metro.";
+		mes "Se vocÍ acha que o cronÙmetro de investimento est· morto, por favor ajuste o cronÙmetro.";
 		next;
-		switch(select("Ligue o cron√¥metro: Cancelar")) {
+		switch(select("Ligue o cronÙmetro: Cancelar")) {
 		case 1:
 			donpcevent "Investment_total#fund00::OnTimerReset";
-			mes "Voc√™ ligou o cron√¥metro.";
+			mes "VocÍ ligou o cronÙmetro.";
 			close;
 		case 2:
 			mes "Cancelado.";
 			close;
 		}
 	} else {
-		mes "N√£o preciso ajustar nada agora.";
+		mes "N„o preciso ajustar nada agora.";
 		close;
 	}
 
@@ -452,7 +452,7 @@ OnTimer3600000:
 			if ($agit_result_timer % 10 == 5 || $agit_result_timer % 10 == 0 || $agit_result_timer == 58) {
 				set $agit_result_notice, $agit_result_notice+1;
 				donpcevent "Investment_total#fund00::OnVarInit";
-				announce "No."+$agit_result_notice+"A declara√ß√£o interina est√° agora dispon√≠vel. Voc√™ pode verificar o conselho de status de investimento em cada √°rea de afli√ß√£o.",bc_all,0xFF0000; //FW_NORMAL 10
+				announce "No."+$agit_result_notice+"A declaraÁ„o interina est· agora disponÌvel. VocÍ pode verificar o conselho de status de investimento em cada ·rea de afliÁ„o.",bc_all,0xFF0000; //FW_NORMAL 10
 			}
 
 			donpcevent "Investment_total#fund00::OnTimerReset";
@@ -467,8 +467,8 @@ OnTimer3600000:
 
 prt_gld,164,98,3	script	Revoting Manager#Invest1	421,{
 	mes "[Gerente de Revotamento]";
-	mes "N√£o estamos aceitando votos adicionais.";
-	mes "Aguarde o nosso an√∫ncio de resultados.";
+	mes "N„o estamos aceitando votos adicionais.";
+	mes "Aguarde o nosso an˙ncio de resultados.";
 	close;
 OnInit:
 	set .@invest_status, callfunc("F_Invest_Status");
@@ -559,7 +559,7 @@ prt_gld,164,98,3	script	Revoting Manager#Invest2	421,{
 	set .@invest, $2011_agit_invest;
 	if (.@invest < 11) {
 		mes "[Gerente de Revotamento]";
-		mes "N√£o! Este n√£o √© o momento de fazer uma revis√£o.";
+		mes "N„o! Este n„o È o momento de fazer uma revis„o.";
 		close2;
 		disablenpc "Revoting Manager#Invest2";
 		end;
@@ -567,22 +567,22 @@ prt_gld,164,98,3	script	Revoting Manager#Invest2	421,{
 	set .@playtime, checkquest(7349,PLAYTIME);
 	if (.@playtime == 0 || .@playtime == 1) {
 		mes "[Gerente de Revotamento]";
-		mes "Voc√™ j√° participou da vota√ß√£o.";
+		mes "VocÍ j· participou da votaÁ„o.";
 		mes "Por favor, relaxe e aguarde os resultados.";
 		close;
 	} else if (.@playtime == 2)
 		erasequest 7349;
 	mes "[Gerente de Revotamento]";
-	mes "Voc√™ gostaria de participar da vota√ß√£o para escolher onde conectar o 'Abyss Gate'?";
+	mes "VocÍ gostaria de participar da votaÁ„o para escolher onde conectar o 'Abyss Gate'?";
 	next;
-	if(select("Participe da vota√ß√£o .:Skip por enquanto.") == 2) {
+	if(select("Participe da votaÁ„o .:Skip por enquanto.") == 2) {
 		mes "[Gerente de Revotamento]";
-		mes "Voc√™ cancelou o voto.";
+		mes "VocÍ cancelou o voto.";
 		close;
 	}
 	mes "[Gerente de Revotamento]";
-	mes "Voc√™ pode votar uma vez e n√£o precisar√° investir para sua escolha.";
-	mes "Escolha uma √°rea de afli√ß√£o.";
+	mes "VocÍ pode votar uma vez e n„o precisar· investir para sua escolha.";
+	mes "Escolha uma ·rea de afliÁ„o.";
 	next;
 
 	// Create menu.
@@ -600,8 +600,8 @@ prt_gld,164,98,3	script	Revoting Manager#Invest2	421,{
 	set .@vote, select(implode(.@menu$,":"))-1;
 
 	mes "[Gerente de Revotamento]";
-	mes "Voc√™ votou"+.@menu$[.@vote]+".";
-	mes "Obrigado pela vota√ß√£o.";
+	mes "VocÍ votou"+.@menu$[.@vote]+".";
+	mes "Obrigado pela votaÁ„o.";
 	setquest 7349;
 	setd "$ FUND_"+.@candidates$[.@vote]+"_extra", getd("$ FUND_"+.@candidates$[.@vote]+"_extra") + 1;
 	close;
@@ -634,16 +634,16 @@ OnNotice_on:
 	initnpctimer;
 	end;
 OnTimer5000:
-	announce "Cat Paw Merchant Guild: Como nenhuma √°rea de afli√ß√£o atingiu o n√≠vel m√°ximo de investimento para conectar o 'Abyss Gate' ...",bc_all,0xFF0000; //FW_NORMAL 10
+	announce "Cat Paw Merchant Guild: Como nenhuma ·rea de afliÁ„o atingiu o nÌvel m·ximo de investimento para conectar o 'Abyss Gate' ...",bc_all,0xFF0000; //FW_NORMAL 10
 	end;
 OnTimer8000:
-	announce "Cat Paw Merchant Guild: Est√°vamos prestes a conectar o 'Abyss Gate' √† √°rea de afli√ß√£o que mais investia.",bc_all,0xFF0000; //FW_NORMAL 10
+	announce "Cat Paw Merchant Guild: Est·vamos prestes a conectar o 'Abyss Gate' ‡ ·rea de afliÁ„o que mais investia.",bc_all,0xFF0000; //FW_NORMAL 10
 	end;
 OnTimer11000:
-	announce "Guilda do Mercante da Paw Cat: No entanto, houve √°reas que investiram a mesma quantia. Ent√£o, n√≥s os colocaremos em voto.",bc_all,0xFF0000; //FW_NORMAL 10
+	announce "Guilda do Mercante da Paw Cat: No entanto, houve ·reas que investiram a mesma quantia. Ent„o, nÛs os colocaremos em voto.",bc_all,0xFF0000; //FW_NORMAL 10
 	end;
 OnTimer14000:
-	announce "Cat Paw Merchant Guild: Votos adicionais estar√£o dispon√≠veis por 30 minutos. Voc√™ pode votar no reino de Valkyrie.",bc_all,0xFF0000; //FW_NORMAL 10
+	announce "Cat Paw Merchant Guild: Votos adicionais estar„o disponÌveis por 30 minutos. VocÍ pode votar no reino de Valkyrie.",bc_all,0xFF0000; //FW_NORMAL 10
 	end;
 OnTimer20000:
 	explode(.@candidates$, callsub(OnGetCandidates, $2011_agit_invest),"|");
@@ -657,7 +657,7 @@ OnTimer20000:
 		else if (.@candidates$[.@i] == "prt")
 			set .@choices$[.@i],"Reino de Valkyrie";
 	}
-	announce "Cat Paw Merchant Guild: Os candidatos para o voto adicional s√£o ..."+implode(.@choices$,"vs.")+".",bc_all,0xFF0000; //FW_NORMAL 10
+	announce "Cat Paw Merchant Guild: Os candidatos para o voto adicional s„o ..."+implode(.@choices$,"vs.")+".",bc_all,0xFF0000; //FW_NORMAL 10
 	set $fund_prt_extra,0;
 	set $fund_pay_extra,0;
 	set $fund_gef_extra,0;
@@ -724,173 +724,173 @@ OnAgitInvest:
 	mes .@n$;
 	mes "Eu sou"+.@name$+", o"+.@intro$+"da guilda do comerciante de patas de gato.";
 	mes "Consultei os investimentos para o desenvolvimento do Abyss Gate.";
-	mes "Como posso ajud√° -lo?";
+	mes "Como posso ajud· -lo?";
 	next;
-	switch(select("O que √© o Abyss Gate?")) {
+	switch(select("O que È o Abyss Gate?")) {
 	case 1:
 		mes .@n$;
-		mes "√â chamado apenas de port√£o do Abyss por conveni√™ncia, mas √© simplesmente um ^4d4dffGap para outra dimens√£o ^000000.";
+		mes "… chamado apenas de port„o do Abyss por conveniÍncia, mas È simplesmente um ^4d4dffGap para outra dimens„o ^000000.";
 		next;
 		mes .@n$;
-		mes "Mais dessas lacunas s√£o encontradas aqui e ali depois que Morocc criou a rachadura da dimens√£o.";
+		mes "Mais dessas lacunas s„o encontradas aqui e ali depois que Morocc criou a rachadura da dimens„o.";
 		mes "Pessoalmente, acho que o Abyss Gate encontrado recentemente faz parte do passado ou mesmo do futuro.";
 		next;
 		mes .@n$;
-		mes "Dizem que o port√£o Abyss se conecta com for√ßa a outra dimens√£o al√©m do nosso mundo.";
-		mes "Provavelmente porque h√° aqueles que seguem o poder do Empeio.";
+		mes "Dizem que o port„o Abyss se conecta com forÁa a outra dimens„o alÈm do nosso mundo.";
+		mes "Provavelmente porque h· aqueles que seguem o poder do Empeio.";
 		next;
 		mes .@n$;
-		mes "H√° um total de 4 port√µes abismo encontrados at√© agora. Todos eles se conectam √† regi√£o AGIT transbordando com a for√ßa do Emperium.";
+		mes "H· um total de 4 portıes abismo encontrados atÈ agora. Todos eles se conectam ‡ regi„o AGIT transbordando com a forÁa do Emperium.";
 		next;
 		mes .@n$;
-		mes "Nomeamos cada um por dimens√£o al√©m da lacuna.";
-		mes "^4d4dffway of the Warrior, colina dos mortos, ventos do antigo e as l√°grimas do her√≥i.^000000";
-		mes "E todas essas quatro lacunas s√£o chamadas de port√£o ^4d4dffabyss ^000000.";
+		mes "Nomeamos cada um por dimens„o alÈm da lacuna.";
+		mes "^4d4dffway of the Warrior, colina dos mortos, ventos do antigo e as l·grimas do herÛi.^000000";
+		mes "E todas essas quatro lacunas s„o chamadas de port„o ^4d4dffabyss ^000000.";
 		next;
 		mes .@n$;
 		mes "A lacuna pode levar ao passado, no futuro ou mesmo a um mundo desconhecido.";
-		mes "O poder que o port√£o abyss segura √© temeroso, mas doce";
+		mes "O poder que o port„o abyss segura È temeroso, mas doce";
 		next;
 		mes .@n$;
-		mes "Voc√™ tamb√©m est√° interessado em explorar o Abyss Gate?";
-		mes "Ha ha. Voc√™ precisar√° seguir v√°rias etapas antes de explorar.";
+		mes "VocÍ tambÈm est· interessado em explorar o Abyss Gate?";
+		mes "Ha ha. VocÍ precisar· seguir v·rias etapas antes de explorar.";
 		next;
 		mes .@n$;
-		mes "Se voc√™ estiver interessado,";
-		mes "Voc√™ vai reservar um tempo para se sentar e falar sobre investir na manuten√ß√£o do port√£o do Abyss?";
+		mes "Se vocÍ estiver interessado,";
+		mes "VocÍ vai reservar um tempo para se sentar e falar sobre investir na manutenÁ„o do port„o do Abyss?";
 		close;
 	case 2:
 		mes .@n$;
-		mes "Voc√™ est√° curioso para investir no desenvolvimento do port√£o?";
-		mes "O que voc√™ quer saber?";
+		mes "VocÍ est· curioso para investir no desenvolvimento do port„o?";
+		mes "O que vocÍ quer saber?";
 		next;
-		switch(select("Sobre o port√£o?: Sobre investimentos ?: Como investir?: Benef√≠cios do investimento?")) {
+		switch(select("Sobre o port„o?: Sobre investimentos ?: Como investir?: BenefÌcios do investimento?")) {
 		case 1:
 			mes .@n$;
-			mes "O port√£o √© o que recebeu o nome, uma porta.";
+			mes "O port„o È o que recebeu o nome, uma porta.";
 			mes "Uma passagem dimensional que se conecta aqui a ali.";
 			next;
 			mes .@n$;
-			mes "O port√£o do abismo foi criado como um caminho muito inst√°vel al√©m da lacuna dimensional,";
-			mes "Portanto, viajar pelo port√£o precisar√° de uma conex√£o de dimens√£o artificial.";
+			mes "O port„o do abismo foi criado como um caminho muito inst·vel alÈm da lacuna dimensional,";
+			mes "Portanto, viajar pelo port„o precisar· de uma conex„o de dimens„o artificial.";
 			next;
 			mes .@n$;
-			mes "Os seres humanos est√£o longe de ter a tecnologia avan√ßada necess√°ria";
-			mes "Mas nossa guilda de comerciante de patas de gato mant√©m a alta tecnologia para usar a rachadura da dimens√£o.";
+			mes "Os seres humanos est„o longe de ter a tecnologia avanÁada necess·ria";
+			mes "Mas nossa guilda de comerciante de patas de gato mantÈm a alta tecnologia para usar a rachadura da dimens„o.";
 			next;
 			mes .@n$;
-			mes "Ent√£o fizemos uma proposta.";
-			mes "Com a promessa de apoiar a Guilda do Mercador de Paw Cat e pagar pela imensa despesa por manter a conex√£o com o port√£o,";
-			mes "Faremos a conex√£o com a rachadura da dimens√£o.";
+			mes "Ent„o fizemos uma proposta.";
+			mes "Com a promessa de apoiar a Guilda do Mercador de Paw Cat e pagar pela imensa despesa por manter a conex„o com o port„o,";
+			mes "Faremos a conex„o com a rachadura da dimens„o.";
 			next;
 			mes .@n$;
-			mes "√â claro que trabalhar na rachadura da dimens√£o n√£o √© um trabalho f√°cil e vem com riscos.";
-			mes "H√° casos em que as pessoas desaparecem de viajar.";
+			mes "… claro que trabalhar na rachadura da dimens„o n„o È um trabalho f·cil e vem com riscos.";
+			mes "H· casos em que as pessoas desaparecem de viajar.";
 			next;
 			mes .@n$;
-			mes "A melhor dura√ß√£o de manuten√ß√£o √© de cerca de 4 dias";
-			mes "Voc√™ investe nos EUA e criamos a porta que se conecta √† lacuna dimensional.";
+			mes "A melhor duraÁ„o de manutenÁ„o È de cerca de 4 dias";
+			mes "VocÍ investe nos EUA e criamos a porta que se conecta ‡ lacuna dimensional.";
 			next;
 			mes .@n$;
-			mes "Isso n√£o soa como a proposta perfeita para ganha-ganha?";
+			mes "Isso n„o soa como a proposta perfeita para ganha-ganha?";
 			close;
 		case 2:
 			mes .@n$;
-			mes "For√ßar atrav√©s da lacuna dimensional inst√°vel e a cria√ß√£o de uma passagem √© muito perigosa.";
-			mes "Sem mencionar os enormes recursos necess√°rios.";
+			mes "ForÁar atravÈs da lacuna dimensional inst·vel e a criaÁ„o de uma passagem È muito perigosa.";
+			mes "Sem mencionar os enormes recursos necess·rios.";
 			next;
 			mes .@n$;
-			mes "Se voc√™ cuidar das acusa√ß√µes e tamb√©m o perigo paga investindo na guilda do Merchant Merchant, da Paw Paw,";
-			mes "Vamos criar e manter o port√£o, independentemente dos riscos.";
+			mes "Se vocÍ cuidar das acusaÁıes e tambÈm o perigo paga investindo na guilda do Merchant Merchant, da Paw Paw,";
+			mes "Vamos criar e manter o port„o, independentemente dos riscos.";
 			next;
 			mes .@n$;
-			mes "Mas, √© claro, o dinheiro envolvido pelos custos do port√£o ser√° extremo.";
-			mes "Ser√° f√°cil se voc√™ puder encontrar os investidores para compartilhar o valor.";
+			mes "Mas, È claro, o dinheiro envolvido pelos custos do port„o ser· extremo.";
+			mes "Ser· f·cil se vocÍ puder encontrar os investidores para compartilhar o valor.";
 			next;
 			mes .@n$;
-			mes "H√° uma cobran√ßa b√°sica para come√ßar a conectar o port√£o.";
-			mes "Os resultados dependem de quanto dinheiro de investimento √© coletado.";
+			mes "H· uma cobranÁa b·sica para comeÁar a conectar o port„o.";
+			mes "Os resultados dependem de quanto dinheiro de investimento È coletado.";
 			next;
 			mes .@n$;
-			mes "O port√£o Abyss existe em cada regi√£o agit.";
-			mes "Voc√™ pode imaginar quanto dinheiro e sacrificar nossa guilda ter√° que passar para se desenvolver em todas as √°reas?";
+			mes "O port„o Abyss existe em cada regi„o agit.";
+			mes "VocÍ pode imaginar quanto dinheiro e sacrificar nossa guilda ter· que passar para se desenvolver em todas as ·reas?";
 			next;
 			mes .@n$;
-			mes "Isso explica a competi√ß√£o regional em investimentos.";
-			mes "Se n√£o for suficientes, os custos de manuten√ß√£o do port√£o forem coletados, √© √≥bvio que a regi√£o com mais investimentos receber√° os benef√≠cios";
+			mes "Isso explica a competiÁ„o regional em investimentos.";
+			mes "Se n„o for suficientes, os custos de manutenÁ„o do port„o forem coletados, È Ûbvio que a regi„o com mais investimentos receber· os benefÌcios";
 			next;
 			mes .@n$;
-			mes "Se ^4d4dffThe Abyss Gate estiver conectado com sucesso, ent√£o a masmorra da √°rea de esconderijo";
-			mes "estar√° aberto a outros em vez de ser exclusivo da Guild^000000, que ser√° muito atraente para o investimento.";
+			mes "Se ^4d4dffThe Abyss Gate estiver conectado com sucesso, ent„o a masmorra da ·rea de esconderijo";
+			mes "estar· aberto a outros em vez de ser exclusivo da Guild^000000, que ser· muito atraente para o investimento.";
 			next;
 			mes .@n$;
-			mes "Mas, novamente, isso √© apenas para quando o port√£o est√° conectado.";
+			mes "Mas, novamente, isso È apenas para quando o port„o est· conectado.";
 			close;
 		case 3:
 			mes .@n$;
-			mes "√â simples.";
-			mes "Visite o gerente da filial do ^4d4dffregion em que deseja investir durante a dura√ß√£o do investimento ^000000 e fa√ßa seu investimento.";
+			mes "… simples.";
+			mes "Visite o gerente da filial do ^4d4dffregion em que deseja investir durante a duraÁ„o do investimento ^000000 e faÁa seu investimento.";
 			next;
 			mes .@n$;
 			mes "Geralmente recebemos ^4d4dffThe comum aqui, zeny ^000000.";
-			mes "Mas como estamos falando em apoiar nossa guilda de comerciante de patas de gato, voc√™ tamb√©m pode investir com itens sob demanda em Malangdo.";
+			mes "Mas como estamos falando em apoiar nossa guilda de comerciante de patas de gato, vocÍ tambÈm pode investir com itens sob demanda em Malangdo.";
 			next;
 			mes .@n$;
-			mes "Forne√ßa os itens necess√°rios para Namis em Malangdo, respons√°vel por assuntos gerais em nossa guilda.";
-			mes "Traga de volta seu certificado de investimento para adicion√° -lo ao tributo ao investimento.";
+			mes "ForneÁa os itens necess·rios para Namis em Malangdo, respons·vel por assuntos gerais em nossa guilda.";
+			mes "Traga de volta seu certificado de investimento para adicion· -lo ao tributo ao investimento.";
 			next;
 			mes .@n$;
-			mes "Voc√™ deve visitar e investir na regi√£o que deseja para que seu investimento seja contado como uma homenagem.";
+			mes "VocÍ deve visitar e investir na regi„o que deseja para que seu investimento seja contado como uma homenagem.";
 			close;
 		case 4:
 			mes .@n$;
-			mes "O port√£o do Abyss est√° basicamente se contraindo e se conecta com o castelo que possui o AGIT;";
-			mes "Portanto, forneceremos tudo o que temos quando os custos para conectar e manter o port√£o forem suficientes.";
+			mes "O port„o do Abyss est· basicamente se contraindo e se conecta com o castelo que possui o AGIT;";
+			mes "Portanto, forneceremos tudo o que temos quando os custos para conectar e manter o port„o forem suficientes.";
 			next;
 			mes .@n$;
-			mes "Em termos de custos m√≠nimos e m√°ximos para todo o trabalho,";
-			mes "Se o investimento coletado ^4d4dffFexceder os custos m√≠nimos ^000000, podemos conect√° -lo √† camada ^4D4DFDDEEPEST de uma masmorra de guilda desconhecida ^000000.";
+			mes "Em termos de custos mÌnimos e m·ximos para todo o trabalho,";
+			mes "Se o investimento coletado ^4d4dffFexceder os custos mÌnimos ^000000, podemos conect· -lo ‡ camada ^4D4DFDDEEPEST de uma masmorra de guilda desconhecida ^000000.";
 			next;
 			mes .@n$;
-			mes "Se os investimentos excederem os custos m√°ximos, essa regi√£o ser√° conectada ao";
+			mes "Se os investimentos excederem os custos m·ximos, essa regi„o ser· conectada ao";
 			mes "^4d4dffabyss gate^000000, independentemente do ranking de investimento, que inclui a camada mais profunda da masmorra da guilda.";
 			next;
 			mes .@n$;
-			mes "^ff0000SE se n√£o existe uma regi√£o agit que atinja o investimento m√°ximo, ent√£o a regi√£o com o";
-			mes "A participa√ß√£o mais alta do investimento far√° com que o Abyss Gate seja conectado ao investimento coletado de todas as regi√µes.^000000";
+			mes "^ff0000SE se n„o existe uma regi„o agit que atinja o investimento m·ximo, ent„o a regi„o com o";
+			mes "A participaÁ„o mais alta do investimento far· com que o Abyss Gate seja conectado ao investimento coletado de todas as regiıes.^000000";
 			next;
 			mes .@n$;
-			mes "Uma vez que o port√£o do abismo est√° conectado, a camada mais profunda (2f) da masmorra da guilda";
-			mes "estar√° aberto a todos os aventureiros que participaram do investimento regional.";
+			mes "Uma vez que o port„o do abismo est· conectado, a camada mais profunda (2f) da masmorra da guilda";
+			mes "estar· aberto a todos os aventureiros que participaram do investimento regional.";
 			next;
 			mes .@n$;
-			mes "As visitas √† masmorra ser√£o contadas para o pr√≥ximo investimento para a regi√£o AGIT";
-			mes "Portanto, estar em bons termos com a guilda que afirma que o castelo Agit ser√° um b√¥nus.";
+			mes "As visitas ‡ masmorra ser„o contadas para o prÛximo investimento para a regi„o AGIT";
+			mes "Portanto, estar em bons termos com a guilda que afirma que o castelo Agit ser· um bÙnus.";
 			next;
 			mes .@n$;
-			mes "A prop√≥sito, n√£o √© f√°cil manter a conex√£o com o Abyss Gate e os investimentos e a reconex√£o √© necess√°ria semanalmente";
-			mes "Portanto, continue seu apoio e investimento se voc√™ quiser o poder do desconhecido.";
+			mes "A propÛsito, n„o È f·cil manter a conex„o com o Abyss Gate e os investimentos e a reconex„o È necess·ria semanalmente";
+			mes "Portanto, continue seu apoio e investimento se vocÍ quiser o poder do desconhecido.";
 			close;
 		}
 	case 3:
 		if (checkweight(1201,1) == 0 || MaxWeight - Weight < 1000) {
-			mes "- Atualmente voc√™ est√° carregando -";
-			mes "- Muitos itens com voc√™. -";
-			mes "- Por favor, tente novamente depois de voc√™ -";
+			mes "- Atualmente vocÍ est· carregando -";
+			mes "- Muitos itens com vocÍ. -";
+			mes "- Por favor, tente novamente depois de vocÍ -";
 			mes "- Perca um pouco de peso. -";
 			close;
 		}
 		if (countitem(6488) >= 4800) {
 			mes .@n$;
-			mes "Voc√™ tem muitos ingressos de agradecimento para receber mais.";
-			mes "N√£o pode lhe dar mais ingressos. Por favor, use seu ingresso e volte.";
-			mes "O ingresso pode ser trocado com v√°rios itens em Malangdo.";
+			mes "VocÍ tem muitos ingressos de agradecimento para receber mais.";
+			mes "N„o pode lhe dar mais ingressos. Por favor, use seu ingresso e volte.";
+			mes "O ingresso pode ser trocado com v·rios itens em Malangdo.";
 			close;
 		}
 		if (callfunc("F_Invest_Status") != 1) {
 			mes .@n$;
-			mes "N√£o recebemos investimentos agora.";
-			mes "Por favor, volte durante a dura√ß√£o do investimento.";
+			mes "N„o recebemos investimentos agora.";
+			mes "Por favor, volte durante a duraÁ„o do investimento.";
 			close;
 		}
 		set .@guild, getcharid(2);
@@ -905,8 +905,8 @@ OnAgitInvest:
 				set .@menu$, .@menu$+"^aaaaaanot a guilda que reivindicou"+.@castle_name$[.@i]+"^000000:";
 		}
 		mes .@n$;
-		mes "Voc√™ gostaria de investir no ^4d4dff"+.@realm$+"^000000 Regi√£o?";
-		mes "Se j√° houver um castelo ocupado, voc√™ investir√° no castelo e na guilda que o est√° ocupando.";
+		mes "VocÍ gostaria de investir no ^4d4dff"+.@realm$+"^000000 Regi„o?";
+		mes "Se j· houver um castelo ocupado, vocÍ investir· no castelo e na guilda que o est· ocupando.";
 		next;
 		if (.@castles_owned) {
 			set .@i, select(.@menu$+"Cancelar");
@@ -917,8 +917,8 @@ OnAgitInvest:
 			}
 			if (.@guild != .@owner_id[.@i]) {
 				mes .@n$;
-				mes "A guilda que est√° ocupando"+.@castle_name$[.@i]+"√©"+.@owner_name$[.@i]+".";
-				mes "N√£o se parece com sua guilda.";
+				mes "A guilda que est· ocupando"+.@castle_name$[.@i]+"È"+.@owner_name$[.@i]+".";
+				mes "N„o se parece com sua guilda.";
 				close;
 			}
 			mes .@n$;
@@ -932,7 +932,7 @@ OnAgitInvest:
 		}
 	case 4:
 		mes .@n$;
-		mes "√â assim mesmo?";
+		mes "… assim mesmo?";
 		mes "Volte sempre que estiver interessado em investir no desenvolvimento do Abyss Gate.";
 		close;
 	}
@@ -943,7 +943,7 @@ OnAgitInvest:
 	if (compare(strnpcinfo(4),"zona")) {
 		set .@npc$,"zona";
 		set .@name$,"Alkor";
-		set .@gate$,"L√°grimas de her√≥i";
+		set .@gate$,"L·grimas de herÛi";
 		set .@realm$,"Luana";
 	} else if (compare(strnpcinfo(4),"Gef")) {
 		set .@npc$,"Gef";
@@ -965,18 +965,18 @@ OnAgitInvest:
 
 	if (callfunc("F_Invest_Status") != 3) {
 		mes .@n$;
-		mes "Atualmente, n√£o h√° port√µes de masmorra conectados.";
+		mes "Atualmente, n„o h· portıes de masmorra conectados.";
 		close;
 	}
 	set .@status, getd("$"+.@npc$+"_invest_result");
 	if (.@status == 3) {
 		mes .@n$;
-		mes "Conectamos com sucesso o port√£o do Abyss ["+.@gate$+"] com a ajuda do seu investimento.";
-		mes "A masmorra agit estar√° aberta a todos com uma pequena taxa de entrada em"+.@realm$+".";
+		mes "Conectamos com sucesso o port„o do Abyss ["+.@gate$+"] com a ajuda do seu investimento.";
+		mes "A masmorra agit estar· aberta a todos com uma pequena taxa de entrada em"+.@realm$+".";
 		next;
 		mes .@n$;
-		mes "Visite o mais r√°pido poss√≠vel, pois a taxa de entrada √© salva como um investimento para a regi√£o.";
-		mes "Voc√™ quer entrar na masmorra agit?";
+		mes "Visite o mais r·pido possÌvel, pois a taxa de entrada È salva como um investimento para a regi„o.";
+		mes "VocÍ quer entrar na masmorra agit?";
 		next;
 		set .@i, select(.@realm$+"Dungeon 1F - 10000Z:"+.@realm$+"Dungeon 2F - 10000Z: Cancelar");
 		if (.@i == 3) {
@@ -987,12 +987,12 @@ OnAgitInvest:
 		if (Zeny < 10000) {
 			mes .@n$;
 			mes "Estou coletando uma pequena taxa de entrada.";
-			mes "Sua contribui√ß√£o ser√° salva para o pr√≥ximo investimento.";
-			mes "A taxa de entrada √© 10000z.";
+			mes "Sua contribuiÁ„o ser· salva para o prÛximo investimento.";
+			mes "A taxa de entrada È 10000z.";
 			close;
 		}
 		mes .@n$;
-		mes "Estou enviando voc√™ para o"+.@realm$+"ACT DUGENON"+.@i+"F.";
+		mes "Estou enviando vocÍ para o"+.@realm$+"ACT DUGENON"+.@i+"F.";
 		set Zeny, Zeny-10000;
 		setd "$ FUND_"+.@npc$+"_extra", getd("$ FUND_"+.@npc$+"_extra") + 1;
 		close2;
@@ -1007,13 +1007,13 @@ OnAgitInvest:
 		end;
 	} else if (.@status == 2) {
 		mes .@n$;
-		mes "O"+.@realm$+"AGIT Dungeon 2F j√° est√° dispon√≠vel, mas como n√£o est√° conectado ao port√£o do abismo,";
-		mes "A masmorra de agit √© acess√≠vel apenas √† Guild Agit.";
+		mes "O"+.@realm$+"AGIT Dungeon 2F j· est· disponÌvel, mas como n„o est· conectado ao port„o do abismo,";
+		mes "A masmorra de agit È acessÌvel apenas ‡ Guild Agit.";
 		close;
 	} else {
 		mes .@n$;
-		mes .@realm$+"N√£o foi escolhido para estar conectado a um port√£o desta vez.";
-		mes "Aguarde a pr√≥xima dura√ß√£o do investimento.";
+		mes .@realm$+"N„o foi escolhido para estar conectado a um port„o desta vez.";
+		mes "Aguarde a prÛxima duraÁ„o do investimento.";
 		close;
 	}
 	end;
@@ -1037,7 +1037,7 @@ OnAgitInvest:
 		}
 		set .@notice, $agit_result_notice;
 		if (.@notice < 1 || .@notice > 12) {
-			mes "Atualmente, n√£o h√° somas de investimento dispon√≠veis.";
+			mes "Atualmente, n„o h· somas de investimento disponÌveis.";
 			close;
 		}
 		mes callfunc("F_GetNumSuffix",.@notice)+" total (unit in 10,000z)";
@@ -1052,29 +1052,29 @@ OnAgitInvest:
 		close;
 	} else if (.@invest_status == 2) {
 		mes "!- Perceber -!";
-		mes "Nenhuma som est√° dispon√≠vel porque o valor total do investimento est√° sendo calculado atualmente.";
-		mes "Aguarde o an√∫ncio dos resultados.";
+		mes "Nenhuma som est· disponÌvel porque o valor total do investimento est· sendo calculado atualmente.";
+		mes "Aguarde o an˙ncio dos resultados.";
 		close;
 	} else if (.@invest_status == 3) {
 		setarray .@invest_result[0], $prt_invest_result,$pay_invest_result,$gef_invest_result,$alde_invest_result;
 		setarray .@invest_region$[0],  "Reino de Valkyrie",  "Lago Greenwood",       "Britoniah",            "Luana";
-		mes "! - Resultados do investimento de todas as regi√µes AGIT -!";
+		mes "! - Resultados do investimento de todas as regiıes AGIT -!";
 		for(set .@i,0; .@i<4; set .@i,.@i+1) {
 			if (.@invest_result[.@i] == 1)
-				mes "^aaaaaa [["+.@invest_region$[.@i]+"] abaixo do m√≠nimo^000000";
+				mes "^aaaaaa [["+.@invest_region$[.@i]+"] abaixo do mÌnimo^000000";
 			else if (.@invest_result[.@i] == 2) {
-				mes "["+.@invest_region$[.@i]+"] M√≠nimo alcan√ßado";
-				mes "-> Camada mais profunda da masmorra da guilda (2F) dispon√≠vel";
+				mes "["+.@invest_region$[.@i]+"] MÌnimo alcanÁado";
+				mes "-> Camada mais profunda da masmorra da guilda (2F) disponÌvel";
 			} else if (.@invest_result[.@i] == 3) {
-				mes "^4d4dff ["+.@invest_region$[.@i]+"] M√°ximo alcan√ßado^000000";
-				mes "-> Abyss Gate dispon√≠vel";
+				mes "^4d4dff ["+.@invest_region$[.@i]+"] M·ximo alcanÁado^000000";
+				mes "-> Abyss Gate disponÌvel";
 			} else
 				mes "No data for ["+.@invest_region$[.@i]+"].";
 		}
 		close;
 	} else {
 		mes "!- Perceber -!";
-		mes "Nenhuma informa√ß√£o de investimento ser√° anunciada agora.";
+		mes "Nenhuma informaÁ„o de investimento ser· anunciada agora.";
 		close;
 	}
 }
@@ -1100,51 +1100,51 @@ OnAgitInvest:
 
 	set .@GID, getcastledata(strnpcinfo(4),CD_GUILD_ID);
 	if (getcharid(2) != .@GID) {
-		mes "[Gerente do port√£o]";
-		mes "Voc√™ n√£o parece ser o membro da Guild, dono deste castelo.";
+		mes "[Gerente do port„o]";
+		mes "VocÍ n„o parece ser o membro da Guild, dono deste castelo.";
 		mes "Se precisar de ajuda, visite qualquer um de nossos membros da guilda em"+.@realm$+"Quadrado.";
 		close;
 	}
-	mes "[Gerente do port√£o]";
+	mes "[Gerente do port„o]";
 	mes "Hello, I am the Gate Manager from Cat Paw Merchant Guild warp department.";
-	mes "Como posso ajud√° -lo hoje?";
+	mes "Como posso ajud· -lo hoje?";
 	next;
-	switch(select("Invista para a conex√£o com o port√£o: Acesso de masmorra de camada mais profunda: Acesso ao port√£o Abyss: Cancelar")) {
+	switch(select("Invista para a conex„o com o port„o: Acesso de masmorra de camada mais profunda: Acesso ao port„o Abyss: Cancelar")) {
 	case 1:
 		if (checkweight(1201,1) == 0 || MaxWeight - Weight < 1000) {
-			mes "[Gerente do port√£o]";
-			mes "Voc√™ tem muitos itens para receber o ingresso de agradecimento como um pequeno presente para o seu investimento.";
-			mes "Por favor, volte depois de abrir espa√ßo em seu invent√°rio.";
+			mes "[Gerente do port„o]";
+			mes "VocÍ tem muitos itens para receber o ingresso de agradecimento como um pequeno presente para o seu investimento.";
+			mes "Por favor, volte depois de abrir espaÁo em seu invent·rio.";
 			close;
 		}
 		if (countitem(6488) >= 4800) {
-			mes "[Gerente do port√£o]";
-			mes "Voc√™ tem muitos ingressos de agradecimento para receber mais.";
-			mes "N√£o pode lhe dar mais ingressos. Por favor, use seu ingresso e volte.";
-			mes "O ingresso pode ser trocado com v√°rios itens em Malangdo.";
+			mes "[Gerente do port„o]";
+			mes "VocÍ tem muitos ingressos de agradecimento para receber mais.";
+			mes "N„o pode lhe dar mais ingressos. Por favor, use seu ingresso e volte.";
+			mes "O ingresso pode ser trocado com v·rios itens em Malangdo.";
 			close;
 		}
 		if (callfunc("F_Invest_Status") != 1) {
-			mes "[Gerente do port√£o]";
-			mes "N√£o recebemos investimentos agora.";
-			mes "Por favor, volte durante a dura√ß√£o do investimento.";
+			mes "[Gerente do port„o]";
+			mes "N„o recebemos investimentos agora.";
+			mes "Por favor, volte durante a duraÁ„o do investimento.";
 			close;
 		}
 		if (getcharid(2) != .@GID) {
-			mes "[Gerente do port√£o]";
-			mes "Voc√™ n√£o parece ser o membro da guilda que possui este castelo.";
+			mes "[Gerente do port„o]";
+			mes "VocÍ n„o parece ser o membro da guilda que possui este castelo.";
 			mes "Por favor, use o investimento normal de"+.@realm$+"Quadrado.";
 			close;
 		}
-		mes "[Gerente do port√£o]";
+		mes "[Gerente do port„o]";
 		mes "Prossiga investindo sob seu nome de guilda.";
 		callfunc "F_Invest_Abyss","$fund_"+.@npc$+"0"+.@id,"[Gate Manager]";
 		end;
 	case 2:
 		callsub L_Enter,1,.@realm$,.@npc$;
-		mes "[Gerente do port√£o]";
-		mes "Voc√™ est√° interessado em explorar o"+.@realm$+"Camada mais profunda da masmorra da guilda (2F).";
-		mes "Deixe -me gui√° -lo. Boa sorte.";
+		mes "[Gerente do port„o]";
+		mes "VocÍ est· interessado em explorar o"+.@realm$+"Camada mais profunda da masmorra da guilda (2F).";
+		mes "Deixe -me gui· -lo. Boa sorte.";
 		close2;
 		if (compare(strnpcinfo(2),"zona")) {
 			switch(.@id) {
@@ -1182,8 +1182,8 @@ OnAgitInvest:
 		end;
 	case 3:
 		callsub L_Enter,2,.@realm$,.@npc$;
-		mes "[Gerente do port√£o]";
-		mes "Deixe -me gui√° -lo para a lacuna do abismo conectada com"+.@realm$+", o port√£o do abismo 'Caminho do guerreiro'.";
+		mes "[Gerente do port„o]";
+		mes "Deixe -me gui· -lo para a lacuna do abismo conectada com"+.@realm$+", o port„o do abismo 'Caminho do guerreiro'.";
 		close2;
 		if (compare(strnpcinfo(2),"zona")) {
 			switch(.@id) {
@@ -1220,7 +1220,7 @@ OnAgitInvest:
 		}
 		end;
 	case 4:
-		mes "[Gerente do port√£o]";
+		mes "[Gerente do port„o]";
 		mes "Cancelado.";
 		close;
 	}
@@ -1233,22 +1233,22 @@ L_Enter:
 		if ((getarg(0) == 1 && .@status == 2) || .@status == 3)
 			return;
 		else {
-			mes "[Gerente do port√£o]";
-			mes getarg(1)+"N√£o foi escolhido para estar conectado a um port√£o desta vez.";
-			mes "Aguarde a pr√≥xima dura√ß√£o do investimento.";
+			mes "[Gerente do port„o]";
+			mes getarg(1)+"N„o foi escolhido para estar conectado a um port„o desta vez.";
+			mes "Aguarde a prÛxima duraÁ„o do investimento.";
 			close;
 		}
 	} else if (.@invest_status < 3) {
-		mes "[Gerente do port√£o]";
-		mes "Atualmente, n√£o h√° port√µes de masmorra conectados.";
-		mes "Um port√£o ser√° conectado assim que os resultados do investimento estiverem dispon√≠veis.";
+		mes "[Gerente do port„o]";
+		mes "Atualmente, n„o h· portıes de masmorra conectados.";
+		mes "Um port„o ser· conectado assim que os resultados do investimento estiverem disponÌveis.";
 		mes "Por favor, aguarde.";
 		close;
 	} else {
-		mes "[Gerente do port√£o]";
-		mes "O port√£o desaparecer√° em breve.";
-		mes "A masmorra n√£o est√° mais acess√≠vel.";
-		mes "Por favor, tente novamente da pr√≥xima vez.";
+		mes "[Gerente do port„o]";
+		mes "O port„o desaparecer· em breve.";
+		mes "A masmorra n„o est· mais acessÌvel.";
+		mes "Por favor, tente novamente da prÛxima vez.";
 		close;
 	}
 }
@@ -1257,58 +1257,58 @@ L_Enter:
 //============================================================
 malangdo,218,126,4	script	Cat Paw Merchants Notice	857,{
 	mes "<< Cat Paw Merchants Aviso >>";
-	mes "'^C379ceinvest itens n√£o utilizados para pr√™mios!^000000'";
+	mes "'^C379ceinvest itens n„o utilizados para prÍmios!^000000'";
 	next;
-	switch(select("LEIA AVISO: VERIFICAR EVENTO 1: Evento de verifica√ß√£o 2")) {
+	switch(select("LEIA AVISO: VERIFICAR EVENTO 1: Evento de verificaÁ„o 2")) {
 	case 1:
 		mes "- Perceber -";
-		mes "Ol√°, todos os clientes de comerciantes de pata de gato! Com o seu amor, n√≥s, comerciantes de pata de gatos, estamos crescendo todos os dias. Todos os executivos e funcion√°rios prometem fazer o poss√≠vel para promover nossa fronteira e desenvolvimento.";
+		mes "Ol·, todos os clientes de comerciantes de pata de gato! Com o seu amor, nÛs, comerciantes de pata de gatos, estamos crescendo todos os dias. Todos os executivos e funcion·rios prometem fazer o possÌvel para promover nossa fronteira e desenvolvimento.";
 		next;
 		mes "- Aviso de evento! -";
-		mes "Um evento chamado itens n√£o utilizados '^C379CEInvest para pr√™mios!";
+		mes "Um evento chamado itens n„o utilizados '^C379CEInvest para prÍmios!";
 		next;
-		mes "Itens troc√°veis ‚Äã‚Äãser√£o anunciados em uma folha separada. Obrigado pelo seu tempo.";
-		mes "- De todos os funcion√°rios dos comerciantes de patas de gato -";
+		mes "Itens troc·veis ser„o anunciados em uma folha separada. Obrigado pelo seu tempo.";
+		mes "- De todos os funcion·rios dos comerciantes de patas de gato -";
 		next;
-		mes "H√° um pequeno aviso no fundo.";
+		mes "H· um pequeno aviso no fundo.";
 		mes "";
-		mes "^FF0000 Este evento seria alterado ou revogado devido √† situa√ß√£o dos comerciantes.^000000";
+		mes "^FF0000 Este evento seria alterado ou revogado devido ‡ situaÁ„o dos comerciantes.^000000";
 		close;
 	case 2:
-		mes "'^C379ceinvest itens n√£o utilizados para pr√™mios!^000000'";
+		mes "'^C379ceinvest itens n„o utilizados para prÍmios!^000000'";
 		mes "Existem detalhes do evento 1.";
 		next;
 		setarray .@event1$[0],
-			"Asas da rainha dos insetos","Coroa do rei da mosca","Eu ou√ßo que as escalas de drag√£o s√£o dif√≠ceis 01","O significado do pesadelo da m√£e",
-			"Para refinar min√©rio","Hekeks, ok !!","Estudo de Yin-yang","Segredos do rei da pir√¢mide","Tick-tock o tempo vai",
-			"Plantando √°rvores na ilha suave","Pesquisa de idiomas antiga","Armas feitas de dentes afiados","Doll",
-			"Um tigre √© apenas um gato afinal","A lan√ßa e o escudo quebrado?","Boneca do chefe de brinquedo 02","Melhor no ver√£o! Escalas frias",
-			"Peda√ßo da armadura de Thanatos","Eu ou√ßo que as escalas de drag√£o s√£o dif√≠ceis 02","A identidade do olho assustador","Se eu pudesse ver!";
+			"Asas da rainha dos insetos","Coroa do rei da mosca","Eu ouÁo que as escalas de drag„o s„o difÌceis 01","O significado do pesadelo da m„e",
+			"Para refinar minÈrio","Hekeks, ok !!","Estudo de Yin-yang","Segredos do rei da pir‚mide","Tick-tock o tempo vai",
+			"Plantando ·rvores na ilha suave","Pesquisa de idiomas antiga","Armas feitas de dentes afiados","Doll",
+			"Um tigre È apenas um gato afinal","A lanÁa e o escudo quebrado?","Boneca do chefe de brinquedo 02","Melhor no ver„o! Escalas frias",
+			"PedaÁo da armadura de Thanatos","Eu ouÁo que as escalas de drag„o s„o difÌceis 02","A identidade do olho assustador","Se eu pudesse ver!";
 		set .@menu$, "Desistir:"+implode(.@event1$[0],":");
 		while(1) {
 			set .@i, select(.@menu$)-1;
 			switch(.@i) {
 				case 0: close;
-				case 1: set .@str$,"2 peda√ßos de asa da rainha"; break;
+				case 1: set .@str$,"2 pedaÁos de asa da rainha"; break;
 				case 2: set .@str$,"2 coroas quebradas"; break;
-				case 3: set .@str$,"2 escalas de drag√£o de fogo"; break;
-				case 4: set .@str$,"3 pesadelos da m√£e"; break;
+				case 3: set .@str$,"2 escalas de drag„o de fogo"; break;
+				case 4: set .@str$,"3 pesadelos da m„e"; break;
 				case 5: set .@str$,"5 pedras preciosas"; break;
-				case 6: set .@str$,"5 emblemas her√≥icos"; break;
+				case 6: set .@str$,"5 emblemas herÛicos"; break;
 				case 7: set .@str$,"3 placas de taeguk"; break;
-				case 8: set .@str$,"3 s√≠mbolos de fara√≥ quebrados e 3 m√°scaras do Tutankhamen"; break;
-				case 9: set .@str$,"2 rel√≥gios de bolso"; break;
+				case 8: set .@str$,"3 sÌmbolos de faraÛ quebrados e 3 m·scaras do Tutankhamen"; break;
+				case 9: set .@str$,"2 relÛgios de bolso"; break;
 				case 10: set .@str$,"3 galhos jovens"; break;
 				case 11: set .@str$,"5 Rossata Pieces"; break;
 				case 12: set .@str$,"5 presas de garm"; break;
 				case 13: set .@str$,"3 bonecas Baphomet"; break;
 				case 14: set .@str$,"1 Pedra de Tiger e 5 peles de tigre"; break;
-				case 15: set .@str$,"3 peda√ßos de escudo quebrado e 3 l√¢minas de lan√ßa brilhantes"; break;
+				case 15: set .@str$,"3 pedaÁos de escudo quebrado e 3 l‚minas de lanÁa brilhantes"; break;
 				case 16: set .@str$,"3 bonecas Osiris"; break;
 				case 17: set .@str$,"1 escala de gelo"; break;
-				case 18: set .@str$,"1 pe√ßa de armadura esquel√©tica"; break;
-				case 19: set .@str$,"1 pe√ßa de escala escura"; break;
-				case 20: set .@str$,"2 testamentos de escurid√£o vermelha"; break;
+				case 18: set .@str$,"1 peÁa de armadura esquelÈtica"; break;
+				case 19: set .@str$,"1 peÁa de escala escura"; break;
+				case 20: set .@str$,"2 testamentos de escurid„o vermelha"; break;
 				case 21: set .@str$,"2 tolice dos cegos"; break;
 			}
 			mes "["+.@event1$[.@i-1]+"]";
@@ -1316,16 +1316,16 @@ malangdo,218,126,4	script	Cat Paw Merchants Notice	857,{
 			next;
 		}
 	case 3:
-		mes "Procure os pr√≥ximos itens n√£o utilizados por itens n√£o utilizados para pr√™mios!^000000 'Evento 2 !! Chegando em breve!";
+		mes "Procure os prÛximos itens n„o utilizados por itens n„o utilizados para prÍmios!^000000 'Evento 2 !! Chegando em breve!";
 		close;
 	}
 }
 
 malangdo,218,123,1	script	Namis#invest	545,4,4,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 1000) {
-		mes "- Atualmente voc√™ est√° carregando -";
-		mes "- Muitos itens com voc√™. -";
-		mes "- Por favor, tente novamente depois de voc√™ -";
+		mes "- Atualmente vocÍ est· carregando -";
+		mes "- Muitos itens com vocÍ. -";
+		mes "- Por favor, tente novamente depois de vocÍ -";
 		mes "- Perca um pouco de peso. -";
 		close;
 	}
@@ -1334,85 +1334,85 @@ malangdo,218,123,1	script	Namis#invest	545,4,4,{
 	emotion ET_ANGER;
 	mes "[Namis]";
 	mes "Purr-purr-purr-purr-purr ~ mEow !!";
-	mes "Wh-- o qu√™? Que rude. Voc√™ me assustou.";
+	mes "Wh-- o quÍ? Que rude. VocÍ me assustou.";
 	next;
-	switch(select("O que voc√™ precisa? Vou investir!: Qual √© o objetivo deste evento?: Voc√™ estava dormindo?")) {
+	switch(select("O que vocÍ precisa? Vou investir!: Qual È o objetivo deste evento?: VocÍ estava dormindo?")) {
 	case 1:
 		break;
 	case 2:
 		mes "[Namis]";
-		mes "Ent√£o, outra pessoa que n√£o √© contratada com os comerciantes de pata de gato?";
+		mes "Ent„o, outra pessoa que n„o È contratada com os comerciantes de pata de gato?";
 		next;
-		select("Huh? O que! Voc√™ me chama de pushver?");
+		select("Huh? O que! VocÍ me chama de pushver?");
 		mes "[Namis]";
-		mes "Vou dizer isso apenas uma vez, ent√£o voc√™ ouve bem!";
-		mes "N√≥s, os comerciantes de patas de gatos planejamos um evento para trabalhadores fi√©is como voc√™.";
-		next;
-		mes "[Namis]";
-		mes "Corra para o seu armazenamento e traga de volta as antiguidades apodrecentes para n√≥s e trocamos-as pelo oh-t√£o valioso 'Certificado de Investimento de Comerciantes de Pata Cat'.";
+		mes "Vou dizer isso apenas uma vez, ent„o vocÍ ouve bem!";
+		mes "NÛs, os comerciantes de patas de gatos planejamos um evento para trabalhadores fiÈis como vocÍ.";
 		next;
 		mes "[Namis]";
-		mes "Ser√° s√°bio para voc√™ faz√™ -lo, porque os comerciantes de patas de gato est√£o fazendo isso sem perigo!";
+		mes "Corra para o seu armazenamento e traga de volta as antiguidades apodrecentes para nÛs e trocamos-as pelo oh-t„o valioso 'Certificado de Investimento de Comerciantes de Pata Cat'.";
 		next;
 		mes "[Namis]";
-		mes "Os detalhes est√£o no aviso.";
+		mes "Ser· s·bio para vocÍ fazÍ -lo, porque os comerciantes de patas de gato est„o fazendo isso sem perigo!";
+		next;
+		mes "[Namis]";
+		mes "Os detalhes est„o no aviso.";
 		close;
 	case 3:
 		mes "[Namis]";
 		mes "Hick- slurp-";
-		mes "Lembre -se, humano! N√£o h√° outro gato que trabalhe tanto quanto eu.";
+		mes "Lembre -se, humano! N„o h· outro gato que trabalhe tanto quanto eu.";
 		close;
 	}
 	mes "[Namis]";
-	mes "Voc√™ deve estar aqui para participar dos itens n√£o utilizados '^C379CEInvest para obter pr√™mios!";
+	mes "VocÍ deve estar aqui para participar dos itens n„o utilizados '^C379CEInvest para obter prÍmios!";
 	next;
 	mes "[Namis]";
-	mes "Ent√£o, em que evento voc√™ deseja participar?";
+	mes "Ent„o, em que evento vocÍ deseja participar?";
 	next;
 	switch(select("Not interested:Event 1 Items:Event 2 Items")) {
 	case 1:
 		mes "[Namis]";
-		mes "Voc√™ n√£o mexe com um gato ocupado!";
+		mes "VocÍ n„o mexe com um gato ocupado!";
 		close;
 	case 2:
 		mes "[Namis]";
-		mes "Ent√£o voc√™ est√° no evento 1.";
+		mes "Ent„o vocÍ est· no evento 1.";
 		mes "Escolha na lista mostrada.";
 		next;
 		setarray .@event1$[0],
-			"Asas da rainha dos insetos","Coroa do rei da mosca","Eu ou√ßo que as escalas de drag√£o s√£o dif√≠ceis 01","O significado do pesadelo da m√£e",
-			"Para refinar min√©rio","Hekeks, ok !!","Estudo de Yin-yang","Segredos do rei da pir√¢mide","Tick-tock o tempo vai",
-			"Plantando √°rvores na ilha suave","Pesquisa de idiomas antiga","Armas feitas de dentes afiados","Doll",
-			"Um tigre √© apenas um gato afinal","A lan√ßa e o escudo quebrado?","Boneca do chefe de brinquedo 02","Melhor no ver√£o! Escalas frias",
-			"Peda√ßo da armadura de Thanatos","Eu ou√ßo que as escalas de drag√£o s√£o dif√≠ceis 02","A identidade do olho assustador","Se eu pudesse ver!";
+			"Asas da rainha dos insetos","Coroa do rei da mosca","Eu ouÁo que as escalas de drag„o s„o difÌceis 01","O significado do pesadelo da m„e",
+			"Para refinar minÈrio","Hekeks, ok !!","Estudo de Yin-yang","Segredos do rei da pir‚mide","Tick-tock o tempo vai",
+			"Plantando ·rvores na ilha suave","Pesquisa de idiomas antiga","Armas feitas de dentes afiados","Doll",
+			"Um tigre È apenas um gato afinal","A lanÁa e o escudo quebrado?","Boneca do chefe de brinquedo 02","Melhor no ver„o! Escalas frias",
+			"PedaÁo da armadura de Thanatos","Eu ouÁo que as escalas de drag„o s„o difÌceis 02","A identidade do olho assustador","Se eu pudesse ver!";
 		set .@i, select(implode(.@event1$[0],":"))-1;
 		switch(.@i+1) {
-			case 1: callsub L_Check,"2 peda√ßos de asa da rainha",6326,2,"Asas da rainha dos insetos? Que nome lament√°vel. Eu teria dado alguns nomes legais!",.@event1$[.@i];
-			case 2: callsub L_Check,"2 coroas quebradas",7754,2,"Por chorar em voz alta! Esses gatos que trabalham nesses eventos devem estar brincando. Eles n√£o conseguem pensar em um nome melhor?",.@event1$[.@i];
-			case 3: callsub L_Check,"2 escalas de drag√£o de fogo",7451,2,"Escalas de drag√£o? Bem ... acho que eles s√£o duros. Mas para que eles v√£o us√° -los?",.@event1$[.@i];
-			case 4: callsub L_Check,"3 pesadelos da m√£e",7020,3,"Embora eu n√£o tenha autoridade para descobrir, me pergunto o que eles est√£o fazendo com os itens coletados?",.@event1$[.@i];
-			case 5: callsub L_Check,"5 pedras preciosas",7300,5,"Algo √∫til para uma mudan√ßa. O min√©rio acabar√° como belas pe√ßas de j√≥ias.",.@event1$[.@i];
-			case 6: callsub L_Check,"5 emblemas her√≥icos",968,5,"Bom, bom. Este √© o tipo de nome que eu queria!",.@event1$[.@i];
+			case 1: callsub L_Check,"2 pedaÁos de asa da rainha",6326,2,"Asas da rainha dos insetos? Que nome lament·vel. Eu teria dado alguns nomes legais!",.@event1$[.@i];
+			case 2: callsub L_Check,"2 coroas quebradas",7754,2,"Por chorar em voz alta! Esses gatos que trabalham nesses eventos devem estar brincando. Eles n„o conseguem pensar em um nome melhor?",.@event1$[.@i];
+			case 3: callsub L_Check,"2 escalas de drag„o de fogo",7451,2,"Escalas de drag„o? Bem ... acho que eles s„o duros. Mas para que eles v„o us· -los?",.@event1$[.@i];
+			case 4: callsub L_Check,"3 pesadelos da m„e",7020,3,"Embora eu n„o tenha autoridade para descobrir, me pergunto o que eles est„o fazendo com os itens coletados?",.@event1$[.@i];
+			case 5: callsub L_Check,"5 pedras preciosas",7300,5,"Algo ˙til para uma mudanÁa. O minÈrio acabar· como belas peÁas de jÛias.",.@event1$[.@i];
+			case 6: callsub L_Check,"5 emblemas herÛicos",968,5,"Bom, bom. Este È o tipo de nome que eu queria!",.@event1$[.@i];
 			case 7: callsub L_Check,"3 placas de taeguk",7169,3,"Assumindo algo assim, talvez eles estejam tramando algo perigoso.",.@event1$[.@i];
-			case 8: callsub L_Check,"3 s√≠mbolos de fara√≥ quebrados e 3 m√°scaras do Tutankhamen",7113,3,"Ouvi dizer que as pir√¢mides est√£o em marrocc, mas nunca estive l√°. Alguns humanos chamam de Morco.",.@event1$[.@i],7114,3;
-			case 9: callsub L_Check,"2 rel√≥gios de bolso",7513,2,"Aqueles comerciantes pregui√ßosos, por que precisam de rel√≥gios de bolso que nem usam?",.@event1$[.@i];
-			case 10: callsub L_Check,"3 galhos jovens",7018,3,"Mellow Island tem um clima como onde n√≥s, gatos, mor√°vamos. Mas as √°rvores morrem √†s vezes por ser uma ilha.",.@event1$[.@i];
-			case 11: callsub L_Check,"5 Rossata Pieces",7211,5,"Eu acho que eles os coletam porque os humanos os t√™m, mas qual √© a utilidade da pesquisa de idiomas antigos?",.@event1$[.@i];
-			case 12: callsub L_Check,"5 presas de garm",7036,5,"Os seres humanos fracos precisam de armas afiadas, mas os gatos j√° t√™m garras agrad√°veis ‚Äã‚Äãe afiadas, ent√£o por que estamos coletando -os !!",.@event1$[.@i];
-			case 13: callsub L_Check,"3 bonecas Baphomet",750,3,"As bonecas Baphomet s√£o √≥timas para brincar.",.@event1$[.@i];
-			case 14: callsub L_Check,"1 Pedra de Tiger e 5 peles de tigre",1030,1,"Voc√™ sabia que os tigres tamb√©m s√£o gatos? Portanto, os gatos s√£o melhores que os tigres.",.@event1$[.@i],1029,5;
-			case 15: callsub L_Check,"3 peda√ßos de escudo quebrado e 3 l√¢minas de lan√ßa brilhantes",7108,3,"N√£o sei o que eles querem com isso.",.@event1$[.@i],7109,3;
-			case 16: callsub L_Check,"3 bonecas Osiris",751,3,"Vergonha ~ nunca tive que brincar com uma boneca de Os√≠ris.",.@event1$[.@i];
-			case 17: callsub L_Check,"1 escala de gelo",7562,1,"Mellow Island √© um lugar fabuloso para morar. Mas os navios est√£o muito quentes.",.@event1$[.@i];
-			case 18: callsub L_Check,"1 pe√ßa de armadura esquel√©tica",7450,1,"Ewww ... por que eles coletariam algo t√£o assustador?",.@event1$[.@i];
-			case 19: callsub L_Check,"1 pe√ßa de escala escura",6091,1,"Escalas de drag√£o? Bem ... acho que eles s√£o duros. Mas para que eles v√£o us√° -los?",.@event1$[.@i];
-			case 20: callsub L_Check,"2 testamentos de escurid√£o vermelha",7566,2,"Interessante! Ele grita ou algo assim quando eu a cutuca nos olhos?",.@event1$[.@i];
-			case 21: callsub L_Check,"2 tolice dos cegos",7021,2,"Este cego √© tolo em n√£o saber que reunir 300 gatos curam a cegueira ...",.@event1$[.@i];
+			case 8: callsub L_Check,"3 sÌmbolos de faraÛ quebrados e 3 m·scaras do Tutankhamen",7113,3,"Ouvi dizer que as pir‚mides est„o em marrocc, mas nunca estive l·. Alguns humanos chamam de Morco.",.@event1$[.@i],7114,3;
+			case 9: callsub L_Check,"2 relÛgios de bolso",7513,2,"Aqueles comerciantes preguiÁosos, por que precisam de relÛgios de bolso que nem usam?",.@event1$[.@i];
+			case 10: callsub L_Check,"3 galhos jovens",7018,3,"Mellow Island tem um clima como onde nÛs, gatos, mor·vamos. Mas as ·rvores morrem ‡s vezes por ser uma ilha.",.@event1$[.@i];
+			case 11: callsub L_Check,"5 Rossata Pieces",7211,5,"Eu acho que eles os coletam porque os humanos os tÍm, mas qual È a utilidade da pesquisa de idiomas antigos?",.@event1$[.@i];
+			case 12: callsub L_Check,"5 presas de garm",7036,5,"Os seres humanos fracos precisam de armas afiadas, mas os gatos j· tÍm garras agrad·veis e afiadas, ent„o por que estamos coletando -os !!",.@event1$[.@i];
+			case 13: callsub L_Check,"3 bonecas Baphomet",750,3,"As bonecas Baphomet s„o Ûtimas para brincar.",.@event1$[.@i];
+			case 14: callsub L_Check,"1 Pedra de Tiger e 5 peles de tigre",1030,1,"VocÍ sabia que os tigres tambÈm s„o gatos? Portanto, os gatos s„o melhores que os tigres.",.@event1$[.@i],1029,5;
+			case 15: callsub L_Check,"3 pedaÁos de escudo quebrado e 3 l‚minas de lanÁa brilhantes",7108,3,"N„o sei o que eles querem com isso.",.@event1$[.@i],7109,3;
+			case 16: callsub L_Check,"3 bonecas Osiris",751,3,"Vergonha ~ nunca tive que brincar com uma boneca de OsÌris.",.@event1$[.@i];
+			case 17: callsub L_Check,"1 escala de gelo",7562,1,"Mellow Island È um lugar fabuloso para morar. Mas os navios est„o muito quentes.",.@event1$[.@i];
+			case 18: callsub L_Check,"1 peÁa de armadura esquelÈtica",7450,1,"Ewww ... por que eles coletariam algo t„o assustador?",.@event1$[.@i];
+			case 19: callsub L_Check,"1 peÁa de escala escura",6091,1,"Escalas de drag„o? Bem ... acho que eles s„o duros. Mas para que eles v„o us· -los?",.@event1$[.@i];
+			case 20: callsub L_Check,"2 testamentos de escurid„o vermelha",7566,2,"Interessante! Ele grita ou algo assim quando eu a cutuca nos olhos?",.@event1$[.@i];
+			case 21: callsub L_Check,"2 tolice dos cegos",7021,2,"Este cego È tolo em n„o saber que reunir 300 gatos curam a cegueira ...",.@event1$[.@i];
 		}
 	case 3:
 		mes "[Namis]";
 		mes "Participar do evento 2?";
-		mes "Ainda n√£o est√° em movimento. Espere por isso!";
+		mes "Ainda n„o est· em movimento. Espere por isso!";
 		close;
 	}
 	end;
@@ -1426,22 +1426,22 @@ L_Check:
 	}
 	if (countitem(getarg(1)) < getarg(2) || .@items == 1) {
 		mes "[Namis]";
-		mes "Voc√™ n√£o tem os itens?";
+		mes "VocÍ n„o tem os itens?";
 		mes getarg(0)+"Exchange para um certificado de investimento de comerciantes de uma pata de gato.";
 		next;
 		mes "[Namis]";
-		mes "N√£o me incomode e procure os detalhes do quadro ali!";
+		mes "N„o me incomode e procure os detalhes do quadro ali!";
 		close;
 	}
 	mes "[Namis]";
 	mes "'^8e5601"+getarg(4)+"Evento^000000 '";
 	mes "Parece ser os itens certos.";
 	mes getarg(3);
-	mes "Oh! Quase esqueci. Voc√™ vai investir?";
+	mes "Oh! Quase esqueci. VocÍ vai investir?";
 	next;
-	if(select("Invest: n√£o invista") == 2) {
+	if(select("Invest: n„o invista") == 2) {
 		mes "[Namis]";
-		mes "Voc√™ n√£o mexe com um gato ocupado!";
+		mes "VocÍ n„o mexe com um gato ocupado!";
 		close;
 	}
 	delitem getarg(1),getarg(2);
@@ -1449,7 +1449,7 @@ L_Check:
 		delitem getarg(5),getarg(6);
 	getitem 6489,1; //Cats_Invest_Certif
 	mes "[Namis]";
-	mes "Aqui est√° o seu certificado. Sempre seja grato aos comerciantes por esses eventos!";
+	mes "Aqui est· o seu certificado. Sempre seja grato aos comerciantes por esses eventos!";
 	close;
 OnTouch:
 	if (rand(2))
@@ -1463,26 +1463,26 @@ OnTouch:
 //============================================================
 malangdo,215,119,4	script	Thanks Ticket Machine	564,{
 	if (MaxWeight - Weight < 4500 || checkweight(1201,1) == 0) {
-		mes "- Atualmente voc√™ est√° carregando -";
-		mes "- Muitos itens com voc√™. -";
-		mes "- Por favor, tente novamente depois de voc√™ -";
+		mes "- Atualmente vocÍ est· carregando -";
+		mes "- Muitos itens com vocÍ. -";
+		mes "- Por favor, tente novamente depois de vocÍ -";
 		mes "- Perca um pouco de peso. -";
 		close;
 	}
-	mes "[Aviso de m√°quina de venda autom√°tica]";
-	mes "^6815ea1. N√£o chute a m√°quina, por favor. @_@";
-	mes "2. Voc√™ s√≥ pode inserir o ingresso de agradecimento de investir.";
-	mes "3. Sobre a caixa de gel√©ia, se voc√™ a abrir, ela fornece um item aleat√≥rio.";
-	mes "4. Espero que voc√™ goste ~^000000";
-	mes "- Sr. Cat, o propriet√°rio da m√°quina -";
+	mes "[Aviso de m·quina de venda autom·tica]";
+	mes "^6815ea1. N„o chute a m·quina, por favor. @_@";
+	mes "2. VocÍ sÛ pode inserir o ingresso de agradecimento de investir.";
+	mes "3. Sobre a caixa de gelÈia, se vocÍ a abrir, ela fornece um item aleatÛrio.";
+	mes "4. Espero que vocÍ goste ~^000000";
+	mes "- Sr. Cat, o propriet·rio da m·quina -";
 	next;
-	switch(select("Acabamento: Compra: Bolsa de gel√©ia de pata vermelha (5 ingressos): Bolsa de gel√©ia de pata preta (50 ingressos)")) {
+	switch(select("Acabamento: Compra: Bolsa de gelÈia de pata vermelha (5 ingressos): Bolsa de gelÈia de pata preta (50 ingressos)")) {
 	case 1:
 		close;
 	case 2:
-		mes "A m√°quina de venda autom√°tica est√° vendendo itens na lista a seguir.";
+		mes "A m·quina de venda autom·tica est· vendendo itens na lista a seguir.";
 		next;
-		switch(select("Acabamento: 1 aljava de seta de cerco a (2 bilhetes): 1 aljava de seta de cerco (2 bilhetes): 30 Po√ß√£o branca (12 bilhetes): 30 Po√ß√£o branca Slim (14 bilhetes): 10 √°gua escura (20 bilhetes): 20 Siege_Violet_potion ( 30 ingressos): 10 po√ß√£o √† prova de frio (30 bilhetes): 10 po√ß√£o √† prova de trov√µes (30 bilhetes): 10 po√ß√£o √† prova de terra (30 bilhetes): 10 √† prova de fogo Po√ß√£o (30 bilhetes): 10 conversor elementar [inc√™ndio] (30 bilhetes): 10 conversor elementar [√°gua] (30 bilhetes): 10 conversor elementar [vento] (30 bilhetes): 10 conversor elementar [Terra] (30 bilhetes)")) {
+		switch(select("Acabamento: 1 aljava de seta de cerco a (2 bilhetes): 1 aljava de seta de cerco (2 bilhetes): 30 PoÁ„o branca (12 bilhetes): 30 PoÁ„o branca Slim (14 bilhetes): 10 ·gua escura (20 bilhetes): 20 Siege_Violet_potion ( 30 ingressos): 10 poÁ„o ‡ prova de frio (30 bilhetes): 10 poÁ„o ‡ prova de trovıes (30 bilhetes): 10 poÁ„o ‡ prova de terra (30 bilhetes): 10 ‡ prova de fogo PoÁ„o (30 bilhetes): 10 conversor elementar [incÍndio] (30 bilhetes): 10 conversor elementar [·gua] (30 bilhetes): 10 conversor elementar [vento] (30 bilhetes): 10 conversor elementar [Terra] (30 bilhetes)")) {
 			case 1: close;
 			case 2: callsub L_Purchase,2,12678,1; //Siege_Arrow_Quiver_A
 			case 3: callsub L_Purchase,2,12677,1; //Siege_Arrow_Quiver_S
@@ -1494,17 +1494,17 @@ malangdo,215,119,4	script	Thanks Ticket Machine	564,{
 			case 9: callsub L_Purchase,30,12121,10; //Resist_Wind
 			case 10: callsub L_Purchase,30,12120,10; //Resist_Earth
 			case 11: callsub L_Purchase,30,12118,10; //Resist_Fire
-			case 12: callsub L_Purchase,30,12114,10,"Conversor elementar [inc√™ndio]"; //Elemental_Fire
-			case 13: callsub L_Purchase,30,12115,10,"Conversor elementar [√°gua]"; //Elemental_Water
+			case 12: callsub L_Purchase,30,12114,10,"Conversor elementar [incÍndio]"; //Elemental_Fire
+			case 13: callsub L_Purchase,30,12115,10,"Conversor elementar [·gua]"; //Elemental_Water
 			case 14: callsub L_Purchase,30,12117,10,"Conversor elementar [vento]"; //Elemental_Wind
 			case 15: callsub L_Purchase,30,12116,10,"Conversor Elementar [Terra]"; //Elemental_Earth
 		}
 		end;
 	case 3:
-		mes "Bot√£o de sacola de gel√©ia de pata vermelha escolhida. Precisa inserir 5 ^ff0000invest Agradecimentos ^000000 e um item aleat√≥rio aparecer√°.";
+		mes "Bot„o de sacola de gelÈia de pata vermelha escolhida. Precisa inserir 5 ^ff0000invest Agradecimentos ^000000 e um item aleatÛrio aparecer·.";
 		next;
 		if (countitem(6488) < 5) {
-			mes "Voc√™ n√£o tem o suficiente ^ff0000invest Agradecimentos ^000000 para prosseguir.";
+			mes "VocÍ n„o tem o suficiente ^ff0000invest Agradecimentos ^000000 para prosseguir.";
 			close;
 		}
 		delitem 6488,5; //Thanks_Invest_Ticket
@@ -1528,8 +1528,8 @@ malangdo,215,119,4	script	Thanks Ticket Machine	564,{
 		else if (.@i <= 1871) callsub L_Bag,12030,5; //Box_Of_Grudge
 		else if (.@i <= 2071) callsub L_Bag,12031,5; //Sleepy_Box
 		else if (.@i <= 2371) callsub L_Bag,12033,2; //Box_Of_Sunlight
-		else if (.@i <= 2571) callsub L_Bag,12114,5,"Conversor elementar [inc√™ndio]"; //Elemental_Fire
-		else if (.@i <= 2771) callsub L_Bag,12115,5,"Conversor elementar [√°gua]"; //Elemental_Water
+		else if (.@i <= 2571) callsub L_Bag,12114,5,"Conversor elementar [incÍndio]"; //Elemental_Fire
+		else if (.@i <= 2771) callsub L_Bag,12115,5,"Conversor elementar [·gua]"; //Elemental_Water
 		else if (.@i <= 2971) callsub L_Bag,12117,5,"Conversor elementar [vento]"; //Elemental_Wind
 		else if (.@i <= 3171) callsub L_Bag,12116,5,"Conversor Elementar [Terra]"; //Elemental_Earth
 		else if (.@i <= 3271) callsub L_Bag,12680,1; //Sg_Blue_Potion_Box
@@ -1570,10 +1570,10 @@ malangdo,215,119,4	script	Thanks Ticket Machine	564,{
 		else callsub L_Bag,12016,10; //Speed_Up_Potion
 		end;
 	case 4:
-		mes "Bot√£o Black Paw Jelly Bag Office. Precisa inserir 50 ^ff0000Invest Agradecimentos ^000000 e um item aleat√≥rio aparecer√°.";
+		mes "Bot„o Black Paw Jelly Bag Office. Precisa inserir 50 ^ff0000Invest Agradecimentos ^000000 e um item aleatÛrio aparecer·.";
 		next;
 		if (countitem(6488) < 50) {
-			mes "Voc√™ n√£o tem o suficiente ^ff0000invest Agradecimentos ^000000 para prosseguir.";
+			mes "VocÍ n„o tem o suficiente ^ff0000invest Agradecimentos ^000000 para prosseguir.";
 			close;
 		}
 		delitem 6488,50; //Thanks_Invest_Ticket
@@ -1597,8 +1597,8 @@ malangdo,215,119,4	script	Thanks Ticket Machine	564,{
 		else if (.@i <= 1440) callsub L_Bag,12030,10; //Box_Of_Grudge
 		else if (.@i <= 1540) callsub L_Bag,12031,10; //Sleepy_Box
 		else if (.@i <= 1690) callsub L_Bag,12033,4; //Box_Of_Sunlight
-		else if (.@i <= 1790) callsub L_Bag,12114,10,"Conversor elementar [inc√™ndio]"; //Elemental_Fire
-		else if (.@i <= 1890) callsub L_Bag,12115,10,"Conversor elementar [√°gua]"; //Elemental_Water
+		else if (.@i <= 1790) callsub L_Bag,12114,10,"Conversor elementar [incÍndio]"; //Elemental_Fire
+		else if (.@i <= 1890) callsub L_Bag,12115,10,"Conversor elementar [·gua]"; //Elemental_Water
 		else if (.@i <= 1990) callsub L_Bag,12117,10,"Conversor elementar [vento]"; //Elemental_Wind
 		else if (.@i <= 2090) callsub L_Bag,12116,10,"Conversor Elementar [Terra]"; //Elemental_Earth
 		else if (.@i <= 2190) callsub L_Bag,12680,1; //Sg_Blue_Potion_Box
@@ -1652,7 +1652,7 @@ malangdo,215,119,4	script	Thanks Ticket Machine	564,{
 //callsub L_Purchase,<ticket cost>,<reward ID>,<reward amount>{,<reward name>};
 L_Purchase:
 	if (countitem(6488) < getarg(0)) {
-		mes "Voc√™ n√£o tem o suficiente ^ff0000invest Agradecimentos ^000000 para prosseguir.";
+		mes "VocÍ n„o tem o suficiente ^ff0000invest Agradecimentos ^000000 para prosseguir.";
 		close;
 	}
 	delitem 6488,getarg(0); //Thanks_Invest_Ticket

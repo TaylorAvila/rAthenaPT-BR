@@ -15,24 +15,24 @@
 
 prt_castle,80,170,4	script	King of Prontera	108,{
 	mes "[Rei de Protera]";
-	mes "OlÃ¡, vocÃª pode me ajudar?";
+	mes "Olá, você pode me ajudar?";
 	next;
 	if(select("Claro, o que posso fazer?: Desculpe, estou ocupado.")==2) {
 		mes "[Rei de Protera]";
-		mes "Ok, tudo bem, tenho certeza de que outra pessoa ajudarÃ¡.";
+		mes "Ok, tudo bem, tenho certeza de que outra pessoa ajudará.";
 		close; }
 	mes "[Rei de Protera]";
-	mes "Obrigado. Bem, minha filha ao meu lado Ã© um pouco turbulenta ...";
-	mes "Se vocÃª conseguir esses itens, tenho certeza de que ela se acalma.";
+	mes "Obrigado. Bem, minha filha ao meu lado é um pouco turbulenta ...";
+	mes "Se você conseguir esses itens, tenho certeza de que ela se acalma.";
 	mes "Vou te dar minha coroa ou minha espada como recompensa.";
 	next;
 	setarray .@Items1[0],5007,742,30,741,50,753,20,732,1,710,20,629,20;
 	setarray .@Items2[0],1137,2254,1,2282,1,714,1;
-	switch(select("O que vocÃª precisa ?: Eu tenho os itens !: EsqueÃ§a.")) {
+	switch(select("O que você precisa ?: Eu tenho os itens !: Esqueça.")) {
 		case 1:
 			for(set .@i,1; .@i<3; set .@i,.@i+1) {
 				mes "[Rei de Protera]";
-				mes "Se vocÃª pudesse me pegar:";
+				mes "Se você pudesse me pegar:";
 				for(set .@j,1; .@j<getarraysize(getd(".@Unid"+.@i)); set .@j,.@j+2)
 					mes "~ ^0055ff"+getd(".@Unid"+.@i+"["+(.@j+1)+"]")+"^000000X"+getitemname(getd(".@Unid"+.@i+"["+.@j+"]"));
 				mes "Eu vou dar o meu"+((.@i == 2 )?"espada.":"coroa.");
@@ -40,14 +40,14 @@ prt_castle,80,170,4	script	King of Prontera	108,{
 				next; }
 		case 2:
 			mes "[Rei de Protera]";
-			mes "Que item vocÃª quer?";
+			mes "Que item você quer?";
 			next;
 			set .@i, select("Coroa: Espada");
 			for(set .@j,1; .@j<getarraysize(getd(".@Unid"+.@i)); set .@j,.@j+2)
 				if (countitem(getd(".@Unid"+.@i+"["+.@j+"]")) < getd(".@Unid"+.@i+"["+(.@j+1)+"]")) set .@nr,1;
 			mes "[Rei de Protera]";
 			if (.@nr) { 
-				mes "VocÃª estÃ¡ perdendo alguma coisa.";
+				mes "Você está perdendo alguma coisa.";
 				mes "Volte depois de receber todos os itens.";
 				close; }
 			for(set .@j,1; .@j<getarraysize(getd(".@Unid"+.@i)); set .@j,.@j+2)
@@ -55,11 +55,11 @@ prt_castle,80,170,4	script	King of Prontera	108,{
 			getitem getd(".@Unid"+.@i+"[0]"),1;
 			mes "Muito obrigado !!";
 			mes "Isso certamente a acalma.";
-			mes "Como prometido, aqui estÃ¡ o meu"+((.@i==1)?"coroa.":"espada.");
+			mes "Como prometido, aqui está o meu"+((.@i==1)?"coroa.":"espada.");
 			close;
 		case 3:
 			mes "[Rei de Protera]";
-			mes "Ok, tudo bem, tenho certeza de que outra pessoa ajudarÃ¡.";
+			mes "Ok, tudo bem, tenho certeza de que outra pessoa ajudará.";
 			close;
 	}
 }
@@ -68,12 +68,12 @@ prt_castle,84,170,4	script	King's Daughter	62,{
 	mes "[Filha do rei]";
 	mes "Hmph, eu odeio meu pai agora !!";
 	next;
-	if(select("Por quÃª ?: Tanto quanto ...")==2) {
+	if(select("Por quê ?: Tanto quanto ...")==2) {
 		mes "[Filha do rei]";
-		mes "Tudo bem entÃ£o! Hmph !!";
+		mes "Tudo bem então! Hmph !!";
 		close; }
 	mes "[Filha do rei]";
-	mes "Bem, ele nÃ£o vai me dar o que eu quero !!";
-	mes "Ele Ã© o rei de Protera. Ele deve ser capaz de me pegar qualquer coisa !!!";
+	mes "Bem, ele não vai me dar o que eu quero !!";
+	mes "Ele é o rei de Protera. Ele deve ser capaz de me pegar qualquer coisa !!!";
 	close;
 }

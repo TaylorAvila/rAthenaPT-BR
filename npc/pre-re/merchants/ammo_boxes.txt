@@ -17,10 +17,10 @@
 que_ng,187,149,3	script	Magazine Dealer Kenny::mdk	4_M_01,{
 	mes "[Kenny]";
 	if (BaseClass == Job_Gunslinger) {
-		mes "Bem -vindo Ã  minha loja de revistas.";
-		mes "Como vocÃª deve saber, grandes nÃºmeros";
+		mes "Bem -vindo à minha loja de revistas.";
+		mes "Como você deve saber, grandes números";
 		mes "de balas podem ser transportadas mais";
-		mes "facilmente quando eles estÃ£o em revistas. Agora, posso lhe interessar em";
+		mes "facilmente quando eles estão em revistas. Agora, posso lhe interessar em";
 		mes "alguma coisa em particular?";
 		next;
 		switch(select("Pacote de esfera do vento: Shadow Sphere Pack: Poison Sphere Pack: Water Sphere Pack: Fire Sphere Pack: Cartucho: Cartucho de Sangue: Cartucho de Prata: Cancelar")) {
@@ -34,25 +34,25 @@ que_ng,187,149,3	script	Magazine Dealer Kenny::mdk	4_M_01,{
 		case 8: callsub S_Casing,13201,12151;
 		case 9:
 			mes "[Kenny]";
-			mes "Bem, se vocÃª encontrar";
-			mes "que vocÃª tem muitos";
+			mes "Bem, se você encontrar";
+			mes "que você tem muitos";
 			mes "balas, venha me ver.";
-			mes "Ã‰ uma ideia inteligente para armazenar";
+			mes "É uma ideia inteligente para armazenar";
 			mes "balas com minhas revistas.";
 			close;
 		}
 	}
-	mes "Bem -vindo Ã  minha loja.";
-	mes "Aqui, eu forneÃ§o revistas";
+	mes "Bem -vindo à minha loja.";
+	mes "Aqui, eu forneço revistas";
 	mes "e cartuchos para pistoleiros.";
-	mes "Desculpe, mas nÃ£o parece";
-	mes "Meus serviÃ§os seriam de qualquer";
-	mes "Use a vocÃª, aventureiro.";
+	mes "Desculpe, mas não parece";
+	mes "Meus serviços seriam de qualquer";
+	mes "Use a você, aventureiro.";
 	next;
 	mes "[Kenny]";
-	mes "Eh, mas se vocÃª acontecer";
-	mes "ConheÃ§a qualquer pistoleiro, envie";
-	mes "eles do meu jeito. VocÃª nunca pode";
+	mes "Eh, mas se você acontecer";
+	mes "Conheça qualquer pistoleiro, envie";
+	mes "eles do meu jeito. Você nunca pode";
 	mes "tem muitas balas.";
 	close;
 
@@ -61,10 +61,10 @@ S_Casing:
 	.@pack_id = getarg(1);
 
 	mes "[Kenny]";
-	mes "Agora, vocÃª pode negociar";
+	mes "Agora, você pode negociar";
 	mes callfunc("F_InsertPlural",500,getitemname(.@bullet_id));
-	mes "e 500 Zeny para 1"+getitemname(.@pack_id)+", entÃ£o certifique -se de";
-	mes "VocÃª tem balas suficientes";
+	mes "e 500 Zeny para 1"+getitemname(.@pack_id)+", então certifique -se de";
+	mes "Você tem balas suficientes";
 	mes "e Zeny para esta troca.";
 	next;
 	mes "[Kenny]";
@@ -72,55 +72,55 @@ S_Casing:
 	mes "com 1"+getitemname(.@pack_id)+".";
 	next;
 	mes "[Kenny]";
-	mes "Lembre -se de que nÃ£o posso dar";
-	mes "VocÃªs mais de 50 revistas";
+	mes "Lembre -se de que não posso dar";
+	mes "Vocês mais de 50 revistas";
 	mes "de cada vez. Agora, por favor, digite";
-	mes "o nÃºmero de revistas que vocÃª";
-	mes "quero receber. Se vocÃª deseja cancelar, basta entrar '' 0. ''";
+	mes "o número de revistas que você";
+	mes "quero receber. Se você deseja cancelar, basta entrar '' 0. ''";
 	next;
 	input .@amount;
 	mes "[Kenny]";
 	if (.@amount > 50 || .@amount == 0) {
-		mes "Ei, eu nÃ£o posso te dar";
+		mes "Ei, eu não posso te dar";
 		mes "tantas revistas.";
 		mes "Por favor, tente novamente e";
-		mes "Digite um nÃºmero nÃ£o";
+		mes "Digite um número não";
 		mes "maior que 50.";
 	}
 	else if (countitem(.@bullet_id) >= (500*.@amount)) {
 		if (Zeny >= (500*.@amount)) {
 			if (checkweight(.@pack_id,.@amount) == 0) {
-				mes "Ei, vocÃª tem muito";
+				mes "Ei, você tem muito";
 				mes "de lixo amontoado em seu";
-				mes "InventÃ¡rio. Liberte alguns";
-				mes "espaÃ§o e depois volte";
+				mes "Inventário. Liberte alguns";
+				mes "espaço e depois volte";
 				mes "e trocar suas balas por";
 				mes "Algumas revistas depois, ok?";
 			} else {
-				mes "Tudo bem, aqui estÃ£o";
+				mes "Tudo bem, aqui estão";
 				mes "suas revistas. Obrigado";
 				mes "para visitar minha loja e";
-				mes "Espero que vocÃª use tudo";
-				mes "da sua muniÃ§Ã£o sabiamente.";
+				mes "Espero que você use tudo";
+				mes "da sua munição sabiamente.";
 				Zeny = Zeny -500*.@amount;
 				delitem .@bullet_id,(500*.@amount);
 				getitem .@pack_id,.@amount;
 			}
 		} else {
-			mes "Desculpe, mas vocÃª nÃ£o";
+			mes "Desculpe, mas você não";
 			mes "tem zeny suficiente para";
 			mes "Esta troca de revistas.";
 			mes "Volte para minha loja";
-			mes "Depois que vocÃª salvou";
+			mes "Depois que você salvou";
 			mes "Mais um pouco de dinheiro.";
 		}
 	} else {
-		mes "Desculpe, mas vocÃª nÃ£o";
+		mes "Desculpe, mas você não";
 		mes "tem balas suficientes para";
 		mes "Esta troca de revistas.";
-		mes "Talvez vocÃª deva dobrar";
-		mes "Verifique seu inventÃ¡rio e";
-		mes "EntÃ£o volte para mim mais tarde.";
+		mes "Talvez você deva dobrar";
+		mes "Verifique seu inventário e";
+		mes "Então volte para mim mais tarde.";
 	}
 	close;
 }

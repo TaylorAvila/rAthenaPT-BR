@@ -14,18 +14,18 @@
 
 y_airport,143,43,5	script	Airport Staff#y_air1a::y_airport1	90,{
 	mes "[Equipe do aeroporto]";
-	mes "Bem -vindo ao aeroporto de Juno, onde oferecemos voos domésticos para Einbroch, Lighthalzen e Hugel,";
-	mes "e vôos internacionais para Izlude e Rachel.";
-	mes "Como posso ser de serviço?";
+	mes "Bem -vindo ao aeroporto de Juno, onde oferecemos voos domsticos para Einbroch, Lighthalzen e Hugel,";
+	mes "e vos internacionais para Izlude e Rachel.";
+	mes "Como posso ser de servio?";
 	next;
-	if (select("Embarque no dirigível .: Cancel.") == 1) {
+	if (select("Embarque no dirigvel .: Cancel.") == 1) {
 		mes "[Equipe do aeroporto]";
 		mes "A taxa de embarque para todos";
-		mes "Os vôos são 1.200 Zeny. Se você";
+		mes "Os vos so 1.200 Zeny. Se voc";
 		mes "Use um bilhete gratuito para aeronave,";
-		mes "A taxa de embarque será dispensada. Então você gostaria de partir?";
+		mes "A taxa de embarque ser dispensada. Ento voc gostaria de partir?";
 		next;
-		if (select("Sim: Não") == 1) {
+		if (select("Sim: No") == 1) {
 			if (countitem(7311) > 0) {
 				delitem 7311,1; //Free_Flying_Ship_Ticket
 				warp "y_airport",148,51;
@@ -37,7 +37,7 @@ y_airport,143,43,5	script	Airport Staff#y_air1a::y_airport1	90,{
 				end;
 			}
 			mes "[Equipe do aeroporto]";
-			mes "Sinto muito, mas você não";
+			mes "Sinto muito, mas voc no";
 			mes "Tenha 1.200 Zeny para pagar";
 			mes "para a taxa de embarque.";
 			close;
@@ -54,27 +54,27 @@ y_airport,126,43,5	duplicate(y_airport1)	Airport Staff#y_air1c	90
 
 y_airport,143,49,3	script	Arrival Staff#y_air2a::y_airport2	90,{
 	mes "[Equipe do aeroporto]";
-	mes "Bem -vindo ao aeroporto de Juno. Se você acabou de chegar do seu";
-	mes "Voo, deixe -me guiá -lo para o terminal principal. Caso contrário, por favor";
-	mes "embarque no dirigível que partiu para chegar ao destino pretendido.";
+	mes "Bem -vindo ao aeroporto de Juno. Se voc acabou de chegar do seu";
+	mes "Voo, deixe -me gui -lo para o terminal principal. Caso contrrio, por favor";
+	mes "embarque no dirigvel que partiu para chegar ao destino pretendido.";
 	next;
 	if (select("Saia para o Terminal Principal: Cancelar") == 1) {
 		mes "[Equipe do aeroporto]";
-		mes "Quando estiver no terminal principal, você deve pagar a taxa mais uma vez";
-		mes "Para embarcar em um dirigível que partiu. Você só deve sair se for o seu pretendido";
-		mes "Destino é Juno. Prosseguir para";
+		mes "Quando estiver no terminal principal, voc deve pagar a taxa mais uma vez";
+		mes "Para embarcar em um dirigvel que partiu. Voc s deve sair se for o seu pretendido";
+		mes "Destino  Juno. Prosseguir para";
 		mes "Sair para o terminal principal?";
 		next;
-		if (select("Sim: Não") == 1) {
+		if (select("Sim: No") == 1) {
 			warp "y_airport",142,40;
 			end;
 		}
 	}
 	mes "[Equipe do aeroporto]";
 	mes "Tudo bem, obrigado";
-	mes "para o seu patrocínio";
-	mes "E eu espero que você tenha";
-	mes "um voo agradável ~";
+	mes "para o seu patrocnio";
+	mes "E eu espero que voc tenha";
+	mes "um voo agradvel ~";
 	close;
 }
 
@@ -83,79 +83,79 @@ y_airport,158,50,3	duplicate(y_airport2)	Arrival Staff#y_air2c	90
 
 y_airport,145,63,5	script	Domestic Boarding	91,{
 	mes "[Equipe de embarque]";
-	mes "Você gostaria de embarcar no";
+	mes "Voc gostaria de embarcar no";
 	mes "Dirigir que voa para Einbroch,";
 	mes "Lighthalzen e Hugel? Se for assim,";
-	mes "Por favor, deixe -me guiá -lo para isso";
-	mes "Área de embarque da aeronave.";
+	mes "Por favor, deixe -me gui -lo para isso";
+	mes "rea de embarque da aeronave.";
 	next;
-	if (select("Sim: Não") == 1) {
+	if (select("Sim: No") == 1) {
 		warp "yuno",59,244;
 		end;
 	}
 	mes "[Equipe de embarque]";
-	mes "Muito bem, então.";
+	mes "Muito bem, ento.";
 	mes "Obrigado pelo seu";
-	mes "patrocínio, e espero";
-	mes "você gosta de suas viagens ~";
+	mes "patrocnio, e espero";
+	mes "voc gosta de suas viagens ~";
 	close;
 }
 
 y_airport,140,63,5	script	International Boarding	91,{
 	mes "[Equipe de embarque]";
-	mes "Você gostaria de embarcar";
-	mes "o dirigível que voa para";
+	mes "Voc gostaria de embarcar";
+	mes "o dirigvel que voa para";
 	mes "Juno, Izlude e Rachel?";
 	mes "Se sim, deixe -me guiar";
-	mes "você para a área de embarque.";
+	mes "voc para a rea de embarque.";
 	next;
-	if (select("Sim: Não") == 1) {
+	if (select("Sim: No") == 1) {
 		warp "yuno",47,244;
 		end;
 	}
 	mes "[Equipe de embarque]";
-	mes "Tudo bem, então.";
+	mes "Tudo bem, ento.";
 	mes "Obrigado por voar";
-	mes "conosco, e espero que você";
+	mes "conosco, e espero que voc";
 	mes "Aproveite suas viagens em nosso";
-	mes "aeronaves de última geração.";
+	mes "aeronaves de ltima gerao.";
 	close;
 }
 
 yuno,14,262,5	script	Airship Staff#yuno01	91,{
-	mes "[Funcionário do dirigível]";
+	mes "[Funcionrio do dirigvel]";
 	mes "Bem -vindo ao aeroporto de Juno.";
 	mes "Por favor, use esta porta para";
-	mes "embarcar no dirigível que vai";
-	mes "estar voando até Izlude";
+	mes "embarcar no dirigvel que vai";
+	mes "estar voando at Izlude";
 	mes "no reino de Rune-Midgarts,";
 	mes "e para Rachel no Arunafeltz";
-	mes "República.";
+	mes "Repblica.";
 	next;
-	mes "[Funcionário do dirigível]";
-	mes "Caso contrário, se Juno for";
+	mes "[Funcionrio do dirigvel]";
+	mes "Caso contrrio, se Juno for";
 	mes "Seu destino pretendido,";
-	mes "Por favor, desça as escadas";
-	mes "e peça à equipe de chegada para liderar";
-	mes "você para o terminal principal. Agradecer";
-	mes "você e aproveite suas viagens.";
+	mes "Por favor, desa as escadas";
+	mes "e pea  equipe de chegada para liderar";
+	mes "voc para o terminal principal. Agradecer";
+	mes "voc e aproveite suas viagens.";
 	close;
 }
 
 yuno,88,263,3	script	Airship Staff#yuno02	91,{
-	mes "[Funcionário do dirigível]";
+	mes "[Funcionrio do dirigvel]";
 	mes "Bem -vindo ao aeroporto de Juno.";
 	mes "Por favor, use esta porta para";
-	mes "embarcar no dirigível que para";
+	mes "embarcar no dirigvel que para";
 	mes "sobre Einbroch, Lighthalzen e";
-	mes "Hugel na República de Schwarzwald.";
+	mes "Hugel na Repblica de Schwarzwald.";
 	next;
-	mes "[Funcionário do dirigível]";
-	mes "Caso contrário, se Juno for";
+	mes "[Funcionrio do dirigvel]";
+	mes "Caso contrrio, se Juno for";
 	mes "Seu destino pretendido,";
-	mes "Por favor, desça as escadas";
-	mes "e peça à equipe de chegada para liderar";
-	mes "você para o terminal principal. Agradecer";
-	mes "você e aproveite suas viagens.";
+	mes "Por favor, desa as escadas";
+	mes "e pea  equipe de chegada para liderar";
+	mes "voc para o terminal principal. Agradecer";
+	mes "voc e aproveite suas viagens.";
 	close;
 }

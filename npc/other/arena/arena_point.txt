@@ -15,33 +15,33 @@
 
 prt_are_in,103,11,3	script	Arena Point Manager	732,{
 	mes "[Arena Point Manager]";
-	mes "Espero que vocÃª esteja tendo um bom";
-	mes "tempo na arena. Se vocÃª";
+	mes "Espero que você esteja tendo um bom";
+	mes "tempo na arena. Se você";
 	mes "Ganhou pontos de trilha turbo em";
 	mes "Trilha turbo de Baran, eu posso,";
 	mes "Converta -os em pontos de arena.";
 	next;
-	switch(select("VerificaÃ§Ã£o de ponto: Converter Pontos:^660000 CONVERSION INFO^000000")) {
+	switch(select("Verificação de ponto: Converter Pontos:^660000 CONVERSION INFO^000000")) {
 	case 1:
 		mes "[Arena Point Manager]";
 		mes "" + strcharinfo(0) + ",";
-		mes "vocÃª tem atualmente";
+		mes "você tem atualmente";
 		mes "" + arena_point + "Pontos de arena";
 		mes "e" + tt_point + "Pontos de pista turbo.";
 		close;
 	case 2:
 		mes "[Arena Point Manager]";
 		mes "" + strcharinfo(0) + ",";
-		mes "vocÃª tem atualmente";
+		mes "você tem atualmente";
 		mes "" + arena_point + "Pontos de arena";
 		mes "e" + tt_point + "Pontos de pista turbo.";
 		next;
 		mes "[Arena Point Manager]";
 		mes "Por favor, escolha entre";
 		mes "o ponto de pista para a arena Point";
-		mes "conversÃµes. Lembre -se disso";
-		mes "Quando vocÃª converter mais de 10";
-		mes "Pontos de pista de uma sÃ³ vez, vocÃª sÃ³ pode converter em ^4d4dffmultiples de 10 ^000000.";
+		mes "conversões. Lembre -se disso";
+		mes "Quando você converter mais de 10";
+		mes "Pontos de pista de uma só vez, você só pode converter em ^4d4dffmultiples de 10 ^000000.";
 		next;
 		switch(select("2 TP -> 1 AP: 4 TP -> 2 AP: 6 TP -> 3 AP: 8 TP -> 4 AP: 10 TP e mais: Cancelar")) {
 		case 1:
@@ -54,26 +54,26 @@ prt_are_in,103,11,3	script	Arena Point Manager	732,{
 			callsub S_ExchangePoints,28996,8,4;
 		case 5:
 			mes "[Arena Point Manager]";
-			mes "Por favor, insira o nÃºmero";
-			mes "das vezes que vocÃª deseja converter";
+			mes "Por favor, insira o número";
+			mes "das vezes que você deseja converter";
 			mes "10 pontos de trilha turbo em";
 			mes "Pontos de arena. O maior";
-			mes "O valor que vocÃª pode entrar Ã© 20.";
+			mes "O valor que você pode entrar é 20.";
 			mes "Para cancelar, digite ''^3355FF0^000000. ''";
 			next;
 			input .@input;
 			if (.@input <= 0) {
 				mes "[Arena Point Manager]";
-				mes "VocÃª tem";
+				mes "Você tem";
 				mes "cancelado";
-				mes "este serviÃ§o.";
+				mes "este serviço.";
 				close;
 			}
 			else if (.@input > 20) {
 				mes "[Arena Point Manager]";
-				mes "Sua solicitaÃ§Ã£o excede";
-				mes "o limite mÃ¡ximo. Por favor";
-				mes "Digite um valor nÃ£o maior que 20.";
+				mes "Sua solicitação excede";
+				mes "o limite máximo. Por favor";
+				mes "Digite um valor não maior que 20.";
 				close;
 			}
 			else {
@@ -83,32 +83,32 @@ prt_are_in,103,11,3	script	Arena Point Manager	732,{
 				set .@my_turbo_all,tt_point - .@want_point1;
 				if (.@my_arena_all > 28999) {
 					mes "[Arena Point Manager]";
-					mes "VocÃª vai exceder o";
-					mes "quantidade mÃ¡xima de";
+					mes "Você vai exceder o";
+					mes "quantidade máxima de";
 					mes "Arena aponta se prosseguirmos";
-					mes "com esta conversÃ£o do seu";
-					mes "Pontos de pista turbo. VocÃª nÃ£o pode";
+					mes "com esta conversão do seu";
+					mes "Pontos de pista turbo. Você não pode";
 					mes "tem mais de 29.000 pontos de arena.";
 					next;
 					mes "[Arena Point Manager]";
 					mes "Por favor, gaste um pouco de";
 					mes "Sua arena aponta antes";
-					mes "usando este serviÃ§o novamente.";
-					mes "Obrigado pelo seu patrocÃ­nio.";
+					mes "usando este serviço novamente.";
+					mes "Obrigado pelo seu patrocínio.";
 					close;
 				}
 				if (.@my_turbo_all < 0) {
 					mes "[Arena Point Manager]";
 					mes "Sinto muito, mas";
-					mes "VocÃª nÃ£o tem o suficiente";
+					mes "Você não tem o suficiente";
 					mes "Turbo Track aponta para";
 					mes "Realize esta arena";
-					mes "ConversÃ£o de pontos.";
+					mes "Conversão de pontos.";
 					close;
 				}
 				else {
 					mes "[Arena Point Manager]";
-					mes "VocÃª se converteu";
+					mes "Você se converteu";
 					mes "10 pontos de pista turbo";
 					mes "em 5 pontos de arena" + .@input + "vezes.";
 					mes "Um total de" + .@want_point1 + "Os pontos de pista turbo foram convertidos em";
@@ -118,18 +118,18 @@ prt_are_in,103,11,3	script	Arena Point Manager	732,{
 					next;
 					mes "[Arena Point Manager]";
 					mes "" + strcharinfo(0) + ",";
-					mes "vocÃª agora tem";
+					mes "você agora tem";
 					mes "^4682B4" + arena_point + "^000000 Pontos de arena";
 					mes "e ^00688b" + tt_point + "^000000 Pontos de pista turbo.";
-					mes "Obrigado pelo seu patrocÃ­nio.";
+					mes "Obrigado pelo seu patrocínio.";
 					close;
 				}
 			}
 		case 6:
 			mes "[Arena Point Manager]";
-			mes "VocÃª tem";
+			mes "Você tem";
 			mes "cancelado";
-			mes "este serviÃ§o.";
+			mes "este serviço.";
 			close;
 		}
 	case 3:
@@ -141,18 +141,18 @@ prt_are_in,103,11,3	script	Arena Point Manager	732,{
 S_ExchangePoints:
 	if (arena_point > getarg(0) ) {
 		mes "[Arena Point Manager]";
-		mes "VocÃª vai exceder o";
-		mes "quantidade mÃ¡xima de";
+		mes "Você vai exceder o";
+		mes "quantidade máxima de";
 		mes "Arena aponta se prosseguirmos";
-		mes "com esta conversÃ£o do seu";
-		mes "Pontos de pista turbo. VocÃª nÃ£o pode";
+		mes "com esta conversão do seu";
+		mes "Pontos de pista turbo. Você não pode";
 		mes "tem mais de 29.000 pontos de arena.";
 		next;
 		mes "[Arena Point Manager]";
 		mes "Por favor, gaste um pouco de";
 		mes "Sua arena aponta antes";
-		mes "usando este serviÃ§o novamente.";
-		mes "Obrigado pelo seu patrocÃ­nio.";
+		mes "usando este serviço novamente.";
+		mes "Obrigado pelo seu patrocínio.";
 		close;
 	}
 	.@track_point = getarg(1);
@@ -160,24 +160,24 @@ S_ExchangePoints:
 		.@arena_point = getarg(2);
 		mes "[Arena Point Manager]";
 		mes "" + strcharinfo(0) + ",";
-		mes "vocÃª se converteu"+ .@track_point +"Acompanhar";
+		mes "você se converteu"+ .@track_point +"Acompanhar";
 		mes "Pontos em"+ .@arena_point +"Arena Point.";
 		tt_point = tt_point - .@track_point;
 		arena_point = arena_point + .@arena_point;
 		next;
 		mes "[Arena Point Manager]";
 		mes "" + strcharinfo(0) + ",";
-		mes "vocÃª agora tem";
+		mes "você agora tem";
 		mes "^4682B4" + arena_point + "^000000 Pontos de arena";
 		mes "e ^00688b" + tt_point + "^000000 Pontos de pista turbo.";
-		mes "Obrigado pelo seu patrocÃ­nio.";
+		mes "Obrigado pelo seu patrocínio.";
 		close;
 	}
 	else {
 		mes "[Arena Point Manager]";
-		mes "Sinto muito, mas vocÃª nÃ£o tem";
+		mes "Sinto muito, mas você não tem";
 		mes "Pontos de pista turbo suficientes.";
-		mes "VocÃª precisa de pelo menos 2 pontos de pista turbo para este serviÃ§o de conversÃ£o.";
+		mes "Você precisa de pelo menos 2 pontos de pista turbo para este serviço de conversão.";
 		close;
 	}
 }

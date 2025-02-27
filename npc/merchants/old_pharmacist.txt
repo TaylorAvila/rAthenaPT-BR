@@ -27,36 +27,36 @@
 alberta_in,16,28,4	script	Pharmacist	61,{
 	if (checkweight(1201,1) == 0) {
 		mes "- Espere um momento! -";
-		mes "- Atualmente vocÃª estÃ¡ carregando -";
-		mes "- Muitos itens com vocÃª. -";
+		mes "- Atualmente você está carregando -";
+		mes "- Muitos itens com você. -";
 		mes "- Por favor, volte mais tarde -";
 		mes "- Depois de colocar alguns itens no armazenamento da Kafra. -";
 		close;
 	}
-	mes "[Antigo farmacÃªutico]";
+	mes "[Antigo farmacêutico]";
 	mes "Ummmm ...";
 	mes "O que te traz aqui ...?";
 	next;
-	switch(select("FaÃ§a PoÃ§Ã£o: Fale .: Mistura de InformaÃ§Ãµes: Cancelar")) {
+	switch(select("Faça Poção: Fale .: Mistura de Informações: Cancelar")) {
 	case 1:
 		if (MaxWeight - Weight < 5000) {
-			mes "[Antigo farmacÃªutico]";
-			mes "Por que vocÃª estÃ¡ carregando esses tantos!";
-			mes "NÃ£o seja ganancioso, carregue apenas o mÃ¡ximo necessÃ¡rio!";
+			mes "[Antigo farmacêutico]";
+			mes "Por que você está carregando esses tantos!";
+			mes "Não seja ganancioso, carregue apenas o máximo necessário!";
 			next;
-			mes "[Antigo farmacÃªutico]";
-			mes "VocÃª Ã© muito pesado para receber poÃ§Ãµes de mim ...";
-			mes "VÃ¡ armazenar alguns itens em seu armazenamento primeiro!";
+			mes "[Antigo farmacêutico]";
+			mes "Você é muito pesado para receber poções de mim ...";
+			mes "Vá armazenar alguns itens em seu armazenamento primeiro!";
 			close;
 		} else {
-			mes "[Antigo farmacÃªutico]";
-			mes "VocÃª tem todas as coisas prontas, certo? Qual vocÃª gostaria?";
+			mes "[Antigo farmacêutico]";
+			mes "Você tem todas as coisas prontas, certo? Qual você gostaria?";
 			next;
-			switch(select("PoÃ§Ã£o vermelha.")) {
+			switch(select("Poção vermelha.")) {
 			case 1:
 				callsub L_Making,507,3,501;
 			case 2:
-				mes "[Antigo farmacÃªutico]";
+				mes "[Antigo farmacêutico]";
 				if (countitem(507) < countitem(713)) {
 					set .@max,countitem(507);
 				}
@@ -67,22 +67,22 @@ alberta_in,16,28,4	script	Pharmacist	61,{
 					set .@max,countitem(713);
 				}
 				if ((countitem(507) < 1) || (countitem(508) < 1) || (countitem(713) == 0)) {
-					mes "VocÃª Rascal! O que vocÃª esperava?! Vindo aqui sem nada. TSK!";
+					mes "Você Rascal! O que você esperava?! Vindo aqui sem nada. TSK!";
 					mes "Se perder!";
 					close;
 				}
 				if (Zeny < 3) {
-					mes "VocÃª Rascal! O que vocÃª esperava?! Vindo aqui sem nada. TSK!";
+					mes "Você Rascal! O que você esperava?! Vindo aqui sem nada. TSK!";
 					mes "Se perder!";
 					close;
 				}
 				mes "Quantos?";
 				next;
-				switch(select("FaÃ§a o mÃ¡ximo que puder.")) {
+				switch(select("Faça o máximo que puder.")) {
 				case 1:
 					if ((countitem(507) < .@max) || (countitem(508) < .@max) || (countitem(713) < .@max) || (Zeny < .@max*3)) {
-						mes "[Antigo farmacÃªutico]";
-						mes "VocÃª Rascal! VocÃª nem tem todos os materiais e quer que eu faÃ§a suas poÃ§Ãµes?!";
+						mes "[Antigo farmacêutico]";
+						mes "Você Rascal! Você nem tem todos os materiais e quer que eu faça suas poções?!";
 						close;
 					}
 					set Zeny,Zeny-(.@max*5);
@@ -92,23 +92,23 @@ alberta_in,16,28,4	script	Pharmacist	61,{
 					getitem 502,.@max; //Orange_Potion
 					break;
 				case 2:
-					mes "[Antigo farmacÃªutico]";
-					mes "Em seguida, escolha um nÃºmero abaixo de 100. Se vocÃª nÃ£o quiser, basta digitar '0'. Com os materiais que vocÃª tem, vocÃª pode fazer sobre"+.@max+"poÃ§Ãµes.";
+					mes "[Antigo farmacêutico]";
+					mes "Em seguida, escolha um número abaixo de 100. Se você não quiser, basta digitar '0'. Com os materiais que você tem, você pode fazer sobre"+.@max+"poções.";
 					next;
 					input .@amount,0,101;
 					if (.@amount == 0) {
-						mes "[Antigo farmacÃªutico]";
+						mes "[Antigo farmacêutico]";
 						mes "Decida -se, sim?!";
 						close;
 					}
 					if (.@amount > 100) {
-						mes "[Antigo farmacÃªutico]";
-						mes "VocÃª Ã© surdo? Eu disse menos de 100!";
+						mes "[Antigo farmacêutico]";
+						mes "Você é surdo? Eu disse menos de 100!";
 						close;
 					}
 					if ((countitem(507) < .@amount) || (countitem(508) < .@amount) || (countitem(713) < .@amount) || (Zeny < .@amount*3)) {
-						mes "[Antigo farmacÃªutico]";
-						mes "VocÃª Rascal! VocÃª nem tem todos os materiais e quer que eu faÃ§a suas poÃ§Ãµes?!";
+						mes "[Antigo farmacêutico]";
+						mes "Você Rascal! Você nem tem todos os materiais e quer que eu faça suas poções?!";
 						close;
 					}
 					next;
@@ -119,15 +119,15 @@ alberta_in,16,28,4	script	Pharmacist	61,{
 					getitem 502,.@amount; //Orange_Potion
 					break;
 				case 3:
-					mes "[Antigo farmacÃªutico]";
+					mes "[Antigo farmacêutico]";
 					mes "O que?!";
 					mes "Grrr ...";
 					mes "Bleh!";
 					mes "Se perder!";
 					close;
 				}
-				mes "[Antigo farmacÃªutico]";
-				mes "Aqui vocÃª vai. Tudo estÃ¡ feito para que vocÃª possa aceitar. Mas lembre -se! Abusar de remÃ©dios nÃ£o Ã© bom.";
+				mes "[Antigo farmacêutico]";
+				mes "Aqui você vai. Tudo está feito para que você possa aceitar. Mas lembre -se! Abusar de remédios não é bom.";
 				close;
 			case 3:
 				callsub L_Making,508,10,503;
@@ -138,7 +138,7 @@ alberta_in,16,28,4	script	Pharmacist	61,{
 			case 6:
 				callsub L_Making,511,3,506;
 			case 7:
-				mes "[Antigo farmacÃªutico]";
+				mes "[Antigo farmacêutico]";
 				mes "O que?!";
 				mes "Grrr ...";
 				mes "Bleh!";
@@ -147,36 +147,36 @@ alberta_in,16,28,4	script	Pharmacist	61,{
 			}
 		}
 	case 2:
-		mes "[Antigo farmacÃªutico]";
-		mes "Com a medicina, vocÃª pode aumentar a capacidade de uma pessoa de regenerar. Mas, eles sÃ£o apenas bons atÃ© certo ponto. * Suspiro* Estou comeÃ§ando a pensar nos dias em que era jovem. Eu devo estar envelhecendo.";
+		mes "[Antigo farmacêutico]";
+		mes "Com a medicina, você pode aumentar a capacidade de uma pessoa de regenerar. Mas, eles são apenas bons até certo ponto. * Suspiro* Estou começando a pensar nos dias em que era jovem. Eu devo estar envelhecendo.";
 		next;
-		mes "[Antigo farmacÃªutico]";
-		mes "De qualquer forma, uma poÃ§Ã£o Ã© apenas uma poÃ§Ã£o. Nada mais e nada menos.";
+		mes "[Antigo farmacêutico]";
+		mes "De qualquer forma, uma poção é apenas uma poção. Nada mais e nada menos.";
 		close;
 	case 3:
-		mes "[Antigo farmacÃªutico]";
+		mes "[Antigo farmacêutico]";
 		mes "Hrrrmm ...";
-		mes "VocÃªs jovens podem ser bastante irritantes. Mas, desde que vocÃª perguntou, eu vou explicar.";
+		mes "Vocês jovens podem ser bastante irritantes. Mas, desde que você perguntou, eu vou explicar.";
 		next;
-		mes "[Antigo farmacÃªutico]";
-		mes "As ervas funcionam bem sozinhas, mas se vocÃª usar minhas tÃ©cnicas e habilidades especiais para criar poÃ§Ãµes, o efeito Ã© muito maior.";
+		mes "[Antigo farmacêutico]";
+		mes "As ervas funcionam bem sozinhas, mas se você usar minhas técnicas e habilidades especiais para criar poções, o efeito é muito maior.";
 		next;
-		mes "[Antigo farmacÃªutico]";
-		mes "Se vocÃª perguntar ansiosamente e educadamente, eu os farei para vocÃª. Mas, nÃ£o de graÃ§a ... nÃ£o se preocupe, eu apenas cobro uma pequena taxa, entÃ£o nÃ£o Ã© tÃ£o caro.";
+		mes "[Antigo farmacêutico]";
+		mes "Se você perguntar ansiosamente e educadamente, eu os farei para você. Mas, não de graça ... não se preocupe, eu apenas cobro uma pequena taxa, então não é tão caro.";
 		next;
-		mes "[Antigo farmacÃªutico]";
-		mes "PoÃ§Ã£o vermelha - ^0098E52 ervas vermelhas, 1 garrafa vazia, 2 Taxa de Zeny. ^000000";
-		mes "PoÃ§Ã£o de laranja - ^0098E51 erva vermelha, 1 erva amarela, 1 garrafa vazia, 5 zeny. ^000000";
-		mes "PoÃ§Ã£o Amarela - ^0098E52 Ervas amarelas, 1 garrafa vazia, 10 Zeny. ^000000";
+		mes "[Antigo farmacêutico]";
+		mes "Poção vermelha - ^0098E52 ervas vermelhas, 1 garrafa vazia, 2 Taxa de Zeny. ^000000";
+		mes "Poção de laranja - ^0098E51 erva vermelha, 1 erva amarela, 1 garrafa vazia, 5 zeny. ^000000";
+		mes "Poção Amarela - ^0098E52 Ervas amarelas, 1 garrafa vazia, 10 Zeny. ^000000";
 		next;
-		mes "[Antigo farmacÃªutico]";
-		mes "PoÃ§Ã£o branca - ^0098E52 Ervas brancas, 1 garrafa vazia, 20 Zeny Taxa. ^000000";
-		mes "PoÃ§Ã£o azul - ^0098E52 ervas azuis, 1 garrafa vazia, 30 Zeny Fee. ^000000";
-		mes "PoÃ§Ã£o verde - ^0098E52 ervas verdes, 1 garrafa vazia, 3 Zeny Taxa. ^000000";
+		mes "[Antigo farmacêutico]";
+		mes "Poção branca - ^0098E52 Ervas brancas, 1 garrafa vazia, 20 Zeny Taxa. ^000000";
+		mes "Poção azul - ^0098E52 ervas azuis, 1 garrafa vazia, 30 Zeny Fee. ^000000";
+		mes "Poção verde - ^0098E52 ervas verdes, 1 garrafa vazia, 3 Zeny Taxa. ^000000";
 		close;
 	case 4:
-		mes "[Antigo farmacÃªutico]";
-		mes "Que pessoa chata. Se vocÃª tem algo a dizer, por que vocÃª nÃ£o diz isso?!";
+		mes "[Antigo farmacêutico]";
+		mes "Que pessoa chata. Se você tem algo a dizer, por que você não diz isso?!";
 		close;
 	}
 	
@@ -184,29 +184,29 @@ L_Making:
 	.@item_req = getarg(0);
 	.@req_amount = getarg(1);
 
-	mes "[Antigo farmacÃªutico]";
+	mes "[Antigo farmacêutico]";
 	if ((countitem(.@item_req)/2) < countitem(713)) {
 		.@max = countitem(.@item_req) /2;
 	} else {
 		.@max = countitem(713);
 	}
 	if (countitem(.@item_req) < 2 || countitem(713) == 0) {
-		mes "VocÃª Rascal! O que vocÃª esperava?! Vindo aqui sem nada. TSK!";
+		mes "Você Rascal! O que você esperava?! Vindo aqui sem nada. TSK!";
 		mes "Se perder!";
 		close;
 	}
 	if (Zeny < 3) {
-		mes "VocÃª Rascal! O que vocÃª esperava?! Vindo aqui sem nada. TSK!";
+		mes "Você Rascal! O que você esperava?! Vindo aqui sem nada. TSK!";
 		mes "Se perder!";
 		close;
 	}
 	mes "Quantos?";
 	next;
-	switch(select("FaÃ§a o mÃ¡ximo que puder.")) {
+	switch(select("Faça o máximo que puder.")) {
 	case 1:
 		if ((countitem(.@item_req) < .@max*2) || countitem(713) < .@max || (Zeny < .@max*.@req_amount)) {
-			mes "[Antigo farmacÃªutico]";
-			mes "VocÃª Rascal! VocÃª nem tem todos os materiais e quer que eu faÃ§a suas poÃ§Ãµes?!";
+			mes "[Antigo farmacêutico]";
+			mes "Você Rascal! Você nem tem todos os materiais e quer que eu faça suas poções?!";
 			close;
 		}
 		Zeny = Zeny - (.@max*.@req_amount);
@@ -215,23 +215,23 @@ L_Making:
 		getitem getarg(2),.@max; 
 		break;
 	case 2:
-		mes "[Antigo farmacÃªutico]";
-		mes "Em seguida, escolha um nÃºmero abaixo de 100. Se vocÃª nÃ£o quiser, basta digitar '0'. Com os materiais que vocÃª tem, vocÃª pode fazer sobre"+.@max+"poÃ§Ãµes.";
+		mes "[Antigo farmacêutico]";
+		mes "Em seguida, escolha um número abaixo de 100. Se você não quiser, basta digitar '0'. Com os materiais que você tem, você pode fazer sobre"+.@max+"poções.";
 		next;
 		input .@amount;
 		if (.@amount == 0) {
-			mes "[Antigo farmacÃªutico]";
+			mes "[Antigo farmacêutico]";
 			mes "Decida -se, sim?!";
 			close;
 		}
 		if (.@amount > 100) {
-			mes "[Antigo farmacÃªutico]";
-			mes "VocÃª Ã© surdo? Eu disse menos de 100!";
+			mes "[Antigo farmacêutico]";
+			mes "Você é surdo? Eu disse menos de 100!";
 			close;
 		}
 		if ((countitem(.@item_req) < .@amount*2) || countitem(713) < .@amount || (Zeny < .@amount*.@req_amount)) {
-			mes "[Antigo farmacÃªutico]";
-			mes "VocÃª Rascal! VocÃª nem tem todos os materiais e quer que eu faÃ§a suas poÃ§Ãµes?!";
+			mes "[Antigo farmacêutico]";
+			mes "Você Rascal! Você nem tem todos os materiais e quer que eu faça suas poções?!";
 			close;
 		}
 		Zeny = Zeny - (.@max*.@req_amount);
@@ -240,14 +240,14 @@ L_Making:
 		getitem getarg(2),.@amount; 
 		break;
 	case 3:
-		mes "[Antigo farmacÃªutico]";
+		mes "[Antigo farmacêutico]";
 		mes "O que?!";
 		mes "Grrr ...";
 		mes "Bleh!";
 		mes "Se perder!";
 		close;
 	}
-	mes "[Antigo farmacÃªutico]";
-	mes "Aqui vocÃª vai. Tudo estÃ¡ feito para que vocÃª possa aceitar. Mas lembre -se! Abusar de remÃ©dios nÃ£o Ã© bom.";
+	mes "[Antigo farmacêutico]";
+	mes "Aqui você vai. Tudo está feito para que você possa aceitar. Mas lembre -se! Abusar de remédios não é bom.";
 	close;
 }

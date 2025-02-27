@@ -17,30 +17,30 @@
 // Main NPC :: stonechange
 //============================================================
 geffen_in,99,174,5	script	Ore Tester#sorty	8_F_GIRL,{
-	mes "[Testador de minÃ©rio STACKY]";
-	mes "VocÃª tem ^3131ffany O mesmo tipo de minÃ©rio em seus inventÃ¡rios ^000000 que levam muitos espaÃ§os?";
-	mes "Eu posso distinguir seus minÃ©rios e organizÃ¡ -los imediatamente ~!";
+	mes "[Testador de minério STACKY]";
+	mes "Você tem ^3131ffany O mesmo tipo de minério em seus inventários ^000000 que levam muitos espaços?";
+	mes "Eu posso distinguir seus minérios e organizá -los imediatamente ~!";
 	next;
-	switch(select("Refine meu minÃ©rio .: Cancel.")) {
+	switch(select("Refine meu minério .: Cancel.")) {
 	case 1:
-		mes "[Testador de minÃ©rio STACKY]";
-		mes "No momento, sÃ³ posso distinguir ^ff0000STEEL ^000000, ^ff0000IRON ^000000, ^ff0000IRON ORE ^000000 e ^ff0000Rough ORIDECON ^000000 e organize -os.";
-		mes "Por favor, observe que ^3131 Fos outros itens nÃ£o conseguem ^000000!";
+		mes "[Testador de minério STACKY]";
+		mes "No momento, só posso distinguir ^ff0000STEEL ^000000, ^ff0000IRON ^000000, ^ff0000IRON ORE ^000000 e ^ff0000Rough ORIDECON ^000000 e organize -os.";
+		mes "Por favor, observe que ^3131 Fos outros itens não conseguem ^000000!";
 		next;
-		mes "[Testador de minÃ©rio STACKY]";
-		mes "EntÃ£o, vocÃª gostaria que eu organizasse seus minÃ©rios?";
+		mes "[Testador de minério STACKY]";
+		mes "Então, você gostaria que eu organizasse seus minérios?";
 		next;
-		.@i = select("AÃ§o, por favor.");
+		.@i = select("Aço, por favor.");
 		if (.@i == 5) {
-			mes "[Testador de minÃ©rio STACKY]";
-			mes "Huh, eu realmente odeio pessoas bagunÃ§adas!";
+			mes "[Testador de minério STACKY]";
+			mes "Huh, eu realmente odeio pessoas bagunçadas!";
 			close;
 		}
 		setarray .@ores[0],999,998,1002,756;
 		.@item = .@ores[.@i-1];
 		if (countitem(.@item) == 0) {
-			mes "[Testador de minÃ©rio STACKY]";
-			mes "VocÃª nÃ£o tem nenhum"+getitemname(.@item)+"...";
+			mes "[Testador de minério STACKY]";
+			mes "Você não tem nenhum"+getitemname(.@item)+"...";
 			close;
 		}
 		// while(1) {
@@ -56,12 +56,12 @@ geffen_in,99,174,5	script	Ore Tester#sorty	8_F_GIRL,{
 		.@count = countitem(.@item);
 		delitem .@item, .@count;
 		getitem .@item, .@count;
-		mes "[Testador de minÃ©rio STACKY]";
-		mes "EstÃ¡ feito. Parece Ã³timo! VocÃª nÃ£o acha?";
+		mes "[Testador de minério STACKY]";
+		mes "Está feito. Parece ótimo! Você não acha?";
 		close;
 	case 2:
-		mes "[Testador de minÃ©rio STACKY]";
-		mes "Parece que sua bolsa estÃ¡ limpa? Huhu! VocÃª pode ser o mestre da limpeza!";
+		mes "[Testador de minério STACKY]";
+		mes "Parece que sua bolsa está limpa? Huhu! Você pode ser o mestre da limpeza!";
 		close;
 	}
 }

@@ -20,15 +20,15 @@
 //============================================================
 malangdo,220,167,5	script	Coin Exchanger CX-1	564,{
 	if (checkweight(1201,1) == 0) {
-		mes "VocÃª tem muitos tipos de objetos. Vamos tentar continuar depois de reduzir esses objetos.";
+		mes "Você tem muitos tipos de objetos. Vamos tentar continuar depois de reduzir esses objetos.";
 		close;
 	}
 	if (MaxWeight - Weight < 10000) {
-		mes "NÃ£o posso continuar porque vocÃª tem muitos objetos pesados. Vamos tentar continuar depois de reduzir o peso.";
+		mes "Não posso continuar porque você tem muitos objetos pesados. Vamos tentar continuar depois de reduzir o peso.";
 		close;
 	}
 	mes "[Trocador de moedas CX-1]";
-	mes "Bem-vindo ao CX-1. Se vocÃª tiver moedas, poderÃ¡ trocÃ¡ -las por moedas de alto ou baixo grau.";
+	mes "Bem-vindo ao CX-1. Se você tiver moedas, poderá trocá -las por moedas de alto ou baixo grau.";
 	next;
 	setarray .@coins[1],
 		6417, //Silvervine
@@ -57,7 +57,7 @@ malangdo,220,167,5	script	Coin Exchanger CX-1	564,{
 	}
 	if (countitem(.@coin) == 0) {
 		mes "[Trocador de moedas CX-1]";
-		mes "VocÃª escolheu uma moeda que nÃ£o tem.";
+		mes "Você escolheu uma moeda que não tem.";
 		mes "Obrigado por vir.";
 		close;
 	}
@@ -66,7 +66,7 @@ malangdo,220,167,5	script	Coin Exchanger CX-1	564,{
 	mes "Troca mais alta - 30 a 10";
 	mes "Troca inferior - 10 a 30";
 	mes "------------------------";
-	mes "^FF3333 Quando vocÃª troca, cobramos uma taxa de acordo com o preÃ§o atual de mercado.^000000";
+	mes "^FF3333 Quando você troca, cobramos uma taxa de acordo com o preço atual de mercado.^000000";
 	next;
 	setarray .@exchange_name$[0],"mais alto","mais baixo";
 	setarray .@exchange_rate[0],30,10;
@@ -76,11 +76,11 @@ malangdo,220,167,5	script	Coin Exchanger CX-1	564,{
 	.@menu$ = "Parar:";
 	for(.@i = 0; .@i<2; .@i++) {
 		if (.@exchange_id[.@i] == 0)
-			.@menu$ = .@menu$ + "^ff33333 ÃšNICA EXCPARAÃ‡ÃƒO ATÃ‰"+.@exchange_name$[.@i]+"moeda^000000:";
+			.@menu$ = .@menu$ + "^ff33333 ÚNICA EXCPARAÇÃO ATÉ"+.@exchange_name$[.@i]+"moeda^000000:";
 		else if (countitem(.@coin) < .@exchange_rate[.@i])
 			.@menu$ = .@menu$ + "^aaaaaaexchange para"+.@exchange_name$[.@i]+"Moeda (NULL)^000000:";
 		else
-			.@menu$ = .@menu$ + "Trocar para"+.@exchange_name$[.@i]+"moeda -"+getitemname(.@coin)+"("+.@exchange_rate[.@i]+"necessÃ¡rio):";
+			.@menu$ = .@menu$ + "Trocar para"+.@exchange_name$[.@i]+"moeda -"+getitemname(.@coin)+"("+.@exchange_rate[.@i]+"necessário):";
 	}
 	.@i = select(.@menu$)-2;
 	if (.@i == -1) {
@@ -90,13 +90,13 @@ malangdo,220,167,5	script	Coin Exchanger CX-1	564,{
 	}
 	if (.@exchange_id[.@i] == 0) {
 		mes "[Trocador de moedas CX-1]";
-		mes "Esta moeda nÃ£o estÃ¡ disponÃ­vel para trocar para"+.@exchange_name$[.@i]+"moeda.";
+		mes "Esta moeda não está disponível para trocar para"+.@exchange_name$[.@i]+"moeda.";
 		mes "Obrigado por vir.";
 		close;
 	}
 	if (countitem(.@coin) < .@exchange_rate[.@i]) {
 		mes "[Trocador de moedas CX-1]";
-		mes "VocÃª nÃ£o tem moedas suficientes para trocar"+.@exchange_name$[.@i]+"moeda.";
+		mes "Você não tem moedas suficientes para trocar"+.@exchange_name$[.@i]+"moeda.";
 		mes "Obrigado por vir.";
 		close;
 	}
@@ -111,48 +111,48 @@ malangdo,220,167,5	script	Coin Exchanger CX-1	564,{
 
 malangdo,218,165,5	script	Special Vending Machine	562,{
 	if (checkweight(1201,1) == 0) {
-		mes "VocÃª tem muitos tipos de objetos. Vamos tentar continuar depois de reduzir esses objetos.";
+		mes "Você tem muitos tipos de objetos. Vamos tentar continuar depois de reduzir esses objetos.";
 		close;
 	}
 	if (MaxWeight - Weight < 10000) {
-		mes "NÃ£o posso continuar porque vocÃª tem muitos objetos pesados. Vamos tentar continuar depois de reduzir o peso.";
+		mes "Não posso continuar porque você tem muitos objetos pesados. Vamos tentar continuar depois de reduzir o peso.";
 		close;
 	}
-	mes "[MÃ¡quina de venda automÃ¡tica especial]";
-	mes "Bem-vindo ao CX-82. VocÃª tem uma fruta Silvervine, para poder comprar a especialidade de Malangdo com habilidade especial.";
+	mes "[Máquina de venda automática especial]";
+	mes "Bem-vindo ao CX-82. Você tem uma fruta Silvervine, para poder comprar a especialidade de Malangdo com habilidade especial.";
 	next;
 	callsub L_AddItem, //DisplayName,ItemID,Cost
-		"ProteÃ§Ã£o de Seagod [23 horas]",16740,4,
-		"ProteÃ§Ã£o de Seagod [7 dias]",16763,12,
-		"ProteÃ§Ã£o de Seagod [15 dias]",16764,24,
-		"Punto de caÃ§a ao polvo [23 horas]",16765,2,
-		"Punto de caÃ§a ao polvo [3 dias]",16766,5,
-		"Punto de caÃ§a ao polvo [7 dias]",16767,10,
+		"Proteção de Seagod [23 horas]",16740,4,
+		"Proteção de Seagod [7 dias]",16763,12,
+		"Proteção de Seagod [15 dias]",16764,24,
+		"Punto de caça ao polvo [23 horas]",16765,2,
+		"Punto de caça ao polvo [3 dias]",16766,5,
+		"Punto de caça ao polvo [7 dias]",16767,10,
 		"Lubrificante premium",6441,56,
 		"Lubrificante comum",6440,36,
 		"Sillit Pong",6443,192;
 L_AddItem:
-	.@menu$ = "ExplicaÃ§Ã£o:";
+	.@menu$ = "Explicação:";
 	for(.@i = 0; .@i<getargcount(); .@i += 3)
 		.@menu$ = .@menu$ + getarg(.@i)+":";
 	.@i = select(.@menu$)-2;
 	if (.@i == -1) {
-		mes "[MÃ¡quina de venda automÃ¡tica especial]";
-		mes "A proteÃ§Ã£o de Seagod Ã© um item usado para entrar na masmorra do Memorial do Culvert durante um determinado perÃ­odo.";
+		mes "[Máquina de venda automática especial]";
+		mes "A proteção de Seagod é um item usado para entrar na masmorra do Memorial do Culvert durante um determinado período.";
 		next;
-		mes "[MÃ¡quina de venda automÃ¡tica especial]";
-		mes "O Octopus Hunting Stick Ã© um item usado para entrar no Culvert Memorial Dungeon durante um certo perÃ­odo.";
+		mes "[Máquina de venda automática especial]";
+		mes "O Octopus Hunting Stick é um item usado para entrar no Culvert Memorial Dungeon durante um certo período.";
 		next;
-		mes "[MÃ¡quina de venda automÃ¡tica especial]";
-		mes "Lubrificante premium e comum sÃ£o itens usados â€‹â€‹para separaÃ§Ã£o de equipamentos e cartÃµes. Se vocÃª visitar o especialista Jeremy com qualquer um dos itens, ele explicarÃ¡ mais detalhes dos efeitos.";
+		mes "[Máquina de venda automática especial]";
+		mes "Lubrificante premium e comum são itens usados para separação de equipamentos e cartões. Se você visitar o especialista Jeremy com qualquer um dos itens, ele explicará mais detalhes dos efeitos.";
 		next;
-		mes "[MÃ¡quina de venda automÃ¡tica especial]";
-		mes "Sillit Pong Ã© um item especial que separa soquetes com cartÃµes MVP. Incapaz de separar o cartÃ£o MVP por lubrificante premium e comum.";
+		mes "[Máquina de venda automática especial]";
+		mes "Sillit Pong é um item especial que separa soquetes com cartões MVP. Incapaz de separar o cartão MVP por lubrificante premium e comum.";
 		close;
 	}
 	.@cost = getarg(.@i*3+2);
-	mes "[MÃ¡quina de venda automÃ¡tica especial]";
-	mes "VocÃª escolhe ^005500"+getarg(.@i*3)+"^000000. Para compra, vocÃª precisa de ^005500"+.@cost+"^000000 Unidade (s) de Silvervine Fruit.";
+	mes "[Máquina de venda automática especial]";
+	mes "Você escolhe ^005500"+getarg(.@i*3)+"^000000. Para compra, você precisa de ^005500"+.@cost+"^000000 Unidade (s) de Silvervine Fruit.";
 	next;
 	if (countitem(6417) < .@cost)
 		.@ven_menu$ = "^999999Silvervine Fruit (faltando"+(.@cost - countitem(6417))+")^000000";
@@ -160,19 +160,19 @@ L_AddItem:
 		.@ven_menu$ = "Compra - Silvervine Fruit (tem"+countitem(6417)+")";
 	switch(select("Parar:"+.@ven_menu$)) {
 	case 1:
-		mes "[MÃ¡quina de venda automÃ¡tica especial]";
+		mes "[Máquina de venda automática especial]";
 		mes "Obrigado por vir.";
 		close;
 	case 2:
 		if (countitem(6417) < .@cost) {
-			mes "[MÃ¡quina de venda automÃ¡tica especial]";
+			mes "[Máquina de venda automática especial]";
 			mes "Fruta Silvervine insuficiente.";
-			mes "Fechando a transaÃ§Ã£o.";
+			mes "Fechando a transação.";
 			mes "Obrigado por vir.";
 			close;
 		}
-		mes "[MÃ¡quina de venda automÃ¡tica especial]";
-		mes "A transaÃ§Ã£o Ã© concluÃ­da. Obrigado por vir.";
+		mes "[Máquina de venda automática especial]";
+		mes "A transação é concluída. Obrigado por vir.";
 		delitem 6417,.@cost; //Silvervine
 		getitem getarg(.@i*3+1),1;
 		close;
@@ -181,25 +181,25 @@ L_AddItem:
 
 malangdo,236,179,5	script	Dark Merchant K	554,{
 	if (checkweight(1201,1) == 0) {
-		mes "Parece que vocÃª tem muito em seu inventÃ¡rio. Vamos tentar novamente depois de se livrar de alguns de seus pertences.";
+		mes "Parece que você tem muito em seu inventário. Vamos tentar novamente depois de se livrar de alguns de seus pertences.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "Seu inventÃ¡rio estÃ¡ muito pesado agora. Por favor, volte depois de se livrar de alguns de seus pertences.";
+		mes "Seu inventário está muito pesado agora. Por favor, volte depois de se livrar de alguns de seus pertences.";
 		close;
 	}
 	mes "[Comerciante k]";
-	mes "Obrigado pelo comÃ©rcio.";
-	mes "Trocamos ^FF000010 C CaÃ§a de grau ^000000 a ^3333ff1 Mora Coin ^000000. Devemos comeÃ§ar entÃ£o?";
+	mes "Obrigado pelo comércio.";
+	mes "Trocamos ^FF000010 C Caça de grau ^000000 a ^3333ff1 Mora Coin ^000000. Devemos começar então?";
 	next;
 	setarray .@coin_amount[0],10,100,500,1000;
 	while(1) {
 		.@menu$ = ]";
 		for(.@i = 0; .@i<getarraysize(.@coin_amount); .@i++) {
 			if (countitem(6420) >= .@coin_amount[.@i])
-				.@menu$ = .@menu$ + "IntercÃ¢mbio"+(.@coin_amount[.@i]/10)+"Mora Coin:";
+				.@menu$ = .@menu$ + "Intercâmbio"+(.@coin_amount[.@i]/10)+"Mora Coin:";
 			else
-				.@menu$ = .@menu$ + "^aaaaaaexchange"+(.@coin_amount[.@i]/10)+"Mora Coin (nÃ£o Ã© suficiente)^000000:";
+				.@menu$ = .@menu$ + "^aaaaaaexchange"+(.@coin_amount[.@i]/10)+"Mora Coin (não é suficiente)^000000:";
 		}
 		.@i = select(.@menu$+"Desistir")-1;
 		if (.@i == getarraysize(.@coin_amount)) {
@@ -209,7 +209,7 @@ malangdo,236,179,5	script	Dark Merchant K	554,{
 		}
 		if (countitem(6420) < .@coin_amount[.@i]) {
 			mes "[Comerciante k]";
-			mes "VocÃª precisa ^FF0000"+.@coin_amount[.@i]+"^000000 C moeda de grau para executar a troca. Mas vocÃª parece nÃ£o ter o suficiente agora.";
+			mes "Você precisa ^FF0000"+.@coin_amount[.@i]+"^000000 C moeda de grau para executar a troca. Mas você parece não ter o suficiente agora.";
 			close;
 		}
 		delitem 6420,.@coin_amount[.@i]; //Cgrade_Coin
@@ -219,25 +219,25 @@ malangdo,236,179,5	script	Dark Merchant K	554,{
 		mes "Trocado por ^003399"+(.@coin_amount[.@i]/10)+"^000000 Mora Moeda.";
 		next;
 		mes "[Comerciante k]";
-		mes "VocÃª gostaria de continuar?";
+		mes "Você gostaria de continuar?";
 		next;
 	}
 }
 
 malangdo,233,180,3	script	Dark MachineTX100	564,{
 	if (checkweight(1201,1) == 0) {
-		mes "Parece que vocÃª tem muito em seu inventÃ¡rio. Vamos tentar novamente depois de se livrar de alguns de seus pertences.";
+		mes "Parece que você tem muito em seu inventário. Vamos tentar novamente depois de se livrar de alguns de seus pertences.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "Seu inventÃ¡rio estÃ¡ muito pesado agora. Por favor, volte depois de se livrar de alguns de seus pertences.";
+		mes "Seu inventário está muito pesado agora. Por favor, volte depois de se livrar de alguns de seus pertences.";
 		close;
 	}
 	mes "[Dark Machine TX100]";
-	mes "Obrigado por visitar o TX100. VocÃª pode trocar moedas em moedas de nÃ­vel superior ou inferior.";
+	mes "Obrigado por visitar o TX100. Você pode trocar moedas em moedas de nível superior ou inferior.";
 	next;
 	mes "[Dark Machine TX100]";
-	mes "Para uma troca de moedas de nÃ­vel inferior, vocÃª pode fazer 500 como um mÃ¡ximo de tempo e, para troca de moedas de nÃ­vel superior, vocÃª pode fazer 99 como um mÃ¡ximo de tempo.";
+	mes "Para uma troca de moedas de nível inferior, você pode fazer 500 como um máximo de tempo e, para troca de moedas de nível superior, você pode fazer 99 como um máximo de tempo.";
 	next;
 	setarray .@coins[1],
 		6417, //Silvervine
@@ -265,18 +265,18 @@ malangdo,233,180,3	script	Dark MachineTX100	564,{
 	if (.@exchange_id[0] == .@coins[1]) .@exchange_id[0] = 0; // Cannot exchange for Silvervine.
 	if (.@i > getarraysize(.@coins)) {
 		mes "[Dark Machine TX100]";
-		mes "VocÃª escolheu menu anormal.";
+		mes "Você escolheu menu anormal.";
 		mes "Processo de abortamento. Obrigado por vir.";
 		close;
 	}
 	if (countitem(.@coin) == 0) {
 		mes "[Dark Machine TX100]";
-		mes "VocÃª escolheu uma moeda que nÃ£o tem.";
+		mes "Você escolheu uma moeda que não tem.";
 		mes "Processo de abortamento. Obrigado por vir.";
 		close;
 	}
 	mes "[Dark Machine TX100]";
-	mes "---- Taxa de cÃ¢mbio ----";
+	mes "---- Taxa de câmbio ----";
 	mes "Moeda mais alta - 3 a 1";
 	mes "Moeda inferior - 1 a 3";
 	mes "---------------------";
@@ -284,22 +284,22 @@ malangdo,233,180,3	script	Dark MachineTX100	564,{
 	next;
 	.@menu$ = "Desistir:";
 	if (.@exchange_id[0] == 0)
-		.@menu$ = .@menu$ + "^FF3333 CANNOT TROCA PARA COINA DE NÃVEL DE MAIOS^000000:";
+		.@menu$ = .@menu$ + "^FF3333 CANNOT TROCA PARA COINA DE NÍVEL DE MAIOS^000000:";
 	else {
 		if (countitem(.@coin) >= 99)
-			.@menu$ = .@menu$ + "Exchange 99"+getitemname(.@coin)+"em moeda de nÃ­vel superior:";
+			.@menu$ = .@menu$ + "Exchange 99"+getitemname(.@coin)+"em moeda de nível superior:";
 		else
-			.@menu$ = .@menu$ + "^aaaaaaexchan para moeda de nÃ­vel superior (insuficiente)^000000:";
+			.@menu$ = .@menu$ + "^aaaaaaexchan para moeda de nível superior (insuficiente)^000000:";
 	}
 	if (.@exchange_id[1] == 0)
-		.@menu$ = .@menu$ + "^FF3333CANOT Exchange para moeda de nÃ­vel inferior^000000:";
+		.@menu$ = .@menu$ + "^FF3333CANOT Exchange para moeda de nível inferior^000000:";
 	else {
 		if (countitem(.@coin) > 500)
-			.@menu$ = .@menu$ + "Troca 500"+getitemname(.@coin)+"em moeda de nÃ­vel inferior:";
+			.@menu$ = .@menu$ + "Troca 500"+getitemname(.@coin)+"em moeda de nível inferior:";
 		else if (countitem(.@coin))
-			.@menu$ = .@menu$ + "IntercÃ¢mbio"+countitem(.@coin)+""+getitemname(.@coin)+"em moeda de nÃ­vel inferior:";
+			.@menu$ = .@menu$ + "Intercâmbio"+countitem(.@coin)+""+getitemname(.@coin)+"em moeda de nível inferior:";
 		else
-			.@menu$ = .@menu$ + "^aaaaaaexchan para moeda de nÃ­vel inferior (insuficiente)^000000:";
+			.@menu$ = .@menu$ + "^aaaaaaexchan para moeda de nível inferior (insuficiente)^000000:";
 	}
 	.@i = select(.@menu$)-2;
 	if (.@i == -1) {
@@ -309,19 +309,19 @@ malangdo,233,180,3	script	Dark MachineTX100	564,{
 	}
 	if (.@exchange_id[.@i] == 0) {
 		mes "[Dark Machine TX100]";
-		mes "Esta moeda nÃ£o pode ser trocada por um"+.@exchange_name$[.@i]+"moeda de nÃ­vel.";
+		mes "Esta moeda não pode ser trocada por um"+.@exchange_name$[.@i]+"moeda de nível.";
 		mes "Processo de abortamento. Obrigado por vir.";
 		close;
 	}
 	if ((.@i == 0 && countitem(.@coin) < 100) || (.@i == 1 && countitem(.@coin) == 0)) {
 		mes "[Dark Machine TX100]";
-		mes "VocÃª nÃ£o tem moedas suficientes para um"+.@exchange_name$[.@i]+"troca de moedas de nÃ­vel.";
+		mes "Você não tem moedas suficientes para um"+.@exchange_name$[.@i]+"troca de moedas de nível.";
 		mes "Processo de abortamento. Obrigado por vir.";
 		close;
 	}
 	if (countitem(.@exchange_id[.@i]) > 28000) {
 		mes "[Dark Machine TX100]";
-		mes "VocÃª tem muitos"+.@exchange_name$[.@i]+"moedas de nÃ­vel jÃ¡. Por favor, volte com menos moedas.";
+		mes "Você tem muitos"+.@exchange_name$[.@i]+"moedas de nível já. Por favor, volte com menos moedas.";
 		close;
 	}
 	switch(.@i) {
@@ -341,55 +341,55 @@ malangdo,233,180,3	script	Dark MachineTX100	564,{
 	getitem .@exchange_id[.@i], .@reward_amount - .@fee;
 	mes "[Dark Machine TX100]";
 	mes "Recebido ^003399"+getitemname(.@coin)+"^000000 para ^003399"+.@payment_amount+"^000000 Unidade (s).";
-	mes "Trocamos sua moeda por ^003399"+(.@reward_amount-.@fee)+"^000000 Unidade (s) de ^003399"+.@coin_text$+"MÃºcula de nÃ­vel ^000000, deduzida ^003399"+.@fee+"^000000 unidades (s) como taxa de troca.";
+	mes "Trocamos sua moeda por ^003399"+(.@reward_amount-.@fee)+"^000000 Unidade (s) de ^003399"+.@coin_text$+"Múcula de nível ^000000, deduzida ^003399"+.@fee+"^000000 unidades (s) como taxa de troca.";
 	close;
 }
 
 malangdo,175,145,4	script	Can Agency Guard	549,{
 	if (checkweight(1201,1) == 0) {
-		mes "VocÃª parece ter muitos itens. Experimente depois de resolver os tipos de itens.";
+		mes "Você parece ter muitos itens. Experimente depois de resolver os tipos de itens.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "Ã‰ provÃ¡vel que vocÃª nÃ£o consiga continuar devido aos itens pesados â€‹â€‹que vocÃª tem. Experimente depois de iluminar o peso.";
+		mes "É provável que você não consiga continuar devido aos itens pesados que você tem. Experimente depois de iluminar o peso.";
 		close;
 	}
 	mes "[Can Can Guard]";
-	mes "Ei, vocÃª lÃ¡ ... vocÃª viu algum gato ^0000ff Malangdo pode ^000000s por aqui?";
+	mes "Ei, você lá ... você viu algum gato ^0000ff Malangdo pode ^000000s por aqui?";
 	next;
-	switch(select("Por que vocÃª estÃ¡ perguntando ?: Oh, vocÃª quer dizer isso?")) {
+	switch(select("Por que você está perguntando ?: Oh, você quer dizer isso?")) {
 	case 1:
 		mes "[Can Can Guard]";
 		mes "Umm.";
-		mes "Recentemente, a agÃªncia da lata recebemos alguma inteligÃªncia suspeita sobre eles ...";
+		mes "Recentemente, a agência da lata recebemos alguma inteligência suspeita sobre eles ...";
 		next;
 		mes "[Can Can Guard]";
-		mes "Havia produtos defeituosos a granel na linha de produÃ§Ã£o CAN para a especialidade de Malangdo. Esses produtos, a serem descartados, parecem ter caÃ­do nas mÃ£os de um revendedor de varejo.";
+		mes "Havia produtos defeituosos a granel na linha de produção CAN para a especialidade de Malangdo. Esses produtos, a serem descartados, parecem ter caído nas mãos de um revendedor de varejo.";
 		next;
 		mes "[Can Can Guard]";
-		mes "Na verdade, eles eram difÃ­ceis de distinguir dos produtos normais. Mas obviamente diz ^0000ffmalangdo gato pode ^000000 do lado de fora.";
+		mes "Na verdade, eles eram difíceis de distinguir dos produtos normais. Mas obviamente diz ^0000ffmalangdo gato pode ^000000 do lado de fora.";
 		next;
 		mes "[Can Can Guard]";
-		mes "Ã€ medida que os produtos defeituosos estÃ£o se movendo no mercado, estamos coletando -os como Ã© o nosso dever. VocÃª jÃ¡ viu alguÃ©m que tem coisas como o que estou descrevendo?";
+		mes "À medida que os produtos defeituosos estão se movendo no mercado, estamos coletando -os como é o nosso dever. Você já viu alguém que tem coisas como o que estou descrevendo?";
 		next;
 		mes "[Can Can Guard]";
-		mes "Se vocÃª encontrar alguÃ©m vendendo esses produtos, venha me dizer.";
+		mes "Se você encontrar alguém vendendo esses produtos, venha me dizer.";
 		close;
 	case 2:
 		if (countitem(12633) == 0) {
 			mes "[Can Can Guard]";
-			mes "Umm? NÃ£o consigo ver o gato ^0000ffMalangdo pode ^000000 de vocÃª. NÃ£o se esqueÃ§a de trazer para mim se vocÃª descobriu ...";
+			mes "Umm? Não consigo ver o gato ^0000ffMalangdo pode ^000000 de você. Não se esqueça de trazer para mim se você descobriu ...";
 			close;
 		}
 		break;
 	}
 	mes "[Can Can Guard]";
-	mes "O Malangdo Cat Can Ã© um produto com defeito. Deixe -me trocÃ¡ -lo por 3 moedas de grau. Que tal isso?";
+	mes "O Malangdo Cat Can é um produto com defeito. Deixe -me trocá -lo por 3 moedas de grau. Que tal isso?";
 	next;
-	switch(select("NÃ£o vou trocar:^0000FF1^000000 CAN ->^0000FF3^000000 E GRAIA COIN:^0000FF10^000000 CAN ->^0000FF30^000000 E GRAIA COUN:^0000FF100^000000 CAN ->^0000FF300^000000 E GRADE : Trocar tudo o que tenho")) {
+	switch(select("Não vou trocar:^0000FF1^000000 CAN ->^0000FF3^000000 E GRAIA COIN:^0000FF10^000000 CAN ->^0000FF30^000000 E GRAIA COUN:^0000FF100^000000 CAN ->^0000FF300^000000 E GRADE : Trocar tudo o que tenho")) {
 	case 1:
 		mes "[Can Can Guard]";
-		mes "Umm, eu nÃ£o estou aqui para sempre, entÃ£o venha atÃ© mim se vocÃª quiser trocar enquanto eu ainda estou.";
+		mes "Umm, eu não estou aqui para sempre, então venha até mim se você quiser trocar enquanto eu ainda estou.";
 		close;
 	case 2:
 		.@check = 1;
@@ -411,11 +411,11 @@ malangdo,175,145,4	script	Can Agency Guard	549,{
 	if (countitem(12633) < .@check) {
 		if (.@check == 1) {
 			mes "[Can Can Guard]";
-			mes "Umm? NÃ£o consigo ver o gato ^0000ffMalangdo pode ^000000 de vocÃª. NÃ£o se esqueÃ§a de trazer para mim se vocÃª descobriu ...";
+			mes "Umm? Não consigo ver o gato ^0000ffMalangdo pode ^000000 de você. Não se esqueça de trazer para mim se você descobriu ...";
 			close;
 		} else {
 			mes "[Can Can Guard]";
-			mes "Umm? Eu nÃ£o acho que vocÃª tem o suficiente para trocar ... venha atÃ© mim novamente quando a quantia for exatamente decidida.";
+			mes "Umm? Eu não acho que você tem o suficiente para trocar ... venha até mim novamente quando a quantia for exatamente decidida.";
 			close;
 		}
 	}
@@ -435,64 +435,64 @@ function	script	F_mal_coin	{
 		if (getarg(2) != 2 && BaseLevel < 50) {
 			mes .@npc_name$;
 			mes "Era ~";
-			mes "Se vocÃª quiser comprar essas coisas,";
-			mes "vocÃª pode falar comigo";
-			mes "Quando vocÃª cresce um pouco mais.";
-			mes "Esse material Ã© muito caro";
-			mes "para uma crianÃ§a ~";
+			mes "Se você quiser comprar essas coisas,";
+			mes "você pode falar comigo";
+			mes "Quando você cresce um pouco mais.";
+			mes "Esse material é muito caro";
+			mes "para uma criança ~";
 			close;
 		}
 		mes .@npc_name$;
-		mes "Prazer em conhecÃª -lo ~~";
+		mes "Prazer em conhecê -lo ~~";
 		mes "Eu sou! Sim ~~ isso mesmo!";
 		mes "Estou vendendo coisas especiais";
-		mes "que vocÃª pode ver apenas aqui na ilha de Meow Meow!";
+		mes "que você pode ver apenas aqui na ilha de Meow Meow!";
 		next;
 		mes .@npc_name$;
-		mes "Que tal? O que vocÃª estÃ¡ esperando?";
-		mes "Por que vocÃª nÃ£o dÃ¡ uma olhada";
+		mes "Que tal? O que você está esperando?";
+		mes "Por que você não dá uma olhada";
 		mes "Que tipo de coisa eu tenho?";
 		next;
 		switch(getarg(2)) {
 		case 1:
 			mes "[Comerciante errante]";
 			mes "Oh ~";
-			mes "Esses sÃ£o itens de aluguel, portanto, saiba se vocÃª tem a versÃ£o ^0000FF1 Hour ^000000 ou ^0000FF7 DIA ^000000.";
+			mes "Esses são itens de aluguel, portanto, saiba se você tem a versão ^0000FF1 Hour ^000000 ou ^0000FF7 DIA ^000000.";
 			next;
 			break;
 		case 2:
 			break;
 		case 3:
 			mes "[Mercante queinging]";
-			mes "Apenas para sua informaÃ§Ã£o,";
-			mes "SOW Bug, Starfish, Lula seca e peixe voador sÃ£o os itens que vocÃª pode usar por 1 hora.";
+			mes "Apenas para sua informação,";
+			mes "SOW Bug, Starfish, Lula seca e peixe voador são os itens que você pode usar por 1 hora.";
 			next;
 			break;
 		}
 		mes .@npc_name$;
-		mes "Bem, entÃ£o, vocÃª quer dar uma olhada no que eu tenho agora?";
+		mes "Bem, então, você quer dar uma olhada no que eu tenho agora?";
 		next;
-		switch(select("Sim: NÃ£o")) {
+		switch(select("Sim: Não")) {
 		case 1:
 			if (checkweight(1201,1) == 0) {
 				mes .@npc_name$;
-				mes "Parece que existem muitos itens em seu inventÃ¡rio.";
-				mes "Por favor, faÃ§a espaÃ§o e volte novamente ~";
+				mes "Parece que existem muitos itens em seu inventário.";
+				mes "Por favor, faça espaço e volte novamente ~";
 				close;
 			}
 			if (MaxWeight - Weight < 2500) {
 				mes .@npc_name$;
-				mes "Parece que vocÃª estÃ¡ acima do peso.";
+				mes "Parece que você está acima do peso.";
 				mes "Reduza seu peso e volte novamente ~";
 				close;
 			}
 			mes .@npc_name$;
-			mes "Bem, dÃª uma boa olhada neles ~~~";
+			mes "Bem, dê uma boa olhada neles ~~~";
 			next;
 			return;
 		case 2:
 			mes .@npc_name$;
-			mes "Bem, entÃ£o. Vejo vocÃª na prÃ³xima vez.";
+			mes "Bem, então. Vejo você na próxima vez.";
 			mes "Adeus.";
 			close;
 		}
@@ -502,11 +502,11 @@ function	script	F_mal_coin	{
 // -- callfunc "F_mal_coin",1,"[<NPC Name>]","<Display Name>",<Item ID>,<Egrade_Coin>,<Malang_Sp_Can>,<Silvervine>
 	if (getarg(0) == 1) {
 		mes .@npc_name$;
-		mes "O preÃ§o de ^0000ff ["+getarg(2)+"]^000000 IS";
+		mes "O preço de ^0000ff ["+getarg(2)+"]^000000 IS";
 		if (getarg(4) && getarg(5)) { // Type 1: Egrade_Coin or Malang_Sp_Can
 			mes getarg(4)+"E moeda de grau ou"+getarg(5)+"Especialidades enlatadas de Malangdo.";
 			.@type = 1;
-			.@menu$ = "Sim.:no, vou comprar com latas .: Eu nÃ£o quero comprar nenhum.";
+			.@menu$ = "Sim.:no, vou comprar com latas .: Eu não quero comprar nenhum.";
 		} else if (getarg(5)) { // Type 2: Malang_Sp_Can only
 			mes getarg(5)+"Especialidades enlatadas de Malangdo.";
 			.@type = 2;
@@ -514,15 +514,15 @@ function	script	F_mal_coin	{
 		} else { // Type 3: Silvervine only
 			mes getarg(6)+"Silvervine Fruit.";
 			.@type = 3;
-			.@menu$ = "Sim.::: Eu nÃ£o quero comprar nenhum.";
+			.@menu$ = "Sim.::: Eu não quero comprar nenhum.";
 		}
 		next;
 		mes .@npc_name$;
 		if (.@type == 1) {
-			mes "VocÃª gostaria de comprar";
+			mes "Você gostaria de comprar";
 			mes "^0000ff ["+getarg(2)+"]^000000 com moedas de grau E?";
 		} else {
-			mes "VocÃª gostaria de";
+			mes "Você gostaria de";
 			mes "compra ^0000ff ["+getarg(2)+"]^000000?";
 		}
 		next;
@@ -549,13 +549,13 @@ function	script	F_mal_coin	{
 			}
 			if (countitem(.@item) < .@amount) {
 				mes .@npc_name$;
-				mes "Me desculpe, vocÃª precisa de mais"+.@str$+".";
+				mes "Me desculpe, você precisa de mais"+.@str$+".";
 				close;
 			}
 			if (MaxWeight - Weight < getiteminfo(getarg(3), ITEMINFO_WEIGHT)) {
 				mes .@npc_name$;
-				mes "Desculpe, vocÃª comprou muitos.";
-				mes "VocÃª precisa abrir mais espaÃ§o em seu inventÃ¡rio. Por favor, volte mais tarde.";
+				mes "Desculpe, você comprou muitos.";
+				mes "Você precisa abrir mais espaço em seu inventário. Por favor, volte mais tarde.";
 				close;
 			}
 			mes .@npc_name$;
@@ -566,7 +566,7 @@ function	script	F_mal_coin	{
 		case 3:
 			mes .@npc_name$;
 			mes "Sempre tenha cuidado";
-			mes "Quando vocÃª compra itens.";
+			mes "Quando você compra itens.";
 			close;
 		}
 	}
@@ -597,46 +597,46 @@ malangdo,162,146,5	script	Wandering Merchant#mal	495,{
 		);
 		if (.@i == 13) {
 			mes "[Comerciante errante]";
-			mes "Bem, entÃ£o. Vejo vocÃª na prÃ³xima vez.";
+			mes "Bem, então. Vejo você na próxima vez.";
 			mes "Adeus.";
 			close;
 		}
 		mes "[Comerciante errante]";
-		mes "VocÃª estÃ¡ interessado em ^0000ff ["+.@names$[.@i]+"]^000000?";
+		mes "Você está interessado em ^0000ff ["+.@names$[.@i]+"]^000000?";
 		switch(.@i) {
 		case 1: //Spearfish_Box1
 		case 8: //Spearfish_Box2
-			mes "Isso Ã© ... um peixe que se move de acordo com a temporada, muito saboroso!";
-			mes "Mas isso Ã© apenas uma comida de que estou falando, gostoso ~";
+			mes "Isso é ... um peixe que se move de acordo com a temporada, muito saboroso!";
+			mes "Mas isso é apenas uma comida de que estou falando, gostoso ~";
 			next;
 			mes "[Comerciante errante]";
-			mes "Obviamente, isso Ã© ^dc143ctwo lanÃ§a ^000000.";
-			mes "DÃ¡ uma grande chance de";
+			mes "Obviamente, isso é ^dc143ctwo lança ^000000.";
+			mes "Dá uma grande chance de";
 			mes "causando o status de sangramento";
-			mes "Quando vocÃª estÃ¡ usando Pierce ou em espiral em choque ~";
+			mes "Quando você está usando Pierce ou em espiral em choque ~";
 			next;
 			mes "[Comerciante errante]";
-			mes "Mais detalhes sÃ£o ...";
-			mes "Aumentar 100% da Spiral ATK em conflito e 50% da inspiraÃ§Ã£o ATK,";
-			mes "ATK + 30 adicional quando LV base. Ã© superior a 100.";
-			mes "Base ATK Ã© 220.";
+			mes "Mais detalhes são ...";
+			mes "Aumentar 100% da Spiral ATK em conflito e 50% da inspiração ATK,";
+			mes "ATK + 30 adicional quando LV base. é superior a 100.";
+			mes "Base ATK é 220.";
 			next;
 			break;
 		case 2: //Tuna_Box1
 		case 10: //Tuna_Box2
-			mes "Este Ã© um peixe muito popular";
-			mes "que Ã© usado em vÃ¡rios pratos.";
-			mes "Classes de espada, comerciante e acÃ³lito podem usÃ¡ -lo";
+			mes "Este é um peixe muito popular";
+			mes "que é usado em vários pratos.";
+			mes "Classes de espada, comerciante e acólito podem usá -lo";
 			mes "Como A ^DC143CMACE ^000000.";
 			next;
 			mes "[Comerciante errante]";
 			mes "It gives a high chance of executing the Stun or Auto-Spell Bash";
-			mes "Ao usar ataques fÃ­sicos de curto alcance.";
-			mes "Base ATK Ã© 180.";
+			mes "Ao usar ataques físicos de curto alcance.";
+			mes "Base ATK é 180.";
 			next;
 			mes "[Comerciante errante]";
-			mes "Mais detalhes sÃ£o ...";
-			mes "ATK + 20 adicionais quando LV base. Ã© mais de 100,";
+			mes "Mais detalhes são ...";
+			mes "ATK + 20 adicionais quando LV base. é mais de 100,";
 			mes "congele -se com baixa taxa.";
 			next;
 			break;
@@ -645,51 +645,51 @@ malangdo,162,146,5	script	Wandering Merchant#mal	495,{
 			mes "Este peixe parece um cinto longo.";
 			next;
 			mes "[Comerciante errante]";
-			mes "Esta Ã© uma espada a ^dc143ctwo mÃ£os ^000000";
+			mes "Esta é uma espada a ^dc143ctwo mãos ^000000";
 			mes "que a maioria dos espadachim pode usar.";
-			mes "Aumenta 50% dos danos crÃ­ticos ao atacar e o CRI + 20.";
-			mes "Base ATK Ã© 220.";
+			mes "Aumenta 50% dos danos críticos ao atacar e o CRI + 20.";
+			mes "Base ATK é 220.";
 			next;
 			mes "[Comerciante errante]";
-			mes "Mais detalhes sÃ£o ...";
-			mes "ATK + 50 adicionais quando LV base. Ã© superior a 100.";
+			mes "Mais detalhes são ...";
+			mes "ATK + 50 adicionais quando LV base. é superior a 100.";
 			next;
 			break;
 		case 4: //Saurel_Box1
 		case 9: //Saurel_Box2
-			mes "Este Ã© um ^dc143cdagger ^000000, que dÃ¡ MATK + 100";
-			mes "e ATK + 30 para 7seg a uma determinada taxa com ataques fÃ­sicos.";
+			mes "Este é um ^dc143cdagger ^000000, que dá MATK + 100";
+			mes "e ATK + 30 para 7seg a uma determinada taxa com ataques físicos.";
 			next;
 			mes "[Comerciante errante]";
-			mes "Mais detalhes sÃ£o ...";
-			mes "DÃ¡ MATK + 20 para 7seg a uma determinada taxa com ataques mÃ¡gicos";
-			mes "e MATK adicional + 10, ATK + 10 quando LV base. Ã© superior a 100.";
-			mes "Base ATK Ã© 160.";
+			mes "Mais detalhes são ...";
+			mes "Dá MATK + 20 para 7seg a uma determinada taxa com ataques mágicos";
+			mes "e MATK adicional + 10, ATK + 10 quando LV base. é superior a 100.";
+			mes "Base ATK é 160.";
 			next;
 			break;
 		case 5: //Malang_Crab_Box1
 		case 12: //Malang_Crab_Box2
-			mes "Este Ã© um ^dc143cbow ^000000 que aumenta o LUK + 3 e 50% de danos crÃ­ticos,";
-			mes "e aumenta 20% do ataque fÃ­sico de longo alcance quando o LV base. Ã© superior a 100.";
-			mes "Base ATK Ã© 120.";
+			mes "Este é um ^dc143cbow ^000000 que aumenta o LUK + 3 e 50% de danos críticos,";
+			mes "e aumenta 20% do ataque físico de longo alcance quando o LV base. é superior a 100.";
+			mes "Base ATK é 120.";
 			next;
 			mes "[Comerciante errante]";
-			mes "Mais detalhes sÃ£o ...";
+			mes "Mais detalhes são ...";
 			mes "pode ser usado por aulas de Archer, Thief e Rogue.";
 			next;
 			break;
 		case 6: //Brindle_Eel_Box1
 		case 11: //Brindle_Eel_Box2
-			mes "Este Ã© um ^dc143cbow ^000000.";
-			mes "Porque tem forÃ§a elÃ¡stica,";
-			mes "ComeÃ§amos a usÃ¡ -lo como um arco.";
-			mes "Base ATK Ã© 180.";
+			mes "Este é um ^dc143cbow ^000000.";
+			mes "Porque tem força elástica,";
+			mes "Começamos a usá -lo como um arco.";
+			mes "Base ATK é 180.";
 			next;
 			mes "[Comerciante errante]";
-			mes "Mais detalhes sÃ£o ...";
-			mes "AGI + 3 e ASPD + 2 para 5seg a uma determinada taxa com ataques fÃ­sicos de longo alcance.";
-			mes "TambÃ©m fornece 20% adicionais do ATK fÃ­sico de longo alcance quando o LV base. Ã© superior a 100.";
-			mes "As aulas de Hunter, Bard e danÃ§arino podem usÃ¡ -lo.";
+			mes "Mais detalhes são ...";
+			mes "AGI + 3 e ASPD + 2 para 5seg a uma determinada taxa com ataques físicos de longo alcance.";
+			mes "Também fornece 20% adicionais do ATK físico de longo alcance quando o LV base. é superior a 100.";
+			mes "As aulas de Hunter, Bard e dançarino podem usá -lo.";
 			next;
 			break;
 		}
@@ -714,37 +714,37 @@ malangdo,173,145,4	script	Stinky Merchant	496,{
 		);
 		if (.@i == 3) {
 			mes "[Mercante fedorento]";
-			mes "Bem, entÃ£o. Vejo vocÃª na prÃ³xima vez.";
+			mes "Bem, então. Vejo você na próxima vez.";
 			mes "Adeus.";
 			close;
 		}
 		mes "[Mercante fedorento]";
-		mes "VocÃª estÃ¡ interessado em ^0000ff ["+.@names$[.@i]+"]^000000?";
+		mes "Você está interessado em ^0000ff ["+.@names$[.@i]+"]^000000?";
 		switch(.@i) {
 		case 1: //Cat_Hand_Glove
-			mes "Esta Ã© uma luva que pode dar felicidade";
+			mes "Esta é uma luva que pode dar felicidade";
 			mes "Apenas usando isso.";
 			next;
 			mes "[Mercante fedorento]";
-			mes "Este Ã© um ^dc143caccessory ^000000";
-			mes "e sua defesa Ã© 5.";
-			mes "TambÃ©m dÃ¡";
+			mes "Este é um ^dc143caccessory ^000000";
+			mes "e sua defesa é 5.";
+			mes "Também dá";
 			mes "FIT + 1, 1, DEX + 1, LUK + 1.";
 			next;
 			mes "[Mercante fedorento]";
-			mes "Mais detalhes sÃ£o ...";
-			mes "Slot: 1 / refine: incapaz / destruiÃ§Ã£o: incapaz";
+			mes "Mais detalhes são ...";
+			mes "Slot: 1 / refine: incapaz / destruição: incapaz";
 			next;
 			break;
 		case 2: //Cat_Club
-			mes "Parece que nÃ£o faria mal, vocÃª nÃ£o acha?";
-			mes "Mas estou lhe dizendo, isso pode machucar alguÃ©m.";
+			mes "Parece que não faria mal, você não acha?";
+			mes "Mas estou lhe dizendo, isso pode machucar alguém.";
 			next;
 			mes "[Mercante fedorento]";
-			mes "Este Ã© um A ^DC143CMACE ^000000 que aumenta 15% dos danos ao tipo de monstro animal.";
-			mes "Base ATK Ã© 88.";
-			mes "Os outros detalhes sÃ£o";
-			mes "Arma LV: 1 / Slot: 3 / Refine: ABLE / DESTRIÃ‡ÃƒO: NÃ£o Ã© possÃ­vel";
+			mes "Este é um A ^DC143CMACE ^000000 que aumenta 15% dos danos ao tipo de monstro animal.";
+			mes "Base ATK é 88.";
+			mes "Os outros detalhes são";
+			mes "Arma LV: 1 / Slot: 3 / Refine: ABLE / DESTRIÇÃO: Não é possível";
 			next;
 			break;
 		}
@@ -767,61 +767,61 @@ malangdo,150,135,5	script	Roving Merchant	495,{
 		);
 		if (.@i == 5) {
 			mes "[Mercante queinging]";
-			mes "Bem, entÃ£o. Vejo vocÃª na prÃ³xima vez.";
+			mes "Bem, então. Vejo você na próxima vez.";
 			mes "Adeus.";
 			close;
 		}
 		mes "[Mercante queinging]";
-		mes "VocÃª estÃ¡ interessado em ^0000ff ["+.@names$[.@i]+"]^000000?";
+		mes "Você está interessado em ^0000ff ["+.@names$[.@i]+"]^000000?";
 		switch(.@i) {
 		case 1: //Flying_Fish_Box
-			mes "Este Ã© o que voa";
+			mes "Este é o que voa";
 			mes "com um grande peitoral.";
 			next;
 			mes "[Mercante queinging]";
-			mes "Esta Ã© uma arma de Thc143Chrowing ^000000.";
+			mes "Esta é uma arma de Thc143Chrowing ^000000.";
 			mes "Claro, pode dar feridas fatais ao inimigo";
 			mes "em um determinado ritmo ao atacar.";
 			next;
 			mes "[Mercante queinging]";
-			mes "Sua propriedade Ã© neutra e o ATK Ã© de 50.";
+			mes "Sua propriedade é neutra e o ATK é de 50.";
 			next;
 			break;
 		case 2: //Gong_Bug_Pocket
-			mes "Nesse caso, vou explicar para vocÃª.";
-			mes "Este Ã© um ^dc143cbullet ^000000, que atordoa o inimigo em um determinado ritmo ao atacar.";
+			mes "Nesse caso, vou explicar para você.";
+			mes "Este é um ^dc143cbullet ^000000, que atordoa o inimigo em um determinado ritmo ao atacar.";
 			next;
 			mes "[Mercante queinging]";
 			mes "Eu sinto algo ruim";
-			mes "estÃ¡ se movendo no meu bolso, mas ...";
-			mes "Ã‰ uma propriedade neutra e seu ATK Ã© 50.";
+			mes "está se movendo no meu bolso, mas ...";
+			mes "É uma propriedade neutra e seu ATK é 50.";
 			next;
 			break;
 		case 3: //Dried_Squid_Box
 			mes "Vou explicar sobre este item.";
-			mes "Esta Ã© uma arma de Thc143Chrowing ^000000, que causa a escuridÃ£o em uma determinada taxa.";
-			mes "Sua propriedade neutra e seu ATK Ã© de 50.";
+			mes "Esta é uma arma de Thc143Chrowing ^000000, que causa a escuridão em uma determinada taxa.";
+			mes "Sua propriedade neutra e seu ATK é de 50.";
 			next;
 			mes "[Mercante queinging]";
-			mes "EstÃ¡ comprimido";
+			mes "Está comprimido";
 			mes "e colocar em uma caixa muito pequena,";
 			mes "Portanto, tenha cuidado ao abrir.";
 			next;
 			break;
 		case 4: //Starfish_Box
 			mes "Vou explicar sobre este item.";
-			mes "Esta Ã© uma arma de Thc143Chrowing ^000000, que atordoa o inimigo em um determinado ritmo.";
+			mes "Esta é uma arma de Thc143Chrowing ^000000, que atordoa o inimigo em um determinado ritmo.";
 			next;
 			mes "[Mercante queinging]";
-			mes "EstÃ¡ perfeitamente organizado e embalado";
-			mes "EntÃ£o vocÃª nÃ£o pode nem ver dentro.";
-			mes "Ã‰ uma propriedade neutra e seu ATK Ã© 110.";
+			mes "Está perfeitamente organizado e embalado";
+			mes "Então você não pode nem ver dentro.";
+			mes "É uma propriedade neutra e seu ATK é 110.";
 			next;
 			break;
 		}
 		mes "[Mercante queinging]";
-		mes "Para a sua informaÃ§Ã£o,";
-		mes "Uma caixa contÃ©m";
+		mes "Para a sua informação,";
+		mes "Uma caixa contém";
 		mes "200 unidades.";
 		next;
 		callfunc "F_mal_coin",1,"[Roving Merchant]",.@names$[.@i],.@items[.@i],0,200,0;
@@ -834,15 +834,15 @@ malangdo,150,135,5	script	Roving Merchant	495,{
 ecl_in01,66,95,3	script	Armor Merchant Naphara#e::glove	436,{
 	if (!checkweight(1301,3)) {
 		mes "- Pare aqui!! -";
-		mes "- VocÃª tem muitos itens. -";
-		mes "- VocÃª nÃ£o pode carregar mais itens. -";
+		mes "- Você tem muitos itens. -";
+		mes "- Você não pode carregar mais itens. -";
 		mes "- ilumine sua carga e -";
 		mes "- Tente novamente. -";
 		close;
 	}
 	mes "[Mercador de armadura]";
-	mes "OlÃ¡, esta Ã© a loja da Naphara, um local de produtos de alta classe.";
-	mes "O que vocÃª precisaria?";
+	mes "Olá, esta é a loja da Naphara, um local de produtos de alta classe.";
+	mes "O que você precisaria?";
 	next;
 	.@choice = select("Luva Str: Int Glove: AGI Glove: Vit Glove: Dex Glove: Luk Glove") -1;
 	mes "[Mercador de armadura]";
@@ -875,109 +875,109 @@ ecl_in01,66,95,3	script	Armor Merchant Naphara#e::glove	436,{
 		mes "^3131ffdex Glove^000000";
 		mes "^3131ffmhp + 100, msp + 20^000000";
 		mes "^3131ffhit+1 aumenta para cada DEX+10^000000";
-		mes "^3131 Power de ataques com graÃ§a +1% adicionado acima de Dex 110^000000";
+		mes "^3131 Power de ataques com graça +1% adicionado acima de Dex 110^000000";
 		break;
 	case 5:
 		mes "^3131ffluk luva^000000";
 		mes "^3131ffmhp + 100, msp + 20^000000";
 		mes "^3131ffcri+1 aumenta para cada LUK+10^000000";
-		mes "^3131 danos crÃ­ticos +1% adicionado acima de Luk 110^000000";
+		mes "^3131 danos críticos +1% adicionado acima de Luk 110^000000";
 		break;
 	}
-	mes "^3131 NÃ­vel de Fenchado: 100^000000";
+	mes "^3131 Nível de Fenchado: 100^000000";
 	mes "^3131ffslot: 0^000000";
 	mes "^3131ffweight: 10^000000";
-	mes "sÃ£o as opÃ§Ãµes caracterÃ­sticas.";
+	mes "são as opções características.";
 	next;
 	mes "[Mercador de armadura]";
 	mes "Custa 10 moedas esplendidas.";
-	mes "VocÃª gostaria de comprÃ¡ -lo?";
+	mes "Você gostaria de comprá -lo?";
 	next;
-	if (select("Compre .: nÃ£o compre.")==1) {
+	if (select("Compre .: não compre.")==1) {
 		if (countitem(6081) < 10) {
 			mes "[Mercador de armadura]";
-			mes "Parece que vocÃª nÃ£o tem moedas suficientes.";
+			mes "Parece que você não tem moedas suficientes.";
 			close;
 		}
 		delitem 6081,10; //Splendide_Coin
 		getitem (.@choice+2917),1;
 		mes "[Mercador de armadura]";
-		mes "Ã“timo, Ã© seu. Obrigado.";
+		mes "Ótimo, é seu. Obrigado.";
 	}
 	close;
 }
 
 ecl_in01,64,97,5	script	Slot Expert Nattuer#ecl	436,{
 	disable_items;
-	mes "[Especialista em caÃ§a -nÃ­queis]";
+	mes "[Especialista em caça -níqueis]";
 	mes "Eu sou especialista em slot nattu.";
-	mes "Se vocÃª me trazer um item do meu irmÃ£o mais novo Naphara, juntamente com 5 moedas esplendidas, abrirei um espaÃ§o para vocÃª.";
+	mes "Se você me trazer um item do meu irmão mais novo Naphara, juntamente com 5 moedas esplendidas, abrirei um espaço para você.";
 	next;
 	if (select("Ative um slot.:fforget It.") == 2){
 		close;
 	}
-	mes "[Especialista em caÃ§a -nÃ­queis]";
-	mes "A ativaÃ§Ã£o do slot Ã© um procedimento extremamente difÃ­cil que pode falhar, mesmo com atendimento elevado e o uso de uma lente de ampliaÃ§Ã£o.";
+	mes "[Especialista em caça -níqueis]";
+	mes "A ativação do slot é um procedimento extremamente difícil que pode falhar, mesmo com atendimento elevado e o uso de uma lente de ampliação.";
 	next;
-	mes "[Especialista em caÃ§a -nÃ­queis]";
-	mes "Claro, se seu coraÃ§Ã£o fosse tÃ£o grande quanto aquela terra cheia de flores, vocÃª nÃ£o se importaria. Certo? Devo ir em frente?";
+	mes "[Especialista em caça -níqueis]";
+	mes "Claro, se seu coração fosse tão grande quanto aquela terra cheia de flores, você não se importaria. Certo? Devo ir em frente?";
 	next;
 	if (select("Continue.:fforget It.") == 2) {
 		close;
 	}
-	mes "[Especialista em caÃ§a -nÃ­queis]";
-	mes "Qual item vocÃª gostaria de ativar com um slot?";
+	mes "[Especialista em caça -níqueis]";
+	mes "Qual item você gostaria de ativar com um slot?";
 	next;
 	.@choice = select("Luva Str: Int Glove: AG Glove: Vit Glove: Dex Glove: Luk Glove");
 	.@choice += 2916;
-	mes "[Especialista em caÃ§a -nÃ­queis]";
-	mes "Vamos confirmar pela Ãºltima vez. Ã‰ aquele que vocÃª quer" + getitemname(.@choice) + "?";
+	mes "[Especialista em caça -níqueis]";
+	mes "Vamos confirmar pela última vez. É aquele que você quer" + getitemname(.@choice) + "?";
 	next;
-	if (select("Sim: NÃ£o")==2) {
-		mes "[Especialista em caÃ§a -nÃ­queis]";
-		mes "Por que vocÃª nÃ£o fala comigo quando sabe com certeza.";
+	if (select("Sim: Não")==2) {
+		mes "[Especialista em caça -níqueis]";
+		mes "Por que você não fala comigo quando sabe com certeza.";
 		close;
 	}
 	if (countitem(.@choice) < 1) {
-		mes "[Especialista em caÃ§a -nÃ­queis]";
-		mes "VocÃª nÃ£o tem esse item. Por que vocÃª nÃ£o fala comigo quando sabe com certeza.";
+		mes "[Especialista em caça -níqueis]";
+		mes "Você não tem esse item. Por que você não fala comigo quando sabe com certeza.";
 		close;
 	}
 	if (countitem(6081) < 5) {
-		mes "[Especialista em caÃ§a -nÃ­queis]";
-		mes "VocÃª nÃ£o tem moedas suficientes. Por que vocÃª nÃ£o fala comigo quando sabe com certeza.";
+		mes "[Especialista em caça -níqueis]";
+		mes "Você não tem moedas suficientes. Por que você não fala comigo quando sabe com certeza.";
 		close;
 	}
 	progressbar "0xffff00",3;
-	mes "[Especialista em caÃ§a -nÃ­queis]";
+	mes "[Especialista em caça -níqueis]";
 	delitem 6081,5; //Splendide_Coin
 	.@luckyday = rand(1,100);
 	if (.@luckyday % 20){
 		emotion ET_THINK;
 		delitem .@choice,1;
 		mes "Atire, sinto muito. Falhou.";
-		mes "Mas tenho certeza de que funcionarÃ¡ na prÃ³xima vez. Tenho um sentimento.";
+		mes "Mas tenho certeza de que funcionará na próxima vez. Tenho um sentimento.";
 		close;
 	}
 	emotion ET_BEST;
 	delitem .@choice,1;
 	getitem (.@choice+6),1;
-	mes "Meus olhos sentem que vÃ£o sair.";
-	mes "No entanto, parabÃ©ns. A ativaÃ§Ã£o do slot foi bem -sucedida.";
+	mes "Meus olhos sentem que vão sair.";
+	mes "No entanto, parabéns. A ativação do slot foi bem -sucedida.";
 	close;
 }
 
 ecl_in01,33,98,5	script	Herb Merchant Plafina#a	443,{
 	if (checkweight(1301,1)==0) {
 		mes "- Pare aqui!! -";
-		mes "- VocÃª tem muitos itens. -";
-		mes "- VocÃª nÃ£o pode carregar mais itens. -";
+		mes "- Você tem muitos itens. -";
+		mes "- Você não pode carregar mais itens. -";
 		mes "- ilumine sua carga e -";
 		mes "- Tente novamente. -";
 		close;
 	}
 	mes "[Mercador de ervas]";
-	mes "Bem -vindo, esta Ã© a loja de ervas da Plafina, onde apenas as ervas mais frescas sÃ£o fornecidas ~!";
+	mes "Bem -vindo, esta é a loja de ervas da Plafina, onde apenas as ervas mais frescas são fornecidas ~!";
 	next;
 	.@item = select("Snow Flip: Peony Mommy: Snapping Herb: Yggdrasil Dust: End Conversation")-1;
 	if (.@item == 4){
@@ -994,16 +994,16 @@ ecl_in01,33,98,5	script	Herb Merchant Plafina#a	443,{
 		mes "Peony Mamy tem efeitos especiais em ^3131fffrost, congelado, congelando ^000000";
 		break;
 	case 2:
-		mes "A erva de tapa tem efeitos especiais em ^3131ffstun, medo, caos, alucinaÃ§Ã£o ^000000";
+		mes "A erva de tapa tem efeitos especiais em ^3131ffstun, medo, caos, alucinação ^000000";
 		break;
 	case 3:
-		mes "O pÃ³ Yggdrasil tem efeitos especiais em ^3131ffblind, maldiÃ§Ã£o, diminuiÃ§Ã£o da agilidade, orcish reverso ^000000.";
+		mes "O pó Yggdrasil tem efeitos especiais em ^3131ffblind, maldição, diminuição da agilidade, orcish reverso ^000000.";
 		break;
 	}
 	mes "Requer 5 segundos entre os usos.";
 	mes "Custa"+ .cost[.@item] +"Moedas esplendidas para cada uma.";
 	next;
-	.@buy = select("Compre 1.:buy 10.: NÃ£o compre.");
+	.@buy = select("Compre 1.:buy 10.: Não compre.");
 	if (.@buy == 3){
 		close;
 	}
@@ -1011,18 +1011,18 @@ ecl_in01,33,98,5	script	Herb Merchant Plafina#a	443,{
 		.@buy = 10;
 	}
 	mes "[Mercador de ervas]";
-	mes "VocÃª gostaria de comprar"+ .@buy +""+ getitemname(.items[.@item]) +"?";
+	mes "Você gostaria de comprar"+ .@buy +""+ getitemname(.items[.@item]) +"?";
 	next;
-	if (select("Buy.: NÃ£o compre.") == 2){
+	if (select("Buy.: Não compre.") == 2){
 		close;
 	}
 	if (countitem(6081) < (.cost[.@item]*.@buy) ) {
 		mes "[Mercador de ervas]";
-		mes "VocÃª nÃ£o tem moedas suficientes.";
+		mes "Você não tem moedas suficientes.";
 		close;
 	}
 	mes "[Mercador de ervas]";
-	mes "Obrigado pelo seu negÃ³cio.";
+	mes "Obrigado pelo seu negócio.";
 	delitem 6081,.cost[.@item]*.@buy; //Splendide_Coin
 	getitem .items[.@item],.@buy;
 	close;
@@ -1035,14 +1035,14 @@ OnInit:
 
 ecl_in01,67,39,4	script	Replication Expert Paltu	445,{
 	if (checkweight(1301,3) == 0) {
-		mes "VocÃª tem muitos itens para continuar.";
+		mes "Você tem muitos itens para continuar.";
 		close;
 	}
 	emotion ET_THROB;
 	mes "[Em um casaco]";
-	mes "Woohoo- SaudaÃ§Ãµes. O que vocÃª estÃ¡ procurando? Muitos produtos aqui.";
+	mes "Woohoo- Saudações. O que você está procurando? Muitos produtos aqui.";
 	next;
-	switch (select("NÃ£o, obrigado.")) {
+	switch (select("Não, obrigado.")) {
 	case 1:
 		emotion ET_FRET;
 		mes "[Em um casaco]";
@@ -1050,22 +1050,22 @@ ecl_in01,67,39,4	script	Replication Expert Paltu	445,{
 		close;
 	case 2:
 		mes "[Em um casaco]";
-		mes "Pode -se dizer que nÃ£o hÃ¡ ninguÃ©m melhor no eclage do que eu utilizando resistÃªncia mÃ¡gica.";
+		mes "Pode -se dizer que não há ninguém melhor no eclage do que eu utilizando resistência mágica.";
 		next;
 		mes "[Em um casaco]";
-		mes "Vou te dar um bom preÃ§o, seja o que for. Apenas confie em mim.";
+		mes "Vou te dar um bom preço, seja o que for. Apenas confie em mim.";
 		next;
-		select("VocÃª poderia fazer algo por mim?");
+		select("Você poderia fazer algo por mim?");
 		emotion ET_BEST;
 		mes "[Em um casaco]";
 		mes "Ei, eu gosto da sua atitude.";
 		next;
 		mes "[Em um casaco]";
-		mes "Ah- vocÃª sabe o chapÃ©u que estÃ¡ vestindo?";
+		mes "Ah- você sabe o chapéu que está vestindo?";
 		next;
 		emotion ET_QUESTION;
 		mes "[Em um casaco]";
-		mes "VocÃª nÃ£o tem nenhum daqueles chapÃ©us depositados em armazenamento sÃ³lidos, mas muito feios para usar? VocÃª faz, certo?";
+		mes "Você não tem nenhum daqueles chapéus depositados em armazenamento sólidos, mas muito feios para usar? Você faz, certo?";
 		next;
 		select(".........");
 		emotion ET_THINK, playerattached();
@@ -1074,37 +1074,37 @@ ecl_in01,67,39,4	script	Replication Expert Paltu	445,{
 		mes "Ver! Eu sabia. Eu sabia disso desde o primeiro minuto.";
 		next;
 		mes "[Em um casaco]";
-		mes "Se vocÃª me trazer ^ff0000 50 moedas esplendidas e os ingredientes ^000000, farei de vocÃª um novo chapÃ©u na mesma forma, mas usado como um ^ff0000Costume ^000000.";
+		mes "Se você me trazer ^ff0000 50 moedas esplendidas e os ingredientes ^000000, farei de você um novo chapéu na mesma forma, mas usado como um ^ff0000Costume ^000000.";
 		next;
 		mes "[Em um casaco]";
 		mes "Hmm, o que foi ...?";
-		mes "Eu acho que vocÃªs, aventureiros, os chamam de ^0571B0Costumes ^000000? certo?";
+		mes "Eu acho que vocês, aventureiros, os chamam de ^0571B0Costumes ^000000? certo?";
 		next;
-		select("Sim ~ o que vocÃª precisa?");
+		select("Sim ~ o que você precisa?");
 		mes "[Em um casaco]";
 		mes "Eu preciso de 1 ^0571b0hat para replicar ^000000 e";
-		mes "Preciso de ^e1281e 4 espelhos de cristal ^000000 para resistÃªncia mÃ¡gica, ^e1281e 1 Fairy Magic Powder ^000000 como catalisador, e ^e1281e Emerald, Ruby, safira, topÃ¡zio e zircÃ£o, 10 de cada ^000000, para serem usados â€‹â€‹para Amplify o poder mÃ¡gico.";
+		mes "Preciso de ^e1281e 4 espelhos de cristal ^000000 para resistência mágica, ^e1281e 1 Fairy Magic Powder ^000000 como catalisador, e ^e1281e Emerald, Ruby, safira, topázio e zircão, 10 de cada ^000000, para serem usados para Amplify o poder mágico.";
 		next;
 		emotion ET_STARE_ABOUT;
 		mes "[Em um casaco]";
-		mes "HÃ¡ muitos ingredientes, certo? Bem, eu nÃ£o posso fazer nada sobre isso. Lidar com o poder mÃ¡gico nÃ£o Ã© uma piada.";
+		mes "Há muitos ingredientes, certo? Bem, eu não posso fazer nada sobre isso. Lidar com o poder mágico não é uma piada.";
 		next;
-		select("Quais chapÃ©us podem ser replicados?");
+		select("Quais chapéus podem ser replicados?");
 		mes "[Em um casaco]";
-		mes "Oh! VocÃª Ã© muito afiado!";
+		mes "Oh! Você é muito afiado!";
 		mes "Quase esqueci a coisa mais importante.";
 		next;
 		mes "[Em um casaco]";
-		mes "Os chapÃ©us que eu posso replicar sÃ£o:";
-		mes "^0571b0frog chapÃ©u, flor romÃ¢ntica, cabra magestic, blush, leme valquÃ­rio, chapÃ©u deviruchi, mÃ¡scara de assassino, orelhas Ã©lficas, mÃ¡scara de hahoe e garotos tampe^000000 Um total de 10 tipos.";
+		mes "Os chapéus que eu posso replicar são:";
+		mes "^0571b0frog chapéu, flor romântica, cabra magestic, blush, leme valquírio, chapéu deviruchi, máscara de assassino, orelhas élficas, máscara de hahoe e garotos tampe^000000 Um total de 10 tipos.";
 		next;
 		mes "[Em um casaco]";
-		mes "O que vocÃª acha? Vou fazer isso acontecer desde que tenha os ingredientes e a compensaÃ§Ã£o.";
+		mes "O que você acha? Vou fazer isso acontecer desde que tenha os ingredientes e a compensação.";
 		next;
 		if (select("Farei isso mais tarde.") == 1) {
 			emotion ET_THINK;
 			mes "[Em um casaco]";
-			mes "O que? VocÃª estÃ¡ brincando comigo? Por favor me diga que vocÃª Ã©!";
+			mes "O que? Você está brincando comigo? Por favor me diga que você é!";
 			close;
 		}
 		break;
@@ -1113,13 +1113,13 @@ ecl_in01,67,39,4	script	Replication Expert Paltu	445,{
 	emotion ET_BIGTHROB;
 	mes "[Em um casaco]";
 	mes "Oh uau.";
-	mes "VocÃª fez a ligaÃ§Ã£o certa. Eu pensei que ia morrer de fome porque os Laphines nÃ£o tÃªm interesse em chapÃ©us bonitos.";
+	mes "Você fez a ligação certa. Eu pensei que ia morrer de fome porque os Laphines não têm interesse em chapéus bonitos.";
 	next;
 	mes "[Em um casaco]";
-	mes "Vou fazer isso muito para vocÃª. VocÃª realmente deveria saber que estou lhe dando um bom negÃ³cio aqui.";
+	mes "Vou fazer isso muito para você. Você realmente deveria saber que estou lhe dando um bom negócio aqui.";
 	next;
 	mes "[Em um casaco]";
-	mes "HÃ¡ algo que vocÃª tinha em mente? Por que vocÃª nÃ£o dÃ¡ uma olhada?";
+	mes "Há algo que você tinha em mente? Por que você não dá uma olhada?";
 	next;
 	setarray .@items[0], 5447, 2269, 2256, 5040, 5171, 5038, 5096, 2286, 5176, 5016;
 	setarray .@costumes[0], 19548, 19552, 19549, 19550, 19546, 19547, 19553, 19551, 19554, 19545;
@@ -1133,29 +1133,29 @@ ecl_in01,67,39,4	script	Replication Expert Paltu	445,{
 	}
 	.@i = select(.@menu$)-1;
 	mes "[Em um casaco]";
-	mes "IS ^0571B0"+getitemname(.@items[.@i])+"^000000 O que vocÃª queria?";
+	mes "IS ^0571B0"+getitemname(.@items[.@i])+"^000000 O que você queria?";
 	next;
 	if (.@item_check == 0 || countitem(.@items[.@i]) == 0) {
 		emotion ET_CRY;
 		mes "[Em um casaco]";
-		mes "Ay ... as compras de crÃ©dito sÃ£o difÃ­ceis para mim.";
+		mes "Ay ... as compras de crédito são difíceis para mim.";
 		next;
 		mes "[Em um casaco]";
 		mes "^0571B0"+getitemname(.@items[.@i])+"^000000 e";
-		mes "^E1281E50 Moedas esplendidas, 4 espelhos de cristal, 1 pÃ³ mÃ¡gico de fadas, 10 de cada esmeralda, rubi, safira, topÃ¡zio e zircÃ£o^000000 sÃ£o necessÃ¡rios.";
+		mes "^E1281E50 Moedas esplendidas, 4 espelhos de cristal, 1 pó mágico de fadas, 10 de cada esmeralda, rubi, safira, topázio e zircão^000000 são necessários.";
 		next;
 		mes "[Em um casaco]";
-		mes "Estou em um local apertado. Por favor, considere minha situaÃ§Ã£o tambÃ©m.";
+		mes "Estou em um local apertado. Por favor, considere minha situação também.";
 		close;
 	}
 	emotion ET_QUESTION;
 	mes "[Em um casaco]";
-	mes "Sim, isso Ã© mais do que suficiente. Devo fazer isso agora?";
+	mes "Sim, isso é mais do que suficiente. Devo fazer isso agora?";
 	next;
-	if (select("Por favor, faÃ§a agora.") == 2) {
+	if (select("Por favor, faça agora.") == 2) {
 		emotion ET_HUK;
 		mes "[Em um casaco]";
-		mes "Ei .. Ei! Ei! Para onde vocÃª estÃ¡ indo?";
+		mes "Ei .. Ei! Ei! Para onde você está indo?";
 		close;
 	}
 	emotion ET_HUK;
@@ -1163,15 +1163,15 @@ ecl_in01,67,39,4	script	Replication Expert Paltu	445,{
 	mes "Eu entendi. Oh certo! Quase esqueci novamente.";
 	next;
 	mes "[Em um casaco]";
-	mes "^FF0000 No processo de replicaÃ§Ã£o, o fenÃ´meno da intervenÃ§Ã£o mÃ¡gica faz com que o chapÃ©u perca todos os seus refinamentos, cartÃµes e encantamentos ocultos.^000000";
+	mes "^FF0000 No processo de replicação, o fenômeno da intervenção mágica faz com que o chapéu perca todos os seus refinamentos, cartões e encantamentos ocultos.^000000";
 	next;
 	mes "[Em um casaco]";
-	mes "^Ff0000 e se vocÃª possui vÃ¡rios chapÃ©us do mesmo tipo, o que vocÃª nÃ£o deseja pode passar pelo processo de replicaÃ§Ã£o, por isso verifique se.^000000";
+	mes "^Ff0000 e se você possui vários chapéus do mesmo tipo, o que você não deseja pode passar pelo processo de replicação, por isso verifique se.^000000";
 	next;
 	mes "[Em um casaco]";
-	mes "EntÃ£o, algum problema com isso?";
+	mes "Então, algum problema com isso?";
 	next;
-	if (select("Deixe -me ir verificar .: Iniciar o processo de replicaÃ§Ã£o.") == 1) {
+	if (select("Deixe -me ir verificar .: Iniciar o processo de replicação.") == 1) {
 		mes "[Em um casaco]";
 		mes "Sim, por favor, tenha certeza!";
 		close;
@@ -1183,7 +1183,7 @@ ecl_in01,67,39,4	script	Replication Expert Paltu	445,{
 	next;
 	emotion ET_PROFUSELY_SWEAT;
 	mes "[Em um casaco]";
-	mes "FaÃ§a isso aqui, e faÃ§a isso lÃ¡, e depois faÃ§a isso aqui novamente ...";
+	mes "Faça isso aqui, e faça isso lá, e depois faça isso aqui novamente ...";
 	next;
 	emotion ET_THINK;
 	emotion ET_PROFUSELY_SWEAT;
@@ -1210,7 +1210,7 @@ ecl_in01,67,39,4	script	Replication Expert Paltu	445,{
 	delitem .@items[.@i],1;
 	getitem .@costumes[.@i],1;
 	mes "[Em um casaco]";
-	mes "Bom. Este Ã© um resultado satisfatÃ³rio.";
-	mes "Farei um trabalho melhor na prÃ³xima vez. Por favor, conte aos outros sobre o meu trabalho. Tenha um bom dia ~";
+	mes "Bom. Este é um resultado satisfatório.";
+	mes "Farei um trabalho melhor na próxima vez. Por favor, conte aos outros sobre o meu trabalho. Tenha um bom dia ~";
 	close;
 }

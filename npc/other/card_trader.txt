@@ -62,23 +62,23 @@ prontera,115,90,0	script	Putty	4_F_01,{
 	.@points = oversea_event9;
 	if (!.@points) {
 		mes "[Putty]";
-		mes "Ol√°.";
-		mes "Eu n√£o sei se posso ser";
-		mes "de qualquer assist√™ncia, mas eu";
+		mes "Ol·.";
+		mes "Eu n„o sei se posso ser";
+		mes "de qualquer assistÍncia, mas eu";
 		mes "Estou tentando ajudar veteranos mais velhos";
-		mes "trocando os cart√µes que";
-		mes "Eles n√£o est√£o mais usando.";
+		mes "trocando os cartıes que";
+		mes "Eles n„o est„o mais usando.";
 		next;
-		switch(select("Pe√ßa mais informa√ß√µes!","Eu n√£o tenho cart√µes agora.")) {
+		switch(select("PeÁa mais informaÁıes!","Eu n„o tenho cartıes agora.")) {
 		case 1:
 			mes "[Putty]";
-			mes "Estou dando 1 ponto para cada cart√£o que voc√™ me traz.";
-			mes "Os pontos podem ser usados ‚Äã‚Äãpara trocar por itens que eu tenho.";
+			mes "Estou dando 1 ponto para cada cart„o que vocÍ me traz.";
+			mes "Os pontos podem ser usados para trocar por itens que eu tenho.";
 			next;
 			mes "[Putty]";
-			mes "Para ^cc0000100 pontos ^000000: ^0000cc1 √Ålbum de cart√£o antigo ^000000.";
+			mes "Para ^cc0000100 pontos ^000000: ^0000cc1 ¡lbum de cart„o antigo ^000000.";
 			mes "Para ^CC000050 Pontos ^000000: ^0000CC20 YGGDRASIL BERRY ^000000.";
-			mes "Para ^cc000020 pontos ^000000: ^0000cc10 Po√ß√£o azul ^000000.";
+			mes "Para ^cc000020 pontos ^000000: ^0000cc10 PoÁ„o azul ^000000.";
 			mes "Para ^CC00001 Ponto ^000000: ^0000CC4 MEL ^000000.";
 			next;
 			break;
@@ -90,26 +90,26 @@ prontera,115,90,0	script	Putty	4_F_01,{
 	} else {
 		mes "[Putty]";
 		mes "Bem vindo de volta!";
-		mes "Eu vejo voc√™ j√° tem alguns";
-		mes "Pontos de negocia√ß√£o. Na verdade, voc√™ tem ^00cc00" + .@points + "^000000.";
+		mes "Eu vejo vocÍ j· tem alguns";
+		mes "Pontos de negociaÁ„o. Na verdade, vocÍ tem ^00cc00" + .@points + "^000000.";
 		next;
 		mes "[Putty]";
-		mes "Voc√™ gostaria de trocar estes";
-		mes "Pontos agora, ou voc√™ gostaria de trocar mais cartas?";
+		mes "VocÍ gostaria de trocar estes";
+		mes "Pontos agora, ou vocÍ gostaria de trocar mais cartas?";
 		next;
 	}
-	switch(select("Eu gostaria de trocar cart√µes.","Posso trocar os pontos?")) {
+	switch(select("Eu gostaria de trocar cartıes.","Posso trocar os pontos?")) {
 	case 1:
 		mes "[Putty]";
-		mes "Por favor, diga -me qual cart√£o voc√™ deseja trocar.";
+		mes "Por favor, diga -me qual cart„o vocÍ deseja trocar.";
 		next;
 		input .@i$;
 		.@input$ = "_"+.@i$;
 		freeloop(1);
 		for(.@j = 1; .@j<4; .@j++) {
 			for(.@i = 0; .@i<.@size_card[.@j]; .@i++)
-				if (compare(.@input$,"_"+getitemname(getd(".@cart√£o"+.@j+"["+.@i+"]")))) {
-					.@card = getd(".@cart√£o"+.@j+"["+.@i+"]");
+				if (compare(.@input$,"_"+getitemname(getd(".@cart„o"+.@j+"["+.@i+"]")))) {
+					.@card = getd(".@cart„o"+.@j+"["+.@i+"]");
 					break;
 				}
 			sleep2 10; // For good measure
@@ -117,7 +117,7 @@ prontera,115,90,0	script	Putty	4_F_01,{
 		}
 		freeloop(0);
 		mes "[Putty]";
-		if (!.@card) mes "Por favor, volte aqui se quiser trocar um cart√£o de monstro.";
+		if (!.@card) mes "Por favor, volte aqui se quiser trocar um cart„o de monstro.";
 		else {
 			.@count = countitem(.@card);
 			if (!.@count) {
@@ -126,18 +126,18 @@ prontera,115,90,0	script	Putty	4_F_01,{
 			}
 			mes "You've got ^0055FF"+callfunc("F_InsertPlural",.@count,getitemname(.@card))+"^000000.";
 			mes "";
-			mes "Voc√™ gostaria de trocar 1 ponto por cada um deles?";
+			mes "VocÍ gostaria de trocar 1 ponto por cada um deles?";
 			next;
-			switch(select("Sim, por favor!","N√£o, obrigado.")) {
+			switch(select("Sim, por favor!","N„o, obrigado.")) {
 				case 1:
 					delitem .@card,.@count;
 					oversea_event9 = (.@points+.@count);
 					mes "[Putty]";
-					mes "Tudo bem, voc√™ recebeu ^cc0000"+.@count+"^000000 pontos.";
+					mes "Tudo bem, vocÍ recebeu ^cc0000"+.@count+"^000000 pontos.";
 					break;
 				case 2:
 					mes "[Putty]";
-					mes "Ok, deixe -me saber se eu posso ajud√° -lo com outra coisa.";
+					mes "Ok, deixe -me saber se eu posso ajud· -lo com outra coisa.";
 					break;
 			}
 		}
@@ -145,14 +145,14 @@ prontera,115,90,0	script	Putty	4_F_01,{
 	case 2:
 		if (.@points) {
 			mes "[Putty]";
-			mes "Estes s√£o os itens que eu tenho.";
+			mes "Estes s„o os itens que eu tenho.";
 			next;
-			switch(select("1 √°lbum de cart√£o antigo - 50 pontos","20 yggdrasil berry - 50 pontos","10 po√ß√£o azul - 20 pontos","4 mel - 1 ponto","^7777777 AMPRENA.^000000")) {
+			switch(select("1 ·lbum de cart„o antigo - 50 pontos","20 yggdrasil berry - 50 pontos","10 poÁ„o azul - 20 pontos","4 mel - 1 ponto","^7777777 AMPRENA.^000000")) {
 				case 1:
 					if (.@points < 100) break;
 					mes "[Putty]";
-					mes "√ìtimo, desejo -lhe o melhor";
-					mes "de sorte com este √°lbum. Eu tenho um";
+					mes "”timo, desejo -lhe o melhor";
+					mes "de sorte com este ·lbum. Eu tenho um";
 					mes "Muito bom sentimento sobre este!";
 					oversea_event9 = .@points - 100;
 					getitem 616,1;
@@ -160,16 +160,16 @@ prontera,115,90,0	script	Putty	4_F_01,{
 				case 2:
 					if (.@points < 50) break;
 					mes "[Putty]";
-					mes "Oh, voc√™ deve gostar de aventuras.";
-					mes "Aqui est√°, exatamente o que voc√™ precisa!";
+					mes "Oh, vocÍ deve gostar de aventuras.";
+					mes "Aqui est·, exatamente o que vocÍ precisa!";
 					oversea_event9 = .@points - 50;
 					getitem 607,20;
 					close;
 				case 3:
 					if (.@points < 20) break;
 					mes "[Putty]";
-					mes "Po√ß√µes azuis? Tem certeza?";
-					mes "Se √© isso que voc√™ quer, aqui est√£o eles!";
+					mes "PoÁıes azuis? Tem certeza?";
+					mes "Se È isso que vocÍ quer, aqui est„o eles!";
 					oversea_event9 = .@points - 20;
 					getitem 505,10;
 					close;
@@ -178,7 +178,7 @@ prontera,115,90,0	script	Putty	4_F_01,{
 					mes "[Putty]";
 					mes "Demorou muitas abelhas";
 					mes "Para fazer tudo isso.";
-					mes "Fa√ßa bom uso disso.";
+					mes "FaÁa bom uso disso.";
 					oversea_event9 = .@points - 1;
 					getitem 518,4;
 					close;
@@ -188,11 +188,11 @@ prontera,115,90,0	script	Putty	4_F_01,{
 					close;
 				}
 			mes "[Putty]";
-			mes "Desculpe, mas voc√™ n√£o tem pontos suficientes.";
+			mes "Desculpe, mas vocÍ n„o tem pontos suficientes.";
 			close;
 		} else {
 			mes "[Putty]";
-			mes "Voc√™ tem 0 pontos. Voc√™ precisa de pelo menos 1 ponto para trocar.";
+			mes "VocÍ tem 0 pontos. VocÍ precisa de pelo menos 1 ponto para trocar.";
 			close;
 		}
 	}

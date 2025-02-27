@@ -19,9 +19,9 @@
 // Entrance
 prontera,154,197,3	script	MVP Warper	768,{
 	mes "[ ^0065DFMVP WARPER ^000000]";
-	mes "VocÃª gostaria de entrar";
+	mes "Você gostaria de entrar";
 	mes "A arena MVP?";
-	if (select("Sim!","NÃ£o, obrigado.") == 2) close;
+	if (select("Sim!","Não, obrigado.") == 2) close;
 	warp "quiz_00",50,24;
 	close;
 }
@@ -29,9 +29,9 @@ prontera,154,197,3	script	MVP Warper	768,{
 // Information
 quiz_00,49,31,4	script	MVP Arena Guide	778,{
 	mes "[ ^0065DFMVP Arena Guide ^000000]";
-	mes "Bem -vindo e veja este lugar sagrado. Aqui vocÃª descobrirÃ¡ se vocÃª realmente tem o que Ã© preciso para se chamar de guerreiro.";
+	mes "Bem -vindo e veja este lugar sagrado. Aqui você descobrirá se você realmente tem o que é preciso para se chamar de guerreiro.";
 	next;
-	switch(select("InformaÃ§Ã£o","Cure -me!","Retorne ao Protera","Cancelar")) {
+	switch(select("Informação","Cure -me!","Retorne ao Protera","Cancelar")) {
 	case 1:
 		mes "[ ^0065DFMVP Arena Guide ^000000]";
 		mes "Existem quatro detentores e cada um pode gerar quatro MVPs diferentes.";
@@ -53,14 +53,14 @@ quiz_00,49,31,4	script	MVP Arena Guide	778,{
 function	script	Keeper	{
 	set .@arg, getarg(0);
 	mes "[ ^0065df"+strnpcinfo(1)+"^000000 ]";
-	mes "Qual arena vocÃª faria";
+	mes "Qual arena você faria";
 	mes "Gosta de entrar?";
 	for(set .@i,1; .@i<9; set .@i,.@i+1)
 		set .@menu$, .@menu$+"Arena"+.@i+"["+getmapusers("pvp_n_"+.@i+"-"+.@arg)+"/20]:";
 	set .@i, select(.@menu$);
 	if (getmapusers("pvp_n_"+.@i+"-"+ .@arg)>19) {
 		mes "[ ^0065df"+strnpcinfo(1)+"^000000 ]";
-		mes "Desculpe, esta arena estÃ¡ cheia!";
+		mes "Desculpe, esta arena está cheia!";
 		close;
 	}
 	warp "pvp_n_"+.@i+"-"+ .@arg,102,102;
@@ -73,7 +73,7 @@ quiz_00,62,31,4	script	Epsilon MVP	776,{ callfunc "Keeper",5; }
 
 // Protectors
 function	script	Protector	{
-	switch(select(""+((getarg(0)=="")?"":"Monstros mais difÃ­ceis")+": Heal: Sair")) {
+	switch(select(""+((getarg(0)=="")?"":"Monstros mais difíceis")+": Heal: Sair")) {
 	case 1:
 		warp getarg(0),102,102;
 		end;

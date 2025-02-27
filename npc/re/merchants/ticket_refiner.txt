@@ -62,11 +62,11 @@ prontera,184,177,6	script	Refine Master	851,{
 
 	if (.@check == 0) {
 		mes "[Refine mestre]";
-		mes "OlÃ¡!";
-		mes "E aÃ­?";
+		mes "Olá!";
+		mes "E aí?";
 		mes "Eu sou um especialista";
 		mes "Para refinar itens,";
-		mes "Mas eu nÃ£o trabalho mais.";
+		mes "Mas eu não trabalho mais.";
 		next;
 		switch(select("Eu vou no meu caminho .:hmm ... isso me deixa curioso.")) {
 		case 1:
@@ -75,27 +75,27 @@ prontera,184,177,6	script	Refine Master	851,{
 			close;
 		case 2:
 			mes "[Refine mestre]";
-			mes "Na verdade, Ã s vezes forneÃ§o serviÃ§os refinados para aventureiros com um bilhete ^006400Refine ^000000 ...";
+			mes "Na verdade, às vezes forneço serviços refinados para aventureiros com um bilhete ^006400Refine ^000000 ...";
 			mes "Tchau tchau ~!";
 			close;
 		}
 	}
 	emotion ET_SURPRISE;
 	mes "[Refine mestre]";
-	mes "SaudaÃ§Ãµes!";
-	mes "Eu posso refinar um item atÃ© o nÃ­vel ^006400Same como seu ticket ^000000.";
-	mes "VocÃª nÃ£o precisa se preocupar! NÃ£o hÃ¡ chance de quebrar seu item.";
+	mes "Saudações!";
+	mes "Eu posso refinar um item até o nível ^006400Same como seu ticket ^000000.";
+	mes "Você não precisa se preocupar! Não há chance de quebrar seu item.";
 	next;
 	if(select("Voltarei mais tarde.") == 1) {
 		mes "[Refine mestre]";
 		mes "OK.";
-		mes "VocÃª pode voltar mais tarde.";
+		mes "Você pode voltar mais tarde.";
 		close;
 	}
 	mes "[Refine mestre]";
-	mes "Qual equipamento vocÃª gostaria de refinar?";
+	mes "Qual equipamento você gostaria de refinar?";
 	next;
-	setarray .@position$[1],"CabeÃ§a superior","Armadura","MÃ£o esquerda","MÃ£o direita","Manto","Sapato","AcessÃ³rio 1","AcessÃ³rio 2","CabeÃ§a do meio","CabeÃ§a mais baixa";
+	setarray .@position$[1],"Cabeça superior","Armadura","Mão esquerda","Mão direita","Manto","Sapato","Acessório 1","Acessório 2","Cabeça do meio","Cabeça mais baixa";
 	setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
 	for ( .@i = 1; .@i <= 10; ++.@i )
 		.@menu$ += (getequipisequiped(.@indices[.@i]) ? getequipname(.@indices[.@i]) : .@position$[.@i] + "- [Vazio]") + ":";
@@ -103,14 +103,14 @@ prontera,184,177,6	script	Refine Master	851,{
 	.@part = .@indices[ select(.@menu$) ];
 	if (!getequipisequiped(.@part)) {
 		mes "[Refine mestre]";
-		mes "VocÃª precisa equipar o item que deseja refinar.";
+		mes "Você precisa equipar o item que deseja refinar.";
 		close;
 	}
 	if (!getequipisenableref(.@part)) {
 		emotion ET_OTL;
 		mes "[Refine mestre]";
 		mes "Oh, sinto muito.";
-		mes "Este item Ã© impossÃ­vel de refinar.";
+		mes "Este item é impossível de refinar.";
 		close;
 	}
 	.@refineitemid = getequipid(.@part); // save id of the item
@@ -154,12 +154,12 @@ prontera,184,177,6	script	Refine Master	851,{
 	if (.@check == 0) {
 		emotion ET_THINK;
 		mes "[Refine mestre]";
-		mes "Se vocÃª quiser refinar isso ^006400"+.@type$+"^000000, por favor, venha junto com ^006400"+.@type$+"Refinar o ticket^000000.";
-		mes "AtÃ© mais!";
+		mes "Se você quiser refinar isso ^006400"+.@type$+"^000000, por favor, venha junto com ^006400"+.@type$+"Refinar o ticket^000000.";
+		mes "Até mais!";
 		close;
 	}
 	mes "[Refine mestre]";
-	mes "Escolha qual ^006400"+.@type$+"Refine o ticket^000000 que vocÃª deseja usar.";
+	mes "Escolha qual ^006400"+.@type$+"Refine o ticket^000000 que você deseja usar.";
 	next;
 	.@menu$ = ]";
 	for ( .@i = 0; .@i < .@size_cert; ++.@i )
@@ -171,34 +171,34 @@ prontera,184,177,6	script	Refine Master	851,{
 	if (countitem(.@ticket_id) == 0) {
 		emotion ET_QUESTION;
 		mes "[Refine mestre]";
-		mes getitemname(.@ticket_id)+"nÃ£o estÃ¡ em seu inventÃ¡rio. VocÃª colocou isso em seu armazenamento?";
+		mes getitemname(.@ticket_id)+"não está em seu inventário. Você colocou isso em seu armazenamento?";
 		mes "Por favor, verifique novamente.";
-		mes "AtÃ© mais!";
+		mes "Até mais!";
 		close;
 	}
 	if (getequiprefinerycnt(.@part) >= .@ticket_lv) {
 		emotion ET_PROFUSELY_SWEAT;
 		mes "[Refine mestre]";
-		mes "^8b4513 Este item jÃ¡ estÃ¡ refinado tanto quanto sua aÃ§Ã£o.^000000";
+		mes "^8b4513 Este item já está refinado tanto quanto sua ação.^000000";
 		mes "Por favor, venha junto com um item refinado menos que o seu ingresso.";
 		close;
 	}
 	mes "[Refine mestre]";
-	mes "Vou refinar ^006400"+getequipname(.@part)+"^8B4513 atÃ© o +"+.@ticket_lv+"NÃ­vel ^000000 com ^006400"+getitemname(.@ticket_id)+"^000000.";
+	mes "Vou refinar ^006400"+getequipname(.@part)+"^8B4513 até o +"+.@ticket_lv+"Nível ^000000 com ^006400"+getitemname(.@ticket_id)+"^000000.";
 	mes "Posso prosseguir?";
 	next;
-	if(select("NÃ£o.") == 1) {
+	if(select("Não.") == 1) {
 		emotion ET_THINK;
 		mes "[Refine mestre]";
-		mes "Oh, vocÃª mudou de idÃ©ia.";
+		mes "Oh, você mudou de idéia.";
 		mes "OK.";
-		mes "VocÃª pode voltar mais tarde.";
+		mes "Você pode voltar mais tarde.";
 		close;
 	}
 	mes "[Refine mestre]";
-	mes "Ã“timo.";
-	mes "Como vocÃª deseja!";
-	mes "Eu tenho minha prÃ³pria maneira especial de refinar ...";
+	mes "Ótimo.";
+	mes "Como você deseja!";
+	mes "Eu tenho minha própria maneira especial de refinar ...";
 	mes "....... ka boom!";
 	specialeffect EF_SUI_EXPLOSION;
 	if (countitem(.@ticket_id) < 1) {
@@ -215,18 +215,18 @@ prontera,184,177,6	script	Refine Master	851,{
 		mes "[Refine mestre]";
 		emotion ET_FRET;
 		mes "Espere um segundo ...";
-		mes "VocÃª acha que eu sou estÃºpido?!";
-		mes "VocÃª mudou o item enquanto eu nÃ£o estava olhando! Saia daqui!";
+		mes "Você acha que eu sou estúpido?!";
+		mes "Você mudou o item enquanto eu não estava olhando! Saia daqui!";
 		close;
 	}
 	successrefitem .@part, .@ticket_lv - getequiprefinerycnt(.@part);
 	next;
 	emotion ET_DELIGHT;
 	mes "[Refine mestre]";
-	mes "Tudo bem, aqui estÃ¡ ~";
+	mes "Tudo bem, aqui está ~";
 	mes "Bem, ^0000ff"+strcharinfo(0)+"^000000!";
-	mes "ParabÃ©ns pelo seu brilho"+.@type$+".";
-	mes "VocÃª estÃ¡ Ã³timo!";
+	mes "Parabéns pelo seu brilho"+.@type$+".";
+	mes "Você está ótimo!";
 	mes "Adeus ~!";
 	close;
 }

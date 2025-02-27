@@ -17,31 +17,31 @@
 ama_in02,61,27,7	script	Alchemist#ama	749,{
 	mes "[Laspuchin Gregory]";
 	mes "Kekewheheh.";
-	mes "Isso Ã© incrÃ­vel!";
-	mes "Os resultados sÃ£o extraordinÃ¡rios !!";
+	mes "Isso é incrível!";
+	mes "Os resultados são extraordinários !!";
 	next;
 	mes "[Laspuchin Gregory]";
 	mes "Usando minhas habilidades neste distante";
 	mes "A terra foi inesperada ...";
-	mes "Keheheh ... o senhor do palÃ¡cio";
-	mes "foi bastante flexÃ­vel.";
+	mes "Keheheh ... o senhor do palácio";
+	mes "foi bastante flexível.";
 	next;
 	mes "[Laspuchin Gregory]";
-	mes "Opa, Ã© melhor eu ter cuidado ...";
+	mes "Opa, é melhor eu ter cuidado ...";
 	mes "Se a guilda descobrir meu";
-	mes "LocalizaÃ§Ã£o, Myster Myster Will";
+	mes "Localização, Myster Myster Will";
 	mes "fique bravo comigo. Kehehehkeh ...";
 	next;
 	mes "[Laspuchin Gregory]";
 	mes "O que? Quer dizer alguma coisa?";
-	mes "Se vocÃª estÃ¡ aqui para o turismo,";
+	mes "Se você está aqui para o turismo,";
 	mes "Aproveite o seu dia de folga e depois volte para sua cidade natal.";
-	mes "KeepEkee ... ou entÃ£o,";
-	mes "Vou deixar vocÃª provar minha garrafa de Ã¡cido ...!";
+	mes "KeepEkee ... ou então,";
+	mes "Vou deixar você provar minha garrafa de ácido ...!";
 	next;
-	if (select("Por favor, com licenÃ§a: vocÃª precisa de ajuda?") == 1) {
+	if (select("Por favor, com licença: você precisa de ajuda?") == 1) {
 		mes "[Laspuchin Gregory]";
-		mes "Keheheh ... vocÃª ouviu";
+		mes "Keheheh ... você ouviu";
 		mes "O que eu disse? Seria";
 		mes "Melhor esquecer ...";
 		mes "Keke Inekeee Goode ...";
@@ -56,21 +56,21 @@ ama_in02,61,27,7	script	Alchemist#ama	749,{
 	mes "[Laspuchin Gregory]";
 	mes "Sir Laspuchin precisa de alguns";
 	mes "pedras encantadas para um experimento.";
-	mes "Vou usÃ¡ -lo com eficiÃªncia ...";
-	mes "VocÃª os tem agora?";
+	mes "Vou usá -lo com eficiência ...";
+	mes "Você os tem agora?";
 	next;
 	if (select("Nope: Eu tenho alguns") == 1) {
 		mes "[Laspuchin Gregory]";
 		mes "Em seguida, encontre 8 pedras de um tipo.";
-		mes "Se vocÃª trazer 8 de um tipo de";
+		mes "Se você trazer 8 de um tipo de";
 		mes "pedras encantadas, vou mudar isso";
 		mes "Para um melhor ...";
 		next;
 		mes "[Laspuchin Gregory]";
 		mes "Em seguida, encontre 8 pedras de um tipo.";
-		mes "nÃ£o as pedras redondas, mas";
+		mes "não as pedras redondas, mas";
 		mes "pedras encantadas.";
-		mes "Se vocÃª trazer as pedras erradas,";
+		mes "Se você trazer as pedras erradas,";
 		mes "Vou jogar uma garrafa de chama!";
 		next;
 		mes "[Laspuchin Gregory]";
@@ -79,49 +79,49 @@ ama_in02,61,27,7	script	Alchemist#ama	749,{
 		close;
 	}
 	mes "[Laspuchin Gregory]";
-	mes "Uh-huh, o que vocÃª trouxe?";
+	mes "Uh-huh, o que você trouxe?";
 	next;
 	setarray .@Items[1],995,997,994,996;
-	set .@i, .@Items[select("Mystic Frozen: Grande natureza: CoraÃ§Ã£o de chama: vento Ã¡spero")];
+	set .@i, .@Items[select("Mystic Frozen: Grande natureza: Coração de chama: vento áspero")];
 	mes "[Laspuchin Gregory]";
 	if (countitem(.@i) > 7) {
 		mes "Vou levar 8 deles e";
-		mes "DÃª a vocÃª uma pedra encantada.";
+		mes "Dê a você uma pedra encantada.";
 		mes "Como esse som?";
 		mes "Keeheh .....";
 		next;
 		mes "[Laspuchin Gregory]";
-		mes "Heehee, o que vocÃª quer? Escolha um!";
+		mes "Heehee, o que você quer? Escolha um!";
 		next;
 		set .@menu$, "";
 		for(set .@j,1; .@j<5; set .@j,.@j+1) {
 			if (.@Items[.@j] != .@i) set .@menu$, .@menu$+getitemname(.@Items[.@j]);
 			set .@menu$, .@menu$+":";
 		}
-		set .@menu$, .@menu$+"Cancelar o comÃ©rcio";
+		set .@menu$, .@menu$+"Cancelar o comércio";
 		set .@j, select(.@menu$);
 		mes "[Laspuchin Gregory]";
 		if (.@j == 5) {
 			mes "Ah bem.";
-			mes "NÃ£o conte a ninguÃ©m sobre minha localizaÃ§Ã£o ...";
-			mes "Keheheh ... afinal, vocÃª prometeu ~";
+			mes "Não conte a ninguém sobre minha localização ...";
+			mes "Keheheh ... afinal, você prometeu ~";
 			close;
 		}
 		else if (.@j == 4) {
 			if (countitem(.@i) > 11) {
 				delitem .@i,12;
 				getitem 996,1;
-				mes "Kehhehheh, vocÃª sabe de alguma coisa?";
-				mes "Eu nÃ£o tenho muitos deles";
-				mes "EntÃ£o, eu vou levar ^0000ff12 ^000000 seu, ok?";
-				mes "Claro, estÃ¡ tudo bem.";
-				mes "Ã‰ uma honra ajudar Laspuchin!";
+				mes "Kehhehheh, você sabe de alguma coisa?";
+				mes "Eu não tenho muitos deles";
+				mes "Então, eu vou levar ^0000ff12 ^000000 seu, ok?";
+				mes "Claro, está tudo bem.";
+				mes "É uma honra ajudar Laspuchin!";
 				close;
 			}
-			mes "Keheheh, vocÃª sabe de alguma coisa.";
-			mes "Eu nÃ£o tenho muitos deles entÃ£o";
-			mes "Eu nÃ£o posso simplesmente obter 8 seus.";
-			mes "Se vocÃª quiser alterÃ¡ -los para vento Ã¡spero,";
+			mes "Keheheh, você sabe de alguma coisa.";
+			mes "Eu não tenho muitos deles então";
+			mes "Eu não posso simplesmente obter 8 seus.";
+			mes "Se você quiser alterá -los para vento áspero,";
 			mes "Traga -me mais 4 pedras. 8 + 4 = 12 ...";
 			mes "Requer ^0000ff12 ^000000 Pedras.";
 			next;
@@ -133,13 +133,13 @@ ama_in02,61,27,7	script	Alchemist#ama	749,{
 		else {
 			delitem .@i,8;
 			getitem .@Items[.@j],1;
-			mes "Keheheh! VocÃª escolheu um bom!";
+			mes "Keheheh! Você escolheu um bom!";
 			mes "Use bem ...";
-			mes "Traga -me outras pedras, se vocÃª as tiver!";
+			mes "Traga -me outras pedras, se você as tiver!";
 			close;
 		}
 	} else if (countitem(.@i)) {
-		mes "VocÃª nÃ£o pode ajudar Laspuchin com apenas um casal";
+		mes "Você não pode ajudar Laspuchin com apenas um casal";
 		mes "de pedras encantadas ... eu disse 8!";
 		mes "Traga -me apenas 8 pedras!";
 		mes "Keeheh .....";
@@ -151,10 +151,10 @@ ama_in02,61,27,7	script	Alchemist#ama	749,{
 	}
 	mes "Keheheh ~ verifique seus bolsos";
 	mes "Antes de me dizer";
-	mes "Como vocÃª Ã© tolo .....";
+	mes "Como você é tolo .....";
 	next;
 	mes "[Laspuchin Gregory]";
-	mes "Traga -me pedras! VocÃª disse que vai me ajudar!";
+	mes "Traga -me pedras! Você disse que vai me ajudar!";
 	mes "Mantenha suas promessas! Kehehehkehkeh ...";
 	close;
 }

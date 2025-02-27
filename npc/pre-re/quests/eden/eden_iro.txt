@@ -21,34 +21,34 @@
 //============================================================
 moc_para01,14,32,5	script	Aperture#acolytewarp	90,{
 	mes "[Abertura]";
-	mes "OlÃ¡, aventureiro.";
-	mes "Eu tenho estudado magia de todo o Midgard para atualizar o que acredito ser uma das maiores habilidades disponÃ­veis para a aula de acÃ³litos.";
+	mes "Olá, aventureiro.";
+	mes "Eu tenho estudado magia de todo o Midgard para atualizar o que acredito ser uma das maiores habilidades disponíveis para a aula de acólitos.";
 	next;
 
 	if (is_function("VIP_IRO_ACOLYTE"))
 		callfunc "VIP_iRO_Acolyte","[Aperture]","Prontera";
 
 	mes "[Abertura]";
-	mes "Eu sou o Ãºnico acÃ³lito que atingiu a habilidade do portal de Warp NÃ­vel 10!";
+	mes "Eu sou o único acólito que atingiu a habilidade do portal de Warp Nível 10!";
 	emotion ET_THINK, playerattached();
 	next;
 	mes "[Abertura]";
 	mes "Isso mesmo! E...";
-	mes "Eu prometo a vocÃª que nÃ£o esqueÃ§o os locais que jÃ¡ memorizei.";
+	mes "Eu prometo a você que não esqueço os locais que já memorizei.";
 	mes "One day I will level up my skills to warp to wherever I please~";
 	next;
 	mes "[Abertura]";
 	mes "I am willing to warp you to the many locations that I have memorized for a small fee.";
-	mes "VocÃª gostaria de usar este serviÃ§o?";
+	mes "Você gostaria de usar este serviço?";
 	next;
-	switch(select("Sim: NÃ£o")) {
+	switch(select("Sim: Não")) {
 	case 1:
 		mes "[Abertura]";
-		mes "Para onde vocÃª gostaria de ir?";
+		mes "Para onde você gostaria de ir?";
 		mes "Desejo -lhe boa sorte em sua jornada.";
 		next;
 
-		setarray .@towns$[0], "Prontera", "Chocado", "Se encaixa", "Teto", "Marrocos", "Alberta", "Baran", "ConfortÃ¡vel", "Cor", "Juno", "Suborno", "Lighthalzen", "Hugel", "Rachel";
+		setarray .@towns$[0], "Prontera", "Chocado", "Se encaixa", "Teto", "Marrocos", "Alberta", "Baran", "Confortável", "Cor", "Juno", "Suborno", "Lighthalzen", "Hugel", "Rachel";
 		setarray .@cost[0],          600,      600,     1200,    1200,     1200,      1800,          2200,     2200,     2200,   1800,       2200,          2200,    2200,     2200;
 
 		set .@size, getarraysize(.@towns$);
@@ -62,10 +62,10 @@ moc_para01,14,32,5	script	Aperture#acolytewarp	90,{
 		}
 		if (Zeny < .@cost[.@i]) {
 			mes "[Abertura]";
-			mes "Sinto muito, mas vocÃª nÃ£o tem";
+			mes "Sinto muito, mas você não tem";
 			mes "Zeny suficiente para o teleporte";
-			mes "ServiÃ§o. A taxa para se teletransportar";
-			mes "para"+.@towns$[.@i]+"Ã©"+.@cost[.@i]+"mulheres.";
+			mes "Serviço. A taxa para se teletransportar";
+			mes "para"+.@towns$[.@i]+"é"+.@cost[.@i]+"mulheres.";
 			close;
 		}
 		specialeffect2 EF_READYPORTAL;
@@ -100,17 +100,17 @@ moc_para01,14,32,5	script	Aperture#acolytewarp	90,{
 function	script	VIP_iRO_Acolyte	{
 	if (!vip_status(VIP_STATUS_ACTIVE)) {
 		mes getarg(0);
-		mes "Mas, meus poderes completos estÃ£o disponÃ­veis apenas para aqueles que tÃªm VIPs.";
+		mes "Mas, meus poderes completos estão disponíveis apenas para aqueles que têm VIPs.";
 		mes "I can still offer you a warp to "+getarg(1)+" though.";
 		next;
 		switch(select(getarg(0)+"-> 1800Z: Cancelar")) {
 		case 1:
 			if (Zeny < 1800) {
 				mes getarg(0);
-				mes "Sinto muito, mas vocÃª nÃ£o tem";
+				mes "Sinto muito, mas você não tem";
 				mes "Zeny suficiente para o teleporte";
-				mes "ServiÃ§o. A taxa para se teletransportar";
-				mes "para"+getarg(1)+"Ã© 1.800 Zeny.";
+				mes "Serviço. A taxa para se teletransportar";
+				mes "para"+getarg(1)+"é 1.800 Zeny.";
 				close;
 			}
 			specialeffect2 EF_READYPORTAL;
@@ -135,24 +135,24 @@ function	script	VIP_iRO_Acolyte	{
 //============================================================
 moc_para01,26,15,3	script	Primo d'Buffer	790,{
 	mes "[Primo d'Afffer]";
-	mes "OlÃ¡ aventureiro, parece que vocÃª estÃ¡ ansioso para chegar lÃ¡ e salvar o mundo!";
+	mes "Olá aventureiro, parece que você está ansioso para chegar lá e salvar o mundo!";
 	if (!vip_status(VIP_STATUS_ACTIVE)) {
-		mes "TambÃ©m posso dizer que vocÃª nÃ£o foi abenÃ§oado com '^6666ffvip status^000000'.";
+		mes "Também posso dizer que você não foi abençoado com '^6666ffvip status^000000'.";
 		next;
 		mes "[Primo d'Afffer]";
-		mes "Minhas ordens sÃ£o ajudar qualquer aventureiro marcado como VIP com fÃ£s especiais!";
-		mes "Atualmente, darei a vocÃª ^FF0000+7 a todas as suas estatÃ­sticas por 30 minutos ^000000 se vocÃª for VIP.";
+		mes "Minhas ordens são ajudar qualquer aventureiro marcado como VIP com fãs especiais!";
+		mes "Atualmente, darei a você ^FF0000+7 a todas as suas estatísticas por 30 minutos ^000000 se você for VIP.";
 		next;
 		mes "[Primo d'Afffer]";
-		mes "Se vocÃª deseja ser VIP, pode usar o WarPtortal para ^ff8c42Power-up ^000000 sua conta de jogo com status VIP. Ã‰ claro que existem muitas outras vantagens em serem VIP, como taxas mais altas de Exp e Drop, mais armazenamento e NPCs especiais como eu!";
+		mes "Se você deseja ser VIP, pode usar o WarPtortal para ^ff8c42Power-up ^000000 sua conta de jogo com status VIP. É claro que existem muitas outras vantagens em serem VIP, como taxas mais altas de Exp e Drop, mais armazenamento e NPCs especiais como eu!";
 		mes "Happy Journeys!";
 		close;
 	}
-	mes "TambÃ©m posso dizer que vocÃª foi abenÃ§oado com o status '^007FFFFVIP^000000'.";
+	mes "Também posso dizer que você foi abençoado com o status '^007FFFFVIP^000000'.";
 	next;
 	mes "[Primo d'Afffer]";
-	mes "Isso Ã© incrÃ­vel!";
-	mes "Aqui estÃ¡ +7 a todas as suas estatÃ­sticas por 30 minutos para ajudÃ¡ -lo em sua jornada. Basta voltar quando vocÃª precisar reabastecer suas estatÃ­sticas!";
+	mes "Isso é incrível!";
+	mes "Aqui está +7 a todas as suas estatísticas por 30 minutos para ajudá -lo em sua jornada. Basta voltar quando você precisar reabastecer suas estatísticas!";
 	close2;
 	sc_start SC_FOOD_STR_CASH,1200000,7;
 	sc_start SC_FOOD_AGI_CASH,1200000,7;
@@ -167,31 +167,31 @@ moc_para01,26,15,3	script	Primo d'Buffer	790,{
 //============================================================
 moc_para01,53,30,3	script	Clearchus	470,{
 	if (checkquest(62238,PLAYTIME) > -1 && checkquest(62238,PLAYTIME) < 2) {
-		mes "VocÃª deve esperar o timer terminar antes de contratar um novo mercenÃ¡rio.";
+		mes "Você deve esperar o timer terminar antes de contratar um novo mercenário.";
 		close;	
 	}
 	mes "[Clearchus]";
-	mes "SaudaÃ§Ãµes jovens aventureiros! Eu represento a missÃ£o mercenÃ¡ria Midgardian.";
+	mes "Saudações jovens aventureiros! Eu represento a missão mercenária Midgardian.";
 	next;
 	mes "[Clearchus]";
-	mes "Fornecemos treinamento a aspirantes a mercenÃ¡rios, combinando -os com aventureiros como vocÃª.";
+	mes "Fornecemos treinamento a aspirantes a mercenários, combinando -os com aventureiros como você.";
 	next;
 	mes "[Clearchus]";
-	mes "Nossa organizaÃ§Ã£o Ã© 10.000 fortes! Agora, deixe -me ver se vocÃª estÃ¡ registrado para este serviÃ§o.";
+	mes "Nossa organização é 10.000 fortes! Agora, deixe -me ver se você está registrado para este serviço.";
 	next;
 	if (!vip_status(VIP_STATUS_ACTIVE)) {
 		mes "[Clearchus]";
-		mes "Infelizmente, parece que vocÃª nÃ£o Ã© VIP, obtenha VIP para poder usar este serviÃ§o. VocÃª pode obter um acesso VIP temporÃ¡rio conversando com o Gramps na sede do Eden Group.";
+		mes "Infelizmente, parece que você não é VIP, obtenha VIP para poder usar este serviço. Você pode obter um acesso VIP temporário conversando com o Gramps na sede do Eden Group.";
 		next;
 		mes "[Clearchus]";
 		mes "Vip is a very useful tool for adventurers to have, giving access to extra Kafra Services, discounted warps, exclusive content, and use of Primo d'Buffer. If an adventurer has full vip they even get an Exp, Drops, and storage boost!";
 		close;
 	}
 	mes "[Clearchus]";
-	mes "Seu nome estÃ¡ na lista.";
+	mes "Seu nome está na lista.";
 	next;
 	mes "[Clearchus]";
-	mes "Que tipo de conjunto de habilidades vocÃª estÃ¡ procurando em um mercenÃ¡rio?";
+	mes "Que tipo de conjunto de habilidades você está procurando em um mercenário?";
 	next;
 
 	switch(select("Espadachim: Archer: Lancer")) {
@@ -217,10 +217,10 @@ moc_para01,53,30,3	script	Clearchus	470,{
 	else set .@i,9;
 
 	mes "[Clearchus]";
-	mes "Eu tenho apenas o mercenÃ¡rio em mente!";
+	mes "Eu tenho apenas o mercenário em mente!";
 	next;
 	mes "[Clearchus]";
-	mes "Divirta -se agora, vocÃª ouve?";
+	mes "Divirta -se agora, você ouve?";
 	getitem .@base_id + .@i,1;
 	if (isbegin_quest(62238) > 0)
 		erasequest 62238;
@@ -232,40 +232,40 @@ moc_para01,53,30,3	script	Clearchus	470,{
 //============================================================
 moc_para01,166,51,3	script	Phelix#edco	85,{
 	mes "[Phelix]";
-	mes "Oh ... eu vejo nesse olhar que vocÃª quer que eu funcione e lhe dÃª carne e cenoura ...";
-	mes "Bem, minha amiga Izaac aqui tem algumas poÃ§Ãµes vermelhas com ele, mas eu sÃ³ tenho algumas cenouras.";
-	mes "Para que eu possa trocar vocÃª ^0000cc1 Cenout por 3 Jellopy ^000000.";
+	mes "Oh ... eu vejo nesse olhar que você quer que eu funcione e lhe dê carne e cenoura ...";
+	mes "Bem, minha amiga Izaac aqui tem algumas poções vermelhas com ele, mas eu só tenho algumas cenouras.";
+	mes "Para que eu possa trocar você ^0000cc1 Cenout por 3 Jellopy ^000000.";
 	next;
 	mes "[Phelix]";
-	mes "Se vocÃª estiver interessado na minha oferta, pegue -me as gelÃ©ias que mencionei.";
+	mes "Se você estiver interessado na minha oferta, pegue -me as geléias que mencionei.";
 	next;
 	select("Cenouras, por favor.");
 	mes "[Phelix]";
-	mes "Tudo bem, vamos ver o que vocÃª conseguiu ...";
+	mes "Tudo bem, vamos ver o que você conseguiu ...";
 	next;
 	if (countitem(909) < 3) {
 		mes "[Phelix]";
-		mes "Hmm, olhe cara, eu disse 3 gelÃ©ias para 1 cenoura ... entendeu?";
+		mes "Hmm, olhe cara, eu disse 3 geléias para 1 cenoura ... entendeu?";
 		close;
 	}
 	mes "[Phelix]";
-	mes "NÃ£o Ã© tÃ£o ruim ...";
-	mes "Quantos vocÃª quer?";
+	mes "Não é tão ruim ...";
+	mes "Quantos você quer?";
 	next;
-	switch(select("O mÃ¡ximo que puder, por favor.")) {
+	switch(select("O máximo que puder, por favor.")) {
 	case 1:
 		set .@amount, countitem(909) / 3;
 		break;
 	case 2:
 		set .@available, countitem(909) / 3;
 		mes "[Phelix]";
-		mes "Quantos vocÃª quer?";
-		mes "^ff0000 VocÃª tem o suficiente para" + .@available + "Cenouras.^000000";
+		mes "Quantos você quer?";
+		mes "^ff0000 Você tem o suficiente para" + .@available + "Cenouras.^000000";
 		input .@input;
 		next;
 		if (.@input < 1 || .@input > 10000) {
 			mes "[Phelix]";
-			mes "NÃ£o quer lidar? Justo...";
+			mes "Não quer lidar? Justo...";
 			close;
 		}
 		if (.@input > .@available) {
@@ -277,17 +277,17 @@ moc_para01,166,51,3	script	Phelix#edco	85,{
 		break;
 	case 3:
 		mes "[Phelix]";
-		mes "NÃ£o me incomode se vocÃª nÃ£o quiser negociar.";
+		mes "Não me incomode se você não quiser negociar.";
 		close;
 	}
 	if (checkweight(515,.@amount) == 0) {
 		mes "[Phelix]";
-		mes "VocÃª estÃ¡ acima do peso.";
+		mes "Você está acima do peso.";
 		close;
 	}
 	mes "[Phelix]";
-	mes "LÃ¡ vai vocÃª ~! Como eu prometi.";
-	mes "Tente nÃ£o encher seu rosto.";
+	mes "Lá vai você ~! Como eu prometi.";
+	mes "Tente não encher seu rosto.";
 	delitem 909,.@amount*3; //Jellopy
 	getitem 515,.@amount; //Carrot
 	end;
@@ -296,25 +296,25 @@ moc_para01,166,51,3	script	Phelix#edco	85,{
 moc_para01,163,51,7	script	Izaac#edco	86,{
 	mes "[Azeac]";
 	mes "Bom dia!";
-	mes "VocÃª coletou alguma coisa estranha de monstros?";
-	mes "Eu quero coisas como gelatina, cotÃ£o, concha, penas de pÃ¡ssaros, raiz de Ã¡rvores, cascas de minhocas e crisÃ¡lida.";
+	mes "Você coletou alguma coisa estranha de monstros?";
+	mes "Eu quero coisas como gelatina, cotão, concha, penas de pássaros, raiz de árvores, cascas de minhocas e crisálida.";
 	mes "Eu preciso daqueles para algo.";
 	next;
 	mes "[Azeac]";
-	mes "Claro, nÃ£o vou pedir que vocÃª me dÃª essas coisas de graÃ§a. E se eu negociasse o seguinte por ^CC00001 POÃ‡ÃƒO RED ^000000:";
+	mes "Claro, não vou pedir que você me dê essas coisas de graça. E se eu negociasse o seguinte por ^CC00001 POÇÃO RED ^000000:";
 	mes "^00CC005 Shell^000000";
 	mes "^0000CC10 FLUFF^000000";
-	mes "^00CC0010 JelÃ³pica^000000";
-	mes "^0000cc6 Raiz da Ã¡rvore^000000";
+	mes "^00CC0010 Jelópica^000000";
+	mes "^0000cc6 Raiz da árvore^000000";
 	mes "^00CC001 Descasco de worm^000000";
-	mes "^0000cc7 Penas de pÃ¡ssaros^000000";
+	mes "^0000cc7 Penas de pássaros^000000";
 	mes "^00CC006 CHRISALIS^000000";
 	next;
-	switch(select("Claro!: Eu acho que Ã© um roubo !: NÃ£o, obrigado.")) {
+	switch(select("Claro!: Eu acho que é um roubo !: Não, obrigado.")) {
 	case 1:
 		mes "[Azeac]";
-		mes "EntÃ£o, quais itens fazem";
-		mes "VocÃª quer me trazer?";
+		mes "Então, quais itens fazem";
+		mes "Você quer me trazer?";
 		next;
 
 		setarray .@items[0], 935, 914, 909, 902, 955, 916, 915;
@@ -336,28 +336,28 @@ moc_para01,163,51,7	script	Izaac#edco	86,{
 
 		if (countitem(.@item) < .@price) {
 			mes "[Azeac]";
-			mes "Ei, onde estÃ¡ tudo";
+			mes "Ei, onde está tudo";
 			mes "que"+.@item$+"que";
-			mes "VocÃª me prometeu?";
-			mes "Me dÃª"+.@item$+"!";
+			mes "Você me prometeu?";
+			mes "Me dê"+.@item$+"!";
 			close;
 		}
 		mes "[Azeac]";
 		mes "Ok, deixe -me verificar";
 		mes "quanto"+.@item$;
-		mes "vocÃª tem em vocÃª.";
+		mes "você tem em você.";
 		mes "Hum...";
 		next;
 		set .@amount, countitem(.@item) / .@price;
 		set .@trade_amount, .@amount * .@price;
 		mes "[Azeac]";
-		mes "VocÃª tem";
+		mes "Você tem";
 		mes "um total de"+countitem(.@item)+""+.@item$+"...";
 		mes "Para todos eles, eu posso te dar";
-		mes "um total de"+.@amount+"PoÃ§Ã£o vermelha (s).";
+		mes "um total de"+.@amount+"Poção vermelha (s).";
 		next;
 		mes "[Azeac]";
-		mes "O que vocÃª diz?";
+		mes "O que você diz?";
 		mes "Temos um acordo?";
 		next;
 		if(select("Deal.:No deal.") == 2) {
@@ -365,34 +365,34 @@ moc_para01,163,51,7	script	Izaac#edco	86,{
 			mes "Huh ~";
 			mes "Tudo bem.";
 			mes "Embora sejam";
-			mes .@item$ + "mais Ãºtil";
-			mes "Para um aventureiro como vocÃª?";
+			mes .@item$ + "mais útil";
+			mes "Para um aventureiro como você?";
 			close;
 		}
 		if (checkweight(501,.@amount) == 0) { //custom check
 			mes "[Azeac]";
-			mes "VocÃª estÃ¡ acima do peso.";
+			mes "Você está acima do peso.";
 			close;
 		}
 		delitem .@item,.@trade_amount;
 		getitem 501,.@amount; //Red_Potion
 		mes "[Azeac]";
-		mes "LÃ¡ vai vocÃª!";
+		mes "Lá vai você!";
 		mes "Verifique quantos"+.@item$;
 		mes "Eu te dei, deve ser bom.";
-		mes "Obrigado, isso foi um bom negÃ³cio ~";
+		mes "Obrigado, isso foi um bom negócio ~";
 		close;
 	case 2:
 		mes "[Azeac]";
 		mes "Um roubo ...?";
-		mes "Se vocÃª verificar o valor de mercado";
-		mes "Dos itens que estÃ£o sendo negociados, eu sou eu quem estÃ¡ recebendo";
+		mes "Se você verificar o valor de mercado";
+		mes "Dos itens que estão sendo negociados, eu sou eu quem está recebendo";
 		mes "arrancado aqui.";
 		close;
 	case 3:
 		mes "[Azeac]";
-		mes "Tudo bem, nÃ£o hÃ¡ problema.";
-		mes "Mas volte para mim se vocÃª mudar de idÃ©ia.";
+		mes "Tudo bem, não há problema.";
+		mes "Mas volte para mim se você mudar de idéia.";
 		close;
 	}
 }
@@ -401,32 +401,32 @@ moc_para01,163,51,7	script	Izaac#edco	86,{
 //============================================================
 moc_para01,50,39,4	script	Eve Natalia	882,{
 	mes "[Eve Natalia]";
-	mes "EntÃ£o, estou na cidade por um tempo para ver se consigo acionar algum comÃ©rcio com os caÃ§adores de MVP!";
-	mes "Estou disposto a pegar alguns equipamentos de MVP e fornecer esses certificados de atualizaÃ§Ã£o que tenho em troca;";
-	mes "Se as coisas correrem bem o suficiente, abrirei mais oportunidades de negÃ³cios!";
+	mes "Então, estou na cidade por um tempo para ver se consigo acionar algum comércio com os caçadores de MVP!";
+	mes "Estou disposto a pegar alguns equipamentos de MVP e fornecer esses certificados de atualização que tenho em troca;";
+	mes "Se as coisas correrem bem o suficiente, abrirei mais oportunidades de negócios!";
 	next;
 	mes "[Eve Natalia]";
-	mes "EntÃ£o, vocÃª tem alguma das engrenagens que estou procurando para obter um seguro aleatÃ³rio para 7 certificados?";
+	mes "Então, você tem alguma das engrenagens que estou procurando para obter um seguro aleatório para 7 certificados?";
 	next;
-	switch(select("Que equipamento?: Sim, eu sou!: NÃ£o importa.")) {
+	switch(select("Que equipamento?: Sim, eu sou!: Não importa.")) {
 	case 1:
 		mes "[Eve Natalia]";
 		mes "Armas de Nidhoggur Sombriar 4 Random Safe to 7 Certificates";
 		mes "Escudo de Valkyrja 4 Random Safe to 7 Certificates";
-		mes "Armadura ValquÃ­ria 5 Random Safe to 7 Certificates";
+		mes "Armadura Valquíria 5 Random Safe to 7 Certificates";
 		mes "Diabolus Robe 5 Random Safe to 7 Certificates";
 		mes "Diabolus Armour 2 Random Safe to 7 Certificates";
-		mes "Botas de diabolus 2 seguras aleatÃ³rias para 7 certificados";
-		mes "Diabolus manteau 4 cofre aleatÃ³rio para 7 certificados";
+		mes "Botas de diabolus 2 seguras aleatórias para 7 certificados";
+		mes "Diabolus manteau 4 cofre aleatório para 7 certificados";
 		mes "Twin Edge of Naght Sieger Blue 2 Random Safe to 7 Certificates";
 		mes "Twin Edge of Naght Sieger Red 2 Random Safe to 7 Certificates";
 		close;
 	case 2:
 		mes "[Eve Natalia]";
-		mes "Vou perguntar em qual equipamento vocÃª deseja negociar, verifique se o primeiro do seu inventÃ¡rio Ã© aquele que vocÃª deseja desistir.";
-		mes "^CC0000SO se for cardado, atualizado, encantado etc., vocÃª deve colocÃ¡ -lo em armazenamento antes de continuarmos.^000000";
+		mes "Vou perguntar em qual equipamento você deseja negociar, verifique se o primeiro do seu inventário é aquele que você deseja desistir.";
+		mes "^CC0000SO se for cardado, atualizado, encantado etc., você deve colocá -lo em armazenamento antes de continuarmos.^000000";
 		next;
-		set .@i, select("Espere um minuto: Shadow Arma de Indhogr 4: Escudo de Valkyrja 4: Armadura ValquÃ­ria 5: Dibolus Robe 5: Dibolus Armour 2: Dibolus Boots 2: Dibolus Manteau Sieger Red 2")-2;
+		set .@i, select("Espere um minuto: Shadow Arma de Indhogr 4: Escudo de Valkyrja 4: Armadura Valquíria 5: Dibolus Robe 5: Dibolus Armour 2: Dibolus Boots 2: Dibolus Manteau Sieger Red 2")-2;
 		if (.@i == -1)
 			break;
 
@@ -437,27 +437,27 @@ moc_para01,50,39,4	script	Eve Natalia	882,{
 		set .@amount, .@tickets[.@i];
 
 		mes "[Eve Natalia]";
-		mes "Vejo que vocÃª tem"+countitem(.@item)+""+getitemname(.@item)+".";
-		mes "EntÃ£o vocÃª deseja trocar o primeiro em seu inventÃ¡rio por ^00cc00"+.@amount+"Seguro aleatÃ³rio para 7 certificados^000000?";
-		mes "Diga -me '1' se vocÃª fizer ou '0' para cancelar.";
+		mes "Vejo que você tem"+countitem(.@item)+""+getitemname(.@item)+".";
+		mes "Então você deseja trocar o primeiro em seu inventário por ^00cc00"+.@amount+"Seguro aleatório para 7 certificados^000000?";
+		mes "Diga -me '1' se você fizer ou '0' para cancelar.";
 		next;
 		input .@input;
 		if (.@input < 0 || .@input > 1) {
 			mes "[Eve Natalia]";
-			mes "Ã‰ um 0 ou 1, nÃ£o pode ser tÃ£o difÃ­cil.";
+			mes "É um 0 ou 1, não pode ser tão difícil.";
 			close;
 		} else if (.@input == 0) {
 			mes "[Eve Natalia]";
-			mes "Ã‰ melhor ter certeza antes de negociar, tenha um bom dia.";
+			mes "É melhor ter certeza antes de negociar, tenha um bom dia.";
 			close;
 		}
 		if (countitem(.@item) == 0) {
 			mes "[Eve Natalia]";
-			mes "VocÃª nem tem 1 ... pare de desperdiÃ§ar meu tempo.";
+			mes "Você nem tem 1 ... pare de desperdiçar meu tempo.";
 			close;
 		}
 		mes "[Eve Natalia]";
-		mes "Oh perfeito, vocÃª recebe ^cc0000" + .@amount + "^000000 seguro para 7 certificados!";
+		mes "Oh perfeito, você recebe ^cc0000" + .@amount + "^000000 seguro para 7 certificados!";
 		delitem .@item,1;
 		for(set .@i,0; .@i<.@amount; set .@i,.@i+1) {
 			// Note: iRO lists item 6235 as "Seguro para 7 Certificado de Capfe", but it's Guarantee_Armor_6Up in our database.
@@ -471,7 +471,7 @@ moc_para01,50,39,4	script	Eve Natalia	882,{
 		break;
 	}
 	mes "[Eve Natalia]";
-	mes "Ã‰ justo, se vocÃª tem negÃ³cios comigo no futuro, nÃ£o seja tÃ­mido!";
+	mes "É justo, se você tem negócios comigo no futuro, não seja tímido!";
 	close;
 }
 
@@ -479,19 +479,19 @@ moc_para01,50,39,4	script	Eve Natalia	882,{
 //============================================================
 moc_para01,48,184,2	script	Gum & Manual Exchanger	562,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 2000) {
-		mes "VocÃª estÃ¡ carregando muitos itens agora.";
+		mes "Você está carregando muitos itens agora.";
 		close;	
 	}
-	mes "[MÃ¡quina do Trader]";
-	mes "Insira gengivas de bolha e/ou manuais de batalha para negociar por gomas e manuais de maior eficiÃªncia.";
+	mes "[Máquina do Trader]";
+	mes "Insira gengivas de bolha e/ou manuais de batalha para negociar por gomas e manuais de maior eficiência.";
 	next;
-	mes "[MÃ¡quina do Trader]";
-	mes "Taxa de cÃ¢mbio:";
+	mes "[Máquina do Trader]";
+	mes "Taxa de câmbio:";
 	mes "2 chiclete -> 1 ele bolha chiclete";
 	mes "2 Manual de Batalha -> 1 Manual de Batalha";
 	mes "4 Manual de batalha -> 1 Manual de Batalha x3";
 	mes "3 Manual de Batalha de espessura -> 2 Manual de Batalha x3";
-	mes "O que vocÃª gostaria de trocar?";
+	mes "O que você gostaria de trocar?";
 	next;
 	switch(select("Ele Bubble Gum: Ele Manual de Batalha: 1 Manual de Batalha X3: 2 Manual de Batalha X3: 1 Costume Corsair: Nada")) {
 	case 1:
@@ -507,23 +507,23 @@ moc_para01,48,184,2	script	Gum & Manual Exchanger	562,{
 		callsub L_Exchange,12312,3,14545,2;
 		break;
 	case 5:
-		mes "[MÃ¡quina do Trader]";
+		mes "[Máquina do Trader]";
 		mes "Eu posso lhe dar 1 manual de batalha x3 por 1 figurino corsair.";
 		next;
 		if (countitem(19619) == 0) {
-			mes "[MÃ¡quina do Trader]";
-			mes "VocÃª nÃ£o tem um chapÃ©u corsair de fantasia para fazer esse comÃ©rcio.";
+			mes "[Máquina do Trader]";
+			mes "Você não tem um chapéu corsair de fantasia para fazer esse comércio.";
 			close;
 		}
 		next;
-		if(select("Sim, dÃª para mim!: NÃ£o, espere ainda.") == 2)
+		if(select("Sim, dê para mim!: Não, espere ainda.") == 2)
 			close;
 		// Unofficial dialogue.
-		mes "[MÃ¡quina do Trader]";
-		mes "VocÃª coloca os itens necessÃ¡rios na mÃ¡quina ...";
+		mes "[Máquina do Trader]";
+		mes "Você coloca os itens necessários na máquina ...";
 		next;
-		mes "[MÃ¡quina do Trader]";
-		mes "A mÃ¡quina deu a vocÃª um item em troca!";
+		mes "[Máquina do Trader]";
+		mes "A máquina deu a você um item em troca!";
 		delitem 19619,1; //C_Corsair
 		getitem 14545,1; //Battle_Manual_X3
 		close;
@@ -533,32 +533,32 @@ moc_para01,48,184,2	script	Gum & Manual Exchanger	562,{
 
 //callsub L_Exchange,<Insert Item>,<Amount>,<Return Item>,<Amount>
 L_Exchange:
-	mes "[MÃ¡quina do Trader]";
-	mes "Quantos"+getitemname(getarg(2))+"vocÃª quer?";
-	mes "Eu posso te dar atÃ© 60.";
+	mes "[Máquina do Trader]";
+	mes "Quantos"+getitemname(getarg(2))+"você quer?";
+	mes "Eu posso te dar até 60.";
 	mes "Tipo 0 para cancelar.";
 	next;
 	input .@amount;
 	if (.@amount == 0) {
-		mes "[MÃ¡quina do Trader]";
+		mes "[Máquina do Trader]";
 		mes "Cancelado.";
 		close;
 	} else if (.@amount < 0 || .@amount > 60) {
-		mes "[MÃ¡quina do Trader]";
-		mes "Eu disse apenas 60 no mÃ¡ximo.";
+		mes "[Máquina do Trader]";
+		mes "Eu disse apenas 60 no máximo.";
 		close;
 	}
-	mes "[MÃ¡quina do Trader]";
-	mes "Isso Ã© um total de"+.@amount+""+getitemname(getarg(2))+".";
-	mes "Isso estÃ¡ correto?";
+	mes "[Máquina do Trader]";
+	mes "Isso é um total de"+.@amount+""+getitemname(getarg(2))+".";
+	mes "Isso está correto?";
 	next;
-	if(select("Sim, dÃª -lhes para mim!: NÃ£o, espere ainda.") == 2)
+	if(select("Sim, dê -lhes para mim!: Não, espere ainda.") == 2)
 		close;
 	set .@cost, getarg(1) * .@amount;
 	set .@total_amount, getarg(3) * .@amount;
 	if (countitem(getarg(0)) < .@cost) {
-		mes "[MÃ¡quina do Trader]";
-		mes "VocÃª nÃ£o tem o suficiente"+getitemname(getarg(0))+"para fazer esse comÃ©rcio.";
+		mes "[Máquina do Trader]";
+		mes "Você não tem o suficiente"+getitemname(getarg(0))+"para fazer esse comércio.";
 		close;
 	}
 	delitem getarg(0),.@cost;
@@ -571,22 +571,22 @@ L_Exchange:
 moc_para01,13,22,4	script	Merry Badger#xch	882,{
 	disable_items;
 	mes "[Merry Badger]";
-	mes "OlÃ¡!  Eu sou feliz texugo e fui contratado para trocar os crachÃ¡s de mÃ©rito ^00cc00eden ^000000!";
+	mes "Olá!  Eu sou feliz texugo e fui contratado para trocar os crachás de mérito ^00cc00eden ^000000!";
 	next;
 	mes "[Merry Badger]";
-	mes "Eu posso pegar seus emblemas de mÃ©rito e dar algumas coisas Ãºteis, ou posso pegar algumas de suas coisas e fornecer alguns crachÃ¡s de mÃ©rito de Eden.";
-	mes "Ã€ medida que recebo mais autorizaÃ§Ã£o, posso oferecer mais coisas para negociar com vocÃª, entÃ£o definitivamente me lembre -me de visitar o grupo Eden.";
+	mes "Eu posso pegar seus emblemas de mérito e dar algumas coisas úteis, ou posso pegar algumas de suas coisas e fornecer alguns crachás de mérito de Eden.";
+	mes "À medida que recebo mais autorização, posso oferecer mais coisas para negociar com você, então definitivamente me lembre -me de visitar o grupo Eden.";
 	next;
-	// switch( select( "Resgatar emblemas", "Negociar por crachÃ¡s", "Taxas de cÃ¢mbio", "15 manuais de trabalho - 1 caixa JM", "Bilhetes para fortaleza do cÃ©u", "Especial semanal" ) ) {// Sky Fortress Tickets meaningless without the instance
-	switch( select( "Resgatar emblemas", "Negociar por crachÃ¡s", "Taxas de cÃ¢mbio", "15 manuais de trabalho - 1 caixa JM", "", "Especial semanal" ) ) {
+	// switch( select( "Resgatar emblemas", "Negociar por crachás", "Taxas de câmbio", "15 manuais de trabalho - 1 caixa JM", "Bilhetes para fortaleza do céu", "Especial semanal" ) ) {// Sky Fortress Tickets meaningless without the instance
+	switch( select( "Resgatar emblemas", "Negociar por crachás", "Taxas de câmbio", "15 manuais de trabalho - 1 caixa JM", "", "Especial semanal" ) ) {
 	case 1:
 		setarray .@menu_list$[0],
-			"4 EMB para um crachÃ¡ de 10 kVM",
+			"4 EMB para um crachá de 10 kVM",
 			"4 EMB para 10 medalhas de bravura",
 			"4 EMB para 10 medalhas de valor", 
-			"8 EMB para 1 pedra de redefiniÃ§Ã£o",
-			"5 EMB para fÃ£ de manual de batalha",
-			"5 EMB para o fÃºmulo manual de batalha de emprego",
+			"8 EMB para 1 pedra de redefinição",
+			"5 EMB para fã de manual de batalha",
+			"5 EMB para o fúmulo manual de batalha de emprego",
 			"10 EMB para ele Buttle Manual Buff",
 			"20 EMB para 3x Butty Battle Manual Buff",
 			"5 EMB for Bubblegum Buff", 
@@ -601,10 +601,10 @@ moc_para01,13,22,4	script	Merry Badger#xch	882,{
 		.@menu$ = implode( .@menu_list$, ":" );
 		while(1) {
 			mes "[Merry Badger]";
-			mes "Claro, eu tenho vÃ¡rias opÃ§Ãµes atualmente para seus crachÃ¡s!";
+			mes "Claro, eu tenho várias opções atualmente para seus crachás!";
 			next;
 			switch( select(.@menu$) ) {
-			case 1:// "4 EMB para um crachÃ¡ de 10 kVM"
+			case 1:// "4 EMB para um crachá de 10 kVM"
 				callsub L_Exchange,4,6376,10;// KVM_Badge
 				break;
 			case 2:// "4 EMB para 10 medalhas de bravura"
@@ -613,13 +613,13 @@ moc_para01,13,22,4	script	Merry Badger#xch	882,{
 			case 3:// "4 EMB para 10 medalhas de valor"
 				callsub L_Exchange,4,7829,10;// BF_Badge2
 				break;
-			case 4:// "8 EMB para 1 pedra de redefiniÃ§Ã£o"
+			case 4:// "8 EMB para 1 pedra de redefinição"
 				callsub L_Exchange,8,6320,1;// Premium_Reset_Stone
 				break;
-			case 5:// "5 EMB para fÃ£ de manual de batalha"
+			case 5:// "5 EMB para fã de manual de batalha"
 				callsub L_Exchange,5,12208,1;// Battle_Manual
 				break;
-			case 6:// "5 EMB para o fÃºmulo manual de batalha de emprego"
+			case 6:// "5 EMB para o fúmulo manual de batalha de emprego"
 				callsub L_Exchange,5,14592,1;// Job_Manual50
 				break;
 			case 7:// "10 EMB para ele Buttle Manual Buff"
@@ -638,20 +638,20 @@ moc_para01,13,22,4	script	Merry Badger#xch	882,{
 				.@item_id = 22819;
 				if (countitem(6495) < 5) {
 					mes "[Merry Badger]";
-					mes "VocÃª nÃ£o tem o suficiente ^00cc00eden Merit Badges ^000000. Vamos comeÃ§ar de novo!";
+					mes "Você não tem o suficiente ^00cc00eden Merit Badges ^000000. Vamos começar de novo!";
 					break;
 				}
 				mes "[Merry Badger]";
-				mes "Ok, eu posso te dar ^ff0000" + getitemname(.@item_id) + "^000000 para ^0066cc5 do seu (s) distintivo (s) de mÃ©rito do Ã‰den ^000000.";
-				mes "VocÃª quer?";
+				mes "Ok, eu posso te dar ^ff0000" + getitemname(.@item_id) + "^000000 para ^0066cc5 do seu (s) distintivo (s) de mérito do Éden ^000000.";
+				mes "Você quer?";
 				next;
 				if (select("Sim", "No") == 2) {
 					mes "[Merry Badger]";
-					mes "Eu entendo, vamos ver se vocÃª gostaria de algo diferente!";
+					mes "Eu entendo, vamos ver se você gostaria de algo diferente!";
 					break;
 				}
 				mes "[Merry Badger]";
-				mes "LÃ¡ vai vocÃª! O que mais vocÃª gostaria?";
+				mes "Lá vai você! O que mais você gostaria?";
 				delitem 6495, 5;// Para_Logro_Badge
 				consumeitem .@item_id;
 				break;
@@ -662,20 +662,20 @@ moc_para01,13,22,4	script	Merry Badger#xch	882,{
 				.@item_id = 14645;
 				if (countitem(6495) < 5) {
 					mes "[Merry Badger]";
-					mes "VocÃª nÃ£o tem o suficiente ^00cc00eden Merit Badges ^000000. Vamos comeÃ§ar de novo!";
+					mes "Você não tem o suficiente ^00cc00eden Merit Badges ^000000. Vamos começar de novo!";
 					break;
 				}
 				mes "[Merry Badger]";
-				mes "Ok, eu posso te dar ^ff0000" + getitemname(.@item_id) + "^000000 para ^0066cc5 do seu (s) distintivo (s) de mÃ©rito do Ã‰den ^000000.";
-				mes "VocÃª quer?";
+				mes "Ok, eu posso te dar ^ff0000" + getitemname(.@item_id) + "^000000 para ^0066cc5 do seu (s) distintivo (s) de mérito do Éden ^000000.";
+				mes "Você quer?";
 				next;
 				if (select("Sim", "No") == 2) {
 					mes "[Merry Badger]";
-					mes "Eu entendo, vamos ver se vocÃª gostaria de algo diferente!";
+					mes "Eu entendo, vamos ver se você gostaria de algo diferente!";
 					break;
 				}
 				mes "[Merry Badger]";
-				mes "LÃ¡ vai vocÃª! O que mais vocÃª gostaria?";
+				mes "Lá vai você! O que mais você gostaria?";
 				delitem 6495, 5;// Para_Logro_Badge
 				rentitem .@item_id, 604800;	// 7 days
 				break;
@@ -688,32 +688,32 @@ moc_para01,13,22,4	script	Merry Badger#xch	882,{
 			case 16:// Token of Siegfried
 				if (vip_status(VIP_STATUS_ACTIVE) == false) {
 					mes "[Merry Badger]";
-					mes "Os serviÃ§os VIP oferecem isso a qualquer usuÃ¡rio com VIP !!";
+					mes "Os serviços VIP oferecem isso a qualquer usuário com VIP !!";
 					close;
 				}
 				// custom from here
 				.@date = gettime(DT_YYYYMMDD);
 				if (.@date <= eden_iro_token_date) {
 					mes "[Merry Badger]";
-					mes "VocÃª jÃ¡ recebeu seu token hoje!";
+					mes "Você já recebeu seu token hoje!";
 					close;
 				}
 				mes "[Merry Badger]";
-				mes "LÃ¡ vai vocÃª! O que mais vocÃª gostaria?";
+				mes "Lá vai você! O que mais você gostaria?";
 				eden_iro_token_date = .@date;
 				getitem 7621,10;// Token_Of_Siegfried
 				close;
 			case 17:// Nothing Now
 				mes "[Merry Badger]";
 				mes "Maravilhoso!";
-				mes "Estarei aqui se vocÃª quiser trocar por crachÃ¡s de mÃ©rito do Eden!";
+				mes "Estarei aqui se você quiser trocar por crachás de mérito do Eden!";
 				close;
 			}
 			next;
 		}
 	case 2:
 		mes "[Merry Badger]";
-		mes "Eu tenho uma seleÃ§Ã£o limitada a partir de agora, mas aqui estÃ¡ o que posso oferecer para obter 1 crachÃ¡ de mÃ©rito de Eden!";
+		mes "Eu tenho uma seleção limitada a partir de agora, mas aqui está o que posso oferecer para obter 1 crachá de mérito de Eden!";
 		next;
 		switch( select( "Itens etc.", "Equipamentos", "Cancelar" ) ) {
 		case 1:
@@ -721,26 +721,26 @@ moc_para01,13,22,4	script	Merry Badger#xch	882,{
 				if (select( "5x caixa roxa antiga", "Nada" ) == 2) {
 					mes "[Merry Badger]";
 					mes "Maravilhoso!";
-					mes "Estarei aqui se vocÃª quiser trocar por crachÃ¡s de mÃ©rito do Eden!";
+					mes "Estarei aqui se você quiser trocar por crachás de mérito do Eden!";
 					close;
 				}
 				while(1) {
 					if (countitem(617) < 5) {
 						mes "[Merry Badger]";
-						mes "VocÃª nÃ£o tem o suficiente para obter um crachÃ¡ de mÃ©rito de Eden. Vamos comeÃ§ar de novo!";
+						mes "Você não tem o suficiente para obter um crachá de mérito de Eden. Vamos começar de novo!";
 						break;
 					}
 					mes "[Merry Badger]";
-					mes "Ok, eu posso dar a vocÃª ^CC00001 EDEN MERIT CLARGE ^000000 PARA ^0000CC5 de suas velhas caixas roxas ^000000. VocÃª quer?";
+					mes "Ok, eu posso dar a você ^CC00001 EDEN MERIT CLARGE ^000000 PARA ^0000CC5 de suas velhas caixas roxas ^000000. Você quer?";
 					next;
 					if (select( "Sim", "No" ) == 2) {
 						mes "[Merry Badger]";
-						mes "Eu entendo, vamos ver se vocÃª gostaria de algo diferente!";
+						mes "Eu entendo, vamos ver se você gostaria de algo diferente!";
 						break;
 					}
 					else {
 						mes "[Merry Badger]";
-						mes "LÃ¡ vai vocÃª!  O que mais vocÃª gostaria?";
+						mes "Lá vai você!  O que mais você gostaria?";
 						delitem 617,5;// Old_Violet_Box
 						getitem 6495,1;// Para_Logro_Badge
 						next;
@@ -751,7 +751,7 @@ moc_para01,13,22,4	script	Merry Badger#xch	882,{
 		case 2:
 			while(1) {
 				mes "[Merry Badger]";
-				mes "Vou pegar o item superior do seu inventÃ¡rio! Certifique -se de nÃ£o ter nenhum desses itens que vocÃª nÃ£o deseja trocar.";
+				mes "Vou pegar o item superior do seu inventário! Certifique -se de não ter nenhum desses itens que você não deseja trocar.";
 				next;
 				switch( select( "Pele de serpente gigante", "Pele gigante de serpente face [1]", "Nada" ) ) {
 				case 1:
@@ -767,92 +767,92 @@ moc_para01,13,22,4	script	Merry Badger#xch	882,{
 				case 3:
 					mes "[Merry Badger]";
 					mes "Maravilhoso!";
-					mes "Estarei aqui se vocÃª quiser trocar por crachÃ¡s de mÃ©rito do Eden!";
+					mes "Estarei aqui se você quiser trocar por crachás de mérito do Eden!";
 					next;
 					mes "[Merry Badger]";
-					mes "Bem, tudo bem, se vocÃª quiser ver o que eu ofereÃ§o, basta perguntar!";
+					mes "Bem, tudo bem, se você quiser ver o que eu ofereço, basta perguntar!";
 					close;
 				}
 				while(1) {
 					if (countitem(.@item_req) < 1) {
 						mes "[Merry Badger]";
-						mes "VocÃª nÃ£o tem o suficiente para obter um crachÃ¡ de mÃ©rito de Eden. Vamos comeÃ§ar de novo!";
+						mes "Você não tem o suficiente para obter um crachá de mérito de Eden. Vamos começar de novo!";
 						break;
 					}
 					mes "[Merry Badger]";
-					mes "Ok, eu posso te dar ^ff0000" + .@amount_reward + "CrachÃ¡ de mÃ©rito do Ã‰den ^000000 para ^00FF00" + .@item_name$ + "^000000. VocÃª quer?";
+					mes "Ok, eu posso te dar ^ff0000" + .@amount_reward + "Crachá de mérito do Éden ^000000 para ^00FF00" + .@item_name$ + "^000000. Você quer?";
 					next;
 					if (select( "Sim", "No" ) == 2) {
 						mes "[Merry Badger]";
-						mes "Eu entendo, vamos ver se vocÃª gostaria de algo diferente!";
+						mes "Eu entendo, vamos ver se você gostaria de algo diferente!";
 						break;
 					}
 					delitem .@item_req, 1;
 					getitem 6495, .@amount_reward;// Para_Logro_Badge
 					mes "[Merry Badger]";
-					mes "LÃ¡ vai vocÃª! O que mais vocÃª gosta?";
+					mes "Lá vai você! O que mais você gosta?";
 					next;
 				}
 				next;
 			}
 		case 3:
 			mes "[Merry Badger]";
-			mes "Bem, tudo bem, se vocÃª quiser ver o que eu ofereÃ§o, basta perguntar!";
+			mes "Bem, tudo bem, se você quiser ver o que eu ofereço, basta perguntar!";
 			close;
 		}
 	case 3:
 		mes "[Merry Badger]";
-		mes "Ã‰ isso que vou te dar para seus crachÃ¡s de mÃ©rito ^00cc00eden ^000000!";
-		mes "Ok, eu tenho um especial para 3 crachÃ¡ de mÃ©rito. Nesta semana, darei a vocÃª ^00cc0040 grÃ¢nulo leve ^000000, ^00CC0040 POW POWD ^000000, ^0000CC3 IZIDOR ^000000, ^00CC0010 FRIVIÃ‡ÃƒO ^00000000, ^000000 MANHOMELC1 000000000000000000000000000000000000000000000000000000000000000000000000000 000000 000000 0000 0000C1 ELVRAGORA";
-		mes "^00CC002 Badges de mÃ©rito do Ã‰den^000000 =^0000CC10X KVM BLACH^000000";
-		mes "^00CC002 CHARGES DE MERITOS DE EDEN^000000 =^0000CC10X MEDALS DE BRAVERAÃ‡ÃƒO^000000";
-		mes "^00CC002 CHARGES DE MERÃDO DE EDEN^000000 =^0000CC10X MEDALS DE VALOR^000000";
-		mes "^00ccc005 crachÃ¡s de mÃ©rito do Ã‰den^000000 =^0000cc5x poÃ§Ã£o de vida mÃ©dia^000000";
-		mes "^00ccc005 crachÃ¡s de mÃ©rito do Ã‰den^000000 =^0000cc5x seguro de vida^000000";
-		mes "^00ccc005 crachÃ¡s de mÃ©rito do Ã‰den^000000 =^0000cc5x token de siegfried^000000";
-		mes "^00CC007 CrachÃ¡s de mÃ©rito do Ã‰den^000000 =^0000cc1x Manual de batalha de emprego^000000";
-		mes "^00CC008 CrachÃ¡s de mÃ©rito do Ã‰den^000000 =^0000CC1X Redefinir pedra^000000";
+		mes "É isso que vou te dar para seus crachás de mérito ^00cc00eden ^000000!";
+		mes "Ok, eu tenho um especial para 3 crachá de mérito. Nesta semana, darei a você ^00cc0040 grânulo leve ^000000, ^00CC0040 POW POWD ^000000, ^0000CC3 IZIDOR ^000000, ^00CC0010 FRIVIÇÃO ^00000000, ^000000 MANHOMELC1 000000000000000000000000000000000000000000000000000000000000000000000000000 000000 000000 0000 0000C1 ELVRAGORA";
+		mes "^00CC002 Badges de mérito do Éden^000000 =^0000CC10X KVM BLACH^000000";
+		mes "^00CC002 CHARGES DE MERITOS DE EDEN^000000 =^0000CC10X MEDALS DE BRAVERAÇÃO^000000";
+		mes "^00CC002 CHARGES DE MERÍDO DE EDEN^000000 =^0000CC10X MEDALS DE VALOR^000000";
+		mes "^00ccc005 crachás de mérito do Éden^000000 =^0000cc5x poção de vida média^000000";
+		mes "^00ccc005 crachás de mérito do Éden^000000 =^0000cc5x seguro de vida^000000";
+		mes "^00ccc005 crachás de mérito do Éden^000000 =^0000cc5x token de siegfried^000000";
+		mes "^00CC007 Crachás de mérito do Éden^000000 =^0000cc1x Manual de batalha de emprego^000000";
+		mes "^00CC008 Crachás de mérito do Éden^000000 =^0000CC1X Redefinir pedra^000000";
 		next;
 		mes "[Merry Badger]";
-		mes "Ã‰ isso que vocÃª pode me dar para obter ^00cc001 eden mÃ©rito crachado ^000000!";
+		mes "É isso que você pode me dar para obter ^00cc001 eden mérito crachado ^000000!";
 		mes "^0000CC5X Caixa roxa antiga^000000";
 		close;
 	case 4:
 		mes "[Merry Badger]";
-		mes "Eu estava forte armado para dar isso, mas vocÃª vale a pena!";
-		mes "Deseja trocar 15 manuais de emprego para obter 1 caixa negociÃ¡vel de 10 manuais de trabalho?";
-		mes "Eu sei que 15 nÃ£o Ã© igual a 10, mas as caixas sÃ£o caras, vocÃª sabe.";
+		mes "Eu estava forte armado para dar isso, mas você vale a pena!";
+		mes "Deseja trocar 15 manuais de emprego para obter 1 caixa negociável de 10 manuais de trabalho?";
+		mes "Eu sei que 15 não é igual a 10, mas as caixas são caras, você sabe.";
 		next;
 		if (countitem(14592) < 15) {
 			mes "[Merry Badger]";
-			mes "VocÃª nÃ£o tem 15 ou mais manuais de emprego para obter 1 caixa!";
+			mes "Você não tem 15 ou mais manuais de emprego para obter 1 caixa!";
 			close;
 		}
 		// custom dialogue below
 		if (select("Sim", "No") == 2) {
 			mes "[Merry Badger]";
 			mes "Maravilhoso!";
-			mes "Estarei aqui se vocÃª quiser trocar por crachÃ¡s de mÃ©rito do Eden!";
+			mes "Estarei aqui se você quiser trocar por crachás de mérito do Eden!";
 			close;
 		}
 		mes "[Merry Badger]";
-		mes "Maravilhoso, o que mais vocÃª quer?";
+		mes "Maravilhoso, o que mais você quer?";
 		delitem 14592,15; //Job_Manual50
 		getitem 13990,1; //Job_Manual50_Box
 		close;
 	case 5:
 		mes "[Merry Badger]";
-		mes "Eu realmente nÃ£o entendo o porquÃª, mas tenho essa pilha de cupons para vender.";
-		mes "Deseja trocar 25 crachÃ¡s de mÃ©rito de Eden por 1 bilhete de masmorra? Se vocÃª for VIP, seu ingresso durarÃ¡ muito mais tempo!";
+		mes "Eu realmente não entendo o porquê, mas tenho essa pilha de cupons para vender.";
+		mes "Deseja trocar 25 crachás de mérito de Eden por 1 bilhete de masmorra? Se você for VIP, seu ingresso durará muito mais tempo!";
 		next;
 		if (select( "Sim", "No" ) == 2) {
 			mes "[Merry Badger]";
-			mes "Eu entendo, vamos ver se vocÃª gostaria de algo diferente!";
+			mes "Eu entendo, vamos ver se você gostaria de algo diferente!";
 			close;
 		}
 		if (countitem(6495) < 25) {
 			mes "[Merry Badger]";
-			mes "VocÃª nÃ£o tem crachÃ¡s suficientes!";
+			mes "Você não tem crachás suficientes!";
 			close;
 		}
 		delitem 6495,25;
@@ -861,22 +861,22 @@ moc_para01,13,22,4	script	Merry Badger#xch	882,{
 		else
 			getitem 17569,1;// Sky Fortress Ticket 1 Hour Box
 		mes "[Merry Badger]";
-		mes "LÃ¡ vai vocÃª! O que mais vocÃª gostaria?";
+		mes "Lá vai você! O que mais você gostaria?";
 		close;
 	case 6:
 		while(1) {
 			mes "[Merry Badger]";
-			mes "O especial semanal Ã© ....";
+			mes "O especial semanal é ....";
 			next;
 			mes "[Merry Badger]";
-			mes "Ok, eu tenho um especial para 3 crachÃ¡ de mÃ©rito ou 1.000.000 de Zeny.  Nesta semana, vou te dar^00cc0040 grÃ¢nulo leve^000000, 40 pÃ³ de pÃ³^000000,^0000cc3 izidor^000000";
-			mes "^00CC0010 FRUTOS espinhos^000000,^0000CC1 Mandragora Flowerpot^000000 e^00CC003 ramo de anciÃ£os^000000.";
+			mes "Ok, eu tenho um especial para 3 crachá de mérito ou 1.000.000 de Zeny.  Nesta semana, vou te dar^00cc0040 grânulo leve^000000, 40 pó de pó^000000,^0000cc3 izidor^000000";
+			mes "^00CC0010 FRUTOS espinhos^000000,^0000CC1 Mandragora Flowerpot^000000 e^00CC003 ramo de anciãos^000000.";
 			next;
-			switch( select( "CrachÃ¡s", "Mulheres", "No" ) ) {
+			switch( select( "Crachás", "Mulheres", "No" ) ) {
 			case 1:
 				if (countitem(6495) < 3) {
 					mes "[Merry Badger]";
-					mes "VocÃª nÃ£o tem o suficiente ^00cc00eden Merit Badges ^000000. Vamos comeÃ§ar de novo!";
+					mes "Você não tem o suficiente ^00cc00eden Merit Badges ^000000. Vamos começar de novo!";
 					next;
 					continue;
 				}
@@ -885,7 +885,7 @@ moc_para01,13,22,4	script	Merry Badger#xch	882,{
 			case 2:
 				if (Zeny < 1000000) {
 					mes "[Merry Badger]";
-					mes "VocÃª nÃ£o tem o suficiente ^00cc00zeny ^000000. Vamos comeÃ§ar de novo!";
+					mes "Você não tem o suficiente ^00cc00zeny ^000000. Vamos começar de novo!";
 					next;
 					continue;
 				}
@@ -893,7 +893,7 @@ moc_para01,13,22,4	script	Merry Badger#xch	882,{
 				break;
 			case 3:
 				mes "[Merry Badger]";
-				mes "Eu entendo, vamos ver se vocÃª gostaria de algo diferente!";
+				mes "Eu entendo, vamos ver se você gostaria de algo diferente!";
 				close;
 			}
 			getitem 7938,40;// Light_Granule
@@ -903,7 +903,7 @@ moc_para01,13,22,4	script	Merry Badger#xch	882,{
 			getitem 6217,1;	// Mandragora_Flowerpot
 			getitem 7939,3;	// Elder_Branch
 			mes "[Merry Badger]";
-			mes "LÃ¡ vai vocÃª! O que mais vocÃª gostaria?";
+			mes "Lá vai você! O que mais você gostaria?";
 			next;
 		}
 	}
@@ -913,21 +913,21 @@ moc_para01,13,22,4	script	Merry Badger#xch	882,{
 L_Exchange:
 	if (countitem(6495) < getarg(0)) {
 		mes "[Merry Badger]";
-		mes "VocÃª nÃ£o tem o suficiente ^00cc00eden Merit Badges ^000000. Vamos comeÃ§ar de novo!";
+		mes "Você não tem o suficiente ^00cc00eden Merit Badges ^000000. Vamos começar de novo!";
 		return;
 	}
 	mes "[Merry Badger]";
-	mes sprintf("Ok, eu posso dar a vocÃª ^ff0000%S ^000000 para ^0066cc%d do seu (s) crachÃ¡ (s) de mÃ©rito do Ã‰den ^000000.",
+	mes sprintf("Ok, eu posso dar a você ^ff0000%S ^000000 para ^0066cc%d do seu (s) crachá (s) de mérito do Éden ^000000.",
 				callfunc("F_InsertPlural",getarg(2),getitemname(getarg(1))), getarg(0));
-	mes "VocÃª quer?";
+	mes "Você quer?";
 	next;
 	if (select("Sim", "No") == 2) {
 		mes "[Merry Badger]";
-		mes "Eu entendo, vamos ver se vocÃª gostaria de algo diferente!";
+		mes "Eu entendo, vamos ver se você gostaria de algo diferente!";
 		return;
 	}
 	mes "[Merry Badger]";
-	mes "LÃ¡ vai vocÃª! O que mais vocÃª gostaria?";
+	mes "Lá vai você! O que mais você gostaria?";
 	delitem 6495, getarg(0); //Para_Logro_Badge
 	getitem getarg(1),getarg(2);
 	return;
@@ -938,24 +938,24 @@ L_Exchange:
 moc_para01,41,169,2	script	Kafra Stacker#eden	749,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 2000) {
 		mes "- Espere um momento! -";
-		mes "- Atualmente vocÃª estÃ¡ carregando -";
+		mes "- Atualmente você está carregando -";
 		mes "- Muito peso nos itens. -";
 		mes "- Por favor, volte mais tarde -";
 		mes "- Depois de colocar um pouco no armazenamento da Kafra. -";
 		close;
 	}
 	mes "[Toma]";
-	mes "Eu posso levar seus consumÃ­veis nÃ£o empilhados de kafra";
-	mes "E faÃ§a com que eles se encaixem perfeitamente em pilhas!";
+	mes "Eu posso levar seus consumíveis não empilhados de kafra";
+	mes "E faça com que eles se encaixem perfeitamente em pilhas!";
 	next;
 	mes "[Toma]";
 	mes "Por favor, entenda que eu posso";
 	mes "Somente empilhe 10 grupos por vez";
-	mes "EntÃ£o continue falando comigo atÃ©";
-	mes "VocÃª tem 1 pilha de cada uma!";
+	mes "Então continue falando comigo até";
+	mes "Você tem 1 pilha de cada uma!";
 	next;
 	while(1) {
-		if(select("FaÃ§a isso!: NÃ£o importa.") == 2)
+		if(select("Faça isso!: Não importa.") == 2)
 			break;
 		// Something strange goes on here, haven't quite figured it out...
 		mes "[Toma]";
@@ -964,7 +964,7 @@ moc_para01,41,169,2	script	Kafra Stacker#eden	749,{
 		next;
 	}
 	mes "[Toma]";
-	mes "Ok entÃ£o, Laterz.";
+	mes "Ok então, Laterz.";
 	close;
 }
 
@@ -973,24 +973,24 @@ moc_para01,41,169,2	script	Kafra Stacker#eden	749,{
 moc_para01,38,162,2	script	Code the Redeemer#Give1	405,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 2000) {
 		mes "^0000ff seguinte ali!";
-		mes "VocÃª estÃ¡ carregando muitos itens e nÃ£o tem espaÃ§o de inventÃ¡rio suficiente para receber recompensas. Por favor, disponibilize mais espaÃ§o de inventÃ¡rio e volte para aceitar este desafio.^000000";
+		mes "Você está carregando muitos itens e não tem espaço de inventário suficiente para receber recompensas. Por favor, disponibilize mais espaço de inventário e volte para aceitar este desafio.^000000";
 		close;
 	}
 	mes "[Code o Redentor]";
 	mes "Bem-vindo,"+strcharinfo(0)+"!";
-	mes "Eu tenho esperado vocÃª.";
+	mes "Eu tenho esperado você.";
 	next;
 	mes "[Code o Redentor]";
 	mes "Eu sou um distribuidor de todos os";
 	mes "itens que aventureiros gostam";
-	mes "vocÃª mesmo compra em sites";
-	mes "ou receber como promoÃ§Ãµes.";
+	mes "você mesmo compra em sites";
+	mes "ou receber como promoções.";
 	next;
 	mes "[Code o Redentor]";
-	mes "^0000ffif a lista estÃ¡ vazia,";
-	mes "Isso significa que vocÃª tem";
-	mes "nÃ£o comprado ou inserido";
-	mes "Seu cÃ³digo serial do site de compras.^000000";
+	mes "^0000ffif a lista está vazia,";
+	mes "Isso significa que você tem";
+	mes "não comprado ou inserido";
+	mes "Seu código serial do site de compras.^000000";
 	next;
 
 	// If you have a code redemption system, write your SQL queries here.
@@ -1060,15 +1060,15 @@ moc_para01,33,185,4	script	Dinorah Lacostt#ed	862,{ end; }
 
 moc_para01,29,35,4	script	Gramps#huntquests	866,{
 	mes "[Gramps]";
-	mes "Quando vocÃª comeÃ§a a ser meu";
-	mes "idade, vocÃª se torna amargo.";
-	mes "Muito tempo eu nÃ£o fiz nada sobre os monstros que vagam por aÃ­";
+	mes "Quando você começa a ser meu";
+	mes "idade, você se torna amargo.";
+	mes "Muito tempo eu não fiz nada sobre os monstros que vagam por aí";
 	mes "Midgard.";
 	next;
 	mes "[Gramps]";
-	mes "Ã‰ por isso que estou pedindo que vocÃª ajude a ajudar";
-	mes "Eu caÃ§o alguns monstros.";
-	mes "VocÃª vai me ajudar, jovem aventureiro?";
+	mes "É por isso que estou pedindo que você ajude a ajudar";
+	mes "Eu caço alguns monstros.";
+	mes "Você vai me ajudar, jovem aventureiro?";
 	close;
 	//next;
 	//switch(select("Yes, I'll help.:Reward Me!:^ff0000I want to quit hunting^000000:^0000ffCan you warp me?^000000:Can you erase the timer?:What missions are you giving?:Give me Limited 3 day VIP:Tell me more about the VIP Access:No thanks, pops.")) {
@@ -1076,17 +1076,17 @@ moc_para01,29,35,4	script	Gramps#huntquests	866,{
 
 moc_para01,174,33,3	script	Bathory#2012spirits	1102,{
 	mes "[Bathory]";
-	mes "Eheeheeheehee! Os holofotes estÃ£o no Glast Heim esta semana, entÃ£o estou transportando pessoas lÃ¡ por meros 1.000z!";
+	mes "Eheeheeheehee! Os holofotes estão no Glast Heim esta semana, então estou transportando pessoas lá por meros 1.000z!";
 	next;
 	mes "[Bathory]";
 	mes "Que tal? Quer dar um passeio de uma bela vassoura de Bathory?";
 	next;
-	switch(select("Prepare -se para a decolagem !: NÃ£o, obrigado.")) {
+	switch(select("Prepare -se para a decolagem !: Não, obrigado.")) {
 	case 1:
 		if (Zeny < 1000) {
 			mes "[Bathory]";
 			mes "Vamos, querida ...";
-			mes "VocÃª nem tem 1.000 Zeny?";
+			mes "Você nem tem 1.000 Zeny?";
 			close;
 		}
 		mes "[Bathory]";
@@ -1097,7 +1097,7 @@ moc_para01,174,33,3	script	Bathory#2012spirits	1102,{
 		end;
 	case 2:
 		mes "["+strcharinfo(0)+"]";
-		mes "NÃ£o, obrigado, talvez mais tarde.";
+		mes "Não, obrigado, talvez mais tarde.";
 		close;
 	}
 }
@@ -1109,42 +1109,42 @@ moc_para01,26,174,4	script	Grandma Boxter#boxx	840,{ end; }
 /* Map "auction_03" is a duplicate of "auction_02".
 
 moc_para01,30,187,4	script	Mail Annex Station	888,{
-	mes "[EstaÃ§Ã£o de anexo de correio]";
-	mes "VocÃª gostaria de ir Ã  estaÃ§Ã£o de anexo do Kafra Mail?";
+	mes "[Estação de anexo de correio]";
+	mes "Você gostaria de ir à estação de anexo do Kafra Mail?";
 	next;
-	switch(select("Sim, envie -me agora!: NÃ£o, obrigado.")) {
+	switch(select("Sim, envie -me agora!: Não, obrigado.")) {
 	case 1:
-		mes "[EstaÃ§Ã£o de anexo de correio]";
-		mes "Enviando vocÃª para a sala de anexo do correio.";
+		mes "[Estação de anexo de correio]";
+		mes "Enviando você para a sala de anexo do correio.";
 		close2;
 		warp "auction_03",151,23;
 		end;
 	case 2:
-		mes "[EstaÃ§Ã£o de anexo de correio]";
-		mes "Ok entÃ£o!";
+		mes "[Estação de anexo de correio]";
+		mes "Ok então!";
 		close;
 	}
 }
 auction_03,152,16,0	warp	#mail_annex_warp	1,1,moc_para01,30,184
 
 auction_03,152,42,4	script	Kafra Employee#annex	117,{
-	mes "[EntÃ£o funcionÃ¡rio]";
-	mes "Bem -vindo Ã  estaÃ§Ã£o de anexo de correio da Kafra. Este agora Ã© o Ãºnico lugar para enviar e recuperar o correio.";
+	mes "[Então funcionário]";
+	mes "Bem -vindo à estação de anexo de correio da Kafra. Este agora é o único lugar para enviar e recuperar o correio.";
 	next;
-	mes "[EntÃ£o funcionÃ¡rio]";
-	mes "O que vocÃª gostaria de fazer?";
+	mes "[Então funcionário]";
+	mes "O que você gostaria de fazer?";
 	next;
 	switch(select("Acesso Correio: Armazenamento: Cancelar")) {
 	case 1:
 		if (Zeny < 130) {
-			mes "[EntÃ£o funcionÃ¡rio]";
-			mes "Sinto muito, mas vocÃª nÃ£o tem dinheiro suficiente.";
-			mes "Para usar o serviÃ§o de caixa de correio,";
-			mes "VocÃª Ã© obrigado a pagar 130 Zeny.";
+			mes "[Então funcionário]";
+			mes "Sinto muito, mas você não tem dinheiro suficiente.";
+			mes "Para usar o serviço de caixa de correio,";
+			mes "Você é obrigado a pagar 130 Zeny.";
 			close;
 		}
-		mes "[EntÃ£o funcionÃ¡rio]";
-		mes "Obrigado por usar o serviÃ§o Kafra.";
+		mes "[Então funcionário]";
+		mes "Obrigado por usar o serviço Kafra.";
 		set Zeny, Zeny - 130;
 		close2;
 		openmail;
@@ -1153,8 +1153,8 @@ auction_03,152,42,4	script	Kafra Employee#annex	117,{
 		callfunc "F_KafStor",0,1200,0;
 		end;
 	case 3:
-		mes "[EntÃ£o funcionÃ¡rio]";
-		mes "Obrigado por usar o serviÃ§o Kafra.";
+		mes "[Então funcionário]";
+		mes "Obrigado por usar o serviço Kafra.";
 		close;
 	}
 }
@@ -1168,17 +1168,17 @@ auction_03,145,47,2	shop	Tool Dealer#annex	83,611:-1,501:-1,502:-1,503:-1,506:-1
 moc_para01,179,27,3	script	Dark Luhir#new10	4_F_VALKYRIE2,{
 	disable_items;
 	mes "[Luhir escuro]";
-	mes "OlÃ¡ ~ Estou dando estatÃ­sticas extras para aqueles que tÃªm um item de asa de anjo caÃ­do.";
+	mes "Olá ~ Estou dando estatísticas extras para aqueles que têm um item de asa de anjo caído.";
 	next;
 	if (getequipid(EQI_GARMENT) != 2589) {// Fallen_Angel_Wing
 		mes "[Luhir escuro]";
-		mes "Por favor, ^0000ffwear seu item de asa de anjo caÃ­do primeiro ^000000 e depois vou lhe dar estatÃ­sticas extras.";
+		mes "Por favor, ^0000ffwear seu item de asa de anjo caído primeiro ^000000 e depois vou lhe dar estatísticas extras.";
 		close;
 	}
-	switch( select( "Cancelar", "Asa de anjo caÃ­do encantador", "Redefinir estatÃ­sticas de asa de anjo caÃ­do" ) ) {
+	switch( select( "Cancelar", "Asa de anjo caído encantador", "Redefinir estatísticas de asa de anjo caído" ) ) {
 	case 1:
 		mes "[Luhir escuro]";
-		mes "Mais tarde entÃ£o ...";
+		mes "Mais tarde então ...";
 		close;
 	case 2:
 		.@refine = getequiprefinerycnt(EQI_GARMENT);
@@ -1188,83 +1188,83 @@ moc_para01,179,27,3	script	Dark Luhir#new10	4_F_VALKYRIE2,{
 			getequipcardid(EQI_GARMENT,2),
 			getequipcardid(EQI_GARMENT,3);
 		mes "[Luhir escuro]";
-		mes "Apenas 1 soquete pode obter uma estatÃ­stica extra quando o nÃ­vel de refino estÃ¡ entre 1 ~ 6.";
-		mes "Se o nÃ­vel de refino for 7 ~ 8, ele pode receber estatÃ­sticas para 2 soquetes.";
-		mes "+9 pode receber estatÃ­sticas para todos os 3 soquetes.";
+		mes "Apenas 1 soquete pode obter uma estatística extra quando o nível de refino está entre 1 ~ 6.";
+		mes "Se o nível de refino for 7 ~ 8, ele pode receber estatísticas para 2 soquetes.";
+		mes "+9 pode receber estatísticas para todos os 3 soquetes.";
 		next;
 		mes "[Luhir escuro]";
 		if (.@refine < 7)
-			mes "O nÃ­vel de refino deste item Ã© inferior a 7. Somente ^FF0000Socket Slot 4 ^000000 pode receber estatÃ­sticas extras.";
+			mes "O nível de refino deste item é inferior a 7. Somente ^FF0000Socket Slot 4 ^000000 pode receber estatísticas extras.";
 		else if (.@refine < 9)
-			mes "O nÃ­vel de refina deste item estÃ¡ entre 7 ~ 8. ^FF0000Socket Slot 3 e 4^000000 podem receber estatÃ­sticas extras.";
+			mes "O nível de refina deste item está entre 7 ~ 8. ^FF0000Socket Slot 3 e 4^000000 podem receber estatísticas extras.";
 		else
-			mes "O nÃ­vel de refina deste item Ã© superior a 9. Todos os 3 do slot 2, 3 e 4 ^000000 podem receber estatÃ­sticas extras.";
-		mes "Que tipo de estatÃ­sticas extras vocÃª quer?";
+			mes "O nível de refina deste item é superior a 9. Todos os 3 do slot 2, 3 e 4 ^000000 podem receber estatísticas extras.";
+		mes "Que tipo de estatísticas extras você quer?";
 		next;
-		switch( select( "Deixe -me colocar meu equipamento", "1. EspÃ­rito de combate", "2. Ataque Magico", "3.Archery", "4.crÃ­tico", "5.Maxhp", "6.Maxsp", "7.Atk Speed", "8.str", "9.AGI", "10.Vit", "11.INT", "12.dex", "13.Luk" ) ) {
+		switch( select( "Deixe -me colocar meu equipamento", "1. Espírito de combate", "2. Ataque Magico", "3.Archery", "4.crítico", "5.Maxhp", "6.Maxsp", "7.Atk Speed", "8.str", "9.AGI", "10.Vit", "11.INT", "12.dex", "13.Luk" ) ) {
 		case 1:
 			mes "[Luhir escuro]";
 			mes "Por favor, volte depois de equipar seu item.";
 			close;
 		case 2:
 			setarray .@enchants[0],4809,4808,4820,4821;		// Fighting Spirit 3~5 / Fighting Spirit 6
-			.@string$ = "As estatÃ­sticas do espÃ­rito de luta serÃ£o dadas aleatoriamente em 3 ~ 5 (ATK+Hit) intervalo.";
+			.@string$ = "As estatísticas do espírito de luta serão dadas aleatoriamente em 3 ~ 5 (ATK+Hit) intervalo.";
 			break;
 		case 3:
 			setarray .@enchants[0],4812,4826,4827,4828;		// Spell 4~6 / Spell 7
-			.@string$ = "As estatÃ­sticas de feitiÃ§os mÃ¡gicas serÃ£o dadas aleatoriamente em 4 ~ 6 (MATK + Reduzir o tempo de elenco de mudanÃ§a).";
+			.@string$ = "As estatísticas de feitiços mágicas serão dadas aleatoriamente em 4 ~ 6 (MATK + Reduzir o tempo de elenco de mudança).";
 			break;
 		case 4:
 			setarray .@enchants[0],4832,4833,4834,4835;		// Expert Archer 1~3 / Expert Archer 4
-			.@string$ = "As estatÃ­sticas de arco e flecha serÃ£o dadas aleatoriamente em 1 ~ 3 (taxa de ataque Ã  distÃ¢ncia).";
+			.@string$ = "As estatísticas de arco e flecha serão dadas aleatoriamente em 1 ~ 3 (taxa de ataque à distância).";
 			break;
 		case 5:
 			setarray .@enchants[0],4863,4864,4865,4866;		// Fatal 1~3 / Fatal 4
-			.@string$ = "As estatÃ­sticas crÃ­ticas serÃ£o dadas aleatoriamente em 1 ~ 4 (dano crÃ­tico + CRI).";
+			.@string$ = "As estatísticas críticas serão dadas aleatoriamente em 1 ~ 4 (dano crítico + CRI).";
 			break;
 		case 6:
 			setarray .@enchants[0],4861,4862,4867,4868;		// MaxHP +1~3% / MaxHP +4%
-			.@string$ = "As estatÃ­sticas do MHP serÃ£o administradas aleatoriamente em 1 ~ 3 (aumento de MHP %).";
+			.@string$ = "As estatísticas do MHP serão administradas aleatoriamente em 1 ~ 3 (aumento de MHP %).";
 			break;
 		case 7:
 			setarray .@enchants[0],4870,4800,4871,4801;		// +25,50 or 75 sp / +100 sp
-			.@string$ = "As estatÃ­sticas do SP serÃ£o dadas aleatoriamente em 25 ~ 75.";
+			.@string$ = "As estatísticas do SP serão dadas aleatoriamente em 25 ~ 75.";
 			break;
 		case 8:
 			setarray .@enchants[0],4869,4872,4873,4807;		// Delayafterattack 1~3 / +1 ASPD
-			.@string$ = "As estatÃ­sticas de atraso de ATACK serÃ£o fornecidas aleatoriamente em 1 ~ 3 (reduza o atraso do ataque).";
+			.@string$ = "As estatísticas de atraso de ATACK serão fornecidas aleatoriamente em 1 ~ 3 (reduza o atraso do ataque).";
 			break;
 		case 9:
 			setarray .@enchants[0],4702,4703,4704,4853;		// Str +3~5 / Special Str
-			.@string$ = "As estatÃ­sticas de STR serÃ£o dadas aleatoriamente em 3 ~ 5.";
+			.@string$ = "As estatísticas de STR serão dadas aleatoriamente em 3 ~ 5.";
 			break;
 		case 10:
 			setarray .@enchants[0],4731,4732,4733,4854;		// Agi +2~4 / Special Agi
-			.@string$ = "As estatÃ­sticas da AGI serÃ£o dadas aleatoriamente em 2 ~ 4.";
+			.@string$ = "As estatísticas da AGI serão dadas aleatoriamente em 2 ~ 4.";
 			break;
 		case 11:
 			setarray .@enchants[0],4742,4743,4744,4855;		// Vit +3~5 / Special Vit
-			.@string$ = "As estatÃ­sticas de Vit serÃ£o dadas aleatoriamente em 3 ~ 5.";
+			.@string$ = "As estatísticas de Vit serão dadas aleatoriamente em 3 ~ 5.";
 			break;
 		case 12:
 			setarray .@enchants[0],4712,4713,4714,4856;		// Int +3~5 / Special Int
-			.@string$ = "As estatÃ­sticas int serÃ£o dadas aleatoriamente em 3 ~ 5.";
+			.@string$ = "As estatísticas int serão dadas aleatoriamente em 3 ~ 5.";
 			break;
 		case 13:
 			setarray .@enchants[0],4722,4723,4724,4857;		// Dex +3~5 / Special Dex
-			.@string$ = "As estatÃ­sticas de Dex serÃ£o dadas aleatoriamente em 3 ~ 5.";
+			.@string$ = "As estatísticas de Dex serão dadas aleatoriamente em 3 ~ 5.";
 			break;
 		case 14:
 			setarray .@enchants[0],4752,4753,4754,4858;		// Luk +3~5 / Special Luk
-			.@string$ = "As estatÃ­sticas de Luk serÃ£o dadas aleatoriamente em 3 ~ 5.";
+			.@string$ = "As estatísticas de Luk serão dadas aleatoriamente em 3 ~ 5.";
 			break;
 		}
 		mes "[Luhir escuro]";
-		mes .@string$ + "^FF0000 Stats Divido nÃ£o pode ser devolvido.^000000 VocÃª deseja prosseguir?";
+		mes .@string$ + "^FF0000 Stats Divido não pode ser devolvido.^000000 Você deseja prosseguir?";
 		next;
 		if (select( "1.Quit", "2. Sim, eu quero tentar isso." ) == 1) {
 			mes "[Luhir escuro]";
-			mes "Mais tarde entÃ£o ...";
+			mes "Mais tarde então ...";
 			close;
 		}
 
@@ -1286,7 +1286,7 @@ moc_para01,179,27,3	script	Dark Luhir#new10	4_F_VALKYRIE2,{
 		}
 		else {
 			mes "[Luhir escuro]";
-			mes "Parece que este item jÃ¡ estÃ¡ com max encantador. Por favor, traga outro para estatÃ­sticas extras.";
+			mes "Parece que este item já está com max encantador. Por favor, traga outro para estatísticas extras.";
 			close;
 		}
 		specialeffect2 EF_REPAIRWEAPON;
@@ -1297,14 +1297,14 @@ moc_para01,179,27,3	script	Dark Luhir#new10	4_F_VALKYRIE2,{
 		close;
 	case 3:
 		mes "[Luhir escuro]";
-		mes "A redefiniÃ§Ã£o do estatÃ­stica da ala anjo caÃ­da custarÃ¡ 1.000.000 de Zeny?";
-		mes "VocÃª deseja prosseguir?";
+		mes "A redefinição do estatística da ala anjo caída custará 1.000.000 de Zeny?";
+		mes "Você deseja prosseguir?";
 		next;
-		if (select( "Sim", "NÃ£o, obrigado!" ) == 2)
+		if (select( "Sim", "Não, obrigado!" ) == 2)
 			close;
 		if (Zeny < 1000000) {
 			mes "[Luhir escuro]";
-			mes "VocÃª mentiroso vocÃª nÃ£o tem Zeny suficiente!";
+			mes "Você mentiroso você não tem Zeny suficiente!";
 			close;
 		}
 		if (getequipid(EQI_GARMENT) == 2589) {
@@ -1313,7 +1313,7 @@ moc_para01,179,27,3	script	Dark Luhir#new10	4_F_VALKYRIE2,{
 
 			mes "[Luhir escuro]";
 			specialeffect2 EF_REPAIRWEAPON;
-			mes "Redefinir estatÃ­sticas de itens.";
+			mes "Redefinir estatísticas de itens.";
 			delequip EQI_GARMENT;
 			Zeny -= 1000000;
 			getitem2 2589,1,1, .@refine,0, .@card[0],0,0,0;// Fallen_Angel_Wing

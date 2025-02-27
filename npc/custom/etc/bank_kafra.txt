@@ -14,7 +14,7 @@
 // #kafrabank/100  =  1%  of interest per day
 // #kafrabank/10   =  10% of interest per day
 //
-// 1.1 Added log of bank operation -> logmes "Algumas informaÃ§Ãµes";
+// 1.1 Added log of bank operation -> logmes "Algumas informações";
 // 1.2 Set max income to 100,000z. It would help to avoid
 //     zeny exploits when you change DATE at your server
 // 1.2a Corrected bad duplicate names. (bugreport:921) [Samuray22]
@@ -22,7 +22,7 @@
 
 -	script	Bank Clerk::bankg	833,{
 	mes"[Maniss]";
-	mes strcharinfo(0)+", Bem -vindo ao 2Âº Banco de Pronntera!";
+	mes strcharinfo(0)+", Bem -vindo ao 2º Banco de Pronntera!";
 
 	set @kb_int,(gettime(DT_MONTH)*31)+gettime(DT_DAYOFMONTH); //today's number
 	set @income,0;
@@ -34,17 +34,17 @@
 L_NoIncomeToday:
 	set #kb_int,@kb_int; //reset days timer
 
-	if(#kafrabank==0) mes "PoderÃ­amos abrir uma conta para vocÃª.";
+	if(#kafrabank==0) mes "Poderíamos abrir uma conta para você.";
 	if(@income>0) mes "Today's income: ^135445" + callfunc("F_InsertComma",@income) + "^000000 zeny.";
 	set #kafrabank,#kafrabank+@income;
 	if(#kafrabank>0) mes "Your account: ^135445" + callfunc("F_InsertComma",#kafrabank) + "^000000 zeny.";
-	mes "O que vocÃª gostaria?";
+	mes "O que você gostaria?";
 	next;
 	if(#kafrabank==0) menu "-Abrir uma conta",-,"-Desistir",B_EXIT2;
 	if(#kafrabank>0) menu "-Depositar dinheiro",-,"-DithdrAw dinheiro",M_WITHDRAW,"-Desistir",B_EXIT2;
 
 	mes"[Maniss]";
-	mes "Por favor, diga -me quanto Zeny vocÃª gostaria de depositar.";
+	mes "Por favor, diga -me quanto Zeny você gostaria de depositar.";
 	next;
 	if(input(@kafrabank) == 1) goto L_TOO_BIG_AMOUNT;
 
@@ -55,14 +55,14 @@ L_NoIncomeToday:
 	mes"[Maniss]";
 	mes "You've made a deposit of ^135445" + callfunc("F_InsertComma",@kafrabank) + "z^000000.";
 	//we log these zeny operations into the log db
-	logmes "Banco %:" + @income +"Z, depÃ³sito:"+ @kafrabank +"Z, final:"+ #kafrabank +"Com";
+	logmes "Banco %:" + @income +"Z, depósito:"+ @kafrabank +"Z, final:"+ #kafrabank +"Com";
 	goto B_EXIT;
 
 M_WITHDRAW:
 	if(#kafrabank==0) goto L_ZERO_ACCOUNT;
 	mes"[Maniss]";
 	mes "Your account: ^135445" + callfunc("F_InsertComma",#kafrabank) + "^000000 zeny.";
-	mes "Quanto Zeny vocÃª gostaria de se retirar?";
+	mes "Quanto Zeny você gostaria de se retirar?";
 	next;
 	if(input(@kafrabank) == 1) goto L_TOO_BIG_AMOUNT;
 
@@ -78,25 +78,25 @@ M_WITHDRAW:
 
 L_NOT_ENOUGH:
 	mes"[Maniss]";
-	mes "VocÃª nÃ£o tem zeny suficiente para esta operaÃ§Ã£o.";
+	mes "Você não tem zeny suficiente para esta operação.";
 	next;
 	goto B_EXIT2;
 
 L_ZERO_ACCOUNT:
 	mes"[Maniss]";
-	mes "VocÃª nÃ£o tem nenhum Zeny em sua conta!";
+	mes "Você não tem nenhum Zeny em sua conta!";
 	next;
 	goto B_EXIT2;
 
 L_TOO_BIG_AMOUNT:
 	mes"[Maniss]";
-	mes "Desculpe. O depÃ³sito mÃ¡ximo que vocÃª pode fazer em um tempo Ã© de 10.000.000 de zeny.";
+	mes "Desculpe. O depósito máximo que você pode fazer em um tempo é de 10.000.000 de zeny.";
 	next;
 	goto B_EXIT2;
 
 L_LESS_1000:
 	mes"[Maniss]";
-	mes "Lamentamos, a quantidade mÃ­nima de Zeny que vocÃª pode depositar Ã© de 1.000 Zeny.";
+	mes "Lamentamos, a quantidade mínima de Zeny que você pode depositar é de 1.000 Zeny.";
 	next;
 	goto B_EXIT2;
 
@@ -106,7 +106,7 @@ B_EXIT:
 
 B_EXIT2:
 	mes"[Maniss]";
-	mes "Obrigado por usar nosso serviÃ§o bancÃ¡rio. Esperamos vÃª -lo novamente em breve.";
+	mes "Obrigado por usar nosso serviço bancário. Esperamos vê -lo novamente em breve.";
 	close;
 }
 

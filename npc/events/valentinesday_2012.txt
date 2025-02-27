@@ -21,27 +21,27 @@ mosk_in,21,246,5	script	Pinkamenia	71,{
 		setarray .@SweetsID[0],538,558,539,573,559,560,12062,596,597,12414,12319;
 		setarray .@SweetsCost[0],1,2,5,10,10,10,15,15,15,20,20;
 		mes .@n$;
-		mes "OlÃ¡"+strcharinfo(0)+", do";
-		mes "VocÃª quer comprar alguns itens?";
-		mes "VocÃª terÃ¡ que me dar amor";
-		mes "Flores para eles, Ã© claro!";
+		mes "Olá"+strcharinfo(0)+", do";
+		mes "Você quer comprar alguns itens?";
+		mes "Você terá que me dar amor";
+		mes "Flores para eles, é claro!";
 		next;
-		if(select("Sim, claro!","NÃ£o, nÃ£o importa.") == 2) close;
+		if(select("Sim, claro!","Não, não importa.") == 2) close;
 		next;
 		mes .@n$;
 		mes "Selecione um item.";
-		mes "A quantidade de flores de amor que vocÃª precisarÃ¡ Ã© entre parÃªnteses.";
+		mes "A quantidade de flores de amor que você precisará é entre parênteses.";
 		for(set .@i,0; .@i < getarraysize(.@SweetsID); set .@i,.@i+1)
 			set .@menu$, .@menu$+"^00AA00 ["+.@SweetsCost[.@i]+"]^000000"+getitemname(.@SweetsID[.@i])+":";
 		next;
 		set .@choice, select(.@menu$)-1;
 		mes .@n$;
 		if (countitem(.@LFlowerID) < .@SweetsCost[.@choice]) {
-			mes "VocÃª precisarÃ¡ de mais flores de amor, se quiser isso!";
+			mes "Você precisará de mais flores de amor, se quiser isso!";
 			close;
 		}
 		mes "Tem certeza que deseja trocar ^00aa00"+.@SweetsCost[.@choice]+"X FLOR AMOR ^000000 PARA ^0055FF"+getitemname(.@SweetsID[.@choice])+"^000000?";
-		if(select("NÃ£o, eu mudei de idÃ©ia.") == 1) close;
+		if(select("Não, eu mudei de idéia.") == 1) close;
 		set .@new, .@LFlowerID - .@SweetsCost[.@choice];
 		if (.@new < 0) set .@new, 0;
 		delitem .@LFlowerID, .@SweetsCost[.@choice];
@@ -51,7 +51,7 @@ mosk_in,21,246,5	script	Pinkamenia	71,{
 	} else if (#V_QUE12==2) {
 		mes .@n$;
 		if (countitem(7864) < 15) {
-			mes "VocÃª tem que me trazer 15 flores de amor!";
+			mes "Você tem que me trazer 15 flores de amor!";
 			close;
 		}
 		mes "Muito obrigado por";
@@ -66,48 +66,48 @@ mosk_in,21,246,5	script	Pinkamenia	71,{
 		getitem 12319,2;
 		next;
 		mes .@n$;
-		mes "Se vocÃª conseguir mais amor";
-		mes "Flores, vocÃª pode trocar";
+		mes "Se você conseguir mais amor";
+		mes "Flores, você pode trocar";
 		mes "eles para alguns doces aqui.";
-		mes "Vejo vocÃª em breve!";
+		mes "Vejo você em breve!";
 		set #V_QUE12,3;
 		close;
 	} else if (#V_QUE12==1) {
 		mes .@n$;
-		mes "Por favor, traga um chapÃ©u de bolo +8";
-		mes "para o extraordinÃ¡rio padeiro";
+		mes "Por favor, traga um chapéu de bolo +8";
+		mes "para o extraordinário padeiro";
 		mes "Parado ao meu lado!";
 		close;
 	} else if (BaseLevel >= 45) {
 		mes .@n$;
-		mes "OlÃ¡"+strcharinfo(0)+", isso Ã©";
-		mes "Dia dos Namorados e nÃ³s";
+		mes "Olá"+strcharinfo(0)+", isso é";
+		mes "Dia dos Namorados e nós";
 		mes "Adoro entregar doce";
 		mes "chocolates.";
 		next;
 		mes .@n$;
-		mes "Nosso problema Ã© que nÃ³s";
+		mes "Nosso problema é que nós";
 		mes "Precisa de uma pessoa forte";
-		mes "Como vocÃª que poderia ajudar";
-		mes "nÃ³s, mas primeiro vocÃª terÃ¡";
-		mes "para trazer um chapÃ©u de bolo +8";
-		mes "para o extraordinÃ¡rio padeiro, que";
-		mes "estÃ¡ parado ao meu lado!";
+		mes "Como você que poderia ajudar";
+		mes "nós, mas primeiro você terá";
+		mes "para trazer um chapéu de bolo +8";
+		mes "para o extraordinário padeiro, que";
+		mes "está parado ao meu lado!";
 		set #V_QUE12,1;
 		close;
 	}
 	mes .@n$;
-	mes "OlÃ¡"+strcharinfo(0)+"!";
+	mes "Olá"+strcharinfo(0)+"!";
 	close;
 
 OnInit:
 	// Unknown item drop rate (currently set at 5%)
-	setitemscript 5105,"{BÃ´nus bdex, 1; bÃ´nus bmaxsp, 80; Bonus3 BaddmonsterdropItem, 7864, RC_DEMIHUMAN, 500; }",0;
+	setitemscript 5105,"{Bônus bdex, 1; bônus bmaxsp, 80; Bonus3 BaddmonsterdropItem, 7864, RC_DEMIHUMAN, 500; }",0;
 	end;
 }
 
 mosk_in,21,244,3	script	Baker Extraordinaire	410,{
-	set .@n$,"^0000FF [BAKER extraordinÃ¡rio]^000000";
+	set .@n$,"^0000FF [BAKER extraordinário]^000000";
 	if(#V_QUE12==3) {
 		mes .@n$;
 		mes "Trocar suas flores de amor com Pinkamenia!";
@@ -121,18 +121,18 @@ mosk_in,21,244,3	script	Baker Extraordinaire	410,{
 		if (getequipid(EQI_HEAD_TOP) == 5024 && getequiprefinerycnt(EQI_HEAD_TOP) >= 8) {
 			mes "Ah, com Pinkenami te disse";
 			mes "para me trazer o bolo +8";
-			mes "ChapÃ©u. Agora estou indo";
+			mes "Chapéu. Agora estou indo";
 			mes "Para trocar seu bolo +8";
-			mes "ChapÃ©u para outro chapÃ©u de bolo.";
+			mes "Chapéu para outro chapéu de bolo.";
 			next;
 			mes .@n$;
 			delitem 5024,1;
 			getitem 5105,1;
 			equip 5105;
-			mes "Agora, se vocÃª usar o";
-			mes "novo chapÃ©u de bolo lÃ¡";
-			mes "Ã© uma chance de que";
-			mes "Monstros demi-humanos irÃ£o";
+			mes "Agora, se você usar o";
+			mes "novo chapéu de bolo lá";
+			mes "é uma chance de que";
+			mes "Monstros demi-humanos irão";
 			mes "soltar uma flor de amor!";
 			next;
 			mes .@n$;
@@ -144,15 +144,15 @@ mosk_in,21,244,3	script	Baker Extraordinaire	410,{
 			set #V_QUE12,2;
 			close;
 		} else {
-			mes "Desculpe, mas onde estÃ¡ o seu";
-			mes "+8 chapÃ©u de bolo? Trazer";
+			mes "Desculpe, mas onde está o seu";
+			mes "+8 chapéu de bolo? Trazer";
 			mes "para mim, e lembre -se";
-			mes "para equipÃ¡ -lo!";
+			mes "para equipá -lo!";
 			close;
 		}
 	} else {
 		mes .@n$;
-		mes "OlÃ¡,"+strcharinfo(0)+"!";
+		mes "Olá,"+strcharinfo(0)+"!";
 		close;
 	}
 }

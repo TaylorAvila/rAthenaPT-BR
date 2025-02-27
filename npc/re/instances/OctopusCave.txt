@@ -23,35 +23,35 @@ mal_dun01,151,235,5	script	Starfish	551,{
 
 	if (!.@party_id) {
 		mes "[Starfish]";
-		mes "VocÃª sozinho Ã© impotente, hehe!";
-		mes "Ã‰ melhor conseguir alguÃ©m para ajudÃ¡ -lo.";
-		mes "FaÃ§a uma festa e volte mais tarde.";
+		mes "Você sozinho é impotente, hehe!";
+		mes "É melhor conseguir alguém para ajudá -lo.";
+		mes "Faça uma festa e volte mais tarde.";
 		close;
 	}
 	if (is_party_leader() == false) {
 		mes "[Starfish]";
-		mes "Onde estÃ¡ seu lÃ­der, hehe.";
-		mes "Eu nÃ£o falo com algumas pessoas aleatÃ³rias.";
+		mes "Onde está seu líder, hehe.";
+		mes "Eu não falo com algumas pessoas aleatórias.";
 		mes "Traga seu chefe para mim.";
 		close;
 	}
 	mes "[Starfish]";
 	mes "Estou guardando aqui, hehe!";
-	mes "EstÃ¡ apenas bloqueado por enquanto.";
+	mes "Está apenas bloqueado por enquanto.";
 	mes "Mas um dia essa caverna deve ser selada para sempre, hehe!";
 	next;
 	while(1) {
-		switch(select("Pergunte o que estÃ¡ acontecendo.")) {
+		switch(select("Pergunte o que está acontecendo.")) {
 		case 1:
 			mes "[Starfish]";
-			mes "Ultimamente, nossa senhora de estrela do mar Ã©";
+			mes "Ultimamente, nossa senhora de estrela do mar é";
 			mes "Sofrendo com alguns problemas, ooh ooh.";
 			mes "Algo ruim acontece nisso";
-			mes "Lugar pacÃ­fico, hehe!";
+			mes "Lugar pacífico, hehe!";
 			next;
 			mes "[Starfish]";
-			mes "Membros de aparÃªncia estranha saÃ­ram";
-			mes "Do buraco lÃ¡,";
+			mes "Membros de aparência estranha saíram";
+			mes "Do buraco lá,";
 			mes "Tentei sequestrar uma estrela do mar de Nossa Senhora.";
 			mes "Ooh ooh.";
 			next;
@@ -59,26 +59,26 @@ mal_dun01,151,235,5	script	Starfish	551,{
 			mes "Parece que esses membros pertencem a";
 			mes "aquele polvo feio.";
 			mes "Esse monstro deve ser resolvido,";
-			mes "Mas Ã© difÃ­cil para nÃ³s mesmos apenas fazer isso acontecer, hehe.";
+			mes "Mas é difícil para nós mesmos apenas fazer isso acontecer, hehe.";
 			next;
 			mes "[Starfish]";
-			mes "Eu quero encontrar alguÃ©m especial,";
-			mes "e peÃ§a para punir esse polvo feio.";
+			mes "Eu quero encontrar alguém especial,";
+			mes "e peça para punir esse polvo feio.";
 			mes "Espero que este polvo nunca nunca";
 			mes "assediar nossa senhora, hehe.";
 			next;
 			mes "[Starfish]";
-			mes "VÃ¡ pegar esse polvo e prenda -o nessa escolha.";
-			mes "Se vocÃª trazer de volta a escolha, eu irei";
-			mes "Abra este portÃ£o por um tempo.";
-			mes "VocÃª deve desafiar se estiver interessado, hehe.";
+			mes "Vá pegar esse polvo e prenda -o nessa escolha.";
+			mes "Se você trazer de volta a escolha, eu irei";
+			mes "Abra este portão por um tempo.";
+			mes "Você deve desafiar se estiver interessado, hehe.";
 			next;
 			break;
 		case 2:
 			set .@playtime, checkquest(4197,PLAYTIME);
 			if (.@playtime == 0 || .@playtime == 1) {
 				mes "[Starfish]";
-				mes "Optopus nÃ£o estÃ¡ por perto agora, hehe.";
+				mes "Optopus não está por perto agora, hehe.";
 				mes "Por favor, volte mais tarde.";
 				close;
 			}
@@ -86,34 +86,34 @@ mal_dun01,151,235,5	script	Starfish	551,{
 			if (rentalcountitem(6442)) {
 				if (instance_create(.@md_name$) < 0) {
 					mes "[Starfish]";
-					mes "O nome da festa Ã© ..."+getpartyname(.@party_id)+".";
-					mes "O lÃ­der do partido Ã© ..."+strcharinfo(0)+".";
-					mes "^0000FF"+.@md_name$+"^000000, nÃ£o posso abrir agora, hehe.";
-					mes "Agora nÃ£o Ã© a hora, por favor, espere.";
+					mes "O nome da festa é ..."+getpartyname(.@party_id)+".";
+					mes "O líder do partido é ..."+strcharinfo(0)+".";
+					mes "^0000FF"+.@md_name$+"^000000, não posso abrir agora, hehe.";
+					mes "Agora não é a hora, por favor, espere.";
 					close;
 				}
 				mes "[Starfish]";
-				mes "Vou abrir o portÃ£o por um tempo para ^0000ff"+.@md_name$+"^000000.";
+				mes "Vou abrir o portão por um tempo para ^0000ff"+.@md_name$+"^000000.";
 				mes "Por favor, pegue esse polvo pervertido,";
 				mes "E volte com ele grudou na escolha, hehe.";
 				close;
 			}
 			mes "[Starfish]";
 			mes "Prepare uma escolha primeiro,";
-			mes "EntÃ£o vocÃª pode enfiar aquele polvo";
+			mes "Então você pode enfiar aquele polvo";
 			mes "com essa escolha.";
-			mes "EntÃ£o, vou deixar vocÃª entrar por um tempo, hehe.";
+			mes "Então, vou deixar você entrar por um tempo, hehe.";
 			close;
 		case 3:
 			mes "[Starfish]";
-			mes "Esta nÃ£o Ã© uma boa localizaÃ§Ã£o, verifique em outro lugar.";
+			mes "Esta não é uma boa localização, verifique em outro lugar.";
 			close;
 		}
 	}
 }
 
 mal_dun01,153,237,5	script	Weird Entrance	844,{
-	mes "HÃ¡ uma entrada estranha";
+	mes "Há uma entrada estranha";
 	mes "bloqueado aproximadamente com algumas placas.";
 	next;
 	switch(select("Entre.")) {
@@ -122,37 +122,37 @@ mal_dun01,153,237,5	script	Weird Entrance	844,{
 			switch(instance_enter("Octopus Cave")) {
 			case IE_OTHER:
 				mes "[Starfish]";
-				mes "Ah, agora nÃ£o Ã© a hora ...";
-				mes "VocÃª voltaria mais tarde? Hehe.";
+				mes "Ah, agora não é a hora ...";
+				mes "Você voltaria mais tarde? Hehe.";
 				close;
 			case IE_NOINSTANCE:
 			case IE_NOMEMBER:
 				mes "[Starfish]";
-				mes "HÃ¡ um segredo com essa entrada.";
-				mes "EntÃ£o, por favor, tenha cuidado com isso, vai? Hehe.";
+				mes "Há um segredo com essa entrada.";
+				mes "Então, por favor, tenha cuidado com isso, vai? Hehe.";
 				close;
 			case IE_OK:
-				mapannounce "MAL_DUN01", getpartyname(getcharid(1))+"Partido"+strcharinfo(0)+"O membro comeÃ§ou a caÃ§ar o polvo!",bc_map,"0 buceta 00";
+				mapannounce "MAL_DUN01", getpartyname(getcharid(1))+"Partido"+strcharinfo(0)+"O membro começou a caçar o polvo!",bc_map,"0 buceta 00";
 				if (checkquest(4197) == -1) setquest 4197;
 				//warp instance_mapname("1@cash"),199,99;
 				close;
 			default:
 				mes "[Starfish]";
-				mes "Shhh ... aura estranha Ã©";
+				mes "Shhh ... aura estranha é";
 				mes "vindo dessa entrada.";
-				mes "Grande problema estÃ¡ esperando, se vocÃª entrar agora.";
+				mes "Grande problema está esperando, se você entrar agora.";
 				close;
 			}
 		}
 		mes "[Starfish]";
-		mes "VocÃª definitivamente deveria se preparar";
-		mes "caÃ§ando bastÃ£o se quiser";
+		mes "Você definitivamente deveria se preparar";
+		mes "caçando bastão se quiser";
 		mes "punir o polvo.";
-		mes "Ou nÃ£o vou deixar vocÃª entrar! Hehe.";
+		mes "Ou não vou deixar você entrar! Hehe.";
 		close;
 	case 2:
 		mes "[Starfish]";
-		mes "Sim sim, Ã© melhor vocÃª desistir.";
+		mes "Sim sim, é melhor você desistir.";
 		close;
 	}
 }
@@ -224,12 +224,12 @@ OnMyMobDead:
 	set .@map$, instance_mapname("1@cash");
 	if (mobcount(.@map$,instance_npcname("oct_foot_4")+"::OnMyMobDead") < 1) {
 		donpcevent instance_npcname("oct_boss_con")+"::OnEnable";
-		mapannounce .@map$,"Ei vocÃª !! Vou cuidar pessoalmente de todos vocÃªs! Vamos trazÃª -lo!",bc_map,"0 buceta 00";
+		mapannounce .@map$,"Ei você !! Vou cuidar pessoalmente de todos vocês! Vamos trazê -lo!",bc_map,"0 buceta 00";
 		enablenpc instance_npcname("oct_boss_warp");
 		instance_warpall .@map$,199,99, instance_id();
 		end;
 	}
-	mapannounce .@map$,"ARRGG !! Isso dÃ³i !!! Eu preciso de outra estratÃ©gia ...",bc_map,"0 buceta 00";
+	mapannounce .@map$,"ARRGG !! Isso dói !!! Eu preciso de outra estratégia ...",bc_map,"0 buceta 00";
 	end;
 }
 
@@ -311,7 +311,7 @@ OnTouch_:
 	end;
 OnTimer5000:
 	set .@map$, instance_mapname("1@cash");
-	mapannounce .@map$,"Vamos dar a eles uma liÃ§Ã£o!",bc_map,"0xffff00";
+	mapannounce .@map$,"Vamos dar a eles uma lição!",bc_map,"0xffff00";
 	set .@label$, instance_npcname(strnpcinfo(0))+"::OnMyMobDead";
 	set .@i, atoi(charat(strnpcinfo(0),8));
 	switch(.@i) {
@@ -343,7 +343,7 @@ OnTimer30000:
 OnMyMobDead:
 	set .@map$, instance_mapname("1@cash");
 	if (mobcount(.@map$,instance_npcname(strnpcinfo(0))+"::OnMyMobDead") < 1) {
-		mapannounce .@map$,"VocÃª machucou meus bebÃªs !!? VocÃª terÃ¡ que pagar por isso !!!",bc_map,"0 buceta 00";
+		mapannounce .@map$,"Você machucou meus bebês !!? Você terá que pagar por isso !!!",bc_map,"0 buceta 00";
 		setd "."+strnpcinfo(0)+instance_id(),0;
 		stopnpctimer;
 		set .@i, atoi(charat(strnpcinfo(0),8));
@@ -433,7 +433,7 @@ OnTouch_:
 	monster .@map$,48,50,"Hidra",1068,1;
 	monster .@map$,49,50,"Hidra",1068,1;
 	monster .@map$,41,53,"Capanga de Octopus",2192,1;
-	mapannounce .@map$,"NÃ£o os deixe romper, pare -os !!!",bc_map,"0 buceta 00";
+	mapannounce .@map$,"Não os deixe romper, pare -os !!!",bc_map,"0 buceta 00";
 	specialeffect EF_BASH;
 	disablenpc instance_npcname("oct_backattack1");
 	end;
@@ -453,18 +453,18 @@ OnTouch_:
 	initnpctimer;
 	set .@map$, instance_mapname("1@cash");
 	monster .@map$,71,105,"Capanga de Octopus",2192,1;
-	mapannounce .@map$,"Sede estÃ£o vazios, vÃ¡ !!!",bc_map,"0 buceta 00";
+	mapannounce .@map$,"Sede estão vazios, vá !!!",bc_map,"0 buceta 00";
 	hideonnpc instance_npcname("oct_backattack2");
 	end;
 OnTimer2000:
 	set .@map$, instance_mapname("1@cash");
 	monster .@map$,71,105,"Capanga de Octopus",2192,1;
-	mapannounce .@map$,"Corra, corra! VÃ¡, vÃ¡ !!!",bc_map,"0 buceta 00";
+	mapannounce .@map$,"Corra, corra! Vá, vá !!!",bc_map,"0 buceta 00";
 	end;
 OnTimer4000:
 	set .@map$, instance_mapname("1@cash");
 	monster .@map$,71,105,"Capanga de Octopus",2192,1;
-	mapannounce .@map$,"Sem tempo, saia rÃ¡pido!",bc_map,"0 buceta 00";
+	mapannounce .@map$,"Sem tempo, saia rápido!",bc_map,"0 buceta 00";
 	end;
 OnTimer6000:
 	set .@map$, instance_mapname("1@cash");
@@ -474,7 +474,7 @@ OnTimer6000:
 OnTimer8000:
 	set .@map$, instance_mapname("1@cash");
 	monster .@map$,71,105,"Capanga de Octopus",2192,1;
-	mapannounce .@map$,"NÃ£o hÃ¡ tempo a perder, se apresse !!!",bc_map,"0 buceta 00";
+	mapannounce .@map$,"Não há tempo a perder, se apresse !!!",bc_map,"0 buceta 00";
 	stopnpctimer;
 	end;
 OnEnable:
@@ -526,12 +526,12 @@ OnTouch_:
 	monster .@map$,341,36,"Capanga de Octopus",2192,1;
 	monster .@map$,341,35,"Capanga de Octopus",2192,1;
 	monster .@map$,341,34,"Capanga de Octopus",2192,1;
-	monster .@map$,260,40,"Lula mercenÃ¡ria",2175,1;
-	monster .@map$,260,41,"Lula mercenÃ¡ria",2175,1;
-	monster .@map$,260,39,"Lula mercenÃ¡ria",2175,1;
-	monster .@map$,259,40,"Lula mercenÃ¡ria",2175,1;
-	monster .@map$,261,40,"Lula mercenÃ¡ria",2175,1;
-	mapannounce .@map$,"Que tÃ¡tica de pinÃ§a de sucesso! O inimigo Ã© forte! NÃ£o vamos nos perder! Enfim, onde estÃ£o todos os mercenÃ¡rios ??",bc_map,"0 buceta 00";
+	monster .@map$,260,40,"Lula mercenária",2175,1;
+	monster .@map$,260,41,"Lula mercenária",2175,1;
+	monster .@map$,260,39,"Lula mercenária",2175,1;
+	monster .@map$,259,40,"Lula mercenária",2175,1;
+	monster .@map$,261,40,"Lula mercenária",2175,1;
+	mapannounce .@map$,"Que tática de pinça de sucesso! O inimigo é forte! Não vamos nos perder! Enfim, onde estão todos os mercenários ??",bc_map,"0 buceta 00";
 	initnpctimer;
 	hideonnpc instance_npcname("oct_backattack4");
 	end;
@@ -563,45 +563,45 @@ OnEnable:
 	end;
 OnTimer7000:
 	callsub OnAnnounce,
-		"VocÃª nÃ£o vai atacar o Ãºnico homem.",
+		"Você não vai atacar o único homem.",
 		"Fui demitido do fabricante de tinta na semana passada.",
-		"Octopus nojento: arghhhhh, vamos lÃ¡!";
+		"Octopus nojento: arghhhhh, vamos lá!";
 	end;
 OnTimer14000:
 	callsub OnAnnounce,
-		"Por que ... por que vocÃª nÃ£o pode conhecer meu coraÃ§Ã£o!",
-		"VocÃª sabe o quÃ£o difÃ­cil Ã© viver hoje em dia porque nÃ£o hÃ¡ muitos aventureiros novos?",
-		"VocÃª .. eu vou destruir todos vocÃªs ...!";
+		"Por que ... por que você não pode conhecer meu coração!",
+		"Você sabe o quão difícil é viver hoje em dia porque não há muitos aventureiros novos?",
+		"Você .. eu vou destruir todos vocês ...!";
 	end;
 OnTimer21000:
 	callsub OnAnnounce,
-		"O que? Eu sou um polvo nojento? VocÃªs sÃ£o sÃ¡dicos.",
-		"NÃ£o vamos fazer isso e que tal procurarmos a melhor soluÃ§Ã£o, hein ??",
+		"O que? Eu sou um polvo nojento? Vocês são sádicos.",
+		"Não vamos fazer isso e que tal procurarmos a melhor solução, hein ??",
 		"Mesmo se eu falhar aqui, continuarei voltando, para sempre !!!";
 	end;
 OnTimer28000:
 	callsub OnAnnounce,
-		"O instinto de acasalamento Ã© para os homens, o que eu fiz de errado?",
-		"VocÃª realmente quer resolver o problema entre os seres humanos pela violÃªncia? Ah, eu sou um polvo ...",
-		"Isso Ã© o suficiente! Voltar!";
+		"O instinto de acasalamento é para os homens, o que eu fiz de errado?",
+		"Você realmente quer resolver o problema entre os seres humanos pela violência? Ah, eu sou um polvo ...",
+		"Isso é o suficiente! Voltar!";
 	end;
 OnTimer35000:
 	callsub OnAnnounce,
 		"Eu tenho que passar o Natal sozinho de novo ...",
-		"O desemprego juvenil se tornou um grande problema hoje em dia ... vocÃª nÃ£o conseguirÃ¡ um emprego se continuar brincando comigo aqui.",
-		"Isso Ã© o mais longe que posso ir!";
+		"O desemprego juvenil se tornou um grande problema hoje em dia ... você não conseguirá um emprego se continuar brincando comigo aqui.",
+		"Isso é o mais longe que posso ir!";
 	end;
 OnTimer42000:
 	callsub OnAnnounce,
-		"Entrega no seu coraÃ§Ã£o e pense se vocÃª entrar em alguÃ©m ...",
-		"NÃ£o vamos fazer isso aqui e seguir a lei!",
-		"VocÃª continuarÃ¡ fazendo isso atÃ© o fim, Ã© isso?";
+		"Entrega no seu coração e pense se você entrar em alguém ...",
+		"Não vamos fazer isso aqui e seguir a lei!",
+		"Você continuará fazendo isso até o fim, é isso?";
 	end;
 OnTimer49000:
 	callsub OnAnnounce,
 		"rrrrrrrrrrrrrrrrrrrrrrrrrrrrrr ... tosse! Tosse!",
-		"Octopus nojento: a violÃªncia nÃ£o pode ser justificada em qualquer caso.",
-		"Este Ã© o meu lugar !!!";
+		"Octopus nojento: a violência não pode ser justificada em qualquer caso.",
+		"Este é o meu lugar !!!";
 	stopnpctimer;
 	initnpctimer;
 	end;
@@ -611,7 +611,7 @@ OnAnnounce:
 OnMyMobDead:
 	set .@map$, instance_mapname("1@cash");
 	if (mobcount(.@map$,instance_npcname("oct_boss_con")+"::OnMyMobDead") < 1) {
-		mapannounce .@map$,"Octopus nojento: Ã© isso para o hoje! Da prÃ³xima vez, vou brincar com vocÃª mal!",bc_map,"0xffff00";
+		mapannounce .@map$,"Octopus nojento: é isso para o hoje! Da próxima vez, vou brincar com você mal!",bc_map,"0xffff00";
 		enablenpc instance_npcname("oct_exit_1");
 		enablenpc instance_npcname("oct_exit_2");
 		donpcevent instance_npcname("oct_boss_foot")+"::OnDisable";
@@ -636,11 +636,11 @@ OnCall:
 	if (mobcount(.@map$,instance_npcname("oct_boss_foot")+"::OnMyMobDead") < 100) {
 		switch(rand(2)) {
 		case 0:
-			mapannounce .@map$,"Octopus nojento: vocÃª sabe quantas pernas o polvo? NÃ£o importa, eu tenho pernas ilimitadas !!",bc_map,"0xffff00";
+			mapannounce .@map$,"Octopus nojento: você sabe quantas pernas o polvo? Não importa, eu tenho pernas ilimitadas !!",bc_map,"0xffff00";
 			areamonster .@map$,192,181,206,195,"Octopus Leg",2193,1,instance_npcname("oct_boss_foot")+"::OnMyMobDead";
 			break;
 		case 1:
-			mapannounce .@map$,"Octopus nojento: eu ... nÃ£o posso mais ... segurar meus bebÃªs ~ Por favor, saia e lute!",bc_map,"0xffff00";
+			mapannounce .@map$,"Octopus nojento: eu ... não posso mais ... segurar meus bebês ~ Por favor, saia e lute!",bc_map,"0xffff00";
 			areamonster .@map$,192,181,206,195,"Octopus's Henchman ",2192,5,instance_npcname("oct_boss_foot")+"::OnMyMobDead";
 			break;
 		}
@@ -667,9 +667,9 @@ OnInstanceInit:
 	disablenpc();
 	end;
 OnTouch:
-	mes "VocÃª quer sair da masmorra de polvo?";
+	mes "Você quer sair da masmorra de polvo?";
 	next;
-	if(select("NÃ£o!: Sim!") == 2)
+	if(select("Não!: Sim!") == 2)
 		warp "mal_dun01",153,233;
 	close;
 }

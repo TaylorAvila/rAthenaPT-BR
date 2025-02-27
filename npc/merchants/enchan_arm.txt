@@ -24,16 +24,16 @@ prontera,165,60,2	script	Apprentice Craftsman	73,{
 		mes "Eu tenho estudado maneiras de aprimorar uma armadura para maximizar sua capacidade.";
 		next;
 		mes "[Aprendiz Craftsman]";
-		mes "Encantador Ã© uma habilidade impressionante que infunde um status misterioso no soquete oculto da armadura.";
+		mes "Encantador é uma habilidade impressionante que infunde um status misterioso no soquete oculto da armadura.";
 		next;
 		mes "[Aprendiz Craftsman]";
-		mes "No entanto, vocÃª deve ter em mente que, se houver duas armaduras do mesmo tipo em sua posse, o encantamento serÃ¡ aplicado na ordem em que eles serÃ£o colocados em seu inventÃ¡rio.";
+		mes "No entanto, você deve ter em mente que, se houver duas armaduras do mesmo tipo em sua posse, o encantamento será aplicado na ordem em que eles serão colocados em seu inventário.";
 		next;
 		mes "[Aprendiz Craftsman]";
-		mes "Nesse caso, o encantamento pode ser aplicado a um item que vocÃª nÃ£o pretendia encantar. EntÃ£o, traga ^5555ffene armadura ^000000 vocÃª deseja que seja encantado para ficar seguro ...";
+		mes "Nesse caso, o encantamento pode ser aplicado a um item que você não pretendia encantar. Então, traga ^5555ffene armadura ^000000 você deseja que seja encantado para ficar seguro ...";
 		next;
 		mes "[Aprendiz Craftsman]";
-		mes "NÃ£o sou responsÃ¡vel pelo que aconteceria se vocÃª tivesse mais de um do mesmo tipo em seu inventÃ¡rio.";
+		mes "Não sou responsável pelo que aconteceria se você tivesse mais de um do mesmo tipo em seu inventário.";
 		next;
 		switch(select("Armadura sem fenda.")) {
 		case 1:
@@ -63,7 +63,7 @@ prontera,165,60,2	script	Apprentice Craftsman	73,{
 	mes "Estou encarregado de encantar armaduras. Simplificando, eu tenho estudado maneiras de ligar a armadura.";
 	next;
 	mes "[Aprendiz Craftsman]";
-	mes "Se, por acaso, vocÃª desejar encantar sua armadura, traga -me 400.000 Zeny e a armadura que vocÃª deseja encantar e vocÃª estÃ¡ pronto para ir.";
+	mes "Se, por acaso, você desejar encantar sua armadura, traga -me 400.000 Zeny e a armadura que você deseja encantar e você está pronto para ir.";
 	close;
 
 S_EnchantArmor:
@@ -71,18 +71,18 @@ S_EnchantArmor:
 	set .@failrate,getarg(1);
 	mes "[Aprendiz Craftsman]";
 	if (countitem(.@itemid) == 1) {
-		mes "O Socket Enchant custarÃ¡ 400.000 Zeny. E haverÃ¡ uma opÃ§Ã£o aleatÃ³ria encantada. Claro, hÃ¡ uma chance de quebrar sua armadura.";
+		mes "O Socket Enchant custará 400.000 Zeny. E haverá uma opção aleatória encantada. Claro, há uma chance de quebrar sua armadura.";
 		next;
 		mes "[Aprendiz Craftsman]";
 		mes "Primeiro e o mais importante.";
-		mes "^FF5555 Existe o nÃ­vel refinado da armadura";
-		mes "e os cartÃµes desaparecerÃ£o.^000000";
-		mes "VocÃª ainda quer experimentar um encantamento?";
+		mes "^FF5555 Existe o nível refinado da armadura";
+		mes "e os cartões desaparecerão.^000000";
+		mes "Você ainda quer experimentar um encantamento?";
 		next;
 		if(select("Hmm ... deixe -me pensar sobre isso.") == 1) {
 			mes "[Aprendiz Craftsman]";
-			mes "Bem, eu nÃ£o posso culpar vocÃª. SeguranÃ§a primeiro, hein?";
-			mes "Agora vocÃª tem um bom dia.";
+			mes "Bem, eu não posso culpar você. Segurança primeiro, hein?";
+			mes "Agora você tem um bom dia.";
 			close;
 		}
 		mes "[Aprendiz Craftsman]";
@@ -91,7 +91,7 @@ S_EnchantArmor:
 		specialeffect2 EF_MAPPILLAR;
 		if (Zeny < 400000) {
 			mes "[Aprendiz Craftsman]";
-			mes "Desculpe, mas vocÃª nÃ£o tem Zeny suficiente.";
+			mes "Desculpe, mas você não tem Zeny suficiente.";
 			close;
 		}
 		progressbar "FFFF00",7;
@@ -137,14 +137,14 @@ S_EnchantArmor:
 			default:
 				specialeffect2 EF_PHARMACY_FAIL;
 				mes "[Aprendiz Craftsman]";
-				mes "Bem, isso Ã© muito ruim.";
-				mes "O equipamento solicitado nÃ£o conseguiu encantar.";
+				mes "Bem, isso é muito ruim.";
+				mes "O equipamento solicitado não conseguiu encantar.";
 				close;
 		}
 		getitem2 .@itemid, 1, 1, 0, 0, 0, 0, 0, .@addpart;
 	}
 	else {
-		mes "Hum? NÃ£o hÃ¡ nada a ser encantado!";
+		mes "Hum? Não há nada a ser encantado!";
 		mes "Por favor, volte com apenas um equipamento para ser encantado.";
 		close;
 	}

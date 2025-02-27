@@ -9,16 +9,16 @@
 
 prontera,210,209,5	script	Pet Trader#1	4_M_JPNOJI,{
 	disable_items;
-	mes "[Trader de animais de estimaÃ§Ã£o]";
-	mes "Vivendo a vida atravÃ©s dos negÃ³cios nÃ£o Ã© fÃ¡cil.";
-	mes "Fico muito enjÃ´o, mas hoje fui pego em uma tempestade no meu caminho aqui.";
+	mes "[Trader de animais de estimação]";
+	mes "Vivendo a vida através dos negócios não é fácil.";
+	mes "Fico muito enjôo, mas hoje fui pego em uma tempestade no meu caminho aqui.";
 	next;
-	mes "[Trader de animais de estimaÃ§Ã£o]";
-	mes "Foi uma experiÃªncia tÃ£o horrÃ­vel. GraÃ§as a isso, nÃ£o me sinto tÃ£o bem. Ughh ...";
+	mes "[Trader de animais de estimação]";
+	mes "Foi uma experiência tão horrível. Graças a isso, não me sinto tão bem. Ughh ...";
 	next;
-	mes "[Trader de animais de estimaÃ§Ã£o]";
-	mes "Enfim, vocÃª veio aqui procurando um animal de estimaÃ§Ã£o fofo?";
-	mes "VocÃª trouxe um ingresso com vocÃª, certo?";
+	mes "[Trader de animais de estimação]";
+	mes "Enfim, você veio aqui procurando um animal de estimação fofo?";
+	mes "Você trouxe um ingresso com você, certo?";
 	next;
 	switch (select("Examine seus ingressos: Cancelar")) {
 	case 1:
@@ -130,36 +130,36 @@ prontera,210,209,5	script	Pet Trader#1	4_M_JPNOJI,{
 		}
 
 		if (.@count == 0) {
-			mes "[Trader de animais de estimaÃ§Ã£o]";
-			mes "Eu nÃ£o acho que vocÃª tem as coisas que eu quero.";
+			mes "[Trader de animais de estimação]";
+			mes "Eu não acho que você tem as coisas que eu quero.";
 			close;
 		}
 
-		mes "[Trader de animais de estimaÃ§Ã£o]";
-		mes "Qual ingresso vocÃª deseja trocar?";
+		mes "[Trader de animais de estimação]";
+		mes "Qual ingresso você deseja trocar?";
 		next;
 		.@index = .@ticketIndices[select(.@menu$) - 1];
 
-		mes "[Trader de animais de estimaÃ§Ã£o]";
-		mes "Ã“timo!";
+		mes "[Trader de animais de estimação]";
+		mes "Ótimo!";
 		mes "^0000FF"+ getitemname(.@eggs[.@index]) +"^000000";
-		mes "Tem certeza de que quer este animal de estimaÃ§Ã£o?";
+		mes "Tem certeza de que quer este animal de estimação?";
 		next;
-		if (select("Sim: NÃ£o") == 2) close;
+		if (select("Sim: Não") == 2) close;
 		if (!checkweight(.@eggs[.@index], 1)) {
-			mes "VocÃª estÃ¡ carregando muita coisa!";
-			mes "Volte quando vocÃª fizer algum espaÃ§o.";
+			mes "Você está carregando muita coisa!";
+			mes "Volte quando você fizer algum espaço.";
 			close;
 		}
 
-		mes "[Trader de animais de estimaÃ§Ã£o]";
-		mes "Aqui estÃ¡ o seu animal de estimaÃ§Ã£o ~";
+		mes "[Trader de animais de estimação]";
+		mes "Aqui está o seu animal de estimação ~";
 		delitem .@tickets[.@index], 1;
 		getitem .@eggs[.@index], 1;
 		close;
 	case 2:
-		mes "[Trader de animais de estimaÃ§Ã£o]";
-		mes "EntÃ£o vocÃª quer ouvir sobre a terra do outro lado do mar, mas eu nÃ£o me sinto tÃ£o bem hoje.";
+		mes "[Trader de animais de estimação]";
+		mes "Então você quer ouvir sobre a terra do outro lado do mar, mas eu não me sinto tão bem hoje.";
 		close;
 	}
 	end;

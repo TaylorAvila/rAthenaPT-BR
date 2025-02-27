@@ -25,50 +25,50 @@ function	script	F_Okolnir	{
 	set .@sub$, callfunc("F_Okolnir");
 	set .@GID, GetCastleData(strnpcinfo(4),1);
 	if (getcharid(2) == .@GID) {
-		if (getd("$ vocÃª_"+.@sub$+"_sobre") == 0) {
+		if (getd("$ você_"+.@sub$+"_sobre") == 0) {
 			mes "[Guia]";
 			mes "Este castelo tem um segredo oculto.";
-			mes "Esse Ã© o ^4d4dff'Okolnir ' ^000000.";
+			mes "Esse é o ^4d4dff'Okolnir ' ^000000.";
 			next;
 			switch(select("Sobre Encoly")) {
 			case 1:
 				mes "[Guia]";
-				mes "Okolnir Ã© um tipo de reino virtual ...";
-				mes "NÃ£o sei como Okolnir existe, mas acho que apenas Valkyrie sabe.";
+				mes "Okolnir é um tipo de reino virtual ...";
+				mes "Não sei como Okolnir existe, mas acho que apenas Valkyrie sabe.";
 				next;
 				mes "[Guia]";
-				mes "Como vocÃª sabe, este Ã© um lugar para testar os aventureiros feitos por Valkyrie ...";
-				mes "... VocÃª conhece as qualificaÃ§Ãµes para entrar em Okolnir.";
+				mes "Como você sabe, este é um lugar para testar os aventureiros feitos por Valkyrie ...";
+				mes "... Você conhece as qualificações para entrar em Okolnir.";
 				next;
-				select("QualificaÃ§Ãµes?");
+				select("Qualificações?");
 				mes "[Guia]";
 				mes "Sim, Valkyrie definitivamente prefere aventureiros fortes.";
 				mes "Somente os qualificados podem entrar em Okolnir e Valhalla.";
 				next;
 				mes "[Guia]";
-				mes "Ele sÃ³ abre quando todos se reÃºnem para resolver isso.";
-				mes "A chave estÃ¡ no castelo.";
+				mes "Ele só abre quando todos se reúnem para resolver isso.";
+				mes "A chave está no castelo.";
 				next;
 				mes "[Guia]";
-				mes "Se o 4d4dffeconomy de um castelo for superior a 65 e defesa tambÃ©m acima de 30 ^000000, isso serÃ¡ aceitÃ¡vel para acessar Okolnir.";
+				mes "Se o 4d4dffeconomy de um castelo for superior a 65 e defesa também acima de 30 ^000000, isso será aceitável para acessar Okolnir.";
 				next;
 				mes "[Guia]";
-				mes "E, se vocÃª passar todos os testes dados por Valkyrie em Okolnir!";
-				mes "VocÃª tambÃ©m receberÃ¡ um presente misterioso.";
+				mes "E, se você passar todos os testes dados por Valkyrie em Okolnir!";
+				mes "Você também receberá um presente misterioso.";
 				next;
 				mes "[Guia]";
-				mes "VocÃª gostaria de tentar entrar aqui?";
+				mes "Você gostaria de tentar entrar aqui?";
 				close;
 			case 2:
 				set .@Defence,GetCastleData(strnpcinfo(4),3);
 				set .@Economy,GetCastleData(strnpcinfo(4),2);
 				if ((.@Economy > 64) && (.@Defence > 29)) {
 					mes "[Guia]";
-					mes "Ã“timo! Economia e defesa estÃ£o bem.";
-					mes "VocÃª pode entrar em Okolnir agora ....";
-					mes "VocÃª quer ir lÃ¡?";
+					mes "Ótimo! Economia e defesa estão bem.";
+					mes "Você pode entrar em Okolnir agora ....";
+					mes "Você quer ir lá?";
 					next;
-					switch(select("Claro, vamos lÃ¡.")) {
+					switch(select("Claro, vamos lá.")) {
 					case 1:
 						if (countitem(7839)) delitem 7839,countitem(7839); //Crystal_Key
 						mes "[Guia]";
@@ -79,14 +79,14 @@ function	script	F_Okolnir	{
 						end;
 					case 2:
 						mes "[Guia]";
-						mes "VocÃª pode tentar isso a qualquer momento no futuro ...";
-						mes "Se vocÃª estiver pronto para proteger este castelo.";
+						mes "Você pode tentar isso a qualquer momento no futuro ...";
+						mes "Se você estiver pronto para proteger este castelo.";
 						close;
 					}
 				}
 				else {
 					mes "[Guia]";
-					mes "VocÃª ainda nÃ£o estÃ¡ qualificado.";
+					mes "Você ainda não está qualificado.";
 					mes "Por favor, desenvolva seu castelo mais ...";
 					close;
 				}
@@ -94,7 +94,7 @@ function	script	F_Okolnir	{
 				close;
 			}
 		}
-		else if (getd("$ vocÃª_"+.@sub$+"_sobre") == 1) {
+		else if (getd("$ você_"+.@sub$+"_sobre") == 1) {
 			mes "[Guia]";
 			mes "... OK...";
 			mes "Boa sorte.";
@@ -105,7 +105,7 @@ function	script	F_Okolnir	{
 					delitem 7839,countitem(7839); //Crystal_Key
 				}
 				mes "[Guia]";
-				mes "Espero que vocÃª obtenha tudo o que quiser ...";
+				mes "Espero que você obtenha tudo o que quiser ...";
 				close2;
 				warp "que_q"+.@sub$,346,32;
 				end;
@@ -116,7 +116,7 @@ function	script	F_Okolnir	{
 				close;
 			}
 		}
-		else if (getd("$ vocÃª_"+.@sub$+"_sobre") == 2) {
+		else if (getd("$ você_"+.@sub$+"_sobre") == 2) {
 			mes "[Guia]";
 			mes "Construir Okolnir precisa de muito tempo.";
 			mes ".... mesmo que seja apenas virtual ...";
@@ -127,14 +127,14 @@ function	script	F_Okolnir	{
 		}
 		else {
 			mes "[Guia]";
-			mes "VocÃª terÃ¡ que aguardar.";
+			mes "Você terá que aguardar.";
 			close;
 		}
 	}
 	else {
 		mes "[Guia]";
 		mes "... Eu nunca te vi antes.";
-		mes "VocÃªs sÃ£o estranhos aqui. Ã‰ melhor vocÃª sair daqui agora.";
+		mes "Vocês são estranhos aqui. É melhor você sair daqui agora.";
 		close;
 	}
 	end;
@@ -142,7 +142,7 @@ function	script	F_Okolnir	{
 OnInit:
 	set .@sub$,callfunc("F_Okolnir");
 	enablenpc "Guide#gq_"+.@sub$;
-	if (getd("$ vocÃª_"+.@sub$+"_sobre") == 1) setd "$ vocÃª_"+.@sub$+"_sobre", 0;
+	if (getd("$ você_"+.@sub$+"_sobre") == 1) setd "$ você_"+.@sub$+"_sobre", 0;
 	end;
 }
 
@@ -192,32 +192,32 @@ que_qsch05,345,23,0	warp	Gate02#gq_sch05	1,1,schg_cas05,369,306
 			if (.@check >= 9) {
 				cutin "wish_maiden11",1;
 				mes "[Desejo Maiden]";
-				mes "VocÃª estÃ¡ pronto para suportar as provaÃ§Ãµes para obter a glÃ³ria da deusa?";
+				mes "Você está pronto para suportar as provações para obter a glória da deusa?";
 				next;
 				switch(select("Sim, estou: desculpe, vou tentar mais tarde")) {
 				case 1:
 					cutin "wish_maiden12",1;
 					mes "[Desejo Maiden]";
-					mes "Vou testar se vocÃª merece ou nÃ£o a deusa brilhar ...";
-					mes "NÃ£o Ã© simples?";
+					mes "Vou testar se você merece ou não a deusa brilhar ...";
+					mes "Não é simples?";
 					next;
 					mes "[Desejo Maiden]";
-					mes "Okolnir Ã© um lugar virtual.";
-					mes "NÃ£o hÃ¡ espaÃ§o para erro lÃ¡.";
-					mes "^ff0000 VocÃª tem apenas uma hora.^000000";
+					mes "Okolnir é um lugar virtual.";
+					mes "Não há espaço para erro lá.";
+					mes "^ff0000 Você tem apenas uma hora.^000000";
 					next;
 					cutin "wish_maiden31",1;
 					mes "[Desejo Maiden]";
-					mes "Se vocÃª nÃ£o terminou nesse perÃ­odo, Okolnir serÃ¡ destruÃ­do e eu irei descansar.";
-					mes "VocÃª terÃ¡ que esperar de novo ...";
+					mes "Se você não terminou nesse período, Okolnir será destruído e eu irei descansar.";
+					mes "Você terá que esperar de novo ...";
 					next;
 					mes "[Desejo Maiden]";
-					mes "VocÃª estÃ¡ pronto para passar?";
+					mes "Você está pronto para passar?";
 					mes "^4d4dffffyou precisar ter de 16 a 20 membros presentes^000000.";
 					next;
 					cutin "wish_maiden11",1;
 					mes "[Desejo Maiden]";
-					mes "Vou abrir o portÃ£o de Okolnir se seus membros estiverem prontos.";
+					mes "Vou abrir o portão de Okolnir se seus membros estiverem prontos.";
 					next;
 					switch(select("Estamos prontos .: Precisamos de mais tempo.")) {
 					case 1:
@@ -225,26 +225,26 @@ que_qsch05,345,23,0	warp	Gate02#gq_sch05	1,1,schg_cas05,369,306
 						if (((.@saram > 15) && (.@saram < 21))) {
 							cutin "wish_maiden12",1;
 							mes "[Desejo Maiden]";
-							mes "Agora vou abrir o portÃ£o de Okolnir, onde estou.";
-							mes "Vou esperar por vocÃª no topo de Okolnir ...";
+							mes "Agora vou abrir o portão de Okolnir, onde estou.";
+							mes "Vou esperar por você no topo de Okolnir ...";
 							next;
 							mes "[Desejo Maiden]";
-							mes "Espero que vocÃª possa completar todas as provaÃ§Ãµes antes que o okolnir virtual seja destruÃ­do ...";
+							mes "Espero que você possa completar todas as provações antes que o okolnir virtual seja destruído ...";
 							mes "Boa sorte.";
-							mapannounce "que_q"+.@sub$,"Desejo Maiden: The Gate of Okolnir estÃ¡ aberto! NÃ£o se esqueÃ§a que vocÃª tem apenas uma hora.",bc_map,"0x00FF00";
+							mapannounce "que_q"+.@sub$,"Desejo Maiden: The Gate of Okolnir está aberto! Não se esqueça que você tem apenas uma hora.",bc_map,"0x00FF00";
 							close2;
 							setd "$ @GQSE_"+.@sub$+"_pcc",.@saram;
-							setd "$ vocÃª_"+.@sub$+"_sobre",1;
+							setd "$ você_"+.@sub$+"_sobre",1;
 							donpcevent "#okolnir_"+.@sub$+"::OnEnable";
 							disablenpc "Wish Maiden#gq_"+.@sub$;
 							cutin "wish_maiden11",255;
-							announce "["+ strcharinfo(0) +"], da guilda ["+ GetGuildName(.@GID) +"] abriu os portÃµes para o reino de Okolnir.",bc_all,"0x70dbdb";
+							announce "["+ strcharinfo(0) +"], da guilda ["+ GetGuildName(.@GID) +"] abriu os portões para o reino de Okolnir.",bc_all,"0x70dbdb";
 							end;
 						}
 						else {
 							cutin "wish_maiden13",1;
 							mes "[Desejo Maiden]";
-							mes "VocÃª precisa ter de 16 a 20 membros presentes para abrir o portÃ£o de Okolnir.";
+							mes "Você precisa ter de 16 a 20 membros presentes para abrir o portão de Okolnir.";
 							mes "Volte quando estiver pronto.";
 							close2;
 						}
@@ -252,8 +252,8 @@ que_qsch05,345,23,0	warp	Gate02#gq_sch05	1,1,schg_cas05,369,306
 					case 2:
 						cutin "wish_maiden13",1;
 						mes "[Desejo Maiden]";
-						mes "NÃ£o hesite em tentar.";
-						mes "VocÃª deve aproveitar a chance quando se trata de vocÃª.";
+						mes "Não hesite em tentar.";
+						mes "Você deve aproveitar a chance quando se trata de você.";
 						mes "Basta reunir seus colegas.";
 						close2;
 					}
@@ -261,62 +261,62 @@ que_qsch05,345,23,0	warp	Gate02#gq_sch05	1,1,schg_cas05,369,306
 				case 2:
 					cutin "wish_maiden32",1;
 					mes "[Desejo Maiden]";
-					mes "... vocÃª tem medo de";
-					mes "os ensaios enfrentando vocÃª?";
+					mes "... você tem medo de";
+					mes "os ensaios enfrentando você?";
 					mes "....";
 					next;
 					cutin "wish_maiden13",1;
 					mes "[Desejo Maiden]";
-					mes "VocÃª acha que pode derrotar a deusa brilhar facilmente?";
-					mes "Sinto -me decepcionado com todos vocÃªs.";
-					mes "Apenas vÃ¡ embora ...";
+					mes "Você acha que pode derrotar a deusa brilhar facilmente?";
+					mes "Sinto -me decepcionado com todos vocês.";
+					mes "Apenas vá embora ...";
 					close2;
 				}
 			}
 			else {
 				cutin "wish_maiden11",1;
 				mes "[Desejo Maiden]";
-				mes "VocÃª deseja entrar?";
+				mes "Você deseja entrar?";
 				mes "Somente os preparados podem entrar aqui.";
-				mes "VocÃª deve trazer vÃ¡rios itens para entrar em Okolnir.";
+				mes "Você deve trazer vários itens para entrar em Okolnir.";
 				next;
 				mes "[Desejo Maiden]";
 				if (compare(.@sub$,"entendimento")) {
 					mes "Dusk brilho";
-					mes "EssÃªncia do amanhecer";
+					mes "Essência do amanhecer";
 					mes "Luar frio";
 					mes "Star Light.";
 					next;
 					mes "[Desejo Maiden]";
-					mes "Por favor, traga essas quatro coisas, 10 Ã¡gatas, 10 quartzo rosa e 20 elunium,";
+					mes "Por favor, traga essas quatro coisas, 10 ágatas, 10 quartzo rosa e 20 elunium,";
 					mes "O manto de uma donzela celestial, bem como 100 penas macias.";
 				} else {
 					mes "Deusa rasgo";
 					mes "Token de Valkyrie";
-					mes "PeÃ§a de armadura Brynhild";
+					mes "Peça de armadura Brynhild";
 					mes "Hero permanece";
 					mes "Armadura Valkyrie";
 					mes "Anel de Andvari.";
 					next;
 					mes "[Desejo Maiden]";
-					mes "VocÃª deve trazer essas seis coisas, 10 ouro e 20 elunium.";
-					mes "Muitas flores de Valhala tambÃ©m sÃ£o necessÃ¡rias como oferta.";				
+					mes "Você deve trazer essas seis coisas, 10 ouro e 20 elunium.";
+					mes "Muitas flores de Valhala também são necessárias como oferta.";				
 				}
 				next;
 				mes "[Desejo Maiden]";
-				mes "Uma vez que todos estes estiverem preparados, o portÃ£o serÃ¡ aberto.";
+				mes "Uma vez que todos estes estiverem preparados, o portão será aberto.";
 				next;
 				mes "[Desejo Maiden]";
 				mes "....";
-				mes "........... a deusa brilha intensamente em vocÃª, vocÃª deve ser mais forte para merecer ...";
+				mes "........... a deusa brilha intensamente em você, você deve ser mais forte para merecer ...";
 				next;
 				mes "[Desejo Maiden]";
 				mes "Lembrar...";
-				mes "VocÃª precisa coletar muitas penas macias.";
+				mes "Você precisa coletar muitas penas macias.";
 				mes "Espero que seus sonhos se tornem realidade.";
 				next;
 				mes "[Desejo Maiden]";
-				mes "Vou responder a todos os seus pedidos se vocÃª os levar para mim.";
+				mes "Vou responder a todos os seus pedidos se você os levar para mim.";
 				close2;
 			}
 		}
@@ -329,14 +329,14 @@ que_qsch05,345,23,0	warp	Gate02#gq_sch05	1,1,schg_cas05,369,306
 			next;
 			mes "[Desejo Maiden]";
 			mes "Traga -me aquele que o levou a este lugar.";
-			mes ".. entregue -o Ã  minha vontade.";
+			mes ".. entregue -o à minha vontade.";
 			close2;
 		}
 	}
 	else {
 		cutin "wish_maiden13",1;
 		mes "[Desejo Maiden]";
-		mes "... vocÃª nÃ£o estÃ¡ qualificado.";
+		mes "... você não está qualificado.";
 		close2;
 		percentheal -100,0;
 		cutin "wish_maiden11",255;
@@ -347,7 +347,7 @@ que_qsch05,345,23,0	warp	Gate02#gq_sch05	1,1,schg_cas05,369,306
 
 OnInit:
 	set .@sub$,callfunc("F_Okolnir");
-	if (!getd("$ vocÃª_"+.@sub$+"_sobre")) {
+	if (!getd("$ você_"+.@sub$+"_sobre")) {
 		enablenpc "Wish Maiden#gq_"+.@sub$;
 	} else {
 		disablenpc "Wish Maiden#gq_"+.@sub$;
@@ -414,7 +414,7 @@ OnTouch_:
 		end;
 	}
 	else {
-		mes "HÃ¡ muitas pessoas, vocÃª nÃ£o pode entrar.";
+		mes "Há muitas pessoas, você não pode entrar.";
 		close;
 	}
 	
@@ -496,12 +496,12 @@ OnEnable:
 
 OnTimer1000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Desejo Maiden: Como Ã© ver as sombras do passado. Este Ã© apenas o comeÃ§o.",bc_map,"0x00FF00";
+	mapannounce "que_q"+.@sub$,"Desejo Maiden: Como é ver as sombras do passado. Este é apenas o começo.",bc_map,"0x00FF00";
 	end;
 
 OnTimer6000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Desejo Maiden: As coisas que vocÃª vendo nÃ£o sÃ£o reais, nÃ£o seja pego no jardim mÃ­stico.",bc_map,"0x00FF00";
+	mapannounce "que_q"+.@sub$,"Desejo Maiden: As coisas que você vendo não são reais, não seja pego no jardim místico.",bc_map,"0x00FF00";
 	setarray .@mobname$, "Seyren Windsor","Kathryne Keyron","Cecil Damon","Margaretha Sorin","Elemes dolo","Howard Alt-Eisen";
 	setarray .@num, 72,271,1640,63,282,1645,59,294,1644,46,300,1643,51,285,1641,51,262,1642;
 	set .@c, 0;
@@ -522,7 +522,7 @@ OnReset:
 OnMyMobDead:
 	set .@sub$,callfunc("F_Okolnir");
 	if (mobcount("que_q"+.@sub$,"# Gq_ofmob2_"+.@sub$+":: onmymobdead") == 0) {
-		mapannounce "que_qaru05","A saÃ­da do jardim mÃ­stica estÃ¡ agora aberta.",bc_map,"0x00FF00";
+		mapannounce "que_qaru05","A saída do jardim mística está agora aberta.",bc_map,"0x00FF00";
 		setcell "que_q"+.@sub$,58,302,63,302,cell_walkable,1;
 		setcell "que_q"+.@sub$,58,302,63,302,cell_shootable,1;
 		donpcevent "#Maze_Manager_"+.@sub$+"::OnDisable";
@@ -615,52 +615,52 @@ OnStop:
 
 OnTimer1000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Desejo Maiden: faÃ§a o seu melhor, Okolnir desaparecerÃ¡ em uma hora!",bc_map,"0x00FF00";
+	mapannounce "que_q"+.@sub$,"Desejo Maiden: faça o seu melhor, Okolnir desaparecerá em uma hora!",bc_map,"0x00FF00";
 	end;
 
 OnTimer1800000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Okolnir desaparecerÃ¡ em 30 minutos.",bc_map,"0xff0000";
+	mapannounce "que_q"+.@sub$,"Okolnir desaparecerá em 30 minutos.",bc_map,"0xff0000";
 	end;
 
 OnTimer2400000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Okolnir desaparecerÃ¡ em 20 minutos.",bc_map,"0xff0000";
+	mapannounce "que_q"+.@sub$,"Okolnir desaparecerá em 20 minutos.",bc_map,"0xff0000";
 	end;
 
 OnTimer3000000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Okolnir desaparecerÃ¡ em 10 minutos.",bc_map,"0xff0000";
+	mapannounce "que_q"+.@sub$,"Okolnir desaparecerá em 10 minutos.",bc_map,"0xff0000";
 	end;
 
 OnTimer3300000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Okolnir desaparecerÃ¡ em 5 minutos.",bc_map,"0xff0000";
+	mapannounce "que_q"+.@sub$,"Okolnir desaparecerá em 5 minutos.",bc_map,"0xff0000";
 	end;
 
 OnTimer3360000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Okolnir desaparecerÃ¡ em 4 minutos.",bc_map,"0xff0000";
+	mapannounce "que_q"+.@sub$,"Okolnir desaparecerá em 4 minutos.",bc_map,"0xff0000";
 	end;
 
 OnTimer3420000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Okolnir desaparecerÃ¡ em 3 minutos.",bc_map,"0xff0000";
+	mapannounce "que_q"+.@sub$,"Okolnir desaparecerá em 3 minutos.",bc_map,"0xff0000";
 	end;
 
 OnTimer3480000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Okolnir desaparecerÃ¡ em 2 minutos.",bc_map,"0xff0000";
+	mapannounce "que_q"+.@sub$,"Okolnir desaparecerá em 2 minutos.",bc_map,"0xff0000";
 	end;
 
 OnTimer3540000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Okolnir desaparecerÃ¡ em 1 minutos.",bc_map,"0xff0000";
+	mapannounce "que_q"+.@sub$,"Okolnir desaparecerá em 1 minutos.",bc_map,"0xff0000";
 	end;
 
 OnTimer3600000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Okolnir comeÃ§ou a desaparecer.",bc_map,"0x4d4dff";
+	mapannounce "que_q"+.@sub$,"Okolnir começou a desaparecer.",bc_map,"0x4d4dff";
 	disablenpc "Wish Maiden#gq_"+.@sub$;
 	donpcevent "#gq_miromob2_"+.@sub$+"::OnReset";
 	disablenpc "Piamette#"+.@sub$;
@@ -703,7 +703,7 @@ OnTimer3600000:
 
 OnTimer3605000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Desejo Maiden: ... vocÃª vai dormir profundo dentro de Okolnir ...",bc_map,"0x00FF00";
+	mapannounce "que_q"+.@sub$,"Desejo Maiden: ... você vai dormir profundo dentro de Okolnir ...",bc_map,"0x00FF00";
 	end;
 
 OnTimer3608000:
@@ -940,13 +940,13 @@ que_qsch05,2,3,0	duplicate(#miro_yf_main)	#miro_yf_sch05	844
 OnTouch_:
 	set .@sub$,callfunc("F_Okolnir");
 	if (countitem(7839)) {
-		mes "O portÃ£o de urdidura responde Ã  chave de cristal.";
+		mes "O portão de urdidura responde à chave de cristal.";
 		delitem 7839,1; //Crystal_Key
 		close2;
 		warp "que_q"+.@sub$,114,158;
 		end;
 	}
-	mes "VocÃª precisa da chave de cristal para ativar o portÃ£o de urdidura.";
+	mes "Você precisa da chave de cristal para ativar o portão de urdidura.";
 	close;
 }
 que_qaru01,132,172,0	duplicate(windpath01_main)	windpath01_aru01	45,1,1
@@ -1013,22 +1013,22 @@ OnTouch_:
 
 OnTimer2000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Mumblings de Piamette: .. havia seis pÃ¡ssaros, dois. Mas um Ã© ....",bc_map,"0 como um patch 093";
+	mapannounce "que_q"+.@sub$,"Mumblings de Piamette: .. havia seis pássaros, dois. Mas um é ....",bc_map,"0 como um patch 093";
 	end;
 
 OnTimer6000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Mumblings de Piamette: ... Shh .. Teo. Os pÃ¡ssaros voltaram ... sÃ£o pÃ¡ssaros que fugiram antes ...? Ou quebradores que se disfarÃ§am de bons aventureiros?",bc_map,"0 como um patch 093";
+	mapannounce "que_q"+.@sub$,"Mumblings de Piamette: ... Shh .. Teo. Os pássaros voltaram ... são pássaros que fugiram antes ...? Ou quebradores que se disfarçam de bons aventureiros?",bc_map,"0 como um patch 093";
 	end;
 
 OnTimer10000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Mumblings de Piamette: Ha! Eles estÃ£o enjaulados.",bc_map,"0 como um patch 093";
+	mapannounce "que_q"+.@sub$,"Mumblings de Piamette: Ha! Eles estão enjaulados.",bc_map,"0 como um patch 093";
 	end;
 
 OnTimer14000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Piamette: Teo, pegue os pÃ¡ssaros! Guarde a gaiola daqui!",bc_map,"0x00FF00";
+	mapannounce "que_q"+.@sub$,"Piamette: Teo, pegue os pássaros! Guarde a gaiola daqui!",bc_map,"0x00FF00";
 	donpcevent "#gdtimer01_"+.@sub$+"::OnEnable";
 	stopnpctimer;
 	end;
@@ -1114,7 +1114,7 @@ OnTimer70000:
 OnTimer75000:
 	set .@sub$,callfunc("F_Okolnir");
 	if (getd("$ @GQSE_"+.@sub$+"_gd") < 6) {
-		mapannounce "que_q"+.@sub$+"","Piamette: pÃ¡ssaros bobos! Teo bobo! Por que vocÃª nÃ£o pode guardar a gaiola de uma vez?!",bc_map,"0x00FF00";
+		mapannounce "que_q"+.@sub$+"","Piamette: pássaros bobos! Teo bobo! Por que você não pode guardar a gaiola de uma vez?!",bc_map,"0x00FF00";
 		for (set .@i, 1; .@i <= 6; set .@i, .@i + 1)
 			enablenpc "#"+.@sub$+"_cage0"+.@i;
 		setd "$ @GQSE_"+.@sub$+"_gd",0;
@@ -1158,17 +1158,17 @@ OnStop:
 
 OnTimer4000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"PIAMETTE: Todos eles sÃ£o pegos!",bc_map,"0 como um patch 093";
+	mapannounce "que_q"+.@sub$,"PIAMETTE: Todos eles são pegos!",bc_map,"0 como um patch 093";
 	end;
 
 OnTimer8000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"PIAMETTE: Vamos chamar o goleiro da chave para nÃ£o deixar os pÃ¡ssaros irem para longe.",bc_map,"0 como um patch 093";
+	mapannounce "que_q"+.@sub$,"PIAMETTE: Vamos chamar o goleiro da chave para não deixar os pássaros irem para longe.",bc_map,"0 como um patch 093";
 	end;
 
 OnTimer12000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Piamette: O guardiÃ£o da chave Ã© proteger minha gaiola.",bc_map,"0 como um patch 093";
+	mapannounce "que_q"+.@sub$,"Piamette: O guardião da chave é proteger minha gaiola.",bc_map,"0 como um patch 093";
 	setarray .@xy, 108,151,109,135,115,116,158,106,163,133,150,154;
 	for (set .@i, 0; .@i < getarraysize(.@xy); set .@i, .@i + 2)
 		monster "que_q"+.@sub$,.@xy[.@i],.@xy[.@i+1],"Pedra -chave",1905,1,"#gdtimer02_"+.@sub$+":: onmymobdead";
@@ -1176,7 +1176,7 @@ OnTimer12000:
 
 OnTimer112000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"PIAMETTE: Os momentos divertidos de gritos estÃ£o de volta! Agora vÃ¡! Vou voltar para !!",bc_map,"0 como um patch 093";
+	mapannounce "que_q"+.@sub$,"PIAMETTE: Os momentos divertidos de gritos estão de volta! Agora vá! Vou voltar para !!",bc_map,"0 como um patch 093";
 	killmonster "que_q"+.@sub$,"#gdtimer02_"+.@sub$+"::OnMyMobDead";
 	for (set .@i, 1; .@i <= 6; set .@i, .@i + 1)
 		enablenpc "#"+.@sub$+"_cage0"+.@i;
@@ -1230,7 +1230,7 @@ OnReset:
 
 OnTimer1000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"PIAMETTE: Todos os guardiÃµes das chaves estÃ£o mortos agora? Quem libertou meus pÃ¡ssaros? Teo, quem fez isso?",bc_map,"0 como um patch 093";
+	mapannounce "que_q"+.@sub$,"PIAMETTE: Todos os guardiões das chaves estão mortos agora? Quem libertou meus pássaros? Teo, quem fez isso?",bc_map,"0 como um patch 093";
 	end;
 
 OnTimer5000:
@@ -1280,13 +1280,13 @@ OnTouch_:
 	set .@sub$,callfunc("F_Okolnir");
 	sc_start SC_Stone,300000,0,10000;
 	switch (getd("$ @GQSE_"+.@sub$+"_gd")) {
-		case 0: setarray .@n$, "103","153","1","PIAMETTE: Um pÃ¡ssaro branco caiu com a asa perfurada por uma flecha."; break;
-		case 1: setarray .@n$, "102","135","2","PIAMETTE: Um pÃ¡ssaro Ã© pego em uma armadilha e caiu em um lago."; break;
-		case 2: setarray .@n$, "113","111","3","PIAMETTE: Um pÃ¡ssaro morreu preso em sua gaiola."; break;
-		case 3: setarray .@n$, "161","105","4","PIAMETTE: Um pÃ¡ssaro foi envenenado atÃ© a morte."; break;
-		case 4: setarray .@n$, "168","135","5","Piamette: Um pÃ¡ssaro vomitou sangue enquanto cantava sete dias e sete noites."; break;
+		case 0: setarray .@n$, "103","153","1","PIAMETTE: Um pássaro branco caiu com a asa perfurada por uma flecha."; break;
+		case 1: setarray .@n$, "102","135","2","PIAMETTE: Um pássaro é pego em uma armadilha e caiu em um lago."; break;
+		case 2: setarray .@n$, "113","111","3","PIAMETTE: Um pássaro morreu preso em sua gaiola."; break;
+		case 3: setarray .@n$, "161","105","4","PIAMETTE: Um pássaro foi envenenado até a morte."; break;
+		case 4: setarray .@n$, "168","135","5","Piamette: Um pássaro vomitou sangue enquanto cantava sete dias e sete noites."; break;
 		case 5: 
-			setarray .@n$, "150","159","6","Piamette: A Ãºltima quebrou o pescoÃ§o se contorcendo para sair da casca de ovo!"; 
+			setarray .@n$, "150","159","6","Piamette: A última quebrou o pescoço se contorcendo para sair da casca de ovo!"; 
 			donpcevent "#gdtimer02_"+.@sub$+"::OnEnable";
 			donpcevent "#gdtimer01_"+.@sub$+"::OnStop";
 			break;
@@ -1572,17 +1572,17 @@ OnDisable:
 
 OnTimer1000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Desejo Maiden: VocÃª se divertiu com Piamette?",bc_map,"0x00FF00";
+	mapannounce "que_q"+.@sub$,"Desejo Maiden: Você se divertiu com Piamette?",bc_map,"0x00FF00";
 	end;
 
 OnTimer4000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Desejo Maiden: Mas Ã© o fim. SerÃ¡ convocado monstros convocados em breve ...",bc_map,"0x00FF00";
+	mapannounce "que_q"+.@sub$,"Desejo Maiden: Mas é o fim. Será convocado monstros convocados em breve ...",bc_map,"0x00FF00";
 	end;
 
 OnTimer9000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Desejo Maiden: EntÃ£o venha aqui para mim com seguranÃ§a ...",bc_map,"0x00FF00";
+	mapannounce "que_q"+.@sub$,"Desejo Maiden: Então venha aqui para mim com segurança ...",bc_map,"0x00FF00";
 	end;
 
 OnTimer10000:
@@ -1636,7 +1636,7 @@ OnDisable:
 OnTimer5000:
 	set .@sub$,callfunc("F_Okolnir");
 	setarray .@xy, 226,288,227,289,228,290,229,291,230,292,231,293,232,294,233,295,234,296,235,297,228,286,229,287,230,288,231,289,232,290,233,291,234,292,235,293,236,294,237,295,230,284,231,285,232,286,233,287,234,288,235,289,236,290,237,291,238,292,239,293;
-	mapannounce "que_q"+.@sub$,"A FormaÃ§Ã£o MÃ¡gica Ocidental estÃ¡ trabalhando para convocar Guarda da Sombra.",bc_map,"0x4d4dff";
+	mapannounce "que_q"+.@sub$,"A Formação Mágica Ocidental está trabalhando para convocar Guarda da Sombra.",bc_map,"0x4d4dff";
 	for (set .@i, 0; .@i < getarraysize(.@xy); set .@i, .@i + 2)
 		monster "que_q"+.@sub$,.@xy[.@i],.@xy[.@i+1],"Guarda da sombra",1752,1,"#nmsom"+.@sub$+"_Jin01 :: onMyMobdead";
 	end;
@@ -1676,7 +1676,7 @@ OnEnable:
 	set .@sub$,callfunc("F_Okolnir");
 	setarray .@xy, 227,294,229,294,231,296,231,298,230,300,228,301,226,301,224,299,224,297,225,295;
 	for (set .@i, 0; .@i < getarraysize(.@xy); set .@i, .@i + 2)
-		monster "que_q"+.@sub$,.@xy[.@i],.@xy[.@i+1],"GuardiÃ£o MÃ¡gica Ocidental",1752,1,"#"+.@sub$+"_stone01 :: onMyMobdead";
+		monster "que_q"+.@sub$,.@xy[.@i],.@xy[.@i+1],"Guardião Mágica Ocidental",1752,1,"#"+.@sub$+"_stone01 :: onMyMobdead";
 	end;
 
 OnReset:
@@ -1719,10 +1719,10 @@ OnDisable:
 
 OnTimer5000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"A FormaÃ§Ã£o MÃ¡gica Oriental estÃ¡ trabalhando para convocar caÃ§adores sangrentos.",bc_map,"0x4d4dff";
+	mapannounce "que_q"+.@sub$,"A Formação Mágica Oriental está trabalhando para convocar caçadores sangrentos.",bc_map,"0x4d4dff";
 	setarray .@xy, 263,292,264,291,265,290,266,289,267,288,268,287,269,286,270,285,271,284,272,283,265,294,266,293,267,292,268,291,269,290,270,289,271,288,272,287,273,286,274,285,267,296,268,295,269,294,270,283,271,282,272,281,273,280,274,279,275,276,276,275;
 	for (set .@i, 0; .@i < getarraysize(.@xy); set .@i, .@i + 2)
-		monster "que_q"+.@sub$,.@xy[.@i],.@xy[.@i+1],"CaÃ§ador sangrento",1753,1,"#nmsom"+.@sub$+"_Jin02 :: onMyMobdead";
+		monster "que_q"+.@sub$,.@xy[.@i],.@xy[.@i+1],"Caçador sangrento",1753,1,"#nmsom"+.@sub$+"_Jin02 :: onMyMobdead";
 	end;
 
 OnTimer25000:
@@ -1732,7 +1732,7 @@ OnTimer120000:
 	set .@sub$,callfunc("F_Okolnir");
 	setarray .@xy2, 274,301,275,301,276,301,277,301,278,300,279,299,279,298,279,297,279,296,278,295,277,294,276,294,275,294,274,294,273,295,272,296,272,297,272,298,272,299,273,300;
 	for (set .@i, 0; .@i < getarraysize(.@xy2); set .@i, .@i + 2)
-		monster "que_q"+.@sub$,.@xy2[.@i],.@xy2[.@i+1],"CaÃ§ador sangrento",1753,1,"#nmsom"+.@sub$+"_Jin02 :: onMyMobdead";	
+		monster "que_q"+.@sub$,.@xy2[.@i],.@xy2[.@i+1],"Caçador sangrento",1753,1,"#nmsom"+.@sub$+"_Jin02 :: onMyMobdead";	
 	end;
 
 OnTimer180000:
@@ -1760,7 +1760,7 @@ OnEnable:
 	set .@sub$,callfunc("F_Okolnir");
 	setarray .@xy, 275,301,277,301,279,299,279,297,278,295,276,294,274,294,272,296,272,298,273,300;
 	for (set .@i, 0; .@i < getarraysize(.@xy); set .@i, .@i + 2)
-		monster "que_q"+.@sub$,.@xy[.@i],.@xy[.@i+1],"GuardiÃ£o MÃ¡gica Oriental",1753,1,"#"+.@sub$+"_stone02 :: onMyMobdead";
+		monster "que_q"+.@sub$,.@xy[.@i],.@xy[.@i+1],"Guardião Mágica Oriental",1753,1,"#"+.@sub$+"_stone02 :: onMyMobdead";
 	end;
 
 OnReset:
@@ -1803,31 +1803,31 @@ OnDisable:
 
 OnTimer5000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"A FormaÃ§Ã£o MÃ¡gica do Norte estÃ¡ trabalhando para convocar o GuardiÃ£o do Templo.",bc_map,"0x4d4dff";
+	mapannounce "que_q"+.@sub$,"A Formação Mágica do Norte está trabalhando para convocar o Guardião do Templo.",bc_map,"0x4d4dff";
 	setarray .@xy, 247,329,249,329,251,329,253,329,255,329,243,339,245,337,247,335,247,333,254,333,256,335,258,337,260,339;
 	for (set .@i, 0; .@i < getarraysize(.@xy); set .@i, .@i + 2)
-		monster "que_q"+.@sub$,.@xy[.@i],.@xy[.@i+1],"GuardiÃ£o do templo",1933,1,"#nmsom"+.@sub$+"_Jin03 :: onMyMobdead";
+		monster "que_q"+.@sub$,.@xy[.@i],.@xy[.@i+1],"Guardião do templo",1933,1,"#nmsom"+.@sub$+"_Jin03 :: onMyMobdead";
 	end;
 
 OnTimer120000:
 	set .@sub$,callfunc("F_Okolnir");
 	setarray .@xy2, 251,343,252,343,255,341,255,340,254,337,253,336,250,336,249,337,248,340,248,341;
 	for (set .@i, 0; .@i < getarraysize(.@xy2); set .@i, .@i + 2)
-		monster "que_q"+.@sub$,.@xy2[.@i],.@xy2[.@i+1],"GuardiÃ£o do templo",1933,1,"#nmsom"+.@sub$+"_Jin03 :: onMyMobdead";
+		monster "que_q"+.@sub$,.@xy2[.@i],.@xy2[.@i+1],"Guardião do templo",1933,1,"#nmsom"+.@sub$+"_Jin03 :: onMyMobdead";
 	end;
 
 OnTimer240000:
 	set .@sub$,callfunc("F_Okolnir");
 	setarray .@xy3, 250,343,252,343,254,342,255,340,255,338,253,336,250,336,248,338,248,340,249,342;
 	for (set .@i, 0; .@i < getarraysize(.@xy3); set .@i, .@i + 2)
-		monster "que_q"+.@sub$,.@xy3[.@i],.@xy3[.@i+1],"GuardiÃ£o do templo",1933,1,"#nmsom"+.@sub$+"_Jin03 :: onMyMobdead";
+		monster "que_q"+.@sub$,.@xy3[.@i],.@xy3[.@i+1],"Guardião do templo",1933,1,"#nmsom"+.@sub$+"_Jin03 :: onMyMobdead";
 	end;
 
 OnTimer360000:
 	set .@sub$,callfunc("F_Okolnir");
 	setarray .@xy4, 250,343,252,343,254,342,255,340,255,338,253,336,251,336,249,337,248,339,248,341;
 	for (set .@i, 0; .@i < getarraysize(.@xy4); set .@i, .@i + 2)
-		monster "que_q"+.@sub$,.@xy4[.@i],.@xy4[.@i+1],"GuardiÃ£o do templo",1933,1,"#nmsom"+.@sub$+"_Jin03 :: onMyMobdead";
+		monster "que_q"+.@sub$,.@xy4[.@i],.@xy4[.@i+1],"Guardião do templo",1933,1,"#nmsom"+.@sub$+"_Jin03 :: onMyMobdead";
 	stopnpctimer;
 	end;
 
@@ -1852,7 +1852,7 @@ OnEnable:
 	set .@sub$,callfunc("F_Okolnir");
 	setarray .@xy, 251,343,252,343,255,341,255,340,254,337,253,336,250,336,249,337,248,340,248,341;
 	for (set .@i, 0; .@i < getarraysize(.@xy); set .@i, .@i + 2)
-		monster "que_q"+.@sub$,.@xy[.@i],.@xy[.@i+1],"GuardiÃ£o mÃ¡gica do norte",1933,1,"#"+.@sub$+"_stone03 :: onMyMobdead";
+		monster "que_q"+.@sub$,.@xy[.@i],.@xy[.@i+1],"Guardião mágica do norte",1933,1,"#"+.@sub$+"_stone03 :: onMyMobdead";
 	end;
 
 OnReset:
@@ -1971,7 +1971,7 @@ OnTouch_:
 		case 4: setarray .@n, 278,301,279,300,280,299;
 	}
 	for (set .@i, 0; .@i < getarraysize(.@n); set .@i, .@i + 2)
-		monster "que_q"+.@sub$,.@n[.@i],.@n[.@i+1],"CaÃ§ador sangrento",1753,1,"CaÃ§ador sangrento#"+.@sub$+"_ac0"+.@in+":: onmymobdead";
+		monster "que_q"+.@sub$,.@n[.@i],.@n[.@i+1],"Caçador sangrento",1753,1,"Caçador sangrento#"+.@sub$+"_ac0"+.@in+":: onmymobdead";
 	end;
 	
 OnDisable:
@@ -2043,7 +2043,7 @@ OnTouch_:
 		case 2: setarray .@n, 254,330,255,330,256,330; break;
 	}
 	for (set .@i, 0; .@i < getarraysize(.@n); set .@i, .@i + 2)
-		monster "que_q"+.@sub$,.@n[.@i],.@n[.@i+1],"GuardiÃ£o do templo",1933,1,"TEMPLECEIRO#"+.@sub$+"_ac0"+.@in+":: onmymobdead";
+		monster "que_q"+.@sub$,.@n[.@i],.@n[.@i+1],"Guardião do templo",1933,1,"TEMPLECEIRO#"+.@sub$+"_ac0"+.@in+":: onmymobdead";
 	end;
 
 OnDisable:
@@ -2099,12 +2099,12 @@ OnFight:
 
 OnTimer1000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Desejo Maiden: VocÃªs chegaram aqui .. seus guardiÃµes estÃ£o mortos ...?",bc_map,"0x00FF00";
+	mapannounce "que_q"+.@sub$,"Desejo Maiden: Vocês chegaram aqui .. seus guardiões estão mortos ...?",bc_map,"0x00FF00";
 	end;
 
 OnTimer4000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Desejo Maiden: Eu sinceramente recebo todos os seus melhores esforÃ§os!",bc_map,"0x00FF00";
+	mapannounce "que_q"+.@sub$,"Desejo Maiden: Eu sinceramente recebo todos os seus melhores esforços!",bc_map,"0x00FF00";
 	end;
 
 OnTimer5000:
@@ -2121,7 +2121,7 @@ OnMyMobDead:
 	if (!mobcount("que_q"+.@sub$,"Desejo Maiden#"+.@sub$+"_boss :: onmymobdead")) {
 		donpcevent "#okolnir_"+.@sub$+"::OnStop";
 		donpcevent "Wish Maiden#"+.@sub$+"_gift::OnEnable";
-		mapannounce "que_q"+.@sub$,"Desejo Maiden: .. Boa, vocÃª merece o brilho da deusa.",bc_map,"0x00FF00";
+		mapannounce "que_q"+.@sub$,"Desejo Maiden: .. Boa, você merece o brilho da deusa.",bc_map,"0x00FF00";
 	}
 	end;
 	
@@ -2161,23 +2161,23 @@ que_qsch05,251,255,3	duplicate(Wish Maiden#main_boss)	Wish Maiden#sch05_boss	193
 			if (.@check >= 9) {
 				cutin "wish_maiden12",1;
 				mes "[Desejo Maiden]";
-				mes "Como declarei, darei a vocÃª o brilho da deusa.";
-				mes "VocÃª tem os requisitos para carregÃ¡ -lo ...";
+				mes "Como declarei, darei a você o brilho da deusa.";
+				mes "Você tem os requisitos para carregá -lo ...";
 				next;
 				mes "[Desejo Maiden]";
-				mes "VocÃª receberÃ¡ o poder da Grande ValquÃ­ria ...";
+				mes "Você receberá o poder da Grande Valquíria ...";
 				next;
 				mes "[Desejo Maiden]";
-				mes "Vou te dar algumas coisas por diversÃ£o.";
-				mes "Todos vocÃªs gostam deles juntos ...";
+				mes "Vou te dar algumas coisas por diversão.";
+				mes "Todos vocês gostam deles juntos ...";
 				next;
 				mes "[Desejo Maiden]";
-				mes "VÃ¡ para Rachel e Juno para conhecer as irmÃ£s Ravies.";
+				mes "Vá para Rachel e Juno para conhecer as irmãs Ravies.";
 				next;
 				cutin "wish_maiden32",1;
 				mes "[Desejo Maiden]";
-				mes "Vou abrir o portÃ£o para vocÃª voltar aqui.";
-				mes "... Okolnir nÃ£o vai durar para sempre ...";
+				mes "Vou abrir o portão para você voltar aqui.";
+				mes "... Okolnir não vai durar para sempre ...";
 				for (set .@i, 0; .@i < getarraysize(.@n); set .@i, .@i + 2)
 					delitem .@n[.@i],.@n[.@i+1];
 				getitem .@rwd,1;
@@ -2192,27 +2192,27 @@ que_qsch05,251,255,3	duplicate(Wish Maiden#main_boss)	Wish Maiden#sch05_boss	193
 			else {
 				cutin "wish_maiden13",1;
 				mes "[Desejo Maiden]";
-				mes "Como eu declarei, vocÃª Ã© digno de segurar o"+getitemname(.@rwd)+".";
-				mes "No entanto, vocÃª nÃ£o tem os requisitos para vocÃª ...";
+				mes "Como eu declarei, você é digno de segurar o"+getitemname(.@rwd)+".";
+				mes "No entanto, você não tem os requisitos para você ...";
 				next;
 				mes "[Desejo Maiden]";
-				mes "... vocÃª esqueceu alguma coisa?";
+				mes "... você esqueceu alguma coisa?";
 				close2;
 			}
 		}
 		else {
 			cutin "wish_maiden12",1;
 			mes "[Desejo Maiden]";
-			mes "Todos vocÃªs trabalharam juntos como uma equipe ...";
-			mes "Os seres humanos sÃ£o fortes quando estÃ£o unidos, mas sÃ£o facilmente influenciados pela luxÃºria.";
+			mes "Todos vocês trabalharam juntos como uma equipe ...";
+			mes "Os seres humanos são fortes quando estão unidos, mas são facilmente influenciados pela luxúria.";
 			next;
 			mes "[Desejo Maiden]";
-			mes "Os seres humanos sÃ£o imperfeitos, entÃ£o o Deus principal deles estÃ¡ lÃ¡ para eles quando precisam de ajuda.";
+			mes "Os seres humanos são imperfeitos, então o Deus principal deles está lá para eles quando precisam de ajuda.";
 			mes "....";
 			next;
 			mes "[Desejo Maiden]";
 			mes "Sempre seja real.";
-			mes "NÃ£o se arrependa de suas aÃ§Ãµes ...";
+			mes "Não se arrependa de suas ações ...";
 			close2;
 		}
 	}
@@ -2233,7 +2233,7 @@ OnDisable:
 
 OnTimer280000:
 	set .@sub$,callfunc("F_Okolnir");
-	mapannounce "que_q"+.@sub$,"Desejo Maiden: ... Okolnir logo desaparecerÃ¡ ... eu o enviarei de volta para onde vocÃª veio originalmente.",bc_map,"0x00FF00";
+	mapannounce "que_q"+.@sub$,"Desejo Maiden: ... Okolnir logo desaparecerá ... eu o enviarei de volta para onde você veio originalmente.",bc_map,"0x00FF00";
 	end;
 
 OnTimer290000:
@@ -2249,7 +2249,7 @@ OnTimer300000:
 	setd "$ @GQSE_"+.@sub$+"_pcc",0;
 	setd "$ @GQSE_"+.@sub$+"_gd",0;
 	setd "$ @GQSE_"+.@sub$+"_nm",0;
-	setd "$ vocÃª_"+.@sub$+"_sobre",2;
+	setd "$ você_"+.@sub$+"_sobre",2;
 	donpcevent "#okolnir_"+.@sub$+"_time01::OnEnable";
 	stopnpctimer;
 	end;
@@ -2321,7 +2321,7 @@ OnEnable:
 
 OnReset:
 	set .@sub$,callfunc("F_Okolnir");
-	setd "$ vocÃª_"+.@sub$+"_sobre",0;
+	setd "$ você_"+.@sub$+"_sobre",0;
 	setd "$ gqse_"+.@sub$+"_tempo",0;
 	stopnpctimer;
 	end;
@@ -2333,7 +2333,7 @@ OnTimer3600000:
 		initnpctimer;
 	}
 	else if (getd("$ gqse_"+.@sub$+"_tempo") == 12) {
-		setd "$ vocÃª_"+.@sub$+"_sobre",0;
+		setd "$ você_"+.@sub$+"_sobre",0;
 		setd "$ gqse_"+.@sub$+"_tempo",0;
 		enablenpc "Wish Maiden#gq_"+.@sub$;
 		enablenpc "Piamette#"+.@sub$;

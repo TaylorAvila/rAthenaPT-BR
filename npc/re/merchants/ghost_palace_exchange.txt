@@ -8,24 +8,24 @@
 
 dali02,51,130,4	script	Dimension Traveler	4_F_SHABBY,{
 	if (checkweight(28100,1) == 0) {// Thanos Axe
-		mes "- VocÃª nÃ£o pode proceder porque tem muitos itens com vocÃª. -";
+		mes "- Você não pode proceder porque tem muitos itens com você. -";
 		close;
 	}
 	.@item_name_req$ = getitemname(6672);// Gray_Shard
 	mes "[Dimension Traveler]";
-	mes "Amigo do aventureiro," + mesitemlink( 6672 ) + "Ã© o que eu preciso. Que tal trocÃ¡ -lo com algo que eu tenho?";
+	mes "Amigo do aventureiro," + mesitemlink( 6672 ) + "é o que eu preciso. Que tal trocá -lo com algo que eu tenho?";
 	next;
-	.@type = select( "Mostre -me sua arma.", "Mostre -me sua armadura.", "Alguma coisa especial?", "Eu nÃ£o preciso." ) - 1;
+	.@type = select( "Mostre -me sua arma.", "Mostre -me sua armadura.", "Alguma coisa especial?", "Eu não preciso." ) - 1;
 	mes "[Dimension Traveler]";
 	switch(.@type) {
 	case 0:
-		mes "Oh! VocÃª estÃ¡ interessado em armas? Temos todas as armas que podemos obter do PalÃ¡cio Fantasma. Por que vocÃª nÃ£o escolhe um?";
+		mes "Oh! Você está interessado em armas? Temos todas as armas que podemos obter do Palácio Fantasma. Por que você não escolhe um?";
 		break;
 	case 1:
-		mes "Armadura? Temos todas as armaduras que podemos obter do PalÃ¡cio Fantasma. Por que vocÃª nÃ£o escolhe um?";
+		mes "Armadura? Temos todas as armaduras que podemos obter do Palácio Fantasma. Por que você não escolhe um?";
 		break;
 	case 2:
-		mes "Huhh! Parece que muitos deles jÃ¡ souberam que eu tenho as melhores coisas. Sinta -se Ã  vontade para conferir minhas coleÃ§Ãµes.";
+		mes "Huhh! Parece que muitos deles já souberam que eu tenho as melhores coisas. Sinta -se à vontade para conferir minhas coleções.";
 		break;
 	case 3:
 		mes "Adeus amigo ~ Venha de novo!";
@@ -33,7 +33,7 @@ dali02,51,130,4	script	Dimension Traveler	4_F_SHABBY,{
 	}
 	next;
 	mes "[Dimension Traveler]";
-	mes "Ah! O nÃºmero que estÃ¡ escrito ao lado" + mesitemlink( 6672 ) + "serÃ¡ necessÃ¡rio.";
+	mes "Ah! O número que está escrito ao lado" + mesitemlink( 6672 ) + "será necessário.";
 	mes "Por favor, lembre -se disso.";
 
 	switch(.@type) {
@@ -80,8 +80,8 @@ dali02,51,130,4	script	Dimension Traveler	4_F_SHABBY,{
 		.@s = (select(.@menu$) - 1) * 2;
 		mes "[Dimension Traveler]";
 		if (.@type != 1)	// armor type doesn't display item info
-			mes "VocÃª quer dizer" + mesitemlink( .@items[.@s] ) + "?";
-		mes "" + .@items[.@s+1] + "^006400" + .@item_name_req$ + "^000000 sÃ£o necessÃ¡rios em troca.";
+			mes "Você quer dizer" + mesitemlink( .@items[.@s] ) + "?";
+		mes "" + .@items[.@s+1] + "^006400" + .@item_name_req$ + "^000000 são necessários em troca.";
 		next;
 		switch( select( "Vamos trocar.", "Deixe -me ver outras coisas.", "Volto mais tarde." ) ) {
 		case 1:
@@ -93,21 +93,21 @@ dali02,51,130,4	script	Dimension Traveler	4_F_SHABBY,{
 				mes "Eu tenho armas mais do que suficientes.";
 				break;
 			case 1:
-				mes "Temos muitas armaduras para vocÃª. Por que vocÃª nÃ£o escolhe um?";
+				mes "Temos muitas armaduras para você. Por que você não escolhe um?";
 				break;
 			case 2:
-				mes "Se vocÃª me trazer" + .@item_name_req$ + ", Vou trocÃ¡ -lo com o que vocÃª quiser.";
+				mes "Se você me trazer" + .@item_name_req$ + ", Vou trocá -lo com o que você quiser.";
 				break;
 			}
 			continue;
 		case 3:
 			mes "[Dimension Traveler]";
-			mes "Cuide -se amigo ~ vejo vocÃª na prÃ³xima vez!";
+			mes "Cuide -se amigo ~ vejo você na próxima vez!";
 			close;
 		}
 		if (countitem(6672) < .@items[.@s+1]) {
 			mes "[Dimension Traveler]";
-			mes "VocÃª me coloca em uma situaÃ§Ã£o difÃ­cil, amigo.";
+			mes "Você me coloca em uma situação difícil, amigo.";
 			mes "Eu preciso de" + .@item_name_req$ + ". Vou trocar por ^006400" + .@items[.@s+1] + "" + .@item_name_req$ + "^000000.";
 			close;
 		}

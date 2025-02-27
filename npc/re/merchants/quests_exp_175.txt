@@ -9,41 +9,41 @@
 
 einbech,149,257,4	script	Site manager Elmen#extdq0	4_TOWER_16,{
 	if (checkweight(25814,100) == 0 || checkweight(1201,1) == 0 || (MaxWeight - Weight) < 10000) {
-		mes "- Voc√™ n√£o pode prosseguir porque tem muitos itens. -";
+		mes "- VocÍ n„o pode prosseguir porque tem muitos itens. -";
 		close;
 	}
 	mes "[Elmen]";
-	mes "Ol√°. Aventureiro.";
-	mes "Se voc√™ estiver aqui para comprar o equipamento de minera√ß√£o Dynite ou refinar o min√©rio em Dynite, veio ao lugar certo.";
+	mes "Ol·. Aventureiro.";
+	mes "Se vocÍ estiver aqui para comprar o equipamento de mineraÁ„o Dynite ou refinar o minÈrio em Dynite, veio ao lugar certo.";
 	next;
 	switch( select( "Refinamento Dynite", "Dynite Shop", "Dynite Equipment Exchange" ) ) {
 	case 1:
-		npctalk "Elmen: Voc√™ pode refinar at√© 100 Dynite por vez. A m√°quina √© pequena.", "", bc_self;
+		npctalk "Elmen: VocÍ pode refinar atÈ 100 Dynite por vez. A m·quina È pequena.", "", bc_self;
 		mes "[Elmen]";
-		mes "" + mesitemlink(25814) + "Min√©rio refinado.";
+		mes "" + mesitemlink(25814) + "MinÈrio refinado.";
 		mes "" + mesitemlink(25809) + "^777777 (atualmente" + countitem(25809) + ")^000000";
 		mes "" + mesitemlink(25810) + "^777777 (atualmente" + countitem(25810) + ")^000000";
 		mes "" + mesitemlink(25811) + "^777777 (atualmente" + countitem(25811) + ")^000000";
 		mes "" + mesitemlink(25812) + "^777777 (atualmente" + countitem(25812) + ")^000000";
 		mes "" + mesitemlink(25813) + "^777777 (atualmente" + countitem(25813) + ")^000000";
-		mes "Voc√™ precisa de um dos cinco tipos de min√©rio.";
+		mes "VocÍ precisa de um dos cinco tipos de minÈrio.";
 		next;
 		input .@val;
 		if (.@val > 100) {
 			mes "[Elmen]";
 			mes "Desculpe. Aventureiro.";
-			mes "O refinamento Dynite s√≥ pode ser refinado at√© 100 por vez? A m√°quina √© pequena, ent√£o n√£o h√° ajuda. Por favor, entenda.";
+			mes "O refinamento Dynite sÛ pode ser refinado atÈ 100 por vez? A m·quina È pequena, ent„o n„o h· ajuda. Por favor, entenda.";
 			close;
 		}
 		if (.@val == 0) {
 			mes "[Elmen]";
 			mes "Cancelar?";
-			mes "Se voc√™ precisar de refinamento da dinita, encontre -o a qualquer momento. N√£o h√° ningu√©m que possa fazer isso sem mim.";
+			mes "Se vocÍ precisar de refinamento da dinita, encontre -o a qualquer momento. N„o h· ninguÈm que possa fazer isso sem mim.";
 			close;
 		}
 		if (countitem(25809) < .@val || countitem(25810) < .@val || countitem(25811) < .@val || countitem(25812) < .@val || countitem(25813) < .@val) {
 			mes "[Elmen]";
-			mes "Ei! Isso torna dif√≠cil um para o outro, voc√™ n√£o fica sem materiais necess√°rios para refinar? Os materiais!";
+			mes "Ei! Isso torna difÌcil um para o outro, vocÍ n„o fica sem materiais necess·rios para refinar? Os materiais!";
 			close;
 		}
 		specialeffect EF_REPAIRWEAPON;
@@ -55,31 +55,31 @@ einbech,149,257,4	script	Site manager Elmen#extdq0	4_TOWER_16,{
 		delitem 25813,.@val;	// Ein_WHIDIUM
 		getitem 25814,.@val;	// Ein_DYNITE
 		mes "[Elmen]";
-		mes "" + .@val + "Dynite foi refinado. √â perfeito hoje!";
+		mes "" + .@val + "Dynite foi refinado. … perfeito hoje!";
 		close;
 	case 2:
 		mes "[Elmen]";
-		mes "Existem v√°rios acess√≥rios e licen√ßas de modifica√ß√£o. Olhe cuidadosamente para o que voc√™ deseja antes de comprar.";
+		mes "Existem v·rios acessÛrios e licenÁas de modificaÁ„o. Olhe cuidadosamente para o que vocÍ deseja antes de comprar.";
 		close2;
 		callshop "barter_ein_dun03";
 		end;
 	case 3:
 		mes "[Elmen]";
-		mes "Eu posso trocar o equipamento com o Dynite, mas ele j√° est√° em uma caixa bem selada.";
-		mes "D√™ -me 50 ^4d4dffdynites ^000000 e abrirei uma caixa ^4d4dffweapon ^000000 para voc√™.";
+		mes "Eu posso trocar o equipamento com o Dynite, mas ele j· est· em uma caixa bem selada.";
+		mes "DÍ -me 50 ^4d4dffdynites ^000000 e abrirei uma caixa ^4d4dffweapon ^000000 para vocÍ.";
 		next;
 		mes "[Elmen]";
-		mes "N√£o sei o que ser√° lan√ßado, mas a qualidade √© boa. Voc√™ gostaria de abri -lo?";
+		mes "N„o sei o que ser· lanÁado, mas a qualidade È boa. VocÍ gostaria de abri -lo?";
 		next;
-		if (select( "Feche os olhos e troque.", "N√£o troque." ) == 2) {
+		if (select( "Feche os olhos e troque.", "N„o troque." ) == 2) {
 			mes "[Elmen]";
-			mes "Kee, isso √© um desperd√≠cio, foi um bom neg√≥cio.";
+			mes "Kee, isso È um desperdÌcio, foi um bom negÛcio.";
 			close;
 		}
 		if (countitem(25814) < 50) {
 			mes "[Elmen]";
-			mes "Voc√™ n√£o tem amigos dynite suficientes.";
-			mes "N√£o sei o que vai sair, por isso √© dif√≠cil ir a qualquer lugar e obter esse tipo de equipamento a esse pre√ßo.";
+			mes "VocÍ n„o tem amigos dynite suficientes.";
+			mes "N„o sei o que vai sair, por isso È difÌcil ir a qualquer lugar e obter esse tipo de equipamento a esse preÁo.";
 			close;
 		}
 		delitem 25814,50;

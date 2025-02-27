@@ -18,19 +18,19 @@ prt_church,184,41,4	script	Cleric#aco	60,{
 		if (ADVJOB == Job_High_Priest || ADVJOB == Job_Champion) {
 			if (Class == Job_Novice_High) {
 				mes "[Padre Mareusis]";
-				mes "Ah, sinto que vocÃª suportou";
-				mes "uma experiÃªncia de vida passada. VocÃª deve ter aprendido muitas coisas antes de entrar em Valhalla.";
+				mes "Ah, sinto que você suportou";
+				mes "uma experiência de vida passada. Você deve ter aprendido muitas coisas antes de entrar em Valhalla.";
 				next;
 				if (!callfunc("F_CanChangeJob")) {
 					mes "[Padre Mareusis]";
-					mes "Infelizmente, acho que vocÃª ainda nÃ£o estÃ¡ pronto para se tornar um acÃ³lito. Por favor, termine de aprender todas as habilidades bÃ¡sicas primeiro.";
+					mes "Infelizmente, acho que você ainda não está pronto para se tornar um acólito. Por favor, termine de aprender todas as habilidades básicas primeiro.";
 					next;
 					mes "[Padre Mareusis]";
 					mes "Enquanto isso,";
-					mes "Vou esperar atÃ©";
-					mes "vocÃª estÃ¡ pronto.";
+					mes "Vou esperar até";
+					mes "você está pronto.";
 					mes "Que Deus seja";
-					mes "com vocÃª.";
+					mes "com você.";
 					close;
 				}
 				mes "[Padre Mareusis]";
@@ -47,63 +47,63 @@ prt_church,184,41,4	script	Cleric#aco	60,{
 				close;
 			}else{
 				mes "[Padre Mareusis]";
-				mes "Agora, aventure -se a procurar pessoas que precisam de sua ajuda. Que Deus esclareÃ§a o seu caminho.";
+				mes "Agora, aventure -se a procurar pessoas que precisam de sua ajuda. Que Deus esclareça o seu caminho.";
 				close;
 			}
 		}else{
 			mes "[Padre Mareusis]";
-			mes "Sinto que vocÃª sofreu uma experiÃªncia de vida passada. VocÃª deve ter aprendido muitas coisas antes de entrar em Valhalla.";
+			mes "Sinto que você sofreu uma experiência de vida passada. Você deve ter aprendido muitas coisas antes de entrar em Valhalla.";
 			next;
 			mes "[Padre Mareusis]";
-			mes "No entanto, posso dizer que vocÃª nÃ£o Ã© adequado para ser um acÃ³lito. Lembre -se de quem vocÃª estava em sua vida passada e encontre seu caminho.";
+			mes "No entanto, posso dizer que você não é adequado para ser um acólito. Lembre -se de quem você estava em sua vida passada e encontre seu caminho.";
 			close;
 		}
 	}
 	mes "[Padre Mareusis]";
-	mes "O que vocÃª procura?";
+	mes "O que você procura?";
 	next;
-	switch(select("Mude seu trabalho para Acolyte.:Compre os requisitos para ser um acÃ³lito.")) {
+	switch(select("Mude seu trabalho para Acolyte.:Compre os requisitos para ser um acólito.")) {
 	case 1:
 		mes "[Padre Mareusis]";
 		if(BaseJob != Job_Novice) {
 			if(BaseJob == Job_Acolyte)
-				mes "VocÃª estÃ¡ se sentindo bem hoje? Eu posso dizer pelo seu traje que vocÃª jÃ¡ Ã© um acÃ³lito. VocÃª nÃ£o estÃ¡ brincando, estÃ¡?";
+				mes "Você está se sentindo bem hoje? Eu posso dizer pelo seu traje que você já é um acólito. Você não está brincando, está?";
 			else
-				mes "Sinto muito, mas parece que vocÃª jÃ¡ tem seu prÃ³prio trabalho, nÃ£o Ã©?";
+				mes "Sinto muito, mas parece que você já tem seu próprio trabalho, não é?";
 			close;
 		}else{
-			mes "VocÃª realmente deseja se tornar um servo de Deus?";
-			mes "Vamos ver se vocÃª estÃ¡ pronto para isso ou nÃ£o ... hmm ...";
+			mes "Você realmente deseja se tornar um servo de Deus?";
+			mes "Vamos ver se você está pronto para isso ou não ... hmm ...";
 			next;
 			if (!callfunc("F_CanChangeJob")) {
 				mes "[Padre Mareusis]";
-				mes "Oh meu Deus?! VocÃª ainda nÃ£o realizou a prÃ¡tica bÃ¡sica?! VocÃª tem um longo caminho a percorrer! Venha de novo depois de aumentar seu nÃ­vel de trabalho!";
+				mes "Oh meu Deus?! Você ainda não realizou a prática básica?! Você tem um longo caminho a percorrer! Venha de novo depois de aumentar seu nível de trabalho!";
 				close;
 			}
 			mes "[Padre Mareusis]";
-			mes "Hmm ... seu nÃ­vel de trabalho Ã© suficiente ...";
-			mes "Bom. Agora vou lhe dar a qualificaÃ§Ã£o para se tornar um acÃ³lito.";
+			mes "Hmm ... seu nível de trabalho é suficiente ...";
+			mes "Bom. Agora vou lhe dar a qualificação para se tornar um acólito.";
 			next;
 			mes "[Padre Mareusis]";
-			mes "Lembre -se sempre de ser grato a Deus, que cuida de nÃ³s o tempo todo. Em caos e tempos de dificuldade, enfrente suas dificuldades com fÃ© inabalÃ¡vel.";
+			mes "Lembre -se sempre de ser grato a Deus, que cuida de nós o tempo todo. Em caos e tempos de dificuldade, enfrente suas dificuldades com fé inabalável.";
 			callfunc "Job_Change",Job_Acolyte;
 			getitem 1545,1;	// N_Mace
 			next;
 			mes "[Padre Mareusis]";
-			mes "Por fim, quero sinceramente parabenizÃ¡ -lo por perseverar seu julgamento de penitÃªncia.";
+			mes "Por fim, quero sinceramente parabenizá -lo por perseverar seu julgamento de penitência.";
 			close;
 		}
 	case 2:
 		mes "[Padre Mareusis]";
-		mes "VocÃª deseja se tornar um acÃ³lito?";
-		mes "EntÃ£o, vocÃª deve cumprir os seguintes requisitos que pensam que essas sÃ£o as prÃ¡ticas dadas por Deus.";
+		mes "Você deseja se tornar um acólito?";
+		mes "Então, você deve cumprir os seguintes requisitos que pensam que essas são as práticas dadas por Deus.";
 		next;
 		mes "[Padre Mareusis]";
-		mes "Primeiro, vocÃª deve alcanÃ§ar pelo menos o NÃ­vel 9 do Trabalho Novice e aprender todas as habilidades bÃ¡sicas.";
-		mes "Essa Ã© a coisa mais bÃ¡sica a se fazer, entÃ£o vocÃª precisa considerÃ¡ -lo como a maneira de treinar a si mesmo.";
+		mes "Primeiro, você deve alcançar pelo menos o Nível 9 do Trabalho Novice e aprender todas as habilidades básicas.";
+		mes "Essa é a coisa mais básica a se fazer, então você precisa considerá -lo como a maneira de treinar a si mesmo.";
 		next;
 		mes "[Padre Mareusis]";
-		mes "Quando vocÃª pensa que atendeu a esse requisito, volte para mim novamente. EntÃ£o vocÃª terÃ¡ um trabalho sagrado no qual poderÃ¡ espalhar a vontade de Deus.";
+		mes "Quando você pensa que atendeu a esse requisito, volte para mim novamente. Então você terá um trabalho sagrado no qual poderá espalhar a vontade de Deus.";
 		close;
 	case 3:
 		close;
@@ -114,33 +114,33 @@ prt_fild03,365,255,2	script	Ascetic#aco	89,{
 	mes "[Padre Rubalkabara]";
 	if (BaseJob == Job_Novice) {
 		if (job_acolyte_q == 6) {
-			mes "Por favor, tome cuidado. Eles deveriam saber que vocÃª me conheceu quando chegar ao SantuÃ¡rio Pronntera.";
+			mes "Por favor, tome cuidado. Eles deveriam saber que você me conheceu quando chegar ao Santuário Pronntera.";
 			next;
 			mes "[Padre Rubalkabara]";
-			mes "Enviei um pombo de transportadora com uma mensagem. Espero que chegue lÃ¡ com seguranÃ§a ...";
+			mes "Enviei um pombo de transportadora com uma mensagem. Espero que chegue lá com segurança ...";
 			close;
 		}
 		if (job_acolyte_q != 0) {
 			if (job_acolyte_q == 2) {
-				mes "Oh...? VocÃª deve ser quem aspira a se tornar um acÃ³lito. JÃ¡ recebi notÃ­cias do santuÃ¡rio de que vocÃª pode estar chegando.";
+				mes "Oh...? Você deve ser quem aspira a se tornar um acólito. Já recebi notícias do santuário de que você pode estar chegando.";
 				next;
 				mes "[Padre Rubalkabara]";
 				mes "Agora, seu nome era" + strcharinfo(0) + ", certo? Excelente, obrigado por me visitar.";
 				next;
 				mes "[Padre Rubalkabara]";
-				mes "Eu acredito que vocÃª foi informado muito sobre acÃ³litos de Frade Mareusis. AlÃ©m disso, hÃ¡ muitas pessoas Ãºteis no santuÃ¡rio pronÃºncio.";
+				mes "Eu acredito que você foi informado muito sobre acólitos de Frade Mareusis. Além disso, há muitas pessoas úteis no santuário pronúncio.";
 				next;
 				mes "[Padre Rubalkabara]";
-				mes "Eu acho que realmente nÃ£o hÃ¡ necessidade de te ensinar muito. AlÃ©m disso, tenho certeza de que seu alguÃ©m da sua geraÃ§Ã£o pode ter problemas para ouvir um velho como eu. Hahaha ~";
+				mes "Eu acho que realmente não há necessidade de te ensinar muito. Além disso, tenho certeza de que seu alguém da sua geração pode ter problemas para ouvir um velho como eu. Hahaha ~";
 				next;
 				mes "[Padre Rubalkabara]";
-				mes "Ainda assim, as liÃ§Ãµes podem vir dos lugares que vocÃª menos esperaria. Deus adora ensinar seus filhos de maneiras estranhas. VocÃª verÃ¡.";
+				mes "Ainda assim, as lições podem vir dos lugares que você menos esperaria. Deus adora ensinar seus filhos de maneiras estranhas. Você verá.";
 				next;
 				mes "[Padre Rubalkabara]";
-				mes "Bem, enviarei a mensagem dizendo a eles que vocÃª veio me visitar. EntÃ£o, agora vocÃª pode retornar ao santuÃ¡rio pronÃºncio.";
+				mes "Bem, enviarei a mensagem dizendo a eles que você veio me visitar. Então, agora você pode retornar ao santuário pronúncio.";
 				next;
 				mes "[Padre Rubalkabara]";
-				mes "AtÃ© a prÃ³xima.";
+				mes "Até a próxima.";
 				close2;
 				savepoint "PRT_FIELD03",361,255,1,1;
 				set job_acolyte_q,6;
@@ -148,40 +148,40 @@ prt_fild03,365,255,2	script	Ascetic#aco	89,{
 			}
 			else {
 				mes "Oh...";
-				mes "VocÃª Ã© um dos";
-				mes "Candidatos a acÃ³litos ...?";
+				mes "Você é um dos";
+				mes "Candidatos a acólitos ...?";
 				mes "Vamos ver ...";
 				next;
 				mes "[Padre Rubalkabara]";
-				mes "Seu nome Ã©" + strcharinfo(0) + "?";
-				mes "Eu nÃ£o acho que seu nome";
-				mes "estÃ¡ na minha lista. Hmmm...";
+				mes "Seu nome é" + strcharinfo(0) + "?";
+				mes "Eu não acho que seu nome";
+				mes "está na minha lista. Hmmm...";
 				next;
 				mes "[Padre Rubalkabara]";
-				mes "Por que vocÃª nÃ£o volta ao santuÃ¡rio do PronTerA e verifica novamente?";
+				mes "Por que você não volta ao santuário do PronTerA e verifica novamente?";
 				close;
 			}
 		}
 		else {
-			mes "Huh? O que te traz aqui? Este Ã© um lugar muito perigoso para um novato como vocÃª!";
+			mes "Huh? O que te traz aqui? Este é um lugar muito perigoso para um novato como você!";
 			close;
 		}
 	}
 	else if (BaseJob == Job_Acolyte) callfunc "F_FatherRub";
 	else {
 		if (BaseJob == Job_Priest) {
-			mes "SaudaÃ§Ãµes.";
+			mes "Saudações.";
 			next;
 			mes "[Padre Rubalkabara]";
-			mes "Bem -vindo ao Deep. Sinta -se Ã  vontade para sentar e contemplar a mensagem de Deus comigo. Este lugar Ã© lindo, mesmo que o perigo acompanhe sua sensaÃ§Ã£o de serenidade ...";
+			mes "Bem -vindo ao Deep. Sinta -se à vontade para sentar e contemplar a mensagem de Deus comigo. Este lugar é lindo, mesmo que o perigo acompanhe sua sensação de serenidade ...";
 			close;
 		}
 		else {
 			mes "Oh eu tenho ...";
-			mes "VocÃª chegou ao fundo aqui para treinar? Ou vocÃª Ã© apenas um andarilho?";
+			mes "Você chegou ao fundo aqui para treinar? Ou você é apenas um andarilho?";
 			next;
 			mes "[Padre Rubalkabara]";
-			mes "Quem quer que seja, cuide -se. Os monstros aqui sÃ£o chocantemente fortes, ao contrÃ¡rio de sua aparÃªncia fofa.";
+			mes "Quem quer que seja, cuide -se. Os monstros aqui são chocantemente fortes, ao contrário de sua aparência fofa.";
 			close;
 		}
 	}
@@ -191,24 +191,24 @@ moc_fild07,41,355,4	script	Ascetic#2aco	95,{
 	mes "[Madre Mathilda]";
 	if (BaseJob == Job_Novice) {
 		if (job_acolyte_q == 7) {
-			mes "Enviarei um pombo de transportadora para o SantuÃ¡rio Pronntera. Quando vocÃª retorna, o padre jÃ¡ deveria ter recebido minha mensagem.";
+			mes "Enviarei um pombo de transportadora para o Santuário Pronntera. Quando você retorna, o padre já deveria ter recebido minha mensagem.";
 			next;
 			mes "[Madre Mathilda]";
-			mes "Vou orar a Deus e espero que vocÃª se torne um acÃ³lito em breve.";
+			mes "Vou orar a Deus e espero que você se torne um acólito em breve.";
 			close;
 		}
 		if (job_acolyte_q != 0) {
 			if (job_acolyte_q == 3) {
-				mes "Ah, vocÃª deve ser um dos candidatos a acÃ³litos. Eu sinceramente te douendo.";
+				mes "Ah, você deve ser um dos candidatos a acólitos. Eu sinceramente te douendo.";
 				next;
 				mes "[Madre Mathilda]";
-				mes "Qual o seu nome?" + strcharinfo(0) + "? Vamos ver ... ah, vocÃª estÃ¡ na minha lista.";
+				mes "Qual o seu nome?" + strcharinfo(0) + "? Vamos ver ... ah, você está na minha lista.";
 				next;
 				mes "[Madre Mathilda]";
-				mes "Enviarei uma mensagem ao santuÃ¡rio confirmando que vocÃª," + strcharinfo(0) + "me visitou e completou sua penitÃªncia.";
+				mes "Enviarei uma mensagem ao santuário confirmando que você," + strcharinfo(0) + "me visitou e completou sua penitência.";
 				next;
 				mes "[Madre Mathilda]";
-				mes "Por favor, volte ao SantuÃ¡rio Pronntera e fale com o padre responsÃ¡vel.";
+				mes "Por favor, volte ao Santuário Pronntera e fale com o padre responsável.";
 				close2;
 				savepoint "Power_fild07",35,355,1,1;
 				set job_acolyte_q,7;
@@ -216,21 +216,21 @@ moc_fild07,41,355,4	script	Ascetic#2aco	95,{
 			}
 			else {
 				mes "A ... !!";
-				mes "VocÃª deve ser um";
-				mes "dos candidatos a acÃ³litos.";
+				mes "Você deve ser um";
+				mes "dos candidatos a acólitos.";
 				mes "Eu sinceramente te douendo.";
 				next;
 				mes "[Madre Mathilda]";
-				mes "Agora, qual Ã© o seu nome?";
+				mes "Agora, qual é o seu nome?";
 				mes "" + strcharinfo(0) + "? Vamos ver ...";
 				next;
 				mes "[Madre Mathilda]";
 				mes "Hum...";
 				mes "Parece seu nome";
-				mes "nÃ£o estÃ¡ na minha lista ...";
+				mes "não está na minha lista ...";
 				next;
 				mes "[Madre Mathilda]";
-				mes "Talvez vocÃª deva retornar ao SantuÃ¡rio do Pronntera e verificar o destino para o seu julgamento da penitÃªncia mais uma vez.";
+				mes "Talvez você deva retornar ao Santuário do Pronntera e verificar o destino para o seu julgamento da penitência mais uma vez.";
 				close;
 			}
 		}
@@ -242,15 +242,15 @@ moc_fild07,41,355,4	script	Ascetic#2aco	95,{
 	else if (BaseJob == Job_Acolyte) callfunc "F_MotherMart";
 	else {
 		if (BaseJob == Job_Priest) {
-			mes "OlÃ¡ ~";
+			mes "Olá ~";
 			next;
 			mes "[Madre Mathilda]";
-			mes "Como estÃ¡ sua prÃ¡tica? Eu certamente espero que vocÃª esteja gostando de viver na graÃ§a de Deus.";
+			mes "Como está sua prática? Eu certamente espero que você esteja gostando de viver na graça de Deus.";
 			close;
 		}
 		else {
 			mes "Que Deus";
-			mes "Esteja com vocÃª ...";
+			mes "Esteja com você ...";
 			close;
 		}
 	}
@@ -263,29 +263,29 @@ prt_fild00,208,218,6	script	Ascetic#3aco	98,{
 			mes "O que?";
 			next;
 			mes "[Padre Yosuke]";
-			mes "VocÃª tem mais negÃ³cios comigo?! VocÃª nÃ£o! Volte para o santuÃ¡rio agora!";
+			mes "Você tem mais negócios comigo?! Você não! Volte para o santuário agora!";
 			close;
 		}
 		if (job_acolyte_q != 0) {
 			if (job_acolyte_q == 4) {
 				mes "Ei.";
 				mes "Seja o que for,";
-				mes "vocÃª parece um";
-				mes "Requerente de AcÃ³lito.";
+				mes "você parece um";
+				mes "Requerente de Acólito.";
 				mes "Certo?";
 				next;
 				mes "[Padre Yosuke]";
-				mes "Nada mal, nada mal. VocÃª resistiu muito bem ao julgamento da penitÃªncia.";
-				mes "EntÃ£o, qual Ã© o seu nome?";
+				mes "Nada mal, nada mal. Você resistiu muito bem ao julgamento da penitência.";
+				mes "Então, qual é o seu nome?";
 				next;
 				mes "[Padre Yosuke]";
 				mes "" + strcharinfo(0) + ", huh?";
 				next;
 				mes "[Padre Yosuke]";
-				mes "OK. Vou enviar uma mensagem para o santuÃ¡rio que vocÃª," + strcharinfo(0) + ", veio me visitar.";
+				mes "OK. Vou enviar uma mensagem para o santuário que você," + strcharinfo(0) + ", veio me visitar.";
 				next;
 				mes "[Padre Yosuke]";
-				mes "Agora volte ao santuÃ¡rio e termine de se tornar um acÃ³lito, garoto.";
+				mes "Agora volte ao santuário e termine de se tornar um acólito, garoto.";
 				close2;
 				savepoint "PRT_FILD00",206,230,1,1;
 				set job_acolyte_q,8;
@@ -293,24 +293,24 @@ prt_fild00,208,218,6	script	Ascetic#3aco	98,{
 			}
 			else {
 				mes "Ei.";
-				mes "VocÃª parece um candidato a acÃ³lito. Estou certo?";
+				mes "Você parece um candidato a acólito. Estou certo?";
 				next;
 				mes "[Padre Yosuke]";
-				mes "Nada mal, vocÃª chegou atÃ© aqui de pronfera. EntÃ£o, qual Ã© o seu nome, garoto?";
+				mes "Nada mal, você chegou até aqui de pronfera. Então, qual é o seu nome, garoto?";
 				next;
 				mes "[Padre Yosuke]";
-				mes "" + strcharinfo(0) + ", huh? Por que seu nome nÃ£o estÃ¡ na minha lista?";
+				mes "" + strcharinfo(0) + ", huh? Por que seu nome não está na minha lista?";
 				next;
 				mes "[Padre Yosuke]";
-				mes "VocÃª provavelmente cometeu um erro. Volte para o santuÃ¡rio e verifique com o bispo.";
+				mes "Você provavelmente cometeu um erro. Volte para o santuário e verifique com o bispo.";
 				close;
 			}
 		}
 		else {
-			mes "VocÃª...";
+			mes "Você...";
 			mes "Novato.";
-			mes "LÃ¡ algo";
-			mes "VocÃª quer me dizer?";
+			mes "Lá algo";
+			mes "Você quer me dizer?";
 			close;
 		}
 	}
@@ -320,12 +320,12 @@ prt_fild00,208,218,6	script	Ascetic#3aco	98,{
 			mes "Ei...";
 			next;
 			mes "[Padre Yosuke]";
-			mes "Se quiser, venha sentar aqui comigo e meditar as grandes verdades. A majestade de Deus Ã© realmente inspiradora ...";
+			mes "Se quiser, venha sentar aqui comigo e meditar as grandes verdades. A majestade de Deus é realmente inspiradora ...";
 			close;
 		}
 		else {
-			mes "VocÃª tem algo a dizer? Porque infelizmente para vocÃª,";
-			mes "Eu nÃ£o nÃ£o responde.";
+			mes "Você tem algo a dizer? Porque infelizmente para você,";
+			mes "Eu não não responde.";
 			close;
 		}
 	}

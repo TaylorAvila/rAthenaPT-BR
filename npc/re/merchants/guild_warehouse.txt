@@ -8,39 +8,39 @@
 //============================================================
 
 -	script	GuildWarehouse	-1,{
-	mes "[Gerente de armazÃ©m]";
-	mes "Como vai vocÃª? Somos especializados em armazÃ©ns da guilda. Esta Ã© a nossa histÃ³ria ^000000:";
-	mes "Por que os membros da guilda nÃ£o podem compartilhar um armazenamento? ComeÃ§amos com essa pergunta simples.";
+	mes "[Gerente de armazém]";
+	mes "Como vai você? Somos especializados em armazéns da guilda. Esta é a nossa história ^000000:";
+	mes "Por que os membros da guilda não podem compartilhar um armazenamento? Começamos com essa pergunta simples.";
 	next;
-	mes "[Gerente de armazÃ©m]";
-	mes "VocÃª pode abrir o armazÃ©m para 1000 Zeny ou procurar o histÃ³rico de uso da guilda.";
-	mes "Como posso ajudÃ¡-lo?";
+	mes "[Gerente de armazém]";
+	mes "Você pode abrir o armazém para 1000 Zeny ou procurar o histórico de uso da guilda.";
+	mes "Como posso ajudá-lo?";
 	next;
-	if( select( "ArmazÃ©m de guildas abertas: ver histÃ³rico de uso do armazÃ©m" ) == 1 ){
+	if( select( "Armazém de guildas abertas: ver histórico de uso do armazém" ) == 1 ){
 		.@guildid = getcharid( 2 );
 
 		if( .@guildid == 0 ){
-			mes "[Gerente de armazÃ©m]";
-			mes "O armazenamento da guilda estÃ¡ disponÃ­vel apenas para membros da guilda.";
+			mes "[Gerente de armazém]";
+			mes "O armazenamento da guilda está disponível apenas para membros da guilda.";
 			close;
 		}
 
 		if( getgdskilllv( .@guildid, "Gd_guild_storage" ) == 0 || !guild_has_permission( GUILD_PERM_STORAGE ) ){
-			mes "[Gerente de armazÃ©m]";
-			mes "Parece que ainda nÃ£o Ã© possÃ­vel para sua guilda usar o armazÃ©m da guilda ou vocÃª nÃ£o tem permissÃµes de acesso para o armazÃ©m.";
-			mes "Volte depois de verificar a habilidade da guilda e a permissÃ£o para acessar o armazÃ©m.";
+			mes "[Gerente de armazém]";
+			mes "Parece que ainda não é possível para sua guilda usar o armazém da guilda ou você não tem permissões de acesso para o armazém.";
+			mes "Volte depois de verificar a habilidade da guilda e a permissão para acessar o armazém.";
 			close;
 		}
 
 		if( Zeny < 1000 ){
-			mes "[Gerente de armazÃ©m]";
-			mes "Receio que vocÃª nÃ£o tenha dinheiro suficiente para liquidar a taxa.";
-			mes "A taxa Ã© 1000 Zeny.";
+			mes "[Gerente de armazém]";
+			mes "Receio que você não tenha dinheiro suficiente para liquidar a taxa.";
+			mes "A taxa é 1000 Zeny.";
 			close;
 		}
 
-		mes "[Gerente de armazÃ©m]";
-		mes "Vou abrir o armazenamento da guilda para vocÃª entÃ£o. Tenha um tempo memorÃ¡vel!";
+		mes "[Gerente de armazém]";
+		mes "Vou abrir o armazenamento da guilda para você então. Tenha um tempo memorável!";
 		close2;
 
 		if( Zeny < 1000 ){
@@ -52,8 +52,8 @@
 			Zeny -= 1000;
 			end;
 		}else{
-			mes "[Gerente de armazÃ©m]";
-			mes "Receio que alguÃ©m esteja usando o armazÃ©m agora.";
+			mes "[Gerente de armazém]";
+			mes "Receio que alguém esteja usando o armazém agora.";
 			mes "Por favor, tente novamente depois de um tempo.";
 			close;
 		}
@@ -61,21 +61,21 @@
 		.@guildid = getcharid( 2 );
 
 		if( .@guildid == 0 ){
-			mes "[Gerente de armazÃ©m]";
-			mes "O armazenamento da guilda estÃ¡ disponÃ­vel apenas para membros da guilda.";
+			mes "[Gerente de armazém]";
+			mes "O armazenamento da guilda está disponível apenas para membros da guilda.";
 			close;
 		}
 
 		if( getgdskilllv( .@guildid, "Gd_guild_storage" ) == 0 || !guild_has_permission( GUILD_PERM_STORAGE ) ){
-			mes "[Gerente de armazÃ©m]";
-			mes "Parece que ainda nÃ£o Ã© possÃ­vel para sua guilda usar o armazÃ©m da guilda ou vocÃª nÃ£o tem permissÃµes de acesso para o armazÃ©m.";
-			mes "Volte depois de verificar a habilidade da guilda e a permissÃ£o para acessar o armazÃ©m.";
+			mes "[Gerente de armazém]";
+			mes "Parece que ainda não é possível para sua guilda usar o armazém da guilda ou você não tem permissões de acesso para o armazém.";
+			mes "Volte depois de verificar a habilidade da guilda e a permissão para acessar o armazém.";
 			close;
 		}
 
-		mes "[Gerente de armazÃ©m]";
-		mes "Vou mostrar a histÃ³ria de uso do armazÃ©m. O histÃ³rico de uso serÃ¡ retido por atÃ© 3 meses.";
-		mes "Tenha um tempo memorÃ¡vel!";
+		mes "[Gerente de armazém]";
+		mes "Vou mostrar a história de uso do armazém. O histórico de uso será retido por até 3 meses.";
+		mes "Tenha um tempo memorável!";
 		close2;
 		guildopenstorage_log();
 		end;

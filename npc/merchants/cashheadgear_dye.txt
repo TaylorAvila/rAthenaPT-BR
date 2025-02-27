@@ -19,7 +19,7 @@ prt_in,253,168,4	script	Alora	862,{
 // Mysterious Dyestuff
 	set .@dyeID, 6220;
 // Headgear Choices
-	setarray .@hgn$[1], "Mago tem","Gorro","Gato caÃ­do","DeViruchi tem","Peruca","Fita","Goat Magestic";
+	setarray .@hgn$[1], "Mago tem","Gorro","Gato caído","DeViruchi tem","Peruca","Fita","Goat Magestic";
 // Mage Hats - Normal, Yellow, Blue, Brown, Gray, Red
 	setarray .@hg_1[1], 5027, 5242, 5241, 5240, 5239, 5238;
 // Beanies - Normal, Pink, Blue, Brown
@@ -36,10 +36,10 @@ prt_in,253,168,4	script	Alora	862,{
 	setarray .@hg_7[1], 2256, 5217;
 
 	mes "[Piorsor]";
-	mes "OlÃ¡, posso mudar a cor do seu arnÃªs se vocÃª me trazer um corante misterioso.";
+	mes "Olá, posso mudar a cor do seu arnês se você me trazer um corante misterioso.";
 	next;
 	mes "[Piorsor]";
-	mes "VocÃª tem um arnÃªs que gostaria de tingir?";
+	mes "Você tem um arnês que gostaria de tingir?";
 	next;
 	for(set .@i,1; .@i < getarraysize(.@hgn$); set .@i,.@i+1) {
 		if(.@i == 1)    set .@menu$, .@hgn$[.@i];
@@ -50,11 +50,11 @@ prt_in,253,168,4	script	Alora	862,{
 	if(.@t == getarraysize(.@hgn$)) {
 		mes "[Piorsor]";
 		mes "Tenha um bom aventureiro de jornada!";
-		mes "Se vocÃª estÃ¡ curioso para experimentar uma nova cor em seu arnÃªs de kafra ou nos que vocÃª encontrou em suas aventuras, venha atÃ© mim!";
+		mes "Se você está curioso para experimentar uma nova cor em seu arnês de kafra ou nos que você encontrou em suas aventuras, venha até mim!";
 		close;
 	}
 	mes "[Piorsor]";
-	mes "Ok, para qual cor vocÃª deseja alterÃ¡ -lo?";
+	mes "Ok, para qual cor você deseja alterá -lo?";
 	next;
 	for(set .@i,1; .@i < getarraysize(getd(".@hg_"+.@t+"")); set .@i,.@i+1) {
 		if(.@i == 1 && .@t != 5)
@@ -70,24 +70,24 @@ prt_in,253,168,4	script	Alora	862,{
 	set .@c, select(.@menu$);
 	if(.@c == getarraysize(getd(".@hg_"+.@t+""))) {
 		mes "[Piorsor]";
-		mes "Oh, ok, nÃ£o hÃ¡ problema!";
+		mes "Oh, ok, não há problema!";
 		close;
 	}
 	set .@dyHG, getd(".@hg_"+.@t+"["+.@c+"]");
 	mes "[Piorsor]";
-	mes "Oh, estou tÃ£o animado, nÃ£o Ã©?";
-	mes "E sÃ³ para ter certeza, qual Ã© a cor"+ .@hgn$[.@t] +"VocÃª quer que eu use?";
+	mes "Oh, estou tão animado, não é?";
+	mes "E só para ter certeza, qual é a cor"+ .@hgn$[.@t] +"Você quer que eu use?";
 	next;
 	mes "[Piorsor]";
-	mes "Por favor, entenda que vou usar o ^ff00001st"+ .@hgn$[.@t] +"daquela cor em seu inventÃ¡rio!^000000";
+	mes "Por favor, entenda que vou usar o ^ff00001st"+ .@hgn$[.@t] +"daquela cor em seu inventário!^000000";
 	next;
 	mes "[Piorsor]";
-	mes "Quaisquer atualizaÃ§Ãµes e cartÃµes serÃ£o dissolvidos pelo corante misterioso, por isso, certifique -se de estar bem em ter um ^0000ff+0"+ getitemname(.@dyHG) +"sem cartÃµes.^000000";
+	mes "Quaisquer atualizações e cartões serão dissolvidos pelo corante misterioso, por isso, certifique -se de estar bem em ter um ^0000ff+0"+ getitemname(.@dyHG) +"sem cartões.^000000";
 	next;
 	mes "["+ strcharinfo(0) +"]";
 	mes "Ok, obrigado pelo aviso, acho que vou te dar meu";
 	next;
-	set .@menu$, "Deixa para lÃ¡";
+	set .@menu$, "Deixa para lá";
 	for(set .@i,1; .@i < getarraysize(getd(".@hg_"+.@t+"")); set .@i,.@i+1) {
 		if(.@i == 1)    set .@menu$, .@menu$ +":Normal"+ getitemname(getd(".@hg_"+.@t+"["+.@i+"]"));
 		else            set .@menu$, .@menu$ +":"+ getitemname(getd(".@hg_"+.@t+"["+.@i+"]"));
@@ -95,7 +95,7 @@ prt_in,253,168,4	script	Alora	862,{
 	set .@mine, select(.@menu$) - 1;
 	if(!.@mine) {
 		mes "[Piorsor]";
-		mes "Ã‰ melhor ter certeza, tenha uma jornada segura.";
+		mes "É melhor ter certeza, tenha uma jornada segura.";
 		close;
 	}
 	set .@myHG, getd(".@hg_"+.@t+"["+.@mine+"]");
@@ -106,12 +106,12 @@ prt_in,253,168,4	script	Alora	862,{
 	}
 	if(!countitem(.@dyeID) || !countitem(.@myHG)) {
 		mes "[Piorsor]";
-		mes "Oh meu, vocÃª parece estar perdendo alguma coisa.";
+		mes "Oh meu, você parece estar perdendo alguma coisa.";
 		close;
 	}
 	mes "[Piorsor]";
-	mes "Parece Ã³timo, nÃ£o Ã©?!";
-	mes "Espero que vocÃª volte para tingir mais vasos bonitos!";
+	mes "Parece ótimo, não é?!";
+	mes "Espero que você volte para tingir mais vasos bonitos!";
 	delitem .@dyeID,1; // Dyestuff
 	delitem .@myHG,1;  // Your headgear
 	getitem .@dyHG,1;  // Dyed headgear

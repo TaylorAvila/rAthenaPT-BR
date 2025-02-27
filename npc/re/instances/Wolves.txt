@@ -15,25 +15,25 @@ rachel,167,242,7	duplicate(dummy_cloaked_npc)	Miriam#sms03	4_EP18_MIRIAM
 rachel,169,245,3	script	Ordinary Person#sms04	4_EP18_GW_WOMAN01,{
 	if (BaseLevel < 170) {
 		mes "[Lobo]";
-		mes "VocÃª estÃ¡ aqui para participar do protesto? Mas vocÃª nÃ£o parece um manifestante experiente.";
+		mes "Você está aqui para participar do protesto? Mas você não parece um manifestante experiente.";
 		next;
-		mes "- Esta missÃ£o estÃ¡ disponÃ­vel no nÃ­vel 170 em diante. -";
+		mes "- Esta missão está disponível no nível 170 em diante. -";
 		close;
 	}
 	if (ep18_main < 50) {
 		mes "[Pessoa comum]";
-		mes "Esta Ã¡rea estÃ¡ sob manutenÃ§Ã£o e o acesso Ã© proibido. Ã‰ perigoso. Por favor, volte.";
+		mes "Esta área está sob manutenção e o acesso é proibido. É perigoso. Por favor, volte.";
 		close;
 	}
 	if (ep18_main == 50 || ep18_main == 51) {
 		if (ep18_main == 50) {
 			mes "[Pessoa comum]";
-			mes "Esta Ã¡rea estÃ¡ sob manutenÃ§Ã£o e o acesso Ã© proibido.";
+			mes "Esta área está sob manutenção e o acesso é proibido.";
 			next;
 			cutin "ep18_suad_01.png",2;
 			cloakoffnpcself( "Suad#sms03" );
 			mes "[Suad]";
-			mes "VocÃª nÃ£o precisa ser cauteloso. Essa pessoa Ã© um aventureiro que estÃ¡ conosco.";
+			mes "Você não precisa ser cauteloso. Essa pessoa é um aventureiro que está conosco.";
 			next;
 			cutin "ep18_miriam_01.png",0;
 			cloakoffnpcself( "Miriam#sms03" );
@@ -42,7 +42,7 @@ rachel,169,245,3	script	Ordinary Person#sms04	4_EP18_GW_WOMAN01,{
 			next;
 			cutin "ep18_suad_01.png",2;
 			mes "[Suad]";
-			mes "Sim, todo mundo estÃ¡ pronto. SÃ³ precisamos sinalizar nosso pessoal se espalhado e entrar no templo.";
+			mes "Sim, todo mundo está pronto. Só precisamos sinalizar nosso pessoal se espalhado e entrar no templo.";
 			next;
 			cutin "ep18_miriam_01.png",0;
 			mes "[Miriam]";
@@ -51,13 +51,13 @@ rachel,169,245,3	script	Ordinary Person#sms04	4_EP18_GW_WOMAN01,{
 		}
 		cutin "ep18_suad_01.png",2;
 		mes "[Suad]";
-		mes "Quando entramos aqui, podemos ir em direÃ§Ã£o Ã  entrada lateral do templo. Entraremos quando recebermos uma resposta depois de enviar o sinal para lÃ¡. Aventura, vocÃª pode enviar o sinal?";
+		mes "Quando entramos aqui, podemos ir em direção à entrada lateral do templo. Entraremos quando recebermos uma resposta depois de enviar o sinal para lá. Aventura, você pode enviar o sinal?";
 		next;
 
 		.@md_name$ = "Lobos de encontro";
 
 		if (is_party_leader()) {
-			.@menu$[0] = "Sim, vÃ¡ em frente e envie o sinal.";
+			.@menu$[0] = "Sim, vá em frente e envie o sinal.";
 			.@menu$[1] = "Vamos entrar rapidamente.";
 		}
 
@@ -67,7 +67,7 @@ rachel,169,245,3	script	Ordinary Person#sms04	4_EP18_GW_WOMAN01,{
 			next;
 			instance_create(.@md_name$);
 			mes "[Suad]";
-			mes "Como enviamos o sinal, a passagem de emergÃªncia serÃ¡ aberta em breve. Avise -nos quando estiver pronto. Vamos entrar imediatamente.";
+			mes "Como enviamos o sinal, a passagem de emergência será aberta em breve. Avise -nos quando estiver pronto. Vamos entrar imediatamente.";
 			if (ep18_main == 50) {
 				changequest 17519,17520;
 				ep18_main = 51;
@@ -81,7 +81,7 @@ rachel,169,245,3	script	Ordinary Person#sms04	4_EP18_GW_WOMAN01,{
 				close3;
 			case IE_NOINSTANCE:
 				mes "[Suad]";
-				mes "Ainda nÃ£o enviamos o sinal. Quando todos estiverem prontos, enviaremos o sinal imediatamente.";
+				mes "Ainda não enviamos o sinal. Quando todos estiverem prontos, enviaremos o sinal imediatamente.";
 				close3;
 			case IE_NOMEMBER:
 				mes "[Suad]";
@@ -89,7 +89,7 @@ rachel,169,245,3	script	Ordinary Person#sms04	4_EP18_GW_WOMAN01,{
 				close3;
 			case IE_OK:
 				mes "[Suad]";
-				mes "O sinal chegou, entÃ£o vamos nos mover. Vamos entrar imediatamente.";
+				mes "O sinal chegou, então vamos nos mover. Vamos entrar imediatamente.";
 				if (ep18_main == 50) {	// debug
 					changequest 17519,17520;
 					ep18_main = 51;
@@ -102,13 +102,13 @@ rachel,169,245,3	script	Ordinary Person#sms04	4_EP18_GW_WOMAN01,{
 			end;
 		case 3:
 			mes "[Suad]";
-			mes "Certo. Os aventureiros tambÃ©m sÃ£o forÃ§as essenciais, entÃ£o vamos esperar atÃ© que estejam prontos.";
+			mes "Certo. Os aventureiros também são forças essenciais, então vamos esperar até que estejam prontos.";
 			close3;
 		}
 		end;
 	}
 	mes "[Pessoa comum]";
-	mes "OlÃ¡, aventureiro. Um agente de um templo estÃ¡ esperando por vocÃª.";
+	mes "Olá, aventureiro. Um agente de um templo está esperando por você.";
 	close2;
 	cloakoffnpcself( "Priest#sms01" );
 	npctalk "Aventureiro, bem -vindo.", "Priest#sms01", bc_self;
@@ -127,8 +127,8 @@ OnInit:
 rachel,167,244,5	script(CLOAKED)	Priest#sms01	4_F_TRAINEE,{
 	if (checkweight(1000405,4) == 0) {
 		mes "- Espere um minuto !! -";
-		mes "- Atualmente vocÃª estÃ¡ carregando -";
-		mes "- Muitos itens com vocÃª. -";
+		mes "- Atualmente você está carregando -";
+		mes "- Muitos itens com você. -";
 		mes "- Por favor, tente novamente -";
 		mes "- Depois de perder algum peso. -";
 		close;
@@ -138,12 +138,12 @@ rachel,167,244,5	script(CLOAKED)	Priest#sms01	4_F_TRAINEE,{
 	// repeatable instance Sanctuary Purification
 	if (BaseLevel < 170) {
 		mes "[Padre]";
-		mes "VocÃª deve ser pelo menos Baseevel 170 para esta instÃ¢ncia.";
+		mes "Você deve ser pelo menos Baseevel 170 para esta instância.";
 		close;
 	}
 	if (isbegin_quest(17524) == 1 || isbegin_quest(17526) == 1) {
 		mes "[Padre]";
-		mes "Bem -vindo, aventureiro. VocÃª jÃ¡ passou por muito.";
+		mes "Bem -vindo, aventureiro. Você já passou por muito.";
 		if (isbegin_quest(17524) == 1) {
 			erasequest 17524;
 			.@count = 2;
@@ -155,39 +155,39 @@ rachel,167,244,5	script(CLOAKED)	Priest#sms01	4_F_TRAINEE,{
 		getitem 1000405,.@count;	// Ep18_Amethyst_Fragment
 		next;
 		mes "[Padre]";
-		mes "Por favor, descanse de sua jornada agora! Vejo vocÃª de novo!";
+		mes "Por favor, descanse de sua jornada agora! Vejo você de novo!";
 		close;
 	}
-	.@md_name$ = "PurificaÃ§Ã£o do santuÃ¡rio";
+	.@md_name$ = "Purificação do santuário";
 
 	switch( checkquest(17527,PLAYTIME) ) {
 	case -1:
 		if (isbegin_quest(17522) == 0 && isbegin_quest(17523) == 0)
-			callsub( S_Take, 0, "Como estamos fazendo isso, vamos fazer as duas coisas.", "Ataque aos guardas do templo deserto.", "Raid aos caÃ§adores de coraÃ§Ã£o.", "", "Vai ser difÃ­cil." );
+			callsub( S_Take, 0, "Como estamos fazendo isso, vamos fazer as duas coisas.", "Ataque aos guardas do templo deserto.", "Raid aos caçadores de coração.", "", "Vai ser difícil." );
 		break;
 	case 0:
 	case 1:
 		mes "[Padre]";
-		mes "O plano para a prÃ³xima operaÃ§Ã£o ainda nÃ£o foi concluÃ­do. Como Ã© conduzido apenas uma vez por dia, precisamos ser cautelosos. Por favor, descanse atÃ© entÃ£o, aventureiro.";
+		mes "O plano para a próxima operação ainda não foi concluído. Como é conduzido apenas uma vez por dia, precisamos ser cautelosos. Por favor, descanse até então, aventureiro.";
 		close;
 	case 2:
 		mes "[Padre]";
-		mes "OlÃ¡! VocÃª teve um bom descanso? Eu ficaria grato se vocÃª pudesse me ajudar hoje. Observe que a operaÃ§Ã£o pode ser feita uma vez por dia.";
+		mes "Olá! Você teve um bom descanso? Eu ficaria grato se você pudesse me ajudar hoje. Observe que a operação pode ser feita uma vez por dia.";
 		erasequest 17527;
 		if (isbegin_quest(17522) == 0 && isbegin_quest(17523) == 0)
-			callsub( S_Take, 2, "Como estamos fazendo isso, vamos fazer as duas coisas.", "Ataque aos guardas do templo deserto.", "Raid aos caÃ§adores de coraÃ§Ã£o.", "", "Vai ser difÃ­cil." );
+			callsub( S_Take, 2, "Como estamos fazendo isso, vamos fazer as duas coisas.", "Ataque aos guardas do templo deserto.", "Raid aos caçadores de coração.", "", "Vai ser difícil." );
 		break;
 	}
 	mes "[Padre]";
-	mes "VocÃª estÃ¡ pronto? Vou enviar o sinal de junÃ§Ã£o.";
+	mes "Você está pronto? Vou enviar o sinal de junção.";
 	next;
-	switch( select( "Tudo bem. Vou enviar o sinal.", "Vou prosseguir.", "Eu ainda tenho uma missÃ£o pendente!", "Ã‰ necessÃ¡ria mais preparaÃ§Ã£o." ) ) {
+	switch( select( "Tudo bem. Vou enviar o sinal.", "Vou prosseguir.", "Eu ainda tenho uma missão pendente!", "É necessária mais preparação." ) ) {
 	case 1:
 		mes "[Padre]";
-		mes "Recebi o ponto de encontro. VocÃª pode participar imediatamente dessa saÃ­da de emergÃªncia. Quando estiver pronto, prossiga para entrar.";
+		mes "Recebi o ponto de encontro. Você pode participar imediatamente dessa saída de emergência. Quando estiver pronto, prossiga para entrar.";
 		if (instance_create(.@md_name$) < 0) {
 			mes "Festa:" + getpartyname(getcharid(1)) + "";
-			mes "LÃ­der:" + strcharinfo(0) + "";
+			mes "Líder:" + strcharinfo(0) + "";
 			mes "^0000FF" + .@md_name$ + "^000000- Erro desconhecido";
 			close;
 		}
@@ -198,23 +198,23 @@ rachel,167,244,5	script(CLOAKED)	Priest#sms01	4_F_TRAINEE,{
 			mes "^ff0000ENO Ocorreu um erro desconhecido.^000000";
 			close;
 		case IE_NOINSTANCE:
-			mes "A masmorra memorial nÃ£o existe.";
-			mes "O lÃ­der do partido ainda nÃ£o gerou a masmorra.";
+			mes "A masmorra memorial não existe.";
+			mes "O líder do partido ainda não gerou a masmorra.";
 			close;
 		case IE_NOMEMBER:
 			mes "^ff0000ONO Um membro da parte pode entrar na masmorra memorial.^000000";
 			close;
 		case IE_OK:
 			mes "[Padre]";
-			mes "O sinal chegou, entÃ£o vamos nos mover. Vamos entrar no ponto de encontro imediatamente.";
-			mapannounce "Rachel", "" + strcharinfo(0) + "da festa," + getpartyname( getcharid(1) ) + ", estÃ¡ entrando" + .@md_name$ + ".",bc_map,"0 buceta 00",FW_NORMAL,12;
+			mes "O sinal chegou, então vamos nos mover. Vamos entrar no ponto de encontro imediatamente.";
+			mapannounce "Rachel", "" + strcharinfo(0) + "da festa," + getpartyname( getcharid(1) ) + ", está entrando" + .@md_name$ + ".",bc_map,"0 buceta 00",FW_NORMAL,12;
 			setquest 17527;
 			// warp "1@nyr",194,30;
 			end;
 		}
 		end;
 	case 3:
-		callsub( S_Take, 1, "", "Ataque aos guardas do templo deserto.", "Raid aos caÃ§adores de coraÃ§Ã£o.", "Como estamos fazendo isso, vamos fazer as duas coisas.", "Vai ser difÃ­cil." );
+		callsub( S_Take, 1, "", "Ataque aos guardas do templo deserto.", "Raid aos caçadores de coração.", "Como estamos fazendo isso, vamos fazer as duas coisas.", "Vai ser difícil." );
 	case 4:
 		mes "[Padre]";
 		mes "Entendido. Vou esperar.";
@@ -225,14 +225,14 @@ rachel,167,244,5	script(CLOAKED)	Priest#sms01	4_F_TRAINEE,{
 S_Take:
 	if (getarg(0) == 0) {
 		mes "[Padre]";
-		mes "As principais forÃ§as que se infiltraram no templo escaparam, mas ainda temos problemas com os guardas do templo que desertaram para os caÃ§adores de coraÃ§Ã£o e remanescentes dos prÃ³prios caÃ§adores de coraÃ§Ã£o que estÃ£o atrÃ¡s do coraÃ§Ã£o.";
+		mes "As principais forças que se infiltraram no templo escaparam, mas ainda temos problemas com os guardas do templo que desertaram para os caçadores de coração e remanescentes dos próprios caçadores de coração que estão atrás do coração.";
 		next;
 		mes "[Padre]";
-		mes "Estamos conduzindo ataques de forma independente, mas apreciarÃ­amos sua assistÃªncia, aventureiro. Observe que os ataques sÃ£o realizados uma vez por dia.";
+		mes "Estamos conduzindo ataques de forma independente, mas apreciaríamos sua assistência, aventureiro. Observe que os ataques são realizados uma vez por dia.";
 	}
 	else if (getarg(0) == 1) {
 		mes "[Padre]";
-		mes "Ã‰ assim mesmo? Que missÃ£o vocÃª perdeu?";
+		mes "É assim mesmo? Que missão você perdeu?";
 	}
 	next;
 	switch( select( getarg(1), getarg(2), getarg(3), getarg(4), getarg(5) ) ) {
@@ -246,40 +246,40 @@ S_Take:
 		mes "Entendido.";
 		next;
 		mes "[Padre]";
-		mes "EntÃ£o, por favor, avise -me quando estiver pronto.";
+		mes "Então, por favor, avise -me quando estiver pronto.";
 		close;
 	case 2:
 		if (isbegin_quest(17522) == 0 && isbegin_quest(17524) == 0) {
 			setquest 17522;
 			mes "[Padre]";
-			mes "Ataque aos guardas do templo deserto. Ã‰ assim? Entendido.";
+			mes "Ataque aos guardas do templo deserto. É assim? Entendido.";
 			next;
 			mes "[Padre]";
-			mes "EntÃ£o, por favor, avise -me quando estiver pronto.";
+			mes "Então, por favor, avise -me quando estiver pronto.";
 			close;
 		}
 		mes "[Padre]";
-		mes "Parece que vocÃª jÃ¡ estÃ¡ envolvido em uma missÃ£o. Muito bem, cuide disso.";
+		mes "Parece que você já está envolvido em uma missão. Muito bem, cuide disso.";
 		next;
 		mes "[Padre]";
-		mes "EntÃ£o, por favor, avise -me quando estiver pronto.";
+		mes "Então, por favor, avise -me quando estiver pronto.";
 		close;
 	case 3:
 		if (isbegin_quest(17523) == 0 && isbegin_quest(17526) == 0) {
 			setquest 17523;
 			mes "[Padre]";
-			mes "Obrigado por sua cooperaÃ§Ã£o. Avise -me quando estiver pronto.";
+			mes "Obrigado por sua cooperação. Avise -me quando estiver pronto.";
 			close;
 		}
 		mes "[Padre]";
-		mes "Parece que vocÃª jÃ¡ estÃ¡ envolvido em uma missÃ£o. Muito bem, cuide disso.";
+		mes "Parece que você já está envolvido em uma missão. Muito bem, cuide disso.";
 		next;
 		mes "[Padre]";
-		mes "EntÃ£o, por favor, avise -me quando estiver pronto.";
+		mes "Então, por favor, avise -me quando estiver pronto.";
 		close;
 	case 5:
 		mes "[Padre]";
-		mes "Se for esse o caso, nÃ£o hÃ¡ nada que possamos fazer. Te vejo na prÃ³xima vez!";
+		mes "Se for esse o caso, não há nada que possamos fazer. Te vejo na próxima vez!";
 		close2;
 		cloakonnpcself( "Priest#sms01" );
 		end;
@@ -702,7 +702,7 @@ OnTouch:
 	sleep2 1000;
 	navigateto("1@nyr",125,41);
 	setpcblock PCBLOCK_NPC, false;
-	npctalk "Ã€ frente estÃ¡ o ponto de rally.";
+	npctalk "À frente está o ponto de rally.";
 	unitwalk getnpcid(0), 162,31, instance_npcname("Miriam#dms101") + "::OnMove1";
 	sleep 2000;
 	npctalk "Dessa forma, por favor.";
@@ -713,7 +713,7 @@ OnMove1:
 	end;
 OnMove2:
 	unitwalk getnpcid(0), 128,41, instance_npcname("Miriam#dms101") + "::OnMove3";
-	npctalk "Ã‰ bem na minha frente.";
+	npctalk "É bem na minha frente.";
 	end;
 OnMove3:
 	if ('nyr_main_step != 1)
@@ -798,46 +798,46 @@ OnGuy3:
 	if (is_party_leader() == false) {
 		cutin "ep18_Suad_01.png",0;
 		mes "[Suad]";
-		mes "Onde estÃ¡ o lÃ­der do partido?";
+		mes "Onde está o líder do partido?";
 		close3;
 	}
 	if ('nyr_main_step == 2) {
 		cutin "ep18_suad_01.png",0;
 		mes "[Suad]";
-		mes "NÃ£o estÃ¡ parecendo bem agora. Eu acho ... os guardas armados aumentando sua seguranÃ§a ..";
+		mes "Não está parecendo bem agora. Eu acho ... os guardas armados aumentando sua segurança ..";
 		next;
-		select( "Parece que o problema com o tumulto no topo Ã© grande." );
+		select( "Parece que o problema com o tumulto no topo é grande." );
 		cutin "ep18_miriam_03.png",2;
 		mes "[Miriam]";
-		mes "Ou a informaÃ§Ã£o vazou. Caso contrÃ¡rio, nÃ£o terÃ­amos sido preparados.";
+		mes "Ou a informação vazou. Caso contrário, não teríamos sido preparados.";
 		next;
 		cutin "",255;
 		mes "[Guarda do Templo]";
-		mes "Nenhuma entrada adicional Ã© permitida. Render -se Ã  sua prisÃ£o.";
+		mes "Nenhuma entrada adicional é permitida. Render -se à sua prisão.";
 		next;
 		mes "[Nativos]";
-		mes "O que fizemos? NÃ£o devemos estar aqui!";
+		mes "O que fizemos? Não devemos estar aqui!";
 		next;
 		mes "[Nativos]";
-		mes "Esta Ã© a nossa terra! Se o proprietÃ¡rio quer entrar em sua prÃ³pria terra, por que alguÃ©m os deve detÃª -los?";
+		mes "Esta é a nossa terra! Se o proprietário quer entrar em sua própria terra, por que alguém os deve detê -los?";
 		next;
 		mes "[Nativos]";
-		mes "VocÃªs sÃ£o os que estÃ£o ocupando ilegalmente!";
+		mes "Vocês são os que estão ocupando ilegalmente!";
 		next;
 		mes "[Nativos]";
 		mes "Que diabos, devolva !! Nossa terra !!";
 		next;
-		mes "[LÃ­der nativo]";
-		mes "Somos os proprietÃ¡rios de longa data desta terra e fomos deslocados de nossas casas pelos colonos.";
+		mes "[Líder nativo]";
+		mes "Somos os proprietários de longa data desta terra e fomos deslocados de nossas casas pelos colonos.";
 		next;
-		mes "[LÃ­der nativo]";
-		mes "Chegamos a reivindicar nosso lugar legÃ­timo como os habitantes de longa data desta terra.";
+		mes "[Líder nativo]";
+		mes "Chegamos a reivindicar nosso lugar legítimo como os habitantes de longa data desta terra.";
 		next;
-		mes "[LÃ­der nativo]";
-		mes "Nossas demandas sÃ£o as seguintes.";
+		mes "[Líder nativo]";
+		mes "Nossas demandas são as seguintes.";
 		next;
-		mes "[LÃ­der nativo]";
-		mes "Um! NÃ³s temos ...";
+		mes "[Líder nativo]";
+		mes "Um! Nós temos ...";
 		next;
 		npctalk "Now is the time. Follow me quietly.", instance_npcname("Lamacus#dms102");
 		npcspeed( 50, instance_npcname("Lamacus#dms102") );
@@ -849,32 +849,32 @@ OnGuy3:
 		unitwalk getnpcid(0,instance_npcname("Yopi#dms122")), 145,31, instance_npcname("Miriam#dms101") + "::OnGuy3";
 		cutin "ep18_miriam_03.png",2;
 		mes "[Miriam]";
-		mes "Suad, vocÃª deu instruÃ§Ãµes especÃ­ficas Ã s pessoas que estavam se revoltando no topo?";
+		mes "Suad, você deu instruções específicas às pessoas que estavam se revoltando no topo?";
 		next;
 		cutin "ep18_suad_01.png",0;
 		mes "[Suad]";
-		mes "NÃ£o? Por que?";
+		mes "Não? Por que?";
 		next;
 		cutin "ep18_miriam_03.png",2;
 		mes "[Miriam]";
-		mes "Veja aqueles caras ali? Eles estÃ£o se movendo com cautela. Esse Ã© o grupo que fez o ataque no topo.";
+		mes "Veja aqueles caras ali? Eles estão se movendo com cautela. Esse é o grupo que fez o ataque no topo.";
 		next;
 		cutin "ep18_suad_03.png",0;
 		mes "[Suad]";
-		mes "Eu nÃ£o dei a vocÃª nenhuma instruÃ§Ã£o. VocÃª estÃ¡ tentando agir por conta prÃ³pria?";
+		mes "Eu não dei a você nenhuma instrução. Você está tentando agir por conta própria?";
 		next;
-		select( "Parece que eles estÃ£o indo para o templo." );
+		select( "Parece que eles estão indo para o templo." );
 		cutin "ep18_miriam_03.png",2;
 		mes "[Miriam]";
-		mes "Ã‰ uma aÃ§Ã£o que nÃ£o Ã© discutida de antemÃ£o. Eu jÃ¡ tenho uma histÃ³ria, e isso nÃ£o Ã© uma coisa boa, Ã©? Vou ter que pisar em silÃªncio, nÃ£o sei o que mais vou fazer ..";
+		mes "É uma ação que não é discutida de antemão. Eu já tenho uma história, e isso não é uma coisa boa, é? Vou ter que pisar em silêncio, não sei o que mais vou fazer ..";
 		next;
 		cutin "ep18_suad_01.png",0;
 		mes "[Suad]";
-		mes "VocÃª vai sozinho?";
+		mes "Você vai sozinho?";
 		next;
 		cutin "ep18_miriam_03.png",2;
 		mes "[Miriam]";
-		mes "Estou apenas seguindo atrÃ¡s, por que preciso de um grupo? Sou bom o suficiente sozinha. VocÃª fica aqui, vou sinalizar se algo acontecer.";
+		mes "Estou apenas seguindo atrás, por que preciso de um grupo? Sou bom o suficiente sozinha. Você fica aqui, vou sinalizar se algo acontecer.";
 		next;
 		if ('nyr_main_step == 2) {
 			'nyr_main_step = 3;
@@ -884,11 +884,11 @@ OnGuy3:
 		donpcevent instance_npcname("Miriam#dms101") + "::OnStartMove2";
 		cutin "ep18_suad_03.png",0;
 		mes "[Suad]";
-		mes "Eles dizem que estÃ£o apenas seguindo, mas nÃ£o hÃ¡ como dizer o que podem estar fazendo. Mesmo se eles estÃ£o desarmados, eles podem estar escondendo algo ...";
+		mes "Eles dizem que estão apenas seguindo, mas não há como dizer o que podem estar fazendo. Mesmo se eles estão desarmados, eles podem estar escondendo algo ...";
 		next;
-		unittalk getcharid(3), "" + strcharinfo(0) + ": Deixe -me alcanÃ§ar.";
+		unittalk getcharid(3), "" + strcharinfo(0) + ": Deixe -me alcançar.";
 		mes "[Suad]";
-		mes "Bem, isso Ã© um alÃ­vio. NÃ£o posso fazer movimentos apressados â€‹â€‹aqui. Miriam deixou um rastro. Agora me faÃ§a um favor e apenas siga o traÃ§o.";
+		mes "Bem, isso é um alívio. Não posso fazer movimentos apressados aqui. Miriam deixou um rastro. Agora me faça um favor e apenas siga o traço.";
 		close2;
 		navigateto("1@nyr",179,164);
 		cutin "",255;
@@ -967,50 +967,50 @@ OnTouch:
 
 2@nyr,35,215,7	script	Temple Guard#dms201	4_M_RASWORD,{
 	if (is_party_leader() == false) {
-		npctalk "Quem Ã© o lÃ­der do partido?";
+		npctalk "Quem é o líder do partido?";
 		end;
 	}
 	if ('nyr_main_step != 4)
 		end;
 	mes "[Guarda do Templo]";
-	mes "Este lugar estÃ¡ fora dos limites.";
+	mes "Este lugar está fora dos limites.";
 	next;
 	cutin "ep18_miriam_01.png",2;
 	mes "[Miriam]";
-	mes "Eu sou Miriam, filha do sumo sacerdote Amal. Estamos seguindo um grupo suspeito de pessoas nessa Ã¡rea.";
+	mes "Eu sou Miriam, filha do sumo sacerdote Amal. Estamos seguindo um grupo suspeito de pessoas nessa área.";
 	next;
 	cutin "",255;
 	mes "[Guarda do Templo]";
-	mes "VocÃª estÃ¡ aqui para ajudar o sumo sacerdote com seu trabalho?";
+	mes "Você está aqui para ajudar o sumo sacerdote com seu trabalho?";
 	next;
 	cutin "ep18_miriam_03.png",2;
 	mes "[Miriam]";
-	mes "Trabalho ... ajuda ...? Meu pai estÃ¡ aqui?";
+	mes "Trabalho ... ajuda ...? Meu pai está aqui?";
 	next;
 	cutin "",255;
 	mes "[Guarda do Templo]";
 	mes "Um ...";
 	next;
 	mes "[Guarda do Templo]";
-	mes "NinguÃ©m aqui Ã© suspeito. VocÃª pode sair agora.";
+	mes "Ninguém aqui é suspeito. Você pode sair agora.";
 	next;
 	mapannounce 'map_2nyr$, "Devagar.", bc_map, 0xFFCC;
 	mapannounce 'map_2nyr$, "Por favor, tenha cuidado.", bc_map, 0xFFCC;
 	cutin "ep18_miriam_03.png",2;
 	mes "[Miriam]";
-	mes "Tem certeza de que nÃ£o hÃ¡ pessoas suspeitas entrando? Eles obviamente entraram neste lugar, me dÃ£o um segundo e eu vou dar uma olhada rapidamente.";
+	mes "Tem certeza de que não há pessoas suspeitas entrando? Eles obviamente entraram neste lugar, me dão um segundo e eu vou dar uma olhada rapidamente.";
 	next;
 	cutin "",255;
 	mes "[Guarda do Templo]";
-	mes "Se vocÃª se aproximar, tomaremos medidas.";
+	mes "Se você se aproximar, tomaremos medidas.";
 	next;
 	cutin "ep18_miriam_03.png",2;
 	mes "[Miriam]";
-	mes "... NÃ£o posso evitar, entÃ£o. VocÃª pode, aventureiro?";
+	mes "... Não posso evitar, então. Você pode, aventureiro?";
 	next;
-	select( "Sim. Vou lidar com isso, vocÃª vai atrÃ¡s deles." );
+	select( "Sim. Vou lidar com isso, você vai atrás deles." );
 	mes "[Miriam]";
-	mes "EntÃ£o me faÃ§a um favor, vou deixar uma trilha para que vocÃª possa me encontrar ..";
+	mes "Então me faça um favor, vou deixar uma trilha para que você possa me encontrar ..";
 	next;
 	cutin "",255;
 	disablenpc instance_npcname("Miriam#dms201");
@@ -1117,50 +1117,50 @@ OnTouch:
 		end;
 	cutin "ep18_miriam_03.png",2;
 	mes "[Miriam]";
-	mes "O que vocÃª estÃ¡ fazendo aqui?";
+	mes "O que você está fazendo aqui?";
 	next;
 	cutin "",255;
 	mes "[Lamacus]";
-	mes "Uau! O que diabos vocÃª estÃ¡ fazendo aqui, com um aventureiro?";
+	mes "Uau! O que diabos você está fazendo aqui, com um aventureiro?";
 	next;
 	cutin "ep18_miriam_03.png",2;
 	mes "[Miriam]";
-	mes "VocÃª nÃ£o deveria estar aqui agora. Se o templo descobrir, apenas tornarÃ¡ as coisas mais difÃ­ceis para nÃ³s.";
+	mes "Você não deveria estar aqui agora. Se o templo descobrir, apenas tornará as coisas mais difíceis para nós.";
 	next;
 	cutin "",255;
 	mes "[Lamacus]";
-	mes "VocÃª nÃ£o vÃª? Estamos invadindo uma biblioteca. Deve haver muitos segredos dos colonos aqui.";
+	mes "Você não vê? Estamos invadindo uma biblioteca. Deve haver muitos segredos dos colonos aqui.";
 	npctalk "Think about it. What if we got our hands on all of this?", instance_npcname("Kun#dms211");
 	npctalk "We can take advantage of their weaknesses!", instance_npcname("Yopi#dms221");
 	next;
 	cutin "ep18_miriam_03.png",2;
 	mes "[Miriam]";
-	mes "Podemos pensar nisso mais tarde. Por agora. Volte. Suas aÃ§Ãµes agora podem nos colocar em mais perigo ..";
+	mes "Podemos pensar nisso mais tarde. Por agora. Volte. Suas ações agora podem nos colocar em mais perigo ..";
 	next;
 	cutin "",255;
 	mes "[Yopi]";
-	mes "VÃ¡ para casa, Miriam. NÃ£o vou mais cooperar com seu comportamento abafado.";
+	mes "Vá para casa, Miriam. Não vou mais cooperar com seu comportamento abafado.";
 	npctalk "Who are you to tell us what to do?", instance_npcname("Kun#dms211");
 	next;
 	enablenpc instance_npcname("Temple Guard#dms301");
 	mes "[Guarda do Templo]";
-	mes "LÃ¡, intruso!";
+	mes "Lá, intruso!";
 	next;
 	enablenpc instance_npcname("Temple Guard#dms311");
 	enablenpc instance_npcname("Temple Guard#dms321");
 	enablenpc instance_npcname("Temple Guard#dms331");
 	enablenpc instance_npcname("Temple Guard#dms341");
 	mes "[Guarda do Templo]";
-	mes "Todos deitam suas armas e levantam as mÃ£os!";
+	mes "Todos deitam suas armas e levantam as mãos!";
 	next;
-	select( "Como faÃ§o isso?" );
+	select( "Como faço isso?" );
 	cutin "ep18_miriam_03.png",2;
 	mes "[Miriam]";
-	mes "Estamos em menor nÃºmero, vamos lidar com isso.";
+	mes "Estamos em menor número, vamos lidar com isso.";
 	next;
 	cutin "",255;
 	mes "[Quando]";
-	mes "Bom tempo. EntÃ£o vamos dizer adeus!";
+	mes "Bom tempo. Então vamos dizer adeus!";
 	next;
 	cutin "ep18_miriam_03.png",2;
 	mes "[Miriam]";
@@ -1202,7 +1202,7 @@ OnMobDead:
 		end;
 	if (mobcount('map_2nyr$, instance_npcname("nyr_step_3") + "::OnMobDead") < 1) {
 		'nyr_main_step = 8;
-		mapannounce 'map_2nyr$, "Eu sinto um calafrio na minha espinha ... como se alguÃ©m estivesse assistindo ...?", bc_map, 0xFFCC;
+		mapannounce 'map_2nyr$, "Eu sinto um calafrio na minha espinha ... como se alguém estivesse assistindo ...?", bc_map, 0xFFCC;
 		disablenpc instance_npcname("#mstep01");
 		enablenpc instance_npcname("#mstep02");
 		enablenpc instance_npcname("#mstep03");
@@ -1238,64 +1238,64 @@ OnTouch:
 	if (is_party_leader() == false)
 		end;
 	mes "[Lamacus]";
-	mes "VocÃª encontrou isso? Que tipo de lugar Ã© esse?";
+	mes "Você encontrou isso? Que tipo de lugar é esse?";
 	next;
 	mes "[Quando]";
-	mes "Ainda nÃ£o. Eu nÃ£o acho que seja deste lado. Oh, espere ... o sumo sacerdote ...?";
+	mes "Ainda não. Eu não acho que seja deste lado. Oh, espere ... o sumo sacerdote ...?";
 	next;
 	mes "[Yopi]";
-	mes "Deixe os livros irrelevantes em paz. NÃ£o Ã© isso que estamos procurando.";
+	mes "Deixe os livros irrelevantes em paz. Não é isso que estamos procurando.";
 	next;
 	cutin "ep18_miriam_03.png",0;
 	mes "[Miriam]";
-	mes "VocÃªs ...!";
+	mes "Vocês ...!";
 	next;
 	select( "Shhh Hold em um segundo." );
 	cutin "",255;
 	mes "[Lamacus]";
-	mes "Mesmo o mais secreto das bibliotecas nÃ£o deixaria apenas um livro como aquele por aÃ­.";
+	mes "Mesmo o mais secreto das bibliotecas não deixaria apenas um livro como aquele por aí.";
 	next;
 	mes "[Quando]";
-	mes "EntÃ£o, existe outra biblioteca secreta na biblioteca secreta?";
+	mes "Então, existe outra biblioteca secreta na biblioteca secreta?";
 	next;
 	mes "[Yopi]";
-	mes "NÃ£o sei. Vamos apenas encontrÃ¡ -lo.";
+	mes "Não sei. Vamos apenas encontrá -lo.";
 	next;
 	mes "[Quando]";
-	mes "Seria bom saber o tÃ­tulo do livro.";
+	mes "Seria bom saber o título do livro.";
 	next;
 	mes "[Lamacus]";
-	mes "Se eu soubesse disso, nÃ£o estaria aqui. Eu ficaria tipo, 'Traga -me qualquer coisa que se pareÃ§a assim'. VÃ¡ encontrÃ¡ -lo.";
+	mes "Se eu soubesse disso, não estaria aqui. Eu ficaria tipo, 'Traga -me qualquer coisa que se pareça assim'. Vá encontrá -lo.";
 	next;
-	select( "NÃ£o parece que eles estÃ£o procurando um livro especÃ­fico?" );
+	select( "Não parece que eles estão procurando um livro específico?" );
 	mes "[Miriam]";
-	mes "Um livro especÃ­fico ...? NÃ£o Ã© apenas um livro para explorar fraquezas?";
+	mes "Um livro específico ...? Não é apenas um livro para explorar fraquezas?";
 	next;
 	cutin "ep18_miriam_03.png",0;
 	mes "[Miriam]";
-	mes "NÃ£o, vocÃª quer dizer isso? Ei! O que vocÃª estÃ¡ procurando? Para que finalidade?";
+	mes "Não, você quer dizer isso? Ei! O que você está procurando? Para que finalidade?";
 	next;
 	cutin "",255;
 	mes "[Yopi]";
-	mes "Oh, lÃ¡ vai vocÃª de novo! Por que vocÃª estÃ¡ escutando? Como se vocÃª tivesse algo sombrio para compartilhar.";
+	mes "Oh, lá vai você de novo! Por que você está escutando? Como se você tivesse algo sombrio para compartilhar.";
 	npctalk "Why do you keep following me? Why do you keep interrupting me?", instance_npcname("Kun#dms311");
 	next;
 	cutin "ep18_miriam_03.png",0;
 	mes "[Miriam]";
-	mes "VocÃªs sÃ£o os que se esgueiraram com as coisas obscuras, lembra? Qual Ã© o livro que vocÃª estÃ¡ procurando?";
+	mes "Vocês são os que se esgueiraram com as coisas obscuras, lembra? Qual é o livro que você está procurando?";
 	next;
 	cutin "",255;
 	mes "[Lamacus]";
-	mes "Isso realmente dÃ³i, cara. VocÃª nÃ£o percebe que estamos tentando fazer uma coisa boa com isso? VocÃª nÃ£o consegue entender que estamos tentando fazer uma vida melhor para todos?";
+	mes "Isso realmente dói, cara. Você não percebe que estamos tentando fazer uma coisa boa com isso? Você não consegue entender que estamos tentando fazer uma vida melhor para todos?";
 	npctalk "Are you setting us up?", instance_npcname("Yopi#dms321");
 	npctalk "What did they say to us?", instance_npcname("Kun#dms311");
 	next;
 	mes "[Lamacus]";
-	mes "Eles nunca saberÃ£o o quanto nos importamos. JÃ¡ era hora de vocÃª aparecer, a propÃ³sito ...";
+	mes "Eles nunca saberão o quanto nos importamos. Já era hora de você aparecer, a propósito ...";
 	next;
 	cutin "ep18_miriam_03.png",0;
 	mes "[Miriam]";
-	mes "VocÃª tem que pegÃ¡ -los e fazÃª -los abrir a boca ...!";
+	mes "Você tem que pegá -los e fazê -los abrir a boca ...!";
 	next;
 	enablenpc instance_npcname("Temple Guard#dms401");
 	enablenpc instance_npcname("Temple Guard#dms411");
@@ -1304,7 +1304,7 @@ OnTouch:
 	enablenpc instance_npcname("Temple Guard#dms441");
 	cutin "",255;
 	mes "[Guarda do Templo]";
-	mes "Aqui vamos nÃ³s! O intruso estÃ¡ aqui !!!";
+	mes "Aqui vamos nós! O intruso está aqui !!!";
 	npctalk "Here we go!!! Good luck! Let's go, boys!", instance_npcname("Lamacus#dms301");
 	npctalk "I'll track them down, and you, Adventurer, take care of these guys!", instance_npcname("Miriam#dms401");
 	next;
@@ -1350,7 +1350,7 @@ OnMobDead:
 		end;
 	if (mobcount('map_2nyr$, instance_npcname("nyr_step_4") + "::OnMobDead") < 1) {
 		'nyr_main_step = 10;
-		mapannounce 'map_2nyr$, "Ã‰ ameaÃ§ador. Eu sinto que ainda estÃ¡ nos seguindo.", bc_map, 0xFFCC;
+		mapannounce 'map_2nyr$, "É ameaçador. Eu sinto que ainda está nos seguindo.", bc_map, 0xFFCC;
 		disablenpc instance_npcname("#mstep02");
 		disablenpc instance_npcname("#mstep03");
 		enablenpc instance_npcname("#mstep04");
@@ -1383,7 +1383,7 @@ OnTouch:
 	if (is_party_leader() == false)
 		end;
 	mes "[Yopi]";
-	mes "NÃ£o Ã© esse o fim da linha?";
+	mes "Não é esse o fim da linha?";
 	next;
 	mes "[Lamacus]";
 	mes "Eu sei. Eles devem ter uma verdadeira biblioteca secreta.";
@@ -1391,10 +1391,10 @@ OnTouch:
 	npctalk "You're not going to hold me responsible for failing, are you?", instance_npcname("Kun#dms411");
 	next;
 	mes "[Lamacus]";
-	mes "Eu disse para vocÃª encontrÃ¡ -lo em primeiro lugar, nÃ£o apenas venha atÃ© mim porque estÃ¡ lÃ¡.";
+	mes "Eu disse para você encontrá -lo em primeiro lugar, não apenas venha até mim porque está lá.";
 	next;
 	mes "[Quando]";
-	mes "Pergunte se nÃ£o hÃ¡ problema em recuar.";
+	mes "Pergunte se não há problema em recuar.";
 	next;
 	npctalk "This is Wolf.", instance_npcname("Lamacus#dms401");
 	sleep2 2000;
@@ -1404,17 +1404,17 @@ OnTouch:
 	sleep2 2000;
 	npctalk "???: Wait.", instance_npcname("Lamacus#dms401");
 	mes "[Quando]";
-	mes "Espere, estou vendo as coisas? Isso Ã© Miriam e o aventureiro.";
+	mes "Espere, estou vendo as coisas? Isso é Miriam e o aventureiro.";
 	npctalk "You're persistent. I'm surprised you beat all the guards.", instance_npcname("Yopi#dms421");
 	next;
 	cutin "ep18_miriam_03.png",2;
 	mes "[Miriam]";
-	mes "Com quem vocÃªs estÃ£o falando?";
+	mes "Com quem vocês estão falando?";
 	next;
-	select( "VocÃªs pagaram para fazer isso?" );
+	select( "Vocês pagaram para fazer isso?" );
 	cutin "",255;
 	mes "[Lamacus]";
-	mes "Pagamento? NÃ³s nÃ£o entendemos isso, nÃ£o Ã©?";
+	mes "Pagamento? Nós não entendemos isso, não é?";
 	npctalk "I'm a bit of a believer.", instance_npcname("Kun#dms411");
 	npctalk "We don't betray, ever.", instance_npcname("Yopi#dms421");
 	next;
@@ -1443,31 +1443,31 @@ OnTouch:
 
 	cutin "ep18_shulang.png",0;
 	mes "[??]";
-	mes "Este Ã© o fim da biblioteca?";
+	mes "Este é o fim da biblioteca?";
 	next;
 	cutin "",255;
 	mes "[Lamacus]";
-	mes "Ã‰ sim.";
+	mes "É sim.";
 	next;
 	cutin "ep18_shulang.png",0;
 	mes "[??]";
-	mes "Eu gostaria de ter encontrado o livro, mas nÃ£o posso. Eles fizeram o trabalho deles, entÃ£o estamos fora daqui.";
+	mes "Eu gostaria de ter encontrado o livro, mas não posso. Eles fizeram o trabalho deles, então estamos fora daqui.";
 	next;
 	cutin "ep18_miriam_03.png",2;
 	mes "[Miriam]";
-	mes "Quem Ã© vocÃª? O que vocÃª tem a ver com essas pessoas?";
+	mes "Quem é você? O que você tem a ver com essas pessoas?";
 	next;
 	cutin "ep18_shulang.png",0;
 	mes "[??]";
-	mes "O que Ã©? HÃ¡ algo mais?";
+	mes "O que é? Há algo mais?";
 	next;
 	cutin "",255;
 	mes "[Yopi]";
-	mes "AlguÃ©m cheirou o lobo e decidiu nos seguir. Vamos cuidar disso em breve.";
+	mes "Alguém cheirou o lobo e decidiu nos seguir. Vamos cuidar disso em breve.";
 	next;
 	cutin "ep18_shulang.png",0;
 	mes "[??]";
-	mes "Isso nÃ£o Ã© necessÃ¡rio. VocÃªs deveriam sair daqui e deixar os novos caras assumirem o controle.";
+	mes "Isso não é necessário. Vocês deveriam sair daqui e deixar os novos caras assumirem o controle.";
 	next;
 	cutin "",255;
 	mes "[Lamacus]";
@@ -1481,19 +1481,19 @@ OnTouch:
 	cutin "",255;
 	mes "[Guarda do Templo]";
 	mes "Cuide de todos os invasores!";
-	unittalk getcharid(3), "" + strcharinfo(0) + ": Quem Ã© o intruso?";
+	unittalk getcharid(3), "" + strcharinfo(0) + ": Quem é o intruso?";
 	next;
 	cutin "ep18_miriam_03.png",2;
 	mes "[Miriam]";
-	mes "Parece uma reviravolta estranha do destino, hein? Os guardas do templo foram comprados. Precisamos descobrir o que estÃ¡ acontecendo ...";
+	mes "Parece uma reviravolta estranha do destino, hein? Os guardas do templo foram comprados. Precisamos descobrir o que está acontecendo ...";
 	unittalk getcharid(3), "" + strcharinfo(0) + ": Deixe essas pessoas para mim.";
 	next;
 	cutin "",255;
 	mes "[Guarda do Templo]";
-	mes "Todas as mÃ£os em formaÃ§Ã£o!";
+	mes "Todas as mãos em formação!";
 	next;
 	mes "[Yopi]";
-	mes "Oh, nÃ£o ~ Sinto muito por termos cruzado caminhos, ficamos sujos, entÃ£o nÃ£o vamos nos encontrar de novo?";
+	mes "Oh, não ~ Sinto muito por termos cruzado caminhos, ficamos sujos, então não vamos nos encontrar de novo?";
 	if ('nyr_main_step == 10) {
 		'nyr_main_step = 11;
 		donpcevent instance_npcname("nyr_step_5") + "::OnStart";
@@ -1564,7 +1564,7 @@ OnMobDead:
 
 2@nyr,133,109,3	script	Miriam#dms601	EP18_NPC_MIRIAM,5,5,{
 	if (is_party_leader() == false) {
-		npctalk "Eu nÃ£o acho que a festa jÃ¡ chegou.";
+		npctalk "Eu não acho que a festa já chegou.";
 		end;
 	}
 	.@miriam$ = instance_npcname("Miriam#dms601");
@@ -1572,37 +1572,37 @@ OnMobDead:
 	if ('nyr_main_step == 12) {
 		cutin "ep18_miriam_03.png",2;
 		mes "[Miriam]";
-		mes "O que vocÃª estÃ¡ fazendo? Quantas pessoas existem? NÃ£o consigo ver muito daqui.";
+		mes "O que você está fazendo? Quantas pessoas existem? Não consigo ver muito daqui.";
 		next;
-		select( "Existem algumas pessoas que nÃ£o reconheÃ§o." );
+		select( "Existem algumas pessoas que não reconheço." );
 		cutin "ep18_shulang.png",1;
 		mes "[???]";
-		mes "QuÃ£o longe estamos a partir daÃ­?";
+		mes "Quão longe estamos a partir daí?";
 		next;
 		cutin "",255;
 		mes "[Lamacus]";
-		mes "Estamos quase lÃ¡ agora.";
+		mes "Estamos quase lá agora.";
 		next;
 		cutin "ep18_bagot_01.png",1;
 		mes "[???]";
-		mes "Ã‰ muito, muito, muito seguro. SÃ³ estou dizendo.";
+		mes "É muito, muito, muito seguro. Só estou dizendo.";
 		next;
 		cutin "",255;
 		mes "[???]";
-		mes "... vocÃª nÃ£o Ã© pelo menos isso seguro?";
+		mes "... você não é pelo menos isso seguro?";
 		next;
 		cutin "ep18_bagot_02.png",1;
 		mes "[???]";
-		mes "Ei, Sr. Genius, vocÃª nÃ£o sabe como fazer uma ironia?! A seguranÃ§a rÃ­gida nÃ£o Ã© sinÃ´nimo de procedimentos pesados â€‹â€‹e exigentes, certo?";
+		mes "Ei, Sr. Genius, você não sabe como fazer uma ironia?! A segurança rígida não é sinônimo de procedimentos pesados e exigentes, certo?";
 		next;
 		cutin "ep18_miriam_03.png",2;
 		mes "[Miriam]";
-		mes "Esta voz Ã© ...";
+		mes "Esta voz é ...";
 		donpcevent .@miriam$ + "::OnEffect";
 		next;
-		select( "VocÃª os conhece?" );
+		select( "Você os conhece?" );
 		mes "[Miriam]";
-		mes "EstÃ¡ obscurecido, entÃ£o nÃ£o tenho certeza ...";
+		mes "Está obscurecido, então não tenho certeza ...";
 		next;
 		cutin "",255;
 		mes "[???]";
@@ -1644,7 +1644,7 @@ OnMobDead:
 		npctalk "Por aqui! Apresse -se e persegui -lo!";
 		cutin "ep18_miriam_03.png",2;
 		mes "[Miriam]";
-		mes "Vamos entrar tambÃ©m.";
+		mes "Vamos entrar também.";
 		sleep2 1000;
 		unitwalk getnpcid(0,instance_npcname("Temple Guard#dms601")), 118,121, .@miriam$ + "::OnMove5";
 		unitwalk getnpcid(0,instance_npcname("Temple Guard#dms611")), 118,121, .@miriam$ + "::OnMove6";
@@ -1713,12 +1713,12 @@ OnTouch:
 
 2@nyr,118,199,1	script	Miriam#dms701	4_EP18_MIRIAM,5,5,{
 	if (is_party_leader() == false) {
-		npctalk "Quem Ã© o lÃ­der do partido?";
+		npctalk "Quem é o líder do partido?";
 		end;
 	}
 	if ('nyr_main_step == 13) {
 		mes "[???]";
-		mes "Schulang, vocÃª jÃ¡ garantiu? Este Bagot estÃ¡ prestes a perder a paciÃªncia.";
+		mes "Schulang, você já garantiu? Este Bagot está prestes a perder a paciência.";
 		next;
 		mes "[Lamacus]";
 		mes "Mas temos que manter isso?";
@@ -1726,34 +1726,34 @@ OnTouch:
 		next;
 		cutin "ep18_shulang.png",0;
 		mes "[Schulang]";
-		mes "Quem se importa? VocÃª veio atÃ© aqui. FaÃ§a o que quiser.";
+		mes "Quem se importa? Você veio até aqui. Faça o que quiser.";
 		next;
 		setnpcdisplay( instance_npcname("Lamacus#dms601"), 21308 );	// EP18_MD_HEARTHUNTER_A
 		setnpcdisplay( instance_npcname("Kun#dms611"), 21308 );	// EP18_MD_HEARTHUNTER_A
 		setnpcdisplay( instance_npcname("Yopi#dms621"), 21308 );	// EP18_MD_HEARTHUNTER_A
 		cutin "",255;
 		mes "[Yopi]";
-		mes "Hah- Agora isso Ã© um salva-vidas.";
+		mes "Hah- Agora isso é um salva-vidas.";
 		npctalk "I thought it was killing me!", instance_npcname("Kun#dms611");
 		next;
-		select( "Os caÃ§adores de coraÃ§Ã£o estavam disfarÃ§ados." );
+		select( "Os caçadores de coração estavam disfarçados." );
 		cutin "ep18_miriam_03.png",2;
 		mes "[Miriam]";
-		mes "Hearthunter ... vocÃª estÃ¡ trabalhando com aqueles cientistas loucos de que estava falando ... desde o inÃ­cio ...!";
+		mes "Hearthunter ... você está trabalhando com aqueles cientistas loucos de que estava falando ... desde o início ...!";
 		next;
 		cutin "",255;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Ainda hÃ¡ muitos caÃ§adores de coraÃ§Ã£o remodelados com o coraÃ§Ã£o de Ymir, certo?";
+		mes "Ainda há muitos caçadores de coração remodelados com o coração de Ymir, certo?";
 		next;
 		cutin "ep18_shulang.png",0;
 		mes "[Schulang]";
-		mes "Era o nosso rosto antigo? Ah, essas sÃ£o as pequenas batatas fritas que se diz que estÃ£o rastreando vocÃª. Eu ouvi as notÃ­cias.";
+		mes "Era o nosso rosto antigo? Ah, essas são as pequenas batatas fritas que se diz que estão rastreando você. Eu ouvi as notícias.";
 		npctalk "Oh, those people? They've been after us so relentlessly that we've surprised ourselves. We didn't realize we were in debt.", instance_npcname("Bagot#dms201");
 		next;
-		select( "Isso seria ilusÃ£o." );
+		select( "Isso seria ilusão." );
 		cutin "ep18_bagot_02.png",1;
 		mes "[Bagot]";
-		mes "Oh, meu Deus, eu nÃ£o quero envergonhÃ¡ -lo.";
+		mes "Oh, meu Deus, eu não quero envergonhá -lo.";
 		npctalk "Who cares, it's going to be gone anyway.", instance_npcname("Schulang#dms301");
 		next;
 		enablenpc instance_npcname("High Priest#dms201");
@@ -1761,7 +1761,7 @@ OnTouch:
 		enablenpc instance_npcname("Temple Guard#dms711");
 		cutin "",255;
 		mes "[???]";
-		mes "VocÃª estÃ¡ bom para ir.";
+		mes "Você está bom para ir.";
 		next;
 		cutin "ep18_miriam_03.png",2;
 		mes "[Miriam]";
@@ -1769,21 +1769,21 @@ OnTouch:
 		next;
 		cutin "",255;
 		mes "[Caridade]";
-		mes "Miriam, vocÃª veio atÃ© aqui. VocÃª fez sua parte, agora vÃ¡ para casa.";
+		mes "Miriam, você veio até aqui. Você fez sua parte, agora vá para casa.";
 		next;
 		cutin "ep18_miriam_03.png",2;
 		mes "[Miriam]";
-		mes "O que vocÃª quer dizer? O que vocÃª estÃ¡ fazendo...?";
+		mes "O que você quer dizer? O que você está fazendo...?";
 		next;
 		cutin "ep18_bagot_03.png",1;
 		mes "[Bagot]";
-		mes "Uau, vocÃª foi elogiado por seu pai. Isso Ã© Ã³timo. Elogios por uma boa paternidade, Ã© importante.";
-		mes "Eu nem me lembro de receber meus elogios. Hum ... ah! NÃ£o me lembro porque nunca consegui.!";
+		mes "Uau, você foi elogiado por seu pai. Isso é ótimo. Elogios por uma boa paternidade, é importante.";
+		mes "Eu nem me lembro de receber meus elogios. Hum ... ah! Não me lembro porque nunca consegui.!";
 		npctalk "Now that you've been praised, you can go home, wash off your feet, and sleep..", instance_npcname("Bagot#dms201");
 		next;
 		cutin "ep18_miriam_03.png",2;
 		mes "[Miriam]";
-		mes "O que, o que estÃ¡ acontecendo? Por que meu pai ... o que vocÃª fez?";
+		mes "O que, o que está acontecendo? Por que meu pai ... o que você fez?";
 		next;
 		cutin "",255;
 		mes "[Caridade]";
@@ -1800,34 +1800,34 @@ OnTouch:
 		next;
 		cutin "ep18_miriam_03.png",2;
 		mes "[Miriam]";
-		mes "O que vocÃª estÃ¡ fazendo com meu pai?";
+		mes "O que você está fazendo com meu pai?";
 		next;
 		cutin "ep18_bagot_03.png",1;
 		mes "[Bagot]";
-		mes "Oh, vocÃª nÃ£o sabe, nÃ£o Ã©? Seu desejo Ã© expulsar todos os nativos de Arunafeltz. Ajudamos um pouco com isso, mas nÃ£o de graÃ§a.";
+		mes "Oh, você não sabe, não é? Seu desejo é expulsar todos os nativos de Arunafeltz. Ajudamos um pouco com isso, mas não de graça.";
 		npctalk "You should always live your life doing whatever you want. Otherwise, you're going to be sick.", instance_npcname("Bagot#dms201");
 		npctalk "Hehe - did you like your impersonation? Give us a pat on the back.", instance_npcname("Lamacus#dms601");
 		next;
 		cutin "",255;
-		mes "[CoraÃ§Ã£o Hunter]";
-		mes "Miriam, vocÃª e seus amigos me ajudaram a completar esta foto do tumulto. Muito obrigado!";
+		mes "[Coração Hunter]";
+		mes "Miriam, você e seus amigos me ajudaram a completar esta foto do tumulto. Muito obrigado!";
 		next;
 		cutin "ep18_miriam_03.png",2;
 		mes "[Miriam]";
-		mes "VocÃª acha que isso faz sentido?";
+		mes "Você acha que isso faz sentido?";
 		next;
 		cutin "ep18_bagot_01.png",1;
 		mes "[Bagot]";
-		mes "Do que vocÃª estÃ¡ falando, um punhado de protestos impulsivos ao templo?";
+		mes "Do que você está falando, um punhado de protestos impulsivos ao templo?";
 		next;
 		cutin "ep18_bagot_03.png",1;
 		mes "[Bagot]";
-		mes "Em breve, o protesto do lado de fora se transformarÃ¡ em um tumulto e, em seguida, seu desejo serÃ¡ concedido, e entÃ£o vocÃª farÃ¡ outro desejo, e entÃ£o receberemos o pagamento novamente?";
+		mes "Em breve, o protesto do lado de fora se transformará em um tumulto e, em seguida, seu desejo será concedido, e então você fará outro desejo, e então receberemos o pagamento novamente?";
 		next;
 		cutin "ep18_shulang.png",0;
 		mes "[Schulang]";
-		mes "Eu nÃ£o vou falar para sempre. Vamos.";
-		mes "Limpe sua bagunÃ§a.";
+		mes "Eu não vou falar para sempre. Vamos.";
+		mes "Limpe sua bagunça.";
 		next;
 		cutin "",255;
 		mes "[Lamacus]";
@@ -1835,24 +1835,24 @@ OnTouch:
 		next;
 		disablenpc instance_npcname("Schulang#dms301");
 		disablenpc instance_npcname("Bagot#dms201");
-		mes "[CoraÃ§Ã£o Hunter]";
+		mes "[Coração Hunter]";
 		mes "Eu gostaria de ter suado aqui comigo. Eu gostaria de poder ter ajudado -o algum dia.";
 		next;
-		mes "[CoraÃ§Ã£o Hunter]";
-		mes "OlÃ¡, deixe -me apresentar formalmente a nÃ³s mesmos. Somos os caÃ§adores de coraÃ§Ã£o e estamos prestes a enterrÃ¡ -lo aqui.";
+		mes "[Coração Hunter]";
+		mes "Olá, deixe -me apresentar formalmente a nós mesmos. Somos os caçadores de coração e estamos prestes a enterrá -lo aqui.";
 		npctalk "Not just any heart hunter. He's a really, really good Heart Hunter.", instance_npcname("Kun#dms611");
 		next;
-		select( "Cuidado, eles sÃ£o modificados." );
+		select( "Cuidado, eles são modificados." );
 		next;
 		specialeffect EF_UNDEADBODY, AREA, instance_npcname("Lamacus#dms601");
 		specialeffect EF_NPC_STOP, AREA, instance_npcname("Lamacus#dms601");
 		cutin "ep18_miriam_03.png",2;
 		mes "[Miriam]";
-		mes "Ele sempre foi assim ... hÃ¡ algo ameaÃ§ador nisso?";
+		mes "Ele sempre foi assim ... há algo ameaçador nisso?";
 		next;
-		select( "Parece ressoar com o coraÃ§Ã£o de Ymir aqui." );
+		select( "Parece ressoar com o coração de Ymir aqui." );
 		mes "[Miriam]";
-		mes "Isso Ã© basicamente uma contagem rÃ¡pida, certo? Ok, vamos tornÃ¡ -lo rÃ¡pido e continuar com isso.";
+		mes "Isso é basicamente uma contagem rápida, certo? Ok, vamos torná -lo rápido e continuar com isso.";
 		if ('nyr_main_step == 13) {
 			'nyr_main_step = 14;
 			donpcevent instance_npcname("nyr_step_7") + "::OnStart";
@@ -1864,7 +1864,7 @@ OnTouch:
 	if ('nyr_main_step == 15) {
 		cutin "ep18_miriam_03.png",2;
 		mes "[Miriam]";
-		mes "Ha ... hah ... aventureiro, vocÃª estÃ¡ bem?";
+		mes "Ha ... hah ... aventureiro, você está bem?";
 		next;
 		select( "Mas para onde todos eles foram?" );
 		enablenpc instance_npcname("Niren#dms101");
@@ -1874,16 +1874,16 @@ OnTouch:
 		npctalk "What's this all about?", instance_npcname("Niren#dms101");
 		cutin "ra_gwoman.bmp",0;
 		mes "[Ni Pessoa]";
-		mes "O que, o que hÃ¡ de tudo?";
-		mes "Aventureiro...? Por que vocÃª estÃ¡ aqui, aventureiro?";
+		mes "O que, o que há de tudo?";
+		mes "Aventureiro...? Por que você está aqui, aventureiro?";
 		next;
-		select( "Aqui estÃ¡ o que ..." );
+		select( "Aqui está o que ..." );
 		mes "[Ni Pessoa]";
-		mes "VocÃª tem rastreado um colega que estÃ¡ agindo com desconfianÃ§a, e acontece que eles sÃ£o na verdade uma toupeira.";
+		mes "Você tem rastreado um colega que está agindo com desconfiança, e acontece que eles são na verdade uma toupeira.";
 		next;
 		cutin "ep18_miriam_03.png",2;
 		mes "[Miriam]";
-		mes "VocÃª estÃ¡ na mesma liga que meu pai.?";
+		mes "Você está na mesma liga que meu pai.?";
 		next;
 		cutin "ra_gwoman.bmp",0;
 		mes "[Ni Pessoa]";
@@ -1891,36 +1891,36 @@ OnTouch:
 		next;
 		cutin "ep18_miriam_03.png",2;
 		mes "[Miriam]";
-		mes "Eu acho que meu pai estÃ¡ envolvido nisso.";
+		mes "Eu acho que meu pai está envolvido nisso.";
 		next;
 		cutin "ra_gwoman.bmp",0;
 		mes "[Ni Pessoa]";
-		mes "Como Ã© isso ... sumo sacerdote ...? Teremos que investigar.";
-		mes "Tenho certeza de que hÃ¡ instigadores Ã  espreita na multidÃ£o do lado de fora, plantados pelos bandidos ...";
+		mes "Como é isso ... sumo sacerdote ...? Teremos que investigar.";
+		mes "Tenho certeza de que há instigadores à espreita na multidão do lado de fora, plantados pelos bandidos ...";
 		next;
-		select( "Ã‰ tambÃ©m entre o guarda do templo." );
+		select( "É também entre o guarda do templo." );
 		mes "[Ni Pessoa]";
-		mes "Vamos precisar fazer uma grande revisÃ£o ... primeiro precisamos descobrir o que estamos fazendo aqui, certificando -se de que nÃ£o haja nada perigoso, e nada estÃ¡ perdido ... mesmo entre os guardas do templo.";
+		mes "Vamos precisar fazer uma grande revisão ... primeiro precisamos descobrir o que estamos fazendo aqui, certificando -se de que não haja nada perigoso, e nada está perdido ... mesmo entre os guardas do templo.";
 		next;
 		mes "[Ni Pessoa]";
 		mes "...!!";
-		mes "NÃ£o hÃ¡ necessidade de investigar, falta o Shard do coraÃ§Ã£o de Ymir. Deveria estar lÃ¡.";
+		mes "Não há necessidade de investigar, falta o Shard do coração de Ymir. Deveria estar lá.";
 		next;
 		select( "Eu sei..." );
 		mes "[Ni Pessoa]";
-		mes "O que diabos eles vÃ£o fazer com isso ... eu nem consigo imaginar.";
-		mes "NÃ£o Ã© isso que deverÃ­amos fazer, precisamos dizer a verdade e rastreÃ¡ -los ... !!";
+		mes "O que diabos eles vão fazer com isso ... eu nem consigo imaginar.";
+		mes "Não é isso que deveríamos fazer, precisamos dizer a verdade e rastreá -los ... !!";
 		next;
 		mes "[Ni Pessoa]";
-		mes "Ah ...! VocÃª disse que haveria inimigos entre os guardas do templo, entÃ£o teremos que escolher os que confiamos primeiro.";
+		mes "Ah ...! Você disse que haveria inimigos entre os guardas do templo, então teremos que escolher os que confiamos primeiro.";
 		next;
 		cutin "ep18_miriam_03.png",2;
 		mes "[Miriam]";
-		mes "Eu vou. Provavelmente Ã© esse o meu pai, porque tenho uma boa idÃ©ia de onde pode ter ido.";
+		mes "Eu vou. Provavelmente é esse o meu pai, porque tenho uma boa idéia de onde pode ter ido.";
 		next;
 		cutin "ra_gwoman.bmp",0;
 		mes "[Ni Pessoa]";
-		mes "Falaremos sobre isso quando sairmos, porque nÃ£o estÃ¡ bem por aÃ­.";
+		mes "Falaremos sobre isso quando sairmos, porque não está bem por aí.";
 		close2;
 		cutin "",255;
 		if ('nyr_main_step == 15) {
@@ -1978,7 +1978,7 @@ OnTouch:
 
 OnTouch:
 	if ('nyr_main_step == 13)
-		npctalk "Todo mundo estÃ¡ reunido ali.";
+		npctalk "Todo mundo está reunido ali.";
 	end;
 }
 
@@ -2019,9 +2019,9 @@ OnStart:
 	disablenpc instance_npcname("Temple Guard#dms741");
 	sleep 500;
 	.@label$ = instance_npcname("nyr_step_7") + "::OnMobDead";
-	monster 'map_2nyr$,120,206,"CaÃ§ador de coraÃ§Ã£o",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
-	monster 'map_2nyr$,119,207,"CaÃ§ador de coraÃ§Ã£o",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
-	monster 'map_2nyr$,111,207,"CaÃ§ador de coraÃ§Ã£o",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
+	monster 'map_2nyr$,120,206,"Caçador de coração",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
+	monster 'map_2nyr$,119,207,"Caçador de coração",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
+	monster 'map_2nyr$,111,207,"Caçador de coração",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
 	monster 'map_2nyr$,113,203,"Guarda do templo",21310,1, .@label$;	// EP18_MD_GUARD_A
 	monster 'map_2nyr$,118,203,"Guarda do templo",21310,1, .@label$;	// EP18_MD_GUARD_A
 	monster 'map_2nyr$,112,201,"Guarda do templo",21310,1, .@label$;	// EP18_MD_GUARD_A
@@ -2060,9 +2060,9 @@ OnTouch:
 	npctalk "This way.", instance_npcname("Miriam#dms801");
 	mapannounce 'map_2nyr$, "Estamos vivos! Estamos vivos !!", bc_map, 0xFFCC;
 	sleep 3000;
-	mapannounce 'map_2nyr$, "NÃ³s existimos !! Existe !!", bc_map, 0xFFCC;
+	mapannounce 'map_2nyr$, "Nós existimos !! Existe !!", bc_map, 0xFFCC;
 	sleep 5000;
-	mapannounce 'map_2nyr$, "DÃª o direito do proprietÃ¡rio desta terra! Devolva !!", bc_map, 0xFFCC;
+	mapannounce 'map_2nyr$, "Dê o direito do proprietário desta terra! Devolva !!", bc_map, 0xFFCC;
 	npctalk "Give it back!", instance_npcname("Angry Crowd#dms201");
 	npctalk "Give it back!", instance_npcname("Angry Crowd#dms211");
 	npctalk "Give it back!", instance_npcname("Angry Crowd#dms221");
@@ -2079,7 +2079,7 @@ OnTouch:
 	npctalk "Give it back!", instance_npcname("Angry Crowd#dms232");
 	npctalk "Give it back!", instance_npcname("Angry Crowd#dms242");
 	sleep 5000;
-	mapannounce 'map_2nyr$, "NÃ³s tambÃ©m estamos vivos! Vivo!", bc_map, 0xFFCC;
+	mapannounce 'map_2nyr$, "Nós também estamos vivos! Vivo!", bc_map, 0xFFCC;
 	npctalk "We're alive!", instance_npcname("Angry Crowd#dms201");
 	npctalk "We're alive!", instance_npcname("Angry Crowd#dms211");
 	npctalk "We're alive!", instance_npcname("Angry Crowd#dms221");
@@ -2096,7 +2096,7 @@ OnTouch:
 	npctalk "We're alive!", instance_npcname("Angry Crowd#dms232");
 	npctalk "We're alive!", instance_npcname("Angry Crowd#dms242");
 	sleep 5000;
-	mapannounce 'map_2nyr$, "NÃ³s tambÃ©m existimos! Existe !!", bc_map, 0xFFCC;
+	mapannounce 'map_2nyr$, "Nós também existimos! Existe !!", bc_map, 0xFFCC;
 	npctalk "We exist!", instance_npcname("Angry Crowd#dms201");
 	npctalk "We exist!", instance_npcname("Angry Crowd#dms211");
 	npctalk "We exist!", instance_npcname("Angry Crowd#dms221");
@@ -2113,7 +2113,7 @@ OnTouch:
 	npctalk "We exist!", instance_npcname("Angry Crowd#dms232");
 	npctalk "We exist!", instance_npcname("Angry Crowd#dms242");
 	sleep 5000;
-	mapannounce 'map_2nyr$, "Devolva esta terra ao seu legÃ­timo proprietÃ¡rio! Devolva !!", bc_map, 0xFFCC;
+	mapannounce 'map_2nyr$, "Devolva esta terra ao seu legítimo proprietário! Devolva !!", bc_map, 0xFFCC;
 	npctalk "Give it back!", instance_npcname("Angry Crowd#dms201");
 	npctalk "Give it back!", instance_npcname("Angry Crowd#dms211");
 	npctalk "Give it back!", instance_npcname("Angry Crowd#dms221");
@@ -2134,57 +2134,57 @@ OnTouch:
 
 1@nyr,68,163,5	script	Miriam#dms801	EP18_NPC_MIRIAM,{
 	if (is_party_leader() == false) {
-		npctalk "O lÃ­der do partido ainda nÃ£o chegou?";
+		npctalk "O líder do partido ainda não chegou?";
 		end;
 	}
 	if ('nyr_main_step == 18) {
-		mes "[MultidÃ£o]";
-		mes "ReconheÃ§a -nos!";
+		mes "[Multidão]";
+		mes "Reconheça -nos!";
 		next;
-		mes "[MultidÃ£o]";
+		mes "[Multidão]";
 		mes "Estamos vivos! Estamos aqui !!";
 		next;
-		mes "[MultidÃ£o]";
-		mes "Esta Ã© a nossa terra!";
+		mes "[Multidão]";
+		mes "Esta é a nossa terra!";
 		next;
-		mes "[MultidÃ£o]";
-		mes "Devolva a terra aos legÃ­timos proprietÃ¡rios da terra!";
+		mes "[Multidão]";
+		mes "Devolva a terra aos legítimos proprietários da terra!";
 		next;
 		mes "[Guarda do Templo]";
-		mes "Se vocÃª demitir agora, nÃ£o o cobraremos por invasÃ£o no templo!";
+		mes "Se você demitir agora, não o cobraremos por invasão no templo!";
 		next;
 		mes "[Guarda do Templo]";
 		mes "Vou te dar exatamente 30 minutos! Volte dentro do limite de tempo!";
 		next;
-		mes "[MultidÃ£o]";
-		mes "VocÃª estÃ¡ nos ameaÃ§ando agora?";
+		mes "[Multidão]";
+		mes "Você está nos ameaçando agora?";
 		next;
-		mes "[MultidÃ£o]";
-		mes "O que vocÃª vai fazer?";
+		mes "[Multidão]";
+		mes "O que você vai fazer?";
 		next;
-		mes "[MultidÃ£o]";
-		mes "VocÃª vai prender todos e colocÃ¡ -los na prisÃ£o, certo?";
+		mes "[Multidão]";
+		mes "Você vai prender todos e colocá -los na prisão, certo?";
 		next;
-		mes "[MultidÃ£o]";
-		mes "Neste ponto, vamos lÃ¡ primeiro !!!";
+		mes "[Multidão]";
+		mes "Neste ponto, vamos lá primeiro !!!";
 		next;
 		cutin "ep18_miriam_03.png",1;
 		mes "[Miriam]";
-		mes "Algo nÃ£o estÃ¡ certo. As pessoas estÃ£o ficando muito agressivas.";
+		mes "Algo não está certo. As pessoas estão ficando muito agressivas.";
 		next;
 		mes "[Miriam]";
-		mes "Isso nÃ£o parece bom. Eu preciso conseguir Suad, mas onde estÃ¡ o deputado?";
+		mes "Isso não parece bom. Eu preciso conseguir Suad, mas onde está o deputado?";
 		npctalk "Somebody get Suad, it's urgent!", instance_npcname("Miriam#dms801");
 		next;
 		enablenpc instance_npcname("Niren#dms201");
 		enablenpc instance_npcname("Zhed#dms101");
 		cutin "ra_gwoman.bmp",2;
 		mes "[Ni Pessoa]";
-		mes "LÃ¡ estÃ¡ vocÃª. Eu trouxe o padre Zhed.";
+		mes "Lá está você. Eu trouxe o padre Zhed.";
 		next;
 		cutin "ra_gman2.bmp",2;
 		mes "[Zhed]";
-		mes "O que estÃ¡ acontecendo aqui? Tem algo a ver com as pessoas que se reuniram aqui? Ou hÃ¡ algo dentro do templo que estÃ¡ causando isso ...";
+		mes "O que está acontecendo aqui? Tem algo a ver com as pessoas que se reuniram aqui? Ou há algo dentro do templo que está causando isso ...";
 		next;
 		if ('nyr_main_step == 18) {
 			'nyr_main_step = 19;
@@ -2197,7 +2197,7 @@ OnTouch:
 		}
 		cutin "ep18_suad_04.png",0;
 		mes "[Suad]";
-		mes "O que estÃ¡ acontecendo? VocÃª disse que Ã© algo urgente.";
+		mes "O que está acontecendo? Você disse que é algo urgente.";
 		npctalk "What's going on? You said it's something urgent.", instance_npcname("Suad#dms102");
 		close3;
 	}
@@ -2208,7 +2208,7 @@ OnTouch:
 		npctalk "Adventurer, please be safe.", instance_npcname("Miriam#dms801");
 		cutin "ep18_miriam_03.png",2;
 		mes "[Miriam]";
-		mes "Depois de cobri -lo, mova -se rÃ¡pido. Eles estÃ£o esperando por vocÃª na casa segura.";
+		mes "Depois de cobri -lo, mova -se rápido. Eles estão esperando por você na casa segura.";
 		disablenpc instance_npcname("Miriam#dms801");
 		close3;
 	}
@@ -2234,18 +2234,18 @@ OnMove4:
 //------------------------------------------------------------
 1@nyr,127,163,5	script	Suad#dms102	4_EP18_SUAD,{
 	if (is_party_leader() == false) {
-		npctalk "Eu gostaria que o lÃ­der me dissesse como representante.";
+		npctalk "Eu gostaria que o líder me dissesse como representante.";
 		end;
 	}
 	if ('nyr_main_step != 19)
 		end;
 	cutin "ep18_suad_04.png",0;
 	mes "[Suad]";
-	mes "O que estÃ¡ acontecendo?";
+	mes "O que está acontecendo?";
 	next;
 	cutin "ep18_miriam_03.png",1;
 	mes "[Miriam]";
-	mes "Temos uma toupeira entre nÃ³s.";
+	mes "Temos uma toupeira entre nós.";
 	next;
 	cutin "ep18_suad_04.png",0;
 	mes "[Suad]";
@@ -2253,11 +2253,11 @@ OnMove4:
 	next;
 	cutin "ep18_miriam_03.png",1;
 	mes "[Miriam]";
-	mes "Suad, em primeiro lugar, nos dÃª uma visÃ£o geral da situaÃ§Ã£o aqui. Parece que estamos Ã  beira de um tumulto, estÃ¡ certo? Oh, olÃ¡, padre Zhed.";
+	mes "Suad, em primeiro lugar, nos dê uma visão geral da situação aqui. Parece que estamos à beira de um tumulto, está certo? Oh, olá, padre Zhed.";
 	next;
 	cutin "ep18_suad_02.png",0;
 	mes "[Suad]";
-	mes "Por que o sumo sacerdote estÃ¡ aqui?";
+	mes "Por que o sumo sacerdote está aqui?";
 	next;
 	cutin "ra_gman2.bmp",2;
 	mes "[Zhed]";
@@ -2265,15 +2265,15 @@ OnMove4:
 	next;
 	cutin "ep18_miriam_03.png",1;
 	mes "[Miriam]";
-	mes "HÃ¡ uma razÃ£o para isso, mas primeiro, vamos falar sobre a situaÃ§Ã£o, Suad?";
+	mes "Há uma razão para isso, mas primeiro, vamos falar sobre a situação, Suad?";
 	next;
 	cutin "ep18_suad_03.png",0;
 	mes "[Suad]";
-	mes "NÃ£o Ã© bom. EstÃ¡ em espiral fora de controle. O templo estÃ¡ caindo duro para nÃ³s. Eles estÃ£o recomendando que nos dissolvemos. Estamos ficando sem tempo. Estamos nos preparando para evacuar.";
+	mes "Não é bom. Está em espiral fora de controle. O templo está caindo duro para nós. Eles estão recomendando que nos dissolvemos. Estamos ficando sem tempo. Estamos nos preparando para evacuar.";
 	next;
 	cutin "ep18_suad_01.png",0;
 	mes "[Suad]";
-	mes "O que aconteceu com as pessoas que vocÃª seguiu?";
+	mes "O que aconteceu com as pessoas que você seguiu?";
 	next;
 	select( "Deixe -me explicar." );
 	cutin "",255;
@@ -2285,24 +2285,24 @@ OnMove4:
 	next;
 	cutin "ep18_suad_04.png",0;
 	mes "[Suad]";
-	mes "HÃ¡ uma toupeira entre nÃ³s ... mas quem Ã© o impostor?";
+	mes "Há uma toupeira entre nós ... mas quem é o impostor?";
 	next;
 	cutin "ep18_miriam_03.png",1;
 	mes "[Miriam]";
-	mes "Ã‰ mais preciso dizer que eles se escondem do que traidores. Eles nunca estavam do nosso lado para comeÃ§ar.";
+	mes "É mais preciso dizer que eles se escondem do que traidores. Eles nunca estavam do nosso lado para começar.";
 	next;
 	cutin "ep18_suad_02.png",0;
 	mes "[Suad]";
-	mes "EntÃ£o, estÃ¡vamos quase no meio de um tumulto organizado desde o inÃ­cio?";
+	mes "Então, estávamos quase no meio de um tumulto organizado desde o início?";
 	next;
 	cutin "ra_gwoman.bmp",2;
 	mes "[Ni Pessoa]";
-	mes "Este nÃ£o Ã© o tempo. Eles tambÃ©m se infiltraram no templo, entÃ£o temos que enfrentar de ambos os lados.";
+	mes "Este não é o tempo. Eles também se infiltraram no templo, então temos que enfrentar de ambos os lados.";
 	next;
 	mapannounce 'map_2nyr$, "Pii-", bc_map, 0xFF0000;
 	cutin "ep18_suad_04.png",0;
 	mes "[Suad]";
-	mes "O que Ã© esse apito? NÃ£o Ã© o nosso sinal.";
+	mes "O que é esse apito? Não é o nosso sinal.";
 	next;
 	setnpcdisplay( instance_npcname("Temple Guard#dms802"), 21308 );	// EP18_MD_HEARTHUNTER_A
 	setnpcdisplay( instance_npcname("Temple Guard#dms812"), 21308 );	// EP18_MD_HEARTHUNTER_A
@@ -2317,8 +2317,8 @@ OnMove4:
 	npctalk "Is it now?", instance_npcname("Angry Crowd#dms202");
 	npctalk "Now!", instance_npcname("Temple Guard#dms832");
 	cutin "",255;
-	mes "[MultidÃ£o]";
-	mes "Por que vocÃª estÃ¡ tirando roupas?";
+	mes "[Multidão]";
+	mes "Por que você está tirando roupas?";
 	next;
 	disablenpc instance_npcname("Temple Guard#dms812");
 	disablenpc instance_npcname("Temple Guard#dms832");
@@ -2338,8 +2338,8 @@ OnMove4:
 	mes "[Guarda do Templo]";
 	mes "Mantenha sua guarda!";
 	next;
-	mes "[MultidÃ£o]";
-	mes "O que diabos vocÃª estÃ¡ fazendo ??";
+	mes "[Multidão]";
+	mes "O que diabos você está fazendo ??";
 	next;
 	npctalk "Sorry. Nothing personal.", instance_npcname("Heart Hunter#dms101");
 	npctalk "I still don't understand. What's going on?", instance_npcname("Heart Hunter#dms141");
@@ -2355,11 +2355,11 @@ OnMove4:
 	specialeffect EF_M02, AREA, instance_npcname("Heart Hunter#dms171");
 	specialeffect EF_M02, AREA, instance_npcname("Heart Hunter#dms181");
 	specialeffect EF_M03, AREA, instance_npcname("Heart Hunter#dms191");
-	mes "[MultidÃ£o]";
+	mes "[Multidão]";
 	mes "ARGH !!!! ARGH !!! O guarda do templo agarra um homem !!!";
 	next;
 	mes "[Guarda do Templo]";
-	mes "Ã‰ um tumulto! Abaixe -o!";
+	mes "É um tumulto! Abaixe -o!";
 	next;
 	cutin "ep18_miriam_03.png",1;
 	mes "[Miriam]";
@@ -2367,7 +2367,7 @@ OnMove4:
 	next;
 	cutin "ep18_suad_02.png",0;
 	mes "[Suad]";
-	mes "Precisamos parar os atacantes da forÃ§a bruta.";
+	mes "Precisamos parar os atacantes da força bruta.";
 	next;
 	cutin "ra_gwoman.bmp",2;
 	mes "[Ni Pessoa]";
@@ -2421,16 +2421,16 @@ OnStart:
 	disablenpc instance_npcname("Temple Guard#dms802");
 	disablenpc instance_npcname("Temple Guard#dms822");
 	.@label$ = instance_npcname("nyr_step_10") + "::OnMobDead";
-	monster 'map_1nyr$,123,168,"CaÃ§ador de coraÃ§Ã£o",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
-	monster 'map_1nyr$,118,168,"CaÃ§ador de coraÃ§Ã£o",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
-	monster 'map_1nyr$,113,165,"CaÃ§ador de coraÃ§Ã£o",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
-	monster 'map_1nyr$,114,171,"CaÃ§ador de coraÃ§Ã£o",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
-	monster 'map_1nyr$,128,170,"CaÃ§ador de coraÃ§Ã£o",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
-	monster 'map_1nyr$,115,176,"CaÃ§ador de coraÃ§Ã£o",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
-	monster 'map_1nyr$,120,174,"CaÃ§ador de coraÃ§Ã£o",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
-	monster 'map_1nyr$,125,175,"CaÃ§ador de coraÃ§Ã£o",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
-	monster 'map_1nyr$,126,177,"CaÃ§ador de coraÃ§Ã£o",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
-	monster 'map_1nyr$,128,172,"CaÃ§ador de coraÃ§Ã£o",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
+	monster 'map_1nyr$,123,168,"Caçador de coração",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
+	monster 'map_1nyr$,118,168,"Caçador de coração",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
+	monster 'map_1nyr$,113,165,"Caçador de coração",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
+	monster 'map_1nyr$,114,171,"Caçador de coração",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
+	monster 'map_1nyr$,128,170,"Caçador de coração",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
+	monster 'map_1nyr$,115,176,"Caçador de coração",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
+	monster 'map_1nyr$,120,174,"Caçador de coração",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
+	monster 'map_1nyr$,125,175,"Caçador de coração",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
+	monster 'map_1nyr$,126,177,"Caçador de coração",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
+	monster 'map_1nyr$,128,172,"Caçador de coração",21308,1, .@label$;	// EP18_MD_HEARTHUNTER_A
 	end;
 OnMobDead:
 	if ('nyr_main_step != 20)
@@ -2588,32 +2588,32 @@ OnTouch:
 1@nyr,1,1,0	script	#qmobg101	-1,{
 	end;
 OnStart01:
-	callsub( S_Call, 1, "NinguÃ©m pode nos parar!", "Guarda do Templo#QDMS01", 165,45, 168,47, 170,58 );	// basic routine to spawn the monsters
+	callsub( S_Call, 1, "Ninguém pode nos parar!", "Guarda do Templo#QDMS01", 165,45, 168,47, 170,58 );	// basic routine to spawn the monsters
 OnMobDead1:
-	callsub( S_Next, 2, "Ainda hÃ¡ inimigos restantes na zona 1! Pesquise e destrua!", "Guarda do Templo#QDMS02" );	// basic routine to enable the next npcs
+	callsub( S_Next, 2, "Ainda há inimigos restantes na zona 1! Pesquise e destrua!", "Guarda do Templo#QDMS02" );	// basic routine to enable the next npcs
 
 OnStart02:
-	callsub( S_Call, 2, "NÃ³s ficamos mais fortes agora!", "Guarda do Templo#QDMS02", 159,114, 162,114, 186,122 );
+	callsub( S_Call, 2, "Nós ficamos mais fortes agora!", "Guarda do Templo#QDMS02", 159,114, 162,114, 186,122 );
 OnMobDead2:
 	callsub( S_Next, 3, "Zona 1 ainda abriga inimigos! Pesquise e elimine -os!", "Guarda do Templo#QDMS03" );
 
 OnStart03:
-	callsub( S_Call, 3, "Eles estÃ£o nos levando como presa !! InaceitÃ¡vel!", "Guarda do Templo#QDMS03", 165,141, 164,132, 165,136, 165,127 );
+	callsub( S_Call, 3, "Eles estão nos levando como presa !! Inaceitável!", "Guarda do Templo#QDMS03", 165,141, 164,132, 165,136, 165,127 );
 OnMobDead3:
 	callsub( S_Next, 4, "Zona 1 limpou! Todos, mude para a zona 2!", "Guarda do Templo#QDMS21", "#QWPTO01" );
 
 OnStart21:
-	callsub( S_Call, 4, "VocÃª sabe o que estÃ¡ no meu coraÃ§Ã£o?", "Guarda do Templo#QDMS21", 137,124 );
+	callsub( S_Call, 4, "Você sabe o que está no meu coração?", "Guarda do Templo#QDMS21", 137,124 );
 OnMobDead4:
 	callsub( S_Next, 5, "Os inimigos ainda permanecem na zona 2! Pesquise e destrua!", "Guarda do Templo#QDMS22" );
 
 OnStart22:
-	callsub(S_Call, 5, "Devemos evitÃ¡ -los rapidamente!", "Guarda do Templo#QDMS22", 114,111, 102,98, 108,78, 120,78, 126,110 );
+	callsub(S_Call, 5, "Devemos evitá -los rapidamente!", "Guarda do Templo#QDMS22", 114,111, 102,98, 108,78, 120,78, 126,110 );
 OnMobDead5:
 	callsub( S_Next, 6, "Os inimigos ainda permanecem na zona 2! Pesquise e destrua!", "Guarda do Templo#QDMS23" );
 
 OnStart23:
-	callsub( S_Call, 6, "VocÃª acha que vou ficar por aqui e aceitÃ¡ -lo?", "Guarda do Templo#QDMS23", 138,61, 130,47, 123,35, 105,47, 103,35 );
+	callsub( S_Call, 6, "Você acha que vou ficar por aqui e aceitá -lo?", "Guarda do Templo#QDMS23", 138,61, 130,47, 123,35, 105,47, 103,35 );
 OnMobDead6:
 	callsub( S_Next, 7, "Zona 2 limpou! Todos, mude para a zona 3!", "Guarda do Templo#QDMS31", "#QWPTO03" );
 
@@ -2623,7 +2623,7 @@ OnMobDead7:
 	callsub( S_Next, 8, "Os inimigos ainda permanecem na zona 3! Pesquise e destrua!", "Guarda do Templo#QDMS32" );
 
 OnStart32:
-	callsub( S_Call, 8, "Devemos evitÃ¡ -los rapidamente!", "Guarda do Templo#QDMS32", 63,61, 54,76, 77,100 );
+	callsub( S_Call, 8, "Devemos evitá -los rapidamente!", "Guarda do Templo#QDMS32", 63,61, 54,76, 77,100 );
 OnMobDead8:
 	callsub( S_Next, 9, "Os inimigos ainda permanecem na zona 3! Pesquise e destrua!", "Guarda do Templo#QDMS33" );
 
@@ -2633,18 +2633,18 @@ OnMobDead9:
 	callsub( S_Next, 10, "Zona 3 limpada! Todos, mude para a zona 4!", "Guarda do Templo#QDMS41", "#AreaW03" );
 
 OnStart41:
-	callsub( S_Call, 10, "VocÃªs sÃ£o muito difÃ­ceis.", "Guarda do Templo#QDMS41", 94,185, 79,180, 62,183, 68,199 );
+	callsub( S_Call, 10, "Vocês são muito difíceis.", "Guarda do Templo#QDMS41", 94,185, 79,180, 62,183, 68,199 );
 OnMobDead10:
 	callsub( S_Next, 11, "Os inimigos ainda permanecem na zona 4! Pesquise e destrua!", "Guarda do Templo#QDMS42" );
 
 OnStart42:
-	callsub( S_Call, 11, "Devemos evitÃ¡ -los rapidamente!", "Guarda do Templo#QDMS42", 119,168, 146,183, 177,182 );
+	callsub( S_Call, 11, "Devemos evitá -los rapidamente!", "Guarda do Templo#QDMS42", 119,168, 146,183, 177,182 );
 OnMobDead11:
 	if ('nyr_daily_step != 12)
 		end;
 	if (mobcount('map_1nyr$, instance_npcname("#qmobg101") + "::OnMobDead11") > 0)
 		end;
-	mapannounce 'map_1nyr$, "Todas as zonas limpas! ReÃºna -se na entrada do templo!", bc_map, 0xFFCC;
+	mapannounce 'map_1nyr$, "Todas as zonas limpas! Reúna -se na entrada do templo!", bc_map, 0xFFCC;
 	for ( .@i = 0; .@i < 9; ++.@i )
 		enablenpc instance_npcname("Temple Guard#qdms1" + .@i + "2");
 	end;
@@ -2705,8 +2705,8 @@ OnTouch:
 		end;
 	if ('nyr_daily_step != 12)
 		end;
-	mes "[CapitÃ£o da Guarda do Templo]";
-	mes "Muito bem, pessoal! A limpeza continuarÃ¡ diariamente! Vamos dissolver hoje e descansar!";
+	mes "[Capitão da Guarda do Templo]";
+	mes "Muito bem, pessoal! A limpeza continuará diariamente! Vamos dissolver hoje e descansar!";
 	npctalk "Yes, sir!!", instance_npcname("Temple Guard#qdms112");
 	npctalk "Yes, sir!!", instance_npcname("Temple Guard#qdms122");
 	npctalk "Yes, sir!!", instance_npcname("Temple Guard#qdms132");
@@ -2716,11 +2716,11 @@ OnTouch:
 	npctalk "Yes, sir!!", instance_npcname("Temple Guard#qdms172");
 	npctalk "Yes, sir!!", instance_npcname("Temple Guard#qdms182");
 	next;
-	mes "[CapitÃ£o da Guarda do Templo]";
+	mes "[Capitão da Guarda do Templo]";
 	mes "Aventureiro, obrigado por sua ajuda.";
 	next;
-	mes "[CapitÃ£o da Guarda do Templo]";
-	mes "Ouvi dizer que vocÃª tambÃ©m se juntarÃ¡ a nÃ³s para uma operaÃ§Ã£o de limpeza separada dentro do templo. Estaremos contando com vocÃª!";
+	mes "[Capitão da Guarda do Templo]";
+	mes "Ouvi dizer que você também se juntará a nós para uma operação de limpeza separada dentro do templo. Estaremos contando com você!";
 	close2;
 	if ('nyr_daily_step != 12)
 		end;
@@ -2819,58 +2819,58 @@ OnTouch:
 OnStart10:
 	callsub( S_Call, 14, "Ah! Que surpresa!", "Guarda do Templo#2dms10" );
 OnMobDead14:
-	callsub( S_Next, 15, "Os inimigos ainda permanecem na zona 1! Pesquise e destrua!", "CaÃ§ador de coraÃ§Ã£o#2dms11" );
+	callsub( S_Next, 15, "Os inimigos ainda permanecem na zona 1! Pesquise e destrua!", "Caçador de coração#2dms11" );
 
 OnStart11:
-	callsub( S_Call, 15, "O que? Por que eles ??", "CaÃ§ador de coraÃ§Ã£o#2dms11" );
+	callsub( S_Call, 15, "O que? Por que eles ??", "Caçador de coração#2dms11" );
 OnMobDead15:
-	callsub( S_Next, 16, "Os inimigos ainda permanecem na zona 1! Pesquise e destrua!", "CaÃ§ador de coraÃ§Ã£o#2dms12" );
+	callsub( S_Next, 16, "Os inimigos ainda permanecem na zona 1! Pesquise e destrua!", "Caçador de coração#2dms12" );
 
 OnStart12:
-	callsub( S_Call, 16, "Eek !!", "CaÃ§ador de coraÃ§Ã£o#2dms12" );
+	callsub( S_Call, 16, "Eek !!", "Caçador de coração#2dms12" );
 OnMobDead16:
-	callsub( S_Next, 17, "Corredores perto de armazenamento 1 limpou! Prossiga para o armazenamento 1!", "CaÃ§ador de coraÃ§Ã£o#2dms13", "#2MSTEP01" );
+	callsub( S_Next, 17, "Corredores perto de armazenamento 1 limpou! Prossiga para o armazenamento 1!", "Caçador de coração#2dms13", "#2MSTEP01" );
 
 OnStart13:
-	callsub( S_Call, 17, "Eca! Chato! Eles nÃ£o podem simplesmente nos deixar em paz!", "CaÃ§ador de coraÃ§Ã£o#2dms13", 33,104, 31,79, 31,67, 18,81 );
+	callsub( S_Call, 17, "Eca! Chato! Eles não podem simplesmente nos deixar em paz!", "Caçador de coração#2dms13", 33,104, 31,79, 31,67, 18,81 );
 OnMobDead17:
-	callsub( S_Next, 18, "Armazenamento 1 limpo! Aguardando o cÃ³digo de seguranÃ§a Redefinir", "#2MSTEP02" );
+	callsub( S_Next, 18, "Armazenamento 1 limpo! Aguardando o código de segurança Redefinir", "#2MSTEP02" );
 
 OnStart20:
-	callsub( S_Call, 20, "Por que todo mundo Ã© tÃ£o persistente !!", "CaÃ§ador de coraÃ§Ã£o#2DMS20" );
+	callsub( S_Call, 20, "Por que todo mundo é tão persistente !!", "Caçador de coração#2DMS20" );
 OnMobDead20:
-	callsub( S_Next, 21, "Os inimigos ainda permanecem na zona 2! Pesquise e destrua!", "CaÃ§ador de coraÃ§Ã£o#2dms21" );
+	callsub( S_Next, 21, "Os inimigos ainda permanecem na zona 2! Pesquise e destrua!", "Caçador de coração#2dms21" );
 
 OnStart21:
-	callsub( S_Call, 21, "Deixe -nos em paz!", "CaÃ§ador de coraÃ§Ã£o#2dms21" );
+	callsub( S_Call, 21, "Deixe -nos em paz!", "Caçador de coração#2dms21" );
 OnMobDead21:
-	callsub( S_Next, 22, "Corredores perto do armazenamento 2 limpados! Prossiga para o armazenamento 2!", "CaÃ§ador de coraÃ§Ã£o#2dms22", "#2MSTEP03" );
+	callsub( S_Next, 22, "Corredores perto do armazenamento 2 limpados! Prossiga para o armazenamento 2!", "Caçador de coração#2dms22", "#2MSTEP03" );
 
 OnStart22:
-	callsub( S_Call, 22, "Se eu pudesse encontrar esse livro ...! Suspiro! Quem Ã© vocÃª?", "CaÃ§ador de coraÃ§Ã£o#2dms22", 94,62, 132,62, 156,48, 150,40, 132,17, 100,16 , 83,33, 93,44);
+	callsub( S_Call, 22, "Se eu pudesse encontrar esse livro ...! Suspiro! Quem é você?", "Caçador de coração#2dms22", 94,62, 132,62, 156,48, 150,40, 132,17, 100,16 , 83,33, 93,44);
 OnMobDead22:
-	callsub( S_Next, 23, "Armazenamento 2 limpo! Aguardando o cÃ³digo de seguranÃ§a Redefinir", "#2MSTEP04" );
+	callsub( S_Next, 23, "Armazenamento 2 limpo! Aguardando o código de segurança Redefinir", "#2MSTEP04" );
 
 OnStart30:
-	callsub( S_Call, 25, "Eu nÃ£o vou te deixar em paz !!", "CaÃ§ador de coraÃ§Ã£o#2dms30" );
+	callsub( S_Call, 25, "Eu não vou te deixar em paz !!", "Caçador de coração#2dms30" );
 OnMobDead25:
-	callsub( S_Next, 26, "Os inimigos ainda permanecem na zona 3! Pesquise e destrua!", "CaÃ§ador de coraÃ§Ã£o#2dms31" );
+	callsub( S_Next, 26, "Os inimigos ainda permanecem na zona 3! Pesquise e destrua!", "Caçador de coração#2dms31" );
 
 OnStart31:
-	callsub( S_Call, 26, "TÃ£o persistente! Estou cansado disso!", "CaÃ§ador de coraÃ§Ã£o#2dms31" );
+	callsub( S_Call, 26, "Tão persistente! Estou cansado disso!", "Caçador de coração#2dms31" );
 OnMobDead26:
-	callsub( S_Next, 27, "Corredores perto de armazenamento 3 limpados! Prossiga para o armazenamento 3!", "CaÃ§ador de coraÃ§Ã£o#2dms32", "#2MSTEP05" );
+	callsub( S_Next, 27, "Corredores perto de armazenamento 3 limpados! Prossiga para o armazenamento 3!", "Caçador de coração#2dms32", "#2MSTEP05" );
 
 OnStart32:
-	callsub( S_Call, 27, "Precisamos nos apressar para o armazÃ©m! Argh !!", "CaÃ§ador de coraÃ§Ã£o#2dms32", 195,99, 214,101, 198,86, 205,64, 213,52 );
+	callsub( S_Call, 27, "Precisamos nos apressar para o armazém! Argh !!", "Caçador de coração#2dms32", 195,99, 214,101, 198,86, 205,64, 213,52 );
 OnMobDead27:
-	callsub( S_Next, 28, "Armazenamento 3 limpado! Aguardando o cÃ³digo de seguranÃ§a Redefinir", "#2MSTEP06" );
+	callsub( S_Next, 28, "Armazenamento 3 limpado! Aguardando o código de segurança Redefinir", "#2MSTEP06" );
 
 OnStart40:
-	callsub( S_Call, 30, "Ainda nÃ£o tenho o que quero!", "CaÃ§ador de coraÃ§Ã£o#2dms40" );
+	callsub( S_Call, 30, "Ainda não tenho o que quero!", "Caçador de coração#2dms40" );
 OnMobDead30:
-	callsub( S_Next, 31, "Centro limpo! Prossiga para a sala de armazenamento!", "#2 MSIT 07", "#2MSTEP08", "CaÃ§ador de coraÃ§Ã£o#2dms41", "CaÃ§ador de coraÃ§Ã£o#2dms42", "CaÃ§ador de coraÃ§Ã£o#2dms43", "CaÃ§ador de coraÃ§Ã£o#2dms44", "CaÃ§ador de coraÃ§Ã£o#2dms45",
-		"CaÃ§ador de coraÃ§Ã£o#2dms46", "CaÃ§ador de coraÃ§Ã£o#2dms47", "CaÃ§ador de coraÃ§Ã£o#2dms48", "CaÃ§ador de coraÃ§Ã£o#2dms49", "#Awar 01 S." );
+	callsub( S_Next, 31, "Centro limpo! Prossiga para a sala de armazenamento!", "#2 MSIT 07", "#2MSTEP08", "Caçador de coração#2dms41", "Caçador de coração#2dms42", "Caçador de coração#2dms43", "Caçador de coração#2dms44", "Caçador de coração#2dms45",
+		"Caçador de coração#2dms46", "Caçador de coração#2dms47", "Caçador de coração#2dms48", "Caçador de coração#2dms49", "#Awar 01 S." );
 
 S_Next:
 	if ('nyr_daily_step != getarg(0))
@@ -2893,11 +2893,11 @@ S_Call:
 	.@label$ = instance_npcname("#nyr_puri_mob_2") + "::OnMobDead" + .@num;
 	if (getargcount() < 4) {
 		getmapxy .@map$, .@x, .@y, BL_NPC, getarg(2);
-		monster 'map_2nyr$, .@x, .@y,"CaÃ§ador de coraÃ§Ã£o",21312,1, .@label$;	// EP18_MD_HEARTHUNTER_R
+		monster 'map_2nyr$, .@x, .@y,"Caçador de coração",21312,1, .@label$;	// EP18_MD_HEARTHUNTER_R
 	}
 	else {
 		for ( .@i = 3; .@i < getargcount(); .@i += 2 ) {
-			monster 'map_2nyr$, getarg(.@i), getarg(.@i+1),"CaÃ§ador de coraÃ§Ã£o",21312,1, .@label$;	// EP18_MD_HEARTHUNTER_R
+			monster 'map_2nyr$, getarg(.@i), getarg(.@i+1),"Caçador de coração",21312,1, .@label$;	// EP18_MD_HEARTHUNTER_R
 		}
 	}
 	end;
@@ -2907,7 +2907,7 @@ OnFinal:
 		end;
 	if (mobcount('map_2nyr$, instance_npcname("#nyr_puri_mob_2") + "::OnFinal") > 0)
 		end;
-	mapannounce 'map_2nyr$, "CÃ³digo de seguranÃ§a do Vault Redefinir em andamento!", bc_map, 0xFFCC;
+	mapannounce 'map_2nyr$, "Código de segurança do Vault Redefinir em andamento!", bc_map, 0xFFCC;
 	disablenpc instance_npcname("#2mstep07");
 	disablenpc instance_npcname("#2mstep08");
 	// enablenpc instance_npcname("#2mstep09");
@@ -3224,20 +3224,20 @@ OnTouch:
 	switch( atoi( replacestr( strnpcinfo(2), "2dms", "" ) ) ) {
 	case 10:
 		.@step = 19;
-		.@mes$ = "O cÃ³digo de seguranÃ§a para armazenamento 1 foi redefinido.";
-		.@enable$ = "CaÃ§ador de coraÃ§Ã£o#2DMS20";
+		.@mes$ = "O código de segurança para armazenamento 1 foi redefinido.";
+		.@enable$ = "Caçador de coração#2DMS20";
 		setarray .@xy[0],119,73;
 		break;
 	case 20:
 		.@step = 24;
-		.@mes$ = "O cÃ³digo de seguranÃ§a para armazenamento 2 foi redefinido.";
-		.@enable$ = "CaÃ§ador de coraÃ§Ã£o#2dms30";
+		.@mes$ = "O código de segurança para armazenamento 2 foi redefinido.";
+		.@enable$ = "Caçador de coração#2dms30";
 		setarray .@xy[0],183,104;
 		break;
 	case 30:
 		.@step = 29;
-		.@mes$ = "O cÃ³digo de seguranÃ§a para armazenamento 3 foi redefinido.";
-		.@enable$ = "CaÃ§ador de coraÃ§Ã£o#2dms40";
+		.@mes$ = "O código de segurança para armazenamento 3 foi redefinido.";
+		.@enable$ = "Caçador de coração#2dms40";
 		setarray .@xy[0],120,123;
 		break;
 	default:
@@ -3245,7 +3245,7 @@ OnTouch:
 	}
 	if ('nyr_daily_step != .@step)
 		end;
-	mes "Aguardando o cÃ³digo de seguranÃ§a Redefinir. Insira o novo cÃ³digo de seguranÃ§a.";
+	mes "Aguardando o código de segurança Redefinir. Insira o novo código de segurança.";
 	next;
 	input .@num;
 	if (.@num != 'code) {
@@ -3274,9 +3274,9 @@ OnTouch:
 		break;
 	}
 	if ('nyr_daily_step <= .@step)
-		npctalk "Aguardando o cÃ³digo de seguranÃ§a Redefinir";
+		npctalk "Aguardando o código de segurança Redefinir";
 	else
-		npctalk "RedefiniÃ§Ã£o do cÃ³digo de seguranÃ§a concluÃ­do.";
+		npctalk "Redefinição do código de segurança concluído.";
 	end;
 }
 2@nyr,115,69,5	duplicate(Security Device#2dms10)	Security Device#2dms20	4_POINT_BLUE,5,5
@@ -3287,14 +3287,14 @@ OnTouch:
 		end;
 	if ('nyr_daily_step != 33)
 		end;
-	mes "CÃ³digo de seguranÃ§a Redefinir em andamento. Por favor, insira o novo cÃ³digo de seguranÃ§a.";
+	mes "Código de segurança Redefinir em andamento. Por favor, insira o novo código de segurança.";
 	next;
 	input .@num;
 	if (.@num != 'code) {
 		mes "Cancelar entrada";
 		close;
 	}
-	mes "O cÃ³digo de seguranÃ§a do cofre foi redefinido.";
+	mes "O código de segurança do cofre foi redefinido.";
 	if ('nyr_daily_step == 33) {
 		'nyr_daily_step = 34;
 		enablenpc instance_npcname("#2mstep10");
@@ -3307,18 +3307,18 @@ OnTouch:
 		enablenpc instance_npcname("Temple Guard#2dms251");
 		enablenpc instance_npcname("Temple Guard#2dms261");
 		enablenpc instance_npcname("#msnavi01");
-		mapannounce 'map_2nyr$, "VocÃª acha que vamos desistir assim? NÃ³s jÃ¡ provemos. Apenas assista!", bc_map, 0xFFCC;
-		mapannounce 'map_2nyr$, "VocÃª acha que a multidÃ£o desistirÃ¡ por causa do atraso? O sabor dos babuÃ­nos secou? Deixe!", bc_map, 0xFFCC;
+		mapannounce 'map_2nyr$, "Você acha que vamos desistir assim? Nós já provemos. Apenas assista!", bc_map, 0xFFCC;
+		mapannounce 'map_2nyr$, "Você acha que a multidão desistirá por causa do atraso? O sabor dos babuínos secou? Deixe!", bc_map, 0xFFCC;
 		sleep2 1000;
-		mapannounce 'map_2nyr$, "Todos os setores limpos! ReÃºna -se na saÃ­da!", bc_map, 0xFFCC;
+		mapannounce 'map_2nyr$, "Todos os setores limpos! Reúna -se na saída!", bc_map, 0xFFCC;
 	}
 	navigateto("2@nyr",151,131);
 	close;
 OnTouch:
 	if ('nyr_daily_step <= 33)
-		npctalk "RedefiniÃ§Ã£o do cÃ³digo de seguranÃ§a do cofre em andamento";
+		npctalk "Redefinição do código de segurança do cofre em andamento";
 	else
-		npctalk "O cÃ³digo de seguranÃ§a do cofre foi redefinido.";
+		npctalk "O código de segurança do cofre foi redefinido.";
 	end;
 }
 

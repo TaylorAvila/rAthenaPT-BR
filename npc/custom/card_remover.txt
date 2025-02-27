@@ -21,13 +21,13 @@ prt_in,28,73,4	script	Wise Old Woman#eAcustom	78,{
 	set .faildestroy,1;      // should the card remover have a chance of failure that destroys items? (1=yes, 0=no)
 
 	disable_items;
-	mes "[Idosa s√°bia]";
-	mes "Bom dia, jovem. Eu tenho o poder de remover os cart√µes que voc√™ agravou em seu equipamento. Essa ideia √© por favor?";
+	mes "[Idosa s·bia]";
+	mes "Bom dia, jovem. Eu tenho o poder de remover os cartıes que vocÍ agravou em seu equipamento. Essa ideia È por favor?";
 	next;
-	switch(select("Sim, sim .: O que voc√™ cobra ?: N√£o, obrigado.")) {
+	switch(select("Sim, sim .: O que vocÍ cobra ?: N„o, obrigado.")) {
 	case 1:
-		mes "[Idosa s√°bia]";
-		mes "Muito bem. Qual item devo examinar para voc√™?";
+		mes "[Idosa s·bia]";
+		mes "Muito bem. Qual item devo examinar para vocÍ?";
 		next;
 
 		setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
@@ -38,46 +38,46 @@ prt_in,28,73,4	script	Wise Old Woman#eAcustom	78,{
 		}
 		set .@part, .@indices[ select(.@menu$) ];
 		if(!getequipisequiped(.@part)) {
-			mes "[Idosa s√°bia]";
-			mes "Jovem ... voc√™ n√£o est√° usando nada l√° da qual eu possa remover os cart√µes.";
+			mes "[Idosa s·bia]";
+			mes "Jovem ... vocÍ n„o est· usando nada l· da qual eu possa remover os cartıes.";
 			close;
 		}
 		if(getequipcardcnt(.@part) == 0) {
-			mes "[Idosa s√°bia]";
-			mes "Jovem ... n√£o h√° cart√µes compostos neste item. N√£o posso fazer nada com isso, receio.";
+			mes "[Idosa s·bia]";
+			mes "Jovem ... n„o h· cartıes compostos neste item. N„o posso fazer nada com isso, receio.";
 			close;
 		}
 		set .@cardcount,getequipcardcnt(.@part);
 		
 		if (!checkweight(1202,(.@cardcount+1))) { 
 			mes "^3355ffJUST por minuto!";
-			mes "Eu n√£o posso oferecer nenhum dos meus";
-			mes "servi√ßos para voc√™ porque";
-			mes "Voc√™ est√° carregando muito";
+			mes "Eu n„o posso oferecer nenhum dos meus";
+			mes "serviÁos para vocÍ porque";
+			mes "VocÍ est· carregando muito";
 			mes "coisa. Coloque seus itens extras em";
 			mes "Armazenamento kafra e venha de novo ~";
 			close;
 		}
-		mes "[Idosa s√°bia]";
-		mes "Este item tem" + .@cardcount + "cart√µes compostos nele. Para realizar minha magia, vou precisar" + (.zenycost+(.@cardcount * .percardcost)) + "Zeny, a ^0000ffstar Crumb ^000000 e a ^0000ffyellow Gemstone ^000000.";
+		mes "[Idosa s·bia]";
+		mes "Este item tem" + .@cardcount + "cartıes compostos nele. Para realizar minha magia, vou precisar" + (.zenycost+(.@cardcount * .percardcost)) + "Zeny, a ^0000ffstar Crumb ^000000 e a ^0000ffyellow Gemstone ^000000.";
 		next;
-		if(select("Muito bem. Fa√ßa isso.") == 2) {
-			mes "[Idosa s√°bia]";
-			mes "Muito bem. Retorne imediatamente se voc√™ procurar meus servi√ßos.";
+		if(select("Muito bem. FaÁa isso.") == 2) {
+			mes "[Idosa s·bia]";
+			mes "Muito bem. Retorne imediatamente se vocÍ procurar meus serviÁos.";
 			close;
 		}
 		if((zeny < (.zenycost+(.@cardcount * .percardcost))) || (countitem(1000) < 1) || (countitem(715) < 1)) {
-			mes "[Idosa s√°bia]";
-			mes "Voc√™ n√£o tem todos os itens que eu preciso para trabalhar minha m√°gica, crian√ßa. Venha de novo quando voc√™ o fizer.";
+			mes "[Idosa s·bia]";
+			mes "VocÍ n„o tem todos os itens que eu preciso para trabalhar minha m·gica, crianÁa. Venha de novo quando vocÍ o fizer.";
 			close;
 		}
-		mes "[Idosa s√°bia]";
-		mes "Antes de come√ßar, devo avis√°-lo-posso falhar. Se o fizer, posso destruir os cart√µes, o item ou ambos. Eu n√£o dou reembolsos. Dito isto, o que √© mais importante para voc√™: os cart√µes ou o item?";
+		mes "[Idosa s·bia]";
+		mes "Antes de comeÁar, devo avis·-lo-posso falhar. Se o fizer, posso destruir os cartıes, o item ou ambos. Eu n„o dou reembolsos. Dito isto, o que È mais importante para vocÍ: os cartıes ou o item?";
 		next;
-		switch(select("Eu mudei de id√©ia sobre isso .: o item .: Os cart√µes.")) {
+		switch(select("Eu mudei de idÈia sobre isso .: o item .: Os cartıes.")) {
 		case 1:
-			mes "[Idosa s√°bia]";
-			mes "Muito bem. Retorne imediatamente se voc√™ procurar meus servi√ßos.";
+			mes "[Idosa s·bia]";
+			mes "Muito bem. Retorne imediatamente se vocÍ procurar meus serviÁos.";
 			close;
 		case 2:
 			set .@failtype,1;
@@ -85,8 +85,8 @@ prt_in,28,73,4	script	Wise Old Woman#eAcustom	78,{
 		case 3:
 			set .@failtype,2;
 		}
-		mes "[Idosa s√°bia]";
-		mes "Muito bem. Eu come√ßarei.";
+		mes "[Idosa s·bia]";
+		mes "Muito bem. Eu comeÁarei.";
 		set Zeny, Zeny - (.zenycost+(.@cardcount * .percardcost));
 		delitem 1000,1; //Star_Crumb
 		delitem 715,1; //Yellow_Gemstone
@@ -101,8 +101,8 @@ prt_in,28,73,4	script	Wise Old Woman#eAcustom	78,{
 			if(.@failchance < 2) {
 				next;
 				failedremovecards .@part,0;
-				mes "[Idosa s√°bia]";
-				mes "O processo foi uma falha total. Receio que o item e os cart√µes tenham sido destru√≠dos.";
+				mes "[Idosa s·bia]";
+				mes "O processo foi uma falha total. Receio que o item e os cartıes tenham sido destruÌdos.";
 				close;
 			}
 
@@ -110,16 +110,16 @@ prt_in,28,73,4	script	Wise Old Woman#eAcustom	78,{
 				if (.@failtype == 1) {
 					next;
 					failedremovecards .@part,1;
-					mes "[Idosa s√°bia]";
-					mes "Embora eu tenha conseguido remover os cart√µes do item, eles foram destru√≠dos no processo. O item, no entanto, est√° bem.";
+					mes "[Idosa s·bia]";
+					mes "Embora eu tenha conseguido remover os cartıes do item, eles foram destruÌdos no processo. O item, no entanto, est· bem.";
 					close;
 				}
 
 				if (.@failtype == 2) {
 					next;
 					failedremovecards .@part,2;
-					mes "[Idosa s√°bia]";
-					mes "Mais lament√°vel. Consegui remover os cart√µes, mas o pr√≥prio item foi destru√≠do no processo.";
+					mes "[Idosa s·bia]";
+					mes "Mais lament·vel. Consegui remover os cartıes, mas o prÛprio item foi destruÌdo no processo.";
 					close;
 				}
 			}
@@ -128,22 +128,22 @@ prt_in,28,73,4	script	Wise Old Woman#eAcustom	78,{
 		if(.@failchance < 10) {
 			next;
 			failedremovecards .@part,3;
-			mes "[Idosa s√°bia]";
-			mes "Eu n√£o consegui remover os cart√µes. Felizmente, no entanto, o item e os cart√µes ainda est√£o bem.";
+			mes "[Idosa s·bia]";
+			mes "Eu n„o consegui remover os cartıes. Felizmente, no entanto, o item e os cartıes ainda est„o bem.";
 			close;
 		}
 		next;
 		successremovecards .@part;
-		mes "[Idosa s√°bia]";
-		mes "O processo foi um sucesso. Aqui est√£o seus cart√µes e seu item. At√© a pr√≥xima.";
+		mes "[Idosa s·bia]";
+		mes "O processo foi um sucesso. Aqui est„o seus cartıes e seu item. AtÈ a prÛxima.";
 		close;
 	case 2:
-		mes "[Idosa s√°bia]";
+		mes "[Idosa s·bia]";
 		mes "I charge a flat fee of "+callfunc("F_InsertComma",.zenycost)+" zeny, plus "+callfunc("F_InsertComma",.percardcost)+" zeny for each card I remove from the item. In addition, I need a star crumb and a yellow gemstone to work my magic.";
 		close;
 	case 3:
-		mes "[Idosa s√°bia]";
-		mes "Muito bem. Retorne imediatamente se voc√™ procurar meus servi√ßos.";
+		mes "[Idosa s·bia]";
+		mes "Muito bem. Retorne imediatamente se vocÍ procurar meus serviÁos.";
 		close;
 	}
 }

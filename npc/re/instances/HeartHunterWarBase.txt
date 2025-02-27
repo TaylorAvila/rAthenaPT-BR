@@ -11,11 +11,11 @@
 ein_fild04,275,342,5	script	Striker Unit Commander#	4_M_REBELLION3,{
 	if (terra_gloria_main < 19) {
 		mes "[Comandante da unidade de atacante]";
-		mes "Ei, quem estÃ¡ aÃ­?";
+		mes "Ei, quem está aí?";
 		next;
 		select("I am executing my mission with the Rebellion unit.");
 		mes "[Comandante da unidade de atacante]";
-		mes "Este lugar Ã© perigoso e vocÃª deve sair rapidamente. Estamos perto da base inimiga.";
+		mes "Este lugar é perigoso e você deve sair rapidamente. Estamos perto da base inimiga.";
 		close;
 	}
 	switch( checkquest(12375,PLAYTIME) ) {
@@ -24,7 +24,7 @@ ein_fild04,275,342,5	script	Striker Unit Commander#	4_M_REBELLION3,{
 	case 0:
 	case 1:
 		mes "[Comandante da unidade de atacante]";
-		mes "Estamos organizando a situaÃ§Ã£o dentro da base. Ainda nÃ£o podemos deixar vocÃª entrar.";
+		mes "Estamos organizando a situação dentro da base. Ainda não podemos deixar você entrar.";
 		close;
 	case 2:
 		mes "^0000ffseems como a base foi organizado dentro. ^000000";
@@ -33,38 +33,38 @@ ein_fild04,275,342,5	script	Striker Unit Commander#	4_M_REBELLION3,{
 	}
 	if (isbegin_quest(12374) == 0) {
 		mes "[Comandante da unidade de atacante]";
-		mes "Quando estivermos prontos para a operaÃ§Ã£o, vocÃª entrarÃ¡ lÃ¡ comigo.";
+		mes "Quando estivermos prontos para a operação, você entrará lá comigo.";
 		next;
 		mes "[Comandante da unidade de atacante]";
-		mes "A propÃ³sito, vocÃª recebeu um briefing do general Julian? Volte depois de receber o briefing.";
+		mes "A propósito, você recebeu um briefing do general Julian? Volte depois de receber o briefing.";
 		close;
 	}
 	mes "[Comandante da unidade de atacante]";
-	mes "Quando estivermos prontos para a operaÃ§Ã£o, vocÃª entrarÃ¡ lÃ¡ comigo.";
+	mes "Quando estivermos prontos para a operação, você entrará lá comigo.";
 	next;
 	if (terra_gloria_main == 19)
-		.@md_name$ = "Base de Guerra do CaÃ§ador de CoraÃ§Ã£o 1";
+		.@md_name$ = "Base de Guerra do Caçador de Coração 1";
 	else
-		.@md_name$ = "Base de Guerra dos CaÃ§adores de CoraÃ§Ã£o 2";
+		.@md_name$ = "Base de Guerra dos Caçadores de Coração 2";
 	switch( instance_enter(.@md_name$) ) {
 	case IE_NOMEMBER:
-		mes "^0000ffseems como um aventureiro sem sua unidade (festa) nÃ£o pode entrar.^000000";
+		mes "^0000ffseems como um aventureiro sem sua unidade (festa) não pode entrar.^000000";
 		close;
 	case IE_NOINSTANCE:
 		mes "[Comandante da unidade de atacante]";
-		mes "O campo da operaÃ§Ã£o Ã©" + .@md_name$ + "Verifique se a operaÃ§Ã£o foi aplicada corretamente.";
+		mes "O campo da operação é" + .@md_name$ + "Verifique se a operação foi aplicada corretamente.";
 		next;
-		mes "^Ff0000GOINT para o limite externo da base de guerra do caÃ§ador de coraÃ§Ã£o sem limpar a base de guerra do CoraÃ§Ã£o CaÃ§ador Ã© proibido. AlÃ©m disso, vocÃª nÃ£o pode entrar na base de guerra do CoraÃ§Ã£o Hunter que jÃ¡ foi liberado. Verifique seu ponto de operaÃ§Ã£o^000000";
+		mes "^Ff0000GOINT para o limite externo da base de guerra do caçador de coração sem limpar a base de guerra do Coração Caçador é proibido. Além disso, você não pode entrar na base de guerra do Coração Hunter que já foi liberado. Verifique seu ponto de operação^000000";
 		next;
-		mes "^FF0000Este Ã© quando seu progresso Ã© diferente do lÃ­der do partido do membro do partido. Nesse caso, encontre outro membro do partido que possa ir para o mesmo lugar com vocÃª.^000000";
+		mes "^FF0000Este é quando seu progresso é diferente do líder do partido do membro do partido. Nesse caso, encontre outro membro do partido que possa ir para o mesmo lugar com você.^000000";
 		next;
-		mes "^ff0000 A entrada tambÃ©m Ã© impossÃ­vel se a masmorra memorial nÃ£o tiver sido criada como um campo de operaÃ§Ã£o.^000000";
+		mes "^ff0000 A entrada também é impossível se a masmorra memorial não tiver sido criada como um campo de operação.^000000";
 		close;
 	case IE_OTHER:
 		mes "Um erro desconhecido ocorreu.";
 		close;
 	case IE_OK:
-		mapannounce "One_fild04", "" + strcharinfo(0) + "da festa," + getpartyname( getcharid(1) ) + ", estÃ¡ entrando no" + .@md_name$ + ".", bc_map, 0xFF99;
+		mapannounce "One_fild04", "" + strcharinfo(0) + "da festa," + getpartyname( getcharid(1) ) + ", está entrando no" + .@md_name$ + ".", bc_map, 0xFF99;
 		setquest 12375;// Base maintenance
 		// if (terra_gloria_main == 20)
 		// 	warp "1@swat",35,65;
@@ -76,23 +76,23 @@ ein_fild04,275,342,5	script	Striker Unit Commander#	4_M_REBELLION3,{
 
 ein_fild04,281,337,3	script	Julian#ep16.2	4_M_REBELLION2,{
 	if (terra_gloria_main < 19) {
-		mes "^FF0000 Se vocÃª lidar com monstros arbitrariamente dentro de uma masmorra, como domesticaÃ§Ã£o de monstros, nÃ£o serÃ¡ considerado um progresso normal. Esteja ciente disso.^000000";
+		mes "^FF0000 Se você lidar com monstros arbitrariamente dentro de uma masmorra, como domesticação de monstros, não será considerado um progresso normal. Esteja ciente disso.^000000";
 		next;
 		mes "[Julian]";
-		mes "Parar de qual unidade vocÃª Ã©? De acordo com sua resposta, podemos ter que suprimi -lo usando uma forÃ§a armada.";
+		mes "Parar de qual unidade você é? De acordo com sua resposta, podemos ter que suprimi -lo usando uma força armada.";
 		next;
 		select("I am executing my mission with the Rebellion unit.");
 		mes "[Julian]";
-		mes "Hmm, vocÃª Ã© nossa tropa? Como o escotismo ainda nÃ£o acabou, nÃ£o passe por aqui descuidadamente.";
+		mes "Hmm, você é nossa tropa? Como o escotismo ainda não acabou, não passe por aqui descuidadamente.";
 		close;
 	}
-	mes "^FF0000 Se vocÃª lidar com monstros arbitrariamente dentro de uma masmorra, como domesticaÃ§Ã£o de monstros, nÃ£o serÃ¡ considerado um progresso normal. Esteja ciente disso.^000000";
+	mes "^FF0000 Se você lidar com monstros arbitrariamente dentro de uma masmorra, como domesticação de monstros, não será considerado um progresso normal. Esteja ciente disso.^000000";
 	next;
 	if (getcharid(1) < 1) {
 		mes "[Julian]";
-		mes "VocÃª Ã© um desertor vagando sem posiÃ§Ã£o?";
+		mes "Você é um desertor vagando sem posição?";
 		next;
-		mes "^ff0000 em vez do lÃ­der do partido pode conversar com Julian em detalhes.^000000";
+		mes "^ff0000 em vez do líder do partido pode conversar com Julian em detalhes.^000000";
 		close;
 	}
 	switch( checkquest(12375,PLAYTIME) ) {
@@ -101,7 +101,7 @@ ein_fild04,281,337,3	script	Julian#ep16.2	4_M_REBELLION2,{
 	case 0:
 	case 1:
 		mes "[Julian]";
-		mes "Estamos organizando a situaÃ§Ã£o dentro da base. VocÃª ainda nÃ£o pode entrar.";
+		mes "Estamos organizando a situação dentro da base. Você ainda não pode entrar.";
 		close;
 	case 2:
 		mes "^0000ffseems como a base foi organizado dentro. ^000000";
@@ -112,50 +112,50 @@ ein_fild04,281,337,3	script	Julian#ep16.2	4_M_REBELLION2,{
 	switch( isbegin_quest(12374) ) {
 	case 0:
 		mes "[Julian]";
-		mes "VocÃª Ã© a forÃ§a de aumento na impressionante base de caÃ§adores de coraÃ§Ã£o? Acho que nos conhecemos antes.";
+		mes "Você é a força de aumento na impressionante base de caçadores de coração? Acho que nos conhecemos antes.";
 		next;
 		select("Apenas um pensamento.");
 		mes "[Julian]";
-		mes "Bem, isso nÃ£o importa. VocÃª deve ter uma idÃ©ia aproximada do que estÃ¡ acontecendo aqui. Lembre -se de que nÃ£o serÃ¡ uma tarefa fÃ¡cil.";
+		mes "Bem, isso não importa. Você deve ter uma idéia aproximada do que está acontecendo aqui. Lembre -se de que não será uma tarefa fácil.";
 		next;
-		if (select( "Explique a situaÃ§Ã£o para mim.", "Sem tempo, vamos prosseguir agora." ) == 2) {
+		if (select( "Explique a situação para mim.", "Sem tempo, vamos prosseguir agora." ) == 2) {
 			mes "[Julian]";
-			mes "Parece legal. VocÃª Ã© como uma legiÃ£o estrangeira, entÃ£o fique ao meu lado durante a operaÃ§Ã£o.";
+			mes "Parece legal. Você é como uma legião estrangeira, então fique ao meu lado durante a operação.";
 		}
 		else {
 			mes "[Julian]";
-			mes "Hmm, vocÃª ainda nÃ£o recebeu um briefing? Como nÃ£o temos tempo suficiente, deixe -me explicar brevemente.";
+			mes "Hmm, você ainda não recebeu um briefing? Como não temos tempo suficiente, deixe -me explicar brevemente.";
 			next;
 			mes "[Julian]";
-			mes "NÃ£o temos forÃ§as suficientes para atingir a base.";
+			mes "Não temos forças suficientes para atingir a base.";
 			next;
 			mes "[Julian]";
-			mes "Por uma questÃ£o de mobilidade, abandonamos armas de fogo pesadas. Como nossa missÃ£o de principal prioridade Ã© ocupar a base sem destruÃ­ -la muito, a maioria das armas explosivas tambÃ©m foi excluÃ­da.";
+			mes "Por uma questão de mobilidade, abandonamos armas de fogo pesadas. Como nossa missão de principal prioridade é ocupar a base sem destruí -la muito, a maioria das armas explosivas também foi excluída.";
 			next;
 			mes "[Julian]";
-			mes "Se necessÃ¡rio, podemos reforÃ§ar nossas armas de fogo usando os recursos do terreno no campo ... mas deve ser minimizado.";
+			mes "Se necessário, podemos reforçar nossas armas de fogo usando os recursos do terreno no campo ... mas deve ser minimizado.";
 			next;
 			mes "[Julian]";
-			mes "De qualquer forma, a maior parte da operaÃ§Ã£o deve ser dano anti-pessoal e as instalaÃ§Ãµes bÃ¡sicas devem ser mantidas sempre que possÃ­vel.";
+			mes "De qualquer forma, a maior parte da operação deve ser dano anti-pessoal e as instalações básicas devem ser mantidas sempre que possível.";
 			next;
 			mes "[Julian]";
-			mes "Nossa parte avanÃ§ada garantiu a superfÃ­cie limite na base do sul. Vamos seguir esse caminho para mudar para a parte central. E cada unidade de atacante se moverÃ¡ em uma rota individual.";
+			mes "Nossa parte avançada garantiu a superfície limite na base do sul. Vamos seguir esse caminho para mudar para a parte central. E cada unidade de atacante se moverá em uma rota individual.";
 			next;
 			mes "[Julian]";
-			mes "VocÃª Ã© como uma legiÃ£o estrangeira, entÃ£o fique ao meu lado durante a operaÃ§Ã£o. Mais alguma pergunta? Claro, nÃ£o vou levar nenhum, mesmo que vocÃª tenha um.";
+			mes "Você é como uma legião estrangeira, então fique ao meu lado durante a operação. Mais alguma pergunta? Claro, não vou levar nenhum, mesmo que você tenha um.";
 		}
 		next;
 		setquest 12374;// Heart Hunter Base occupation
 		mes "[Julian]";
-		mes "Depois disso, siga as instruÃ§Ãµes do chefe da sua unidade. Depois que o portÃ£o da base Ã© aberto, converse com o comandante da unidade de atacante por lÃ¡ e comece.";
+		mes "Depois disso, siga as instruções do chefe da sua unidade. Depois que o portão da base é aberto, converse com o comandante da unidade de atacante por lá e comece.";
 		if (is_party_leader() == true) {
 			next;
 			mes "[Julian]";
-			mes "Se vocÃª estiver pronto, informarei o tempo de ataque.";
+			mes "Se você estiver pronto, informarei o tempo de ataque.";
 			next;
 			if (select( "Estou pronto.", "Eu preciso de mais tempo." ) == 2) {
 				mes "[Julian]";
-				mes "Eu vejo. Como estamos com pressa, complete sua preparaÃ§Ã£o rapidamente e me avise.";
+				mes "Eu vejo. Como estamos com pressa, complete sua preparação rapidamente e me avise.";
 				close;
 			}
 			break;
@@ -164,34 +164,34 @@ ein_fild04,281,337,3	script	Julian#ep16.2	4_M_REBELLION2,{
 	case 1:
 		if (is_party_leader() == false) {
 			mes "[Julian]";
-			mes "Depois disso, siga as instruÃ§Ãµes do chefe da sua unidade. Depois que o portÃ£o da base Ã© aberto, converse com o comandante da unidade de atacante por lÃ¡ e comece.";
+			mes "Depois disso, siga as instruções do chefe da sua unidade. Depois que o portão da base é aberto, converse com o comandante da unidade de atacante por lá e comece.";
 			close;
 		}
 		mes "[Julian]";
-		mes "VocÃª jÃ¡ esteve no banheiro? Eu estava procurando por vocÃª.";
+		mes "Você já esteve no banheiro? Eu estava procurando por você.";
 		next;
 		mes "[Julian]";
-		mes "Se vocÃª estiver pronto, informarei o tempo de ataque.";
+		mes "Se você estiver pronto, informarei o tempo de ataque.";
 		next;
 		if (select( "Estou pronto.", "Eu preciso de mais tempo." ) == 2) {
 			mes "[Julian]";
-			mes "Eu vejo. Como estamos com pressa, complete sua preparaÃ§Ã£o rapidamente e me avise.";
+			mes "Eu vejo. Como estamos com pressa, complete sua preparação rapidamente e me avise.";
 			close;
 		}
 		break;
 	case 2:
 		if (is_party_leader() == false) {
 			mes "[Julian]";
-			mes "Depois disso, siga as instruÃ§Ãµes do chefe da sua unidade. Depois que o portÃ£o da base Ã© aberto, converse com o comandante da unidade de atacante por lÃ¡ e comece.";
+			mes "Depois disso, siga as instruções do chefe da sua unidade. Depois que o portão da base é aberto, converse com o comandante da unidade de atacante por lá e comece.";
 			close;
 		}
 		mes "[Julian]";
-		mes "HÃ¡ uma ampla terra vaga no limite externo da base que ocupamos. ConstruÃ­mos um campo de treinamento lÃ¡, mas as instalaÃ§Ãµes sÃ£o imperfeitas. Eu preciso de pessoal de elite que possa examinÃ¡ -lo.";
+		mes "Há uma ampla terra vaga no limite externo da base que ocupamos. Construímos um campo de treinamento lá, mas as instalações são imperfeitas. Eu preciso de pessoal de elite que possa examiná -lo.";
 		next;
 		mes "[Julian]";
-		mes "Oh, nÃ£o Ã© a primeira vez que digo isso? Eu ficaria feliz se vocÃª pudesse examinar as instalaÃ§Ãµes. O que vocÃª acha?";
+		mes "Oh, não é a primeira vez que digo isso? Eu ficaria feliz se você pudesse examinar as instalações. O que você acha?";
 		next;
-		if (select( "Deixe -me fazer isso.", "Talvez na prÃ³xima vez..." ) == 2) {
+		if (select( "Deixe -me fazer isso.", "Talvez na próxima vez..." ) == 2) {
 			mes "[Julian]";
 			mes "Eu entendi. Eu perguntei um pouco demais.";
 			close;
@@ -203,7 +203,7 @@ ein_fild04,281,337,3	script	Julian#ep16.2	4_M_REBELLION2,{
 	else
 		instance_create("Heart Hunter War Base 2");
 	mes "[Julian]";
-	mes "Ele abrirÃ¡ em breve. Depois que o portÃ£o da base Ã© aberto, converse com o comandante da unidade de atacante por lÃ¡ e comece.";
+	mes "Ele abrirá em breve. Depois que o portão da base é aberto, converse com o comandante da unidade de atacante por lá e comece.";
 	close;
 }
 
@@ -543,20 +543,20 @@ OnTouch:
 // Entrance
 1@swat,40,65,6	script	Julian#0_1	4_M_REBELLION2,{
 	mes "[Julian]";
-	mes "NÃ£o temos tempo para brincar";
+	mes "Não temos tempo para brincar";
 	close;
 
 OnStart:
 	initnpctimer;
 	end;
 OnTimer2000:
-	npctalk "Julian: De acordo com a estimativa, deve haver uma saudaÃ§Ã£o aqui. Mas nÃ£o hÃ¡ nada.";
+	npctalk "Julian: De acordo com a estimativa, deve haver uma saudação aqui. Mas não há nada.";
 	end;
 OnTimer4000:
-	npctalk "Julian: A partir daqui, nos dividimos. Cada um de nÃ³s encontrarÃ¡ os pontos fracos e aniquilarÃ¡ os inimigos.";
+	npctalk "Julian: A partir daqui, nos dividimos. Cada um de nós encontrará os pontos fracos e aniquilará os inimigos.";
 	end;
 OnTimer10000:
-	npctalk "Julian: Estes podem ser atiradores de elite, entÃ£o nÃ£o se reÃºnem. Realizar a operaÃ§Ã£o individualmente.";
+	npctalk "Julian: Estes podem ser atiradores de elite, então não se reúnem. Realizar a operação individualmente.";
 	end;
 OnTimer14000:
 	npctalk "Julian: Agora, saia!";
@@ -623,7 +623,7 @@ OnWave2:
 	.@label$ = instance_npcname("#hunter_instance_1_mob_1") + "::OnMobDead";
 	for ( .@x = 93; .@x >= 81; .@x -= 4 ) {
 		for ( .@y = 54; .@y >= 39; .@y -= 3 ) {
-			monster 'map_swat$,.@x,.@y, "Guarda do caÃ§ador de coraÃ§Ã£o",3627,1, .@label$;	// EP16_2_H_HUNTER_MD
+			monster 'map_swat$,.@x,.@y, "Guarda do caçador de coração",3627,1, .@label$;	// EP16_2_H_HUNTER_MD
 		}
 	}
 	end;
@@ -644,15 +644,15 @@ OnTouch:
 	// note: officially they only check the item
 	if (countitem(25154) < 1 || 'event != 1) {
 		mes "[Julian]";
-		mes "Podemos simplesmente esgueirar -se assim. Mas Ã© melhor garantir um caminho para a festa de limpeza. Como podemos fazer isso?";
+		mes "Podemos simplesmente esgueirar -se assim. Mas é melhor garantir um caminho para a festa de limpeza. Como podemos fazer isso?";
 		next;
 		select("");
 		close;
 	}
 	mes "[Julian]";
-	mes "Por que todos eles estÃ£o saindo de repente. Apenas me entregue a pÃ³lvora";
+	mes "Por que todos eles estão saindo de repente. Apenas me entregue a pólvora";
 	next;
-	select("DÃª a ele a pÃ³lvora");
+	select("Dê a ele a pólvora");
 	if ('event == 1) {
 		'event = 2;
 		delitem 25154, countitem(25154);// Antique_Powder
@@ -665,11 +665,11 @@ OnStart:
 	npctalk "Julian: Espere!";
 	end;
 OnTimer3000:
-	npctalk "Julian: Existe um sistema de seguranÃ§a sendo operado na frente disso. Se vocÃª der um passo Ã  frente, ficarÃ¡ cheio de balas.";
+	npctalk "Julian: Existe um sistema de segurança sendo operado na frente disso. Se você der um passo à frente, ficará cheio de balas.";
 	end;
 OnTimer7000:
 	stopnpctimer;
-	npctalk "Julian: Estamos com problemas desde o inÃ­cio.";
+	npctalk "Julian: Estamos com problemas desde o início.";
 	enablenpc instance_npcname("Pile of gunpowder#1");
 	end;
 }
@@ -680,13 +680,13 @@ OnStart:
 	disablenpc instance_npcname("Julian#1");
 	enablenpc instance_npcname("Julian#1_1");
 	initnpctimer;
-	npctalk "Julian: Bem, Ã© uma bela pÃ³lvora.";
+	npctalk "Julian: Bem, é uma bela pólvora.";
 	end;
 OnTimer3000:
-	npctalk "Julian: Isso Ã© bom o suficiente para se livrar do sistema de seguranÃ§a e dos caras do caÃ§ador de coraÃ§Ã£o que correram um momento atrÃ¡s.";
+	npctalk "Julian: Isso é bom o suficiente para se livrar do sistema de segurança e dos caras do caçador de coração que correram um momento atrás.";
 	end;
 OnTimer9000:
-	npctalk "Julian: Agora, deixe -me soprÃ¡ -los!";
+	npctalk "Julian: Agora, deixe -me soprá -los!";
 	end;
 OnTimer12000:
 	killmonster 'map_swat$, instance_npcname("#hunter_instance_1_mob_1") + "::OnMobDead";
@@ -707,7 +707,7 @@ OnTimer12000:
 	end;
 OnTimer17000:
 	stopnpctimer;
-	mapannounce 'map_swat$, "Julian: Deixe -me ir primeiro. Eu tenho que lidar com os obstÃ¡culos na frente.", bc_map,0xFFFF77;
+	mapannounce 'map_swat$, "Julian: Deixe -me ir primeiro. Eu tenho que lidar com os obstáculos na frente.", bc_map,0xFFFF77;
 	disablenpc instance_npcname("Julian#1_1");
 	enablenpc instance_npcname("Julian#1_2");
 	enablenpc instance_npcname("#start_npc3");
@@ -725,11 +725,11 @@ OnTimer17000:
 	initnpctimer;
 	end;
 OnTimer3000:
-	mapannounce 'map_swat$, "Intrusos detectados na Ã¡rea restrita. CaÃ§adores de coraÃ§Ã£o, aumente a seguranÃ§a!", bc_map,0xFF5555;
+	mapannounce 'map_swat$, "Intrusos detectados na área restrita. Caçadores de coração, aumente a segurança!", bc_map,0xFF5555;
 	end;
 OnTimer9000:
 	stopnpctimer;
-	mapannounce 'map_swat$, "Eu repito. Intrusos detectados na Ã¡rea restrita. CaÃ§adores de coraÃ§Ã£o, aumente a seguranÃ§a!", bc_map,0xFF5555;
+	mapannounce 'map_swat$, "Eu repito. Intrusos detectados na área restrita. Caçadores de coração, aumente a segurança!", bc_map,0xFF5555;
 	donpcevent instance_npcname("#hunter_instance_1_mob_1") + "::OnWave2";
 	end;
 }
@@ -763,18 +763,18 @@ OnTimer10000:
 
 1@swat,140,50,6	script	Julian#1_2	4_M_REBELLION2,{
 	mes "[Julian]";
-	mes "Leva algum tempo para montar o explosivo. VocÃª sobe e verifica se hÃ¡ alguma ameaÃ§a.";
+	mes "Leva algum tempo para montar o explosivo. Você sobe e verifica se há alguma ameaça.";
 	next;
 	mes "[Julian]";
-	mes "Se vocÃª encontrar um inimigo, nÃ£o se esqueÃ§a de matÃ¡ -lo sem me denunciar.";
+	mes "Se você encontrar um inimigo, não se esqueça de matá -lo sem me denunciar.";
 	close;
 
 OnStart:
 	initnpctimer;
-	npctalk "Julian: Ã“timo. Terminamos de fazer o explosivo.";
+	npctalk "Julian: Ótimo. Terminamos de fazer o explosivo.";
 	end;
 OnTimer4000:
-	npctalk "Julian: Sobre seus ouvidos para proteger seu tÃ­mpano! Estou explodindo agora!";
+	npctalk "Julian: Sobre seus ouvidos para proteger seu tímpano! Estou explodindo agora!";
 	end;
 OnTimer7000:
 	disablenpc instance_npcname("#tr124");
@@ -794,7 +794,7 @@ OnTimer7000:
 	end;
 OnTimer15000:
 	stopnpctimer;
-	mapannounce 'map_swat$, "Julian: Excelente. Vamos avanÃ§ar.", bc_map,0xFF99;
+	mapannounce 'map_swat$, "Julian: Excelente. Vamos avançar.", bc_map,0xFF99;
 	disablenpc instance_npcname("Julian#1_2");
 	enablenpc instance_npcname("Julian#2_ep16_2");
 	enablenpc instance_npcname("#start_npc4");
@@ -804,18 +804,18 @@ OnTimer15000:
 1@swat,150,119,0	script	Suspicious instrument#1	4_ENERGY_YELLOW,{
 	if ('event != 2)
 		end;
-	mes "HÃ¡ um aviso escrito em cor vermelha.";
+	mes "Há um aviso escrito em cor vermelha.";
 	mes "-----------------------";
-	mes "[^ff0000do nÃ£o empurre^000000]";
+	mes "[^ff0000do não empurre^000000]";
 	next;
-	if (select( "Pare.", "Empurre o botÃ£o" ) == 1) {
-		mes "Eu nunca pressiono um botÃ£o suspeito.";
+	if (select( "Pare.", "Empurre o botão" ) == 1) {
+		mes "Eu nunca pressiono um botão suspeito.";
 		close;
 	}
 	if ('event == 2) {
 		'event = 3;
 		disablenpc instance_npcname("Suspicious instrument#1");
-		mapannounce 'map_swat$, "Intrudadores detectados na seÃ§Ã£o 2. CoraÃ§Ã£o caÃ§adores, aumente a seguranÃ§a!", bc_map,0xFF5555;
+		mapannounce 'map_swat$, "Intrudadores detectados na seção 2. Coração caçadores, aumente a segurança!", bc_map,0xFF5555;
 		initnpctimer;
 	}
 	end;
@@ -823,7 +823,7 @@ OnTimer1000:
 	donpcevent instance_npcname("#hunter_instance_1_mob_2") + "::OnStart";
 	end;
 OnTimer5000:
-	mapannounce 'map_swat$, "Eu repito. Intrusos detectados na Ã¡rea restrita. CaÃ§adores de coraÃ§Ã£o, aumente a seguranÃ§a!", bc_map,0xFF5555;
+	mapannounce 'map_swat$, "Eu repito. Intrusos detectados na área restrita. Caçadores de coração, aumente a segurança!", bc_map,0xFF5555;
 	stopnpctimer;
 	end;
 }
@@ -837,7 +837,7 @@ OnStart:
 	.@label$ = instance_npcname("#hunter_instance_1_mob_2") + "::OnMobDead";
 	for ( .@y = 120; .@y >= 99; .@y -= 7 ) {
 		for ( .@x = 140; .@x >= 122; .@x -= 6 ) {
-			monster 'map_swat$,.@x,.@y, "Guarda do caÃ§ador de coraÃ§Ã£o",3627,1, .@label$;	// EP16_2_H_HUNTER_MD
+			monster 'map_swat$,.@x,.@y, "Guarda do caçador de coração",3627,1, .@label$;	// EP16_2_H_HUNTER_MD
 		}
 	}
 	end;
@@ -845,9 +845,9 @@ OnStart:
 OnMobDead:
 	.@label$ = instance_npcname("#hunter_instance_1_mob_2") + "::OnMobDead";
 	if (rand(100) < 5)
-		areamonster 'map_swat$, 122,99,140,120, "Hunter de coraÃ§Ã£o atualizado",3626,1, .@label$;		// EP16_2_H_HUNTER_V
+		areamonster 'map_swat$, 122,99,140,120, "Hunter de coração atualizado",3626,1, .@label$;		// EP16_2_H_HUNTER_V
 	.@count = mobcount( 'map_swat$, .@label$ );
-	mapannounce 'map_swat$, "Restante" + .@count + "CaÃ§ador de coraÃ§Ã£o", bc_map,0xFFFFFF;
+	mapannounce 'map_swat$, "Restante" + .@count + "Caçador de coração", bc_map,0xFFFFFF;
 	if (.@count < 1)
 		initnpctimer;
 	end;
@@ -871,7 +871,7 @@ OnTimer4000:
 	npctalk "Julian: We must secure a path for the cleanup party. Find gunpowder nearby.", instance_npcname("Julian#2_ep16_2");
 	end;
 OnTimer7000:
-	mapannounce 'map_swat$, "Intrudadores detectados profundamente na seÃ§Ã£o 3. CaÃ§adores de coraÃ§Ã£o, proteja a base a todo custo!", bc_map,0xFF5555;
+	mapannounce 'map_swat$, "Intrudadores detectados profundamente na seção 3. Caçadores de coração, proteja a base a todo custo!", bc_map,0xFF5555;
 	end;
 OnTimer10000:
 	npctalk "Julian: Well, looks like they started the battle against our members who had scattered. We might be in danger soon.", instance_npcname("Julian#2_ep16_2");
@@ -906,7 +906,7 @@ OnStart:
 	.@label$ = instance_npcname("#hunter_instance_1_mob_3") + "::OnMobDead";
 	for ( .@y = 35; .@y <= 75; .@y += 8 ) {
 		for ( .@x = 188; .@x >= 168; .@x -= 10 ) {
-			monster 'map_swat$,.@x,.@y, "Guarda do caÃ§ador de coraÃ§Ã£o",3627,1, .@label$;	// EP16_2_H_HUNTER_MD
+			monster 'map_swat$,.@x,.@y, "Guarda do caçador de coração",3627,1, .@label$;	// EP16_2_H_HUNTER_MD
 		}
 	}
 	end;
@@ -920,13 +920,13 @@ OnMobDead:
 1@swat,238,39,5	script	Julian#2_ep16_2	4_M_REBELLION2,{
 	if (countitem(25154) < 1 || 'event != 4) {
 		mes "[Julian]";
-		mes "A pÃ³lvora estÃ¡ pronta?";
+		mes "A pólvora está pronta?";
 		close;
 	}
 	mes "[Julian]";
-	mes "A pÃ³lvora estÃ¡ pronta?";
+	mes "A pólvora está pronta?";
 	next;
-	select("DÃª a ele a pÃ³lvora");
+	select("Dê a ele a pólvora");
 	if ('event == 4) {
 		'event = 5;
 		delitem 25154, countitem(25154);// Antique_Powder
@@ -935,11 +935,11 @@ OnMobDead:
 	end;
 
 OnStart:
-	npctalk "Julian: Ã“timo. Terminamos de fazer o explosivo.";
+	npctalk "Julian: Ótimo. Terminamos de fazer o explosivo.";
 	initnpctimer;
 	end;
 OnTimer6000:
-	npctalk "Julian: Sobre seus ouvidos para proteger seu tÃ­mpano! Estou explodindo agora!";
+	npctalk "Julian: Sobre seus ouvidos para proteger seu tímpano! Estou explodindo agora!";
 	end;
 OnTimer9000:
 	disablenpc instance_npcname("#tr129");
@@ -958,7 +958,7 @@ OnTimer9000:
 	setcell 'map_swat$,250,30,250,46,cell_walkable,1;
 	end;
 OnTimer14000:
-	mapannounce 'map_swat$, "Julian: Ã“timo. Vamos agora!", bc_map,0xFF99;
+	mapannounce 'map_swat$, "Julian: Ótimo. Vamos agora!", bc_map,0xFF99;
 	disablenpc instance_npcname("Julian#2_ep16_2");
 	enablenpc instance_npcname("#expl1");
 	enablenpc instance_npcname("#expl2");
@@ -999,24 +999,24 @@ OnTouch:
 1@swat,310,47,6	script	Julian#3	4_M_REBELLION2,{
 	end;
 OnStart:
-	mapannounce 'map_swat$, "ComunicaÃ§Ã£o de voz: ocupamos a sala de comunicaÃ§Ã£o do Heart Hunter. A batalha parece ter terminado. Todos os membros da unidade defendem as fortalezas ocupadas e o modo de espera.", bc_map,0x77FFFF;
+	mapannounce 'map_swat$, "Comunicação de voz: ocupamos a sala de comunicação do Heart Hunter. A batalha parece ter terminado. Todos os membros da unidade defendem as fortalezas ocupadas e o modo de espera.", bc_map,0x77FFFF;
 	initnpctimer;
 	end;
 OnTimer6000:
-	npctalk "Julian: Como ocupamos a sala de comunicaÃ§Ã£o, Ã© praticamente a nossa vitÃ³ria. Parece que nÃ£o sofremos muito dano.";
+	npctalk "Julian: Como ocupamos a sala de comunicação, é praticamente a nossa vitória. Parece que não sofremos muito dano.";
 	end;
 OnTimer11000:
-	npctalk "Julian: Ainda temos algum tempo atÃ© que nossa unidade principal chegue. Mantenha a cautela e a espera.";
+	npctalk "Julian: Ainda temos algum tempo até que nossa unidade principal chegue. Mantenha a cautela e a espera.";
 	end;
 OnTimer16000:
-	mapannounce 'map_swat$, "???: Quem estÃ¡ lÃ¡ ...?", bc_map,0xFF5555;
+	mapannounce 'map_swat$, "???: Quem está lá ...?", bc_map,0xFF5555;
 	end;
 OnTimer20000:
-	npctalk "Julian: O quÃª? ForÃ§a restante?";
+	npctalk "Julian: O quê? Força restante?";
 	end;
 OnTimer24000:
 	emotion ET_SURPRISE;
-	npctalk "Julian: Algo estÃ¡ chegando !! Evade !!";
+	npctalk "Julian: Algo está chegando !! Evade !!";
 	end;
 OnTimer28000:
 	specialeffect EF_LORD, AREA, "Julian#3";
@@ -1028,7 +1028,7 @@ OnTimer32000:
 	npctalk "Ebel: ... Who are you?", instance_npcname("Ebel#1_1");
 	end;
 OnTimer36000:
-	mapannounce 'map_swat$, "Julian: Evade inimigo agora! Ela nÃ£o Ã© uma humana comum.", bc_map,0xFF99;
+	mapannounce 'map_swat$, "Julian: Evade inimigo agora! Ela não é uma humana comum.", bc_map,0xFF99;
 	end;
 OnTimer40000:
 	npctalk "Ebel: Running away?", instance_npcname("Ebel#1_1");
@@ -1046,19 +1046,19 @@ OnTimer50000:
 	donpcevent instance_npcname("#hunter_instance_ebel") + "::OnStart";
 	end;
 OnTimer53000:
-	mapannounce 'map_swat$, "Julian: Droga, escapar serÃ¡ difÃ­cil.", bc_map,0xFF99;
+	mapannounce 'map_swat$, "Julian: Droga, escapar será difícil.", bc_map,0xFF99;
 	end;
 OnTimer56000:
-	mapannounce 'map_swat$, "Julian: Ei! Vou apoiar vocÃª de um longo alcance. Espere atÃ© entÃ£o!", bc_map,0xFF99;
+	mapannounce 'map_swat$, "Julian: Ei! Vou apoiar você de um longo alcance. Espere até então!", bc_map,0xFF99;
 	end;
 OnTimer64000:
 	mapannounce 'map_swat$, "Julian: Espere por um minuto. Estou me preparando para suprimi -la", bc_map,0xFF99;
 	end;
 OnTimer71000:
-	mapannounce 'map_swat$, "Julian: EstÃ¡ quase pronto! Fique nisso!", bc_map,0xFF99;
+	mapannounce 'map_swat$, "Julian: Está quase pronto! Fique nisso!", bc_map,0xFF99;
 	end;
 OnTimer80000:
-	mapannounce 'map_swat$, "Julian: Ã“timo! Fique longe dela! Deixe -me dar uma grande loja para ela!", bc_map,0xFF99;
+	mapannounce 'map_swat$, "Julian: Ótimo! Fique longe dela! Deixe -me dar uma grande loja para ela!", bc_map,0xFF99;
 	end;
 OnTimer82000:
 	donpcevent instance_npcname("#hunter_instance_ebel") + "::OnStop";
@@ -1086,10 +1086,10 @@ OnStart:
 	initnpctimer;
 	end;
 OnTimer7000:
-	unittalk 'boss_id, "Isso nÃ£o me machuca ...";
+	unittalk 'boss_id, "Isso não me machuca ...";
 	end;
 OnTimer14000:
-	unittalk 'boss_id, "VocÃª ... devagar.";
+	unittalk 'boss_id, "Você ... devagar.";
 	end;
 OnTimer21000:
 	unittalk 'boss_id, "Fraco...";
@@ -1110,7 +1110,7 @@ OnMobDead:
 1@swat,315,47,3	script	Ebel#1_1	4_F_HUNTER_EVIL,{
 	cutin "ep16_evil101.bmp",2;
 	mes "[Ebel]";
-	mes "VocÃª ... inimigo? Nossa tropa? De que lado vocÃª estÃ¡?";
+	mes "Você ... inimigo? Nossa tropa? De que lado você está?";
 	close3;
 }
 
@@ -1119,23 +1119,23 @@ OnMobDead:
 OnStart:
 	enablenpc instance_npcname("Julian#3_1");
 	enablenpc instance_npcname("Ebel#1_3");
-	npctalk "Julian: Estou feliz que vocÃª esteja todos seguros.";
+	npctalk "Julian: Estou feliz que você esteja todos seguros.";
 	initnpctimer;
 	end;
 OnTimer3000:
 	npctalk "Ebel: What was that thing you used just now?", instance_npcname("Ebel#1_3");
 	end;
 OnTimer6000:
-	npctalk "Julian: Ã‰ um tiro paralisante. Quando atinge alguÃ©m, cria uma confusÃ£o no sistema nervoso.";
+	npctalk "Julian: É um tiro paralisante. Quando atinge alguém, cria uma confusão no sistema nervoso.";
 	end;
 OnTimer10000:
 	npctalk "Ebel: Why didn't you kill me?", instance_npcname("Ebel#1_3");
 	end;
 OnTimer13000:
-	npctalk "Julian: Eu nÃ£o queria matar nosso povo ao mesmo tempo. AlÃ©m disso ... vocÃª Ã© uma forÃ§a desconhecida para nÃ³s";
+	npctalk "Julian: Eu não queria matar nosso povo ao mesmo tempo. Além disso ... você é uma força desconhecida para nós";
 	end;
 OnTimer18000:
-	npctalk "Julian: Devemos capturÃ¡ -lo vivo e descobrir sobre vocÃª.";
+	npctalk "Julian: Devemos capturá -lo vivo e descobrir sobre você.";
 	end;
 OnTimer22000:
 	enablenpc instance_npcname("#ext1_1");
@@ -1148,7 +1148,7 @@ OnTimer25000:
 	npctalk "Five minutes until the main unit arrives.", instance_npcname("#ext1_2");
 	end;
 OnTimer30000:
-	npctalk "Julian: Bom. Coloque -a em uma prisÃ£o. Ela Ã© um objeto de pesquisa, entÃ£o lida com ela com cuidado.";
+	npctalk "Julian: Bom. Coloque -a em uma prisão. Ela é um objeto de pesquisa, então lida com ela com cuidado.";
 	end;
 OnTimer35000:
 	npctalk "Yes!", instance_npcname("#ext1_1");
@@ -1174,7 +1174,7 @@ OnTimer40000:
 	if ('event != 5)
 		end;
 	mes "[Julian]";
-	mes "Hum. Os engenheiros precisam reparar a base ocupada. Ã‰ hora de a forÃ§a de batalha sair.";
+	mes "Hum. Os engenheiros precisam reparar a base ocupada. É hora de a força de batalha sair.";
 	if (isbegin_quest(12374) == 1) {
 		getitem 25155,10;// Swz_Honor_Token
 		completequest 12374;// Heart Hunter Base occupation
@@ -1249,13 +1249,13 @@ OnInstanceInit:
 1@swat,53,122,1	script	Julian#4	4_M_REBELLION2,{
 	if (is_party_leader() == false) {
 		mes "[Julian]";
-		mes "Estou falando com seu lÃ­der agora" + strcharinfo(0) + ".";
+		mes "Estou falando com seu líder agora" + strcharinfo(0) + ".";
 		close;
 	}
 	mes "[Julian]";
-	mes "" + strcharinfo(0) + ", esta Ã© sua primeira visita aqui?";
+	mes "" + strcharinfo(0) + ", esta é sua primeira visita aqui?";
 	next;
-	.@s = select( "Ã‰ sim.", "NÃ£o, eu jÃ¡ estive aqui antes." );
+	.@s = select( "É sim.", "Não, eu já estive aqui antes." );
 	if ('status_instance != 0)
 		end;
 	'status_instance = 1;
@@ -1286,26 +1286,26 @@ OnTimer9000:
 OnStart:
 	disablenpc instance_npcname("Julian#4");
 	enablenpc instance_npcname("Julian#4_1");
-	npctalk "Julian: VocÃª pode achar este lugar desconhecido.";
+	npctalk "Julian: Você pode achar este lugar desconhecido.";
 	initnpctimer;
 	end;
 OnTimer3000:
-	npctalk "Julian: Havia um espaÃ§o bastante grande atrÃ¡s da zona que havÃ­amos ocupado.";
+	npctalk "Julian: Havia um espaço bastante grande atrás da zona que havíamos ocupado.";
 	end;
 OnTimer7000:
-	npctalk "Julian: Embora nÃ£o possamos usÃ¡ -lo para mover nossas tropas, Ã© um local perfeito para experimentar um combate simulado.";
+	npctalk "Julian: Embora não possamos usá -lo para mover nossas tropas, é um local perfeito para experimentar um combate simulado.";
 	end;
 OnTimer12000:
-	npctalk "Julian: EntÃ£o, nÃ³s o remodelamos como um campo de treinamento para ter um combate simulado semelhante ao combate anterior.";
+	npctalk "Julian: Então, nós o remodelamos como um campo de treinamento para ter um combate simulado semelhante ao combate anterior.";
 	end;
 OnTimer17000:
-	npctalk "Julian: VocÃª desempenharÃ¡ o papel dos invasores. Nossas tropas disfarÃ§arÃ£o como caÃ§adores de coraÃ§Ã£o e defenderÃ£o.";
+	npctalk "Julian: Você desempenhará o papel dos invasores. Nossas tropas disfarçarão como caçadores de coração e defenderão.";
 	end;
 OnTimer22000:
-	npctalk "Julian: Ã‰ uma espÃ©cie de treinamento de defesa. Ã‰ para entender quanta forÃ§a precisamos defender esta Ã¡rea.";
+	npctalk "Julian: É uma espécie de treinamento de defesa. É para entender quanta força precisamos defender esta área.";
 	end;
 OnTimer27000:
-	npctalk "Julian: Agora, por favor, ataque sem misericÃ³rdia, assim como em uma batalha real.";
+	npctalk "Julian: Agora, por favor, ataque sem misericórdia, assim como em uma batalha real.";
 	end;
 OnTimer33000:
 	stopnpctimer;
@@ -1320,25 +1320,25 @@ OnTimer33000:
 OnStart:
 	enablenpc instance_npcname("#remaining_hunter2_step1");
 	.@label$ = instance_npcname("#remaining_hunter2_step1") + "::OnMobDead";
-	mapannounce 'map_swat$, "Ataque Ã  base detectada. Todos, iniciam uma tÃ¡tica de defesa.", bc_map,0xFF5555;
+	mapannounce 'map_swat$, "Ataque à base detectada. Todos, iniciam uma tática de defesa.", bc_map,0xFF5555;
 	for ( .@y = 145; .@y <= 199; .@y += 9 ) {
 		for ( .@x = 28; .@x <= 48; .@x += 10 ) {
-			monster 'map_swat$,.@x,.@y, "Guarda do caÃ§ador de coraÃ§Ã£o",3627,1, .@label$;	// EP16_2_H_HUNTER_MD
+			monster 'map_swat$,.@x,.@y, "Guarda do caçador de coração",3627,1, .@label$;	// EP16_2_H_HUNTER_MD
 		}
 	}
 	end;
 OnMobDead:
 	.@label$ = instance_npcname("#remaining_hunter2_step1") + "::OnMobDead";
 	if (rand(100) < 5)
-		areamonster 'map_swat$, 28,145,48,199, "Hunter de coraÃ§Ã£o atualizado",3626,1, .@label$;		// EP16_2_H_HUNTER_V
+		areamonster 'map_swat$, 28,145,48,199, "Hunter de coração atualizado",3626,1, .@label$;		// EP16_2_H_HUNTER_V
 	.@count = mobcount( 'map_swat$, .@label$ );
-	mapannounce 'map_swat$, "Restante" + .@count + "CaÃ§ador de coraÃ§Ã£o", bc_map,0xFFFFFF;
+	mapannounce 'map_swat$, "Restante" + .@count + "Caçador de coração", bc_map,0xFFFFFF;
 	if (.@count < 1)
 		initnpctimer;
 	end;
 OnTimer1000:
 	stopnpctimer;
-	mapannounce 'map_swat$, "Julian: SeÃ§Ã£o 1 tomada. Os responsÃ¡veis â€‹â€‹pela defesa da SeÃ§Ã£o 1 devem se reunir atrÃ¡s do quartel mais tarde.", bc_map,0xFF99;
+	mapannounce 'map_swat$, "Julian: Seção 1 tomada. Os responsáveis pela defesa da Seção 1 devem se reunir atrás do quartel mais tarde.", bc_map,0xFF99;
 	disablenpc instance_npcname("#remaining_hunter2_step1");
 	enablenpc instance_npcname("#start2_1_1");
 	end;
@@ -1348,7 +1348,7 @@ OnTimer1000:
 	end;
 OnTouch:
 	disablenpc instance_npcname("#start2_1_1");
-	mapannounce 'map_swat$, "Os inimigos chegaram ao 1Âº sistema de seguranÃ§a. O sistema de seguranÃ§a estÃ¡ desativado.", bc_map,0xFF5555;
+	mapannounce 'map_swat$, "Os inimigos chegaram ao 1º sistema de segurança. O sistema de segurança está desativado.", bc_map,0xFF5555;
 	disablenpc instance_npcname("#tr132");
 	disablenpc instance_npcname("#tr133");
 	disablenpc instance_npcname("#tr134");
@@ -1379,14 +1379,14 @@ OnTouch:
 
 1@swat,31,233,1	script	Julian#5	4_M_REBELLION2,{
 	mes "[Julian]";
-	mes "VocÃª passou com seguranÃ§a na SeÃ§Ã£o 1. Agora nos ajude com o treinamento de defesa da SeÃ§Ã£o 2.";
+	mes "Você passou com segurança na Seção 1. Agora nos ajude com o treinamento de defesa da Seção 2.";
 	close;
 OnStart:
-	npctalk "Julian: Foi muito fÃ¡cil? Na SeÃ§Ã£o 2, tambÃ©m temos um treinamento para a operaÃ§Ã£o de aniquilaÃ§Ã£o.";
+	npctalk "Julian: Foi muito fácil? Na Seção 2, também temos um treinamento para a operação de aniquilação.";
 	initnpctimer;
 	end;
 OnTimer3000:
-	npctalk "Julian: Desta vez, a forÃ§a defensiva e o grande nÃºmero de forÃ§a atualizados durante a batalha serÃ£o inseridos.";
+	npctalk "Julian: Desta vez, a força defensiva e o grande número de força atualizados durante a batalha serão inseridos.";
 	end;
 OnTimer7000:
 	npctalk "Julian: Por favor, ajude -nos no treinamento restante.";
@@ -1394,7 +1394,7 @@ OnTimer7000:
 OnTimer11000:
 	stopnpctimer;
 	disablenpc instance_npcname("Julian#5");
-	mapannounce 'map_swat$, "Os inimigos estÃ£o se aproximando da segunda base defensiva. A fase 2 Ã© anunciada.", bc_map,0xFF5555;
+	mapannounce 'map_swat$, "Os inimigos estão se aproximando da segunda base defensiva. A fase 2 é anunciada.", bc_map,0xFF5555;
 	donpcevent instance_npcname("#remaining_hunter2_step2") + "::OnStart";
 	end;
 }
@@ -1406,23 +1406,23 @@ OnStart:
 	.@label$ = instance_npcname("#remaining_hunter2_step2") + "::OnMobDead";
 	for ( .@y = 250; .@y <= 265; .@y += 5 ) {
 		for ( .@x = 25; .@x <= 60; .@x += 7 ) {
-			monster 'map_swat$,.@x,.@y, "Guarda do caÃ§ador de coraÃ§Ã£o",3627,1, .@label$;	// EP16_2_H_HUNTER_MD
+			monster 'map_swat$,.@x,.@y, "Guarda do caçador de coração",3627,1, .@label$;	// EP16_2_H_HUNTER_MD
 		}
 	}
 	end;
 OnMobDead:
 	.@label$ = instance_npcname("#remaining_hunter2_step2") + "::OnMobDead";
 	if (rand(100) < 10)
-		areamonster 'map_swat$, 25,250,60,265, "Hunter de coraÃ§Ã£o atualizado",3626,1, .@label$;		// EP16_2_H_HUNTER_V
+		areamonster 'map_swat$, 25,250,60,265, "Hunter de coração atualizado",3626,1, .@label$;		// EP16_2_H_HUNTER_V
 	.@count = mobcount( 'map_swat$, .@label$ );
-	mapannounce 'map_swat$, "Restante" + .@count + "CaÃ§ador de coraÃ§Ã£o", bc_map,0xFFFFFF;
+	mapannounce 'map_swat$, "Restante" + .@count + "Caçador de coração", bc_map,0xFFFFFF;
 	if (.@count < 1)
 		initnpctimer;
 	end;
 OnTimer1000:
 	stopnpctimer;
 	disablenpc instance_npcname("#remaining_hunter2_step2");
-	mapannounce 'map_swat$, "Os inimigos chegaram Ã  seÃ§Ã£o 2. Sistema de seguranÃ§a desativado.", bc_map,0xFF5555;
+	mapannounce 'map_swat$, "Os inimigos chegaram à seção 2. Sistema de segurança desativado.", bc_map,0xFF5555;
 	disablenpc instance_npcname("#tr136");
 	disablenpc instance_npcname("#tr137");
 	disablenpc instance_npcname("#tr138");
@@ -1456,53 +1456,53 @@ OnTouch:
 
 1@swat,56,283,1	script	Julian#6	4_M_REBELLION2,{
 	mes "[Julian]";
-	mes "Este sistema de seguranÃ§a aqui controla muitos dispositivos do sistema por lÃ¡.";
+	mes "Este sistema de segurança aqui controla muitos dispositivos do sistema por lá.";
 	next;
 	mes "[Julian]";
-	mes "Se vocÃª ativar o dispositivo, eles abrirÃ£o uma passagem estreita pela qual vocÃª mal poderÃ¡ passar.";
+	mes "Se você ativar o dispositivo, eles abrirão uma passagem estreita pela qual você mal poderá passar.";
 	next;
 	mes "[Julian]";
-	mes "A menos que vocÃª ativa o dispositivo, o treinamento defensivo nÃ£o comeÃ§a. Ative quando estiver pronto.";
+	mes "A menos que você ativa o dispositivo, o treinamento defensivo não começa. Ative quando estiver pronto.";
 	close;
 
 OnStart:
 	initnpctimer;
-	npctalk "Julian: VocÃª facilmente aniquilou a forÃ§a atualizada na SeÃ§Ã£o 2. Ã‰ melhor mudar nossa tÃ¡tica defensiva.";
+	npctalk "Julian: Você facilmente aniquilou a força atualizada na Seção 2. É melhor mudar nossa tática defensiva.";
 	end;
 OnTimer6000:
-	npctalk "Julian: A propÃ³sito, o dispositivo defensivo deixado Ã  sua frente serÃ¡ bem diferente daqueles que vocÃª enfrentou atÃ© agora.";
+	npctalk "Julian: A propósito, o dispositivo defensivo deixado à sua frente será bem diferente daqueles que você enfrentou até agora.";
 	end;
 OnTimer10000:
-	npctalk "Julian: Eu construÃ­ um sistema de defesa automÃ¡tico, instalando extensivamente o sistema de seguranÃ§a de caras do Heart Hunter.";
+	npctalk "Julian: Eu construí um sistema de defesa automático, instalando extensivamente o sistema de segurança de caras do Heart Hunter.";
 	end;
 OnTimer16000:
-	npctalk "Julian: O objetivo Ã© verificar como podemos bloquear inimigos quando usamos os dispositivos e forÃ§as automÃ¡ticas em nossa tÃ¡tica de defesa.";
+	npctalk "Julian: O objetivo é verificar como podemos bloquear inimigos quando usamos os dispositivos e forças automáticas em nossa tática de defesa.";
 	end;
 OnTimer20000:
-	npctalk "Julian: Se vocÃª opera o controlador na minha frente, o terceiro curso comeÃ§a.";
+	npctalk "Julian: Se você opera o controlador na minha frente, o terceiro curso começa.";
 	end;
 OnTimer24000:
 	stopnpctimer;
-	npctalk "Julian: Se vocÃª passar pela passagem estreita e aniquilar metade da forÃ§a, julgarei que a defesa falhou.";
+	npctalk "Julian: Se você passar pela passagem estreita e aniquilar metade da força, julgarei que a defesa falhou.";
 	end;
 }
 
 1@swat,60,286,4	script	SWT_8309#1	4_SCR_MT_ROBOTS,{
 	if ('status_instance != 1)
 		end;
-	mes "VocÃª pode ver um incomumente atraente";
-	mes "botÃ£o vermelho.";
+	mes "Você pode ver um incomumente atraente";
+	mes "botão vermelho.";
 	mes "---------------------";
-	mes "^ff0000 [nÃ£o empurre]^000000";
+	mes "^ff0000 [não empurre]^000000";
 	next;
 	if (select( "Ignore", "Empurre" ) == 1) {
-		mes "VocÃª ignorou o botÃ£o e recuou. Nada aconteceu.";
+		mes "Você ignorou o botão e recuou. Nada aconteceu.";
 		close;
 	}
 	if ('status_instance != 1)	// note: officially several maze can be made
 		end;
 	'status_instance = 2;
-	mapannounce 'map_swat$, "HÃ¡ um intruso na Ã¡rea restrita. Todos os membros da unidade montam.", bc_map,0xFF99;
+	mapannounce 'map_swat$, "Há um intruso na área restrita. Todos os membros da unidade montam.", bc_map,0xFF99;
 	specialeffect EF_FIREPILLARBOMB;
 	disablenpc instance_npcname("SWT_8309#1");
 	donpcevent instance_npcname("#hunter_instance_2_maze") + "::OnStart";
@@ -1516,7 +1516,7 @@ OnStart:
 	.@label$ = instance_npcname("#hunter_instance_2_maze") + "::OnMobDead";
 	for ( .@y = 300; .@y <= 330; .@y += 10 ) {
 		for ( .@x = 30; .@x <= 120; .@x += 10 ) {
-			monster 'map_swat$,.@x,.@y, "Guarda do caÃ§ador de coraÃ§Ã£o",3627,1, .@label$;	// EP16_2_H_HUNTER_MD
+			monster 'map_swat$,.@x,.@y, "Guarda do caçador de coração",3627,1, .@label$;	// EP16_2_H_HUNTER_MD
 		}
 	}
 	// maze - pregenerated ?
@@ -1535,14 +1535,14 @@ OnStart:
 OnMobDead:
 	.@label$ = instance_npcname("#hunter_instance_2_maze") + "::OnMobDead";
 	.@count = mobcount( 'map_swat$, .@label$ );
-	mapannounce 'map_swat$, "ForÃ§a defensiva restante" + .@count + "%", bc_map,0xFFFFFF;
+	mapannounce 'map_swat$, "Força defensiva restante" + .@count + "%", bc_map,0xFFFFFF;
 	if (.@count <= 20)
 		initnpctimer;
 	end;
 OnTimer1000:
 	stopnpctimer;
 	disablenpc instance_npcname("#hunter_instance_2_maze");
-	mapannounce 'map_swat$, "Os inimigos desativaram o terceiro sistema de seguranÃ§a. A defesa base falhou.", bc_map,0xFF5555;
+	mapannounce 'map_swat$, "Os inimigos desativaram o terceiro sistema de segurança. A defesa base falhou.", bc_map,0xFF5555;
 	killmonster 'map_swat$, instance_npcname("#hunter_instance_2_maze") + "::OnMobDead";
 	enablenpc instance_npcname("Julian#7");
 	enablenpc instance_npcname("Ebel#3");
@@ -1563,7 +1563,7 @@ OnTimer1000:
 
 1@swat,164,300,6	script	Julian#7	4_M_REBELLION2,{
 	mes "[Julian]";
-	mes "Temos algo como o Ãºltimo recurso, caso nÃ£o defendemos a base. Ã‰ hora de testÃ¡ -lo agora.";
+	mes "Temos algo como o último recurso, caso não defendemos a base. É hora de testá -lo agora.";
 	next;
 	mes "[Julian]";
 	mes "Entre na porta na sua frente.";
@@ -1581,7 +1581,7 @@ OnTouch:
 
 1@swat,129,258,6	script	Ebel#3	4_F_HUNTER_EVIL,{
 	mes "[Ebel]";
-	mes "VocÃª Ã© meu companheiro? Ou um inimigo? De que lado vocÃª estÃ¡?";
+	mes "Você é meu companheiro? Ou um inimigo? De que lado você está?";
 	cutin "ep16_evil101.bmp",2;
 	close3;
 }
@@ -1591,25 +1591,25 @@ OnTouch:
 		end;
 	if (is_party_leader() == false) {
 		mes "[Julian]";
-		mes "Espere um tempo" + strcharinfo(0) + "Vamos proceder assim que seu lÃ­der da unidade chegar.";
+		mes "Espere um tempo" + strcharinfo(0) + "Vamos proceder assim que seu líder da unidade chegar.";
 		close;
 	}
 	mes "[Julian]";
-	mes "Levei mais de uma semana atÃ© poder conversar com ela. Agora ela fala bem.";
+	mes "Levei mais de uma semana até poder conversar com ela. Agora ela fala bem.";
 	next;
-	if (select( "VocÃª estÃ¡ perto o suficiente para chamÃ¡ -la pelo primeiro nome?", "Eu sei. Vamos comeÃ§ar agora." ) == 1) {
+	if (select( "Você está perto o suficiente para chamá -la pelo primeiro nome?", "Eu sei. Vamos começar agora." ) == 1) {
 		mes "[Julian]";
-		mes "NÃ£o, nÃ£o me olhe assim. Essa garota nunca falaria com outros caras. EntÃ£o eu me tornei encarregado dela.";
+		mes "Não, não me olhe assim. Essa garota nunca falaria com outros caras. Então eu me tornei encarregado dela.";
 		next;
 		mes "[Julian]";
-		mes "... Ã© real.";
+		mes "... é real.";
 		close2;
 		if (is_party_leader() == true && 'status_instance == 2)
 			donpcevent instance_npcname("Julian#8") + "::OnStart";
 		end;
 	}
 	mes "[Julian]";
-	mes "Hum. Ã“timo. Vamos comeÃ§ar imediatamente.";
+	mes "Hum. Ótimo. Vamos começar imediatamente.";
 	if (is_party_leader() == true && 'status_instance == 2)
 		donpcevent instance_npcname("Julian#8_0") + "::OnStart";
 	close;
@@ -1634,25 +1634,25 @@ OnStart:
 	disablenpc instance_npcname("Julian#8_0");
 	enablenpc instance_npcname("Julian#8");
 	initnpctimer;
-	npctalk "Julian: Esta Ã© a garota que capturamos da Ãºltima vez.";
+	npctalk "Julian: Esta é a garota que capturamos da última vez.";
 	end;
 OnTimer3000:
-	npctalk "Julian: NÃ£o sabemos quem ela Ã© e de onde ela Ã©. Tudo o que sabemos Ã© o nome dela, Ebel ...";
+	npctalk "Julian: Não sabemos quem ela é e de onde ela é. Tudo o que sabemos é o nome dela, Ebel ...";
 	end;
 OnTimer8000:
-	npctalk "Julian: Sem nenhuma memÃ³ria ou racionalidade anterior, apenas a intenÃ§Ã£o de proteger a base Ã© deixada nela.";
+	npctalk "Julian: Sem nenhuma memória ou racionalidade anterior, apenas a intenção de proteger a base é deixada nela.";
 	end;
 OnTimer13000:
-	npctalk "Julian: Ela estÃ¡ em um status tÃ£o mecÃ¢nico que Ã© difÃ­cil ver um humano nela. Mas ela nÃ£o atacava ninguÃ©m, a menos que seja julgado como inimigo.";
+	npctalk "Julian: Ela está em um status tão mecânico que é difícil ver um humano nela. Mas ela não atacava ninguém, a menos que seja julgado como inimigo.";
 	end;
 OnTimer18000:
-	npctalk "Julian: VocÃª tem que me ajudar a descobrir sua capacidade potencial.";
+	npctalk "Julian: Você tem que me ajudar a descobrir sua capacidade potencial.";
 	end;
 OnTimer22000:
 	npctalk "Ebel: Julian, is that an enemy?", instance_npcname("Ebel#3");
 	end;
 OnTimer25000:
-	npctalk "Julian: Oh, a pessoa Ã  sua frente Ã© seu inimigo apenas por um tempo.";
+	npctalk "Julian: Oh, a pessoa à sua frente é seu inimigo apenas por um tempo.";
 	end;
 OnTimer29000:
 	stopnpctimer;
@@ -1678,7 +1678,7 @@ OnTimer7000:
 	npctalk "Ebel: I will stop him.", instance_npcname("Ebel#3");
 	end;
 OnTimer8000:
-	mapannounce 'map_swat$, "Sistema de seguranÃ§a: a fase 2 da situaÃ§Ã£o de emergÃªncia Ã© anunciada. O dispositivo defensivo automÃ¡tico Ã© ativado.", bc_map,0xFF5555;
+	mapannounce 'map_swat$, "Sistema de segurança: a fase 2 da situação de emergência é anunciada. O dispositivo defensivo automático é ativado.", bc_map,0xFF5555;
 	end;
 OnTimer12000:
 	stopnpctimer;
@@ -1701,7 +1701,7 @@ OnMobDead:
 		initnpctimer;
 	end;
 OnTimer1000:
-	mapannounce 'map_swat$, "Sistema de seguranÃ§a: a situaÃ§Ã£o de emergÃªncia Ã© descarregada. Encerrar o dispositivo de defesa automÃ¡tica.", bc_map,0xFF5555;
+	mapannounce 'map_swat$, "Sistema de segurança: a situação de emergência é descarregada. Encerrar o dispositivo de defesa automática.", bc_map,0xFF5555;
 	end;
 OnTimer4000:
 	enablenpc instance_npcname("Julian#8_1");
@@ -1720,7 +1720,7 @@ OnTimer7000:
 	case 0:
 		cutin "ep16_evil103.bmp",2;
 		mes "[Ebel]";
-		mes "Onde vocÃª aprendeu a tÃ©cnica que vocÃª usou hÃ¡ um momento?";
+		mes "Onde você aprendeu a técnica que você usou há um momento?";
 		close3;
 	case 1:
 		cutin "ep16_evil102.bmp",2;
@@ -1730,48 +1730,48 @@ OnTimer7000:
 	case 2:
 		cutin "ep16_evil103.bmp",2;
 		mes "[Ebel]";
-		mes "Onde vocÃª aprendeu a tÃ©cnica que vocÃª usou hÃ¡ um momento?";
+		mes "Onde você aprendeu a técnica que você usou há um momento?";
 		close3;
 	case 3:
 		cutin "ep16_evil101.bmp",2;
 		mes "[Ebel]";
-		mes "VocÃª ... vocÃª Ã© mais forte que eu. Eu nunca experimentei isso antes ...";
+		mes "Você ... você é mais forte que eu. Eu nunca experimentei isso antes ...";
 		close3;
 	}
 }
 
 1@swat,136,258,3	script	Julian#8_1	4_M_REBELLION2,{
 	mes "[Julian]";
-	mes "Hum. Bom trabalho. Vamos deixar o campo de treinamento. O gateway estÃ¡ no andar de cima. Suba as escadas atrÃ¡s de mim.";
+	mes "Hum. Bom trabalho. Vamos deixar o campo de treinamento. O gateway está no andar de cima. Suba as escadas atrás de mim.";
 	close;
 OnStart:
 	initnpctimer;
-	npctalk "Julian: NÃ£o estou tentando subestimar sua capacidade de combate";
+	npctalk "Julian: Não estou tentando subestimar sua capacidade de combate";
 	end;
 OnTimer5000:
-	npctalk "Julian: Mas nÃ£o acho que Ebel esteja usando 100% de seu poder.";
+	npctalk "Julian: Mas não acho que Ebel esteja usando 100% de seu poder.";
 	end;
 OnTimer10000:
-	npctalk "Julian, temos que verificÃ¡ -la um pouco mais ...";
+	npctalk "Julian, temos que verificá -la um pouco mais ...";
 	end;
 OnTimer13000:
 	npctalk "Ebel: Am I... being disposed?", instance_npcname("Ebel#3_1");
 	end;
 OnTimer16000:
-	npctalk "Julian: Do que vocÃª estÃ¡ falando? A disposiÃ§Ã£o Ã© apenas para mÃ¡quinas.";
+	npctalk "Julian: Do que você está falando? A disposição é apenas para máquinas.";
 	end;
 OnTimer20000:
 	npctalk "Ebel: Then you are not disposing me?", instance_npcname("Ebel#3_1");
 	end;
 OnTimer23000:
-	npctalk "Julian: Pare de incomodar. O treinamento acabou, prepare -se para a refeiÃ§Ã£o. Ã‰ hora de comer.";
+	npctalk "Julian: Pare de incomodar. O treinamento acabou, prepare -se para a refeição. É hora de comer.";
 	end;
 OnTimer28000:
 	npctalk "Ebel: Meal...", instance_npcname("Ebel#3_1");
 	emotion ET_SURPRISE, getnpcid(0, instance_npcname("Ebel#3_1") );
 	end;
 OnTimer31000:
-	npctalk "Julian: Sim. VÃ¡ e mude para roupas casuais.";
+	npctalk "Julian: Sim. Vá e mude para roupas casuais.";
 	end;
 OnTimer35000:
 	npctalk "Ebel: Ebel follows Julian's instruction.", instance_npcname("Ebel#3_1");

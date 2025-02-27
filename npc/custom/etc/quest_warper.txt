@@ -70,9 +70,9 @@
 
 function	script	Q_Warpra	{
 	mes "[Warpra]";
-	mes "Ol√°,";
+	mes "Ol·,";
 	mes "I can warp you to any town or dungeon, but you need to unlock them first by visiting us.";
-	mes "O que voc√™ precisa?";
+	mes "O que vocÍ precisa?";
 	
 	if(getarg(0) == 0) callfunc "QWS_MMarray",0;
 	if(getarg(0) == 1) callfunc "QWS_MMarray",1;
@@ -105,9 +105,9 @@ GM_Menu:
 	next;
 	mes "Town warping = "+(($QW_TW_OFF)?"^FF0000 Off":"^00FF00 On")+"^000000";
 	mes "Dungeon warping = "+(($QW_DW_OFF)?"^FF0000 Off":"^00FF00 On")+"^000000";
-	mes "O limite de profundidade da masmorra √©"+(($QW_DL)?"^00FF00 ON":"^FF0000 OFF")+"^000000";
+	mes "O limite de profundidade da masmorra È"+(($QW_DL)?"^00FF00 ON":"^FF0000 OFF")+"^000000";
 	mes "Se no limite de profundidade da masmorra estiver definido como ^0000ff"+$QW_DDL+"^000000";
-	mes "Mostrar usu√°rios do mapa ="+(($QW_MapUserShow)?"^00FF00 ON":"^FF0000 OFF")+"^000000";
+	mes "Mostrar usu·rios do mapa ="+(($QW_MapUserShow)?"^00FF00 ON":"^FF0000 OFF")+"^000000";
 
 	if ($QW_HF) mes "Cura completa = ^00FF00 em ^000000";
 	if ($QW_HP) mes "Cura em parte = ^00FF00 em ^000000";
@@ -117,7 +117,7 @@ GM_Menu:
 	mes "Armazenamento da guilda ="+(($QW_GStor)?"^00FF00 ON":"^FF0000 OFF")+"^000000";
 	mes "Pontos Kafra coletam ="+(($QW_KPoint)?"^00FF00 ON":"^FF0000 OFF")+"^000000";
 
-	switch(select("Town Witing","Dungeon Witing","Limite de n√≠vel de masmorra","Mostrar usu√°rios do mapa","Cura cheia","Cura parcialmente","Armazenar","Armazenamento da guilda","Os pontos Kafra coletam","Definir pre√ßos","Warp especial","Sa√≠da")) {
+	switch(select("Town Witing","Dungeon Witing","Limite de nÌvel de masmorra","Mostrar usu·rios do mapa","Cura cheia","Cura parcialmente","Armazenar","Armazenamento da guilda","Os pontos Kafra coletam","Definir preÁos","Warp especial","SaÌda")) {
 	case 1: set $QW_TW_OFF,($QW_TW_OFF)?0:1; goto GM_Menu;
 	case 2: set $QW_DW_OFF,($QW_DW_OFF)?0:1; goto GM_Menu;
 	case 3: goto DungeonLevelLimit;
@@ -151,11 +151,11 @@ GM_Menu:
 Setprice:
 	if ($QW_DW_FEE != 0) set $QW_DW_FEE,0;
 	next;
-	mes "Percorra a lista para ver todas as op√ß√µes.";
+	mes "Percorra a lista para ver todas as opÁıes.";
 
-	mes "B√°sico - deforma√ß√µes s√£o ="+(($QW_BW_PRICE)?"^00FF00"+$QW_BW_PRICE:"^Ff0000Free")+"^000000";
-	mes "Avan√ßado - deforma√ß√µes s√£o ="+(($QW_AW_PRICE)?"^00FF00"+$QW_AW_PRICE:"^Ff0000Free")+"^000000";
-	mes "No exterior - deforma√ß√µes s√£o ="+(($QW_OW_PRICE)?"^00FF00"+$QW_OW_PRICE:"^Ff0000Free")+"^000000";
+	mes "B·sico - deformaÁıes s„o ="+(($QW_BW_PRICE)?"^00FF00"+$QW_BW_PRICE:"^Ff0000Free")+"^000000";
+	mes "AvanÁado - deformaÁıes s„o ="+(($QW_AW_PRICE)?"^00FF00"+$QW_AW_PRICE:"^Ff0000Free")+"^000000";
+	mes "No exterior - deformaÁıes s„o ="+(($QW_OW_PRICE)?"^00FF00"+$QW_OW_PRICE:"^Ff0000Free")+"^000000";
 
 	mes "Basic Dungeon level warp fee = "+(($QW_BW_FEE)?"^00FF00"+$QW_BW_FEE:"^FF0000NO")+"^000000 zeny per level";
 	mes "Advanced Dungeon level warp fee = "+(($QW_AW_FEE)?"^00FF00"+$QW_AW_FEE:"^FF0000NO")+"^000000 zeny per level";
@@ -166,65 +166,65 @@ Setprice:
 	mes "^Ff0000SP ^000000PART Healing ="+(($QW_HP_S_PRICE)?"^00FF00"+$QW_HP_S_PRICE+"^000000 Um ponto":"^Ff0000FREE^000000");
 
 	if ($QW_S_PRICE && $QW_S_PRICE != 60) mes "Armazenamento = ^00FF00"+$QW_S_PRICE+"^000000";
-	if (!$QW_S_PRICE) mes "Armazenamento = ^ff0000 gr√°tis ^000000";
+	if (!$QW_S_PRICE) mes "Armazenamento = ^ff0000 gr·tis ^000000";
 	if ($QW_S_PRICE == 60) mes "Armazenamento = ^0000f Kafra Fashion ^000000";
 	mes "Armazenamento da guilda ="+(($QW_GS_PRICE)?"^00FF00"+$QW_GS_PRICE:"^Ff0000Free")+"^000000";
 	
 	switch(select("Basic - Warps","Advanced - Warps","Overseas - Warps","Basic Dungeon warp fee","Advanced Dungeon warp fee","Overseas Dungeon warp fee","Full Healing","Part Healing","Storage","Guild Storage","Back","Exit")) {
 	case 1:
 		next;
-		mes "B√°sico - deforma√ß√µes s√£o ="+(($QW_BW_PRICE)?"^00FF00"+$QW_BW_PRICE:"^Ff0000Free")+"^000000";
-		mes "B√°sico - As urdidores s√£o cidades iniciais e masmorras relacionadas.";
+		mes "B·sico - deformaÁıes s„o ="+(($QW_BW_PRICE)?"^00FF00"+$QW_BW_PRICE:"^Ff0000Free")+"^000000";
+		mes "B·sico - As urdidores s„o cidades iniciais e masmorras relacionadas.";
 		input $QW_BW_PRICE;
 		goto Setprice;
 	case 2:
 		next;
-		mes "Avan√ßado - deforma√ß√µes s√£o ="+(($QW_AW_PRICE)?"^00FF00"+$QW_AW_PRICE:"^Ff0000Free")+"^000000";
-		mes "Avan√ßado - As urdidores s√£o cidades e masmorras na mesma ilha, mas n√£o est√£o perto de qualquer cidade inicial.";
+		mes "AvanÁado - deformaÁıes s„o ="+(($QW_AW_PRICE)?"^00FF00"+$QW_AW_PRICE:"^Ff0000Free")+"^000000";
+		mes "AvanÁado - As urdidores s„o cidades e masmorras na mesma ilha, mas n„o est„o perto de qualquer cidade inicial.";
 		input $QW_AW_PRICE;
 		goto Setprice;
 	case 3:
 		next;
-		mes "No exterior - deforma√ß√µes s√£o ="+(($QW_OW_PRICE)?"^00FF00"+$QW_OW_PRICE:"^Ff0000Free")+"^000000";
-		mes "No exterior - as urdidores s√£o cidades e masmorras no exterior acess√≠veis de barco de Alberta.";
+		mes "No exterior - deformaÁıes s„o ="+(($QW_OW_PRICE)?"^00FF00"+$QW_OW_PRICE:"^Ff0000Free")+"^000000";
+		mes "No exterior - as urdidores s„o cidades e masmorras no exterior acessÌveis de barco de Alberta.";
 		input $QW_OW_PRICE;
 		goto Setprice;
 	case 4:
 		next;
 		mes "Basic Dungeon level warp fee = "+(($QW_BW_FEE)?"^00FF00"+$QW_BW_FEE:"^FF0000NO")+"^000000 zeny per level";
-		mes "B√°sico - as urdidores s√£o masmorras relacionadas √† cidade inicial.";
+		mes "B·sico - as urdidores s„o masmorras relacionadas ‡ cidade inicial.";
 		mes "Dungeon warp fees are calculated by maps away from entrance of the dungeon times Dungeon warp fee.";
-		mes "Esses custos est√£o no topo dos custos regulares de urdidura.";
+		mes "Esses custos est„o no topo dos custos regulares de urdidura.";
 		input $QW_BW_FEE;
 		goto Setprice;
 	case 5:
 		next;
 		mes "Advanced Dungeon level warp fee = "+(($QW_AW_FEE)?"^00FF00"+$QW_AW_FEE:"^FF0000NO")+"^000000 zeny per level";
-		mes "Avan√ßado - Durpos s√£o masmorras que n√£o est√£o perto de nenhuma cidade inicial.";
+		mes "AvanÁado - Durpos s„o masmorras que n„o est„o perto de nenhuma cidade inicial.";
 		mes "Dungeon warp fees are calculated by maps away from entrance of the dungeon times Dungeon warp fee.";
-		mes "Esses custos est√£o no topo dos custos regulares de urdidura.";
+		mes "Esses custos est„o no topo dos custos regulares de urdidura.";
 		input $QW_AW_FEE;
 		goto Setprice;
 	case 6:
 		next;
 		mes "Overseas Dungeon level warp fee = "+(($QW_OW_FEE)?"^00FF00"+$QW_OW_FEE:"^FF0000NO")+"^000000 zeny per level";
-		mes "Overseas - Dobross s√£o masmorras relacionadas √†s cidades no exterior acess√≠veis de barco de Alberta.";
+		mes "Overseas - Dobross s„o masmorras relacionadas ‡s cidades no exterior acessÌveis de barco de Alberta.";
 		mes "Dungeon warp fees are calculated by maps away from entrance of the dungeon times Dungeon warp fee.";
-		mes "Esses custos est√£o no topo dos custos regulares de urdidura.";
+		mes "Esses custos est„o no topo dos custos regulares de urdidura.";
 		input $QW_OW_FEE;
 		goto Setprice;
 	case 7:
 		next;
 		mes "Cura completa ="+(($QW_HF_PRICE)?"^00FF00"+$QW_HF_PRICE:"^Ff0000Free")+"^000000";
-		mes "Cura completa instant√¢nea 1 pre√ßo.";
+		mes "Cura completa instant‚nea 1 preÁo.";
 		input $QW_HF_PRICE;
 		goto Setprice;
 	case 8:
 		next;
 		mes "^Ff0000HP ^000000PART Healing ="+(($QW_HP_H_PRICE)?"^00FF00"+$QW_HP_H_PRICE+"^000000 Um ponto":"^Ff0000FREE^000000");
 		mes "^Ff0000SP ^000000PART Healing ="+(($QW_HP_S_PRICE)?"^00FF00"+$QW_HP_S_PRICE+"^000000 Um ponto":"^Ff0000FREE^000000");
-		mes "Pre√ßo de cura por 1 hp.";
-		mes "Pre√ßo de cura por 1 sp.";
+		mes "PreÁo de cura por 1 hp.";
+		mes "PreÁo de cura por 1 sp.";
 		mes "2 entradas, primeiro HP e depois sp.";
 		input $QW_HP_H_PRICE;
 		input $QW_HP_S_PRICE;
@@ -232,9 +232,9 @@ Setprice:
 	case 9:
 		next;
 		if ($QW_S_PRICE && $QW_S_PRICE != 60) mes "Armazenamento = ^00FF00"+$QW_S_PRICE+"^000000";
-		if (!$QW_S_PRICE) mes "Armazenamento = ^ff0000 gr√°tis ^000000";
+		if (!$QW_S_PRICE) mes "Armazenamento = ^ff0000 gr·tis ^000000";
 		if ($QW_S_PRICE == 60) mes "Armazenamento = ^0000f Kafra Fashion ^000000";
-		mes "O custo de armazenamento, se definido como 60 pre√ßos de kafra, ser√° tratado.";
+		mes "O custo de armazenamento, se definido como 60 preÁos de kafra, ser· tratado.";
 		input $QW_S_PRICE;
 		goto Setprice;
 	case 10:
@@ -255,24 +255,24 @@ Setprice:
 SpecialWarpMenu:
 	if ($QW_SP_Warpname$ == "") set $QW_SP_Warpname$,"Warp especial";
 	next;
-	mes "Role para baixo para ver todas as informa√ß√µes";
+	mes "Role para baixo para ver todas as informaÁıes";
 	mes "The Special warp menu option will show in the main menu when all towns & dungeons are unlocked";
 	mes "And when the map for special warping has been set";
-	mes "Nome da op√ß√£o de menu definido como ^0000ff"+$QW_SP_Warpname$+"^000000";
+	mes "Nome da opÁ„o de menu definido como ^0000ff"+$QW_SP_Warpname$+"^000000";
 	if ($QW_SP_WarpMap$ == "") mes "map is currently ^FF0000not^000000 set, and Special warp menu is off";
-	if ($QW_SP_WarpMap$ != "") mes "O mapa est√° atualmente definido como ^0000FF"+$QW_SP_WarpMap$+"^000000 e o menu de distor√ß√£o especial est√° ligado";
-	mes "Os coordes est√£o definidos como ^0000FF"+$QW_SP_WarpX+","+$QW_SP_WarpY+"^000000";
-	switch(select("Defina o nome de Warp Special para mostrar no menu", "Defina Warpmap","Defina coordes","Volte para GM_menu","Sa√≠da")){
+	if ($QW_SP_WarpMap$ != "") mes "O mapa est· atualmente definido como ^0000FF"+$QW_SP_WarpMap$+"^000000 e o menu de distorÁ„o especial est· ligado";
+	mes "Os coordes est„o definidos como ^0000FF"+$QW_SP_WarpX+","+$QW_SP_WarpY+"^000000";
+	switch(select("Defina o nome de Warp Special para mostrar no menu", "Defina Warpmap","Defina coordes","Volte para GM_menu","SaÌda")){
 	case 1:
 		next;
-		mes "Defina o nome a ser exibido no menu como op√ß√£o.";
+		mes "Defina o nome a ser exibido no menu como opÁ„o.";
 		input $QW_SP_Warpname$;
 		goto SpecialWarpMenu;
 	case 2:
 		next;
 		mes "Defina o mapa no formato ^0000ffMapName ^000000.";
 		mes "When this warpmap is set the option for players will show once they meet the requirements.";
-		mes "Para desativar a op√ß√£o de menu Warp Special, limpe isso!";
+		mes "Para desativar a opÁ„o de menu Warp Special, limpe isso!";
 		input $QW_SP_WarpMap$;
 		goto SpecialWarpMenu;
 	case 3:
@@ -293,15 +293,15 @@ SpecialWarpMenu:
 
 DungeonLevelLimit:
 	next;
-	mes "O limite de profundidade da masmorra √©"+(($QW_DL)?"^00FF00on":"^FF0000OFF")+"^000000";
+	mes "O limite de profundidade da masmorra È"+(($QW_DL)?"^00FF00on":"^FF0000OFF")+"^000000";
 	mes "Se ^00FF00 em ^000000DUNGEON Limite de profundidade for definido como ^0000ff"+$QW_DDL+"^000000";
 
-	switch(select("Alternar o limite de profundidade da masmorra","Defina o limite de profundidade da masmorra","Volte para GM_menu","Sa√≠da")){
+	switch(select("Alternar o limite de profundidade da masmorra","Defina o limite de profundidade da masmorra","Volte para GM_menu","SaÌda")){
 	case 1: set $QW_DL,($QW_DL)?0:1; goto DungeonLevelLimit;
 	case 2:
 		next;
 		mes "Defina o limite da profundidade da masmorra 0 = entrada";
-		mes "Profundidade 1 √© um mapa conectado a 0 e assim por diante";
+		mes "Profundidade 1 È um mapa conectado a 0 e assim por diante";
 		mes "A rota mais curta para a contagem de mapas como profundidade";
 		input $QW_DDL;
 		goto DungeonLevelLimit;
@@ -349,7 +349,7 @@ L_dungeon:
 
 	next;
 	mes "[Warpra]";
-	mes "Selecione para onde voc√™ deseja ir:";
+	mes "Selecione para onde vocÍ deseja ir:";
 	freeloop(1);
 	set .@menu$,"";
 	for(set .@i,0; .@i<18; set .@i,.@i+1)	// Expected maximum is 18
@@ -385,7 +385,7 @@ L_heal_Full:
 	end;
 
 L_heal_Part:
-	set @healchoice,select("Cura completa","Apenas pontos de sa√∫de","Apenas pontos de habilidade","Sa√≠da");
+	set @healchoice,select("Cura completa","Apenas pontos de sa˙de","Apenas pontos de habilidade","SaÌda");
 	if (@healchoice == 1) callsub PHeal,1,1;
 	if (@healchoice == 2) callsub PHeal,1,0;
 	if (@healchoice == 3) callsub PHeal,0,1;
@@ -398,7 +398,7 @@ PHeal:
 	set @HpPrice, @hp*$QW_HP_H_PRICE;
 	set @SpPrice, @sp*$QW_HP_S_PRICE;
 	mes "[Warpra]";
-	if(getarg(0) == 1) mes ""+@HpPrice+"Zeny para"+@Hp+"Pontos de sa√∫de";
+	if(getarg(0) == 1) mes ""+@HpPrice+"Zeny para"+@Hp+"Pontos de sa˙de";
 	if(getarg(1) == 1) mes ""+@SpPrice+"Zeny para"+@Sp+"Pontos de habilidade";
 	set @total, @HpPrice+@SpPrice;
 	mes "para um total de"+@total+"mulheres";
@@ -419,18 +419,18 @@ PHeal:
 
 Zeny_Short_Both:
 	mes "[Warpra]";
-	mes "Escolha outra op√ß√£o, voc√™ pode pagar os dois.";
-	mes "Eu posso curar o m√°ximo que voc√™ pode pagar tamb√©m.";
+	mes "Escolha outra opÁ„o, vocÍ pode pagar os dois.";
+	mes "Eu posso curar o m·ximo que vocÍ pode pagar tambÈm.";
 	if (select("OK","Exit") == 2) goto L_end;
 	goto PHeal;
 
 Zeny_short_HP:
 	mes "[Warpra]";
-	mes "Voc√™ quer que eu cure parcialmente seu HP?";
+	mes "VocÍ quer que eu cure parcialmente seu HP?";
 	if (select("Yes","No") == 2) goto L_end;
 	set @Hp, Zeny/$QW_HP_H_PRICE;
     	set @HpPrice, @Hp*$QW_HP_H_PRICE;
-    	if (@Hp == 1) mes "Voc√™ n√£o vale o esfor√ßo.";
+    	if (@Hp == 1) mes "VocÍ n„o vale o esforÁo.";
     	if (@Hp == 1) goto L_end;
     	set Zeny, Zeny-@HpPrice;
 	heal @Hp,0;
@@ -439,11 +439,11 @@ Zeny_short_HP:
 
 Zeny_short_SP:
 	mes "[Warpra]";
-	mes "Voc√™ quer que eu cure parcialmente seu SP?";
+	mes "VocÍ quer que eu cure parcialmente seu SP?";
 	if (select("Yes","No") == 2) goto L_end;
 	set @Sp, Zeny/$QW_HP_S_PRICE;
     	set @SpPrice, @Sp*$QW_HP_S_PRICE;
-    	if (@Sp == 1) mes "Voc√™ n√£o vale o esfor√ßo.";
+    	if (@Sp == 1) mes "VocÍ n„o vale o esforÁo.";
     	if (@Sp == 1) goto L_end;
     	set Zeny, Zeny-@SpPrice;
 	heal 0,@Sp;
@@ -481,14 +481,14 @@ L_Storage:
 
 L_StorageJBlow:
 	mes "[Warpra]";
-	mes "Sinto muito, mas voc√™ tem que ser pelo menos o N√≠vel 6 Novice, se quiser usar o armazenamento.";
+	mes "Sinto muito, mas vocÍ tem que ser pelo menos o NÌvel 6 Novice, se quiser usar o armazenamento.";
 	return;
 
 L_GStorage:
 	if (!@GID) {
 		next;
 		mes "[Warpra]";
-		mes "Voc√™ n√£o faz parte de uma guilda, n√£o posso ajud√° -lo.";
+		mes "VocÍ n„o faz parte de uma guilda, n„o posso ajud· -lo.";
 		close;
 		end;
 	}
@@ -510,10 +510,10 @@ L_end:
 L_FewWarps:
 	next;
 	mes "[Warpra]";
-	mes "Voc√™ precisa desbloquear locais antes que eles estejam dispon√≠veis para voc√™.";
+	mes "VocÍ precisa desbloquear locais antes que eles estejam disponÌveis para vocÍ.";
 	mes "Para desbloquear um local, converse com meus colegas em todo o mundo.";
-	mes "Cada conta tem seu pr√≥prio cart√£o de carimbo.";
-	mes "Quer que eu verifique quais selos voc√™ coletou at√© agora?";
+	mes "Cada conta tem seu prÛprio cart„o de carimbo.";
+	mes "Quer que eu verifique quais selos vocÍ coletou atÈ agora?";
 	if (select("Sim","No")==1) callsub stampcard;
 	close;
 	end;
@@ -522,7 +522,7 @@ L_FewWarps:
 L_NoUnlock:
 	next;
 	mes "[Warpra]";
-	mes "N√£o desbloqueio esse local, meu assistente mais profundo na masmorra desbloquear√° este lugar.";
+	mes "N„o desbloqueio esse local, meu assistente mais profundo na masmorra desbloquear· este lugar.";
 	close;
 	end;
 	
@@ -532,9 +532,9 @@ L_Short_on_zeny:
 	switch(getarg(0)) {
 	case 0: mes "You don't seem to have "+@pTprice[@Tmenuref[@TWMenu-1]]+" zeny to pay for the warp to "+@pTmenuitems$[@Tmenuref[@TWMenu-1]]+"."; break;
 	case 1: mes "You don't seem to have "+@warpprice+" zeny to pay for the warp to "+@DLevelName$[@DWLmenuref[@DWLMenu-1]]+" at "+@pDmenuitems$[@Dmenuref[@DWMenu-1]]+"."; break;
-	case 2: mes "Voc√™ n√£o parece ter"+@fee+"Zeny para pagar a taxa de armazenamento."; break;
-	case 3: mes "Voc√™ n√£o parece ter"+$QW_GS_PRICE+"Zeny para pagar a taxa de armazenamento da guilda."; break;
-	case 4: mes "Voc√™ n√£o parece ter"+@healfee+"Zeny para pagar sua cura."; break;
+	case 2: mes "VocÍ n„o parece ter"+@fee+"Zeny para pagar a taxa de armazenamento."; break;
+	case 3: mes "VocÍ n„o parece ter"+$QW_GS_PRICE+"Zeny para pagar a taxa de armazenamento da guilda."; break;
+	case 4: mes "VocÍ n„o parece ter"+@healfee+"Zeny para pagar sua cura."; break;
 	}
 	close;
 	end;
@@ -543,19 +543,19 @@ L_Short_on_zeny:
 stampcard:
 // Counting of the amount of places you have unlocked
 	next;
-	mes "Deixe -me verificar quais cidades voc√™ tem.";
+	mes "Deixe -me verificar quais cidades vocÍ tem.";
 	callfunc "QWS_TownStamps";
-	mes "Voc√™ coletou^00FF00"+@Tstamp+"de"+@MaxTstamp+"^000000towns.";
+	mes "VocÍ coletou^00FF00"+@Tstamp+"de"+@MaxTstamp+"^000000towns.";
 	if (@Tstamp == 15) {
-		mes "Eles dizem que h√° uma ilha que voc√™ s√≥ pode chegar quando se casou ...";
+		mes "Eles dizem que h· uma ilha que vocÍ sÛ pode chegar quando se casou ...";
 		emotion ET_SMILE;
 	}
 	next;
-	mes "Deixe -me verificar que masmorras voc√™ tem.";
+	mes "Deixe -me verificar que masmorras vocÍ tem.";
 	callfunc "QWS_DungeonStamps";
-	mes "Voc√™ coletou^00FF00"+@Dstamp+"de"+@MaxDstamp+"^000000Dungeons.";
+	mes "VocÍ coletou^00FF00"+@Dstamp+"de"+@MaxDstamp+"^000000Dungeons.";
 	mes "Para desbloquear uma masmorra, procure meus colegas.";
-	mes "Geralmente, voc√™ pode encontr√° -los perto do meio ou do final da masmorra.";
+	mes "Geralmente, vocÍ pode encontr· -los perto do meio ou do final da masmorra.";
 	return;
 }
 
@@ -732,10 +732,10 @@ function	script	QWS_Tarray	{
 
 	QWS_Make_Town_Menu 3;
 //----------------Ayothaya:
-	setarray @pTmenuitems$[@Ti], "Eles v√£o";
+	setarray @pTmenuitems$[@Ti], "Eles v„o";
 	setarray @pTprice[@Ti], $QW_OW_PRICE;
 
-	setarray @pTmap$[@Ti], "eles v√£o";
+	setarray @pTmap$[@Ti], "eles v„o";
 	setarray @pTXcoords[@Ti], 150;
 	setarray @pTYcoords[@Ti], 57;
 
@@ -750,10 +750,10 @@ function	script	QWS_Tarray	{
 
 	QWS_Make_Town_Menu 21;
 //----------------Comodo:
-	setarray @pTmenuitems$[@Ti], "Confort√°vel";
+	setarray @pTmenuitems$[@Ti], "Confort·vel";
 	setarray @pTprice[@Ti], $QW_AW_PRICE;
 
-	setarray @pTmap$[@Ti], "confort√°vel";
+	setarray @pTmap$[@Ti], "confort·vel";
 	setarray @pTXcoords[@Ti], 188;
 	setarray @pTYcoords[@Ti], 161;
 
@@ -768,10 +768,10 @@ function	script	QWS_Tarray	{
 
 	QWS_Make_Town_Menu 29;
 //----------------Eclage:
-	setarray @pTmenuitems$[@Ti], "Ilumina√ß√£o";
+	setarray @pTmenuitems$[@Ti], "IluminaÁ„o";
 	setarray @pTprice[@Ti], $QW_OW_PRICE;
 
-	setarray @pTmap$[@Ti], "ilumina√ß√£o";
+	setarray @pTmap$[@Ti], "iluminaÁ„o";
 	setarray @pTXcoords[@Ti], 111;
 	setarray @pTYcoords[@Ti], 39;
 
@@ -939,10 +939,10 @@ function	script	QWS_Tarray	{
 
 	QWS_Make_Town_Menu 26;
 //----------------Splendide
-	setarray @pTmenuitems$[@Ti], "Espl√™ndido";
+	setarray @pTmenuitems$[@Ti], "EsplÍndido";
 	setarray @pTprice[@Ti], $QW_OW_PRICE;
 
-	setarray @pTmap$[@Ti], "espl√™ndido";
+	setarray @pTmap$[@Ti], "esplÍndido";
 	setarray @pTXcoords[@Ti], 200;
 	setarray @pTYcoords[@Ti], 153;
 
@@ -1018,7 +1018,7 @@ menu_item:
 //	setarray @DLevels[@Di], 3;			// Number of levels in dungeon
 //
 //	setarray @DGat$[@Dref], "abyss_01", "abyss_02", "abyss_03";	// Map names of dungeon levels
-//	setarray @DLevelName$[@Dref], "N√≠vel 1", "N√≠vel 2", "N√≠vel 3";	// Name of dungeon levels shown in Menu
+//	setarray @DLevelName$[@Dref], "NÌvel 1", "NÌvel 2", "NÌvel 3";	// Name of dungeon levels shown in Menu
 //	setarray @DXcoords[@Dref], 265, 275, 116;			// X warp coords
 //	setarray @DYcoords[@Dref], 273, 270, 27;			// Y warp coords
 //	setarray @DDepth[@Dref], 0, 1, 2;				// Relative depth to entrance, to calculate extra warp fee
@@ -1047,7 +1047,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[@Di], 3;
 
 	setarray @DGat$[@Dref], "abyss_01", "abyss_02", "abyss_03";
-	setarray @DLevelName$[@Dref], "N√≠vel 1", "N√≠vel 2", "N√≠vel 3";
+	setarray @DLevelName$[@Dref], "NÌvel 1", "NÌvel 2", "NÌvel 3";
 	setarray @DXcoords[@Dref], 265, 275, 116;
 	setarray @DYcoords[@Dref], 273, 270, 27;
 	setarray @DDepth[@Dref], 0, 1, 2;
@@ -1061,7 +1061,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[@Di], 3;
 
 	setarray @DGat$[@Dref], "AMA_DUN01", "but_dun02", "AMA_DUN03";
-	setarray @DLevelName$[@Dref], "N√≠vel 1", "N√≠vel 2", "N√≠vel 3";
+	setarray @DLevelName$[@Dref], "NÌvel 1", "NÌvel 2", "NÌvel 3";
 	setarray @DXcoords[@Dref], 227, 32, 119;
 	setarray @DYcoords[@Dref], 10, 43, 15;
 	setarray @DDepth[@Dref], 0, 1, 2;
@@ -1075,7 +1075,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[2], 2;
 
 	setarray @DGat$[@Dref], "Anthell01", "Anthell02";
-	setarray @DLevelName$[@Dref], "N√≠vel 1", "N√≠vel 2";
+	setarray @DLevelName$[@Dref], "NÌvel 1", "NÌvel 2";
 	setarray @DXcoords[@Dref], 32, 34;
 	setarray @DYcoords[@Dref], 262, 263;
 	setarray @DDepth[@Dref], 0, 1;
@@ -1089,7 +1089,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[3], 2;
 
 	setarray @DGat$[@Dref], "AYO_DUN01", "AH_TON 02";
-	setarray @DLevelName$[@Dref], "N√≠vel 1", "N√≠vel 2";
+	setarray @DLevelName$[@Dref], "NÌvel 1", "NÌvel 2";
 	setarray @DXcoords[@Dref], 275, 150;
 	setarray @DYcoords[@Dref], 17, 13;
 	setarray @DDepth[@Dref], 0, 1;
@@ -1103,7 +1103,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[4], 5;
 
 	setarray @DGat$[@Dref], "de_don00", "Iz_dun01", "de_dun02", "de_dun03", "de_dun04";
-	setarray @DLevelName$[@Dref], "N√≠vel 1", "N√≠vel 2", "N√≠vel 3", "N√≠vel 4", "N√≠vel 5";
+	setarray @DLevelName$[@Dref], "NÌvel 1", "NÌvel 2", "NÌvel 3", "NÌvel 4", "NÌvel 5";
 	setarray @DXcoords[@Dref], 168, 41, 236, 32, 26;
 	setarray @DYcoords[@Dref], 168, 37, 204, 63, 27;
 	setarray @DDepth[@Dref], 0, 1, 2, 3, 4;
@@ -1111,13 +1111,13 @@ function	script	QWS_Darray	{
 	QWS_Make_Dungeon_Menu 4;
 
 //----------------CLOCK TOWER
-	setarray @pDmenuitems$[@Di], "Dungeon da torre do rel√≥gio";
+	setarray @pDmenuitems$[@Di], "Dungeon da torre do relÛgio";
 	setarray @pDprice[@Di], $QW_AW_PRICE;
 	setarray @pDfee$[@Di], "$ Yell_aw_fee";
 	setarray @DLevels[5], 8;
 
 	setarray @DGat$[@Dref], "c_tower1", "c_tower2", "c_tower3", "c_tower4", "sidel_new01", "final_new02", "final_new03", "final_dun04";
-	setarray @DLevelName$[@Dref], "Torre do rel√≥gio N√≠vel 1", "Torre do rel√≥gio N√≠vel 2", "Torre do rel√≥gio N√≠vel 3", "Torre do rel√≥gio N√≠vel 4", "Por√£o 1f", "Por√£o 2f", "Por√£o 3f", "Por√£o 4f";
+	setarray @DLevelName$[@Dref], "Torre do relÛgio NÌvel 1", "Torre do relÛgio NÌvel 2", "Torre do relÛgio NÌvel 3", "Torre do relÛgio NÌvel 4", "Por„o 1f", "Por„o 2f", "Por„o 3f", "Por„o 4f";
 	setarray @DXcoords[@Dref], 200, 268, 64, 32, 197, 262, 276, 122;
 	setarray @DYcoords[@Dref], 163, 26, 148, 63, 25, 41, 53, 125;
 	setarray @DDepth[@Dref], 0, 1, 2, 3, 1, 2, 3, 4;
@@ -1125,13 +1125,13 @@ function	script	QWS_Darray	{
 	QWS_Make_Dungeon_Menu 5;
 
 //----------------COAL MINE
-	setarray @pDmenuitems$[@Di], "Dungeon de mina de carv√£o";
+	setarray @pDmenuitems$[@Di], "Dungeon de mina de carv„o";
 	setarray @pDprice[@Di], $QW_AW_PRICE;
 	setarray @pDfee$[@Di], "$ Yell_aw_fee";
 	setarray @DLevels[6], 3;
 
 	setarray @DGat$[@Dref], "Mjo_dun01", "mjo_dun02", "mjo_dun03";
-	setarray @DLevelName$[@Dref], "N√≠vel 1", "N√≠vel 2", "N√≠vel 3";
+	setarray @DLevelName$[@Dref], "NÌvel 1", "NÌvel 2", "NÌvel 3";
 	setarray @DXcoords[@Dref], 52, 381, 302;
 	setarray @DYcoords[@Dref], 17, 343, 261;
 	setarray @DDepth[@Dref], 0, 1, 2;
@@ -1145,7 +1145,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[7], 4;
 
 	setarray @DGat$[@Dref], "PRT_SEWB1", "PRT_SEWB2", "PRT_SEWB3", "PRT_SEWB4";
-	setarray @DLevelName$[@Dref], "N√≠vel 1", "N√≠vel 2", "N√≠vel 3", "N√≠vel 4";
+	setarray @DLevelName$[@Dref], "NÌvel 1", "NÌvel 2", "NÌvel 3", "NÌvel 4";
 	setarray @DXcoords[@Dref], 132, 19, 180, 100;
 	setarray @DYcoords[@Dref], 248, 19, 169, 92;
 	setarray @DDepth[@Dref], 0, 1, 2, 3;
@@ -1159,7 +1159,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[8], 2;
 
 	setarray @DGat$[@Dref], "One_Dun01", "One_Dun02";
-	setarray @DLevelName$[@Dref], "N√≠vel 1", "N√≠vel 2";
+	setarray @DLevelName$[@Dref], "NÌvel 1", "NÌvel 2";
 	setarray @DXcoords[@Dref], 22, 292;
 	setarray @DYcoords[@Dref], 14, 290;
 	setarray @DDepth[@Dref], 0, 1;
@@ -1173,7 +1173,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[9], 4;
 
 	setarray @DGat$[@Dref], "Gefenia01", "Gefenia02", "Gefenia03", "Gefenia04";
-	setarray @DLevelName$[@Dref], "N√≠vel 1", "N√≠vel 2", "N√≠vel 3", "N√≠vel 4";
+	setarray @DLevelName$[@Dref], "NÌvel 1", "NÌvel 2", "NÌvel 3", "NÌvel 4";
 	setarray @DXcoords[@Dref], 59, 201, 264, 33;
 	setarray @DYcoords[@Dref], 167, 35, 236, 270;
 	setarray @DDepth[@Dref], 0, 1, 2, 3;
@@ -1187,7 +1187,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[@Di], 4;
 
 	setarray @DGat$[@Dref], "gef_dun00", "Gef_dun01", "Gef_dun02", "gef_dun03";
-	setarray @DLevelName$[@Dref], "N√≠vel 1", "N√≠vel 2", "N√≠vel 3", "N√≠vel 4";
+	setarray @DLevelName$[@Dref], "NÌvel 1", "NÌvel 2", "NÌvel 3", "NÌvel 4";
 	setarray @DXcoords[@Dref], 104, 115, 106, 203;
 	setarray @DYcoords[@Dref], 100, 236, 132, 200;
 	setarray @DDepth[@Dref], 0, 1, 2, 3;
@@ -1201,7 +1201,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[@Di], 17;
 
 	setarray @DGat$[@Dref], "GLAST_01", "gl_church", "gl_chyard", "Gal_in 01", "GL_CAS01", "GL_CAS02", "Gl_knt01", "Gl_knt02", "GL_PRISON", "GL_PRISON1", "gl_step", "GL_SEW01", "GL_SEW02", "GL_SEW03", "GL_SEW04", "GL_DUN01", "gl_dun02";
-	setarray @DLevelName$[@Dref], "Entrada Glast Heim", "St. Abbey", "Cemit√©rio", "Dentro Glast Heim", "Castelo 1", "Castelo 2", "Cavalaria 1", "Cavalaria 2", "Pris√£o 1", "Pris√£o 2", "Passos", "Esgotos 1", "Esgotos 2", "Esgotos 3", "Esgotos 4", "Caverna mais baixa 1", "Caverna mais baixa 2";
+	setarray @DLevelName$[@Dref], "Entrada Glast Heim", "St. Abbey", "CemitÈrio", "Dentro Glast Heim", "Castelo 1", "Castelo 2", "Cavalaria 1", "Cavalaria 2", "Pris„o 1", "Pris„o 2", "Passos", "Esgotos 1", "Esgotos 2", "Esgotos 3", "Esgotos 4", "Caverna mais baixa 1", "Caverna mais baixa 2";
 	setarray @DXcoords[@Dref], 370, 156, 147, 121, 199, 104, 150, 157, 14, 150, 117, 258, 108, 171, 68, 133, 224;
 	setarray @DYcoords[@Dref], 300, 8, 15, 59, 29, 25, 10, 287, 70, 14, 124, 255, 291, 273, 277, 271, 274;
 	setarray @DDepth[@Dref], 0, 1, 2, 1, 1, 2, 1, 2, 2, 3, 1, 4, 2, 3, 4, 5, 6;
@@ -1215,7 +1215,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[@Di], 3;
 
 	setarray @DGat$[@Dref], "gon_dun01", "gon_dun02", "gon_dun03";
-	setarray @DLevelName$[@Dref], "N√≠vel 1", "N√≠vel 2", "N√≠vel 3";
+	setarray @DLevelName$[@Dref], "NÌvel 1", "NÌvel 2", "NÌvel 3";
 	setarray @DXcoords[@Dref], 143, 17, 68;
 	setarray @DYcoords[@Dref], 59, 114, 9;
 	setarray @DDepth[@Dref], 0, 1, 2;
@@ -1229,7 +1229,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[@Di], 3;
 
 	setarray @DGat$[@Dref], "PRT_MAZE01", "PRT_MAZE02", "PRT_MAZE03";
-	setarray @DLevelName$[@Dref], "N√≠vel 1", "N√≠vel 2", "N√≠vel 3";
+	setarray @DLevelName$[@Dref], "NÌvel 1", "NÌvel 2", "NÌvel 3";
 	setarray @DXcoords[@Dref], 176, 94, 23;
 	setarray @DYcoords[@Dref], 6, 19, 8;
 	setarray @DDepth[@Dref], 0, 1, 2;
@@ -1243,7 +1243,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[@Di], 2;
 
 	setarray @DGat$[@Dref], "Juperos_01", "Juperos_02";
-	setarray @DLevelName$[@Dref], "N√≠vel 1", "N√≠vel 2";
+	setarray @DLevelName$[@Dref], "NÌvel 1", "NÌvel 2";
 	setarray @DXcoords[@Dref], 53, 36;
 	setarray @DYcoords[@Dref], 247, 60;
 	setarray @DDepth[@Dref], 0, 1;
@@ -1257,7 +1257,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[@Di], 2;
 
 	setarray @DGat$[@Dref], "H_DON01", "H_DUN02";
-	setarray @DLevelName$[@Dref], "1¬∫ andar", "2¬∫ andar";
+	setarray @DLevelName$[@Dref], "1∫ andar", "2∫ andar";
 	setarray @DXcoords[@Dref], 63, 42;
 	setarray @DYcoords[@Dref], 10, 197;
 	setarray @DDepth[@Dref], 0, 1;
@@ -1271,7 +1271,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[@Di], 3;
 
 	setarray @DGat$[@Dref], "LHZ_DUN01", "LHZ_DUN02", "LHZ_DUN03";
-	setarray @DLevelName$[@Dref], "N√≠vel 1", "N√≠vel 2", "N√≠vel 3";
+	setarray @DLevelName$[@Dref], "NÌvel 1", "NÌvel 2", "NÌvel 3";
 	setarray @DXcoords[@Dref], 150, 150, 140;
 	setarray @DYcoords[@Dref], 287, 18, 137;
 	setarray @DDepth[@Dref], 0, 1, 2;
@@ -1285,7 +1285,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[@Di], 2;
 
 	setarray @DGat$[@Dref], "Lou_Dun02", "Lou_Dun03";
-	setarray @DLevelName$[@Dref], "Royal Tumba N√≠vel 1", "Royal Tumba N√≠vel 2";
+	setarray @DLevelName$[@Dref], "Royal Tumba NÌvel 1", "Royal Tumba NÌvel 2";
 	setarray @DXcoords[@Dref], 282, 165;
 	setarray @DYcoords[@Dref], 20, 38;
 	setarray @DDepth[@Dref], 0, 1;
@@ -1299,7 +1299,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[@Di], 2;
 
 	setarray @DGat$[@Dref], "mag_dun01", "mag_dun02";
-	setarray @DLevelName$[@Dref], "N√≠vel 1", "N√≠vel 2";
+	setarray @DLevelName$[@Dref], "NÌvel 1", "NÌvel 2";
 	setarray @DXcoords[@Dref], 126, 47;
 	setarray @DYcoords[@Dref], 69, 32;
 	setarray @DDepth[@Dref], 0, 1;
@@ -1313,7 +1313,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[@Di], 1;
 
 	setarray @DGat$[@Dref], "ODIN_TEM01";
-	setarray @DLevelName$[@Dref], "N√≠vel 1";
+	setarray @DLevelName$[@Dref], "NÌvel 1";
 	setarray @DXcoords[@Dref], 96;
 	setarray @DYcoords[@Dref], 145;
 	setarray @DDepth[@Dref], 0;
@@ -1327,7 +1327,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[@Di], 2;
 
 	setarray @DGat$[@Dref], "Orcdun01", "orcsdun02";
-	setarray @DLevelName$[@Dref], "N√≠vel 1", "N√≠vel 2";
+	setarray @DLevelName$[@Dref], "NÌvel 1", "NÌvel 2";
 	setarray @DXcoords[@Dref], 32, 21;
 	setarray @DYcoords[@Dref], 169, 185;
 	setarray @DDepth[@Dref], 0, 1;
@@ -1341,7 +1341,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[@Di], 5;
 
 	setarray @DGat$[@Dref], "pay_dun00", "pay_dun01", "pay_dun02", "pay_dun03", "pay_dun04";
-	setarray @DLevelName$[@Dref], "N√≠vel 1", "N√≠vel 2", "N√≠vel 3", "N√≠vel 4", "N√≠vel 5";
+	setarray @DLevelName$[@Dref], "NÌvel 1", "NÌvel 2", "NÌvel 3", "NÌvel 4", "NÌvel 5";
 	setarray @DXcoords[@Dref], 22, 19, 19, 155, 201;
 	setarray @DYcoords[@Dref], 180, 33, 63, 159, 204;
 	setarray @DDepth[@Dref], 0, 1, 2, 3, 4;
@@ -1349,13 +1349,13 @@ function	script	QWS_Darray	{
 	QWS_Make_Dungeon_Menu 20;
 
 //----------------PYRAMIDS
-	setarray @pDmenuitems$[@Di], "Pir√¢mides masmorra";
+	setarray @pDmenuitems$[@Di], "Pir‚mides masmorra";
 	setarray @pDprice[@Di], $QW_BW_PRICE;
 	setarray @pDfee$[@Di], "$ Qw_bw_fee";
 	setarray @DLevels[@Di], 6;
 
 	setarray @DGat$[@Dref], "Power_pryd01", "Power_PRYD02", "Power_pryd03", "Power_pryd04", "Power_PRYD05", "Power_pryd06";
-	setarray @DLevelName$[@Dref], "N√≠vel 1", "N√≠vel 2", "N√≠vel 3", "N√≠vel 4", "Por√£o 1", "Por√£o 2";
+	setarray @DLevelName$[@Dref], "NÌvel 1", "NÌvel 2", "NÌvel 3", "NÌvel 4", "Por„o 1", "Por„o 2";
 	setarray @DXcoords[@Dref], 192, 10, 100, 181, 94, 192;
 	setarray @DYcoords[@Dref], 9, 192, 92, 11, 96, 8;
 	setarray @DDepth[@Dref], 0, 1, 2, 3, 1, 2;
@@ -1369,7 +1369,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[@Di], 5;
 
 	setarray @DGat$[@Dref], "in_sphinx1", "in_sphinx2", "in_sphinx3", "in_sphinx4", "in_sphinx5";
-	setarray @DLevelName$[@Dref], "N√≠vel 1", "N√≠vel 2", "N√≠vel 3", "N√≠vel 4", "N√≠vel 5";
+	setarray @DLevelName$[@Dref], "NÌvel 1", "NÌvel 2", "NÌvel 3", "NÌvel 4", "NÌvel 5";
 	setarray @DXcoords[@Dref], 192, 149, 210, 10, 100;
 	setarray @DYcoords[@Dref], 9, 81, 54, 222, 99;
 	setarray @DDepth[@Dref], 0, 1, 2, 3, 4;
@@ -1383,7 +1383,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[@Di], 2;
 
 	setarray @DGat$[@Dref], "tesouro01", "tesouro02";
-	setarray @DLevelName$[@Dref], "N√≠vel 1", "N√≠vel 2";
+	setarray @DLevelName$[@Dref], "NÌvel 1", "NÌvel 2";
 	setarray @DXcoords[@Dref], 69, 102;
 	setarray @DYcoords[@Dref], 24, 27;
 	setarray @DDepth[@Dref], 0, 1;
@@ -1397,7 +1397,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[@Di], 13;
 
 	setarray @DGat$[@Dref], "YES_T01", "Was_: 02", "Was_: 03", "tha_t04", "YES_T05", "Was_: 06", "Was_: 07", "YES_T08", "YES_T09", "tha_t10", "tha_t11", "Was_: 12", "thana_boss";
-	setarray @DLevelName$[@Dref], "N√≠vel 1", "N√≠vel 2", "N√≠vel 3", "N√≠vel 4", "N√≠vel 5", "N√≠vel 6", "N√≠vel 7", "N√≠vel 8", "N√≠vel 9", "N√≠vel 10", "N√≠vel 11", "N√≠vel 12", "Chefe do Thanatos";
+	setarray @DLevelName$[@Dref], "NÌvel 1", "NÌvel 2", "NÌvel 3", "NÌvel 4", "NÌvel 5", "NÌvel 6", "NÌvel 7", "NÌvel 8", "NÌvel 9", "NÌvel 10", "NÌvel 11", "NÌvel 12", "Chefe do Thanatos";
 	setarray @DXcoords[@Dref], 150, 150, 220, 59, 62, 206, 35, 105, 88, 168, 90, 129, 85;
 	setarray @DYcoords[@Dref], 35, 136, 158, 143, 11, 8, 166, 44, 145, 138, 36, 83, 76;
 	setarray @DDepth[@Dref], 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
@@ -1405,13 +1405,13 @@ function	script	QWS_Darray	{
 	QWS_Make_Dungeon_Menu 24;
 
 //----------------TOY FACTORY
-	setarray @pDmenuitems$[@Di], "Dungeon de f√°brica de brinquedos";
+	setarray @pDmenuitems$[@Di], "Dungeon de f·brica de brinquedos";
 	setarray @pDprice[@Di], $QW_AW_PRICE;
 	setarray @pDfee$[@Di], "$ Yell_aw_fee";
 	setarray @DLevels[@Di], 2;
 
 	setarray @DGat$[@Dref], "XMAS_DUN01", "XMAS_DUN02";
-	setarray @DLevelName$[@Dref], "Armaz√©m de f√°brica", "Classifica√ß√£o da sala";
+	setarray @DLevelName$[@Dref], "ArmazÈm de f·brica", "ClassificaÁ„o da sala";
 	setarray @DXcoords[@Dref], 205, 129;
 	setarray @DYcoords[@Dref], 16, 133;
 	setarray @DDepth[@Dref], 0, 1;
@@ -1425,7 +1425,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[@Di], 4;
 
 	setarray @DGat$[@Dref], "Tur_dun01", "Tur_dun02", "tur_dun03", "Tour_dun04";
-	setarray @DLevelName$[@Dref], "Fora", "N√≠vel 1", "N√≠vel 2", "N√≠vel 3";
+	setarray @DLevelName$[@Dref], "Fora", "NÌvel 1", "NÌvel 2", "NÌvel 3";
 	setarray @DXcoords[@Dref], 161, 148, 132, 100;
 	setarray @DYcoords[@Dref], 34, 256, 190, 192;
 	setarray @DDepth[@Dref], 0, 0, 1, 2;
@@ -1439,7 +1439,7 @@ function	script	QWS_Darray	{
 	setarray @DLevels[@Di], 3;
 
 	setarray @DGat$[@Dref], "um_dun01", "um_dun02", "Yggdrasil01";
-	setarray @DLevelName$[@Dref], "Loja de carpinteiro na √°rvore", "Passagem para um mundo estrangeiro", "Fonte de Hvergelmir";
+	setarray @DLevelName$[@Dref], "Loja de carpinteiro na ·rvore", "Passagem para um mundo estrangeiro", "Fonte de Hvergelmir";
 	setarray @DXcoords[@Dref], 205, 48, 40;
 	setarray @DYcoords[@Dref], 26, 30, 63;
 	setarray @DDepth[@Dref], 0, 1, 2;
@@ -1519,7 +1519,7 @@ function	script	QWS_DLarray	{
 		set @DWref, @DWref+1;
 		set @DWi,@DWi+1;
 	} while (@DWi < @DLevels[@DwarpMenu]);
-	set @DWLmenulist$[@DWj], "Sa√≠da";
+	set @DWLmenulist$[@DWj], "SaÌda";
 	set @DWLmenuref[@DWj],57005; // 57005='dead' in hex
 	return;
 }
@@ -1537,7 +1537,7 @@ function	script	QWS_Dungeon_Warpra	{
 		return;
 	} else if (QWS_D_getbin(getarg(0)) == 1) {
 		mes "[Warpra]";
-		mes "Desculpe, s√≥ posso desbloquear este local.";
+		mes "Desculpe, sÛ posso desbloquear este local.";
 	} else
 		debugmes "QWS_DUNGEON_WARPRA ERRO, Sintaxe inadequada?";
 	return;

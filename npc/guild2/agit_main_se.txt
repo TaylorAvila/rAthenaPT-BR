@@ -32,15 +32,15 @@ OnRecvCastle2:
 		monster strnpcinfo(2),0,0,"Khalitzburg",1132,4;
 		monster strnpcinfo(2),0,0,"Cavaleiro abismal",1219,3;
 		monster strnpcinfo(2),0,0,"Carrasco",1205,1;
-		monster strnpcinfo(2),0,0,"FenÃ´menos",1216,10;
+		monster strnpcinfo(2),0,0,"Fenômenos",1216,10;
 		monster strnpcinfo(2),0,0,"Alarme",1193,18;
-		monster strnpcinfo(2),0,0,"RelÃ³gio",1269,9;
+		monster strnpcinfo(2),0,0,"Relógio",1269,9;
 		monster strnpcinfo(2),0,0,"Raydric Archer",1276,12;
 		monster strnpcinfo(2),0,0,"Wanderer",1208,3;
 		monster strnpcinfo(2),0,0,"Alice",1275,1;
 		monster strnpcinfo(2),0,0,"Cavaleiro sangrento",1268,2;
 		monster strnpcinfo(2),0,0,"Lorde das Trevas",1272,2;
-		monster strnpcinfo(2),0,0,"GuardiÃ£o da torre",1270,4;
+		monster strnpcinfo(2),0,0,"Guardião da torre",1270,4;
 	}
 	if (getcastledata(strnpcinfo(2),CD_ENABLED_KAFRA) < 1)
 		disablenpc "Kafra Employee#"+substr(strnpcinfo(2),0,1)+substr(strnpcinfo(2),8,9);
@@ -190,10 +190,10 @@ OnClock0001:
 		}
 	}
 	for(set .@i,0; .@i<4; set .@i,.@i+1)
-		monster strnpcinfo(2),.@treasurex[.@i],.@treasurey[.@i],"BaÃº do tesouro",(.@i%2)?.@treasurebox:1324,1,strnpcinfo(0)+":: OnTreausedied";
+		monster strnpcinfo(2),.@treasurex[.@i],.@treasurey[.@i],"Baú do tesouro",(.@i%2)?.@treasurebox:1324,1,strnpcinfo(0)+":: OnTreausedied";
 	for(set .@i,4; .@i<24; set .@i,.@i+1) {
 		if (.@Treasure < .@i+1) break;
-		monster strnpcinfo(2),.@treasurex[.@i],.@treasurey[.@i],"BaÃº do tesouro",(.@i%2)?.@treasurebox:1324,1,strnpcinfo(0)+":: OnTreausedied";
+		monster strnpcinfo(2),.@treasurex[.@i],.@treasurey[.@i],"Baú do tesouro",(.@i%2)?.@treasurebox:1324,1,strnpcinfo(0)+":: OnTreausedied";
 	}
 	freeloop(0);
 	end;
@@ -210,47 +210,47 @@ OnTreasureDied:
 		mes "[Steward]";
 		mes "Eu aguardo o mestre";
 		mes "quem o destino vai escolher";
-		mes "para mim. VocÃª acha que vocÃª";
-		mes "tem que coragem e forÃ§a";
+		mes "para mim. Você acha que você";
+		mes "tem que coragem e força";
 		mes "Para conquistar esta fortaleza?";
 		close;
 	}
 	if (is_guild_leader(.@GID) == false) {
 		mes "[Steward]";
-		mes "HMPF. Suas ameaÃ§as nÃ£o";
-		mes "me assuste! GuardiÃµes, dirigindo";
+		mes "HMPF. Suas ameaças não";
+		mes "me assuste! Guardiões, dirigindo";
 		mes "Este infiel longe daqui!";
 		mes "Eu sempre serei leal ao";
 		mes "Mestre desta fortaleza,";
-		mes "o primeiro e Ãºnico ^ff0000"+getguildmaster(.@GID)+"^000000.";
+		mes "o primeiro e único ^ff0000"+getguildmaster(.@GID)+"^000000.";
 		close;
 	}
 	mes "[Steward]";
 	mes "Ah, mestre ^ff0000"+getguildmaster(.@GID)+"^000000...";
-	mes "Como devo atendÃª -lo hoje?";
+	mes "Como devo atendê -lo hoje?";
 	mes "Houve um aspecto disso";
-	mes "ManutenÃ§Ã£o de Stronghold";
-	mes "VocÃª queria discutir?";
+	mes "Manutenção de Stronghold";
+	mes "Você queria discutir?";
 	next;
-	switch(select("Stronghold Briefing: Invista em crescimento comercial: Invista em crescimento de defesa: Secado de contrata/armazenamento de incÃªndio: VÃ¡ para o Mestre's Room")) {
+	switch(select("Stronghold Briefing: Invista em crescimento comercial: Invista em crescimento de defesa: Secado de contrata/armazenamento de incêndio: Vá para o Mestre's Room")) {
 	case 1:
 		mes "[Steward]";
 		mes "O crescimento comercial";
-		mes "O nÃ­vel da fortaleza Ã© ^0000ff"+getcastledata(strnpcinfo(4),CD_CURRENT_ECONOMY)+".";
+		mes "O nível da fortaleza é ^0000ff"+getcastledata(strnpcinfo(4),CD_CURRENT_ECONOMY)+".";
 		if (getcastledata(strnpcinfo(4),CD_INVESTED_ECONOMY) > 0) {
-			mes "Da Ãºltima vez, vocÃª investiu em";
+			mes "Da última vez, você investiu em";
 			mes "Crescimento comercial"+getcastledata(strnpcinfo(4),CD_INVESTED_ECONOMY)+".";
 		}
 		next;
 		mes "[Steward]";
 		mes "Nossa fortaleza";
-		mes "O nÃ­vel de salvaguarda Ã©"+getcastledata(strnpcinfo(4),CD_CURRENT_DEFENSE)+".";
+		mes "O nível de salvaguarda é"+getcastledata(strnpcinfo(4),CD_CURRENT_DEFENSE)+".";
 		if (getcastledata(strnpcinfo(4),CD_INVESTED_DEFENSE) > 0) {
-			mes "Da Ãºltima vez, vocÃª investiu";
+			mes "Da última vez, você investiu";
 			mes "em defesa"+getcastledata(strnpcinfo(4),CD_INVESTED_DEFENSE)+"vezes.";
 		}
 		mes "";
-		mes "Isso Ã© tudo, mestre.";
+		mes "Isso é tudo, mestre.";
 		close;
 	case 2:
 		set .@Economy,getcastledata(strnpcinfo(4),CD_CURRENT_ECONOMY);
@@ -267,16 +267,16 @@ OnTreasureDied:
 		if (getcastledata(strnpcinfo(4),CD_INVESTED_ECONOMY)) set .@eco_invest,.@eco_invest*4;
 		mes "[Steward]";
 		mes "Levantando a fortaleza";
-		mes "O crescimento comercial irÃ¡";
+		mes "O crescimento comercial irá";
 		mes "aumentar a quantidade de";
 		mes "Mercadorias produzidas para a guilda.";
 		mes "Investindo em crescimento comercial";
-		mes "ajudarÃ¡ o futuro da guilda.";
+		mes "ajudará o futuro da guilda.";
 		next;
 		mes "[Steward]";
-		mes "VocÃª pode fazer um investimento";
-		mes "todos os dias, mas se vocÃª pode fazer";
-		mes "Dois investimentos se vocÃª pagar";
+		mes "Você pode fazer um investimento";
+		mes "todos os dias, mas se você pode fazer";
+		mes "Dois investimentos se você pagar";
 		mes "Mais Zeny: isso vai acelerar";
 		mes "Up Development Comercial,";
 		mes "mas pode ser bastante caro.";
@@ -284,33 +284,33 @@ OnTreasureDied:
 		if (.@Economy == 100) {
 			mes "[Steward]";
 			mes "No entanto, nossa fortaleza";
-			mes "O nÃ­vel de crescimento comercial Ã©";
-			mes "a 100%. NÃ£o Ã© possÃ­vel";
+			mes "O nível de crescimento comercial é";
+			mes "a 100%. Não é possível";
 			mes "desenvolver crescimento comercial";
-			mes "AlÃ©m disso.";
+			mes "Além disso.";
 			close;
 		}
 		if (getcastledata(strnpcinfo(4),CD_INVESTED_ECONOMY) >= 2) {
 			mes "[Steward]";
-			mes "VocÃª jÃ¡ fez dois";
-			mes "investimentos hoje, entÃ£o vocÃª";
-			mes "tem que esperar atÃ© amanhÃ£";
+			mes "Você já fez dois";
+			mes "investimentos hoje, então você";
+			mes "tem que esperar até amanhã";
 			mes "para fazer outro investimento.";
 			close;
 		}
 		if (getcastledata(strnpcinfo(4),CD_INVESTED_ECONOMY) == 0) {
 			mes "[Steward]";
-			mes "VocÃª deve pagar ^ff0000"+.@eco_invest+"^000000 Mulheres";
+			mes "Você deve pagar ^ff0000"+.@eco_invest+"^000000 Mulheres";
 			mes "Para fazer um investimento";
-			mes "VocÃª vai investir nisso";
+			mes "Você vai investir nisso";
 			mes "Comercial da Stronghold";
 			mes "desenvolvimento agora?";
 		}
 		else {
 			mes "[Steward]";
-			mes "VocÃª deve pagar ^ff0000"+.@eco_invest+"^000000";
+			mes "Você deve pagar ^ff0000"+.@eco_invest+"^000000";
 			mes "mais Zeny para fazer um segundo";
-			mes "investimento hoje. VocÃª poderia";
+			mes "investimento hoje. Você poderia";
 			mes "investir mais uma vez?";
 		}
 		next;
@@ -318,16 +318,16 @@ OnTreasureDied:
 		case 1:
 			if (getcastledata(strnpcinfo(4),CD_INVESTED_ECONOMY) >= 2) {
 				mes "[Steward]";
-				mes "VocÃª jÃ¡ fez dois";
-				mes "investimentos hoje, entÃ£o vocÃª";
-				mes "tem que esperar atÃ© amanhÃ£";
+				mes "Você já fez dois";
+				mes "investimentos hoje, então você";
+				mes "tem que esperar até amanhã";
 				mes "para fazer outro investimento.";
 				close;
 			}
 			if (Zeny < .@eco_invest) {
 				mes "[Steward]";
 				mes "I'm sorry, Master, but";
-				mes "vocÃª nÃ£o tem o suficiente";
+				mes "você não tem o suficiente";
 				mes "Zeny para fazer um investimento";
 				mes "para a guilda hoje.";
 				close;
@@ -335,14 +335,14 @@ OnTreasureDied:
 			set Zeny, Zeny-.@eco_invest;
 			setcastledata strnpcinfo(4),CD_INVESTED_ECONOMY,getcastledata(strnpcinfo(4),CD_INVESTED_ECONOMY)+1;
 			mes "[Steward]";
-			mes "Um uso sÃ¡bio da guilda";
+			mes "Um uso sábio da guilda";
 			mes "fundos, mestre. Podemos esperar";
 			mes "para ver os resultados disso";
-			mes "investimento atÃ© amanhÃ£.";
+			mes "investimento até amanhã.";
 			close;
 		case 2:
 			mes "[Steward]";
-			mes "Enquanto vocÃª comanda, mestre.";
+			mes "Enquanto você comanda, mestre.";
 			close;
 		}
 	case 3:
@@ -360,30 +360,30 @@ OnTreasureDied:
 		if (getcastledata(strnpcinfo(4),CD_INVESTED_DEFENSE)) set .@def_invest,.@def_invest*4;
 		mes "[Steward]";
 		mes "Investindo em nossa fortaleza";
-		mes "a defesa aumentarÃ¡ o";
-		mes "durabilidade de nossos guardiÃµes";
+		mes "a defesa aumentará o";
+		mes "durabilidade de nossos guardiões";
 		mes "e o Empeio. Vamos precisar";
 		mes "Toda vantagem para proteger";
-		mes "nÃ³s mesmos de nossos inimigos.";
+		mes "nós mesmos de nossos inimigos.";
 		next;
 		mes "[Steward]";
-		mes "VocÃª pode investir em defesa";
-		mes "uma vez por dia, mas se vocÃª pagar";
-		mes "Mais Zeny, vocÃª pode investir";
-		mes "no mÃ¡ximo duas vezes ao dia.";
+		mes "Você pode investir em defesa";
+		mes "uma vez por dia, mas se você pagar";
+		mes "Mais Zeny, você pode investir";
+		mes "no máximo duas vezes ao dia.";
 		next;
 		mes "[Steward]";
 		if (getcastledata(strnpcinfo(4),CD_CURRENT_DEFENSE) == 100) {
-			mes "O nÃ­vel de defesa disso";
-			mes "fortaleza Ã© 100%e";
-			mes "nÃ£o pode ser aumentado ainda mais.";
+			mes "O nível de defesa disso";
+			mes "fortaleza é 100%e";
+			mes "não pode ser aumentado ainda mais.";
 			close;
 		}
 		if (getcastledata(strnpcinfo(4),CD_INVESTED_DEFENSE) >= 2) {
-			mes "Mestre, vocÃª jÃ¡";
+			mes "Mestre, você já";
 			mes "investido em defesa duas vezes";
-			mes "hoje. VocÃª precisarÃ¡ esperar";
-			mes "AtÃ© amanhÃ£, se vocÃª realmente";
+			mes "hoje. Você precisará esperar";
+			mes "Até amanhã, se você realmente";
 			mes "Quer aumentar nossas defesas.";
 			close;
 		}
@@ -391,31 +391,31 @@ OnTreasureDied:
 			mes "Precisamos de ^FF0000"+.@def_invest+"^000000";
 			mes "Zeny para investir em nosso";
 			mes "defesas de Stronghold.";
-			mes "VocÃª vai investir agora?";
+			mes "Você vai investir agora?";
 		}
 		else {
 			mes "Precisamos de ^FF0000"+.@def_invest+"^000000";
 			mes "Zeny para investir em nosso";
 			mes "defesas de Stronghold";
 			mes "uma segunda vez hoje.";
-			mes "VocÃª vai investir agora?";
+			mes "Você vai investir agora?";
 		}
 		next;
 		switch(select("Invista em Defesa: Cancelar")) {
 		case 1:
 			if (getcastledata(strnpcinfo(4),CD_INVESTED_DEFENSE) >= 2) {
 				mes "[Steward]";
-				mes "Mestre, vocÃª jÃ¡";
+				mes "Mestre, você já";
 				mes "investido em defesa duas vezes";
-				mes "hoje. VocÃª precisarÃ¡ esperar";
-				mes "AtÃ© amanhÃ£, se vocÃª realmente";
+				mes "hoje. Você precisará esperar";
+				mes "Até amanhã, se você realmente";
 				mes "Quer aumentar nossas defesas.";
 				close;
 			}
 			if (Zeny < .@def_invest) {
 				mes "[Steward]";
 				mes "Sinto muito, mestre, mas";
-				mes "vocÃª nÃ£o tem o suficiente";
+				mes "você não tem o suficiente";
 				mes "Zeny para fazer um investimento";
 				mes "para a guilda hoje.";
 				close;
@@ -423,56 +423,56 @@ OnTreasureDied:
 			set Zeny, Zeny-.@def_invest;
 			setcastledata strnpcinfo(4),CD_INVESTED_DEFENSE,getcastledata(strnpcinfo(4),CD_INVESTED_DEFENSE)+1;
 			mes "[Steward]";
-			mes "Um uso sÃ¡bio da guilda";
+			mes "Um uso sábio da guilda";
 			mes "fundos, mestre. Aumentando";
-			mes "a frequÃªncia do tesouro";
+			mes "a frequência do tesouro";
 			mes "adquirido pela guilda vai";
 			mes "Definitivamente nos ajude a todos.";
 			close;
 		case 2:
 			mes "[Steward]";
-			mes "Enquanto vocÃª comanda, mestre.";
+			mes "Enquanto você comanda, mestre.";
 			close;
 		}
 	case 4:
 		if (getcastledata(strnpcinfo(4),CD_ENABLED_KAFRA) == 1) {
 			mes "[Steward]";
-			mes "VocÃª deseja dispensar";
-			mes "o funcionÃ¡rio da Kafra que";
+			mes "Você deseja dispensar";
+			mes "o funcionário da Kafra que";
 			mes "Contratamos para a guilda?";
 			next;
 			switch(select("Dispenso: Cancelar")) {
 			case 1:
 				cutin "kafra_01",2;
-				mes "[FuncionÃ¡rio da Kafra contratado]";
+				mes "[Funcionário da Kafra contratado]";
 				mes "Mestre, por favor, reconsidere!";
 				mes "Eu tenho trabalhado muito duro";
 				mes "Para o sucesso da guilda!";
-				mes "Vou me esforÃ§ar mais para servir o";
+				mes "Vou me esforçar mais para servir o";
 				mes "Membros da guilda disso";
 				mes "Stronghold, eu prometo!";
 				next;
 				switch(select("Dispenso: Cancelar")) {
 				case 1:
-					mes "[FuncionÃ¡rio da Kafra contratado]";
+					mes "[Funcionário da Kafra contratado]";
 					mes "Por que?! O que eu fiz";
 					mes "Para merecer isso? Waaah ~!";
 					next;
 					cutin "kafra_01",255;
 					break;
 				case 2:
-					mes "[FuncionÃ¡rio da Kafra contratado]";
+					mes "[Funcionário da Kafra contratado]";
 					mes "Obrigado, mestre!";
 					mes "Vou obedecer a todos os seus";
-					mes "Comando da melhor maneira possÃ­vel!";
-					mes "VocÃª nÃ£o vai se arrepender disso!";
+					mes "Comando da melhor maneira possível!";
+					mes "Você não vai se arrepender disso!";
 					close;
 				}
 				break;
 			case 2:
 				mes "[Steward]";
 				mes "Ela trabalha muito,";
-				mes "na minha opiniÃ£o. Estava dentro";
+				mes "na minha opinião. Estava dentro";
 				mes "todos os nossos melhores interesses para";
 				mes "Permita que ela fique conosco.";
 				close;
@@ -480,35 +480,35 @@ OnTreasureDied:
 			disablenpc "Kafra Employee#"+strnpcinfo(2);
 			setcastledata strnpcinfo(4),CD_ENABLED_KAFRA,0;
 			mes "[Steward]";
-			mes "Sob entÃ£o funcionÃ¡rio";
+			mes "Sob então funcionário";
 			mes "foi demitido.";
 			mes "Estavam realmente insatisfeitos";
-			mes "pela qualidade de seu serviÃ§o?";
+			mes "pela qualidade de seu serviço?";
 			close;
 		}
 		else {
 			mes "[Steward]";
-			mes "VocÃª vai contratar um";
-			mes "FuncionÃ¡rio da Kafra para servir";
-			mes "Nossa fortaleza? VocÃª deve";
+			mes "Você vai contratar um";
+			mes "Funcionário da Kafra para servir";
+			mes "Nossa fortaleza? Você deve";
 			mes "PAY ^FF000010.000 Zeny ^000000 para contratar um.";
 			next;
 			switch(select("Contrate: Cancelar")) {
 			case 1:
 				if (getgdskilllv(.@GID,10001) == 0) {
 					mes "[Steward]";
-					mes "Mestre, nÃ£o podemos contratar um";
-					mes "FuncionÃ¡rio da Kafra porque";
-					mes "vocÃª ainda nÃ£o alcanÃ§ou";
+					mes "Mestre, não podemos contratar um";
+					mes "Funcionário da Kafra porque";
+					mes "você ainda não alcançou";
 					mes "o ^ff0000Contract com kafra ^000000";
 					mes "Habilidade da guilda.";
 					close;
 				}
 				if (Zeny < 10000) {
 					mes "[Steward]";
-					mes "Mestre, nÃ£o podemos contratar um";
-					mes "FuncionÃ¡rio da Kafra porque";
-					mes "NÃ£o temos o suficiente";
+					mes "Mestre, não podemos contratar um";
+					mes "Funcionário da Kafra porque";
+					mes "Não temos o suficiente";
 					mes "fundos para pagar a taxa do contrato.";
 					close;
 				}
@@ -516,14 +516,14 @@ OnTreasureDied:
 				enablenpc "Kafra Employee#"+strnpcinfo(2);
 				setcastledata strnpcinfo(4),CD_ENABLED_KAFRA,1;
 				mes "[Steward]";
-				mes "Muito bem. NÃ³s formamos";
+				mes "Muito bem. Nós formamos";
 				mes "um contrato com a Kafra";
 				mes "Sede e contratou um";
-				mes "FuncionÃ¡rio da Kafra para o nosso";
-				mes "fortaleza. Aqui estÃ¡ ela ~";
+				mes "Funcionário da Kafra para o nosso";
+				mes "fortaleza. Aqui está ela ~";
 				next;
 				cutin "kafra_01",2;
-				mes "[FuncionÃ¡rio da Kafra contratado]";
+				mes "[Funcionário da Kafra contratado]";
 				mes "Como vai? Eu";
 				mes "foi despachado pelo";
 				mes "KAFRA Sede isto";
@@ -533,45 +533,45 @@ OnTreasureDied:
 				next;
 				cutin "kafra_01",255;
 				mes "[Steward]";
-				mes "Nosso contrato expirarÃ¡";
-				mes "depois de um mÃªs, entÃ£o devemos";
+				mes "Nosso contrato expirará";
+				mes "depois de um mês, então devemos";
 				mes "pagar taxas adicionais para manter";
-				mes "Este funcionÃ¡rio da Kafra em";
-				mes "o serviÃ§o de nossa guilda.";
+				mes "Este funcionário da Kafra em";
+				mes "o serviço de nossa guilda.";
 				close;
 			case 2:
 				mes "[Steward]";
-				mes "Enquanto vocÃª comanda, mestre.";
+				mes "Enquanto você comanda, mestre.";
 				mes "No entanto, sugiro contratar";
-				mes "um funcionÃ¡rio da Kafra assim que";
-				mes "quanto possÃ­vel desde a nossa guilda";
+				mes "um funcionário da Kafra assim que";
+				mes "quanto possível desde a nossa guilda";
 				mes "se beneficiaria muito de";
-				mes "Os convenientes serviÃ§os Kafra.";
+				mes "Os convenientes serviços Kafra.";
 				close;
 			}
 		}
 	case 5:
 		mes "[Steward]";
-		mes "VocÃª deseja entrar no";
+		mes "Você deseja entrar no";
 		mes "Sala do tesouro da guilda?";
-		mes "SÃ³ vocÃª, o mestre da guilda,";
+		mes "Só você, o mestre da guilda,";
 		mes "podem entrar.";
 		next;
 		mes "[Steward]";
 		mes "Lembre -se de abrir";
 		mes "as caixas de tesouro no";
-		mes "tempo adequado. Caso contrÃ¡rio, o";
+		mes "tempo adequado. Caso contrário, o";
 		mes "tesouro pode desaparecer se";
 		mes "Algo inesperado acontece.";
 		next;
-		switch(select("VÃ¡ para o Treasure Room: Cancelar")) {
+		switch(select("Vá para o Treasure Room: Cancelar")) {
 		case 1:
 			mes "[Steward]";
-			mes "Permita -me guiar vocÃª";
+			mes "Permita -me guiar você";
 			mes "no caminho secreto para";
 			mes "a sala do tesouro.";
 			mes "Pressione o interruptor secreto";
-			mes "Quando vocÃª deseja voltar aqui.";
+			mes "Quando você deseja voltar aqui.";
 			close2;
 			if (compare(strnpcinfo(4),"Prag")) {
 				if (strnpcinfo(4) == "ARUG_CAS01") setarray .@i[0],250,363;
@@ -588,8 +588,8 @@ OnTreasureDied:
 		case 2:
 			mes "[Steward]";
 			mes "Itens na sala do tesouro";
-			mes "sÃ£o produzidos uma vez por dia.";
-			mes "Portanto, vocÃª deve obter";
+			mes "são produzidos uma vez por dia.";
+			mes "Portanto, você deve obter";
 			mes "os itens do tesouro todos os dias.";
 			mes "Por causa da guilda,";
 			mes "Priorize a colheita do tesouro!";
@@ -629,7 +629,7 @@ OnStartArena:
 	sleep 10000;
 	if (agitcheck2()) {
 		donpcevent "Manager#"+strnpcinfo(4)+"::OnChange";
-		mapannounce strnpcinfo(4),"Reconstrua as pedras e a fortaleza do Stronghold para garantir a nova aquisiÃ§Ã£o de sua guilda!",bc_map,"0x00FF00",FW_NORMAL,20,0,40;
+		mapannounce strnpcinfo(4),"Reconstrua as pedras e a fortaleza do Stronghold para garantir a nova aquisição de sua guilda!",bc_map,"0x00FF00",FW_NORMAL,20,0,40;
 	}
 	end;
 }
@@ -641,8 +641,8 @@ OnStartArena:
 	set .@n$, "["+strnpcinfo(1)+"]";
 	if (!.@GID) {
 		mes .@n$;
-		mes "Ã“timo trabalho. Agora, tudo vocÃª";
-		mes "Precisa fazer Ã© destruir isso";
+		mes "Ótimo trabalho. Agora, tudo você";
+		mes "Precisa fazer é destruir isso";
 		mes "Empeio para ganhar propriedade";
 		mes "sobre essa fortaleza.";
 		close;
@@ -650,7 +650,7 @@ OnStartArena:
 	if (getcharid(2) == .@GID) {
 		if (is_guild_leader() == false) {
 			mes .@n$;
-			mes "Como guardiÃ£o disso";
+			mes "Como guardião disso";
 			mes "Stronghold, eu respondo apenas";
 			mes "para o mestre da guilda";
 			mes "que controla este lugar.";
@@ -659,135 +659,135 @@ OnStartArena:
 		else {
 			if (!agitcheck2()) {
 				mes .@n$;
-				mes "Eu sou"+strnpcinfo(1)+", guardiÃ£o de";
+				mes "Eu sou"+strnpcinfo(1)+", guardião de";
 				mes "esta fortaleza. Por agora,";
-				mes "Tudo estÃ¡ quieto neste lugar.";
+				mes "Tudo está quieto neste lugar.";
 				next;
 				switch(select("Converse: Cancelar")) {
 				case 1:
 					mes .@n$;
-					mes "VocÃª tem alguma dÃºvida";
+					mes "Você tem alguma dúvida";
 					mes "sobre esta fortaleza?";
 					next;
 					switch(select("Guardian Stones: Fortress Gates: Link Flags: Battle Strategy: Cancelar")) {
 					case 1:
 						mes .@n$;
-						mes "HÃ¡ um Empeio";
-						mes "e duas pedras guardiÃµes em";
+						mes "Há um Empeio";
+						mes "e duas pedras guardiões em";
 						mes "cada fortaleza. Essas pedras";
-						mes "sÃ£o a primeira linha de defesa,";
-						mes "e deve ser destruÃ­do antes";
-						mes "inimigos podem atÃ© entrar.";
+						mes "são a primeira linha de defesa,";
+						mes "e deve ser destruído antes";
+						mes "inimigos podem até entrar.";
 						next;
 						mes .@n$;
-						mes "As pedras estÃ£o localizadas em";
+						mes "As pedras estão localizadas em";
 						mes "^4d4dffgate casas^000000 que devem ser";
 						mes "protegido para prevenir inimigos";
-						mes "de alcanÃ§ar o Empeio.";
-						mes "Pedras GuardiÃµes podem ^4d4dffrecall";
-						mes "Seus GuardiÃµes^000000 para proteÃ§Ã£o.";
+						mes "de alcançar o Empeio.";
+						mes "Pedras Guardiões podem ^4d4dffrecall";
+						mes "Seus Guardiões^000000 para proteção.";
 						next;
 						mes .@n$;
-						mes "Fortalezas com nÃ­veis mais altos";
+						mes "Fortalezas com níveis mais altos";
 						mes "De defesa pode convocar mais";
-						mes "GuardiÃµes: Ã© por isso que Ã©";
-						mes "tÃ£o importante para as guildas para";
+						mes "Guardiões: é por isso que é";
+						mes "tão importante para as guildas para";
 						mes "Invista em crescimento de defesa.";
 						next;
 						mes .@n$;
-						mes "Pedras guardiÃµes que tÃªm";
-						mes "foi destruÃ­do pode ser revivido";
+						mes "Pedras guardiões que têm";
+						mes "foi destruído pode ser revivido";
 						mes "depois de um certo tempo, mas um dos membros da guilda deve dar";
-						mes "eu o pedido. TambÃ©m posso relatar o status das pedras do Guardian.";
+						mes "eu o pedido. Também posso relatar o status das pedras do Guardian.";
 						close;
 					case 2:
 						mes .@n$;
-						mes "^4d4dfffortress Gates^000000 sÃ£o a segunda linha de defesa da fortaleza da guilda,";
-						mes "e sÃ£o protegidos por barricadas extras ativadas pelas pedras do Guardian.";
-						mes "Esses portÃµes estÃ£o localizados em trÃªs partes diferentes da fortaleza.";
+						mes "^4d4dfffortress Gates^000000 são a segunda linha de defesa da fortaleza da guilda,";
+						mes "e são protegidos por barricadas extras ativadas pelas pedras do Guardian.";
+						mes "Esses portões estão localizados em três partes diferentes da fortaleza.";
 						next;
 						mes .@n$;
-						mes "Barricadas sÃ£o protegidas por";
-						mes "Pedras guardiÃµes, e sÃ£o";
-						mes "restaurado quando o guardiÃ£o";
-						mes "Pedras sÃ£o recuperadas. No entanto,";
-						mes "NÃ£o Ã© tÃ£o fÃ¡cil restaurar";
-						mes "portÃµes de fortaleza destruÃ­dos.";
+						mes "Barricadas são protegidas por";
+						mes "Pedras guardiões, e são";
+						mes "restaurado quando o guardião";
+						mes "Pedras são recuperadas. No entanto,";
+						mes "Não é tão fácil restaurar";
+						mes "portões de fortaleza destruídos.";
 						next;
 						mes .@n$;
-						mes "Os portÃµes da fortaleza sÃ³ podem ser";
+						mes "Os portões da fortaleza só podem ser";
 						mes "restaurado quando o ^4d4dffguild";
 						mes "Mestre de uma fortaleza";
-						mes "mudanÃ§as ^000000, ou se ^4d4dfffrestoration";
-						mes "Ã© solicitado pela guilda";
+						mes "mudanças ^000000, ou se ^4d4dfffrestoration";
+						mes "é solicitado pela guilda";
 						mes "Mestre da fortaleza^000000.";
 						close;
 					case 3:
 						mes .@n$;
-						mes "Strongholds tÃªm muitos";
-						mes "Link sinalizadores que permitem vocÃª";
-						mes "Para acessar Ã¡reas vitais dentro de";
-						mes "restriÃ§Ãµes colocadas pelo";
+						mes "Strongholds têm muitos";
+						mes "Link sinalizadores que permitem você";
+						mes "Para acessar áreas vitais dentro de";
+						mes "restrições colocadas pelo";
 						mes "Barricadas. Geralmente, ^4d4dffflag 1";
-						mes "Links para a casa do portÃ£o^000000.";
+						mes "Links para a casa do portão^000000.";
 						next;
 						mes .@n$;
 						mes "Muitas bandeiras vinculam diretamente a";
 						mes "A bandeira perto do Empeio.";
-						mes "A bandeira numerada final Ã©";
-						mes "ligado Ã  conveniÃªncia";
-						mes "InstalaÃ§Ã£o da fortaleza";
-						mes "proprietÃ¡rio. Lembre -se disso.";
+						mes "A bandeira numerada final é";
+						mes "ligado à conveniência";
+						mes "Instalação da fortaleza";
+						mes "proprietário. Lembre -se disso.";
 						close;
 					case 4:
 						mes .@n$;
-						mes "EstratÃ©gia? Seria melhor";
+						mes "Estratégia? Seria melhor";
 						mes "Para desenvolver seu plano de batalha para";
 						mes "Explore as vantagens de sua guilda";
 						mes "e as fraquezas de seus inimigos.";
-						mes "Use as casas e barricadas do portÃ£o e reconstrua o mais rÃ¡pido possÃ­vel!";
+						mes "Use as casas e barricadas do portão e reconstrua o mais rápido possível!";
 						close;
 					case 5:
 						mes .@n$;
-						mes "VocÃª nÃ£o tem dÃºvidas";
+						mes "Você não tem dúvidas";
 						mes "para me perguntar? Bem, eu estou";
-						mes "Aqui para atender Ã s suas necessidades.";
+						mes "Aqui para atender às suas necessidades.";
 						close;
 					}
 				case 2:
 					mes .@n$;
-					mes "Estou sempre aqui, entÃ£o";
-					mes "Sinta -se Ã  vontade para solicitar meu";
-					mes "assistÃªncia sempre que";
+					mes "Estou sempre aqui, então";
+					mes "Sinta -se à vontade para solicitar meu";
+					mes "assistência sempre que";
 					mes "a necessidade surge.";
 					close;
 				}
 			}
 			else {
 				mes .@n$;
-				mes "SaudaÃ§Ãµes,"+strcharinfo(0)+".";
-				mes "Quais sÃ£o seus pedidos?";
+				mes "Saudações,"+strcharinfo(0)+".";
+				mes "Quais são seus pedidos?";
 				next;
 				switch(select("Aumente a defesa da fortaleza: briefing situacional: Cancelar")) {
 				case 1:
 					if (!getd("$ Act_"+strnpcinfo(2)+"[5]")) {
 						if (getgdskilllv(.@GID,10002) == 0) {
 							mes .@n$;
-							mes "Sinto muito, mas o guardiÃ£o";
-							mes "Pedras nÃ£o sÃ£o poderosas o suficiente";
-							mes "para convocar GuardiÃµes ainda. NÃ³s";
+							mes "Sinto muito, mas o guardião";
+							mes "Pedras não são poderosas o suficiente";
+							mes "para convocar Guardiões ainda. Nós";
 							mes "precisa acumular mais";
 							mes "conhecimento antes que eles possam";
-							mes "Invocar todos os guardiÃµes.";
+							mes "Invocar todos os guardiões.";
 							close;
 						}
 						else {
 							mes .@n$;
-							mes "Vou me esforÃ§ar para convocar";
-							mes "um guardiÃ£o atravÃ©s de um guardiÃ£o";
+							mes "Vou me esforçar para convocar";
+							mes "um guardião através de um guardião";
 							mes "Pedra. No entanto, lembre -se";
-							mes "que isso nÃ£o funcionarÃ¡ se o";
-							mes "A pedra guardiana Ã© destruÃ­da.";
+							mes "que isso não funcionará se o";
+							mes "A pedra guardiana é destruída.";
 							setd "$ Act_"+strnpcinfo(2)+"[5]",1;
 							if (!getd("$ Act_"+strnpcinfo(2)+"[0]"))
 								donpcevent "gard1#"+strnpcinfo(4)+"::OnEnable";
@@ -798,24 +798,24 @@ OnStartArena:
 					}
 					else {
 						mes .@n$;
-						mes "VocÃª jÃ¡ comandou";
-						mes "eu para convocar um guardiÃ£o";
+						mes "Você já comandou";
+						mes "eu para convocar um guardião";
 						mes "Para defender a fortaleza.";
 						close;
 					}
 				case 2:
 					mes .@n$;
-					mes "Nosso status de defesa Ã© ...";
-					setarray .@status$[0],"^4D4DFFOPERACIONAL","^Ff0000Destroyed","^008000 REPROPIRAÃ‡ÃƒO";
-					mes "1Âª Pedra Guardiana:"+.@status$[getd("$ Act_"+strnpcinfo(2)+"[0]")]+"^000000";
-					mes "2Âª Pedra Guardiana:"+.@status$[getd("$ Act_"+strnpcinfo(2)+"[1]")]+"^000000";
-					mes "1Âº portÃ£o da fortaleza:"+.@status$[getd("$ Act_"+strnpcinfo(2)+"[2]")]+"^000000";
-					mes "2Âº portÃ£o da fortaleza:"+.@status$[getd("$ Act_"+strnpcinfo(2)+"[3]")]+"^000000";
-					mes "3Âº portÃ£o da fortaleza:"+.@status$[getd("$ Act_"+strnpcinfo(2)+"[4]")]+"^000000";
+					mes "Nosso status de defesa é ...";
+					setarray .@status$[0],"^4D4DFFOPERACIONAL","^Ff0000Destroyed","^008000 REPROPIRAÇÃO";
+					mes "1ª Pedra Guardiana:"+.@status$[getd("$ Act_"+strnpcinfo(2)+"[0]")]+"^000000";
+					mes "2ª Pedra Guardiana:"+.@status$[getd("$ Act_"+strnpcinfo(2)+"[1]")]+"^000000";
+					mes "1º portão da fortaleza:"+.@status$[getd("$ Act_"+strnpcinfo(2)+"[2]")]+"^000000";
+					mes "2º portão da fortaleza:"+.@status$[getd("$ Act_"+strnpcinfo(2)+"[3]")]+"^000000";
+					mes "3º portão da fortaleza:"+.@status$[getd("$ Act_"+strnpcinfo(2)+"[4]")]+"^000000";
 					close;
 				case 3:
 					mes .@n$;
-					mes "Eu estarei de pÃ©,";
+					mes "Eu estarei de pé,";
 					mes "aguardando suas ordens.";
 					close;
 				}
@@ -824,7 +824,7 @@ OnStartArena:
 	}
 	else {
 		mes .@n$;
-		mes "Quem Ã© vocÃª? Canalha!";
+		mes "Quem é você? Canalha!";
 		mes "Deixe esta fortaleza agora!";
 		close;
 	}
@@ -840,32 +840,32 @@ OnInit:
 	cutin "kafra_01",2;
 	set .@GID, getcastledata(strnpcinfo(4),CD_GUILD_ID);
 	if (getcharid(2) == .@GID && getgdskilllv(.@GID,10001)) {
-		mes "[EntÃ£o funcionÃ¡rio]";
+		mes "[Então funcionário]";
 		mes "Bem -vindo, membro orgulhoso";
 		mes "do ^ff0000"+GetGuildName(.@GID)+"^000000 Guild!";
-		mes "A corporaÃ§Ã£o Kafra estÃ¡ pronta";
-		mes "Para ajudÃ¡ -lo onde quer que vocÃª vÃ¡!";
+		mes "A corporação Kafra está pronta";
+		mes "Para ajudá -lo onde quer que você vá!";
 		next;
-		switch(select("Use Armazenamento: Use ServiÃ§o de Warp: Rent Pushcart: Cancelar")) {
+		switch(select("Use Armazenamento: Use Serviço de Warp: Rent Pushcart: Cancelar")) {
 		case 1:
 			if(!callfunc("F_CanOpenStorage")){
-				mes "[EntÃ£o funcionÃ¡rio]";
-				mes "Sinto muito, mas vocÃª deve";
+				mes "[Então funcionário]";
+				mes "Sinto muito, mas você deve";
 				mes "tem pelo menos habilidade novato";
 				mes "LV.6 para usar o armazenamento.";
 			}
 			else openstorage;
 			break;
 		case 2:
-			mes "[EntÃ£o funcionÃ¡rio]";
+			mes "[Então funcionário]";
 			mes "Por favor me diga o seu";
 			mes "Destino de Warp.";
 			next;
 			switch(select("Rachel -> 200 Z: Cancelar")) {
 			case 1:
 				if (Zeny < 200) {
-					mes "[EntÃ£o funcionÃ¡rio]";
-					mes "Sinto muito, mas vocÃª nÃ£o";
+					mes "[Então funcionário]";
+					mes "Sinto muito, mas você não";
 					mes "tem zeny suficiente para pagar";
 					mes "the warp fee. Would you";
 					mes "Por favor, verifique seus fundos novamente?";
@@ -883,28 +883,28 @@ OnInit:
 			break;
 		case 3:
 			if (BaseClass != Job_Merchant) {
-				mes "[EntÃ£o funcionÃ¡rio]";
+				mes "[Então funcionário]";
 				mes "Sinto muito, mas o carrinho";
-				mes "O serviÃ§o de aluguel sÃ³ pode ser";
+				mes "O serviço de aluguel só pode ser";
 				mes "usado por comerciante, ferreiro,";
 				mes "e personagens de classe alquimista.";
 			}
 			else if (checkcart() == 1) {
-				mes "[EntÃ£o funcionÃ¡rio]";
-				mes "HM? VocÃª jÃ¡";
-				mes "Alugou um carrinho de pressÃ£o.";
+				mes "[Então funcionário]";
+				mes "HM? Você já";
+				mes "Alugou um carrinho de pressão.";
 			}
 			else {
-				mes "[EntÃ£o funcionÃ¡rio]";
+				mes "[Então funcionário]";
 				mes "A taxa de aluguel de carrinho";
-				mes "Ã© 800 Zeny. VocÃª faria";
+				mes "é 800 Zeny. Você faria";
 				mes "Gosta de alugar um carrinho?";
 				next;
 				switch(select("Alugar Pushcart: Cancelar")) {
 				case 1:
 					if (Zeny < 800) {
-						mes "[EntÃ£o funcionÃ¡rio]";
-						mes "Sinto muito, mas vocÃª nÃ£o";
+						mes "[Então funcionário]";
+						mes "Sinto muito, mas você não";
 						mes "tem zeny suficiente para alugar";
 						mes "Um dos nossos carrinhos de frente.";
 						close2;
@@ -920,11 +920,11 @@ OnInit:
 			}
 			break;
 		case 4:
-			mes "[EntÃ£o funcionÃ¡rio]";
+			mes "[Então funcionário]";
 			mes "Obrigado por usar o";
-			mes "ServiÃ§o Kafra. Onde";
-			mes "VocÃª vai, Kafra serÃ¡";
-			mes "lÃ¡ para te apoiar!";
+			mes "Serviço Kafra. Onde";
+			mes "Você vai, Kafra será";
+			mes "lá para te apoiar!";
 			close2;
 			cutin "kafra_01",255;
 			end;
@@ -934,13 +934,13 @@ OnInit:
 		end;
 	}
 	else {
-		mes "[EntÃ£o funcionÃ¡rio]";
+		mes "[Então funcionário]";
 		mes "Sinto muito, mas eu estive";
 		mes "contratado exclusivamente";
 		mes "para os membros do";
 		mes "^FF0000"+getguildname(.@GID)+"^000000 Guild.";
-		mes "VocÃª terÃ¡ que perguntar outro";
-		mes "FuncionÃ¡rio da Kafra para ajudÃ¡ -lo ...";
+		mes "Você terá que perguntar outro";
+		mes "Funcionário da Kafra para ajudá -lo ...";
 		close2;
 		cutin "kafra_01",255;
 		end;
@@ -954,9 +954,9 @@ OnInit:
 	set .@num, atoi(charat(strnpcinfo(1),0));
 	set .@var$,"$ Act_"+strnpcinfo(2);
 	if (getcharid(2) == .@GID) {
-		mes "^3355ffyou precisarÃ¡ do";
+		mes "^3355ffyou precisará do";
 		mes "seguindo materiais para";
-		mes "reconstruir um destruÃ­do";
+		mes "reconstruir um destruído";
 		mes "Pedra Guardiana.^000000";
 		next;
 		mes "1 ORIDECON";
@@ -966,7 +966,7 @@ OnInit:
 		mes "5 pedras amarelas";
 		mes "5 pedras vermelhas vermelhas";
 		next;
-		mes "^3355ffdo vocÃª deseja continuar?^000000";
+		mes "^3355ffdo você deseja continuar?^000000";
 		next;
 		if(select("No:Continue") == 1) {
 			mes "^3355ffwork cancelado.^000000";
@@ -975,9 +975,9 @@ OnInit:
 		if ((countitem(984) > 0) && (countitem(985) > 0) && (countitem(7049) > 29) && (countitem(717) > 4) && (countitem(715) > 4) && (countitem(716) > 4)) {
 			mes "^3355Farrange Stones, Elunium e";
 			mes "OrideCon, nessa ordem, no";
-			mes "centro. EntÃ£o vocÃª deve organizar";
+			mes "centro. Então você deve organizar";
 			mes "as pedras de gemas encantadas para";
-			mes "Reconstrua a pedra guardiÃ£o.^000000";
+			mes "Reconstrua a pedra guardião.^000000";
 			next;
 			setarray .@stone$[0],"Elunium","ORIDECON","Pedras";
 			set .@i, select("ELUNIUM: ORIDECON: Stone")-1;
@@ -997,10 +997,10 @@ OnInit:
 			mes "Resto dos Materiais";
 			mes "com alguns"+.@stone$[.@i]+".^000000";
 			next;
-			mes "^3355ffNow vocÃª precisa organizar";
+			mes "^3355ffNow você precisa organizar";
 			mes "as pedras preciosas encantadas";
-			mes "de acordo. VocÃª pode identificar";
-			mes "suas propriedades mÃ¡gicas por";
+			mes "de acordo. Você pode identificar";
+			mes "suas propriedades mágicas por";
 			mes "seu efeito de elenco.^000000";
 			next;
 			setarray .@effect[0],EF_BEGINSPELL4,EF_BEGINSPELL2,EF_VOLCANO;
@@ -1012,14 +1012,14 @@ OnInit:
 				mes "^3355ffAs pedras devem";
 				mes "estar organizado no correto";
 				mes "Ordem de acordo com o seu";
-				mes "Propriedades mÃ¡gicas e poder.^000000";
+				mes "Propriedades mágicas e poder.^000000";
 				next;
 				set .@j, select("Pedra preciosa vermelha: pedra preciosa amarela: pedra preciosa azul")-1;
 				mes "^3355ffyou colocou o"+.@color$[.@j]+"Pedra preciosa.^000000";
 				if (.@i == .@j) {
 					mes "^3355FF, no entanto, a pedra guardiana";
 					mes "O sistema de reparo falhou porque";
-					mes "de um conflito de poder mÃ¡gico.^000000";
+					mes "de um conflito de poder mágico.^000000";
 					close;
 				}
 				set .@nice,.@nice+10;
@@ -1031,21 +1031,21 @@ OnInit:
 				if (!getd(.@var$+"["+(.@num-1)+"]")) {
 					mes "^3355ffA pedra guardiana";
 					mes "Sistema de reparo tem";
-					mes "jÃ¡ concluÃ­do.^000000";
+					mes "já concluído.^000000";
 					close;
 				}
 				else {
 					if (!agitcheck2()) {
-						mes "^3355ffit Ã© impossÃ­vel";
-						mes "reconstrua o guardiÃ£o";
+						mes "^3355ffit é impossível";
+						mes "reconstrua o guardião";
 						mes "Pedra porque o";
-						mes "Empeio nÃ£o estÃ¡ presente.^000000";
+						mes "Empeio não está presente.^000000";
 						close;
 					}
 					else {
 						mes "^3355ffAs pedras foram";
-						mes "arranjado e o guardiÃ£o";
-						mes "A pedra Ã© reparada com sucesso.^000000";
+						mes "arranjado e o guardião";
+						mes "A pedra é reparada com sucesso.^000000";
 						delitem 984,1; //Oridecon
 						delitem 985,1; //Elunium
 						delitem 7049,30; //Stone
@@ -1059,7 +1059,7 @@ OnInit:
 						setd .@var$+"["+(.@num-1)+"]",0;
 						set .@df_all,getd(.@var$+"[0]")+getd(.@var$+"[1]");
 						if (!.@df_all) {
-							mapannounce strnpcinfo(4),"Ambas as pedras guardiÃµes foram erguidas, reforÃ§ando as defesas dessa fortaleza!",bc_map,"0x00FF00";
+							mapannounce strnpcinfo(4),"Ambas as pedras guardiões foram erguidas, reforçando as defesas dessa fortaleza!",bc_map,"0x00FF00";
 							donpcevent "RL0#"+strnpcinfo(4)+"::OnEnable";
 						}
 						else mapannounce strnpcinfo(4),"O"+strnpcinfo(1)+"foi reparado com sucesso.",bc_map,"0x00FF00";
@@ -1071,7 +1071,7 @@ OnInit:
 			}
 			else {
 				mes "^3355fffter todo esse trabalho ...";
-				mes "Parece que vocÃª falhou";
+				mes "Parece que você falhou";
 				mes "Para consertar a pedra guardiana,";
 				mes "e perdeu alguns materiais.^000000";
 				delitem 7049,10; //Stone
@@ -1082,7 +1082,7 @@ OnInit:
 			}
 		}
 		else {
-			mes "^3355ffyou nÃ£o tem o suficiente";
+			mes "^3355ffyou não tem o suficiente";
 			mes "materiais para reparar";
 			mes "a pedra guardiana.^000000";
 			close;
@@ -1111,21 +1111,21 @@ OnEnable:
 		if (is_guild_leader() == true) {
 			if (getd(.@var$+"["+(.@num+1)+"]") == 2) {
 				mes "^3355ffddemolished fortale";
-				mes "PortÃµes podem ser reparados,";
-				mes "Mas vocÃª precisarÃ¡ se reunir";
+				mes "Portões podem ser reparados,";
+				mes "Mas você precisará se reunir";
 				mes "os seguintes materiais.^000000";
 				next;
-				mes "^4d4dff10 aÃ§o^000000,";
+				mes "^4d4dff10 aço^000000,";
 				mes "^4d4dff30 troncos^000000,";
 				mes "^4d4dff5 oridecon^000000 e";
 				mes "^ 4d4dff10 Empresson ^ 000000.";
 				next;
 				select("Continuar");
 				if ((countitem(1019) > 29) && (countitem(999) > 9) && (countitem(1011) > 9) && (countitem(984) > 4)) {
-					mes "^3355ffyou precisarÃ¡ de troncos para";
+					mes "^3355ffyou precisará de troncos para";
 					mes "Reparar o quadro de suporte,";
 					mes "Oridecon para melhorar o";
-					mes "resistÃªncia do portÃ£o e";
+					mes "resistência do portão e";
 					mes "Emvavercon para fasticamente";
 					mes "Mantenha tudo junto.^000000";
 					next;
@@ -1136,62 +1136,62 @@ OnEnable:
 							switch(rand(1,4)) {
 							case 1:
 								mes "^3355ff o quadro de suporte";
-								mes "estÃ¡ gravemente danificado:";
+								mes "está gravemente danificado:";
 								mes "consertando esta parte";
-								mes "Ã© uma prioridade mÃ¡xima.^000000";
+								mes "é uma prioridade máxima.^000000";
 								next;
-								switch(select("Tronco: AÃ§o: Emvetarcon: OrideCon")) {
+								switch(select("Tronco: Aço: Emvetarcon: OrideCon")) {
 								case 1:
 									mes "^3355ff O quadro foi";
-									mes "reforÃ§ado com madeira.^000000";
+									mes "reforçado com madeira.^000000";
 									set .@rp_temp,.@rp_temp+1;
 									set .@ro_of02,.@ro_of02+1;
 									specialeffect2 EF_REPAIRWEAPON;
 									next;
 									break;
 								case 2:
-									mes "^3355ffYou Tentou usar aÃ§o,";
-									mes "Mas nÃ£o estÃ¡ funcionando muito";
-									mes "bem. VocÃª terÃ¡ que tentar";
+									mes "^3355ffYou Tentou usar aço,";
+									mes "Mas não está funcionando muito";
+									mes "bem. Você terá que tentar";
 									mes "outra coisa.^000000";
 									close;
 								case 3:
 									mes "^3355ffyou tentou usar emvetarcon";
-									mes "para reforÃ§ar o portÃ£o, mas Ã©";
-									mes "nÃ£o estÃ¡ funcionando bem.";
-									mes "VocÃª terÃ¡ que comeÃ§ar de novo.^000000";
+									mes "para reforçar o portão, mas é";
+									mes "não está funcionando bem.";
+									mes "Você terá que começar de novo.^000000";
 									close;
 								case 4:
 									mes "^3355ffyou tentou usar ORIDECON,";
-									mes "Mas nÃ£o estÃ¡ funcionando muito";
-									mes "bem. VocÃª terÃ¡ que tentar";
+									mes "Mas não está funcionando muito";
+									mes "bem. Você terá que tentar";
 									mes "outra coisa.^000000";
 									close;
 								}
 								break;
 							case 2:
-								mes "^3355ffit se parece com o portÃ£o";
-								mes "A resistÃªncia geral precisa";
-								mes "ser reforÃ§ado com algo.^000000";
+								mes "^3355ffit se parece com o portão";
+								mes "A resistência geral precisa";
+								mes "ser reforçado com algo.^000000";
 								next;
-								switch(select("Tronco: AÃ§o: Emvetarcon: OrideCon")) {
+								switch(select("Tronco: Aço: Emvetarcon: OrideCon")) {
 								case 1:
 									mes "^3355ffyou tentou usar madeira";
-									mes "Para reforÃ§ar o portÃ£o.^000000";
+									mes "Para reforçar o portão.^000000";
 									set .@ro_of02,.@ro_of02+1;
 									next;
 									break;
 								case 2:
-									mes "^3355ffYou Tentou usar aÃ§o";
-									mes "para reforÃ§ar o portÃ£o, mas";
-									mes "NÃ£o estÃ¡ funcionando bem.";
-									mes "VocÃª terÃ¡ que comeÃ§ar de novo.^000000";
+									mes "^3355ffYou Tentou usar aço";
+									mes "para reforçar o portão, mas";
+									mes "Não está funcionando bem.";
+									mes "Você terá que começar de novo.^000000";
 									close;
 								case 3:
 									mes "^3355ffyou tentou usar emvetarcon";
-									mes "para reforÃ§ar o portÃ£o, mas Ã©";
-									mes "nÃ£o estÃ¡ funcionando bem.";
-									mes "VocÃª terÃ¡ que comeÃ§ar de novo.^000000";
+									mes "para reforçar o portão, mas é";
+									mes "não está funcionando bem.";
+									mes "Você terá que começar de novo.^000000";
 									close;
 								case 4:
 									mes "^3355ffyou martelou o";
@@ -1205,22 +1205,22 @@ OnEnable:
 								}
 								break;
 							case 3:
-								mes "^3355ff o dano ao portÃ£o";
+								mes "^3355ff o dano ao portão";
 								mes "causou tudo isso";
-								mes "rachaduras. VocÃª terÃ¡ que";
-								mes "sold -lhes sÃ³lidos de alguma forma.^000000";
+								mes "rachaduras. Você terá que";
+								mes "sold -lhes sólidos de alguma forma.^000000";
 								next;
-								switch(select("Tronco: AÃ§o: Emvetarcon: OrideCon")) {
+								switch(select("Tronco: Aço: Emvetarcon: OrideCon")) {
 								case 1:
 									mes "^3355ffyou tentou usar madeira para consertar";
 									mes "esse problema, mas parece";
 									mes "ter piorado.";
-									mes "VocÃª terÃ¡ que comeÃ§ar tudo de novo.^000000";
+									mes "Você terá que começar tudo de novo.^000000";
 									close;
 								case 2:
-									mes "^3355ffyou aÃ§o para soldar";
-									mes "Todas as rachaduras: o portÃ£o Ã©";
-									mes "estÃ¡ comeÃ§ando a parecer mais sÃ³lido.^000000";
+									mes "^3355ffyou aço para soldar";
+									mes "Todas as rachaduras: o portão é";
+									mes "está começando a parecer mais sólido.^000000";
 									set .@rp_temp,.@rp_temp+1;
 									set .@ro_of02,.@ro_of02+1;
 									specialeffect2 EF_REPAIRWEAPON;
@@ -1228,40 +1228,40 @@ OnEnable:
 									break;
 								case 3:
 									mes "^3355ffyou tentou usar emvetarcon";
-									mes "para reforÃ§ar o portÃ£o, mas Ã©";
-									mes "nÃ£o estÃ¡ funcionando bem.";
-									mes "VocÃª terÃ¡ que comeÃ§ar de novo.^000000";
+									mes "para reforçar o portão, mas é";
+									mes "não está funcionando bem.";
+									mes "Você terá que começar de novo.^000000";
 									close;
 								case 4:
 									mes "^3355ffyou tentou usar ORIDECON,";
-									mes "Mas nÃ£o estÃ¡ funcionando muito";
-									mes "bem. VocÃª terÃ¡ que tentar";
+									mes "Mas não está funcionando muito";
+									mes "bem. Você terá que tentar";
 									mes "outra coisa.^000000";
 									close;
 								}
 								break;
 							case 4:
-								mes "^3355ffNow vocÃª precisa fazer";
-								mes "Claro que o portÃ£o Ã© mantido";
+								mes "^3355ffNow você precisa fazer";
+								mes "Claro que o portão é mantido";
 								mes "Juntos bem solidamente.^000000";
 								next;
-								switch(select("Tronco: AÃ§o: Emvetarcon: OrideCon")) {
+								switch(select("Tronco: Aço: Emvetarcon: OrideCon")) {
 								case 1:
 									mes "^3355ffyou tentou usar madeira para consertar";
 									mes "esse problema, mas parece";
 									mes "ter piorado.";
-									mes "VocÃª terÃ¡ que comeÃ§ar tudo de novo.^000000";
+									mes "Você terá que começar tudo de novo.^000000";
 									close;
 								case 2:
-									mes "^3355ffYou Tentou usar aÃ§o,";
-									mes "Mas nÃ£o estÃ¡ funcionando muito";
-									mes "bem. VocÃª terÃ¡ que tentar";
+									mes "^3355ffYou Tentou usar aço,";
+									mes "Mas não está funcionando muito";
+									mes "bem. Você terá que tentar";
 									mes "outra coisa.^000000";
 									close;
 								case 3:
 									mes "^3355ffyou usado com sucesso";
 									mes "o emvetarcon para reparar";
-									mes "grande parte do dano do portÃ£o.^000000";
+									mes "grande parte do dano do portão.^000000";
 									set .@rp_temp,.@rp_temp+1;
 									set .@ro_of02,.@ro_of02+1;
 									specialeffect2 EF_REPAIRWEAPON;
@@ -1269,8 +1269,8 @@ OnEnable:
 									break;
 								case 4:
 									mes "^3355ffyou tentou usar ORIDECON,";
-									mes "Mas nÃ£o estÃ¡ funcionando muito";
-									mes "bem. VocÃª terÃ¡ que tentar";
+									mes "Mas não está funcionando muito";
+									mes "bem. Você terá que tentar";
 									mes "outra coisa.^000000";
 									close;
 								}
@@ -1278,13 +1278,13 @@ OnEnable:
 						}
 					}
 					mes "^3355ffwell, parece";
-					mes "VocÃª estÃ¡ quase pronto";
-					mes "Com o reparo do portÃ£o.^000000";
+					mes "Você está quase pronto";
+					mes "Com o reparo do portão.^000000";
 					next;
 					if (!agitcheck2()) {
 						mes "^3355ffnfortunately, a fortaleza";
-						mes "O portÃ£o nÃ£o pode ser reconstruÃ­do:";
-						mes "O Emperium nÃ£o estÃ¡ mais aqui.^000000";
+						mes "O portão não pode ser reconstruído:";
+						mes "O Emperium não está mais aqui.^000000";
 						close;
 					}
 					else {
@@ -1301,7 +1301,7 @@ OnEnable:
 							if (.@num == 1) set .@str$,"1 caule";
 							else if (.@num == 2) set .@str$,"Pera";
 							else if (.@num == 3) set .@str$,"uma oferta";
-							mapannounce strnpcinfo(4),"O"+.@str$+"O portÃ£o da fortaleza foi reconstruÃ­do!",bc_map,"0x00FF00";
+							mapannounce strnpcinfo(4),"O"+.@str$+"O portão da fortaleza foi reconstruído!",bc_map,"0x00FF00";
 							if (.@num == 1) setd .@var$+"[2]",0;
 							else {
 								setarray getd(.@var$+"["+.@num+"]"),2,0;
@@ -1312,8 +1312,8 @@ OnEnable:
 						else {
 							mes "^3355ff O muro foi violado,";
 							mes "e a tentativa de reparar o";
-							mes "O portÃ£o da fortaleza falhou.";
-							mes "VocÃª perdeu parte de seu";
+							mes "O portão da fortaleza falhou.";
+							mes "Você perdeu parte de seu";
 							mes "Recursos de reparo ...^000000";
 							delitem 984,2; //Oridecon
 							delitem 999,4; //Steel
@@ -1324,9 +1324,9 @@ OnEnable:
 					}
 				}
 				else {
-					mes "^3355ffyou nÃ£o pode tentar reparar";
-					mes "o portÃ£o da fortaleza se vocÃª nÃ£o";
-					mes "tÃªm todos os materiais necessÃ¡rios.^000000";
+					mes "^3355ffyou não pode tentar reparar";
+					mes "o portão da fortaleza se você não";
+					mes "têm todos os materiais necessários.^000000";
 					close;
 				}
 			}
@@ -1393,11 +1393,11 @@ OnEnable:
 	else if (.@defence > 30) set getd(".Mymobcount_"+charat(strnpcinfo(1),4)+strnpcinfo(2)),3;
 	else if (.@defence > 10) set getd(".Mymobcount_"+charat(strnpcinfo(1),4)+strnpcinfo(2)),2;
 	if (.@w[4] && .@z)
-		guardian strnpcinfo(2),.@w[4],.@w[5],"Soldado guardiÃ£o",1899,strnpcinfo(0)+":: onguardiandied";
+		guardian strnpcinfo(2),.@w[4],.@w[5],"Soldado guardião",1899,strnpcinfo(0)+":: onguardiandied";
 	else if (.@defence < 11) {
 		set getd(".Mymobcount_"+charat(strnpcinfo(1),4)+strnpcinfo(2)),2;
 		set .@i,(.@z)?2:0;
-		guardian strnpcinfo(2),.@w[.@i],.@w[.@i+1],"Soldado guardiÃ£o",1899,strnpcinfo(0)+":: onguardiandied";
+		guardian strnpcinfo(2),.@w[.@i],.@w[.@i+1],"Soldado guardião",1899,strnpcinfo(0)+":: onguardiandied";
 	}
 	else for(set .@i,1; .@i<getd(".Mymobcount_"+charat(strnpcinfo(1),4)+strnpcinfo(2)); set .@i,.@i+1)
 		callsub OnSummon,.@i+.@z;
@@ -1405,7 +1405,7 @@ OnEnable:
 	copyarray getd(".x_"+strnpcinfo(2)+"[0]"),.@x[0],22;
 	copyarray getd(".e_"+strnpcinfo(2)+"[0]"),.@y[0],22;
 	setd ".timer_"+charat(strnpcinfo(1),4)+strnpcinfo(2),4+.@z;
-	setarray .count$[5],"1 caule","Pera","uma oferta","Fth","5Âº";
+	setarray .count$[5],"1 caule","Pera","uma oferta","Fth","5º";
 	initnpctimer;
 	end;
 
@@ -1419,8 +1419,8 @@ OnTimer3600000:
 	setd .@var$, getd(.@var$)+1;
 	set getd(".Mymobcount_"+charat(strnpcinfo(1),4)+strnpcinfo(2)),getd(".Mymobcount_"+charat(strnpcinfo(1),4)+strnpcinfo(2))+1;
 	callsub OnSummon,getd(.@var$);
-	setarray .count$[5],"1 caule","Pera","uma oferta","Fth","5Âº";
-	mapannounce strnpcinfo(2),"O"+.count$[getd(.@var$)]+"O guardiÃ£o foi convocado da casa do portÃ£o.",bc_map,"0xff4500";
+	setarray .count$[5],"1 caule","Pera","uma oferta","Fth","5º";
+	mapannounce strnpcinfo(2),"O"+.count$[getd(.@var$)]+"O guardião foi convocado da casa do portão.",bc_map,"0xff4500";
 	if (getd(.@var$) == 9) {
 		setd .@var$,0;
 		stopnpctimer;
@@ -1444,7 +1444,7 @@ OnTimer3900000:
 	end;
 
 OnSummon:
-	guardian strnpcinfo(2),getd(".x_"+strnpcinfo(2)+"["+getarg(0)+"]"),getd(".e_"+strnpcinfo(2)+"["+getarg(0)+"]"),"Soldado guardiÃ£o",1899,strnpcinfo(0)+":: onguardiandied";
+	guardian strnpcinfo(2),getd(".x_"+strnpcinfo(2)+"["+getarg(0)+"]"),getd(".e_"+strnpcinfo(2)+"["+getarg(0)+"]"),"Soldado guardião",1899,strnpcinfo(0)+":: onguardiandied";
 	return;
 
 OnGuardianDied:
@@ -1496,10 +1496,10 @@ OnGuardianStoneDied:
 	if (getd(.@var$+"[0]") == 1 || getd(.@var$+"[0]") == 2) set .@destroyed, .@destroyed+1;
 	if (getd(.@var$+"[1]") == 1 || getd(.@var$+"[1]") == 2) set .@destroyed, .@destroyed+1;
 	if (.@destroyed == 2) {
-		mapannounce strnpcinfo(2),"Todas as pedras do Guardian foram destruÃ­das!",bc_map,"0x00FF00";
+		mapannounce strnpcinfo(2),"Todas as pedras do Guardian foram destruídas!",bc_map,"0x00FF00";
 		donpcevent "RL0#"+strnpcinfo(2)+"::OnDisable";
 	}
-	else mapannounce strnpcinfo(2),"O"+((.@num == 1)?"1 caule":"Pera")+"A Pedra Guardiana foi destruÃ­da!",bc_map,"0x00FF00";
+	else mapannounce strnpcinfo(2),"O"+((.@num == 1)?"1 caule":"Pera")+"A Pedra Guardiana foi destruída!",bc_map,"0x00FF00";
 	donpcevent "gard"+.@num+"#"+strnpcinfo(2)+"::OnReset";
 	initnpctimer;
 	end;
@@ -1694,7 +1694,7 @@ OnBarrierDestroyed:
 		set .@var$,substr(strnpcinfo(2),0,1)+substr(strnpcinfo(2),8,9);
 		setd "$ Act_"+.@var$+"["+(.@num+1)+"]",1;
 		setarray .@count$[0],"1 caule","Pera","uma oferta";
-		mapannounce strnpcinfo(2),"O"+.@count$[.@num-1]+"O portÃ£o da fortaleza Ã© destruÃ­do.",bc_map,"0x00FF00";
+		mapannounce strnpcinfo(2),"O"+.@count$[.@num-1]+"O portão da fortaleza é destruído.",bc_map,"0x00FF00";
 		delwall .@var$+"_"+strnpcinfo(1);
 	}
 	end;
@@ -1711,27 +1711,27 @@ OnDisable:
 //============================================================
 function	script	LinkFlag	{
 	if (!getcharid(2) || getcharid(2) != getcastledata(strnpcinfo(4),CD_GUILD_ID)) end;
-	if (getarg(0) == "InstalaÃ§Ã£o de conveniÃªncia") {
-		mes "^3355ffhis Ã© a fortaleza";
-		mes "ServiÃ§o de Teleporte. Seria";
-		mes "VocÃª gosta de se teletransportar para o";
-		mes "InstalaÃ§Ã£o de conveniÃªncia para";
+	if (getarg(0) == "Instalação de conveniência") {
+		mes "^3355ffhis é a fortaleza";
+		mes "Serviço de Teleporte. Seria";
+		mes "Você gosta de se teletransportar para o";
+		mes "Instalação de conveniência para";
 		mes "membros da guilda?^000000";
-		if(select("VÃ¡ para a instalaÃ§Ã£o de conveniÃªncia: cancelar") == 1)
+		if(select("Vá para a instalação de conveniência: cancelar") == 1)
 			warp strnpcinfo(4),getarg(1),getarg(2);
 		close;
 	}
 	if (getarg(0) == "Centro de Emperorium") {
-		mes "^3355ffhis Ã© a fortaleza";
-		mes "ServiÃ§o de Teleporte. Seria";
-		mes "vocÃª gosta de se teletransportar para";
+		mes "^3355ffhis é a fortaleza";
+		mes "Serviço de Teleporte. Seria";
+		mes "você gosta de se teletransportar para";
 		mes "O Centro de Empeio?^000000";
 		if(select("Teleport: Cancelar") == 1)
 			warp strnpcinfo(4),getarg(1),getarg(2);
 		close;
 	}
-	mes "^3355ffhis Ã© a fortaleza";
-	mes "ServiÃ§o de Teleporte. Por favor";
+	mes "^3355ffhis é a fortaleza";
+	mes "Serviço de Teleporte. Por favor";
 	mes "Escolha um destino";
 	mes "dentro da fortaleza.^000000";
 	for(set .@i,0; .@i<getargcount(); set .@i,.@i+3)
@@ -1753,16 +1753,16 @@ function	script	ReturnFlag	{
 		mes "["+.@str$+"ECRETO REAL]";
 		mes "O Reino Santo de";
 		mes .@str$+"declara isso";
-		mes "ainda nÃ£o se reivindicou";
+		mes "ainda não se reivindicou";
 		mes "sobre essa fortaleza. O que";
 		mes "que quebra o Empeio vai";
-		mes "ser reconhecido como seu novo proprietÃ¡rio.";
+		mes "ser reconhecido como seu novo proprietário.";
 		close;
 	}
 	if (getcharid(2) == .@GID && getarg(1,0)) {
 		mes "[Voz tocando]";
 		mes "Corajoso,";
-		mes "vocÃª deseja retornar";
+		mes "você deseja retornar";
 		mes "para sua fortaleza?";
 		next;
 		if(select("Retorne ao fortalezas: Cancelar") == 1 && getcharid(2) == getcastledata(.@map$,CD_GUILD_ID)) {
@@ -1783,15 +1783,15 @@ function	script	ReturnFlag	{
 	mes "["+.@str$+"ECRETO REAL]";
 	mes "O Reino Santo de";
 	mes .@str$+"decreta isso";
-	mes "Esta fortaleza Ã© de propriedade";
+	mes "Esta fortaleza é de propriedade";
 	mes "pelo ^ff0000"+getguildname(.@GID)+"^000000 Guild.";
 	next;
 	mes "["+.@str$+"ECRETO REAL]";
 	mes "^FF0000"+getguildmaster(.@GID)+"^000000 IS";
 	mes "Mestre da guilda de ^ff0000"+getguildname(.@GID)+"^000000.";
 	mes "Qualquer objeto deve reivindicar isso";
-	mes "fortalenda atravÃ©s da forÃ§a de";
-	mes "aÃ§o e magia durante o";
+	mes "fortalenda através da força de";
+	mes "aço e magia durante o";
 	mes "nomeado Times de cerco da guilda.";
 	close;
 }
@@ -1800,7 +1800,7 @@ function	script	ReturnFlag	{
 //============================================================
 -	script	Switch#template	-1,{
 	mes "";
-	mes "^3355ffwill vocÃª puxa";
+	mes "^3355ffwill você puxa";
 	mes "Esta pequena alavanca?^000000";
 	next;
 	if(select("Puxe alavanca: Cancelar") == 2) close;
@@ -1822,7 +1822,7 @@ function	script	ReturnFlag	{
 //============================================================
 -	script	Sunflower#template	-1,{
 	if (getcharid(2) == getcastledata(strnpcinfo(4),CD_GUILD_ID)) {
-		mes "- Ã‰ um girassol incrivelmente enorme; TÃ£o grande quanto um humano! ... VocÃª sente algo misterioso emanando da flor. -";
+		mes "- É um girassol incrivelmente enorme; Tão grande quanto um humano! ... Você sente algo misterioso emanando da flor. -";
 		next;
 		switch(select("Segure o caule.")) {
 		case 1:
@@ -1840,7 +1840,7 @@ function	script	ReturnFlag	{
 			warp .@map$,.@mapx[.@i],.@mapy[.@i];
 			close;
 		case 2:
-			mes "Ã‰ muito assustador tocar coisas desconhecidas.";
+			mes "É muito assustador tocar coisas desconhecidas.";
 			close;
 		}
 	}

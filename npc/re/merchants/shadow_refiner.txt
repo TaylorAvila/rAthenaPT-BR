@@ -13,35 +13,35 @@
 -	script	::ShadowBlacksmith	-1,{
 	if( getbattleflag( "Fewence.Refineui" ) ){
 		mes "[Shadow Blacksmith]";
-		mes "Agora Basta Ã© responsÃ¡vel pelo refinamento de itens de sombra.";
-		mes "Se vocÃª quiser refinar um item de sombra, visite -o.";
+		mes "Agora Basta é responsável pelo refinamento de itens de sombra.";
+		mes "Se você quiser refinar um item de sombra, visite -o.";
 		close;
 	}
 
 	.@zeny_cost = 200000; // Zeny cost is 200,000 according to official script [Secret]
 	disable_items;
 	mes "[Shadow Blacksmith]";
-	mes "VocÃª quer refinar um item de sombra? Escolha seu veneno!";
+	mes "Você quer refinar um item de sombra? Escolha seu veneno!";
 	next;
 	setarray .@indices[1], EQI_SHADOW_ARMOR, EQI_SHADOW_WEAPON, EQI_SHADOW_SHIELD, EQI_SHADOW_SHOES, EQI_SHADOW_ACC_R, EQI_SHADOW_ACC_L;
 	.@indlen = getarraysize(.@indices) - 1;
 	for(.@i = 1; .@i <= .@indlen; .@i++)
-		.@menu$ = .@menu$ + (getequipisequiped(.@indices[.@i]) ? getequipname(.@indices[.@i]) : F_getpositionname(.@indices[.@i]) +"-[nÃ£o equipado]") +":";
-	.@menu$ = .@menu$ + "Refinar informaÃ§Ãµes";
+		.@menu$ = .@menu$ + (getequipisequiped(.@indices[.@i]) ? getequipname(.@indices[.@i]) : F_getpositionname(.@indices[.@i]) +"-[não equipado]") +":";
+	.@menu$ = .@menu$ + "Refinar informações";
 	.@choice = select(.@menu$);
 	if (.@choice == .@indlen + 1) { // Refine info
 		mes "[Shadow Blacksmith]";
-		mes "Quando um item de sombra Ã© refinado, ele ganha bÃ´nus extras como itens normais.";
+		mes "Quando um item de sombra é refinado, ele ganha bônus extras como itens normais.";
 		next;
 		mes "[Shadow Blacksmith]";
 		mes "Arma: ATK, MATK + 1 Aumento para cada sucesso de +1 refina.";
 		mes "Etc: HP + 10 aumento para cada +1 refina o sucesso.";
 		next;
 		mes "[Shadow Blacksmith]";
-		mes "Todos os tipos de oridecon e elunium podem ser usados â€‹â€‹para refinar itens de sombra. Cada tentativa tambÃ©m custarÃ¡ 20.000 Zeny.";
+		mes "Todos os tipos de oridecon e elunium podem ser usados para refinar itens de sombra. Cada tentativa também custará 20.000 Zeny.";
 		next;
 		mes "[Shadow Blacksmith]";
-		mes "Os minÃ©rios HD podem ser usados â€‹â€‹para equipamentos que sÃ£o pelo menos o nÃ­vel de refinar +7 e impedir que a quebra, desde que vocÃª fique conversando comigo.";
+		mes "Os minérios HD podem ser usados para equipamentos que são pelo menos o nível de refinar +7 e impedir que a quebra, desde que você fique conversando comigo.";
 		close;
 	}
 
@@ -49,7 +49,7 @@
 
 	if (!getequipisequiped(.@part)) {
 		mes "[Shadow Blacksmith]";
-		mes "NÃ£o hÃ¡ nada aqui!";
+		mes "Não há nada aqui!";
 		close;
 	}
 	.@equip_id = getequipid(.@part);
@@ -59,7 +59,7 @@
 		.@equip_refine = getequiprefinerycnt(.@part);
 		mes "[Shadow Blacksmith]";
 		mes "I require " + callfunc("F_InsertComma", .@zeny_cost) + " zeny as a fee for EACH refine attempt.";
-		mes "Escolha seu minÃ©rio e comece a refinar.";
+		mes "Escolha seu minério e comece a refinar.";
 		next;
 
 		.@material[0] = getequiprefinecost(.@part, REFINE_COST_NORMAL, REFINE_MATERIAL_ID);
@@ -91,7 +91,7 @@
 		case 3:// HD
 			if (.@equip_refine < 7) {
 				mes "[Shadow Blacksmith]";
-				mes "O minÃ©rio HD sÃ³ pode ser usado para +7 ou mais itens de nÃ­vel de refino.";
+				mes "O minério HD só pode ser usado para +7 ou mais itens de nível de refino.";
 				close;
 			}
 			.@hoihoi = 1;
@@ -99,36 +99,36 @@
 			break;
 		case 4:
 			mes "[Shadow Blacksmith]";
-			mes "VocÃª cancelou o refino.";
+			mes "Você cancelou o refino.";
 			close;
 		}
 		if (!countitem(.@choose)) {
 			mes "[Shadow Blacksmith]";
-			mes "VocÃª nÃ£o tem o suficiente"+ getitemname(.@choose) +".";
+			mes "Você não tem o suficiente"+ getitemname(.@choose) +".";
 			close;
 		}
 		if (Zeny < .@zeny_cost) {
 			mes "[Shadow Blacksmith]";
-			mes "VocÃª nÃ£o tem Zeny suficiente.";
+			mes "Você não tem Zeny suficiente.";
 			close;
 		}
 		if (.@equip_refine > 9) {
 			mes "[Shadow Blacksmith]";
-			mes "O equipamento de sombra pode ser refinado no mÃ¡ximo de 10 ...";
+			mes "O equipamento de sombra pode ser refinado no máximo de 10 ...";
 			close;
 		}
 		if (!getequipisenableref(.@part)) {
 			mes "[Shadow Blacksmith]";
-			mes "Este item nÃ£o pode ser refinado.";
+			mes "Este item não pode ser refinado.";
 			close;
 		}
 		if (getequippercentrefinery(.@part) < 100) {
 			mes "[Shadow Blacksmith]";
-			mes "O nÃ­vel de refino de seguranÃ§a para equipamentos de sombra Ã© +4.";
+			mes "O nível de refino de segurança para equipamentos de sombra é +4.";
 			if (!.@hoihoi)
-				mes "Equipamentos de sombra podem ser destruÃ­dos em refinamentos subsequentes. Quer comeÃ§ar?";
+				mes "Equipamentos de sombra podem ser destruídos em refinamentos subsequentes. Quer começar?";
 			else
-				mes "O prÃ³ximo refinamento, se falhar, degradarÃ¡ o refinamento. VocÃª quer refinar?";
+				mes "O próximo refinamento, se falhar, degradará o refinamento. Você quer refinar?";
 			next;
 			if (select("Prosseguir","Cancelar") == 2) {
 				mes "[Shadow Blacksmith]";
@@ -137,7 +137,7 @@
 			}
 		}
 		mes "[Shadow Blacksmith]";
-		mes "Bem, entÃ£o .. aqui vai nada!";
+		mes "Bem, então .. aqui vai nada!";
 		next;
 		delitem .@choose,1;
 		Zeny -= .@zeny_cost;
@@ -157,7 +157,7 @@
 			else
 				failedrefitem .@part;
 			mes "[Shadow Blacksmith]";
-			mes "Oh Odin nÃ£o!";
+			mes "Oh Odin não!";
 			close;
 		}
 	}

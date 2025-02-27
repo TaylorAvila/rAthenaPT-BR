@@ -21,7 +21,7 @@
 bat_room,197,226,5	script	KVM Waiting Room#a2::KvM02R_Guillaume	418,{
 	end;
 OnInit:
-	waitingroom "Estação de batalha 5 jogadores",6,"KVM02_BG_OUT :: onGuillaumeJoin",1;
+	waitingroom "Estao de batalha 5 jogadores",6,"KVM02_BG_OUT :: onGuillaumeJoin",1;
 	end;
 OnEnterBG:
 	set $@KvM02BG_id1, waitingroom2bg("BAT_C02",52,129,"KVM02_BG :: onGuillaumeQuit","KVM02_BG :: onGuillaumedie");
@@ -31,7 +31,7 @@ OnEnterBG:
 bat_room,197,205,3	script	KVM Waiting Room#b2::KvM02R_Croix	414,{
 	end;
 OnInit:
-	waitingroom "Estação de batalha 5 jogadores",6,"KVM02_BG_OUT :: onCroixJoin",1;
+	waitingroom "Estao de batalha 5 jogadores",6,"KVM02_BG_OUT :: onCroixJoin",1;
 	end;
 OnEnterBG:
 	set $@KvM02BG_id2, waitingroom2bg("BAT_C02",147,55,"KVM02_BG :: onCroixQuit","Kvm02_bg :: onCroixdie");
@@ -134,8 +134,8 @@ OnGuillaumeDie:
 		bg_updatescore "BAT_C02",.Guillaume_Count,.Croix_Count;
 		if( .Guillaume_Count < 1 ) donpcevent "KvM02_BG::OnCroixWin";
 		else {
-			mapannounce "BAT_C02", "O número de guilas é"+.Guillaume_Count+".",bc_map,"0x00FF00";
-			mapannounce "BAT_C02", "O número de croixes é"+.Croix_Count+".",bc_map,"0x00FF00";
+			mapannounce "BAT_C02", "O nmero de guilas "+.Guillaume_Count+".",bc_map,"0x00FF00";
+			mapannounce "BAT_C02", "O nmero de croixes "+.Croix_Count+".",bc_map,"0x00FF00";
 		}
 	}
 	end;
@@ -152,8 +152,8 @@ OnCroixDie:
 		bg_updatescore "BAT_C02",.Guillaume_Count,.Croix_Count;
 		if( .Croix_Count < 1 ) donpcevent "KvM02_BG::OnGuillaumeWin";
 		else {
-			mapannounce "BAT_C02", "O número de guilas é"+.Guillaume_Count+".",bc_map,"0x00FF00";
-			mapannounce "BAT_C02", "O número de croixes é"+.Croix_Count+".",bc_map,"0x00FF00";
+			mapannounce "BAT_C02", "O nmero de guilas "+.Guillaume_Count+".",bc_map,"0x00FF00";
+			mapannounce "BAT_C02", "O nmero de croixes "+.Croix_Count+".",bc_map,"0x00FF00";
 		}
 	}
 	end;
@@ -177,16 +177,16 @@ OnStart:
 	end;
 
 OnTimer1000:
-	mapannounce "BAT_C02", "Em 1 minuto, o KVM começará.",bc_map,"0x00FF00";
+	mapannounce "BAT_C02", "Em 1 minuto, o KVM comear.",bc_map,"0x00FF00";
 	end;
 
 OnTimer3000:
-	mapannounce "BAT_C02", "O tempo máximo para uma batalha de KVM é de 5 minutos.",bc_map,"0x00FF00";
+	mapannounce "BAT_C02", "O tempo mximo para uma batalha de KVM  de 5 minutos.",bc_map,"0x00FF00";
 	end;
 
 OnTimer6000:
 	mapannounce "BAT_C02", "Por favor, prepare -se para a batalha do KVM.",bc_map,"0x00FF00";
-	mapannounce "BAT_C02", "Você pode lustrar seu povo.",bc_map,"0x00FF00";
+	mapannounce "BAT_C02", "Voc pode lustrar seu povo.",bc_map,"0x00FF00";
 	donpcevent "#A_camp_start02::OnEnable";
 	donpcevent "#B_camp_start02::OnEnable";
 	end;
@@ -216,7 +216,7 @@ OnTimer55000:
 	end;
 
 OnTimer59000:
-	mapannounce "BAT_C02", "O KVM está agora começando.",bc_map,"0x00FF00";
+	mapannounce "BAT_C02", "O KVM est agora comeando.",bc_map,"0x00FF00";
 	donpcevent "::OnKvM02Two";
 	end;
 
@@ -229,7 +229,7 @@ OnTimer61000:
 		if (.Guillaume_Count < 5 || .Croix_Count < 5) {
 			set $@KvM02BG_Victory, 3;
 			set $@KvM02BG, 3;
-			mapannounce "BAT_C02","Não há jogadores suficientes para começar a batalha",1,0x808080;
+			mapannounce "BAT_C02","No h jogadores suficientes para comear a batalha",1,0x808080;
 			stopnpctimer;
 			donpcevent "KvM02_BG::OnStop";
 			end;
@@ -271,8 +271,8 @@ OnTimer360000:
 	{ // Draw Game
 		set $@KvM02BG, 3;
 		set $@KvM02BG_Victory, 3;
-		mapannounce "BAT_C02", "O número de guilas é"+.Guillaume_Count+".",bc_map,"0x00FF00";
-		mapannounce "BAT_C02", "O número de croixes é"+.Croix_Count+".",bc_map,"0x00FF00";
+		mapannounce "BAT_C02", "O nmero de guilas "+.Guillaume_Count+".",bc_map,"0x00FF00";
+		mapannounce "BAT_C02", "O nmero de croixes "+.Croix_Count+".",bc_map,"0x00FF00";
 		mapannounce "BAT_C02", "Esta batalha terminou empatada.",bc_map,"0x00FF00";
 		donpcevent "KvM02_BG::OnStop";
 	}
@@ -282,8 +282,8 @@ OnGuillaumeWin:
 	set $@KvM02BG, 3;
 	set $@KvM02BG_Victory, 1;
 	mapannounce "BAT_C02", "Guillaume vence!",bc_map,"0x00FF00";
-	mapannounce "BAT_C02", "Parabéns aos membros de Guillaume.",bc_map,"0x00FF00";
-	mapannounce "BAT_C02", "Todos serão transferidos para o ponto de partida.",bc_map,"0x00FF00";
+	mapannounce "BAT_C02", "Parabns aos membros de Guillaume.",bc_map,"0x00FF00";
+	mapannounce "BAT_C02", "Todos sero transferidos para o ponto de partida.",bc_map,"0x00FF00";
 	donpcevent "KvM02_BG::OnStop";
 	end;
 
@@ -291,8 +291,8 @@ OnCroixWin:
 	set $@KvM02BG, 3;
 	set $@KvM02BG_Victory, 2;
 	mapannounce "BAT_C02", "Croix vence!",bc_map,"0x00FF00";
-	mapannounce "BAT_C02", "Parabéns aos membros do CROIX.",bc_map,"0x00FF00";
-	mapannounce "BAT_C02", "Todos serão transferidos para o ponto de partida.",bc_map,"0x00FF00";
+	mapannounce "BAT_C02", "Parabns aos membros do CROIX.",bc_map,"0x00FF00";
+	mapannounce "BAT_C02", "Todos sero transferidos para o ponto de partida.",bc_map,"0x00FF00";
 	donpcevent "KvM02_BG::OnStop";
 	end;
 
@@ -321,17 +321,17 @@ OnTimer1000:
 	end;
 
 OnTimer3000:
-	mapannounce "BAT_C02", "O oficial concederá os pontos por 30 segundos.",bc_map,"0x00FF00";
-	mapannounce "BAT_C02", "Em 30 segundos, o oficial será enviado.",bc_map,"0x00FF00";
+	mapannounce "BAT_C02", "O oficial conceder os pontos por 30 segundos.",bc_map,"0x00FF00";
+	mapannounce "BAT_C02", "Em 30 segundos, o oficial ser enviado.",bc_map,"0x00FF00";
 	end;
 
 OnTimer5000:
-	mapannounce "BAT_C02", "A menos que você fale com o oficial, não pode ganhar os pontos.",bc_map,"0x00FF00";
+	mapannounce "BAT_C02", "A menos que voc fale com o oficial, no pode ganhar os pontos.",bc_map,"0x00FF00";
 	mapannounce "BAT_C02", "Por favor, tenha cuidado.",bc_map,"0x00FF00";
 	end;
 
 OnTimer55000:
-	mapannounce "BAT_C02", "Você será enviado de volta.",bc_map,"0x00FF00";
+	mapannounce "BAT_C02", "Voc ser enviado de volta.",bc_map,"0x00FF00";
 	end;
 
 OnTimer60000:
@@ -375,15 +375,15 @@ bat_c02,51,130,5	script	KVM Officer#KVM02A	419,{
 		mes "[SQM Oficial]";
 		if( $@KvM02BG_Victory == Bat_Team ) {
 			mes "Bom jogo.";
-			mes "Que a glória do KVM esteja com você.";
-			mes "Você adquire os pontos de vitória: 1";
+			mes "Que a glria do KVM esteja com voc.";
+			mes "Voc adquire os pontos de vitria: 1";
 			close2;
 			set kvm_point,kvm_point + 1;
 		}
 		else {
 			mes "Sinto muito.";
-			mes "Desejo -lhe melhor sorte na próxima vez.";
-			mes "Você adquire os pontos perdedores: 0";
+			mes "Desejo -lhe melhor sorte na prxima vez.";
+			mes "Voc adquire os pontos perdedores: 0";
 			close2;
 		}
 		bg_leave;

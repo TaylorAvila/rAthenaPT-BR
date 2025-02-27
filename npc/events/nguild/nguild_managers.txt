@@ -35,19 +35,19 @@ function	script	F_GldManager	{
 		return;
 	}
 	if (getcharid(2) != .@gid){
-		mes "Estou aqui para seguir ^5533ff" + getguildmaster(.@gid) + "^000000 Comando! Ei! VocÃª nem Ã© parte da guilda !!";
-		mes "Onde estÃ£o os guardiÃµes? Destrua esses intrusos!";
+		mes "Estou aqui para seguir ^5533ff" + getguildmaster(.@gid) + "^000000 Comando! Ei! Você nem é parte da guilda !!";
+		mes "Onde estão os guardiões? Destrua esses intrusos!";
 		return;
 	}
 	if (is_guild_leader() == false){
-		mes "VocÃª nÃ£o Ã© ^5533ff" + getguildmaster(.@gid) + "^000000! Estou aqui para seguir ^5533ff" + getguildmaster(.@gid) + "^000000 Somente o comando";
+		mes "Você não é ^5533ff" + getguildmaster(.@gid) + "^000000! Estou aqui para seguir ^5533ff" + getguildmaster(.@gid) + "^000000 Somente o comando";
 		return 0;
 	}
 
-	mes "Mestre de boas -vindas ^5533ff" + getguildmaster(.@gid) + "^000000! Vou ajudÃ¡ -lo da maneira que puder!";
+	mes "Mestre de boas -vindas ^5533ff" + getguildmaster(.@gid) + "^000000! Vou ajudá -lo da maneira que puder!";
 	next;
 
-	menu "Emprego / demissÃ£o da equipe da Kafra",M_Kaf, "Entre na sala do tesouro",M_Treas, "Cancelar",M_End;
+	menu "Emprego / demissão da equipe da Kafra",M_Kaf, "Entre na sala do tesouro",M_Treas, "Cancelar",M_End;
 
 	//===========================
 	M_Kaf:
@@ -55,60 +55,60 @@ function	script	F_GldManager	{
 		mes "["+ .@npc_name$ +"]";
 		if (GetCastleData(.@map_name$,9) == 1) goto L_Dismiss;
 		if (getgdskilllv(.@gid,10001) == 0){
-			mes "Mestre, vocÃª nÃ£o tem um contrato com a Kafra Staff Company.";
-			mes "Para contratar uma kafra, vocÃª deve primeiro aprender a habilidade da guilda ^5533FFCONTRATE COM KAFRA ^000000.";
+			mes "Mestre, você não tem um contrato com a Kafra Staff Company.";
+			mes "Para contratar uma kafra, você deve primeiro aprender a habilidade da guilda ^5533FFCONTRATE COM KAFRA ^000000.";
 			return;
 		}
 
 		L_Hire:
-			mes "VocÃª gostaria de empregar os serviÃ§os de uma kafra? VocÃª precisarÃ¡ de ^5533ff10.000 zeny ^000000 para fazÃª -lo ...";
+			mes "Você gostaria de empregar os serviços de uma kafra? Você precisará de ^5533ff10.000 zeny ^000000 para fazê -lo ...";
 			next;
 			menu "Tale empregado.",-,"Cancelar",sM_KafEnd;
 
 				mes "["+ .@npc_name$ +"]";
 				if (Zeny < 10000){
-					mes "Mestre, vocÃª nÃ£o tem dinheiro suficiente para empregar uma kafra. O emprego foi cancelado.";
+					mes "Mestre, você não tem dinheiro suficiente para empregar uma kafra. O emprego foi cancelado.";
 					return;
 				}
 				set Zeny,Zeny-10000;
 				enablenpc "Kafra Staff#"+getarg(4);
 				SetCastleData .@map_name$,9,1;
-				mes "VocÃª criou um contrato com a Kafra Staff Company.";
+				mes "Você criou um contrato com a Kafra Staff Company.";
 				next;
 				cutin "kafra_01",2;
 				mes "[Pessoal da Kafra]";
-				mes "Como vai? Estou aqui para fornecer um serviÃ§o Ãºtil! Farei o melhor que puder para atendÃª -lo.";
+				mes "Como vai? Estou aqui para fornecer um serviço útil! Farei o melhor que puder para atendê -lo.";
 				next;
 				cutin "kafra_01",255;
 				mes "["+ .@npc_name$ +"]";
-				//mes "Seu contrato de trabalho dura ^5533ff1 mÃªs ^000000.  Depois que esse termo terminar, vocÃª terÃ¡ que criar um novo contrato.";
-				mes "Eu acho que a equipe da Kafra beneficiarÃ¡ nossos membros da guilda.";
+				//mes "Seu contrato de trabalho dura ^5533ff1 mês ^000000.  Depois que esse termo terminar, você terá que criar um novo contrato.";
+				mes "Eu acho que a equipe da Kafra beneficiará nossos membros da guilda.";
 				return;
 
 			sM_KafEnd:
 				mes "["+ .@npc_name$ +"]";
-				mes "Como vocÃª deseja mestre.  Mas sugiro que tenhamos um kafra o mais rÃ¡pido possÃ­vel!";
+				mes "Como você deseja mestre.  Mas sugiro que tenhamos um kafra o mais rápido possível!";
 				return;
 
 		L_Dismiss:
-			mes "VocÃª gostaria de descartar a atual kafra?";
+			mes "Você gostaria de descartar a atual kafra?";
 			next;
-			menu "DemissÃ£o",-,"Cancelar",sM_KafEnd2;
+			menu "Demissão",-,"Cancelar",sM_KafEnd2;
 
 				cutin "kafra_01",2;
 				mes "[Pessoal da Kafra]";
-				mes "Eu fiz algo errado? Se eu fiz, vocÃª vai me perdoar?";
+				mes "Eu fiz algo errado? Se eu fiz, você vai me perdoar?";
 				next;
 				menu "Liberar",-,"Cancelar",ssM_KafEnd2;
 
 					mes "[Pessoal da Kafra]";
-					mes "Ã‰ lamentÃ¡vel que nÃ£o consiga mais servir sua guilda ....";
+					mes "É lamentável que não consiga mais servir sua guilda ....";
 					next;
 					disablenpc "Kafra Staff#"+getarg(4);
 					SetCastleData .@map_name$,9,0;
 					cutin "kafra_01",255;
 					mes "["+ .@npc_name$ +"]";
-					mes "A kafra foi demitida.  Mas ... devemos realmente conseguir um kafra o mais rÃ¡pido possÃ­vel!";
+					mes "A kafra foi demitida.  Mas ... devemos realmente conseguir um kafra o mais rápido possível!";
 					return;
 				ssM_KafEnd2:
 					mes "[Pessoal da Kafra]";
@@ -117,27 +117,27 @@ function	script	F_GldManager	{
 					return;
 			sM_KafEnd2:
 				mes "["+ .@npc_name$ +"]";
-				mes "Mestre, acho que vocÃª deveria manter a equipe atual da Kafra porque ela jÃ¡ estÃ¡ tentando o seu melhor para nos servir";
+				mes "Mestre, acho que você deveria manter a equipe atual da Kafra porque ela já está tentando o seu melhor para nos servir";
 				return;
 
 	//=========================
 	M_Treas:
 	//========
 		mes "["+ .@npc_name$ +"]";
-		mes "VocÃª iria para a nossa sala de tesouros? Somente vocÃª, o mestre da guilda, pode entrar nesta sala.";
+		mes "Você iria para a nossa sala de tesouros? Somente você, o mestre da guilda, pode entrar nesta sala.";
 		next;
 		menu "Entre na sala do tesouro.",-,"Cancelar",sM_TresEnd;
 
 			mes "["+ .@npc_name$ +"]";
-			mes "Por favor, siga -me atravÃ©s da passagem secreta.";
-			mes "VocÃª deve puxar o interruptor secreto para sair.";
+			mes "Por favor, siga -me através da passagem secreta.";
+			mes "Você deve puxar o interruptor secreto para sair.";
 			next;
 			warp .@map_name$,getarg(2),getarg(3);
 			return;
 		sM_TresEnd:
 			mes "["+ .@npc_name$ +"]";
-			mes "As mercadorias sÃ£o produzidas todos os dias.";
-			mes "VocÃª deve obtÃª -los sempre que puder, porque eles podem desaparecer se vocÃª os levar na hora errada.";
+			mes "As mercadorias são produzidas todos os dias.";
+			mes "Você deve obtê -los sempre que puder, porque eles podem desaparecer se você os levar na hora errada.";
 			return;
 
 
@@ -145,7 +145,7 @@ function	script	F_GldManager	{
 	M_End:
 	//=======
 		mes "["+ .@npc_name$ +"]";
-		mes "Como vocÃª deseja, mestre.";
+		mes "Como você deseja, mestre.";
 		return;
 }
 

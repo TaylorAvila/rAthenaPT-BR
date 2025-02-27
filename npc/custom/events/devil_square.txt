@@ -17,15 +17,15 @@ prontera,156,185,5	script	Devil Square Guardian#1	406,{
 	set .@gm_level, 99; // GM level required to start/stop the event
 
 	mes "[Devil Square Guardian]";
-	mes "Esta √© a entrada para ^ff0000DEVil Square ^000000.";
-	mes "Se voc√™ falhar ou morrer, a porta ser√° fechada e voc√™ deve esperar at√© que o evento comece novamente a entrar novamente.";
+	mes "Esta È a entrada para ^ff0000DEVil Square ^000000.";
+	mes "Se vocÍ falhar ou morrer, a porta ser· fechada e vocÍ deve esperar atÈ que o evento comece novamente a entrar novamente.";
 	next;
 	switch(select("Enter.:Information.:" + ((getgmlevel() >= .@gm_level) ? "Menu GM." : "") + ":Cancelar.")) {
 	case 1:
 		if (.start != 1) { // registration period
 			mes "[Devil Square Guardian]";
-			mes "Devil Square est√° agora fechado.";
-			mes "Ele ser√° aberto nesses momentos:";
+			mes "Devil Square est· agora fechado.";
+			mes "Ele ser· aberto nesses momentos:";
 			mes "00:00 , 02:00 , 04:00 , 06:00"; // display your times here
 			mes "08:00 , 10:00 , 12:00 , 14:00";
 			mes "16:00 , 18:00 , 20:00 , 22:00";
@@ -33,11 +33,11 @@ prontera,156,185,5	script	Devil Square Guardian#1	406,{
 		}
 		if (BaseLevel < 70 || Zeny < 20000) { // requirements
 			mes "[Devil Square Guardian]";
-			mes "Voc√™ n√£o atende aos requisitos para entrar no Devil Square.";
+			mes "VocÍ n„o atende aos requisitos para entrar no Devil Square.";
 			mes "";
 			mes "Requisitos:";
-			mes "- N√≠vel de base 70";
-			mes "- Taxa de inscri√ß√£o 20.000Z";
+			mes "- NÌvel de base 70";
+			mes "- Taxa de inscriÁ„o 20.000Z";
 			close;
 		}
 		Zeny -= 20000;
@@ -47,35 +47,35 @@ prontera,156,185,5	script	Devil Square Guardian#1	406,{
 		close;
 	case 2:
 		mes "[Devil Square Guardian]";
-		mes "No interior, voc√™ encontrar√° 3 ondas de monstros. Os monstros ficar√£o mais fortes a cada onda.";
+		mes "No interior, vocÍ encontrar· 3 ondas de monstros. Os monstros ficar„o mais fortes a cada onda.";
 		next;
 		mes "[Devil Square Guardian]";
-		mes "Se voc√™ derrotar todos os inimigos, ter√° a oportunidade de abrir 10 ba√∫s de tesouro com itens, equipamentos e cart√µes raros dentro!";
+		mes "Se vocÍ derrotar todos os inimigos, ter· a oportunidade de abrir 10 ba˙s de tesouro com itens, equipamentos e cartıes raros dentro!";
 		close;
 	case 3:
 		mes "[Devil Square Guardian]";
 		switch (.start) { // event states
-			case 0: mes "Devil Square ainda n√£o come√ßou."; break;
-			case 1: mes "Devil Square est√° atualmente aceitando participantes."; break;
-			case 2: mes "Devil Square Event est√° atualmente em rodada"+ .round +"com"+ .mob +"monstros restantes."; break;
+			case 0: mes "Devil Square ainda n„o comeÁou."; break;
+			case 1: mes "Devil Square est· atualmente aceitando participantes."; break;
+			case 2: mes "Devil Square Event est· atualmente em rodada"+ .round +"com"+ .mob +"monstros restantes."; break;
 		}
 		next;
 		switch(select("Start Event.:Stop Event.:Cancel.")) {
 		case 1:
 			mes "[Devil Square Guardian]";
 			if (.start)
-				mes "Devil Square j√° come√ßou.";
+				mes "Devil Square j· comeÁou.";
 			else {
-				mes "Come√ßando Pra√ßa do Diabo ...";
+				mes "ComeÁando PraÁa do Diabo ...";
 				donpcevent strnpcinfo(0)+"::OnStartEvent";
 			}
 			close;
 		case 2:
 			mes "[Devil Square Guardian]";
 			if (!.start)
-				mes "Devil Square ainda n√£o come√ßou.";
+				mes "Devil Square ainda n„o comeÁou.";
 			else {
-				mes "Parando a pra√ßa do diabo ...";
+				mes "Parando a praÁa do diabo ...";
 				donpcevent strnpcinfo(0)+"::OnStopEvent";
 			}
 			close;
@@ -87,7 +87,7 @@ prontera,156,185,5	script	Devil Square Guardian#1	406,{
 		break;
 	}
 	mes "[Devil Square Guardian]";
-	mes "At√© a pr√≥xima.";
+	mes "AtÈ a prÛxima.";
 	close;
 
 OnStartEvent:
@@ -106,21 +106,21 @@ OnClock2200:
 	.start = 1;
 	disablenpc "ord11-12"; //from npc/warps/pvp.txt
 	disablenpc "Devil Square Guardian#2";
-	mapannounce "ordeal_1-1","Devil Square est√° agora fechado.", bc_map;
+	mapannounce "ordeal_1-1","Devil Square est· agora fechado.", bc_map;
 	getmapxy .@map$, .@x, .@y, BL_NPC;
 	mapwarp "ordeal_1-1", .@map$, .@x, .@y;
 	killmonsterall "ordeal_1-1";
-	announce "Devil Square est√° aberto. O evento come√ßar√° em 5 minutos.", bc_all;
+	announce "Devil Square est· aberto. O evento comeÁar· em 5 minutos.", bc_all;
 	sleep 60000;
-	announce "Devil Square come√ßar√° em 4 minutos.", bc_all;
+	announce "Devil Square comeÁar· em 4 minutos.", bc_all;
 	sleep 60000;
-	announce "Devil Square come√ßar√° em 3 minutos.", bc_all;
+	announce "Devil Square comeÁar· em 3 minutos.", bc_all;
 	sleep 60000;
-	announce "Devil Square come√ßar√° em 2 minutos.", bc_all;
+	announce "Devil Square comeÁar· em 2 minutos.", bc_all;
 	sleep 60000;
-	announce "Devil Square come√ßar√° em 1 minuto.", bc_all;
+	announce "Devil Square comeÁar· em 1 minuto.", bc_all;
 	sleep 60000;
-	announce "Devil Square come√ßou!", bc_all;
+	announce "Devil Square comeÁou!", bc_all;
 	if ( !getmapusers("ordeal_1-1") )
 		goto OnStopEvent;
 	.start = 2;
@@ -139,7 +139,7 @@ OnDevilDead:
 	if ( .mob == 25 || .mob == 5 )
 		announce "Diabo Square:"+ .mob +"Monstros restantes na rodada 1.", bc_map;
 	else if ( .mob <= 0 ) {
-		announce "Devil Square est√° entrando na 2¬™ rodada ...", bc_map;
+		announce "Devil Square est· entrando na 2™ rodada ...", bc_map;
 		goto OnDevil2;
 	}
 	end;
@@ -150,7 +150,7 @@ OnDevil2:
 	areamonster "ordeal_1-1",183,182,246,244,"[DS] Gargoyle",1253,15,strnpcinfo(0)+":: OnDevilDead2";
 	areamonster "ordeal_1-1",183,182,246,244,"[DS] Alarme",1193,10,strnpcinfo(0)+":: OnDevilDead2";
 	areamonster "ordeal_1-1",183,182,246,244,"[DS] alto orc",1213,10,strnpcinfo(0)+":: OnDevilDead2";
-	areamonster "ordeal_1-1",183,182,246,244,"[DS] injusti√ßa",1257,10,strnpcinfo(0)+":: OnDevilDead2";
+	areamonster "ordeal_1-1",183,182,246,244,"[DS] injustiÁa",1257,10,strnpcinfo(0)+":: OnDevilDead2";
 	areamonster "ordeal_1-1",183,182,246,244,"[DS] imitando",1191,15,strnpcinfo(0)+":: OnDevilDead2";
 	areamonster "ordeal_1-1",183,182,246,244,"[DS] Wraith",1192,10,strnpcinfo(0)+":: OnDevilDead2";
 	end;
@@ -160,7 +160,7 @@ OnDevilDead2:
 	if ( .mob == 25 || .mob == 5 )
 		announce "Diabo Square:"+ .mob +"Monstros restantes na segunda rodada.", bc_map;
 	else if ( .mob <= 0 ) {
-		announce "Devil Square est√° entrando na 3¬™ rodada ...", bc_map;
+		announce "Devil Square est· entrando na 3™ rodada ...", bc_map;
 		goto OnDevil3;
 	}
 	end;
@@ -181,7 +181,7 @@ OnDevilDead3:
 	if ( .mob == 25 || .mob == 5 )
 		announce "Diabo Square:"+ .mob +"Monstros restantes na rodada final.", bc_map;
 	else if ( .mob <= 0 ) {
-		announce "Devil Square: Parab√©ns. Esses 10 ba√∫s de tesouro s√£o seus.", bc_map;
+		announce "Devil Square: ParabÈns. Esses 10 ba˙s de tesouro s„o seus.", bc_map;
 		goto OnDevil4;
 	}
 	end;
@@ -189,21 +189,21 @@ OnDevilDead3:
 OnDevil4:
 	.round = 4;
 	.mob = 10;
-	monster "ordeal_1-1",231,250,"Ba√∫ do tesouro",1324,1,strnpcinfo(0)+":: onTreSleSleaDead";
-	monster "ordeal_1-1",234,247,"Ba√∫ do tesouro",1328,1,strnpcinfo(0)+":: onTreSleSleaDead";
-	monster "ordeal_1-1",237,244,"Ba√∫ do tesouro",1332,1,strnpcinfo(0)+":: onTreSleSleaDead";
-	monster "ordeal_1-1",240,241,"Ba√∫ do tesouro",1336,1,strnpcinfo(0)+":: onTreSleSleaDead";
-	monster "ordeal_1-1",243,238,"Ba√∫ do tesouro",1340,1,strnpcinfo(0)+":: onTreSleSleaDead";
-	monster "ordeal_1-1",246,235,"Ba√∫ do tesouro",1344,1,strnpcinfo(0)+":: onTreSleSleaDead";
-	monster "ordeal_1-1",249,232,"Ba√∫ do tesouro",1348,1,strnpcinfo(0)+":: onTreSleSleaDead";
-	monster "ordeal_1-1",252,229,"Ba√∫ do tesouro",1352,1,strnpcinfo(0)+":: onTreSleSleaDead";
-	monster "ordeal_1-1",249,241,"Ba√∫ do tesouro",1356,1,strnpcinfo(0)+":: onTreSleSleaDead";
-	monster "ordeal_1-1",240,249,"Ba√∫ do tesouro",1360,1,strnpcinfo(0)+":: onTreSleSleaDead";
+	monster "ordeal_1-1",231,250,"Ba˙ do tesouro",1324,1,strnpcinfo(0)+":: onTreSleSleaDead";
+	monster "ordeal_1-1",234,247,"Ba˙ do tesouro",1328,1,strnpcinfo(0)+":: onTreSleSleaDead";
+	monster "ordeal_1-1",237,244,"Ba˙ do tesouro",1332,1,strnpcinfo(0)+":: onTreSleSleaDead";
+	monster "ordeal_1-1",240,241,"Ba˙ do tesouro",1336,1,strnpcinfo(0)+":: onTreSleSleaDead";
+	monster "ordeal_1-1",243,238,"Ba˙ do tesouro",1340,1,strnpcinfo(0)+":: onTreSleSleaDead";
+	monster "ordeal_1-1",246,235,"Ba˙ do tesouro",1344,1,strnpcinfo(0)+":: onTreSleSleaDead";
+	monster "ordeal_1-1",249,232,"Ba˙ do tesouro",1348,1,strnpcinfo(0)+":: onTreSleSleaDead";
+	monster "ordeal_1-1",252,229,"Ba˙ do tesouro",1352,1,strnpcinfo(0)+":: onTreSleSleaDead";
+	monster "ordeal_1-1",249,241,"Ba˙ do tesouro",1356,1,strnpcinfo(0)+":: onTreSleSleaDead";
+	monster "ordeal_1-1",240,249,"Ba˙ do tesouro",1360,1,strnpcinfo(0)+":: onTreSleSleaDead";
 	end;
 
 OnTreasureDead:
 	.mob--;
-	announce "Diabo Square:"+ strcharinfo(0) +"abriu o ba√∫ do tesouro na Devil Square.", bc_all;
+	announce "Diabo Square:"+ strcharinfo(0) +"abriu o ba˙ do tesouro na Devil Square.", bc_all;
 	if ( .mob <= 0 )
 		goto OnStopEvent;
 	end;
@@ -217,8 +217,8 @@ OnStopEvent:
 }
 
 ordeal_1-1,246,245,7	script	Devil Square Guardian#2	406,{
-	mes "[Sa√≠da]";
-	mes "At√© a pr√≥xima.";
+	mes "[SaÌda]";
+	mes "AtÈ a prÛxima.";
 	close2;
 	warp "SavePoint",0,0;
 	end;

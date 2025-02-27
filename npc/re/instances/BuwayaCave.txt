@@ -20,8 +20,8 @@ ma_fild02,312,317,5	script	Guard#buwaya_cave	570,{
 	if (BaseLevel < 130) {
 		mes "[Guarda]";
 		mes "Pessoas sob ^ff0000LEVEL 130 ^000000";
-		mes "nÃ£o pode entrar neste lugar.";
-		mes "Este lugar Ã© perigoso. Por favor, volte.";
+		mes "não pode entrar neste lugar.";
+		mes "Este lugar é perigoso. Por favor, volte.";
 		close;
 	}
 
@@ -30,34 +30,34 @@ ma_fild02,312,317,5	script	Guard#buwaya_cave	570,{
 
 	if (!.@party_id) {
 		mes "[Guarda]";
-		mes "O crocodilo Ã© perigoso.";
+		mes "O crocodilo é perigoso.";
 		mes "Por favor, volte depois de formar um";
 		mes "equipe com outras pessoas.";
 		close;
 	}
 	if (is_party_leader() == true) {
 		mes "[Guarda]";
-		mes "Este lugar Ã© perigoso. Por favor, volte.";
-		mes "Se vocÃª nÃ£o tem nenhum negÃ³cio aqui, volte.";
+		mes "Este lugar é perigoso. Por favor, volte.";
+		mes "Se você não tem nenhum negócio aqui, volte.";
 		next;
 		while(1) {
-			switch(select("Por que Ã© tÃ£o perigoso ?: Estou aqui para caÃ§ar Buwaya.: ConversaÃ§Ã£o.")) {
+			switch(select("Por que é tão perigoso ?: Estou aqui para caçar Buwaya.: Conversação.")) {
 			case 1:
 				mes "[Guarda]";
 				mes "Recentemente, tem havido um caso";
 				mes "onde os moradores desapareceram.";
 				mes "Depois de investigar as faixas,";
 				mes "Descobrimos o monstro gigante buwaya";
-				mes "foi responsÃ¡vel.";
+				mes "foi responsável.";
 				next;
 				mes "[Guarda]";
-				mes "Soldados e mercenÃ¡rios foram despachados para";
-				mes "caÃ§ar Buwaya, mas nunca foi";
+				mes "Soldados e mercenários foram despachados para";
+				mes "caçar Buwaya, mas nunca foi";
 				mes "completamente bem -sucedido.";
 				next;
 				mes "[Guarda]";
-				mes "O crocodilo ainda estÃ¡ sequestrando";
-				mes "Os moradores atÃ© hoje.";
+				mes "O crocodilo ainda está sequestrando";
+				mes "Os moradores até hoje.";
 				mes "Por favor, junte algumas pessoas para se livrar de Buwaya.";
 				next;
 				break;
@@ -67,8 +67,8 @@ ma_fild02,312,317,5	script	Guard#buwaya_cave	570,{
 					// fall through
 				} else if (.@playtime == 0 || .@playtime == 1) {
 					mes "[Guarda]";
-					mes "O crocodilo ainda estÃ¡ escondido.";
-					mes "Mesmo se vocÃª entrar agora, Buwaya nÃ£o sairÃ¡.";
+					mes "O crocodilo ainda está escondido.";
+					mes "Mesmo se você entrar agora, Buwaya não sairá.";
 					mes "Por favor, volte mais tarde.";
 					close;
 				} else {
@@ -77,26 +77,26 @@ ma_fild02,312,317,5	script	Guard#buwaya_cave	570,{
 				}
 				if (instance_create(.@md_name$) < 0) {
 					mes "[Guarda]";
-					mes "O nome da festa Ã© ..."+getpartyname(.@party_id)+".";
-					mes "O lÃ­der do partido Ã© ..."+strcharinfo(0);
-					mes "^0000FF"+.@md_name$+"^000000 nÃ£o pode ser aberto agora.";
+					mes "O nome da festa é ..."+getpartyname(.@party_id)+".";
+					mes "O líder do partido é ..."+strcharinfo(0);
+					mes "^0000FF"+.@md_name$+"^000000 não pode ser aberto agora.";
 					mes "Por favor, tente um momento depois.";
 					close;
 				}
 				mes "[Guarda]";
-				mes "Vou abrir o tÃºnel para ^0000ff"+.@md_name$+"^000000.";
+				mes "Vou abrir o túnel para ^0000ff"+.@md_name$+"^000000.";
 				mes "Desejo -lhe boa sorte.";
 				close;
 			case 3:
 				mes "[Guarda]";
-				mes "Este lugar Ã© perigoso. VocÃª nÃ£o pode entrar.";
+				mes "Este lugar é perigoso. Você não pode entrar.";
 				close;
 			}
 		}
 	} else {
 		mes "[Guarda]";
-		mes "Deixe -me falar com o lÃ­der do partido.";
-		mes "Por favor, chame o lÃ­der.";
+		mes "Deixe -me falar com o líder do partido.";
+		mes "Por favor, chame o líder.";
 		close;
 	}
 }
@@ -107,8 +107,8 @@ OnTouch:
 	if (BaseLevel < 130) {
 		mes "[Guarda]";
 		mes "Pessoas sob ^ff0000LEVEL 130 ^000000";
-		mes "nÃ£o pode entrar neste lugar.";
-		mes "Este lugar Ã© perigoso. Por favor, volte.";
+		mes "não pode entrar neste lugar.";
+		mes "Este lugar é perigoso. Por favor, volte.";
 		close;
 	}
 	set .@playtime, checkquest(4229,PLAYTIME);
@@ -116,8 +116,8 @@ OnTouch:
 		// fall through
 	} else if (.@playtime == 0 || .@playtime == 1) {
 		mes "[Guarda]";
-		mes "O crocodilo ainda estÃ¡ escondido.";
-		mes "Mesmo se vocÃª entrar agora, Buwaya nÃ£o sairÃ¡.";
+		mes "O crocodilo ainda está escondido.";
+		mes "Mesmo se você entrar agora, Buwaya não sairá.";
 		mes "Por favor, volte mais tarde.";
 		close;
 	} else {
@@ -129,27 +129,27 @@ OnTouch:
 		switch(instance_enter("Buwaya Cave")) {
 		case IE_OTHER:
 			mes "[Guarda]";
-			mes "Oh, agora nÃ£o Ã© um bom momento.";
+			mes "Oh, agora não é um bom momento.";
 			mes "Por favor, tente novamente um momento depois.";
 			close;
 		case IE_NOINSTANCE:
 		case IE_NOMEMBER:
 			mes "[Guarda]";
-			mes "Este lugar Ã© perigoso. Por favor, nÃ£o entre.";
+			mes "Este lugar é perigoso. Por favor, não entre.";
 			close;
 		case IE_OK:
-			mapannounce "MA_FILD02",getpartyname(getcharid(1))+"Partido"+strcharinfo(0)+"Membro comeÃ§ou a caÃ§ar negÃ³cios na caverna.",bc_map,"0 buceta 00"; //FW_NORMAL 12 0 0
+			mapannounce "MA_FILD02",getpartyname(getcharid(1))+"Partido"+strcharinfo(0)+"Membro começou a caçar negócios na caverna.",bc_map,"0 buceta 00"; //FW_NORMAL 12 0 0
 			setquest 4229;
 			//warp "1@ma_c",35,57;
 			end;
 		default:
-			mes "- NÃ£o foi possÃ­vel entrar devido a uma forÃ§a nÃ£o identificada. -";
+			mes "- Não foi possível entrar devido a uma força não identificada. -";
 			close;
 		}
 	case 2:
 		mes "[Guarda]";
-		mes "VocÃª deve valorizar sua vida.";
-		mes "Ã‰ melhor pensar com cuidado antes de agir.";
+		mes "Você deve valorizar sua vida.";
+		mes "É melhor pensar com cuidado antes de agir.";
 		close;
 	}
 }
@@ -184,20 +184,20 @@ OnTouch:
 	mes "E novas pessoas foram pegas.";
 	mes "Estaremos presos aqui pelo resto de nossas vidas.";
 	next;
-	switch(select("Tire -me fora aqui !!: CA ... nÃ£o pode escapar?")) {
+	switch(select("Tire -me fora aqui !!: CA ... não pode escapar?")) {
 	case 1:
 		mes "[Residentes sequestrados]";
-		mes "NÃ£o temos poder suficiente para destruÃ­ -lo, mas Buwaya tem uma fraqueza.";
+		mes "Não temos poder suficiente para destruí -lo, mas Buwaya tem uma fraqueza.";
 		mes "Olhe para a parede ali.";
-		mes "Se vocÃª bater lÃ¡, Buywaya sentirÃ¡ dor e cuspirÃ¡ vocÃª.";
+		mes "Se você bater lá, Buywaya sentirá dor e cuspirá você.";
 		donpcevent instance_npcname("#box_mob_call")+"::OnEnable";
 		close2;
 		disablenpc instance_npcname("Kidnapped People#1");
 		end;
 	case 2:
 		mes "[Pessoas sequestradas]";
-		mes "Algo estÃ¡ errado aqui...";
-		mes "VocÃª jÃ¡ experimentou isso antes?";
+		mes "Algo está errado aqui...";
+		mes "Você já experimentou isso antes?";
 		close;
 	}
 	end;
@@ -215,15 +215,15 @@ OnEnable:
 	mes "Ahaa! Eu gostaria de ter um pouco mais de poder ...";
 	mes "Eu sei sua fraqueza ...";
 	next;
-	switch(select("Diga -me .: VocÃª realmente sabe?")) {
+	switch(select("Diga -me .: Você realmente sabe?")) {
 	case 1:
 		mes "[Residentes sequestrados]";
 		mes "Tem certeza de que pode fazer isso ...?";
-		mes "Ok, ouÃ§a com cuidado,";
-		mes "Sua fraqueza Ã© ...";
+		mes "Ok, ouça com cuidado,";
+		mes "Sua fraqueza é ...";
 		next;
 		mes "[Residentes sequestrados]";
-		mes "... atrÃ¡s de nÃ³s nas paredes.";
+		mes "... atrás de nós nas paredes.";
 		sc_start SC_ATKPOTION,60000,45;
 		sc_start SC_MATKPOTION,60000,45;
 		disablenpc instance_npcname("Kidnapped People#2");
@@ -231,7 +231,7 @@ OnEnable:
 	case 2:
 		mes "[Residentes sequestrados]";
 		mes "O QUE?!";
-		mes "VocÃª estÃ¡ me ignorando";
+		mes "Você está me ignorando";
 		mes "Porque estou capturado aqui?";
 		close;
 	}
@@ -254,8 +254,8 @@ OnEnable:
 	enablenpc instance_npcname("#box_mob_call");
 	set .@label$, instance_npcname("#box_mob_call")+"::OnMyMobDead";
 	set .@map$, instance_mapname("1@ma_c");
-	monster .@map$,30,118,"Fraqueza do bebÃª",2333,1,.@label$;
-	monster .@map$,35,118,"Fraqueza do bebÃª",2333,1,.@label$;
+	monster .@map$,30,118,"Fraqueza do bebê",2333,1,.@label$;
+	monster .@map$,35,118,"Fraqueza do bebê",2333,1,.@label$;
 	end;
 OnDisable:
 	killmonster instance_mapname("1@ma_c"),instance_npcname("#box_mob_call")+"::OnMyMobDead";
@@ -397,7 +397,7 @@ OnMyMobDead:
 		donpcevent instance_npcname("#bunshin")+"::OnDisable";
 		donpcevent instance_npcname("#exit_mob")+"::OnDisable";
 		donpcevent instance_npcname("#cave_out")+"::OnEnable";
-		mapannounce .@map$,"Guarda: VocÃª fez um Ã³timo trabalho. Por favor, se apresse e fuja para o jeito que vocÃª entrou!",bc_map,"0 buceta 00"; //FW_NORMAL 12 0 0
+		mapannounce .@map$,"Guarda: Você fez um ótimo trabalho. Por favor, se apresse e fuja para o jeito que você entrou!",bc_map,"0 buceta 00"; //FW_NORMAL 12 0 0
 	}
 	end;
 }
@@ -414,7 +414,7 @@ OnTimer60000:
 		set .@amount,10;
 	else
 		set .@amount,1;
-	areamonster .@map$,43,58,47,60,"Planta de Ã¡gua",2331,.@amount,.@label$;
+	areamonster .@map$,43,58,47,60,"Planta de água",2331,.@amount,.@label$;
 	areamonster .@map$,43,58,47,60,"Ovo",2329,.@amount,.@label$;
 	stopnpctimer;
 	initnpctimer;
@@ -438,7 +438,7 @@ OnEnable:
 OnTouch:
 	mes "Gostaria de sair?";
 	next;
-	if(select("Sim!: NÃ£o, eu vou ficar.") == 1)
+	if(select("Sim!: Não, eu vou ficar.") == 1)
 		warp "ma_fild02",315,315;
 	close;
 }

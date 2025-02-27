@@ -24,14 +24,14 @@ function	Require_Level	{
 	if (BaseLevel < getarg(0) || JobLevel < getarg(1)) {
 		.@blvl = getarg(0) - BaseLevel;
 		.@jlvl = getarg(1) - JobLevel;
-		mes "Requisito de nÃ­vel:";
+		mes "Requisito de nível:";
 		mes ((getarg(0)>1)? 
 			"^BB0000"+getarg(0)+"^000000 (^BB0000BASE^000000) /":"")+"^00BB00"+
 			getarg(1)+"^000000 (^00BB00JOB^000000)";
-		mes "VocÃª precisa" +
-			((.@blvl > 0) ? "^BB0000"+.@blvl+"^000000 mais nÃ­veis bÃ¡sicos" + 
+		mes "Você precisa" +
+			((.@blvl > 0) ? "^BB0000"+.@blvl+"^000000 mais níveis básicos" + 
 				((.@jlvl > 0) ? "e" : "") : "") +
-			((.@jlvl > 0) ? "^00BB00"+.@jlvl+"^000000 mais nÃ­veis de trabalho" : "") +
+			((.@jlvl > 0) ? "^00BB00"+.@jlvl+"^000000 mais níveis de trabalho" : "") +
 			"para continuar.";
 		close;
 	}
@@ -109,9 +109,9 @@ function	Check_Riding	{
 	// those special cases.
 	if (checkfalcon() || checkcart() || checkriding() || ismounting()) {
 		mes "Remova o seu" +
-			((checkfalcon()) ? "falcÃ£o" : "") +
+			((checkfalcon()) ? "falcão" : "") +
 			((checkcart()) ? "carrinho" : "") +
-			((checkriding()) ? "Uma peÃ§a" : "") +
+			((checkriding()) ? "Uma peça" : "") +
 			((ismounting()) ? "montar" : "") +
 			"antes de prosseguir.";
 		close;
@@ -297,7 +297,7 @@ function	Job_Menu	{
 	while(true) {
 		.@opt_cnt =  getarraysize(getarg(0));
 		if( .@opt_cnt <= 0 ) {
-			mes "NÃ£o hÃ¡ mais empregos disponÃ­veis.";
+			mes "Não há mais empregos disponíveis.";
 			close;
 		}
 
@@ -328,8 +328,8 @@ function	Job_Menu	{
 			// Super Baby can both be selected in one of the first class
 			// changes. That's why the Level Requirement is after and not before
 			// the selection.
-			mes "Um nÃ­vel bÃ¡sico de" + .SNovice +
-				"Ã© necessÃ¡rio para se transformar em um" + jobname(.@class) + ".";
+			mes "Um nível básico de" + .SNovice +
+				"é necessário para se transformar em um" + jobname(.@class) + ".";
 			return;
 		}
 		// Confirm the Class
@@ -377,7 +377,7 @@ function	Confirm_Change	{
 		mes "Erro de classe desconhecida.";
 		close;
 	}
-	mes "VocÃª quer se transformar em ^0055ff"+jobname(.@class)+"^000000 Classe?";
+	mes "Você quer se transformar em ^0055ff"+jobname(.@class)+"^000000 Classe?";
 	.@job_option$ = "~ Mude para ^0055ff"+jobname(.@class)+"^000000 Classe";
 	if( .@class == Job_Novice_High)
 		.@job_option$ = "~ ^0055ffrebirth ^000000";
@@ -532,9 +532,9 @@ OnInit:
 	// Setting adjustments by PACKETVER
 	if( PACKETVER < 20161207 ) {
 		if( .BabyExpanded )
-			debugmes "Jobmaster: BabyExpand estÃ¡ desativado devido a pacotes desatualizados.";
+			debugmes "Jobmaster: BabyExpand está desativado devido a pacotes desatualizados.";
 		if( .BabySummoner )
-			debugmes "Jobmaster: Babysummoner estÃ¡ desativado devido a pacotes desatualizados.";
+			debugmes "Jobmaster: Babysummoner está desativado devido a pacotes desatualizados.";
 		.BabyExpanded = false;
 		.BabySummoner = false;
 	}

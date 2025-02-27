@@ -19,22 +19,22 @@ prontera,142,228,6	script	Find the Mushroom	1084,{
 	if (.status == 1) {
 		.@count = mobcount( .event_map$, strnpcinfo(0) + ":: onMobkiled" );
 		if (.@count > 0) {
-			mes "H√°" + .@count + "Cogumelos deixados para dentro" + .event_map$ + "!";
+			mes "H·" + .@count + "Cogumelos deixados para dentro" + .event_map$ + "!";
 			mes "Encontre e mate os cogumelos para ganhar" + getitemname(.prize) + "!";
 			close;
 		}
 		.event_map$ = ]";
 		.status = 0;
-		mes "Todos os cogumelos s√£o mortos?";
+		mes "Todos os cogumelos s„o mortos?";
 	}
-	mes "N√£o h√° evento no momento!";
+	mes "N„o h· evento no momento!";
 	if (.status || getgmlevel() < .GM) close;
-	mes "Come√ßar o evento?";
+	mes "ComeÁar o evento?";
 	next;
-	if (select("- N√£o:- Sim") == 1) close;
+	if (select("- N„o:- Sim") == 1) close;
 	donpcevent strnpcinfo(0) + "::OnMinute10";
 	mes "[Encontre o cogumelo]";
-	mes "Evento come√ßou!";
+	mes "Evento comeÁou!";
 	close;
 
 OnInit:
@@ -51,10 +51,10 @@ OnMinute10:	// Start time (every hour)
 	.event_map$ = .maps_list$[ rand(getarraysize(.maps_list$)) ];
 	.@label$ = strnpcinfo(0) + ":: onMobkiled";
 	killmonster .event_map$, .@label$;
-	monster .event_map$,0,0,"Por favor, n√£o me mate!",1084,.@spawn, .@label$;
+	monster .event_map$,0,0,"Por favor, n„o me mate!",1084,.@spawn, .@label$;
 	announce "Encontre o cogumelo: total de" + .@spawn + "Cogumelos foram gerados em" + .event_map$ + "!",0;
 	sleep 2500;
-	announce "Encontre o cogumelo: todo cogumelo que voc√™ matar√° vai te dar" + getitemname(.prize) + "!",0;
+	announce "Encontre o cogumelo: todo cogumelo que vocÍ matar· vai te dar" + getitemname(.prize) + "!",0;
 	end;
 
 OnMobKilled:
@@ -63,7 +63,7 @@ OnMobKilled:
 	getitem .prize, .amount;
 	.@spawn = mobcount( .event_map$, strnpcinfo(0) + ":: onMobkiled" );
 	if (.@spawn > 0)
-		announce "[" + strcharinfo(0) + "] matou um cogumelo. Existem agora" + .@spawn + "Cogumelos √† esquerda.",bc_map;
+		announce "[" + strcharinfo(0) + "] matou um cogumelo. Existem agora" + .@spawn + "Cogumelos ‡ esquerda.",bc_map;
 	else {
 		announce "O evento Find the Mushroom terminou. Todos os cogumelos foram mortos.",0;
 		.status = 0;

@@ -17,60 +17,60 @@ yuno_in01,124,164,6	script	Guild Leader	108,{
 	mes "[Keegan]";
 	mes "O que te traz aqui? Tem algo a dizer?";
 	next;
-	menu "Eu quero ser um caÃ§ador de tesouros",-,"FaÃ§a uma nova missÃ£o.",N_NQuest,"Leve -me para a loja oficial.",N_OShop,"Deixa para lÃ¡.",N_NVM;
+	menu "Eu quero ser um caçador de tesouros",-,"Faça uma nova missão.",N_NQuest,"Leve -me para a loja oficial.",N_OShop,"Deixa para lá.",N_NVM;
 	if(Event_THQS==1) goto N_AlreadyReg;
 	mes "[Keegan]";
-	mes "Bem"+strcharinfo(0)+"Se vocÃª quer ser um caÃ§ador de tesouros primeiro, deve.";
+	mes "Bem"+strcharinfo(0)+"Se você quer ser um caçador de tesouros primeiro, deve.";
 	mes "";
-	mes "^Ff00001.^000000 VocÃª Ã© bem alterado^FF000025.000Z^000000 para treinamento bÃ¡sico e sua prova de ser membro.";
+	mes "^Ff00001.^000000 Você é bem alterado^FF000025.000Z^000000 para treinamento básico e sua prova de ser membro.";
 	mes "";
-	mes "Umm ... bem, isso Ã© tudo o que vocÃª precisa fazer. Hahaha.";
+	mes "Umm ... bem, isso é tudo o que você precisa fazer. Hahaha.";
 	next;
-	menu "PAY ^FF000025.000Z ^000000.",-,"Isso Ã© muito alto !!",N_HighPrice;
+	menu "PAY ^FF000025.000Z ^000000.",-,"Isso é muito alto !!",N_HighPrice;
 	if (Zeny < 25000) goto N_NoZeny;
 	set Zeny,Zeny-25000;
 	//getitem 7950, 1;
 	//getitem 7951, 1;
 	set Event_THQS,1;
 	mes "[Keegan]";
-	mes "ParabÃ©ns!";
+	mes "Parabéns!";
 	emotion ET_CONGRATULATION;
 	next;
 	mes "[Keegan]";
 	mes "Bem -vindo ao Guild of Treasure Hunters.";
-	mes "Agora vocÃª pode fazer uma missÃ£o de caÃ§a ao tesouro como achar melhor.";
+	mes "Agora você pode fazer uma missão de caça ao tesouro como achar melhor.";
 	close;
 N_NoZeny:
 	mes "[Keegan]";
-	mes "Hmmm vocÃª parece nÃ£o ter ^ff000025.000z ^000000"+strcharinfo(0)+". Por favor, volte quando o fizer.";
+	mes "Hmmm você parece não ter ^ff000025.000z ^000000"+strcharinfo(0)+". Por favor, volte quando o fizer.";
 	close;
 N_HighPrice:
 	mes "[Keegan]";
-	mes "Bem, se vocÃª nÃ£o pode pagar um pequeno ^FF000025.000Z ^000000, ainda nÃ£o deve ser um caÃ§ador de tesouros.";
+	mes "Bem, se você não pode pagar um pequeno ^FF000025.000Z ^000000, ainda não deve ser um caçador de tesouros.";
 	close;
 N_AlreadyReg:
 	mes "[Keegan]";
-	mes "Ha ha ha ... vocÃª jÃ¡ Ã© um membro.";
+	mes "Ha ha ha ... você já é um membro.";
 	close;
 N_NQuest:
 	if (Event_THQS!=1) goto A_NeedReg;
 	mes "[Keegan]";
-	mes "Bem"+strcharinfo(0)+"Se vocÃª deseja fazer uma missÃ£o, vÃ¡ falar com o colega caÃ§ador de tesouros na outra sala lÃ¡.";
+	mes "Bem"+strcharinfo(0)+"Se você deseja fazer uma missão, vá falar com o colega caçador de tesouros na outra sala lá.";
 	close;
 A_NeedReg:
 	mes "[Keegan]";
-	mes "Desculpe, vocÃª deve ser um membro do Treasure Hunter Guild, se desejar fazer uma missÃ£o.";
+	mes "Desculpe, você deve ser um membro do Treasure Hunter Guild, se desejar fazer uma missão.";
 	mes "";
-	mes "TambÃ©m agora que vocÃª Ã© um membro, sinta -se Ã  vontade para usar nossas lojas sempre que desejar. Eles estÃ£o todos localizados neste andar.";
+	mes "Também agora que você é um membro, sinta -se à vontade para usar nossas lojas sempre que desejar. Eles estão todos localizados neste andar.";
 	mes "";
-	mes "TambÃ©m temos outra loja apenas para membros, nos quais usamos pequenos diamantes de metal chamados Treasure Hunter Tokens para trocar bens raros.";
+	mes "Também temos outra loja apenas para membros, nos quais usamos pequenos diamantes de metal chamados Treasure Hunter Tokens para trocar bens raros.";
 	mes "";
-	mes "VocÃª atÃ© terÃ¡ acesso Ã  nossa masmorra pessoal exclusiva.";
+	mes "Você até terá acesso à nossa masmorra pessoal exclusiva.";
 	close;
 N_OShop:
 	if (Event_THQS!=1) goto N_NeedMem;
 	mes "[Keegan]";
-	mes "Sim"+strcharinfo(0)+"Vou levÃ¡ -lo Ã  nossa loja imediatamente!";
+	mes "Sim"+strcharinfo(0)+"Vou levá -lo à nossa loja imediatamente!";
 	next;
 	warp "prt_in",166,171;
 	close;
@@ -81,6 +81,6 @@ N_NeedMem:
 	close;
 N_NVM:
 	mes "[Keegan]";
-	mes "Tudo bem, volte quando vocÃª tiver tempo livre para sobrar.";
+	mes "Tudo bem, volte quando você tiver tempo livre para sobrar.";
 	close;
 }

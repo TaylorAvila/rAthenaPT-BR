@@ -12,38 +12,38 @@
 // Dragon Breeder :: dragon
 //============================================================
 job3_rune01,88,62,5	script	Dragon Breeder	105,{
-	mes "[Criador de dragÃ£o]";
+	mes "[Criador de dragão]";
 	if ((eaclass()&EAJ_THIRDMASK)==EAJ_RUNE_KNIGHT) {
-		mes "Bem-vindo. VocÃª gostaria de alugar um dragÃ£o?";
+		mes "Bem-vindo. Você gostaria de alugar um dragão?";
 		next;
-		switch(select("Sim: NÃ£o")) {
+		switch(select("Sim: Não")) {
 		case 1:
 			//if (!getskilllv("Rk_dragonTreining")) {
 			if (!getskilllv("Kn_riding")) {
-				mes "[Criador de dragÃ£o]";
-				mes "Por favor, aprenda como montar um dragÃ£o primeiro.";
+				mes "[Criador de dragão]";
+				mes "Por favor, aprenda como montar um dragão primeiro.";
 				close;
 			}
 			else if (checkdragon()) {
-				mes "[Criador de dragÃ£o]";
-				mes "VocÃª jÃ¡ tem um dragÃ£o.";
+				mes "[Criador de dragão]";
+				mes "Você já tem um dragão.";
 				close;
 			}
 			else if (ismounting()) {
-				mes "[Criador de dragÃ£o]";
+				mes "[Criador de dragão]";
 				mes "Por favor, remova sua montagem em dinheiro.";
 				close;
 			}
 			setdragon;
 			close;
 		case 2:
-			mes "[Criador de dragÃ£o]";
-			mes "Eu vejo. EntÃ£o tenha um Ã³timo dia.";
+			mes "[Criador de dragão]";
+			mes "Eu vejo. Então tenha um ótimo dia.";
 			close;
 		}
 	}
-	mes "O que vocÃª estÃ¡ fazendo aqui?";
-	mes "Apenas os cavaleiros de Rune podem alugar um dragÃ£o.";
+	mes "O que você está fazendo aqui?";
+	mes "Apenas os cavaleiros de Rune podem alugar um dragão.";
 	close;
 }
 
@@ -52,19 +52,19 @@ job3_rune01,88,62,5	script	Dragon Breeder	105,{
 prontera,130,213,5	script	Riding Creature Master	105,{
 	mes "[Mestre da criatura de montaria]";
 	if ((eaclass()&EAJ_THIRDMASK)==EAJ_RUNE_KNIGHT) {
-		mes "Bem-vindo. VocÃª gostaria de alugar um dragÃ£o?";
+		mes "Bem-vindo. Você gostaria de alugar um dragão?";
 		next;
-		switch(select("Sim: NÃ£o")) {
+		switch(select("Sim: Não")) {
 		case 1:
 			//if (!getskilllv("Rk_dragonTreining")) {
 			if (!getskilllv("Kn_riding")) {
 				mes "[Mestre da criatura de montaria]";
-				mes "Por favor, aprenda como montar um dragÃ£o primeiro.";
+				mes "Por favor, aprenda como montar um dragão primeiro.";
 				close;
 			}
 			else if (checkdragon()) {
 				mes "[Mestre da criatura de montaria]";
-				mes "VocÃª jÃ¡ tem um dragÃ£o.";
+				mes "Você já tem um dragão.";
 				close;
 			}
 			else if (ismounting()) {
@@ -76,14 +76,14 @@ prontera,130,213,5	script	Riding Creature Master	105,{
 			close;
 		case 2:
 			mes "[Mestre da criatura de montaria]";
-			mes "Eu vejo. EntÃ£o tenha um Ã³timo dia.";
+			mes "Eu vejo. Então tenha um ótimo dia.";
 			close;
 		}
 	}
 	if ((eaclass()&EAJ_THIRDMASK)==EAJ_ROYAL_GUARD) {
-		mes "Bem-vindo. VocÃª gostaria de alugar um Gryphon?";
+		mes "Bem-vindo. Você gostaria de alugar um Gryphon?";
 		next;
-		switch(select("Sim: NÃ£o")) {
+		switch(select("Sim: Não")) {
 		case 1:
 			if (!getskilllv("Kn_riding")) {
 				mes "[Mestre da criatura de montaria]";
@@ -92,7 +92,7 @@ prontera,130,213,5	script	Riding Creature Master	105,{
 			}
 			else if (checkriding()) {
 				mes "[Mestre da criatura de montaria]";
-				mes "VocÃª jÃ¡ tem um Gryphon.";
+				mes "Você já tem um Gryphon.";
 				close;
 			}
 			else if (ismounting()) {
@@ -104,7 +104,7 @@ prontera,130,213,5	script	Riding Creature Master	105,{
 			close;
 		case 2:
 			mes "[Mestre da criatura de montaria]";
-			mes "Eu vejo. EntÃ£o tenha um Ã³timo dia.";
+			mes "Eu vejo. Então tenha um ótimo dia.";
 			close;
 		}
 	}
@@ -121,27 +121,27 @@ rachel,106,130,5	duplicate(Riding Creature Master)	Riding Creature Master#6	105
 //============================================================
 prontera,125,208,5	script	Peco Peco Remover	105,{
 	mes "[Soldado]";
-	mes "Se vocÃª nÃ£o conseguir desmontar de um peco pico";
+	mes "Se você não conseguir desmontar de um peco pico";
 	mes "por algum motivo desconhecido,";
-	mes "Sinta -se Ã  vontade para usar meus serviÃ§os.";
+	mes "Sinta -se à vontade para usar meus serviços.";
 	if (checkriding()) {
 		next;
 		mes "[Soldado]";
-		mes "VocÃª estÃ¡ montando um PECO PECO.";
-		mes "VocÃª gostaria de desmontar?";
+		mes "Você está montando um PECO PECO.";
+		mes "Você gostaria de desmontar?";
 		next;
-		switch(select("Sim: NÃ£o")) {
+		switch(select("Sim: Não")) {
 		case 1:
 			setriding 0;
 			mes "[Soldado]";
-			mes "Diga, como Ã©";
-			mes "pise no chÃ£o por conta prÃ³pria";
-			mes "pÃ©s de novo?";
+			mes "Diga, como é";
+			mes "pise no chão por conta própria";
+			mes "pés de novo?";
 			close;
 		case 2:
 			mes "[Soldado]";
-			mes "Eu vejo. Por favor, fique Ã  vontade para me perguntar";
-			mes "Se vocÃª mudar de idÃ©ia.";
+			mes "Eu vejo. Por favor, fique à vontade para me perguntar";
+			mes "Se você mudar de idéia.";
 			close;
 		}
 	}
@@ -153,32 +153,32 @@ prontera,125,208,5	script	Peco Peco Remover	105,{
 -	script	::mgm	-1,{
 	mes "[Mado Gear Armorer]";
 	if ((eaclass()&EAJ_THIRDMASK)==EAJ_MECHANIC) {
-		mes "Bem -vindo, mecÃ¢nico.";
-		mes "VocÃª gostaria de alugar um carrinho de pressÃ£o ou";
+		mes "Bem -vindo, mecânico.";
+		mes "Você gostaria de alugar um carrinho de pressão ou";
 		mes "ride a Mado Gear?";
 		next;
-		switch(select("Alugue um carrinho de pressÃ£o: Ande de um Mado Gear: Compre o Mado Gear: Upgrade Resfrying Dispositivo: Cancelar")) {
+		switch(select("Alugue um carrinho de pressão: Ande de um Mado Gear: Compre o Mado Gear: Upgrade Resfrying Dispositivo: Cancelar")) {
 		case 1:
 			if (checkcart()) {
 				mes "[Mado Gear Armorer]";
-				mes "Sinto muito, mas vocÃª jÃ¡";
-				mes "Tenha um carrinho de pressÃ£o.";
+				mes "Sinto muito, mas você já";
+				mes "Tenha um carrinho de pressão.";
 				close;
 			}
 			setcart;
 			mes "[Mado Gear Armorer]";
-			mes "LÃ¡ vai vocÃª!";
+			mes "Lá vai você!";
 			close;
 		case 2:
 			if (checkmadogear()) {
 				mes "[Mado Gear Armorer]";
-				mes "Sinto muito, mas vocÃª jÃ¡ estÃ¡";
+				mes "Sinto muito, mas você já está";
 				mes "riding a Mado Gear.";
 				close;
 			}
 			else if (!getskilllv("Nc_madolicence")) {
 				mes "[Mado Gear Armorer]";
-				mes "Aprenda a habilidade para obter a licenÃ§a de equipamento Mado primeiro.";
+				mes "Aprenda a habilidade para obter a licença de equipamento Mado primeiro.";
 				close;
 			}
 			else if(ismounting()) {
@@ -192,32 +192,32 @@ prontera,125,208,5	script	Peco Peco Remover	105,{
 			close;
 		case 3:
 			mes "[Mado Gear Armorer]";
-			mes "A Mado Gear de emergÃªncia Ã© realmente Ãºtil para situaÃ§Ãµes de emergÃªncia e Ã© vendida a 1.000.000 de Zeny.";
+			mes "A Mado Gear de emergência é realmente útil para situações de emergência e é vendida a 1.000.000 de Zeny.";
 			next;
 			if (select("Compra: Cancelar") == 2) {
 				mes "[Mado Gear Armorer]";
-				mes "Eu vejo. Por favor, fique Ã  vontade para me perguntar";
-				mes "Se vocÃª mudar de idÃ©ia.";
+				mes "Eu vejo. Por favor, fique à vontade para me perguntar";
+				mes "Se você mudar de idéia.";
 				close;
 			}
 			if (countitem(23277) > 0) {
 				mes "[Mado Gear Armorer]";
-				mes "Sinto muito, mas vocÃª jÃ¡ tem um equipamento de emergÃªncia.";
+				mes "Sinto muito, mas você já tem um equipamento de emergência.";
 				close;
 			}
 			if (Zeny < 1000000) {
 				mes "[Mado Gear Armorer]";
-				mes "Sinto muito, mas vocÃª nÃ£o tem Zeny o suficiente para comprar o equipamento de emergÃªncia.";
+				mes "Sinto muito, mas você não tem Zeny o suficiente para comprar o equipamento de emergência.";
 				close;
 			}
 			Zeny -= 1000000;
 			getitem 23277,1; //Mado_Box
 			mes "[Mado Gear Armorer]";
-			mes "LÃ¡ vai vocÃª!";
+			mes "Lá vai você!";
 			close;
 		case 4:
 			mes "[Mado Gear Armorer]";
-			mes "Qual dispositivo vocÃª deseja atualizar?";
+			mes "Qual dispositivo você deseja atualizar?";
 			next;
 			if (select("Dispositivo de resfriamento: refrigerador de alta qualidade") == 1) {
 				mes "[Mado Gear Armorer]";
@@ -234,32 +234,32 @@ prontera,125,208,5	script	Peco Peco Remover	105,{
 			}
 			if (select("Upgrade: Cancelar") == 2) {
 				mes "[Mado Gear Armorer]";
-				mes "Eu vejo. Por favor, fique Ã  vontade para me perguntar";
-				mes "Se vocÃª mudar de idÃ©ia.";
+				mes "Eu vejo. Por favor, fique à vontade para me perguntar";
+				mes "Se você mudar de idéia.";
 				close;
 			}
 			if (!countitem(.@itemid)) {
 				mes "[Mado Gear Armorer]";
-				mes "Sinto muito, mas vocÃª nÃ£o tem o" + getitemname(.@itemid) + ".";
+				mes "Sinto muito, mas você não tem o" + getitemname(.@itemid) + ".";
 				close;
 			}
 			if (Zeny < .@cost) {
 				mes "[Mado Gear Armorer]";
-				mes "Sinto muito, mas vocÃª nÃ£o tem Zeny suficiente para atualizar o dispositivo.";
+				mes "Sinto muito, mas você não tem Zeny suficiente para atualizar o dispositivo.";
 				close;
 			}
 			Zeny -= .@cost;
 			delitem .@itemid,1;
 			getitem (.@itemid == 2804 ? 2809 : 2810),1; //High_Quality_Cooler,Special_Cooler
 			mes "[Mado Gear Armorer]";
-			mes "Olha VocÃª aqui! Seu prÃ³prio" + getitemname(.@itemid) + ".";
+			mes "Olha Você aqui! Seu próprio" + getitemname(.@itemid) + ".";
 			close;
 		case 5:
 			close;
 		}
 	}
-	mes "Como posso ajudÃ¡ -lo?";
-	mes "O Mado Gears estÃ¡ disponÃ­vel apenas para mecÃ¢nica.";
+	mes "Como posso ajudá -lo?";
+	mes "O Mado Gears está disponível apenas para mecânica.";
 	close;
 }
 prontera,163,178,3	duplicate(mgm)	Mado Gear Armorer#prt	105

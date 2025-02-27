@@ -12,13 +12,13 @@
 glast_01,210,273,5	script	Hugin's Butler#pa0829	1_F_04,{
 	disable_items;
 	if (MaxWeight - Weight < 1000) {
-		mes "Sua bolsa estÃ¡ muito pesada. Reduza um pouco de peso e volte.";
+		mes "Sua bolsa está muito pesada. Reduza um pouco de peso e volte.";
 		close;
 	}
 	mes "[Butler de Hugin]";
-	mes "Traga itens de cristal temporal para vÃ¡rios itens de botas temporais. Escolha algo que vocÃª deseja.";
+	mes "Traga itens de cristal temporal para vários itens de botas temporais. Escolha algo que você deseja.";
 	next;
-	switch( select( "Cancelar", "Compre botas temporais (precisam de 1 cristal temporal)", "Atualizar botas temporais (precisam de 5 cristais temporais)", "Botas modificadas de atualizaÃ§Ã£o (precisam de 5 cristais temporais)" ) ) {
+	switch( select( "Cancelar", "Compre botas temporais (precisam de 1 cristal temporal)", "Atualizar botas temporais (precisam de 5 cristais temporais)", "Botas modificadas de atualização (precisam de 5 cristais temporais)" ) ) {
 	case 1:
 		mes "[Butler de Hugin]";
 		mes "Volte sempre que quiser.";
@@ -32,7 +32,7 @@ glast_01,210,273,5	script	Hugin's Butler#pa0829	1_F_04,{
 			close;
 		}
 		mes "[Butler de Hugin]";
-		mes "VocÃª precisa de mais cristais temporais. Volte quando tiver alguns cristais mais temporais durante sua viagem pelo Old Glast Heim.";
+		mes "Você precisa de mais cristais temporais. Volte quando tiver alguns cristais mais temporais durante sua viagem pelo Old Glast Heim.";
 		close;
 	case 3:
 		setarray .@equip_type[0],
@@ -55,22 +55,22 @@ glast_01,210,273,5	script	Hugin's Butler#pa0829	1_F_04,{
 	}
 	if (!getequipisequiped(EQI_SHOES)) {
 		mes "[Butler de Hugin]";
-		mes "Somente o item que vocÃª estÃ¡ usando pode ser atualizado.";
-		mes "Use as botas temporais ^0000FF ^000000 que vocÃª deseja atualizar e depois fale comigo mais uma vez.";
+		mes "Somente o item que você está usando pode ser atualizado.";
+		mes "Use as botas temporais ^0000FF ^000000 que você deseja atualizar e depois fale comigo mais uma vez.";
 		close;
 	}
 	if (getequipid(EQI_SHOES) != 2499) {
 		mes "[Butler de Hugin]";
-		mes "VocÃª nÃ£o estÃ¡ usando as botas temporais. Fale comigo quando estiver usando -os.";
+		mes "Você não está usando as botas temporais. Fale comigo quando estiver usando -os.";
 		close;
 	}
 	if (countitem(6607) < 5) {
 		mes "[Butler de Hugin]";
-		mes "NÃ£o hÃ¡ cristais temporais suficientes. VocÃª precisa de 5 cristais temporais para atualizar seu item.";
+		mes "Não há cristais temporais suficientes. Você precisa de 5 cristais temporais para atualizar seu item.";
 		close;
 	}
 	mes "[Butler de Hugin]";
-	mes "VocÃª pode negociar ^0000ff1 botas temporais e 5 cristais temporais ^000000 por 1 dos seguintes itens. ^FF0000 A taxa de refina -sevia nÃ£o serÃ¡ retida com esses novos^000000.";
+	mes "Você pode negociar ^0000ff1 botas temporais e 5 cristais temporais ^000000 por 1 dos seguintes itens. ^FF0000 A taxa de refina -sevia não será retida com esses novos^000000.";
 	next;
 	.@s = select( "Cancelar", "Botas str", "Botas int", "Botas AGI", "Botas Vit", "Botas dex", "BOTAS LUK" ) - 2;
 	if (.@s == -1) {
@@ -78,9 +78,9 @@ glast_01,210,273,5	script	Hugin's Butler#pa0829	1_F_04,{
 		mes "Volte sempre que quiser.";
 		close;
 	}
-	setarray .@type$[0], "ForÃ§a", "InteligÃªncia", "Agilidade", "Vitalidade", "Destreza", "Sortudo";
+	setarray .@type$[0], "Força", "Inteligência", "Agilidade", "Vitalidade", "Destreza", "Sortudo";
 	mes "[Butler de Hugin]";
-	mes "Tem certeza sobre a compra temporal ^ff0000" + .@type$[.@s] + "^000000 BOTAS? NÃ£o hÃ¡ reembolso.";
+	mes "Tem certeza sobre a compra temporal ^ff0000" + .@type$[.@s] + "^000000 BOTAS? Não há reembolso.";
 	next;
 	if (select( "Pense novamente", "Sim, tenho certeza." ) == 1) {
 		mes "[Butler de Hugin]";
@@ -88,7 +88,7 @@ glast_01,210,273,5	script	Hugin's Butler#pa0829	1_F_04,{
 		close;
 	}
 	mes "[Butler de Hugin]";
-	mes "As botas foram atualizadas como vocÃª deseja.";
+	mes "As botas foram atualizadas como você deseja.";
 	if (getequipid(EQI_SHOES) == 2499) {
 		delequip EQI_SHOES;
 		delitem 6607,5;// Temporal_Crystal
@@ -102,45 +102,45 @@ glast_01,210,273,5	script	Hugin's Butler#pa0829	1_F_04,{
 glast_01,212,273,4	script	Hugin's Magician#pa0829	1_F_01,{
 	disable_items;
 	if (MaxWeight - Weight < 1000) {
-		mes "Sua bolsa estÃ¡ muito pesada. Reduza um pouco de peso e volte.";
+		mes "Sua bolsa está muito pesada. Reduza um pouco de peso e volte.";
 		close;
 	}
-	mes "[MÃ¡gico de Hugin]";
-	mes "EntÃ£o vocÃª se encantou nas botas temporais. Esteja ciente de que as botas com soquetes nÃ£o podem ser encantadas, e essa atualizaÃ§Ã£o sÃ³ Ã© possÃ­vel para as botas que vocÃª estÃ¡ usando.";
+	mes "[Mágico de Hugin]";
+	mes "Então você se encantou nas botas temporais. Esteja ciente de que as botas com soquetes não podem ser encantadas, e essa atualização só é possível para as botas que você está usando.";
 	next;
 	if (select( "Como funciona o encantador?", "Efetue minhas botas temporais" ) == 1) {
-		mes "[MÃ¡gico de Hugin]";
-		mes "VocÃª pode continuar obtendo ^0000FFFOAGULULEL FELHER ^000000 ATRAVÃ‰S seus tempos de viagem.";
+		mes "[Mágico de Hugin]";
+		mes "Você pode continuar obtendo ^0000FFFOAGULULEL FELHER ^000000 ATRAVÉS seus tempos de viagem.";
 		next;
-		mes "[MÃ¡gico de Hugin]";
-		mes "Posso encantar seus itens de botas temporais depende da quantidade desse item. ^0000FF NÃ£o Ã© normal botas de tipo^000000. Somente possÃ­vel para as 6 botas de versÃ£o expandida.";
+		mes "[Mágico de Hugin]";
+		mes "Posso encantar seus itens de botas temporais depende da quantidade desse item. ^0000FF Não é normal botas de tipo^000000. Somente possível para as 6 botas de versão expandida.";
 		next;
-		mes "[MÃ¡gico de Hugin]";
-		mes "Mas, depois de colocar um soquete no item, vocÃª nÃ£o pode encantÃ¡ -lo. Lembre -se disso.";
+		mes "[Mágico de Hugin]";
+		mes "Mas, depois de colocar um soquete no item, você não pode encantá -lo. Lembre -se disso.";
 		next;
-		mes "[MÃ¡gico de Hugin]";
-		mes "Eu nÃ£o dou efeito aleatoriamente. VocÃª pode escolher qual efeito deseja para o item.";
+		mes "[Mágico de Hugin]";
+		mes "Eu não dou efeito aleatoriamente. Você pode escolher qual efeito deseja para o item.";
 		next;
-		mes "[MÃ¡gico de Hugin]";
-		mes "Claro que Ã© apenas para o quarto slot. VocÃª pode ter um pequeno efeito no inÃ­cio e, em seguida, o efeito fica mais forte.";
+		mes "[Mágico de Hugin]";
+		mes "Claro que é apenas para o quarto slot. Você pode ter um pequeno efeito no início e, em seguida, o efeito fica mais forte.";
 		next;
-		mes "[MÃ¡gico de Hugin]";
-		mes "Para chegar Ã  atualizaÃ§Ã£o da opÃ§Ã£o final, serÃ¡ necessÃ¡rio muito mais itens de feitiÃ§o coagulados. NÃ£o se esqueÃ§a disso.";
+		mes "[Mágico de Hugin]";
+		mes "Para chegar à atualização da opção final, será necessário muito mais itens de feitiço coagulados. Não se esqueça disso.";
 		next;
-		mes "[MÃ¡gico de Hugin]";
-		mes "Depois que o quarto slot concluir a melhor opÃ§Ã£o, vocÃª terÃ¡ um efeito de bÃ´nus aleatÃ³rio para o terceiro slot. Com .. certo pagamento ~";
+		mes "[Mágico de Hugin]";
+		mes "Depois que o quarto slot concluir a melhor opção, você terá um efeito de bônus aleatório para o terceiro slot. Com .. certo pagamento ~";
 		next;
-		mes "[MÃ¡gico de Hugin]";
-		mes "AlÃ©m disso, vocÃª nÃ£o perde o item, mesmo que o encantamento falhe, tambÃ©m garantemos manter o cartÃ£o e refinar a taxa. Mas nÃ£o podemos inicializar o encantador.";
+		mes "[Mágico de Hugin]";
+		mes "Além disso, você não perde o item, mesmo que o encantamento falhe, também garantemos manter o cartão e refinar a taxa. Mas não podemos inicializar o encantador.";
 		next;
-		mes "[MÃ¡gico de Hugin]";
+		mes "[Mágico de Hugin]";
 		mes "Ufa ...";
-		mes "De qualquer forma, isso Ã© tudo para obter informaÃ§Ãµes bÃ¡sicas. Agora vocÃª deveria ver por si mesmo.";
+		mes "De qualquer forma, isso é tudo para obter informações básicas. Agora você deveria ver por si mesmo.";
 		close;
 	}
 	if (!getequipisequiped(EQI_SHOES)) {
-		mes "[MÃ¡gico de Hugin]";
-		mes "VocÃª estÃ¡ usando o item?";
+		mes "[Mágico de Hugin]";
+		mes "Você está usando o item?";
 		close;
 	}
 	.@equip_id = getequipid(EQI_SHOES);
@@ -175,24 +175,24 @@ glast_01,212,273,4	script	Hugin's Magician#pa0829	1_F_01,{
 		.@equip_refine = getequiprefinerycnt(EQI_SHOES);
 
 		if (.@card[2] > 0) {
-			mes "[MÃ¡gico de Hugin]";
-			mes "Essas botas jÃ¡ passaram pelo limite encantador. NÃ£o podemos mais encantÃ¡ -los.";
+			mes "[Mágico de Hugin]";
+			mes "Essas botas já passaram pelo limite encantador. Não podemos mais encantá -los.";
 			close;
 		}
 		if (.@card[3] == 0) {// 4th slot 1st try enchanting
 			.@cost = .@enchant_cost[0];
-			mes "[MÃ¡gico de Hugin]";
+			mes "[Mágico de Hugin]";
 			mes "Quer encantar ^0000ff" + .@equip_name$ + "^000000?";
-			mes "Para o 1Âº encantador, vocÃª precisa ^0000ff" + .@cost + "^000000 itens de feitiÃ§o coagulados.";
+			mes "Para o 1º encantador, você precisa ^0000ff" + .@cost + "^000000 itens de feitiço coagulados.";
 			next;
-			.@s = select( "Desistir", "EspÃ­rito de luta", "Tiro com arco", "Soletrar", "Vitalidade", "Velocidade de ataque", "Sortudo" ) - 2;
+			.@s = select( "Desistir", "Espírito de luta", "Tiro com arco", "Soletrar", "Vitalidade", "Velocidade de ataque", "Sortudo" ) - 2;
 			if (.@s == -1) {
-				mes "[MÃ¡gico de Hugin]";
+				mes "[Mágico de Hugin]";
 				mes "Ok, volte quando estiver pronto.";
 				close;
 			}
 			.@card[3] = .@enchant_1[.@s];
-			.@string$ = "NÃºmero encantador ^6300001 ^000000.";
+			.@string$ = "Número encantador ^6300001 ^000000.";
 		}
 		else {
 			for ( .@enchant_num = 1; .@enchant_num < 5; .@enchant_num++ ) {
@@ -202,34 +202,34 @@ glast_01,212,273,4	script	Hugin's Magician#pa0829	1_F_01,{
 					break;
 			}
 			if (.@enchant_num == 5) {
-				mes "[MÃ¡gico de Hugin]";
+				mes "[Mágico de Hugin]";
 				mes "Algo errado aconteceu.";
 				close;
 			}
 			.@cost = .@enchant_cost[.@enchant_num];
 
-			mes "[MÃ¡gico de Hugin]";
+			mes "[Mágico de Hugin]";
 			if (.@enchant_num == 4) {
 				.@card[2] = callfunc("F_Rand",4875,4876,4877,4878,4879,4880);// Bear's_Power, Runaway_Magic, Speed_Of_Light, Muscle_Fool, Hawkeye, Lucky_Day
-				.@string$ = "^990000Bonus Efeito ^000000 AtualizaÃ§Ã£o.";
-				mes "O 4Âº slot jÃ¡ estÃ¡ atualizado para a opÃ§Ã£o final. VocÃª gostaria de um efeito de bÃ´nus aleatÃ³rio para o terceiro slot? VocÃª precisa de ^0000ff" + .@cost + "^000000 itens de feitiÃ§o coagulados.";
+				.@string$ = "^990000Bonus Efeito ^000000 Atualização.";
+				mes "O 4º slot já está atualizado para a opção final. Você gostaria de um efeito de bônus aleatório para o terceiro slot? Você precisa de ^0000ff" + .@cost + "^000000 itens de feitiço coagulados.";
 			}
 			else {
 				.@number = .@enchant_num + 1;
 				.@card[3] = getd( ".@encantar_" + (.@enchant_num+1) + "[" + .@enchant_type + "]" );
-				.@string$ = "NÃºmero encantador ^630000" + .@number + "^000000.";
-				mes "Encantador ^0000ff" + .@equip_name$ + "^000000 4Âº slot como ^0000ff" + .@number + "^000000 Efeito de nÃ­vel. Requer ^0000ff" + .@cost + "^000000 itens de feitiÃ§o coagulados.";
+				.@string$ = "Número encantador ^630000" + .@number + "^000000.";
+				mes "Encantador ^0000ff" + .@equip_name$ + "^000000 4º slot como ^0000ff" + .@number + "^000000 Efeito de nível. Requer ^0000ff" + .@cost + "^000000 itens de feitiço coagulados.";
 			}
 			next;
-			if (select("Desistir","AtualizaÃ§Ã£o de efeito!") == 1) {
-				mes "[MÃ¡gico de Hugin]";
+			if (select("Desistir","Atualização de efeito!") == 1) {
+				mes "[Mágico de Hugin]";
 				mes "Ok, volte quando estiver pronto.";
 				close;
 			}
 		}
 		if (countitem(6608) < .@cost) {
-			mes "[MÃ¡gico de Hugin]";
-			mes "Hmm, vocÃª estÃ¡ faltando" + (.@cost - countitem(6608)) + "Itens de feitiÃ§o coagulados. VÃ¡ buscar mais, e entÃ£o podemos falar sobre mais enchants.";
+			mes "[Mágico de Hugin]";
+			mes "Hmm, você está faltando" + (.@cost - countitem(6608)) + "Itens de feitiço coagulados. Vá buscar mais, e então podemos falar sobre mais enchants.";
 			close;
 		}
 		specialeffect2 EF_REPAIRWEAPON;
@@ -240,14 +240,14 @@ glast_01,212,273,4	script	Hugin's Magician#pa0829	1_F_01,{
 			close;
 
 		delequip EQI_SHOES;
-		mes "[MÃ¡gico de Hugin]";
+		mes "[Mágico de Hugin]";
 		mes "Tentando" + .@string$;
 		getitem2 .@equip_id,1,1,.@equip_refine,0,0,0,.@card[2],.@card[3];
 		close;
 	default:
-		mes "[MÃ¡gico de Hugin]";
-		mes "Este nÃ£o Ã© o item certo para este encantamento.";
-		mes "Lembre -se de que apenas esses 6 tipos de botas temporais estÃ£o disponÃ­veis para encantador.";
+		mes "[Mágico de Hugin]";
+		mes "Este não é o item certo para este encantamento.";
+		mes "Lembre -se de que apenas esses 6 tipos de botas temporais estão disponíveis para encantador.";
 		close;
 	}
 }
@@ -255,26 +255,26 @@ glast_01,212,273,4	script	Hugin's Magician#pa0829	1_F_01,{
 glast_01,210,270,0	script	Hugin's Craftsman#pa0829	4_F_JOB_BLACKSMITH,{
 	disable_items;
 	if (MaxWeight - Weight < 1000) {
-		mes "Sua bolsa estÃ¡ muito pesada. Reduza um pouco de peso e volte.";
+		mes "Sua bolsa está muito pesada. Reduza um pouco de peso e volte.";
 		close;
 	}
-	mes "[ArtesÃ£o de Hugin]";
-	mes "Esse mÃ¡gico sempre diz que as botas temporais encantadoras sÃ£o as melhores. Mas, acho bem diferente.";
+	mes "[Artesão de Hugin]";
+	mes "Esse mágico sempre diz que as botas temporais encantadoras são as melhores. Mas, acho bem diferente.";
 	next;
-	mes "[ArtesÃ£o de Hugin]";
+	mes "[Artesão de Hugin]";
 	mes "Eu acho que colocar um slot no item seria o melhor. Mesmo com algum risco de falhar.";
 	next;
-	mes "[ArtesÃ£o de Hugin]";
-	mes "Traga -me ^0000FF5 Cristais temporais ^000000 e tentarei colocar um slot em suas botas temporais avanÃ§adas. Mas Ã© possÃ­vel ^ff0000FAIL e quebrar o item ^000000. Tudo bem?";
+	mes "[Artesão de Hugin]";
+	mes "Traga -me ^0000FF5 Cristais temporais ^000000 e tentarei colocar um slot em suas botas temporais avançadas. Mas é possível ^ff0000FAIL e quebrar o item ^000000. Tudo bem?";
 	next;
 	if (select( "Cancelar", "Corra o risco e tente adicionar um slot" ) == 1) {
-		mes "[ArtesÃ£o de Hugin]";
+		mes "[Artesão de Hugin]";
 		mes "Ok, volte sempre que quiser.";
 		close;
 	}
 	if (!getequipisequiped(EQI_SHOES)) {
-		mes "[ArtesÃ£o de Hugin]";
-		mes "Tem certeza de que estÃ¡ usando o item?";
+		mes "[Artesão de Hugin]";
+		mes "Tem certeza de que está usando o item?";
 		close;
 	}
 	.@equip_id = getequipid(EQI_SHOES);
@@ -293,47 +293,47 @@ glast_01,210,270,0	script	Hugin's Craftsman#pa0829	4_F_JOB_BLACKSMITH,{
 	case 22111:	callsub( S_Slot,22117 );	// Modified_DEX_Boots
 	case 22112:	callsub( S_Slot,22118 );	// Modified_LUK_Boots
 	default:
-		mes "[ArtesÃ£o de Hugin]";
-		mes "NÃ£o Ã© isso! Precisamos de itens temporais ^0000ffadvanced ^000000! O item ^0000ff com um efeito estatÃ­stico e sem um slot ^000000!";
+		mes "[Artesão de Hugin]";
+		mes "Não é isso! Precisamos de itens temporais ^0000ffadvanced ^000000! O item ^0000ff com um efeito estatístico e sem um slot ^000000!";
 		close;
 	}
 
 S_Slot:
 	.@equip_id = getequipid(EQI_SHOES);
-	mes "[ArtesÃ£o de Hugin]";
-	mes "E ^ff0000All Enchant ou Refine Taxas serÃ£o perdidas se vocÃª falhar. ^000000";
+	mes "[Artesão de Hugin]";
+	mes "E ^ff0000All Enchant ou Refine Taxas serão perdidas se você falhar. ^000000";
 	mes "Ainda quer arriscar isso?";
 	next;
 	if (select( "Cancelar", "Estou bem com isso!" ) == 1) {
-		mes "[ArtesÃ£o de Hugin]";
+		mes "[Artesão de Hugin]";
 		mes "Ok, volte sempre que quiser.";
 		close;
 	}
-	mes "[ArtesÃ£o de Hugin]";
-	mes "Mais uma vez, ^ff0000 Esse mÃ¡gico nÃ£o encantarÃ¡ nenhum item com um slot. ^000000";
+	mes "[Artesão de Hugin]";
+	mes "Mais uma vez, ^ff0000 Esse mágico não encantará nenhum item com um slot. ^000000";
 	mes "Ainda quer prosseguir?";
 	next;
-	if (select( "Cancelar", "Eu entendo. Tente encaixÃ¡ -lo." ) == 1) {
-		mes "[ArtesÃ£o de Hugin]";
+	if (select( "Cancelar", "Eu entendo. Tente encaixá -lo." ) == 1) {
+		mes "[Artesão de Hugin]";
 		mes "Ok, volte sempre que quiser.";
 		close;
 	}
 	if (countitem(6607) < 5) {
-		mes "[ArtesÃ£o de Hugin]";
-		mes "VocÃª deve trazer ^0000ff5 itens de cristal temporal ^000000. Nada Ã© grÃ¡tis, vocÃª sabe ...";
+		mes "[Artesão de Hugin]";
+		mes "Você deve trazer ^0000ff5 itens de cristal temporal ^000000. Nada é grátis, você sabe ...";
 		close;
 	}
 	delitem 6607,5;// Temporal_Crystal
 	if (getequipid(EQI_SHOES) == .@equip_id) {
 		delequip EQI_SHOES;
 		if (rand(1,100) < 50) {
-			mes "[ArtesÃ£o de Hugin]";
-			mes "Argggg, falhamos. Melhor sorte da prÃ³xima vez.";
+			mes "[Artesão de Hugin]";
+			mes "Argggg, falhamos. Melhor sorte da próxima vez.";
 			specialeffect2 EF_PHARMACY_FAIL;
 			close;
 		}
-		mes "[ArtesÃ£o de Hugin]";
-		mes "Bem-sucedido! Aqui vocÃª vai.";
+		mes "[Artesão de Hugin]";
+		mes "Bem-sucedido! Aqui você vai.";
 		specialeffect2 EF_MAXPOWER;
 		getitem getarg(0),1;
 	}
@@ -344,11 +344,11 @@ S_Slot:
 glast_01,184,283,4	script	Dark magic master#pa082	1_F_01,{
 	disable_items;
 	if ((MaxWeight - Weight) < 1000) {
-		mes "Sua bolsa estÃ¡ muito pesada. Reduza um pouco de peso e volte.";
+		mes "Sua bolsa está muito pesada. Reduza um pouco de peso e volte.";
 		close;
 	}
 	if (checkweight(1201,1) == 0) {
-		mes "VocÃª parece estar carregando muitos itens. Coloque alguns itens em armazenamento e volte novamente.";
+		mes "Você parece estar carregando muitos itens. Coloque alguns itens em armazenamento e volte novamente.";
 		close;
 	}
 	// requirements
@@ -361,19 +361,19 @@ glast_01,184,283,4	script	Dark magic master#pa082	1_F_01,{
 	next;
 	if (select( "Como funciona o encantador?", "Efetue minhas botas temporais" ) == 1) {
 		mes "[Dark Magic Master]";
-		mes "VocÃª deve perguntar ao Magic Master de Hugin todas as coisas bÃ¡sicas. Eu quero uma conversa mais profunda sobre encolher o trabalho.";
+		mes "Você deve perguntar ao Magic Master de Hugin todas as coisas básicas. Eu quero uma conversa mais profunda sobre encolher o trabalho.";
 		next;
 		mes "[Dark Magic Master]";
 		mes "I need 4 items. ^0000ff" + callfunc("F_InsertComma",.@cost_zeny) + ", " + getitemname(.@polluted_id) + ", " + getitemname(.@coagulated_id) + ", Temporal Boots(Socket) Series^000000. If you don't have any of these, I cannot help you.";
 		next;
 		mes "[Dark Magic Master]";
-		mes "Ã‰ o meu pequeno hobby .. para encantar botas temporais de soquete, usando feitiÃ§o poluÃ­do e coagulado.";
+		mes "É o meu pequeno hobby .. para encantar botas temporais de soquete, usando feitiço poluído e coagulado.";
 		next;
 		mes "[Dark Magic Master]";
-		mes "Obviamente, vocÃª deve lidar com maior risco de destruiÃ§Ã£o sempre que quiser encantar repetidamente.";
+		mes "Obviamente, você deve lidar com maior risco de destruição sempre que quiser encantar repetidamente.";
 		next;
 		mes "[Dark Magic Master]";
-		mes "A ordem encantadora Ã© a mesma que o encantamento do mestre mÃ¡gico de Hugin. Por favor, consulte sua explicaÃ§Ã£o.";
+		mes "A ordem encantadora é a mesma que o encantamento do mestre mágico de Hugin. Por favor, consulte sua explicação.";
 		close;
 	}
 	.@equip_id = getequipid(EQI_SHOES);
@@ -394,11 +394,11 @@ glast_01,184,283,4	script	Dark magic master#pa082	1_F_01,{
 		break;
 	case -1:
 		mes "[Dark Magic Master]";
-		mes "VocÃª estÃ¡ usando o item?";
+		mes "Você está usando o item?";
 		close;
 	default:
 		mes "[Dark Magic Master]";
-		mes "Este nÃ£o Ã© o item certo para este encantamento. Lembre -se, apenas esses 6 tipos de botas temporais com soquete estÃ£o disponÃ­veis para encantador oculto.";
+		mes "Este não é o item certo para este encantamento. Lembre -se, apenas esses 6 tipos de botas temporais com soquete estão disponíveis para encantador oculto.";
 		close;
 	}
 	// enchants ID
@@ -426,7 +426,7 @@ glast_01,184,283,4	script	Dark magic master#pa082	1_F_01,{
 
 	if (.@card[2] > 0) {
 		mes "[Dark Magic Master]";
-		mes "Essas botas jÃ¡ passaram pelo limite encantador. NÃ£o podemos mais encantÃ¡ -los.";
+		mes "Essas botas já passaram pelo limite encantador. Não podemos mais encantá -los.";
 		close;
 	}
 	if (.@card[3] == 0) {// 4th slot 1st try enchanting
@@ -437,14 +437,14 @@ glast_01,184,283,4	script	Dark magic master#pa082	1_F_01,{
 		mes "Want to enchant ^0000ff" + .@equip_name$ + " (Socket)^000000? For the 1st enchanting, you need ^0000ff" + .@amount_poll + " " + getitemname(.@polluted_id) + ", " + .@amount_coag + " " + getitemname(.@coagulated_id) + ", and " + callfunc("F_InsertComma",.@cost_zeny) + " zeny^000000.";
 		mes "Tem algum risco de falhar ..";
 		next;
-		.@s = select( "Desistir", "EspÃ­rito de luta", "Tiro com arco", "Soletrar", "Vitalidade", "Velocidade de ataque", "Sortudo" ) - 2;
+		.@s = select( "Desistir", "Espírito de luta", "Tiro com arco", "Soletrar", "Vitalidade", "Velocidade de ataque", "Sortudo" ) - 2;
 		if (.@s == -1) {
 			mes "[Dark Magic Master]";
 			mes "Ok, volte quando estiver pronto.";
 			close;
 		}
 		.@card[3] = .@enchant_1[.@s];
-		.@string$ = "NÃºmero encantador ^6300001 ^000000.";
+		.@string$ = "Número encantador ^6300001 ^000000.";
 		.@num = 0;
 	}
 	else {
@@ -465,17 +465,17 @@ glast_01,184,283,4	script	Dark magic master#pa082	1_F_01,{
 		mes "[Dark Magic Master]";
 		if (.@num == 4) {
 			.@card[2] = callfunc("F_Rand",4875,4876,4877,4878,4879,4880);// Bear's_Power, Runaway_Magic, Speed_Of_Light, Muscle_Fool, Hawkeye, Lucky_Day
-			.@string$ = "^990000 Efeito de bÃ´nus ^000000 AtualizaÃ§Ã£o.";
+			.@string$ = "^990000 Efeito de bônus ^000000 Atualização.";
 			mes "Would you like a random bonus effect for the 3rd slot? You need ^0000ff" + .@amount_poll + " " + getitemname(.@polluted_id) + ", " + .@amount_coag + " " + getitemname(.@coagulated_id) + ", and " + callfunc("F_InsertComma",.@cost_zeny) + " zeny^000000. But it has high risk of failing..";
 		}
 		else {
 			.@level = .@num + 1;
 			.@card[3] = getd( ".@encantar_" + (.@num+1) + "[" + .@type + "]" );
-			.@string$ = "NÃºmero encantador ^990000" + .@level + "^000000.";
+			.@string$ = "Número encantador ^990000" + .@level + "^000000.";
 			mes "Enchanting ^0000ff" + .@equip_name$ + " (Socket)^000000's 4th slot as ^0000ff" + .@level + "^000000 level effect. Requires ^0000ff" + .@amount_poll + " " + getitemname(.@polluted_id) + ", " + .@amount_coag + " " + getitemname(.@coagulated_id) + ", and " + callfunc("F_InsertComma",.@cost_zeny) + " z^000000. It has some risk of failing..";
 		}
 		next;
-		if (select( "Desistir", "AtualizaÃ§Ã£o de efeito!" ) == 1) {
+		if (select( "Desistir", "Atualização de efeito!" ) == 1) {
 			mes "[Dark Magic Master]";
 			mes "Ok, volte quando estiver pronto.";
 			close;
@@ -483,12 +483,12 @@ glast_01,184,283,4	script	Dark magic master#pa082	1_F_01,{
 	}
 	if (countitem(.@coagulated_id) < .@amount_coag) {
 		mes "[Dark Magic Master]";
-		mes "Hmm, vocÃª estÃ¡ faltando" + (.@amount_coag - countitem(.@coagulated_id)) + "" + getitemname(.@coagulated_id) + "Unid. VÃ¡ buscar mais, e entÃ£o podemos falar sobre mais enchants.";
+		mes "Hmm, você está faltando" + (.@amount_coag - countitem(.@coagulated_id)) + "" + getitemname(.@coagulated_id) + "Unid. Vá buscar mais, e então podemos falar sobre mais enchants.";
 		close;
 	}
 	if (countitem(.@polluted_id) < .@amount_poll) {
 		mes "[Dark Magic Master]";
-		mes "Hmm, vocÃª estÃ¡ faltando" + (.@amount_poll - countitem(.@polluted_id)) + "" + getitemname(.@polluted_id) + "Unid. VÃ¡ buscar mais, e entÃ£o podemos falar sobre mais enchants.";
+		mes "Hmm, você está faltando" + (.@amount_poll - countitem(.@polluted_id)) + "" + getitemname(.@polluted_id) + "Unid. Vá buscar mais, e então podemos falar sobre mais enchants.";
 		close;
 	}
 	if (Zeny < .@cost_zeny) {
@@ -508,11 +508,11 @@ glast_01,184,283,4	script	Dark magic master#pa082	1_F_01,{
 	if (.@chances[.@num] < rand(1,100)) {
 		specialeffect2 EF_LORD;
 		mes "[Dark Magic Master]";
-		mes "Argggg, falhamos. Melhor sorte da prÃ³xima vez.";
+		mes "Argggg, falhamos. Melhor sorte da próxima vez.";
 		close;
 	}
 	specialeffect2 EF_REPAIRWEAPON;
-	mes "[MÃ¡gico de Hugin]";
+	mes "[Mágico de Hugin]";
 	mes "Tentando" + .@string$;
 	getitem2 .@equip_id,1,1,.@equip_refine,0,0,0,.@card[2],.@card[3];
 	close;
@@ -522,11 +522,11 @@ glast_01,184,283,4	script	Dark magic master#pa082	1_F_01,{
 glast_01,216,292,5	script	Portrait collector#0002	4_M_OILMAN,{
 	disable_items;
 	if ((MaxWeight - Weight) < 1000) {
-		mes "Sua bolsa estÃ¡ muito pesada. Reduza um pouco de peso e volte.";
+		mes "Sua bolsa está muito pesada. Reduza um pouco de peso e volte.";
 		close;
 	}
 	if (checkweight(1201,1) == 0) {
-		mes "VocÃª parece estar carregando muitos itens. Coloque alguns itens em armazenamento e volte novamente.";
+		mes "Você parece estar carregando muitos itens. Coloque alguns itens em armazenamento e volte novamente.";
 		close;
 	}
 	.@coagulated_id = 6608;		// Coagulated_Spell
@@ -535,10 +535,10 @@ glast_01,216,292,5	script	Portrait collector#0002	4_M_OILMAN,{
 	.@khalitzburg_card = 4609;	// Khaliz_Knightage_Card
 
 	mes "[Colecionador de retratos]";
-	mes "JÃ¡ coleciono retratos hÃ¡ um ano. Agora Ã© hora de mostrar Ã s pessoas minha coleÃ§Ã£o.";
+	mes "Já coleciono retratos há um ano. Agora é hora de mostrar às pessoas minha coleção.";
 	next;
 	mes "[Colecionador de retratos]";
-	mes "Ei, vocÃª tem muito" + getitemname(.@polluted_id) + "ou" + getitemname(.@coagulated_id) + "? Se sim, por que vocÃª nÃ£o troca um belo retrato que eu tenho?";
+	mes "Ei, você tem muito" + getitemname(.@polluted_id) + "ou" + getitemname(.@coagulated_id) + "? Se sim, por que você não troca um belo retrato que eu tenho?";
 	next;
 	switch( select( "Cancelar", "Troca de" + getitemname(.@white_card), "Troca de" + getitemname(.@khalitzburg_card) ) ) {
 	case 1:
@@ -557,7 +557,7 @@ glast_01,216,292,5	script	Portrait collector#0002	4_M_OILMAN,{
 		break;
 	}
 	mes "[Colecionador de retratos]";
-	mes "O que vocÃª gostaria em troca do" + getitemname(.@reward_id) + "?";
+	mes "O que você gostaria em troca do" + getitemname(.@reward_id) + "?";
 	next;
 	if (countitem(.@coagulated_id) < .@amount_coag)
 		.@color$[0] = "^666666";
@@ -579,11 +579,11 @@ glast_01,216,292,5	script	Portrait collector#0002	4_M_OILMAN,{
 	}
 	if (countitem(.@id) < .@amount) {
 		mes "[Colecionador de retratos]";
-		mes "Hmm, vocÃª nÃ£o tem feitiÃ§o suficiente agora. VÃ¡ buscar mais.";
+		mes "Hmm, você não tem feitiço suficiente agora. Vá buscar mais.";
 		close;
 	}
 	mes "[Colecionador de retratos]";
-	mes "Tem certeza de que nÃ£o vai se arrepender?";
+	mes "Tem certeza de que não vai se arrepender?";
 	next;
 	if (select( "Cancelar", "Claro" ) == 1) {
 		mes "[Colecionador de retratos]";

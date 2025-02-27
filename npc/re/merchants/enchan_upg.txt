@@ -20,38 +20,38 @@
 itemmall,29,71,3	script	Devil Enchant Master#prq	63,{
 	disable_items;
 	if (checkweight(1201,1) == 0) {
-		mes "VocÃª estÃ¡ carregando muitos itens, reduza -o e volte novamente!";
+		mes "Você está carregando muitos itens, reduza -o e volte novamente!";
 		close;
 	}
 	if (MaxWeight - Weight < 10000) {
-		mes "VocÃª estÃ¡ acima do limite de peso, reduza -o e volte novamente!";
+		mes "Você está acima do limite de peso, reduza -o e volte novamente!";
 		close;
 	}
 	mes "[Diabo Enchant Master]";
 	mes "Sim?";
-	mes "VocÃª estÃ¡ procurando por mim?";
+	mes "Você está procurando por mim?";
 	next;
-	switch(select("Esta Ã© a primeira vez que vendo vocÃª!: Ouvi dizer que vocÃª Ã© o melhor!: Inicialize o encantador.")) {
+	switch(select("Esta é a primeira vez que vendo você!: Ouvi dizer que você é o melhor!: Inicialize o encantador.")) {
 	case 1:
 		mes "[Diabo Enchant Master]";
-		mes "Ha ha ha ~ Ã© claro, eu nÃ£o sou o tipo de pessoa que simplesmente lida com as pessoas.";
+		mes "Ha ha ha ~ é claro, eu não sou o tipo de pessoa que simplesmente lida com as pessoas.";
 		next;
 		mes "[Diabo Enchant Master]";
-		mes "Incluindo vocÃª! Mesmo se vocÃª me oferecer muito dinheiro, nÃ£o vou simplesmente encantar para vocÃª !!";
+		mes "Incluindo você! Mesmo se você me oferecer muito dinheiro, não vou simplesmente encantar para você !!";
 		next;
 		mes "[Diabo Enchant Master]";
-		mes "VocÃª viu meu tÃ­tulo? Muito poucas pessoas tÃªm esse tÃ­tulo por um motivo!";
+		mes "Você viu meu título? Muito poucas pessoas têm esse título por um motivo!";
 		next;
 		mes "[Diabo Enchant Master]";
-		mes "SÃ³ ficarei encantado se vocÃª trazer um livro ^0000FFENCHANT ^000000!";
+		mes "Só ficarei encantado se você trazer um livro ^0000FFENCHANT ^000000!";
 		next;
 		mes "[Diabo Enchant Master]";
-		mes "Caso contrÃ¡rio, nÃ£o vou encantar para vocÃª ....";
+		mes "Caso contrário, não vou encantar para você ....";
 		close;
 	case 2:
 		if (!countitem(6484)) {
 			mes "[Diabo Enchant Master]";
-			mes "VocÃª estÃ¡ me ouvindo? Eu sÃ³ farei por vocÃª se vocÃª trazer o livro encantador!";
+			mes "Você está me ouvindo? Eu só farei por você se você trazer o livro encantador!";
 			close;
 		}
 		set .@select,1;
@@ -59,10 +59,10 @@ itemmall,29,71,3	script	Devil Enchant Master#prq	63,{
 	case 3:
 		mes "[Diabo Enchant Master]";
 		if (Zeny < 100000) {
-			mes "A inicializaÃ§Ã£o custarÃ¡ 100.000 Zeny. Parece que vocÃª nÃ£o tem Zeny suficiente ...";
+			mes "A inicialização custará 100.000 Zeny. Parece que você não tem Zeny suficiente ...";
 			close;
 		}
-		mes "A inicializaÃ§Ã£o custarÃ¡ 100.000 Zeny e confirmando se a arma estÃ¡ encantada!";
+		mes "A inicialização custará 100.000 Zeny e confirmando se a arma está encantada!";
 		next;
 		if (select("Deixe -me pensar sobre isso.") == 1) {
 			mes "[Diabo Enchant Master]";
@@ -76,33 +76,33 @@ itemmall,29,71,3	script	Devil Enchant Master#prq	63,{
 
 	mes "[Diabo Enchant Master]";
 	if (!getequipisequiped(.@part)) {
-		mes "VocÃª estÃ¡ tentando remover o equipamento encantado?";
+		mes "Você está tentando remover o equipamento encantado?";
 		close;
 	}
 	setarray .@equip_card[0], getequipcardid(.@part,0), getequipcardid(.@part,1), getequipcardid(.@part,2), getequipcardid(.@part,3);
 	// if (!getequipisequiped(.@part)) {
-	// 	mes "Ã‰ perigoso remover o equipamento durante o processo encantador!";
+	// 	mes "É perigoso remover o equipamento durante o processo encantador!";
 	// 	close;
 	// }
 	set .@equip_id, getequipid(.@part);
 	.@equip_refine = getequiprefinerycnt(.@part);
 	set .@item$, "|1292|1394|1491|1585|2015|13071|13115|16019|18112|21000|";
 	if (!compare(.@item$,"|"+.@equip_id+"|")) {
-		mes "NÃ£o quero tocar seu equipamento agora!";
+		mes "Não quero tocar seu equipamento agora!";
 		close;
 	}
 
 	if (.@select == 1) {
 		if (!countitem(6484)) {
-			mes "VocÃª estÃ¡ me ouvindo? Eu sÃ³ farei por vocÃª se vocÃª trazer o livro encantador!";
+			mes "Você está me ouvindo? Eu só farei por você se você trazer o livro encantador!";
 			close;
 		}
-		mes "Que tipo de efeito vocÃª deseja encantar?";
+		mes "Que tipo de efeito você deseja encantar?";
 		next;
-		switch(select("Deixe -me pensar sobre isso .: SÃ©rie FÃ­sica: Magical Series")) {
+		switch(select("Deixe -me pensar sobre isso .: Série Física: Magical Series")) {
 		case 1:
 			mes "[Diabo Enchant Master]";
-			mes "Volte novamente depois de mudar de idÃ©ia!";
+			mes "Volte novamente depois de mudar de idéia!";
 			close;
 		case 2:
 			set .@enc_type,1;
@@ -113,19 +113,19 @@ itemmall,29,71,3	script	Devil Enchant Master#prq	63,{
 		}
 		mes "[Diabo Enchant Master]";
 		if (.@equip_card[3]) {
-			mes "Este equipamento foi encantado! VocÃª precisa inicializar primeiro antes de querer encantÃ¡ -lo novamente.";
+			mes "Este equipamento foi encantado! Você precisa inicializar primeiro antes de querer encantá -lo novamente.";
 			close;
 		}
-		mes "O processo encantador pode falhar e ^ff0000it reduzirÃ¡ o nÃ­vel de refina parcial ^000000, mas o cartÃ£o e a arma com fenda nÃ£o serÃ£o quebrados! Tem certeza de que deseja continuar?";
+		mes "O processo encantador pode falhar e ^ff0000it reduzirá o nível de refina parcial ^000000, mas o cartão e a arma com fenda não serão quebrados! Tem certeza de que deseja continuar?";
 		next;
-		if (select("Da prÃ³xima vez!: Comece agora!") == 1) {
+		if (select("Da próxima vez!: Comece agora!") == 1) {
 			mes "[Diabo Enchant Master]";
 			mes "Volte novamente depois de decidir!";
 			close;
 		}
 		if (.@equip_card[3]) {
 			mes "[Diabo Enchant Master]";
-			mes "Parece que hÃ¡ um problema, deixe -me dar uma olhada.";
+			mes "Parece que há um problema, deixe -me dar uma olhada.";
 			close;
 		}
 
@@ -207,7 +207,7 @@ itemmall,29,71,3	script	Devil Enchant Master#prq	63,{
 			else set .@enchant,0;
 		} else {
 			mes "[Diabo Enchant Master]";
-			mes "Hum! Este item estÃ¡ tendo um problema, verifique novamente!";
+			mes "Hum! Este item está tendo um problema, verifique novamente!";
 			close;
 		}
 		mes "[Diabo Enchant Master]";
@@ -216,12 +216,12 @@ itemmall,29,71,3	script	Devil Enchant Master#prq	63,{
 			close;
 		}
 		if (!countitem(6484)) {
-			mes "VocÃª estÃ¡ me ouvindo? Eu sÃ³ farei por vocÃª se vocÃª trazer o livro encantador!";
+			mes "Você está me ouvindo? Eu só farei por você se você trazer o livro encantador!";
 			close;
 		}
 		if (.@enchant == 0) {
 			specialeffect EF_SHIELDCHARGE;
-			mes "Oh! InacreditÃ¡vel!! Falhou !! Por favor, venha de novo!";
+			mes "Oh! Inacreditável!! Falhou !! Por favor, venha de novo!";
 			set .@lost_refine, rand(0,.@equip_refine);
 			set .@equip_refine, .@equip_refine - .@lost_refine;
 		} else {
@@ -248,15 +248,15 @@ itemmall,29,71,3	script	Devil Enchant Master#prq	63,{
 		close;
 	} else if (.@select == 2) {
 		if (Zeny < 100000) {
-			mes "VocÃª precisa trazer algum dinheiro para inicializar !!";
+			mes "Você precisa trazer algum dinheiro para inicializar !!";
 			close;
 		}
 		if (getiteminfo(.@equip_card[3], ITEMINFO_SUBTYPE) != CARD_ENCHANT) {
-			mes "Este item nÃ£o estÃ¡ encantado!";
+			mes "Este item não está encantado!";
 			close;
 		}
 		if (!getequipisequiped(.@part)) {
-			mes "VocÃª estÃ¡ desigual agora?";
+			mes "Você está desigual agora?";
 			close;
 		}
 		specialeffect EF_REPAIRWEAPON;
@@ -275,7 +275,7 @@ itemmall,29,71,3	script	Devil Enchant Master#prq	63,{
 
 		close;
 	} else {
-		mes "Parece que vocÃª escolheu o emprego errado?";
+		mes "Parece que você escolheu o emprego errado?";
 		close;
 	}
 }

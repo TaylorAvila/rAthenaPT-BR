@@ -23,71 +23,71 @@
 //============================================================
 mal_in01,172,28,2	script	Albo#mal	561,{
 	if (checkweight(1201,1) == 0) {
-		mes "VocÃª tem muitos tipos de objetos. Tente continuar depois de reduzir esses objetos.";
+		mes "Você tem muitos tipos de objetos. Tente continuar depois de reduzir esses objetos.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "VocÃª tem muitos objetos pesados. Tente continuar depois de reduzir seu peso.";
+		mes "Você tem muitos objetos pesados. Tente continuar depois de reduzir seu peso.";
 		close;
 	}
 	if (BaseLevel < 90) {
 		mes "[Ou]";
-		mes "Quem Ã© vocÃª?";
-		mes "NÃ£o precisamos de um waking !!";
+		mes "Quem é você?";
+		mes "Não precisamos de um waking !!";
 		close;
 	}
 	setarray .@quests[0],12271,12272,12273,12274;
 	setarray .@names$[0],
-		"ServiÃ§o DiÃ¡rio de Culvert Geral","^990000HARD CULVERT DIÃRIO ServiÃ§o^000000",
-		"ServiÃ§o semanal do Culvert General","^990000hard Culvert Weekly Service^000000";
-	set .@menu$,"Por que estÃ£o fazendo esse trabalho?:";
+		"Serviço Diário de Culvert Geral","^990000HARD CULVERT DIÁRIO Serviço^000000",
+		"Serviço semanal do Culvert General","^990000hard Culvert Weekly Service^000000";
+	set .@menu$,"Por que estão fazendo esse trabalho?:";
 	for(set .@i,0; .@i<4; set .@i,.@i+1) {
 		if (checkquest(.@quests[.@i],PLAYTIME) > -1) {
 			set .@status[.@i],2;
-			set .@menu$, .@menu$+"^aaaaaa- NÃ£o hÃ¡ nova tarefa -^000000:";
+			set .@menu$, .@menu$+"^aaaaaa- Não há nova tarefa -^000000:";
 		} else if (.@i%2 && BaseLevel < 140) {
 			set .@status[.@i],0;
-			set .@menu$, .@menu$+"^aaaaaacan nÃ£o aceita esse trabalho porque o nÃ­vel Ã© muito baixo^000000:";
+			set .@menu$, .@menu$+"^aaaaaacan não aceita esse trabalho porque o nível é muito baixo^000000:";
 		} else {
 			set .@status[.@i],1;
 			set .@menu$, .@menu$+.@names$[.@i]+":";
 		}
 	}
 	mes "[Ou]";
-	mes "NÃ³s cruzamos o mar!";
-	mes "Somos grandes herÃ³is do bueiro! NÃ£o perdoamos os frutos do mar que visam Culvert!";
+	mes "Nós cruzamos o mar!";
+	mes "Somos grandes heróis do bueiro! Não perdoamos os frutos do mar que visam Culvert!";
 	next;
 	set .@i, select(.@menu$)-1;
 	if (.@i == 0) {
 		mes "[Ou]";
-		mes "CostumÃ¡vamos ser os capangas do Sr. Missing! Quase nos tornamos guardas de um local tÃ£o histÃ³rico.";
+		mes "Costumávamos ser os capangas do Sr. Missing! Quase nos tornamos guardas de um local tão histórico.";
 		next;
 		mes "[Ou]";
-		mes "No entanto, quando a Ã¡gua do mar inundou todos os recursos preciosos, meu sonho ... todos os meus sonhos derretidos ...";
+		mes "No entanto, quando a água do mar inundou todos os recursos preciosos, meu sonho ... todos os meus sonhos derretidos ...";
 		next;
 		mes "[Ou]";
-		mes "NÃ£o perdoamos os frutos do mar que invadiram nosso territÃ³rio. Vou comÃª -los com pasta picante !!!";
+		mes "Não perdoamos os frutos do mar que invadiram nosso território. Vou comê -los com pasta picante !!!";
 		next;
-		mes "^0000FFFALBO A voz de Raiva. Ele bateu os lÃ¡bios quando mencionou uma pasta picante.^000000";
+		mes "^0000FFFALBO A voz de Raiva. Ele bateu os lábios quando mencionou uma pasta picante.^000000";
 		close;
 	}
 	switch(.@status[.@i-1]) {
 	case 0:
 		mes "[Ou]";
-		mes "Essa tarefa Ã© realmente difÃ­cil para vocÃª, entÃ£o nÃ£o posso falar sobre isso. Por que vocÃª nÃ£o encontra outro?";
+		mes "Essa tarefa é realmente difícil para você, então não posso falar sobre isso. Por que você não encontra outro?";
 		close;
 	case 1:
 		break;
 	case 2:
 		mes "[Ou]";
-		mes "Desculpe. Ainda nÃ£o hÃ¡ uma nova tarefa! Se eu encontrar algum trabalho, vou lhe dizer!";
+		mes "Desculpe. Ainda não há uma nova tarefa! Se eu encontrar algum trabalho, vou lhe dizer!";
 		close;
 	}
 	switch(.@i) {
 	case 1: // General Culvert Daily Service
 		switch(rand(1,6)) {
 			case 1: callsub L_GiveQuest,.@i,12255,12271,"Caranguejo do mar profundo";
-			case 2: callsub L_GiveQuest,.@i,12256,12271,"Deep Ã© para Marse";
+			case 2: callsub L_GiveQuest,.@i,12256,12271,"Deep é para Marse";
 			case 3: callsub L_GiveQuest,.@i,12257,12271,"Mar profundo na natureza";
 			case 4: callsub L_GiveQuest,.@i,12258,12271,"Mariscos de marisco marinho profundo";
 			case 5: callsub L_GiveQuest,.@i,12259,12271,"DiP Seya";
@@ -114,7 +114,7 @@ mal_in01,172,28,2	script	Albo#mal	561,{
 		}
 	default:
 		mes "[Ou]";
-		mes "Uh!? Onde estÃ¡ a tarefa? Deixe -me encontrar isso rapidamente. VocÃª deve falar com Madeca!";
+		mes "Uh!? Onde está a tarefa? Deixe -me encontrar isso rapidamente. Você deve falar com Madeca!";
 		close;
 	}
 	end;
@@ -124,14 +124,14 @@ L_GiveQuest:
 	setquest getarg(1);
 	setquest getarg(2);
 	mes "[Ou]";
-	mes "Hoje, os herÃ³is de Culvert!";
-	mes "Aumentamos nossas vozes e estabelecemos uma data para o extermÃ­nio de ^0000ff"+getarg(3)+"^000000!";
+	mes "Hoje, os heróis de Culvert!";
+	mes "Aumentamos nossas vozes e estabelecemos uma data para o extermínio de ^0000ff"+getarg(3)+"^000000!";
 	next;
 	mes "[Ou]";
 	switch(getarg(0)) {
 	case 1:
 	case 2:
-		mes "Vamos, herÃ³is! NÃ£o tenha medo deles! Basta continuar, jÃ¡ que Ã© uma missÃ£o de um dia!";
+		mes "Vamos, heróis! Não tenha medo deles! Basta continuar, já que é uma missão de um dia!";
 		break;
 	case 3:
 		mes "Vou te dar uma semana para terminar este trabalho! Encerrar todos eles na masmorra de bueiros, modo normal!";
@@ -141,17 +141,17 @@ L_GiveQuest:
 		break;
 	}
 	next;
-	mes "VocÃª recebeu um pedido de extermÃ­nio de ^005500"+getarg(3)+"^000000. Se vocÃª precisar de mais detalhes, verifique a janela da missÃ£o.";
+	mes "Você recebeu um pedido de extermínio de ^005500"+getarg(3)+"^000000. Se você precisar de mais detalhes, verifique a janela da missão.";
 	close;
 }
 
 mal_in01,172,26,2	script	Madeca#mal	544,{
 	if (checkweight(1201,1) == 0) {
-		mes "VocÃª tem muitos tipos de objetos. Tente continuar depois de reduzir esses objetos.";
+		mes "Você tem muitos tipos de objetos. Tente continuar depois de reduzir esses objetos.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "VocÃª tem muitos objetos pesados. Tente continuar depois de reduzir seu peso.";
+		mes "Você tem muitos objetos pesados. Tente continuar depois de reduzir seu peso.";
 		close;
 	}
 	if (BaseLevel < 90) {
@@ -160,30 +160,30 @@ mal_in01,172,26,2	script	Madeca#mal	544,{
 		mes "Vamos ter alguns frutos do mar ruins que podem ser fervidos ou grelhados!";
 		next;
 		mes "[Madeca]";
-		mes "Quem Ã© vocÃª? VocÃª Ã© um cÃ­trico. AtÃ© as algas marinhas podem te matar!";
+		mes "Quem é você? Você é um cítrico. Até as algas marinhas podem te matar!";
 		close;
 	}
 	mes "[Madeca]";
 	mes "Oh?";
-	mes "VocÃª Ã© quem cuidou do pedido do meu irmÃ£o mais velho Albo. Foi um trabalho difÃ­cil!";
+	mes "Você é quem cuidou do pedido do meu irmão mais velho Albo. Foi um trabalho difícil!";
 	next;
-	set .@i, select("O que vocÃª estÃ¡ fazendo aqui ?: CompensaÃ§Ã£o do ServiÃ§o DiÃ¡rio do Culvert Geral: Culver DiÃ¡rio Culver")-1;
+	set .@i, select("O que você está fazendo aqui ?: Compensação do Serviço Diário do Culvert Geral: Culver Diário Culver")-1;
 	if (.@i == 0) {
 		mes "[Madeca]";
-		mes "Estou aqui para ajudar meu irmÃ£o mais velho Albo!";
+		mes "Estou aqui para ajudar meu irmão mais velho Albo!";
 		next;
 		mes "[Madeca]";
 		mes "Fornecemos materiais preciosos a humanos que fazem lodo dos frutos do mar ruins nos bueiros!";
 		next;
 		mes "[Madeca]";
-		mes "Fornecemos moedas A ~ B como compensaÃ§Ã£o pelo serviÃ§o diÃ¡rio e a preciosa ira do deus do mar como compensaÃ§Ã£o pelo serviÃ§o semanal.";
+		mes "Fornecemos moedas A ~ B como compensação pelo serviço diário e a preciosa ira do deus do mar como compensação pelo serviço semanal.";
 		next;
 		mes "[Madeca]";
-		mes "Se vocÃª cuidar do pedido do Big Brother Albo, eu o vejo com muita frequÃªncia. EntÃ£o, vamos ficar perto!";
+		mes "Se você cuidar do pedido do Big Brother Albo, eu o vejo com muita frequência. Então, vamos ficar perto!";
 		close;
 	}
 	mes "[Madeca]";
-	mes "NÃ£o posso fazer uma compensaÃ§Ã£o por uma solicitaÃ§Ã£o expirada, entÃ£o deixe -me verificar se algum dos seus expirou.";
+	mes "Não posso fazer uma compensação por uma solicitação expirada, então deixe -me verificar se algum dos seus expirou.";
 	next;
 	specialeffect2 EF_SPHERE;
 	progressbar "0xffff00",3;
@@ -195,7 +195,7 @@ mal_in01,172,26,2	script	Madeca#mal	544,{
 		else {
 			// Reward: 2x B Grade Coin
 			callsub L_CheckQuest,12255,"Caranguejo do mar profundo",6419,2;
-			callsub L_CheckQuest,12256,"Deep Ã© para Marse",6419,2;
+			callsub L_CheckQuest,12256,"Deep é para Marse",6419,2;
 			callsub L_CheckQuest,12257,"Mar profundo na natureza",6419,2;
 			callsub L_CheckQuest,12258,"Mariscos de marisco marinho profundo",6419,2;
 			callsub L_CheckQuest,12259,"DiP Seya",6419,2;
@@ -235,11 +235,11 @@ mal_in01,172,26,2	script	Madeca#mal	544,{
 		break;
 	default:
 		mes "[Madeca]";
-		mes "Algo estÃ¡ errado. Por favor, verifique isso de novo!";
+		mes "Algo está errado. Por favor, verifique isso de novo!";
 		close;
 	}
 	mes "[Madeca]";
-	mes "NÃ£o vejo nenhuma missÃ£o completa!";
+	mes "Não vejo nenhuma missão completa!";
 	close;
 
 L_EraseQuest:
@@ -248,15 +248,15 @@ L_EraseQuest:
 			erasequest getarg(.@j);
 	}
 	mes "[Madeca]";
-	mes "Hum, sinto muito. VocÃª excedeu o prazo, para que eu nÃ£o possa lhe dar nenhum pagamento.";
+	mes "Hum, sinto muito. Você excedeu o prazo, para que eu não possa lhe dar nenhum pagamento.";
 	close;
 
 // callsub L_CheckQuest,<quest ID>,<monster>,<reward item ID>,<reward item amount>;
 L_CheckQuest:
 	if (checkquest(getarg(0),HUNTING) == 2) {
 		mes "[Madeca]";
-		mes "VocÃª puniu ^0000ff"+getarg(1)+"^000000!";
-		mes "Aqui estÃ¡ o seu pagamento!";
+		mes "Você puniu ^0000ff"+getarg(1)+"^000000!";
+		mes "Aqui está o seu pagamento!";
 		erasequest getarg(0);
 		specialeffect2 EF_STEAL;
 		getitem getarg(2),getarg(3);
@@ -270,26 +270,26 @@ L_CheckQuest:
 mal_in01,160,34,4	script	Missing, the Cleaner	545,{
 	if (BaseLevel < 90) {
 		mes "[Faltando, o limpador]";
-		mes "VocÃª estÃ¡ falando comigo?!";
+		mes "Você está falando comigo?!";
 		next;
 		mes "[Faltando, o limpador]";
-		mes "NÃ£o tenho certeza do que o fez vir aqui, mas vocÃª nÃ£o pode entrar!";
+		mes "Não tenho certeza do que o fez vir aqui, mas você não pode entrar!";
 		mes "Ordens de Tomas ...";
 		next;
-		mes "^770099 VocÃª deve ser o nÃ­vel de base 90 para entrar.^000000";
+		mes "^770099 Você deve ser o nível de base 90 para entrar.^000000";
 		close;
 	}
 	if (in_canal_n == 0) {
 		mes "[Faltando, o limpador]";
 		mes "(tremendo)";
 		next;
-		mes "^660066 Este gato parece que estÃ¡ em mau estado. Ã‰ um pouco tremendo.^000000";
+		mes "^660066 Este gato parece que está em mau estado. É um pouco tremendo.^000000";
 		next;
-		if(select("PET O CAT: VocÃª estÃ¡ bem?") == 1) {
+		if(select("PET O CAT: Você está bem?") == 1) {
 			mes "[Faltando, o limpador]";
-			mes "VocÃª estÃ¡ falando comigo?!";
+			mes "Você está falando comigo?!";
 			next;
-			mes "^660066a gato trÃªmulo estÃ¡ olhando para vocÃª.^000000";
+			mes "^660066a gato trêmulo está olhando para você.^000000";
 			close;
 		}
 		mes "[Faltando, o limpador]";
@@ -300,92 +300,92 @@ mal_in01,160,34,4	script	Missing, the Cleaner	545,{
 		mes "Limpeza dos bueiros. Mas a";
 		mes "Cat's tem que fazer isso ...";
 		next;
-		select("Que bueiro vocÃª estÃ¡ limpando?");
+		select("Que bueiro você está limpando?");
 		mes "[Faltando, o limpador]";
 		mes "Pode parecer desconhecido para um";
 		mes "estranho, mas na verdade este lugar";
-		mes "Ã© feito para manter lembranÃ§as e";
+		mes "é feito para manter lembranças e";
 		mes "coisas luxuosas.";
 		next;
 		mes "[Faltando, o limpador]";
 		mes "Depois que houve um grande tremor em";
-		mes "Esta ilha, as coisas comeÃ§aram a vazar";
-		mes "por aqui. EntÃ£o Ã© por isso que me tornei";
+		mes "Esta ilha, as coisas começaram a vazar";
+		mes "por aqui. Então é por isso que me tornei";
 		mes "a cleaner here, though I used";
 		mes "ser um gerente.";
 		next;
 		mes "^660066 O gato parece estar chorando ...^000000";
 		next;
 		mes "[Faltando, o limpador]";
-		mes "HÃ¡ um bueiro ao longo dessa maneira";
-		mes "para o porÃ£o. Existem muitos ruins";
+		mes "Há um bueiro ao longo dessa maneira";
+		mes "para o porão. Existem muitos ruins";
 		mes "caras que me machucaram. Estou cansado de";
 		mes "brigando com eles tantas vezes um";
 		mes "dia!";
 		next;
 		mes "[Faltando, o limpador]";
-		mes "Oh! VocÃª tocou meu pÃªlo!";
-		mes "Meu pÃªlo estÃ¡ caindo ... Ã© tudo";
+		mes "Oh! Você tocou meu pêlo!";
+		mes "Meu pêlo está caindo ... é tudo";
 		mes "culpa daqueles caras ~";
 		next;
-		mes "^660066 VocÃª agora percebe que o pÃªlo do gato estÃ¡ faltando em alguns lugares.^000000";
+		mes "^660066 Você agora percebe que o pêlo do gato está faltando em alguns lugares.^000000";
 		next;
-		select("Por que vocÃª nÃ£o desiste!");
+		select("Por que você não desiste!");
 		mes "[Faltando, o limpador]";
-		mes "Eu ainda tenho que ganhar a vida, nÃ£o Ã©?";
+		mes "Eu ainda tenho que ganhar a vida, não é?";
 		next;
 		mes "[Faltando, o limpador]";
-		mes "Ã€s vezes eu posso obter uma caixa de sorte,";
+		mes "Às vezes eu posso obter uma caixa de sorte,";
 		mes "Ou melhor ainda, posso conseguir latas ...";
 		next;
-		if(select("Ok, felicidades !: Vou ajudar se possÃ­vel ...") == 1) {
+		if(select("Ok, felicidades !: Vou ajudar se possível ...") == 1) {
 			mes "[Faltando, o limpador]";
-			mes "Obrigado. Estou voltando para derramar a Ã¡gua!";
+			mes "Obrigado. Estou voltando para derramar a água!";
 			close;
 		}
 		mes "[Faltando, o limpador]";
 		mes "(abaixa sua voz)";
-		mes "Se vocÃª realmente quer ajudar, chegue mais perto!";
+		mes "Se você realmente quer ajudar, chegue mais perto!";
 		next;
 		select("(entre mais perto)");
 		mes "[Faltando, o limpador]";
 		mes "Nem todo mundo pode ser um assistente";
-		mes "aqui. Mas nÃ£o posso deixar de escolher";
+		mes "aqui. Mas não posso deixar de escolher";
 		mes "Qualquer pessoa no momento ...";
 		next;
 		mes "[Faltando, o limpador]";
-		mes "Se vocÃª quiser descer aqui, deixe -me obter esse cÃ³digo.";
+		mes "Se você quiser descer aqui, deixe -me obter esse código.";
 		next;
-		mes "^660066 O gato rabisca um memorando para o cÃ³digo para vocÃª.^000000";
+		mes "^660066 O gato rabisca um memorando para o código para você.^000000";
 		next;
 		select("Abra o memorando.");
 		mes "^660000aragam me insultou.^000000";
 		next;
 		mes "[Faltando, o limpador]";
-		mes "VocÃª deve estar aqui com amigos";
-		mes "Porque vocÃª nÃ£o pode entrar sozinho! E";
-		mes "O cÃ³digo de senha serÃ¡ do";
-		mes "lÃ­der do partido!";
+		mes "Você deve estar aqui com amigos";
+		mes "Porque você não pode entrar sozinho! E";
+		mes "O código de senha será do";
+		mes "líder do partido!";
 		next;
 		mes "[Faltando, o limpador]";
-		mes "O que tambÃ©m Ã© importante Ã© que vocÃª deve";
-		mes "Tenha uma proteÃ§Ã£o de Seagod com vocÃª.";
+		mes "O que também é importante é que você deve";
+		mes "Tenha uma proteção de Seagod com você.";
 		next;
 		mes "[Faltando, o limpador]";
-		mes "NÃ£o se esqueÃ§a! Eu nÃ£o vou abrir o";
-		mes "Porta se vocÃª nÃ£o tiver proteÃ§Ã£o de Seagod!";
+		mes "Não se esqueça! Eu não vou abrir o";
+		mes "Porta se você não tiver proteção de Seagod!";
 		set in_canal_n,1;
 		close;
 	}
 	if (rentalcountitem(6436) == 0) {
 		mes "[Faltando, o limpador]";
-		mes "VocÃª nÃ£o parece ter proteÃ§Ã£o de Seagod. NÃ£o consigo abrir a porta no momento!";
+		mes "Você não parece ter proteção de Seagod. Não consigo abrir a porta no momento!";
 		close;
 	}
 	set .@party_id,getcharid(1);
 	set .@md_name$,"Bueiro";
 	if (!.@party_id) {
-		mes "^0000FF VocÃª tem que organizar uma festa de";
+		mes "^0000FF Você tem que organizar uma festa de";
 		mes "mais de 1 membro ou ser um membro";
 		mes "da festa e volte.^000000";
 		close;
@@ -394,9 +394,9 @@ mal_in01,160,34,4	script	Missing, the Cleaner	545,{
 	if (.@playtime == -1) {
 		if (is_party_leader() == true) {
 			mes "[Faltando, o limpador]";
-			mes "Ummm? E aÃ­? Diga -me a senha se vocÃª Ã© o lÃ­der!";
+			mes "Ummm? E aí? Diga -me a senha se você é o líder!";
 			next;
-			switch(select("NÃ£o ... nada. :Aragam me insultou.")) {
+			switch(select("Não ... nada. :Aragam me insultou.")) {
 			case 1:
 				mes "[Faltando, o limpador]";
 				mes "Que novato.";
@@ -404,12 +404,12 @@ mal_in01,160,34,4	script	Missing, the Cleaner	545,{
 			case 2:
 				if (instance_create(.@md_name$) < 0) {
 					mes "Nome da festa:"+getpartyname(.@party_id);
-					mes "LÃ­der do partido:"+strcharinfo(0);
+					mes "Líder do partido:"+strcharinfo(0);
 					mes "^0000FF"+.@md_name$+"^000000 - Reserva falhou!";
 					close;
 				}
-				mes "^PerdÃ£o"+.@md_name$+"^000000 - Reserva";
-				mes "Depois de fazer a reserva, vocÃª";
+				mes "^Perdão"+.@md_name$+"^000000 - Reserva";
+				mes "Depois de fazer a reserva, você";
 				mes "tem que selecionar inserir o bueiro.";
 				close;
 			case 3:
@@ -420,13 +420,13 @@ mal_in01,160,34,4	script	Missing, the Cleaner	545,{
 			end;
 		callsub L_Enter,1;
 	} else if (.@playtime == 0 || .@playtime == 1) {
-		mes "VocÃª pode entrar no bueiro se o portÃ£o estiver aberto.";
+		mes "Você pode entrar no bueiro se o portão estiver aberto.";
 		next;
 		if(select("Digite Culvert: Cancelar") == 2)
 			close;
 		callsub L_Enter,0;
 	} else if (.@playtime == 2) {
-		mes "^0000ff O portÃ£o para o bueiro estÃ¡ aberto novamente.^000000";
+		mes "^0000ff O portão para o bueiro está aberto novamente.^000000";
 		erasequest 12254;
 		close;
 	}
@@ -437,14 +437,14 @@ L_Enter:
 		mes "Um erro desconhecido ocorreu.";
 		close;
 	case IE_NOINSTANCE:
-		mes "O portÃ£o para o bueiro ainda estÃ¡ fechado.";
-		mes "VocÃª deve esperar atÃ© poder entrar ou encontrar um lÃ­der do partido que possa criar a instÃ¢ncia.";
+		mes "O portão para o bueiro ainda está fechado.";
+		mes "Você deve esperar até poder entrar ou encontrar um líder do partido que possa criar a instância.";
 		close;
 	case IE_NOMEMBER:
 		mes "Somente membros do partido podem participar.";
 		close;
 	case IE_OK:
-		mapannounce "mal_in01", strcharinfo(0)+"da festa"+getpartyname(getcharid(1))+"estÃ¡ entrando no bueiro.",bc_map,"0 buceta 00";
+		mapannounce "mal_in01", strcharinfo(0)+"da festa"+getpartyname(getcharid(1))+"está entrando no bueiro.",bc_map,"0 buceta 00";
 		if (checkquest(12254) == -1) setquest 12254;
 		//warp "1@pump",63,98;
 		if (getarg(0) == 0) close;
@@ -457,23 +457,23 @@ L_Enter:
 1@pump,63,100,4	script	Missing, the Cleaner#0	545,{
 	if (is_party_leader() == false) {
 		mes "[Faltando, o limpador]";
-		mes "Estou tentando conversar com seu lÃ­der agora. Por favor, nÃ£o perturbe e espere!";
+		mes "Estou tentando conversar com seu líder agora. Por favor, não perturbe e espere!";
 		close;
 	}
 	mes "[Faltando, o limpador]";
-	mes "Este Ã© o bueiro subterrÃ¢neo onde vocÃª limparÃ¡ com seus amigos!";
+	mes "Este é o bueiro subterrâneo onde você limpará com seus amigos!";
 	next;
 	mes "[Faltando, o limpador]";
-	mes "Vou abrir a porta primeiro. A propÃ³sito, vocÃª sabe lutar?";
+	mes "Vou abrir a porta primeiro. A propósito, você sabe lutar?";
 	next;
-	switch(select("Eu sou muito bom em entregar pÃ£o.")) {
+	switch(select("Eu sou muito bom em entregar pão.")) {
 	case 1:
 		mes "[Faltando, o limpador]";
-		mes "Ok, entÃ£o vou deixar vocÃª limpar os bueiros aqui, como sempre! Vou me preparar no canto direito, por favor, siga-me!";
+		mes "Ok, então vou deixar você limpar os bueiros aqui, como sempre! Vou me preparar no canto direito, por favor, siga-me!";
 		next;
-		if(select("Espere! Eu mudei de idÃ©ia !: Como vocÃª deseja ~") == 1) {
+		if(select("Espere! Eu mudei de idéia !: Como você deseja ~") == 1) {
 			mes "[Faltando, o limpador]";
-			mes "Huh? Ainda nÃ£o estÃ¡ pronto? Fale comigo novamente quando estiver pronto.";
+			mes "Huh? Ainda não está pronto? Fale comigo novamente quando estiver pronto.";
 			close;
 		}
 		set 'party_id,getcharid(1);
@@ -484,16 +484,16 @@ L_Enter:
 	case 2:
 		if (BaseLevel < 140) {
 			mes "[Faltando, o limpador]";
-			mes "Hmmm ... Falta pensa que vocÃª Ã© fraco! Diga -me a verdade !!";
+			mes "Hmmm ... Falta pensa que você é fraco! Diga -me a verdade !!";
 			close;
 		}
 		mes "[Faltando, o limpador]";
-		mes "Huh? VocÃª tem algumas habilidades de luta? Bem, entÃ£o, hÃ¡ um lugar que eu nÃ£o consegui limpar ... por que vocÃª nÃ£o vai lÃ¡?!";
+		mes "Huh? Você tem algumas habilidades de luta? Bem, então, há um lugar que eu não consegui limpar ... por que você não vai lá?!";
 		next;
 		mes "[Faltando, o limpador]";
-		mes "Devo dizer -lhe que faz um tempo tÃ£o longo, desde que limpamos esse lugar, para que qualquer pessoa abaixo do nÃ­vel 140 nÃ£o possa entrar! Tem certeza de que ainda quer ir?";
+		mes "Devo dizer -lhe que faz um tempo tão longo, desde que limpamos esse lugar, para que qualquer pessoa abaixo do nível 140 não possa entrar! Tem certeza de que ainda quer ir?";
 		next;
-		if(select("Espere! Eu mudei de idÃ©ia !: Claro, jÃ¡ estou preparado ~") == 1) {
+		if(select("Espere! Eu mudei de idéia !: Claro, já estou preparado ~") == 1) {
 			mes "[Faltando, o limpador]";
 			mes "Hum? Fale comigo novamente quando estiver pronto.";
 			close;
@@ -505,7 +505,7 @@ L_Enter:
 		close;
 	case 3:
 		mes "[Faltando, o limpador]";
-		mes "Eu te disse para nÃ£o brincar comigo ~!";
+		mes "Eu te disse para não brincar comigo ~!";
 		close;
 	}
 	end;
@@ -527,41 +527,41 @@ OnTouch:
 
 function	script	F_mal_missing	{
 	mes "[Faltando, o limpador]";
-	mes "Vou lhe dizer como limpar em breve. VocÃª pode ver os bueiros ao seu redor?";
+	mes "Vou lhe dizer como limpar em breve. Você pode ver os bueiros ao seu redor?";
 	next;
 	if(select("O que bueiro ??: Sim, eu os vejo.") == 1) {
 		mes "[Faltando, o limpador]";
-		mes "Huh? Esta Ã© a sua primeira vez vendo bueiros? VocÃª verÃ¡ muitas mÃ¡quinas enterradas no chÃ£o. VocÃª pode olhar em volta e voltar!";
+		mes "Huh? Esta é a sua primeira vez vendo bueiros? Você verá muitas máquinas enterradas no chão. Você pode olhar em volta e voltar!";
 		close;
 	}
 	mes "[Faltando, o limpador]";
-	mes "Isso mesmo! Esses bueiros sÃ£o muito importantes! Devemos limpar os bueiros para impedir que as algas marinhas os bloqueassem. Ã‰ isso que nÃ³s, limpadores, fazemos!";
+	mes "Isso mesmo! Esses bueiros são muito importantes! Devemos limpar os bueiros para impedir que as algas marinhas os bloqueassem. É isso que nós, limpadores, fazemos!";
 	next;
 	mes "[Faltando, o limpador]";
-	mes "AtenÃ§Ã£o! Alguns monstros estarÃ£o atrÃ¡s de vocÃª enquanto vocÃª estiver limpando os bueiros! Mas nÃ£o ceda a eles!";
+	mes "Atenção! Alguns monstros estarão atrás de você enquanto você estiver limpando os bueiros! Mas não ceda a eles!";
 	next;
 	mes "[Faltando, o limpador]";
-	mes "E ... nunca deixe 6 algas marinhas empilharem! AtÃ© 5 Ã© aceitÃ¡vel! Se houver 6, eu vou arrastÃ¡ -lo para fora daqui !!";
+	mes "E ... nunca deixe 6 algas marinhas empilharem! Até 5 é aceitável! Se houver 6, eu vou arrastá -lo para fora daqui !!";
 	next;
 	mes "[Faltando, o limpador]";
-	mes "NÃ£o me importo se vocÃª recebe ajuda de seus amigos ou nÃ£o. Eu quero que vocÃª limpe todos os bueiros! NÃ£o se esqueÃ§a! Vou assistir vocÃª e lhe dar instruÃ§Ãµes. Apenas faÃ§a o que eu disse !!";
+	mes "Não me importo se você recebe ajuda de seus amigos ou não. Eu quero que você limpe todos os bueiros! Não se esqueça! Vou assistir você e lhe dar instruções. Apenas faça o que eu disse !!";
 	next;
 	if (is_party_leader() == false) {
 		mes "[Faltando, o limpador]";
-		mes "Quando seu lÃ­der terminar de se preparar, ele comeÃ§arÃ¡, entÃ£o prepare seus coraÃ§Ãµes para isso !!";
+		mes "Quando seu líder terminar de se preparar, ele começará, então prepare seus corações para isso !!";
 		close;
 	}
 	mes "[Faltando, o limpador]";
-	mes "EntÃ£o, vocÃª estÃ¡ pronto para limpar agora?";
+	mes "Então, você está pronto para limpar agora?";
 	next;
-	switch(select("Espere! Ainda nÃ£o!: Vamos comeÃ§ar!")) {
+	switch(select("Espere! Ainda não!: Vamos começar!")) {
 	case 1:
 		mes "[Faltando, o limpador]";
-		mes "Huh? Ainda nÃ£o estÃ¡ pronto? EntÃ£o fale comigo quando estiver pronto.";
+		mes "Huh? Ainda não está pronto? Então fale comigo quando estiver pronto.";
 		close;
 	case 2:
 		mes "[Faltando, o limpador]";
-		mes "OK! Agora comeÃ§a!";
+		mes "OK! Agora começa!";
 		return;
 	}
 }
@@ -570,27 +570,27 @@ function	script	F_mal_missing	{
 //============================================================
 1@pump,84,105,4	script	Missing, the Cleaner#nf	545,{
 	mes "[Faltando, o limpador]";
-	mes "Eu tenho o trabalho de limpeza por 40 anos e nunca vi uma equipe tÃ£o terrÃ­vel !!";
+	mes "Eu tenho o trabalho de limpeza por 40 anos e nunca vi uma equipe tão terrível !!";
 	next;
 	mes "[Faltando, o limpador]";
-	mes "Eu vejo algas marinhas em todos os lugares porque vocÃª estÃ¡ mexendo! Todos os bueiros serÃ£o bloqueados com algas marinhas!";
+	mes "Eu vejo algas marinhas em todos os lugares porque você está mexendo! Todos os bueiros serão bloqueados com algas marinhas!";
 	next;
 	if (is_party_leader() == false) {
 		mes "[Faltando, o limpador]";
-		mes "Depois que seu lÃ­der terminar de se preparar, o assentamento serÃ¡ decidido, entÃ£o prepare seus coraÃ§Ãµes para isso !!";
+		mes "Depois que seu líder terminar de se preparar, o assentamento será decidido, então prepare seus corações para isso !!";
 		close;
 	}
 	mes "[Faltando, o limpador]";
-	mes "Se vocÃª tiver alguma coragem para desafiar novamente, eu te darei outra chance! Qual serÃ¡ a sua escolha!?";
+	mes "Se você tiver alguma coragem para desafiar novamente, eu te darei outra chance! Qual será a sua escolha!?";
 	next;
-	switch(select("Espere! Ainda nÃ£o!: Ok, vamos comeÃ§ar de novo!")) {
+	switch(select("Espere! Ainda não!: Ok, vamos começar de novo!")) {
 	case 1:
 		mes "[Faltando, o limpador]";
-		mes "VocÃª ainda estÃ¡ lento! Fale comigo novamente sempre que estiver pronto.";
+		mes "Você ainda está lento! Fale comigo novamente sempre que estiver pronto.";
 		close;
 	case 2:
 		mes "[Faltando, o limpador]";
-		mes "OK! Vamos comeÃ§ar agora!";
+		mes "OK! Vamos começar agora!";
 		set .@i$, charat(strnpcinfo(2),0);
 		enablenpc instance_npcname("Missing, the Cleaner#"+.@i$);
 		donpcevent instance_npcname("Missing, the Cleaner#"+.@i$)+"::OnStart";
@@ -635,7 +635,7 @@ OnFail:
 	set .@map$, instance_mapname("1@pump");
 	killmonster .@map$,instance_npcname("Missing, the Cleaner#n")+"::OnMyMobDead";
 	enablenpc instance_npcname("Missing, the Cleaner#nf");
-	mapannounce .@map$,"O que Ã© isso!! As algas marinhas estÃ£o em todo o bueiro! VocÃª terminou a limpeza! Sair!!",bc_map,"0xff88ff",FW_NORMAL,15;
+	mapannounce .@map$,"O que é isso!! As algas marinhas estão em todo o bueiro! Você terminou a limpeza! Sair!!",bc_map,"0xff88ff",FW_NORMAL,15;
 	disablenpc instance_npcname("Missing, the Cleaner#n");
 	end;
 OnTimer100:
@@ -676,7 +676,7 @@ OnTimer450000:
 OnTimer515000:
 	set .@map$, instance_mapname("1@pump");
 	set .@mob_dead_num, mobcount(.@map$,instance_npcname("Missing, the Cleaner#n")+"::OnMyMobDead");
-	mapannounce .@map$,"Algas marinhas contaminadas:"+.@mob_dead_num+"tronco. A falta virÃ¡ e inspecionarÃ¡ os resultados da limpeza em breve.",bc_map,"0 como tolo",FW_NORMAL,20;
+	mapannounce .@map$,"Algas marinhas contaminadas:"+.@mob_dead_num+"tronco. A falta virá e inspecionará os resultados da limpeza em breve.",bc_map,"0 como tolo",FW_NORMAL,20;
 	end;
 OnTimer520000:
 	stopnpctimer;
@@ -790,7 +790,7 @@ OnTimer5000:
 	mapannounce strnpcinfo(4),"Vamos fazer as malas e ir ... o que !!?",bc_map,"0xff88ff",FW_NORMAL,15;
 	end;
 OnTimer10000:
-	mapannounce strnpcinfo(4),"Sinto algo estranho !! NÃ£o se solte-- Prepare-se para uma luta !!",bc_map,"0xff88ff",FW_NORMAL,15;
+	mapannounce strnpcinfo(4),"Sinto algo estranho !! Não se solte-- Prepare-se para uma luta !!",bc_map,"0xff88ff",FW_NORMAL,15;
 	end;
 OnTimer20000:
 	stopnpctimer;
@@ -812,7 +812,7 @@ OnTimer20000:
 	end;
 OnMyMobDead:
 	if (mobcount(strnpcinfo(4),instance_npcname(strnpcinfo(0))+"::OnMyMobDead") < 1) {
-		mapannounce strnpcinfo(4),"VocÃª destruiu todos os monstros nos bueiros. HÃ¡ trofÃ©us deitados no chÃ£o, por favor, procure por eles.",bc_map,"0xffff00",FW_NORMAL,15;
+		mapannounce strnpcinfo(4),"Você destruiu todos os monstros nos bueiros. Há troféus deitados no chão, por favor, procure por eles.",bc_map,"0xffff00",FW_NORMAL,15;
 		set .@i$, charat(strnpcinfo(2),0);
 		set .@map$, strnpcinfo(4);
 		enablenpc instance_npcname("Culvert Entrance#"+.@i$);
@@ -841,7 +841,7 @@ OnMyMobDead:
 			}
 		}
 	} else
-		mapannounce strnpcinfo(4),"Ainda hÃ¡ monstros vivos.",bc_map,"0 buceta 00",FW_NORMAL,20;
+		mapannounce strnpcinfo(4),"Ainda há monstros vivos.",bc_map,"0 buceta 00",FW_NORMAL,20;
 	end;
 }
 
@@ -852,24 +852,24 @@ OnMyMobDead:
 		mes "Fiquei muito surpreso !!";
 		next;
 		mes "[Faltando, o limpador]";
-		mes "Esse peixe de aparÃªncia engraÃ§ada parece ser um dos coelacanths que moram por aqui. Esta Ã© a primeira vez que vendo um chegando aqui sozinho!";
+		mes "Esse peixe de aparência engraçada parece ser um dos coelacanths que moram por aqui. Esta é a primeira vez que vendo um chegando aqui sozinho!";
 		next;
 		mes "[Faltando, o limpador]";
-		mes "Vou limpar os restos mortais. VÃ¡ embalar e sair! Enterrance estÃ¡ localizado do outro lado, procure!";
+		mes "Vou limpar os restos mortais. Vá embalar e sair! Enterrance está localizado do outro lado, procure!";
 		next;
 	} else if (.@i$ == "h") {
 		mes "[Faltando, o limpador]";
-		mes "VocÃª destruiu um imenso monstro!";
+		mes "Você destruiu um imenso monstro!";
 		next;
 		mes "[Faltando, o limpador]";
-		mes "O que vocÃª destruiu estava entre a variedade de coelacanths. Outros tentaram destruÃ­ -los, mas falharam.";
+		mes "O que você destruiu estava entre a variedade de coelacanths. Outros tentaram destruí -los, mas falharam.";
 		next;
 		mes "[Faltando, o limpador]";
-		mes "Vou limpar os restos mortais. VocÃª vai em frente para pegar trofÃ©us e sair!";
+		mes "Vou limpar os restos mortais. Você vai em frente para pegar troféus e sair!";
 		next;
 	}
 	mes "[Faltando, o limpador]";
-	mes "Mais uma coisa! NÃ£o fale com ninguÃ©m sobre o que vocÃª viu aqui hoje !!";
+	mes "Mais uma coisa! Não fale com ninguém sobre o que você viu aqui hoje !!";
 	next;
 	mes "[Faltando, o limpador]";
 	mes "Se Tomas fechar isso, perderemos nossos empregos!";
@@ -918,7 +918,7 @@ OnFail:
 	set .@map$, instance_mapname("2@pump");
 	killmonster .@map$, instance_npcname("Missing, the Cleaner#h")+"::OnMyMobDead";
 	enablenpc instance_npcname("Missing, the Cleaner#hf");
-	mapannounce .@map$,"O que Ã© isso!! As algas marinhas estÃ£o em todo o bueiro! VocÃª terminou a limpeza! Sair!!",bc_map,"0xff88ff",FW_NORMAL,15;
+	mapannounce .@map$,"O que é isso!! As algas marinhas estão em todo o bueiro! Você terminou a limpeza! Sair!!",bc_map,"0xff88ff",FW_NORMAL,15;
 	disablenpc instance_npcname("Missing, the Cleaner#h");
 	end;
 OnTimer100:

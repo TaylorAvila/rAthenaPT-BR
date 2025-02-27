@@ -91,7 +91,7 @@ OnInit:
 // -----------------------------------------------------------
 
 // Region function defines the region of the castle defined by Castle function.
-// Region("<Nome da regi√£o>");
+// Region("<Nome da regi„o>");
 // Castle("<castle map name>", "<event name when woe end>", "<event killmonster name>", "<map name special warp>",<x>,<y>)
 
 	Region("Prontera");
@@ -101,7 +101,7 @@ OnInit:
 		Castle("PRTG_CAS04", "AGIT#PRTG_CAS04 :: ONAGITEND", "AGIT#PRTG_CAS04 :: OnAGitBreak", "prt_gld",111,240);
 		Castle("PRTG_CAS05", "AGIT#PRTG_CAS05 :: ONAGITEND", "AGIT#PRTG_CAS05 :: OnAGitBreak", "prt_gld",208,240);
 	Region("Teto");
-		Castle("payg_cas01", "Agit # payg_cas01 :: onagitend", "An√°lise de Concordo_: 1: Cove", "pay_gld",121,233);
+		Castle("payg_cas01", "Agit # payg_cas01 :: onagitend", "An·lise de Concordo_: 1: Cove", "pay_gld",121,233);
 		Castle("Payg_cas02", "ACT#Payg_Cas02 :: ONAGITEN", "Agit # payg_cas02 :: onagitbreak", "pay_gld",295,116);
 		Castle("Payg_cas03", "ACT#Payg_CAS03 :: ONAGITEN", "Agit # payg_cas03 :: onagitbreak", "pay_gld",317,293);
 		Castle("payg_cas04", "ACT#Payg_Cas04 :: ONAGITEN", "AGIT#PAYG_CAS04 :: OnAGitBreak", "pay_gld",140,160);
@@ -146,7 +146,7 @@ OnInit:
 			Castle("te_aldecas5", "Gerente_te#w :: onagitend3",		"Gerente_te#w :: onagitbreak",		"te_alde_gld",264,90);
 	}
 
-	setarray .Days$[0],"Domingo","Segunda-feira","Ter√ßa-feira","Quarta-feira","Quinta-feira","Sexta-feira","S√°bado";
+	setarray .Days$[0],"Domingo","Segunda-feira","TerÁa-feira","Quarta-feira","Quinta-feira","Sexta-feira","S·bado";
 
 // -----------------------------------------------------------
 
@@ -195,7 +195,7 @@ OnMinute00:
 				deletearray .Active[0],2;
 				set .Active[0], $WOE_CONTROL[.@i+3];
 				if (.Init) { AgitEnd; AgitEnd2; AgitEnd3; }
-				else announce "A Guerra do Empeio come√ßou!",bc_all|bc_woe;
+				else announce "A Guerra do Empeio comeÁou!",bc_all|bc_woe;
 				sleep 1000;
 				AgitStart; AgitStart2; AgitStart3;
 				for(set .@j,0; .@j<.total_castle; set .@j,.@j+1) {
@@ -216,8 +216,8 @@ OnMinute00:
 
 function Disp_Owner {
 	set .@o, getcastledata(getarg(0),1);
-	if (.@o) announce "O ["+getcastlename(getarg(0))+"] Castelo"+((getarg(1))?"foi conquistado":"est√° atualmente mantido")+"pelo ["+getguildname(.@o)+"] Guild.",bc_all|bc_woe;
-	else announce "O ["+getcastlename(getarg(0))+"] Castle est√° atualmente desocupado.",bc_all|bc_woe;
+	if (.@o) announce "O ["+getcastlename(getarg(0))+"] Castelo"+((getarg(1))?"foi conquistado":"est· atualmente mantido")+"pelo ["+getguildname(.@o)+"] Guild.",bc_all|bc_woe;
+	else announce "O ["+getcastlename(getarg(0))+"] Castle est· atualmente desocupado.",bc_all|bc_woe;
 	return;
 }
 function Add_Zero {
@@ -226,11 +226,11 @@ function Add_Zero {
 function Castle {
 	.@map$ = getarg(0);
 	if (getd( "." + .@map$ ) > 0) {
-		debugmes sprintf("Awo_control: mapa %s j√° definido.", .@map$);
+		debugmes sprintf("Awo_control: mapa %s j· definido.", .@map$);
 		return;
 	}
 	if (.total_castle > 61) {
-		debugmes sprintf("OME_CONTROL: M√°ximo de 62 castelos definidos, %S pulou.", .@map$);
+		debugmes sprintf("OME_CONTROL: M·ximo de 62 castelos definidos, %S pulou.", .@map$);
 		return;
 	}
 	.Castles$[.total_castle] = .@map$;
@@ -325,7 +325,7 @@ OnReward:
 						.@charid = .@cid[.@j];
 						.@sender$ = "no-reply";
 						.@title$ = "** Recompensa de cerco:"+getcastlename(.Castles$[.@i])+"**";
-						.@body$ = "Brave um, \ r \ n \ r \ n parab√©ns!"+.@str$+". \ r \ n \ r \ n \ r \ n \ r \ n \ r \ n [sua recompensa est√° anexada. ]";
+						.@body$ = "Brave um, \ r \ n \ r \ n parabÈns!"+.@str$+". \ r \ n \ r \ n \ r \ n \ r \ n \ r \ n [sua recompensa est· anexada. ]";
 
 						if (.reward_id_size)
 							mail .@charid, .@sender$, .@title$, .@body$, .reward_zeny, .reward_id, .reward_amount;
@@ -334,7 +334,7 @@ OnReward:
 
 						if (PACKETVER < 20150513 && !getd(".@str_"+.@cid[.@j]) && .@online) {
 							setd ".@str_"+.@cid[.@j],1;
-							message rid2name(.@aid[.@j]),"Voc√™ tem correio!";
+							message rid2name(.@aid[.@j]),"VocÍ tem correio!";
 						}
 					}
 				}
@@ -346,10 +346,10 @@ OnReward:
 						if (checkweight(.reward_id[.@k], .reward_amount[.@k]))
 							getitem .reward_id[.@k], .reward_amount[.@k];
 						else
-							dispbottom "Voc√™ n√£o pode receber x" + .reward_amount[.@k] + "" + getitemname(.reward_id[.@k]) + "para conquistar" + .@castle_name$ + "Porque voc√™ est√° acima do peso.";
+							dispbottom "VocÍ n„o pode receber x" + .reward_amount[.@k] + "" + getitemname(.reward_id[.@k]) + "para conquistar" + .@castle_name$ + "Porque vocÍ est· acima do peso.";
 					}
 					Zeny += .reward_zeny;
-					dispbottom "Voc√™ foi recompensado por conquistar" + .@castle_name$ + ".";
+					dispbottom "VocÍ foi recompensado por conquistar" + .@castle_name$ + ".";
 				}
 			}
 		}
@@ -362,7 +362,7 @@ OnPCLoadMapEvent:
 		if (getcharid(2) && getcastledata(strcharinfo(3),1) == getcharid(2)) end;
 		.@castle_name$ = getcastlename(strcharinfo(3));
 		sleep2 1000;
-		message strcharinfo(0), .@castle_name$ + "est√° atualmente inativo.";
+		message strcharinfo(0), .@castle_name$ + "est· atualmente inativo.";
 		sleep2 5000;
 		if (compare(strcharinfo(3),"g_cas")) warp "SavePoint",0,0;
 	}
@@ -370,7 +370,7 @@ OnPCLoadMapEvent:
 
 OnMenu:
 while(1) {
-	mes "[Informa√ß√µes de ai]";
+	mes "[InformaÁıes de ai]";
 	if (agitcheck() || agitcheck2() || agitcheck3()) {
 		if (.Active[0]) {
 			for(set .@i,0; .@i<.Size; set .@i,.@i+4) {
@@ -379,12 +379,12 @@ while(1) {
 					break;
 				}
 			}
-			mes "A guerra do Empeio √© ^0055ffactive ^000000 at√© ^ff0000"+Add_Zero(.@i)+"^000000 nas seguintes regi√µes:";
+			mes "A guerra do Empeio È ^0055ffactive ^000000 atÈ ^ff0000"+Add_Zero(.@i)+"^000000 nas seguintes regiıes:";
 			mes "";
 			for(set .@i,0; .@i < .total_region; set .@i,.@i+1)
 				if (.Active[1]&(1<<.@i)) mes "> ^777777"+.Regions$[.@i]+"^000000";
 		} else
-			mes "A guerra do Empeio √© ^0055ffactive ^000000.";
+			mes "A guerra do Empeio È ^0055ffactive ^000000.";
 	} else {
 		for(set .@i,0; .@i<.Size; set .@i,.@i+4)
 			if ((gettime(DT_DAYOFWEEK) == $WOE_CONTROL[.@i] && gettime(DT_HOUR) <= $WOE_CONTROL[.@i+1]) || gettime(DT_DAYOFWEEK) < $WOE_CONTROL[.@i]) {
@@ -393,15 +393,15 @@ while(1) {
 			}
 		if (!getarraysize(.@time))
 			setarray .@time[0],$WOE_CONTROL[0],$WOE_CONTROL[1];
-		mes "A guerra do Empeio √© ^777777inActive ^000000.";
+		mes "A guerra do Empeio È ^777777inActive ^000000.";
 		if (.Size) {
 			mes "";
-			mes "A pr√≥xima sess√£o come√ßar√°";
+			mes "A prÛxima sess„o comeÁar·";
 			mes "em ^0055ff"+.Days$[.@time[0]]+"^000000 em"+Add_Zero(.@time[1])+"^000000.";
 		}
 	}
 	next;
-	switch(select(""+((.CastleWarp || .Active[1])?"~ Deforma√ß√£o para castelos ...":"")+": ~ Cheque de verifica√ß√£o ...: ~ Veja os propriet√°rios do castelo ...:"+((getgmlevel()<.GMAccess || !getgmlevel())?"":"~ Gerenciar sess√µes ...")+": ~ ^Hahakkkalcal ^000")) {
+	switch(select(""+((.CastleWarp || .Active[1])?"~ DeformaÁ„o para castelos ...":"")+": ~ Cheque de verificaÁ„o ...: ~ Veja os propriet·rios do castelo ...:"+((getgmlevel()<.GMAccess || !getgmlevel())?"":"~ Gerenciar sessıes ...")+": ~ ^Hahakkkalcal ^000")) {
 	case 1:
 		if (.CastleWarp) set .@clr$,"^0055ff";
 		set .@menu$,"";
@@ -434,7 +434,7 @@ while(1) {
 			}
 			freeloop(0);
 		} else
-			mes "N√£o h√° hor√°rios configurados.";
+			mes "N„o h· hor·rios configurados.";
 		next;
 		break;
 	case 3:
@@ -453,25 +453,25 @@ while(1) {
 		break;
 	case 4:
 	while(1) {
-		mes "[Gerente de sess√£o]";
-		mes "Existem ^0055ff"+(.Size/4)+"Sess√£o (s)^000000 configurada.";
-		mes "O que voc√™ gostaria de fazer?";
+		mes "[Gerente de sess„o]";
+		mes "Existem ^0055ff"+(.Size/4)+"Sess„o (s)^000000 configurada.";
+		mes "O que vocÍ gostaria de fazer?";
 		next;
-		switch(select("~ Adicione uma sess√£o ...: ~ Exclua uma sess√£o ...: ~ Recarregar as configura√ß√µes ...:"+((agitcheck() || agitcheck2() || agitcheck3())?"~ Sess√£o de Ai Final ...":"")+": ~ ^777777 Voltar ^000000")) {
+		switch(select("~ Adicione uma sess„o ...: ~ Exclua uma sess„o ...: ~ Recarregar as configuraÁıes ...:"+((agitcheck() || agitcheck2() || agitcheck3())?"~ Sess„o de Ai Final ...":"")+": ~ ^777777 Voltar ^000000")) {
 		case 1:
-			mes "[Nova sess√£o]";
+			mes "[Nova sess„o]";
 			mes "Selecione um dia.";
 			next;
 			set .@Day, select("~"+implode(.Days$,": ~"))-1;
-			mes "[Nova sess√£o]";
-			mes "Selecione um hor√°rio de in√≠cio para ^0055ff"+.Days$[.@Day]+"^000000.";
+			mes "[Nova sess„o]";
+			mes "Selecione um hor·rio de inÌcio para ^0055ff"+.Days$[.@Day]+"^000000.";
 			next;
 			set .@menu$,"";
 			for(set .@i,0; .@i<23; set .@i,.@i+1)
 				set .@menu$, .@menu$+"~"+Add_Zero(.@i,1)+":";
 			set .@Start, select(.@menu$)-1;
-			mes "[Nova sess√£o]";
-			mes "Selecione um hor√°rio de t√©rmino para ^0055ff"+.Days$[.@Day]+"^000000.";
+			mes "[Nova sess„o]";
+			mes "Selecione um hor·rio de tÈrmino para ^0055ff"+.Days$[.@Day]+"^000000.";
 			next;
 			set .@menu$,"";
 			for(set .@i,.@Start+1; .@i<24; set.@i,.@i+1)
@@ -482,8 +482,8 @@ while(1) {
 				   ((.@Start >= $WOE_CONTROL[.@i+1] && .@Start < $WOE_CONTROL[.@i+2]) ||
 				    (.@End > $WOE_CONTROL[.@i+1] && .@End <= $WOE_CONTROL[.@i+2]) ||
 				    (.@Start <= $WOE_CONTROL[.@i+1] && .@End >= $WOE_CONTROL[.@i+2]))) {
-					mes "[Nova sess√£o]";
-					mes "Os tempos escolhidos se sobrep√µem a uma sess√£o existente.";
+					mes "[Nova sess„o]";
+					mes "Os tempos escolhidos se sobrepıem a uma sess„o existente.";
 					next;
 					set .@d,1;
 					break;
@@ -491,7 +491,7 @@ while(1) {
 			if (.@d) { set .@d,0; break; }
 			set .@Castle,0;
 			while(1) {
-				mes "[Nova sess√£o]";
+				mes "[Nova sess„o]";
 				mes "^0055ff"+.Days$[.@Day]+"("+Add_Zero(.@Start)+"-"+Add_Zero(.@End)+")^000000";
 				mes "> Castelos:";
 				if (!.@Castle)
@@ -510,10 +510,10 @@ while(1) {
 				if (.@i)
 					set .@Castle, .@Castle^(1<<(.@i-1));
 				else {
-					mes "[Nova sess√£o]";
+					mes "[Nova sess„o]";
 					mes "Tem certeza?";
 					next;
-					switch(select("~ ^0055ffadd Sess√£o ... ^000000: ~ Continue selecionando castelos ...: ~ ^777777cancel ^000000")) {
+					switch(select("~ ^0055ffadd Sess„o ... ^000000: ~ Continue selecionando castelos ...: ~ ^777777cancel ^000000")) {
 					case 1:
 						for(set .@i,0; .@i<.Size; set .@i,.@i+4) {
 							if ((.@Day == $WOE_CONTROL[.@i] && .@End <= $WOE_CONTROL[.@i+1]) || .@Day < $WOE_CONTROL[.@i]) {
@@ -526,8 +526,8 @@ while(1) {
 						setarray $WOE_CONTROL[.@i], .@Day, .@Start, .@End, .@Castle;
 						set .Size, getarraysize($WOE_CONTROL);
 					case 3:
-						mes "[Nova sess√£o]";
-						mes ((.@d)?"Sess√£o adicionada.":"cancelado.");
+						mes "[Nova sess„o]";
+						mes ((.@d)?"Sess„o adicionada.":"cancelado.");
 						next;
 						set .@d,1;
 					case 2:
@@ -538,13 +538,13 @@ while(1) {
 			}
 			break;
 		case 2:
-			mes "[Remover sess√£o]";
+			mes "[Remover sess„o]";
 			if (!.Size) {
-				mes "N√£o h√° sess√µes configuradas.";
+				mes "N„o h· sessıes configuradas.";
 				next;
 				break;
 			}
-			mes "Selecione uma sess√£o para remover.";
+			mes "Selecione uma sess„o para remover.";
 			next;
 			set .@menu$,"";
 			for(set .@i,0; .@i<.Size; set .@i,.@i+4)
@@ -552,58 +552,58 @@ while(1) {
 			set .@menu$, .@menu$+"~ ^Hahakknak ^000";
 			set .@i, select(.@menu$)-1;
 			if (.@i == (.Size/4)) break;
-			mes "[Remover sess√£o]";
-			mes "Exclua ^0055ff"+.Days$[$WOE_CONTROL[.@i*4]]+"'S^000000 Sess√£o?";
-			mes "Esta a√ß√£o n√£o pode ser desfeita.";
+			mes "[Remover sess„o]";
+			mes "Exclua ^0055ff"+.Days$[$WOE_CONTROL[.@i*4]]+"'S^000000 Sess„o?";
+			mes "Esta aÁ„o n„o pode ser desfeita.";
 			next;
-			set .@j, select("~ ^Ff0000DELETE Sess√£o ... ^000000: ~ ^777777 CANCEL ^000000");
-			mes "[Remover sess√£o]";
+			set .@j, select("~ ^Ff0000DELETE Sess„o ... ^000000: ~ ^777777 CANCEL ^000000");
+			mes "[Remover sess„o]";
 			if (.@j == 2)
 				mes "cancelado.";
 			else {
 				deletearray $WOE_CONTROL[.@i*4],4;
 				set .Size, getarraysize($WOE_CONTROL);
-				mes "Sess√£o exclu√≠da.";
+				mes "Sess„o excluÌda.";
 			}
 			next;
 			break;
 		case 3:
-			mes "[Recarregar as configura√ß√µes]";
-			mes "Isso acionar√° todos os eventos relacionados a novas configura√ß√µes de sess√£o, se houver.";
+			mes "[Recarregar as configuraÁıes]";
+			mes "Isso acionar· todos os eventos relacionados a novas configuraÁıes de sess„o, se houver.";
 			if (agitcheck() || agitcheck2() || agitcheck3()) {
 				mes "";
-				mes "Esteja ciente de que isso atrapalhar√° a sess√£o atual.";
+				mes "Esteja ciente de que isso atrapalhar· a sess„o atual.";
 			}
 			next;
-			set .@i, select("~ ^0055ffreload Configura√ß√µes ... ^000000: ~ ^777777 CANCEL ^000000");
-			mes "[Recarregar as configura√ß√µes]";
+			set .@i, select("~ ^0055ffreload ConfiguraÁıes ... ^000000: ~ ^777777 CANCEL ^000000");
+			mes "[Recarregar as configuraÁıes]";
 			if (.@i == 2) mes "cancelado.";
 			else {
 				set .Init,1;
 				donpcevent "WOE_CONTROL::OnMinute00";
-				mes "As vari√°veis ‚Äã‚Äãforam reinicalizadas.";
+				mes "As vari·veis foram reinicalizadas.";
 			}
 			next;
 			break;
 		case 4:
 			mes "[Force AGIT END]";
 			if (!agitcheck() && !agitcheck2() && !agitcheck3())  {
-				mes "Ai j√° terminou.";
+				mes "Ai j· terminou.";
 				next;
 				break;
 			}
-			mes "Este comando executar√° com seguran√ßa todos os eventos agitados.";
+			mes "Este comando executar· com seguranÁa todos os eventos agitados.";
 			mes "";
-			mes "Mate a sess√£o atual?";
+			mes "Mate a sess„o atual?";
 			next;
-			set .@i, select("~ ^Ff0000end Sess√£o ... ^000000:"+((.Options&1)?"~ ^Ff0000end Sess√£o sem recompensas ... ^000000":"")+": ~ ^Hahakkkalcal ^000");
+			set .@i, select("~ ^Ff0000end Sess„o ... ^000000:"+((.Options&1)?"~ ^Ff0000end Sess„o sem recompensas ... ^000000":"")+": ~ ^Hahakkkalcal ^000");
 			mes "[Force AGIT END]";
 			if (.@i == 3)
 				mes "cancelado.";
 			else {
 				set .ForceEnd, .@i;
 				donpcevent "WOE_CONTROL::OnWOEEnd";
-				mes "Sess√£o de afli√ß√£o terminada.";
+				mes "Sess„o de afliÁ„o terminada.";
 			}
 			next;
 			break;

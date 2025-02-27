@@ -20,26 +20,26 @@ yuno,138,187,4	script	Hypnotist Teacher	124,{
 	mes @npcname$;
 
 	if(MISC_QUEST & 1024){
-		mes "Eu jÃ¡ lhe disse que vocÃª pode concluir apenas este evento uma vez.";
+		mes "Eu já lhe disse que você pode concluir apenas este evento uma vez.";
 		close;
 	}
 	if(BaseLevel < 60) {
-		mes "Por favor, volte quando chegar Ã  Baselv 60 ou superior.";
+		mes "Por favor, volte quando chegar à Baselv 60 ou superior.";
 		close;
 	}
 	if(SkillPoint != 0) {
-		mes "VocÃª precisarÃ¡ usar todos os seus pontos de habilidade se quiser que eu continue.";
+		mes "Você precisará usar todos os seus pontos de habilidade se quiser que eu continue.";
 		mes "Por favor, venha de novo em breve!";
 		close;
 	}
 	if(Weight || checkfalcon() || checkcart() || checkriding()) {
-		mes "VocÃª gostaria de redefinir habilidades?";
+		mes "Você gostaria de redefinir habilidades?";
 		mes "Sinto muito, mas ...";
 		next;
 		mes @npcname$;
 		if(Weight) {
-			mes "VocÃª nÃ£o pode redefinir habilidades";
-			mes "Quando vocÃª mantÃ©m";
+			mes "Você não pode redefinir habilidades";
+			mes "Quando você mantém";
 			mes "quaisquer itens.";
 		} else if(checkcart())
 			mes "Por favor, solte seu carrinho e continuaremos.";
@@ -52,27 +52,27 @@ yuno,138,187,4	script	Hypnotist Teacher	124,{
 		mes "Volte em breve!";
 		close;
 	}
-	mes "OlÃ¡, eu sou o reinicializador de habilidades.";
-	mes "Seu nome Ã© ^0080ff"+strcharinfo(0)+"^000000.";
-	mes "Como posso ajudÃ¡-lo?";
+	mes "Olá, eu sou o reinicializador de habilidades.";
+	mes "Seu nome é ^0080ff"+strcharinfo(0)+"^000000.";
+	mes "Como posso ajudá-lo?";
 	next;
-	menu "^009500 InformaÃ§Ã£o sobre as habilidades de redefiniÃ§Ã£o.^000000",L_Info,"^00b6ffreset Habilidades.^000000",L_Reset,"^000088NeverMind^000000",-;
+	menu "^009500 Informação sobre as habilidades de redefinição.^000000",L_Info,"^00b6ffreset Habilidades.^000000",L_Reset,"^000088NeverMind^000000",-;
 
 	mes @npcname$;
-	mes "VocÃª sabe onde me encontrar,";
-	mes "Se vocÃª quer uma redefiniÃ§Ã£o !!"; 
+	mes "Você sabe onde me encontrar,";
+	mes "Se você quer uma redefinição !!"; 
 	close;
 
 L_Info:
 	mes @npcname$;
-	mes "Esta redefiniÃ§Ã£o de habilidade nÃ£o Ã© gratuita !!";
-	mes "A despesa para a redefiniÃ§Ã£o da habilidade Ã© ^D5A50020000 Zeny x Baselv ^000000.";
+	mes "Esta redefinição de habilidade não é gratuita !!";
+	mes "A despesa para a redefinição da habilidade é ^D5A50020000 Zeny x Baselv ^000000.";
 	mes "Sim ... Cada Baselv custa 20000 Zeny para redefinir a habilidade.";
 	next;
 	mes @npcname$;
 	mes "Ah, sim, mais uma coisa!";
-	mes "Quaisquer carrinhos, falcÃµes ou pecos que vocÃª equipou";
-	mes "serÃ¡ removido se vocÃª redefinir suas habilidades.";
+	mes "Quaisquer carrinhos, falcões ou pecos que você equipou";
+	mes "será removido se você redefinir suas habilidades.";
 	next;
 	mes @npcname$;
 	mes "Apenas uma vez faz novamente para sacudir o ponto de habilidade";
@@ -81,20 +81,20 @@ L_Info:
 	
 L_Reset:
 	mes @npcname$;
-	mes "Antes da redefiniÃ§Ã£o da habilidade para comeÃ§ar.";
-	mes "VocÃª deve primeiro me dizer seu nÃ­vel base."; 
+	mes "Antes da redefinição da habilidade para começar.";
+	mes "Você deve primeiro me dizer seu nível base."; 
 	next;
 	mes "^D5a500 [" + strcharinfo(0) + "]^000000";
-	mes "Meu nÃ­vel base Ã© ^aa00Aalevel" + BaseLevel + "Basileia.^000000"; 
+	mes "Meu nível base é ^aa00Aalevel" + BaseLevel + "Basileia.^000000"; 
 	next;
 	set @zeny,BaseLevel*20000;
 	mes @npcname$;
-	mes "Zeny total para a redefiniÃ§Ã£o da quantidade de habilidade ^529dff" + @zeny + "Zeny^000000 para o serviÃ§o de redefiniÃ§Ã£o de habilidades.";
+	mes "Zeny total para a redefinição da quantidade de habilidade ^529dff" + @zeny + "Zeny^000000 para o serviço de redefinição de habilidades.";
 	next;
 	if(Zeny < @zeny) {
 		mes @npcname$;
-		mes "Parece que vocÃª nÃ£o tem dinheiro suficiente.";
-		mes "AlÃ©m disso, esperamos a oportunidade.";
+		mes "Parece que você não tem dinheiro suficiente.";
+		mes "Além disso, esperamos a oportunidade.";
 		emotion ET_SCRATCH;
 		close;
 	}
@@ -104,6 +104,6 @@ L_Reset:
 	mes @npcname$;
 	mes "Obrigado.";
 	emotion ET_THANKS;
-//	logmes "Evento de redefiniÃ§Ã£o de habilidades";
+//	logmes "Evento de redefinição de habilidades";
 	close;
 }

@@ -11,15 +11,15 @@
 xmas,240,291,3	script	Billy The Golden Hands#1	4_F_05,{
 	disable_items;
 	if (checkweight(1201,1) == 0) {
-		mes "O tipo de itens que vocÃª tem Ã© muito variado. Represente depois de reduzir o tipo de itens.";
+		mes "O tipo de itens que você tem é muito variado. Represente depois de reduzir o tipo de itens.";
 		close;
 	}
 	if ((MaxWeight - Weight) < 10000) {
-		mes "VocÃª estÃ¡ sobrecarregado, entÃ£o nÃ£o pode mais proceder. Por favor, tente novamente depois de reduzir o peso.";
+		mes "Você está sobrecarregado, então não pode mais proceder. Por favor, tente novamente depois de reduzir o peso.";
 		close;
 	}
 	mes "[Billy the Golden Hands]";
-	mes "Huhu. VocÃª trouxe algumas moedas? Eu venderia qualquer coisa alÃ©m da minha alma se vocÃª tiver moedas.";
+	mes "Huhu. Você trouxe algumas moedas? Eu venderia qualquer coisa além da minha alma se você tiver moedas.";
 	next;
 
 	setarray .@xm_item[0],
@@ -34,31 +34,31 @@ xmas,240,291,3	script	Billy The Golden Hands#1	4_F_05,{
 		523,   1,		// Holy_Water
 		12020, 1;		// Water_Of_Darkness
 
-	.@s = ( select( "Cancelar", "Caixa mental fechada (100 moedas)", "Lush Rose (500 moedas)", "C Lush Rose (1000 moedas)", "C Santa Hairband (500 Coins)", "C Bonnet Red (500 moedas)", "Parasol antigo (1000 moedas)", "ChÃ¡ quente (7 moedas)", "Canape doce (5 moedas)", "Ãgua benta (1 moeda)", "Ãgua da escuridÃ£o (1 moeda)" ) -2 ) * 2;
+	.@s = ( select( "Cancelar", "Caixa mental fechada (100 moedas)", "Lush Rose (500 moedas)", "C Lush Rose (1000 moedas)", "C Santa Hairband (500 Coins)", "C Bonnet Red (500 moedas)", "Parasol antigo (1000 moedas)", "Chá quente (7 moedas)", "Canape doce (5 moedas)", "Água benta (1 moeda)", "Água da escuridão (1 moeda)" ) -2 ) * 2;
 	if (.@s == -2) {
 		mes "[Billy the Golden Hands]";
-		mes "Khaha, vocÃª sente algum escrÃºpulo ou algo assim? Tudo bem, entÃ£o. Venha novamente a qualquer momento quando vocÃª mudar de idÃ©ia.";
+		mes "Khaha, você sente algum escrúpulo ou algo assim? Tudo bem, então. Venha novamente a qualquer momento quando você mudar de idéia.";
 		close;
 	}
 	if (countitem(7642) >= .@xm_item[.@s+1]) {
 		mes "[Billy the Golden Hands]";
-		mes "VocÃª precisa de ^0000ff" + .@xm_item[.@s+1] + "^000000 moedas sangrentas para comprar ^0000ff" + getitemname(.@xm_item[.@s]) + "^000000. VocÃª vai comprar?";
+		mes "Você precisa de ^0000ff" + .@xm_item[.@s+1] + "^000000 moedas sangrentas para comprar ^0000ff" + getitemname(.@xm_item[.@s]) + "^000000. Você vai comprar?";
 		next;
 		if (select( "Cancelar", "Comprar" ) == 1) {
 			mes "[Billy the Golden Hands]";
-			mes "Khaha, que amigo inconstante vocÃª Ã©. Se vocÃª realmente decidir comprÃ¡ -lo, volte novamente.";
+			mes "Khaha, que amigo inconstante você é. Se você realmente decidir comprá -lo, volte novamente.";
 			close;
 		}
 		if (countitem(7642) >= .@xm_item[.@s+1]) {
 			delitem 7642,.@xm_item[.@s+1];// Bloody_Coin
 			getitem .@xm_item[.@s], 1;
 			mes "[Billy the Golden Hands]";
-			mes "VocÃª pagou por isso. Estou ansioso para vÃª -lo novamente.!";
+			mes "Você pagou por isso. Estou ansioso para vê -lo novamente.!";
 			close;
 		}
 	}
 	mes "[Billy the Golden Hands]";
-	mes "VocÃª precisa de ^0000ff" + .@xm_item[.@s+1] + "^000000 moedas sangrentas para comprar ^0000ff" + getitemname(.@xm_item[.@s]) + "^000000. VocÃª estÃ¡ com pouco deles.";
+	mes "Você precisa de ^0000ff" + .@xm_item[.@s+1] + "^000000 moedas sangrentas para comprar ^0000ff" + getitemname(.@xm_item[.@s]) + "^000000. Você está com pouco deles.";
 	close;
 }
 
@@ -66,39 +66,39 @@ xmas,240,291,3	script	Billy The Golden Hands#1	4_F_05,{
 xmas,240,297,3	script	Vagrant Cain#1	4_M_06,{
 	disable_items;
 	if (checkweight(1201,1) == 0) {
-		mes "O tipo de itens que vocÃª tem Ã© muito variado. Represente depois de reduzir o tipo de itens.";
+		mes "O tipo de itens que você tem é muito variado. Represente depois de reduzir o tipo de itens.";
 		close;
 	}
 	if ((MaxWeight - Weight) < 10000) {
-		mes "VocÃª estÃ¡ sobrecarregado, entÃ£o nÃ£o pode mais proceder. Por favor, tente novamente depois de reduzir o peso.";
+		mes "Você está sobrecarregado, então não pode mais proceder. Por favor, tente novamente depois de reduzir o peso.";
 		close;
 	}
 	mes "[Vagrant Cain]";
-	mes "Oh, tenho certeza de que vocÃª veio aqui porque nÃ£o gosta de ordinÃ¡rios. Apenas fale comigo. Farei qualquer coisa se vocÃª tiver preparado a carga razoÃ¡vel e os materiais adequados.";
+	mes "Oh, tenho certeza de que você veio aqui porque não gosta de ordinários. Apenas fale comigo. Farei qualquer coisa se você tiver preparado a carga razoável e os materiais adequados.";
 	next;
 	.@s = select( "Nada que eu quero.", "Eu quero a fita de Celine.", "Estou procurando nobre cruz.", "Eu gostaria de obter luvas do EvilSpirit." );
 	switch(.@s) {
 	case 1:
 		mes "[Vagrant Cain]";
-		mes "Sim, sim. Todo mundo diz como vocÃª no comeÃ§o. AtÃ© mais.";
+		mes "Sim, sim. Todo mundo diz como você no começo. Até mais.";
 		close;
 	case 2:
-		.@string$[0] = "VocÃª estÃ¡ procurando um arnÃªs muito Ãºnico, meu amigo. VocÃª tem um grande discernimento.";
-		.@string$[1] = "Eu preciso de ^0000FF1000 ^000000 BLOODY MOUNTAS E ^0000FF+9 OU MAIS ROSE LUSH ^000000 PARA ^0000FFCELINE's Ribbon ^000000. VocÃª tem materiais suficientes?";
-		.@string$[2] = "VocÃª deve preparar ^0000FF1000 ^000000 MOUTAS BLOODY E UM UM ^0000FF +9 OU MAIOR ROSE LUSH ^000000 PARA ^0000FFCELINE's Ribbon ^000000. NÃ£o se esqueÃ§a!";
-		.@string$[3] = "VocÃª realmente vai trocÃ¡ -los? ^FF0000 Os nÃ­veis de refina, efeitos e cartÃ£o do item desaparecerÃ£o e vocÃª nÃ£o pode obter um reembolso^000000. Por favor, considere isso!";
+		.@string$[0] = "Você está procurando um arnês muito único, meu amigo. Você tem um grande discernimento.";
+		.@string$[1] = "Eu preciso de ^0000FF1000 ^000000 BLOODY MOUNTAS E ^0000FF+9 OU MAIS ROSE LUSH ^000000 PARA ^0000FFCELINE's Ribbon ^000000. Você tem materiais suficientes?";
+		.@string$[2] = "Você deve preparar ^0000FF1000 ^000000 MOUTAS BLOODY E UM UM ^0000FF +9 OU MAIOR ROSE LUSH ^000000 PARA ^0000FFCELINE's Ribbon ^000000. Não se esqueça!";
+		.@string$[3] = "Você realmente vai trocá -los? ^FF0000 Os níveis de refina, efeitos e cartão do item desaparecerão e você não pode obter um reembolso^000000. Por favor, considere isso!";
 		break;
 	case 3:
-		.@string$[0] = "VocÃª estÃ¡ procurando uma arma muito preciosa, meu amigo. VocÃª tem um grande discernimento.";
-		.@string$[1] = "Eu preciso de ^0000FF2000 ^000000 BLOODY MOUNTAS E UM ^0000FFGRAND CROSS (slot) ^000000 para ^0000ffnoble cruz ^000000. VocÃª tem materiais suficientes?";
-		.@string$[2] = "VocÃª deve preparar ^0000FF 2000 ^000000 BLOODY CEINS E UM ^0000FF GRAND CROSS (slot) ^000000 para ^0000ffnoble cruz ^000000. NÃ£o se esqueÃ§a!";
-		.@string$[3] = "VocÃª realmente vai trocÃ¡ -los? ^FF0000 Os nÃ­veis de refina, efeitos e cartÃ£o do item desaparecerÃ£o e vocÃª nÃ£o pode obter um reembolso^000000. Por favor, considere isso!";
+		.@string$[0] = "Você está procurando uma arma muito preciosa, meu amigo. Você tem um grande discernimento.";
+		.@string$[1] = "Eu preciso de ^0000FF2000 ^000000 BLOODY MOUNTAS E UM ^0000FFGRAND CROSS (slot) ^000000 para ^0000ffnoble cruz ^000000. Você tem materiais suficientes?";
+		.@string$[2] = "Você deve preparar ^0000FF 2000 ^000000 BLOODY CEINS E UM ^0000FF GRAND CROSS (slot) ^000000 para ^0000ffnoble cruz ^000000. Não se esqueça!";
+		.@string$[3] = "Você realmente vai trocá -los? ^FF0000 Os níveis de refina, efeitos e cartão do item desaparecerão e você não pode obter um reembolso^000000. Por favor, considere isso!";
 		break;
 	case 4:
-		.@string$[0] = "VocÃª estÃ¡ procurando um acessÃ³rio muito raro, meu amigo. VocÃª tem um grande discernimento.";
-		.@string$[1] = "Eu preciso de ^0000FF1000 ^000000 MOUTAS BLOODY, uma ^0000FF MERGUEIRA MINDA, CORAÃ‡ÃƒO GINIAL E LANTERN RED ^000000 CADA PARA ^0000FF MAL Luvas Espirituais ^000000. VocÃª tem materiais suficientes?";
-		.@string$[2] = "VocÃª deve preparar ^0000ff1000 ^000000 Moedas, uma mente, um coraÃ§Ã£o gentil e a lanterna vermelha ^000000ECH para ^0000ffevilspirit luvas ^000000. NÃ£o se esqueÃ§a!";
-		.@string$[3] = "VocÃª realmente vai trocÃ¡ -los? ^ff0000 Os efeitos e o cartÃ£o do item desaparecerÃ£o e vocÃª nÃ£o pode obter um reembolso^000000. AlÃ©m disso, se vocÃª tiver o mesmo tipo de coisa, nÃ£o sei qual serÃ¡ escolhido. Pense nisso.";
+		.@string$[0] = "Você está procurando um acessório muito raro, meu amigo. Você tem um grande discernimento.";
+		.@string$[1] = "Eu preciso de ^0000FF1000 ^000000 MOUTAS BLOODY, uma ^0000FF MERGUEIRA MINDA, CORAÇÃO GINIAL E LANTERN RED ^000000 CADA PARA ^0000FF MAL Luvas Espirituais ^000000. Você tem materiais suficientes?";
+		.@string$[2] = "Você deve preparar ^0000ff1000 ^000000 Moedas, uma mente, um coração gentil e a lanterna vermelha ^000000ECH para ^0000ffevilspirit luvas ^000000. Não se esqueça!";
+		.@string$[3] = "Você realmente vai trocá -los? ^ff0000 Os efeitos e o cartão do item desaparecerão e você não pode obter um reembolso^000000. Além disso, se você tiver o mesmo tipo de coisa, não sei qual será escolhido. Pense nisso.";
 		break;
 	}
 	mes "[Vagrant Cain]";
@@ -107,9 +107,9 @@ xmas,240,297,3	script	Vagrant Cain#1	4_M_06,{
 	mes "[Vagrant Cain]";
 	mes .@string$[1];
 	next;
-	if (select( "Eu nÃ£o os tenho agora", "Vou trocar imediatamente" ) == 1) {
+	if (select( "Eu não os tenho agora", "Vou trocar imediatamente" ) == 1) {
 		mes "[Vagrant Cain]";
-		mes "Volte quando estiver pronto. Deixe -me lembrÃ¡ -lo dos materiais.";
+		mes "Volte quando estiver pronto. Deixe -me lembrá -lo dos materiais.";
 		next;
 		mes "[Vagrant Cain]";
 		mes .@string$[2];
@@ -118,38 +118,38 @@ xmas,240,297,3	script	Vagrant Cain#1	4_M_06,{
 	mes "[Vagrant Cain]";
 	mes .@string$[3];
 	next;
-	if (select( "Vou tentar na prÃ³xima vez", "Trocar -os imediatamente" ) == 1) {
+	if (select( "Vou tentar na próxima vez", "Trocar -os imediatamente" ) == 1) {
 		mes "[Vagrant Cain]";
-		mes "Ok, vocÃª estÃ¡ determinado. Espero que possamos nos ver da prÃ³xima vez, Huhu.";
+		mes "Ok, você está determinado. Espero que possamos nos ver da próxima vez, Huhu.";
 		close;
 	}
 	switch(.@s) {
 	case 2:
 		mes "[Vagrant Cain]";
 		if (getequipid(EQI_HEAD_TOP) != 18848)// Lush_Rose
-			mes "O chapÃ©u que vocÃª usa nÃ£o Ã© uma rosa exuberante. Traga -me o material certo que eu te disse, Kukuku.";
+			mes "O chapéu que você usa não é uma rosa exuberante. Traga -me o material certo que eu te disse, Kukuku.";
 		else if (getequiprefinerycnt(EQI_HEAD_TOP) < 9)
-			mes "O chapÃ©u que vocÃª usa nÃ£o Ã© refinado a +9 ou mais. VocÃª nÃ£o pode negociar com isso.";
+			mes "O chapéu que você usa não é refinado a +9 ou mais. Você não pode negociar com isso.";
 		else if (countitem(7642) < 1000)
-			mes "Bem, vocÃª estÃ¡ com poucas moedas sangrentas. VocÃª precisa reunir exatamente 1000 deles. Menos do que isso .. nÃ£o pode ser ajudado.";
+			mes "Bem, você está com poucas moedas sangrentas. Você precisa reunir exatamente 1000 deles. Menos do que isso .. não pode ser ajudado.";
 		else {
 			delitem 7642,1000;// Bloody_Coin
 			delequip EQI_HEAD_TOP;
 			getitem 18849,1;// Celines_Ribbon
-			mes "O acordo foi concluÃ­do. DÃª uma olhada nisso.";// custom
+			mes "O acordo foi concluído. Dê uma olhada nisso.";// custom
 		}
 		close;
 	case 3:
 		mes "[Vagrant Cain]";
 		if (getequipid(EQI_HAND_R) != 1540)// Grand_Cross_
-			mes "A coisa Ã  sua mÃ£o direita nÃ£o Ã© Grand Cross (slot). Traga -me a coisa certa que eu te disse, Kuku.";
+			mes "A coisa à sua mão direita não é Grand Cross (slot). Traga -me a coisa certa que eu te disse, Kuku.";
 		else if (countitem(7642) < 2000)
-			mes "Bem, vocÃª estÃ¡ com poucas moedas sangrentas. VocÃª precisa reunir exatamente 2000 deles. Menos do que isso .. nÃ£o pode ser ajudado.";
+			mes "Bem, você está com poucas moedas sangrentas. Você precisa reunir exatamente 2000 deles. Menos do que isso .. não pode ser ajudado.";
 		else {
 			delitem 7642,2000;// Bloody_Coin
 			delequip EQI_HAND_R;
 			getitem 16029,1;// Noble_Cross
-			mes "O acordo foi concluÃ­do. DÃª uma olhada nisso.";// custom
+			mes "O acordo foi concluído. Dê uma olhada nisso.";// custom
 		}
 		close;
 	case 4:
@@ -160,13 +160,13 @@ xmas,240,297,3	script	Vagrant Cain#1	4_M_06,{
 			delitem 2978,1;// KindHeart
 			delitem 2976,1;// Red_Lantern
 			getitem 2980,1;// Evilspirit_Gloves
-			mes "O acordo foi concluÃ­do. DÃª uma olhada nisso.";// custom
+			mes "O acordo foi concluído. Dê uma olhada nisso.";// custom
 		}
 		else {
-			mes "VocÃª nÃ£o tem materiais suficientes.";
+			mes "Você não tem materiais suficientes.";
 			next;
 			mes "[Vagrant Cain]";
-			mes "VocÃª deve preparar ^0000ff1000 ^000000 Moedas, uma mente, um coraÃ§Ã£o gentil e a lanterna vermelha ^000000ECH para ^0000ffevilspirit luvas ^000000.";
+			mes "Você deve preparar ^0000ff1000 ^000000 Moedas, uma mente, um coração gentil e a lanterna vermelha ^000000ECH para ^0000ffevilspirit luvas ^000000.";
 		}
 		close;
 	}
@@ -175,26 +175,26 @@ xmas,240,297,3	script	Vagrant Cain#1	4_M_06,{
 xmas,240,294,3	script	Black Beard Joe#pa0829	4_M_05,{
 	disable_items;
 	if (checkweight(1201,1) == 0) {
-		mes "O tipo de itens que vocÃª tem Ã© muito variado. Represente depois de reduzir o tipo de itens.";
+		mes "O tipo de itens que você tem é muito variado. Represente depois de reduzir o tipo de itens.";
 		close;
 	}
 	if ((MaxWeight - Weight) < 10000) {
-		mes "VocÃª estÃ¡ sobrecarregado, entÃ£o nÃ£o pode mais proceder. Por favor, tente novamente depois de reduzir o peso.";
+		mes "Você está sobrecarregado, então não pode mais proceder. Por favor, tente novamente depois de reduzir o peso.";
 		close;
 	}
 	mes "[Barba negra Joe]";
-	mes "Huhu, a ganÃ¢ncia de Humanbeing Ã© naturalmente sem falta. O que vocÃª quer que eu faÃ§a?";
+	mes "Huhu, a ganância de Humanbeing é naturalmente sem falta. O que você quer que eu faça?";
 	next;
-	switch( select( "O que vocÃª pode fazer por mim?", "AcessÃ³rio encantador da fÃ¡brica de brinquedos", "Arma encantadora de fÃ¡brica de brinquedos", "CapÃ©u encantador da fÃ¡brica de brinquedos", "CalÃ§ados encantadores de fÃ¡brica de brinquedos" ) ) {
+	switch( select( "O que você pode fazer por mim?", "Acessório encantador da fábrica de brinquedos", "Arma encantadora de fábrica de brinquedos", "Capéu encantador da fábrica de brinquedos", "Calçados encantadores de fábrica de brinquedos" ) ) {
 	case 1:
 		mes "[Barba negra Joe]";
-		mes "O que eu faÃ§o? Isso Ã© realmente simples. VocÃª apenas me traz moedas ensanguentadas e eu as vou pegÃ¡ -las e encantar seu acessÃ³rio.";
+		mes "O que eu faço? Isso é realmente simples. Você apenas me traz moedas ensanguentadas e eu as vou pegá -las e encantar seu acessório.";
 		next;
 		mes "[Barba negra Joe]";
-		mes "Vou levar 15 moedas sangrentas para cada tentativa. Vou encantar uma quantidade de slot a cada 15 moedas. Obviamente, 3 Ã© o mÃ¡ximo.";
+		mes "Vou levar 15 moedas sangrentas para cada tentativa. Vou encantar uma quantidade de slot a cada 15 moedas. Obviamente, 3 é o máximo.";
 		next;
 		mes "[Barba negra Joe]";
-		mes "Bem, Ã© tÃ£o natural que a taxa de destruiÃ§Ã£o aumente Ã  medida que o nÃ­vel de atualizaÃ§Ã£o aumenta. Eu recomendaria que vocÃª pare a primeira ou a segunda tentativa, tee-hee.";
+		mes "Bem, é tão natural que a taxa de destruição aumente à medida que o nível de atualização aumenta. Eu recomendaria que você pare a primeira ou a segunda tentativa, tee-hee.";
 		close;
 	case 2:
 		.@eq_num = EQI_ACC_R;
@@ -234,13 +234,13 @@ xmas,240,294,3	script	Black Beard Joe#pa0829	4_M_05,{
 		break;
 	case 16029:	// Noble_Cross
 		mes "[Barba negra Joe]";// custom
-		mes "Oh, vocÃª estÃ¡ equipado com ^0000ffnoble cruz ^000000! Essa coisa precisa encontrar outra pessoa para encantÃ¡ -la.";
+		mes "Oh, você está equipado com ^0000ffnoble cruz ^000000! Essa coisa precisa encontrar outra pessoa para encantá -la.";
 		next;
 		mes "[Barba negra Joe]";
-		mes "Eu tentei vÃ¡rias vezes, mas nÃ£o tenho sorte.";
+		mes "Eu tentei várias vezes, mas não tenho sorte.";
 		next;
 		mes "[Barba negra Joe]";
-		mes "Se vocÃª quiser encantar esta arma, encontre ^0000ffmayomayo ^000000 na ilha de Malangdo! Ele deveria ser capaz de fazer isso.";
+		mes "Se você quiser encantar esta arma, encontre ^0000ffmayomayo ^000000 na ilha de Malangdo! Ele deveria ser capaz de fazer isso.";
 		close;
 	default:
 		break;
@@ -248,79 +248,79 @@ xmas,240,294,3	script	Black Beard Joe#pa0829	4_M_05,{
 	switch(.@eq_num) {
 	case EQI_ACC_R:
 		mes "[Barba negra Joe]";
-		mes "VocÃª pode escolher um dos 2 tipos e a taxa para cada tentativa Ã© de 15 moedas sangrentas. Eu as vou acertar antes de encantÃ¡ -la.";
+		mes "Você pode escolher um dos 2 tipos e a taxa para cada tentativa é de 15 moedas sangrentas. Eu as vou acertar antes de encantá -la.";
 		next;
-		.@enchant_type = select( "Desistir", "Um estatal aleatÃ³rio entre STR/AGI/DEX", "Uma estatÃ­stica aleatÃ³ria entre int/vit/dex" ) - 1;// enchant_type [1-2]
+		.@enchant_type = select( "Desistir", "Um estatal aleatório entre STR/AGI/DEX", "Uma estatística aleatória entre int/vit/dex" ) - 1;// enchant_type [1-2]
 		mes "[Barba negra Joe]";
 		if (.@enchant_type == 0) {
 			mes "Ok, volte quando estiver disposto, Kuku.";
 			close;
 		}
 		if (.@sc_type < 1) {
-			mes "Este equipamento nÃ£o Ã© da fÃ¡brica de brinquedos. Eu posso lidar com os itens apenas da fÃ¡brica de brinquedos.";
+			mes "Este equipamento não é da fábrica de brinquedos. Eu posso lidar com os itens apenas da fábrica de brinquedos.";
 			close;
 		}
 		if (.@card[3] == 0) {
 			.@slot_num = 3;
-			mes "Ok, vamos tentar o primeiro encantamento. Geralmente, eles nÃ£o estÃ£o quebrados. Cerca de 95% de taxa de sucesso?";
-			.@string$ = "VocÃª sopra quente e frio, esse amigo inconstante.!";
+			mes "Ok, vamos tentar o primeiro encantamento. Geralmente, eles não estão quebrados. Cerca de 95% de taxa de sucesso?";
+			.@string$ = "Você sopra quente e frio, esse amigo inconstante.!";
 		}
 		else if (.@card[2] == 0) {
 			.@slot_num = 2;
-			mes "HP ~ Segundo Encantamento. Agora tornou -se perigoso. A taxa de sucesso Ã© de cerca de 70%. VocÃª quer continuar? Todo o acessÃ³rio serÃ¡ soprado se falhar.";// custom
-			.@string$ = "VocÃª sopra quente e frio, esse amigo inconstante.!";
+			mes "HP ~ Segundo Encantamento. Agora tornou -se perigoso. A taxa de sucesso é de cerca de 70%. Você quer continuar? Todo o acessório será soprado se falhar.";// custom
+			.@string$ = "Você sopra quente e frio, esse amigo inconstante.!";
 		}
 		else if (.@card[1] == 0) {
 			.@slot_num = 1;
-			mes "Este Ã© o Ãºltimo encantamento. VocÃª vai continuar? Neste momento, ^ff0000 A taxa de sucesso estÃ¡ abaixo de 50% ^000000. Claro, seria Ã³timo se for bem -sucedido ... hmm, seguirei sua descendÃªncia, mas lembre -se disso.";// custom
-			.@string$ = "SÃ¡bio! O terceiro encantamento Ã© muito ganancioso.";// custom translation
+			mes "Este é o último encantamento. Você vai continuar? Neste momento, ^ff0000 A taxa de sucesso está abaixo de 50% ^000000. Claro, seria ótimo se for bem -sucedido ... hmm, seguirei sua descendência, mas lembre -se disso.";// custom
+			.@string$ = "Sábio! O terceiro encantamento é muito ganancioso.";// custom translation
 		}
 		else {
-			mes "Ho ~ isso jÃ¡ atingiu o pico. Ã‰ impossÃ­vel encantar mais, portanto, fique contente e use -o bem.";// custom
+			mes "Ho ~ isso já atingiu o pico. É impossível encantar mais, portanto, fique contente e use -o bem.";// custom
 			close;
 		}
 		break;
 	case EQI_HAND_R:
 		mes "[Barba negra Joe]";
 		if (.@sc_type < 1) {
-			mes "Este equipamento nÃ£o Ã© da fÃ¡brica de brinquedos. Eu posso lidar com os itens apenas da fÃ¡brica de brinquedos.";
+			mes "Este equipamento não é da fábrica de brinquedos. Eu posso lidar com os itens apenas da fábrica de brinquedos.";
 			close;
 		}
 		.@enchant_type = 3;
 		.@slot_num = 3;
-		mes "Eu encanta armas apenas uma vez. NÃ£o hÃ¡ fracasso, entÃ£o vocÃª pode pensar nisso como o efeito de bÃ´nus, tee-hee.";
-		.@string$ = "VocÃª sopra quente e frio, esse amigo inconstante.!";
+		mes "Eu encanta armas apenas uma vez. Não há fracasso, então você pode pensar nisso como o efeito de bônus, tee-hee.";
+		.@string$ = "Você sopra quente e frio, esse amigo inconstante.!";
 		break;
 	case EQI_HEAD_TOP:
 	case EQI_SHOES:
 		mes "[Barba negra Joe]";
 		if (.@sc_type < 1) {
-			mes "Este equipamento nÃ£o Ã© da fÃ¡brica de brinquedos. Eu posso lidar com os itens apenas da fÃ¡brica de brinquedos.";
+			mes "Este equipamento não é da fábrica de brinquedos. Eu posso lidar com os itens apenas da fábrica de brinquedos.";
 			close;
 		}
 		if (.@card[3] == 0) {
 			.@slot_num = 3;
 			.@enchant_type = 4;
-			mes "Bom. Vamos comeÃ§ar o primeiro encantamento. Vou adicionar um dos efeitos especiais de batalha. Claro, vocÃª nÃ£o precisa ter medo, porque nÃ£o hÃ¡ fracasso, Kuku.";
+			mes "Bom. Vamos começar o primeiro encantamento. Vou adicionar um dos efeitos especiais de batalha. Claro, você não precisa ter medo, porque não há fracasso, Kuku.";
 		}
 		else if (.@card[2] == 0) {
 			.@slot_num = 2;
 			.@enchant_type = 5;
-			mes "O segundo encantamento. Vou polir um dos estados anteriores. TambÃ©m nÃ£o hÃ¡ fracasso, entÃ£o nÃ£o se preocupe, Kukuku";// custom
+			mes "O segundo encantamento. Vou polir um dos estados anteriores. Também não há fracasso, então não se preocupe, Kukuku";// custom
 		}
 		else {
-			mes "Ho ~ isso jÃ¡ atingiu o pico. Ã‰ impossÃ­vel encantar mais, portanto, fique contente e use -o bem.";// custom
+			mes "Ho ~ isso já atingiu o pico. É impossível encantar mais, portanto, fique contente e use -o bem.";// custom
 			close;
 		}
-		.@string$ = "VocÃª sopra quente e frio, esse amigo inconstante.!";
+		.@string$ = "Você sopra quente e frio, esse amigo inconstante.!";
 		break;
 	default:
 		mes "[Barba negra Joe]";
-		mes "Eu nÃ£o encanta isso!";// custom
+		mes "Eu não encanta isso!";// custom
 		close;
 	}
 	next;
-	if (select( "Vou voltar mais tarde", "Por favor, faÃ§a isso" ) == 1) {
+	if (select( "Vou voltar mais tarde", "Por favor, faça isso" ) == 1) {
 		mes "[Barba negra Joe]";
 		mes .@string$;
 		close;
@@ -333,7 +333,7 @@ xmas,240,294,3	script	Black Beard Joe#pa0829	4_M_05,{
 	else if (.@slot_num == 1)
 		setarray .@range[0],1,1161;
 	else {
-		mes "HÃ¡ um problema, volte novamente!";// custom
+		mes "Há um problema, volte novamente!";// custom
 		close;
 	}
 	.@enchant = 9;
@@ -443,7 +443,7 @@ xmas,240,294,3	script	Black Beard Joe#pa0829	4_M_05,{
 		break;
 	}
 	if (.@enchant == 9) {
-		mes "HÃ¡ um problema, volte novamente!";// custom
+		mes "Há um problema, volte novamente!";// custom
 		close;
 	}
 	if (.@card[3] == 0 && .@sc_type < 4)
@@ -453,7 +453,7 @@ xmas,240,294,3	script	Black Beard Joe#pa0829	4_M_05,{
 	else if (.@card[1] == 0 && .@sc_type < 2)
 		.@index_slot = 1;
 	else {
-		mes "NÃ£o sei o que Ã© isso, mas acho que isso nÃ£o Ã© coisa que eu poderia lidar.";// custom
+		mes "Não sei o que é isso, mas acho que isso não é coisa que eu poderia lidar.";// custom
 		close;
 	}
 	if (countitem(7642) > 14) {// Bloody_Coin
@@ -465,17 +465,17 @@ xmas,240,294,3	script	Black Beard Joe#pa0829	4_M_05,{
 
 		delequip .@eq_num;
 		if (.@enchant == 0) {
-			mes "Ai! Pobre vocÃª, o encantamento falhou e seu equipamento estÃ¡ quebrado, Nossa!";
+			mes "Ai! Pobre você, o encantamento falhou e seu equipamento está quebrado, Nossa!";
 			close2;
 			specialeffect2 EF_LORD;
 			end;
 		}
 		.@card[ .@index_slot ] = .@enchant;
 		getitem2 .@item_id,1,1,.@refine,0,.@card[0],.@card[1],.@card[2],.@card[3];
-		mes "Hmm .. foi bem -sucedido. DÃª uma olhada nisso.";
+		mes "Hmm .. foi bem -sucedido. Dê uma olhada nisso.";
 		specialeffect2 EF_REPAIRWEAPON;
 		close;
 	}
-	mes "Hmm .. A propÃ³sito, vocÃª precisa encher moedas sangrentas. VocÃª nÃ£o pode nem pagar pela taxa.";
+	mes "Hmm .. A propósito, você precisa encher moedas sangrentas. Você não pode nem pagar pela taxa.";
 	close;
 }

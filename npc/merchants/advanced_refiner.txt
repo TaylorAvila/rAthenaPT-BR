@@ -23,8 +23,8 @@ payon,157,146,6	script	Suhnbi#cash	85,{
 	mes "[Suhunib]";
 	mes "Eu sou o ourmith";
 	mes "Eu posso refinar todos os tipos de armas,";
-	mes "Armadura e equipamento, entÃ£o deixe -me";
-	mes "Saiba o que vocÃª deseja refinar.";
+	mes "Armadura e equipamento, então deixe -me";
+	mes "Saiba o que você deseja refinar.";
 	next;
 
 	setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
@@ -37,7 +37,7 @@ payon,157,146,6	script	Suhnbi#cash	85,{
 	}
 	if (.@equipped == 0) {
 		mes "[Suhunib]";
-		mes "Eu nÃ£o acho que posso refinar qualquer itens que vocÃª tenha ...";
+		mes "Eu não acho que posso refinar qualquer itens que você tenha ...";
 		close;
 	}
 	set .@part, .@indices[ select(.@menu$) ];
@@ -46,12 +46,12 @@ payon,157,146,6	script	Suhnbi#cash	85,{
 		close;
 	if (!getequipisenableref(.@part)) {
 		mes "[Suhunib]";
-		mes "VÃ¡ encontrar outro ferreiro. VocÃª nÃ£o pode refinar essa coisa.";
+		mes "Vá encontrar outro ferreiro. Você não pode refinar essa coisa.";
 		close;
 	}
 	if (getequiprefinerycnt(.@part) >= 10) {
 		mes "[Suhunib]";
-		mes "Hmm ... alguÃ©m jÃ¡ aperfeiÃ§oou isso. Acho que nÃ£o posso trabalhar mais.";
+		mes "Hmm ... alguém já aperfeiçoou isso. Acho que não posso trabalhar mais.";
 		close;
 	}
 
@@ -72,8 +72,8 @@ payon,157,146,6	script	Suhnbi#cash	85,{
 		next;
 		emotion ET_BEST;
 		mes "[Suhunib]";
-		mes "LÃ¡ vai vocÃª! EstÃ¡ feito.";
-		mes "JÃ¡ faz um tempo desde que eu fiz uma boa"+((.@itemtype == IT_WEAPON)?"arma":"armadura")+". VocÃª deve ser feliz porque se tornou mais forte!";
+		mes "Lá vai você! Está feito.";
+		mes "Já faz um tempo desde que eu fiz uma boa"+((.@itemtype == IT_WEAPON)?"arma":"armadura")+". Você deve ser feliz porque se tornou mais forte!";
 		close;
 	}
 	failedrefitem .@part;
@@ -140,11 +140,11 @@ S_RefineValidate:
 
 	mes "[Suhunib]";
 	if (.@itemtype == IT_WEAPON)
-		mes "VocÃª quer refinar um nÃ­vel"+ .@equip_lv +"arma?";
-	mes "Para refinar isso, vocÃª precisarÃ¡ ter um ^ff9999"+ getitemname(.@item_req) +"^000000 e"+ .@price +"mulheres.";
-	mes "VocÃª gostaria de continuar?";
+		mes "Você quer refinar um nível"+ .@equip_lv +"arma?";
+	mes "Para refinar isso, você precisará ter um ^ff9999"+ getitemname(.@item_req) +"^000000 e"+ .@price +"mulheres.";
+	mes "Você gostaria de continuar?";
 	next;
-	if(select("Sim: NÃ£o") == 1) {
+	if(select("Sim: Não") == 1) {
 		if (getequippercentrefinery(.@part) < 100) {
 			if (.@itemtype == IT_WEAPON) {
 				mes "[Suhunib]";
@@ -153,33 +153,33 @@ S_RefineValidate:
 				mes "Parece que foi refinado ...";
 				mes "muitas vezes ...";
 				mes "Pode quebrar se";
-				mes "vocÃª refina novamente.";
+				mes "você refina novamente.";
 				next;
 				mes "E se quebrar,";
-				mes "VocÃª nÃ£o pode mais usÃ¡ -lo!";
-				mes "Todos os cartÃµes e as propriedades ^ff0000 serÃ£o perdidas ^000000!";
-				mes "^FF0000BESIDES, o equipamento quebrarÃ¡!^000000";
+				mes "Você não pode mais usá -lo!";
+				mes "Todos os cartões e as propriedades ^ff0000 serão perdidas ^000000!";
+				mes "^FF0000BESIDES, o equipamento quebrará!^000000";
 				mes "Tem certeza de que ainda deseja continuar?";
 				next;
-				if(select("Sim: NÃ£o") == 2) {
+				if(select("Sim: Não") == 2) {
 					mes "[Suhunib]";
 					mes "Bom.";
-					mes "Porque se a arma quebrar de refino irracional, tambÃ©m tenho um mau humor.";
+					mes "Porque se a arma quebrar de refino irracional, também tenho um mau humor.";
 					close;
 				}
 			} else {
 				mes "[Suhunib]";
-				mes "Risadinha. Risadinha. Oh, vocÃª tem coragem, ousando refinar isso.";
-				mes "VocÃª sabe que Ã© bastante arriscado, nÃ£o Ã©?";
+				mes "Risadinha. Risadinha. Oh, você tem coragem, ousando refinar isso.";
+				mes "Você sabe que é bastante arriscado, não é?";
 				next;
-				mes "Se o seu equipamento defensivo estiver quebrado, vocÃª nunca mais poderÃ¡ usÃ¡ -lo.";
-				mes "AtÃ© seus cartÃµes e suas modificaÃ§Ãµes ^ff0000 complidade desaparecerÃ£o ^000000.";
+				mes "Se o seu equipamento defensivo estiver quebrado, você nunca mais poderá usá -lo.";
+				mes "Até seus cartões e suas modificações ^ff0000 complidade desaparecerão ^000000.";
 				//mes "Tudo vai desaparecer. Como em ... se foi!";
-				mes "VocÃª realmente deseja continuar?";
+				mes "Você realmente deseja continuar?";
 				next;
-				if(select("Sim: NÃ£o") == 2) {
+				if(select("Sim: Não") == 2) {
 					mes "[Suhunib]";
-					mes "Que absurdo. VocÃª desperdiÃ§a meu precioso tempo.";
+					mes "Que absurdo. Você desperdiça meu precioso tempo.";
 					mes "Se perca, punk.";
 					close;
 				}
@@ -195,19 +195,19 @@ S_RefineValidate:
 				mes "[Holink]";
 				emotion ET_FRET;
 				mes "Espere um segundo ...";
-				mes "VocÃª acha que eu sou estÃºpido?!";
-				mes "VocÃª mudou o item enquanto eu nÃ£o estava olhando! Saia daqui!";
+				mes "Você acha que eu sou estúpido?!";
+				mes "Você mudou o item enquanto eu não estava olhando! Saia daqui!";
 				close;
 			}
 
 			return;
 		}
 		mes "[Suhunib]";
-		mes "SÃ£o tudo o que vocÃª tem?";
-		mes "Sinto muito, mas nÃ£o posso fazer nada sem todos os materiais. AlÃ©m disso, eu mereÃ§o alguns pagamentos pelo meu trabalho, nÃ£o Ã©?";
+		mes "São tudo o que você tem?";
+		mes "Sinto muito, mas não posso fazer nada sem todos os materiais. Além disso, eu mereço alguns pagamentos pelo meu trabalho, não é?";
 		close;
 	}
 	mes "[Suhunib]";
-	mes "Eu nÃ£o posso evitar, mesmo se vocÃª nÃ£o estiver feliz com isso ...";
+	mes "Eu não posso evitar, mesmo se você não estiver feliz com isso ...";
 	close;
 }

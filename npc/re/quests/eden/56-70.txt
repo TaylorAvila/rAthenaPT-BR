@@ -22,23 +22,23 @@
 
 moc_para01,42,38,3	script	Mission [56 - 70]	857,{
 	if (!callfunc("F_HasEdenGroupMark")) {
-		mes "Para obter essas miss√µes, preciso me juntar ao grupo Eden primeiro. Devo encontrar o secret√°rio Lime Evenor e me tornar um membro.";
+		mes "Para obter essas missıes, preciso me juntar ao grupo Eden primeiro. Devo encontrar o secret·rio Lime Evenor e me tornar um membro.";
 		close;
 	}
-	mes "Aqui est√° a lista de v√°rias aventuras para os aventureiros de n√≠vel 56 ~ 70.";
+	mes "Aqui est· a lista de v·rias aventuras para os aventureiros de nÌvel 56 ~ 70.";
 	next;
-	mes "Muitas miss√µes, como ca√ßa a monstros, entrega de bens, encontrando pessoas.";
+	mes "Muitas missıes, como caÁa a monstros, entrega de bens, encontrando pessoas.";
 	next;
-	switch(select("N√∫meros de miss√£o 1 ~ 5: N√∫meros de miss√£o 6 ~ 10: N√∫meros de miss√£o 11 ~ 15")) {
+	switch(select("N˙meros de miss„o 1 ~ 5: N˙meros de miss„o 6 ~ 10: N˙meros de miss„o 11 ~ 15")) {
 	case 1:
-		switch(select("O que √© esse curativo ?: Algadores perigosos .: Isso n√£o era uma sereia ...: Meu pa√≠s est√° me chamando!")) {
+		switch(select("O que È esse curativo ?: Algadores perigosos .: Isso n„o era uma sereia ...: Meu paÌs est· me chamando!")) {
 			case 1: callsub L_HuntingQuest,3250,15000,5000,930,30;
 			case 2: callsub L_HuntingQuest,3251,16000,6000;
 			case 3: callsub L_HuntingQuest,3252,17000,8000;
 			case 4: callsub L_Quest,3254,18000,8000,7043,10,1056,30;
 		}
 	case 2:
-		switch(select("Hunt Boar Wild: Preparando o ver√£o: rancor de uma mulher: ingredientes especiais: agonia do mestre de marionetes")) {
+		switch(select("Hunt Boar Wild: Preparando o ver„o: rancor de uma mulher: ingredientes especiais: agonia do mestre de marionetes")) {
 			case 1: callsub L_HuntingQuest,3255,16000,7000;
 			case 2: callsub L_Quest,3256,15000,5000,918,30;
 			case 3: callsub L_HuntingQuest,3257,17000,8000;
@@ -60,17 +60,17 @@ L_Quest:
 	if (checkquest(.@quest_id) == -1) {
 		callsub L_Details, .@quest_id;
 		next;
-		mes "Voc√™ gostaria de aceitar esta miss√£o?";
+		mes "VocÍ gostaria de aceitar esta miss„o?";
 		next;
-		if(select("Aceite a miss√£o.: N√£o aceite a miss√£o.") == 1) {
+		if(select("Aceite a miss„o.: N„o aceite a miss„o.") == 1) {
 			if (BaseLevel < 55 || BaseLevel > 70) {
-				mes "Essas miss√µes n√£o s√£o adequadas para o meu n√≠vel. Eu deveria procurar outras miss√µes.";
+				mes "Essas missıes n„o s„o adequadas para o meu nÌvel. Eu deveria procurar outras missıes.";
 				close;
 			}
 			setquest .@quest_id;
-			mes "Eu aceitei com sucesso a miss√£o. Eu tenho que voltar e confirmar meu trabalho depois de concluir a miss√£o.";
+			mes "Eu aceitei com sucesso a miss„o. Eu tenho que voltar e confirmar meu trabalho depois de concluir a miss„o.";
 			next;
-			mes "Esta miss√£o n√£o tem limites de tempo.";
+			mes "Esta miss„o n„o tem limites de tempo.";
 		}
 		close;
 	}
@@ -81,21 +81,21 @@ L_Quest:
 			set .@items,2; //complete
 	}
 	if (checkquest(.@quest_id) < 2 && (countitem(getarg(3)) < getarg(4) || .@items == 1)) {
-		mes "Voc√™ tem uma miss√£o em andamento. Voc√™ gostaria de verificar os detalhes?";
+		mes "VocÍ tem uma miss„o em andamento. VocÍ gostaria de verificar os detalhes?";
 		next;
 		if(select("Verifique os detalhes .: Cancel.") == 1)
 			callsub L_Details, .@quest_id;
 		close;
 	} else {
-		mes "Eu me sa√≠ muito bem para a miss√£o. Devo relatar agora?";
+		mes "Eu me saÌ muito bem para a miss„o. Devo relatar agora?";
 		next;
-		if(select("Relate a miss√£o .: ainda n√£o o relate.") == 1) {
+		if(select("Relate a miss„o .: ainda n„o o relate.") == 1) {
 			delitem getarg(3),getarg(4);
 			if (.@items)
 				delitem getarg(5),getarg(6);
 			getexp getarg(1),getarg(2);
 			erasequest .@quest_id;
-			mes "Voc√™ completou a miss√£o. Obtenha recompensas.";
+			mes "VocÍ completou a miss„o. Obtenha recompensas.";
 		}
 		close;
 	}
@@ -106,17 +106,17 @@ L_HuntingQuest:
 	if (checkquest(.@quest_id) == -1) {
 		callsub L_Details, .@quest_id;
 		next;
-		mes "Voc√™ gostaria de aceitar esta miss√£o?";
+		mes "VocÍ gostaria de aceitar esta miss„o?";
 		next;
-		if(select("Aceite a miss√£o.: N√£o aceite a miss√£o.") == 1) {
+		if(select("Aceite a miss„o.: N„o aceite a miss„o.") == 1) {
 			if (BaseLevel < 55 || BaseLevel > 70) {
-				mes "Essas miss√µes n√£o s√£o adequadas para o meu n√≠vel. Eu deveria procurar outras miss√µes.";
+				mes "Essas missıes n„o s„o adequadas para o meu nÌvel. Eu deveria procurar outras missıes.";
 				close;
 			}
 			setquest .@quest_id;
-			mes "Eu aceitei com sucesso a miss√£o. Eu tenho que voltar e confirmar meu trabalho depois de concluir a miss√£o.";
+			mes "Eu aceitei com sucesso a miss„o. Eu tenho que voltar e confirmar meu trabalho depois de concluir a miss„o.";
 			next;
-			mes "Esta miss√£o n√£o tem limites de tempo.";
+			mes "Esta miss„o n„o tem limites de tempo.";
 		}
 		close;
 	}
@@ -127,20 +127,20 @@ L_HuntingQuest:
 			set .@items,2; //complete
 	}
 	if (checkquest(.@quest_id,HUNTING) < 2 || .@items == 1) {
-		mes "Voc√™ tem uma miss√£o em andamento. Voc√™ gostaria de verificar os detalhes?";
+		mes "VocÍ tem uma miss„o em andamento. VocÍ gostaria de verificar os detalhes?";
 		next;
 		if(select("Verifique os detalhes .: Cancel.") == 1)
 			callsub L_Details, .@quest_id;
 		close;
 	} else if (checkquest(.@quest_id,HUNTING) == 2) {
-		mes "Eu me sa√≠ muito bem para a miss√£o. Devo relatar agora?";
+		mes "Eu me saÌ muito bem para a miss„o. Devo relatar agora?";
 		next;
-		if(select("Relate a miss√£o .: ainda n√£o o relate.") == 1) {
+		if(select("Relate a miss„o .: ainda n„o o relate.") == 1) {
 			if (.@items)
 				delitem getarg(3),getarg(4);
 			getexp getarg(1),getarg(2);
 			erasequest .@quest_id;
-			mes "Voc√™ completou a miss√£o. Obtenha recompensas.";
+			mes "VocÍ completou a miss„o. Obtenha recompensas.";
 		}
 		close;
 	}
@@ -149,215 +149,215 @@ L_HuntingQuest:
 L_Details:
 	switch(getarg(0)) {
 	case 3250:
-		mes "Esta miss√£o √© atribu√≠da pela Rekenber Corporation da Lighthalzen. Abaixo est√£o os detalhes.";
+		mes "Esta miss„o È atribuÌda pela Rekenber Corporation da Lighthalzen. Abaixo est„o os detalhes.";
 		next;
-		mes "A Rekenber Corporation est√° prestes a lan√ßar um novo projeto chamado 'Green Medical Center'. Para o primeiro produto do projeto, estamos preparando bandagens de bem-estar.";
+		mes "A Rekenber Corporation est· prestes a lanÁar um novo projeto chamado 'Green Medical Center'. Para o primeiro produto do projeto, estamos preparando bandagens de bem-estar.";
 		next;
-		mes "Em rela√ß√£o ao projeto, precisamos pesquisar as rea√ß√µes de Monster quando elas s√£o embrulhadas com ataduras podres.";
+		mes "Em relaÁ„o ao projeto, precisamos pesquisar as reaÁıes de Monster quando elas s„o embrulhadas com ataduras podres.";
 		next;
-		mes "Se voc√™ estiver interessado, ca√ßa 30 m√∫mias e traga 30 bandagens podres. Voc√™ pode encontr√° -los na pir√¢mide a oeste de Morocc.";
+		mes "Se vocÍ estiver interessado, caÁa 30 m˙mias e traga 30 bandagens podres. VocÍ pode encontr· -los na pir‚mide a oeste de Morocc.";
 		next;
-		mes "Confirme para n√≥s depois de concluir a miss√£o, ent√£o lhe daremos recompensas adequadas.";
+		mes "Confirme para nÛs depois de concluir a miss„o, ent„o lhe daremos recompensas adequadas.";
 		next;
-		mes "- Diretora Chefe da Corpora√ß√£o da Rekenber 'Julie E Delph' -";
+		mes "- Diretora Chefe da CorporaÁ„o da Rekenber 'Julie E Delph' -";
 		break;
 	case 3251:
-		mes "Esta miss√£o √© atribu√≠da pela Comodo Cooperative Society. Abaixo est√£o os detalhes.";
+		mes "Esta miss„o È atribuÌda pela Comodo Cooperative Society. Abaixo est„o os detalhes.";
 		next;
-		mes "Os jacar√©s ficaram loucos hoje em dia, atacam mulheres e b√™bados que ficam perto da praia.";
+		mes "Os jacarÈs ficaram loucos hoje em dia, atacam mulheres e bÍbados que ficam perto da praia.";
 		next;
-		mes "Esta √© uma situa√ß√£o muito vergonhosa para n√≥s, o mais maravilhoso local de f√©rias em Rune-Midgarts.";
+		mes "Esta È uma situaÁ„o muito vergonhosa para nÛs, o mais maravilhoso local de fÈrias em Rune-Midgarts.";
 		next;
-		mes "Portanto, seria muito √∫til se voc√™ ca√ßar 30 jacar√©s para limpar essa situa√ß√£o.";
+		mes "Portanto, seria muito ˙til se vocÍ caÁar 30 jacarÈs para limpar essa situaÁ„o.";
 		next;
-		mes "Confirme para n√≥s depois de concluir a miss√£o, ent√£o lhe daremos recompensas adequadas.";
+		mes "Confirme para nÛs depois de concluir a miss„o, ent„o lhe daremos recompensas adequadas.";
 		break;
 	case 3252:
-		mes "Esta miss√£o √© atribu√≠da por um cliente desconhecido da Izlude.";
+		mes "Esta miss„o È atribuÌda por um cliente desconhecido da Izlude.";
 		next;
 		mes "Eu admirei a praia de Izlude, desde que nasci.";
 		next;
 		mes "Quando eu era jovem, encontrei uma criatura misteriosa na masmorra de Izlude, nunca tinha visto algo assim antes ...";
 		next;
-		mes "Eu instantaneamente pensei que era uma sereia. Fiquei t√£o suposto que estudei sobre sereias em toda a minha vida.";
+		mes "Eu instantaneamente pensei que era uma sereia. Fiquei t„o suposto que estudei sobre sereias em toda a minha vida.";
 		next;
-		mes "Mas, enquanto estudava mais, descobri que a criatura n√£o era uma sereia ... sim, n√£o era bonita como outras sereias ...";
+		mes "Mas, enquanto estudava mais, descobri que a criatura n„o era uma sereia ... sim, n„o era bonita como outras sereias ...";
 		next;
-		mes "Finalmente rastreei o fato de que era um merman, n√£o uma sereia!";
+		mes "Finalmente rastreei o fato de que era um merman, n„o uma sereia!";
 		next;
-		mes "Merman ... eu perdi minha vida estudando este monstro! Ent√£o, por favor, ca√ßa 30 Semans para me fazer sentir melhor.";
+		mes "Merman ... eu perdi minha vida estudando este monstro! Ent„o, por favor, caÁa 30 Semans para me fazer sentir melhor.";
 		next;
-		mes "Confirme para n√≥s depois de concluir a miss√£o, ent√£o lhe daremos recompensas adequadas.";
+		mes "Confirme para nÛs depois de concluir a miss„o, ent„o lhe daremos recompensas adequadas.";
 		next;
 		mes "-Izlude 'The Lost Dream Sereia'-";
 		break;
 	case 3254:
-		mes "Esta miss√£o √© designada pelo oficial do governo do Reino Rune-Midgarts.";
+		mes "Esta miss„o È designada pelo oficial do governo do Reino Rune-Midgarts.";
 		next;
-		mes "Para impedir uma inunda√ß√£o de pron√∫ncia, decidimos construir uma enorme barragem para regular o suprimento de √°gua.";
+		mes "Para impedir uma inundaÁ„o de pron˙ncia, decidimos construir uma enorme barragem para regular o suprimento de ·gua.";
 		next;
 		mes "Mas, somos abreviados de suprimentos e precisamos coletar areia e areia fina.";
 		next;
-		mes "Ent√£o, gostar√≠amos de pedir ajuda. Pessoas, por favor, traga 10 areia fina e 30 gr√£o cada para que possamos construir a barragem.";
+		mes "Ent„o, gostarÌamos de pedir ajuda. Pessoas, por favor, traga 10 areia fina e 30 gr„o cada para que possamos construir a barragem.";
 		next;
-		mes "Voc√™ pode obter esses materiais de Sand Man, desejo -lhe boa sorte!";
+		mes "VocÍ pode obter esses materiais de Sand Man, desejo -lhe boa sorte!";
 		next;
-		mes "Confirme para n√≥s depois de concluir a miss√£o, ent√£o lhe daremos recompensas adequadas.";
+		mes "Confirme para nÛs depois de concluir a miss„o, ent„o lhe daremos recompensas adequadas.";
 		next;
 		mes "-Oficial do governo do reino de Rune-Midgarts, Dufre Kent-";
 		break;
 	case 3255:
-		mes "Esta miss√£o √© designada pela prefeitura de Payon.";
+		mes "Esta miss„o È designada pela prefeitura de Payon.";
 		next;
-		mes "Animais selvagens s√£o sempre aborrecimentos para os agricultores.";
+		mes "Animais selvagens s„o sempre aborrecimentos para os agricultores.";
 		next;
-		mes "Eles atacam nossa fazenda e arruinam colheitas inteiras !! N√£o aguentamos mais!";
+		mes "Eles atacam nossa fazenda e arruinam colheitas inteiras !! N„o aguentamos mais!";
 		next;
-		mes "Ent√£o, gostar√≠amos de pedir a ajuda de aventureiros bravos.";
+		mes "Ent„o, gostarÌamos de pedir a ajuda de aventureiros bravos.";
 		next;
-		mes "Por favor, ca√ßa 30 selvagens para salvar nossas colheitas!";
+		mes "Por favor, caÁa 30 selvagens para salvar nossas colheitas!";
 		next;
-		mes "Voc√™ pode encontrar facilmente esses monstros em torno de nossa cidade e campo.";
+		mes "VocÍ pode encontrar facilmente esses monstros em torno de nossa cidade e campo.";
 		next;
-		mes "Confirme para n√≥s depois de concluir a miss√£o, ent√£o lhe daremos recompensas adequadas.";
+		mes "Confirme para nÛs depois de concluir a miss„o, ent„o lhe daremos recompensas adequadas.";
 		next;
 		mes "-Membros da prefeitura de Payon-";
 		break;
 	case 3256:
-		mes "Esta miss√£o √© atribu√≠da pelo ferreiro Merocc Aragham.";
+		mes "Esta miss„o È atribuÌda pelo ferreiro Merocc Aragham.";
 		next;
-		mes "Ol√° ~~~~, aventureiros! Este √© o Aragham, o ferreiro mais quente do Marrocos!";
+		mes "Ol· ~~~~, aventureiros! Este È o Aragham, o ferreiro mais quente do Marrocos!";
 		next;
 		mes "De qualquer forma, tenho um filho chamado Aragam Junior, o fofo. Haha.";
 		next;
-		mes "Ele participar√° do acampamento de ver√£o neste ver√£o, mas n√£o sabe nadar.";
+		mes "Ele participar· do acampamento de ver„o neste ver„o, mas n„o sabe nadar.";
 		next;
-		mes "Eu quero ensin√° -lo, mas como voc√™ sabe que sou um ferreiro, muito longe de nadar! Hehe.";
+		mes "Eu quero ensin· -lo, mas como vocÍ sabe que sou um ferreiro, muito longe de nadar! Hehe.";
 		next;
-		mes "Mas imaginei que, se eu fizer nado, ser√° √≥timo para sua confian√ßa ~!";
+		mes "Mas imaginei que, se eu fizer nado, ser· Ûtimo para sua confianÁa ~!";
 		next;
-		mes "Para faz√™ -lo, preciso de 30 p√©s pegajosos de um sapo Roda. Voc√™ pode traz√™ -los para mim?";
+		mes "Para fazÍ -lo, preciso de 30 pÈs pegajosos de um sapo Roda. VocÍ pode trazÍ -los para mim?";
 		next;
-		mes "Confirme para n√≥s depois de concluir a miss√£o, ent√£o lhe daremos recompensas adequadas.";
+		mes "Confirme para nÛs depois de concluir a miss„o, ent„o lhe daremos recompensas adequadas.";
 		next;
-		mes "Ps. N√£o me compare com Hollgrehenn ou Antonio !!!!";
+		mes "Ps. N„o me compare com Hollgrehenn ou Antonio !!!!";
 		next;
 		mes "-o ferreiro mais quente, o ferreiro Morocc Aragham-";
 		break;
 	case 3257:
-		mes "Esta miss√£o √© designada por um inventor Dorian de Izlude.";
+		mes "Esta miss„o È designada por um inventor Dorian de Izlude.";
 		next;
-		mes "Voc√™ j√° ouviu a hist√≥ria de que, se as mulheres tiverem rancor em mente, isso trar√° desastres naturais.";
+		mes "VocÍ j· ouviu a histÛria de que, se as mulheres tiverem rancor em mente, isso trar· desastres naturais.";
 		next;
-		mes "Uau, ent√£o os caras devem tomar cuidado com aquelas mulheres sens√≠veis! Certifique -se de que eles n√£o tenham ressentimentos em voc√™.";
+		mes "Uau, ent„o os caras devem tomar cuidado com aquelas mulheres sensÌveis! Certifique -se de que eles n„o tenham ressentimentos em vocÍ.";
 		next;
-		mes "As mulheres podem trazer fen√¥menos estranhos com elas!";
+		mes "As mulheres podem trazer fenÙmenos estranhos com elas!";
 		next;
-		mes "Estou t√£o intrigado com a hist√≥ria que estou tentando provar que pode ser verdadeira.";
+		mes "Estou t„o intrigado com a histÛria que estou tentando provar que pode ser verdadeira.";
 		next;
-		mes "Ent√£o eu preciso deixar as mulheres chateadas! Haha, eu sei que ideia, certo?";
+		mes "Ent„o eu preciso deixar as mulheres chateadas! Haha, eu sei que ideia, certo?";
 		next;
-		mes "Mas isso √© seriamente apenas para estudar ... ent√£o, por favor, ca√ßa 30 Sohee que parece ser revivido de almas vitimadas.";
+		mes "Mas isso È seriamente apenas para estudar ... ent„o, por favor, caÁa 30 Sohee que parece ser revivido de almas vitimadas.";
 		next;
-		mes "Ent√£o, eu posso continuar observando o caso.";
+		mes "Ent„o, eu posso continuar observando o caso.";
 		next;
-		mes "Confirme para n√≥s depois de concluir a miss√£o, ent√£o lhe daremos recompensas adequadas.";
+		mes "Confirme para nÛs depois de concluir a miss„o, ent„o lhe daremos recompensas adequadas.";
 		next;
-		mes "-Inventor de eleg√¢ncia Dorian-";
+		mes "-Inventor de eleg‚ncia Dorian-";
 		break;
 	case 3258:
-		mes "Esta miss√£o √© designada por Wallah de Payon.";
+		mes "Esta miss„o È designada por Wallah de Payon.";
 		next;
-		mes "Ol√°, aventureiro. Como vai voc√™? Como est√° sua sa√∫de?";
+		mes "Ol·, aventureiro. Como vai vocÍ? Como est· sua sa˙de?";
 		next;
-		mes "Sou farmac√™utico e estou tendo dificuldade em receber ingredientes especiais ultimamente.";
+		mes "Sou farmacÍutico e estou tendo dificuldade em receber ingredientes especiais ultimamente.";
 		next;
-		mes "Porque eu sou uma garota pouco sens√≠vel, como posso conseguir essas coisas sozinhas.";
+		mes "Porque eu sou uma garota pouco sensÌvel, como posso conseguir essas coisas sozinhas.";
 		next;
-		mes "Ent√£o, por favor me ajude. Basta trazer 40 Leafs enormes para mim, isso ser√° suficiente para completar meu rem√©dio especial!";
+		mes "Ent„o, por favor me ajude. Basta trazer 40 Leafs enormes para mim, isso ser· suficiente para completar meu remÈdio especial!";
 		next;
-		mes "Por favor, traga o mais r√°pido poss√≠vel, as pessoas precisam do meu rem√©dio.";
+		mes "Por favor, traga o mais r·pido possÌvel, as pessoas precisam do meu remÈdio.";
 		next;
-		mes "Confirme para n√≥s depois de concluir a miss√£o, ent√£o lhe daremos recompensas adequadas.";
+		mes "Confirme para nÛs depois de concluir a miss„o, ent„o lhe daremos recompensas adequadas.";
 		next;
 		mes "-wallah-";
 		break;
 	case 3259:
-		mes "Esta miss√£o √© atribu√≠da pelo mestre de bonecos Woonute de Geffen.";
+		mes "Esta miss„o È atribuÌda pelo mestre de bonecos Woonute de Geffen.";
 		next;
-		mes "Voc√™ sabe que ser um mestre de marionetes √© um trabalho dif√≠cil para satisfazer as pessoas.";
+		mes "VocÍ sabe que ser um mestre de marionetes È um trabalho difÌcil para satisfazer as pessoas.";
 		next;
 		mes "As pessoas podem pesquisar e ver tantas coisas diferentes nos dias de hoje.";
 		next;
-		mes "Suas expectativas est√£o ficando altas, n√£o posso mais satisfaz√™ -las.";
+		mes "Suas expectativas est„o ficando altas, n„o posso mais satisfazÍ -las.";
 		next;
-		mes "Mas se eu puder fazer novos conceitos de brinquedos, como brinquedos vivos, ser√° inovador.";
+		mes "Mas se eu puder fazer novos conceitos de brinquedos, como brinquedos vivos, ser· inovador.";
 		next;
-		mes "Ouvi dizer que existem bonecas vivas chamadas marionetes. Voc√™ pode ca√ßar 30 marionetes para mim? E tamb√©m traga 30 cabelos dourados, esses ser√£o √≥timos materiais para os novos brinquedos.";
+		mes "Ouvi dizer que existem bonecas vivas chamadas marionetes. VocÍ pode caÁar 30 marionetes para mim? E tambÈm traga 30 cabelos dourados, esses ser„o Ûtimos materiais para os novos brinquedos.";
 		next;
-		mes "Confirme para n√≥s depois de concluir a miss√£o, ent√£o lhe daremos recompensas adequadas.";
+		mes "Confirme para nÛs depois de concluir a miss„o, ent„o lhe daremos recompensas adequadas.";
 		next;
 		mes "-Puppet Mestre Woonute-";
 		break;
 	case 3260:
-		mes "Esta miss√£o √© atribu√≠da por um exterminador da Protera.";
+		mes "Esta miss„o È atribuÌda por um exterminador da Protera.";
 		next;
-		mes "√Ä medida que o tempo fica mais quente, os insetos se multiplicam cada vez mais. J√° est√° fora de controle.";
+		mes "¿ medida que o tempo fica mais quente, os insetos se multiplicam cada vez mais. J· est· fora de controle.";
 		next;
-		mes "As pessoas em Protera n√£o podem dormir por causa de todos os insetos em sua casa.";
+		mes "As pessoas em Protera n„o podem dormir por causa de todos os insetos em sua casa.";
 		next;
-		mes "Ent√£o, por favor, ajude -nos, ca√ßar 30 Hunter Flies. Ent√£o as moscas podem ser reduzidas lentamente.";
+		mes "Ent„o, por favor, ajude -nos, caÁar 30 Hunter Flies. Ent„o as moscas podem ser reduzidas lentamente.";
 		next;
-		mes "Confirme para n√≥s depois de concluir a miss√£o, ent√£o lhe daremos recompensas adequadas.";
+		mes "Confirme para nÛs depois de concluir a miss„o, ent„o lhe daremos recompensas adequadas.";
 		next;
-		mes "-O exterminador pron√∫ncio-";
+		mes "-O exterminador pron˙ncio-";
 		break;
 	case 3261:
-		mes "Esta miss√£o √© atribu√≠da por queijo Dongja de Payon.";
+		mes "Esta miss„o È atribuÌda por queijo Dongja de Payon.";
 		next;
-		mes "Voc√™ j√° ouviu falar sobre Munak?";
+		mes "VocÍ j· ouviu falar sobre Munak?";
 		next;
-		mes "O monstro feio Munak est√° amea√ßando pessoas em Payon.";
+		mes "O monstro feio Munak est· ameaÁando pessoas em Payon.";
 		next;
-		mes "Ent√£o, precisamos de aventureiros bravos como voc√™!";
+		mes "Ent„o, precisamos de aventureiros bravos como vocÍ!";
 		next;
-		mes "Por favor, ca√ßa 30 munaks, em seguida, Payon estar√° em paz.";
+		mes "Por favor, caÁa 30 munaks, em seguida, Payon estar· em paz.";
 		next;
-		mes "Confirme para n√≥s depois de concluir a miss√£o, ent√£o lhe daremos recompensas adequadas.";
+		mes "Confirme para nÛs depois de concluir a miss„o, ent„o lhe daremos recompensas adequadas.";
 		next;
 		mes "- Payon Cheese Dongja -";
 		break;
 	case 3262:
-		mes "Esta miss√£o √© atribu√≠da por um revendedor de gem, Abraham, do Marrocos.";
+		mes "Esta miss„o È atribuÌda por um revendedor de gem, Abraham, do Marrocos.";
 		next;
-		mes "Uma pequena flor bonita no deserto √°rido ... que cena incr√≠vel seria!";
+		mes "Uma pequena flor bonita no deserto ·rido ... que cena incrÌvel seria!";
 		next;
-		mes "O plantio de flores pode tornar o mundo verde e ser√° t√£o bonito em toda parte.";
+		mes "O plantio de flores pode tornar o mundo verde e ser· t„o bonito em toda parte.";
 		next;
 		mes "Eu pretendo plantar flores fortes no deserto dos marrocos para que o solo melhore.";
 		next;
-		mes "Eu preciso de 40 Manater Blossom de Flora, eu sei que o MANEATER BLOSSOM √© uma flor feia, mas ainda assim √© uma planta.";
+		mes "Eu preciso de 40 Manater Blossom de Flora, eu sei que o MANEATER BLOSSOM È uma flor feia, mas ainda assim È uma planta.";
 		next;
-		mes "Espero que voc√™ possa ca√ßar flora e me pegar 40 Manater Blossoms. Voc√™ est√° tornando o mundo verde! Fique orgulhoso!";
+		mes "Espero que vocÍ possa caÁar flora e me pegar 40 Manater Blossoms. VocÍ est· tornando o mundo verde! Fique orgulhoso!";
 		next;
-		mes "Confirme para n√≥s depois de concluir a miss√£o, ent√£o lhe daremos recompensas adequadas.";
+		mes "Confirme para nÛs depois de concluir a miss„o, ent„o lhe daremos recompensas adequadas.";
 		next;
 		mes "-Morocc Ibraham-";
 		break;
 	case 3263:
-		mes "Esta miss√£o √© atribu√≠da pelo ferreiro de Payon Antonio.";
+		mes "Esta miss„o È atribuÌda pelo ferreiro de Payon Antonio.";
 		next;
-		mes "Varinha m√°gica! Voc√™ j√° ouviu falar sobre isso? √â uma varinha incr√≠vel!";
+		mes "Varinha m·gica! VocÍ j· ouviu falar sobre isso? … uma varinha incrÌvel!";
 		next;
-		mes "Se voc√™ disser as palavras m√°gicas e balan√ßar a varinha, ela tornar√° seus desejos realidade.";
+		mes "Se vocÍ disser as palavras m·gicas e balanÁar a varinha, ela tornar· seus desejos realidade.";
 		next;
-		mes "Ent√£o, eu decidi fazer isso sozinho. Ent√£o eu serei rico e poderoso ~! Haha !!";
+		mes "Ent„o, eu decidi fazer isso sozinho. Ent„o eu serei rico e poderoso ~! Haha !!";
 		next;
 		mes "Para fazer a varinha, preciso de alguns materiais especiais.";
 		next;
-		mes "Por favor, traga -me 30 chifres de dokebi e 30 troncos. Se voc√™ fizer isso, vou lhe emprestar minha varinha m√°gica uma vez. Haha, bom neg√≥cio?";
+		mes "Por favor, traga -me 30 chifres de dokebi e 30 troncos. Se vocÍ fizer isso, vou lhe emprestar minha varinha m·gica uma vez. Haha, bom negÛcio?";
 		next;
-		mes "Confirme para n√≥s depois de concluir a miss√£o, ent√£o lhe daremos recompensas adequadas.";
+		mes "Confirme para nÛs depois de concluir a miss„o, ent„o lhe daremos recompensas adequadas.";
 		next;
 		mes "-Payon Blacksmith Antonio-";
 		break;

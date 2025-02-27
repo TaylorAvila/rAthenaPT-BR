@@ -20,55 +20,55 @@
 que_job01,68,84,1	script	Black Marketeer#Buying	881,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 2400) {
 		mes "[Morrer. Jas]";
-		mes "VocÃª Ã© muito ganancioso, mesmo comparado a alguÃ©m como eu!";
-		mes "Por que vocÃª nÃ£o vai clarear sua bolsa primeiro?";
+		mes "Você é muito ganancioso, mesmo comparado a alguém como eu!";
+		mes "Por que você não vai clarear sua bolsa primeiro?";
 		close;
 	}
 	if (getskilllv("All_buying_store") == 1) {
 		mes "[Morrer. Jas]";
-		mes "Ei, vocÃª jÃ¡ fez um contrato com Hugh.";
-		mes "Eu nÃ£o tenho nenhum negÃ³cio com vocÃª.";
+		mes "Ei, você já fez um contrato com Hugh.";
+		mes "Eu não tenho nenhum negócio com você.";
 		close;
 	}
 	mes "[Morrer. Jas]";
-	mes "VocÃª deve precisar de algo muito para vir me encontrar.";
-	mes "O que vocÃª quer?";
+	mes "Você deve precisar de algo muito para vir me encontrar.";
+	mes "O que você quer?";
 	next;
-	switch(select("LicenÃ§a de loja de compradores em massa: Quem Ã© vocÃª ?: Nada, nada!")) {
+	switch(select("Licença de loja de compradores em massa: Quem é você ?: Nada, nada!")) {
 	case 1:
 		mes "[Morrer. Jas]";
 		mes "Eu sabia!";
-		mes "Claro, eu posso fazer isso para vocÃª.";
-		mes "O meu se parece com o autÃªntico que os comerciantes recebem daquele bastardo Sr. Hugh!";
+		mes "Claro, eu posso fazer isso para você.";
+		mes "O meu se parece com o autêntico que os comerciantes recebem daquele bastardo Sr. Hugh!";
 		next;
 		mes "[Morrer. Jas]";
-		mes "E minha licenÃ§a Ã© melhor 'porque vocÃª nÃ£o precisa' aprender nenhuma habilidade.";
-		mes "Quantos vocÃª quer?";
+		mes "E minha licença é melhor 'porque você não precisa' aprender nenhuma habilidade.";
+		mes "Quantos você quer?";
 		next;
 		mes "[Morrer. Jas]";
-		mes "SÃ³ para vocÃª saber, sÃ³ posso fazÃª -los em pequenas quantidades, atÃ© 10 por vez.";
+		mes "Só para você saber, só posso fazê -los em pequenas quantidades, até 10 por vez.";
 		mes "Vai custar 500 Zeny para cada um.";
 		next;
 		while(1) {
 			input .@input;
 			mes "[Morrer. Jas]";
 			if (.@input == 0) {
-				mes "VocÃª nÃ£o precisa dessas licenÃ§as?";
+				mes "Você não precisa dessas licenças?";
 				close;
 			} else if (.@input > 10) {
-				mes "SÃ³ posso fazer atÃ© 10 de cada vez, vocÃª sabe.";
+				mes "Só posso fazer até 10 de cada vez, você sabe.";
 				next;
 			} else {
 				mes "Vai custar"+(.@input*500)+"mulheres.";
 				if (Zeny < (.@input*500)) {
-					mes "Mas vocÃª nÃ£o tem dinheiro suficiente.";
+					mes "Mas você não tem dinheiro suficiente.";
 					next;
 					mes "[Morrer. Jas]";
-					mes "VocÃª nÃ£o conhece o bÃ¡sico dos negÃ³cios? Tudo tem um preÃ§o.";
-					mes "Se vocÃª quiser algo, vocÃª precisa pagar por isso.";
+					mes "Você não conhece o básico dos negócios? Tudo tem um preço.";
+					mes "Se você quiser algo, você precisa pagar por isso.";
 				} else {
 					mes "Ha ... ha ha ha!";
-					mes "Sr. Hugh, vou assumir o seu negÃ³cio de licenÃ§a. VocÃª verÃ¡!";
+					mes "Sr. Hugh, vou assumir o seu negócio de licença. Você verá!";
 					mes "*Risada de risada*";
 					getitem 12548,.@input; //Buy_Market_Permit2
 					set Zeny,Zeny-(.@input*500);
@@ -78,23 +78,23 @@ que_job01,68,84,1	script	Black Marketeer#Buying	881,{
 		}
 	case 2:
 		mes "[Morrer. Jas]";
-		mes "Deixei minha cidade natal hÃ¡ muito tempo.";
-		mes "NÃ£o faz sentido perguntar quem eu sou, porque tudo o que me resta agora Ã© meu Ã³dio.";
+		mes "Deixei minha cidade natal há muito tempo.";
+		mes "Não faz sentido perguntar quem eu sou, porque tudo o que me resta agora é meu ódio.";
 		next;
 		mes "[Morrer. Jas]";
 		mes "...";
-		mes "Hugh Ã© um comerciante corrupto, sem senso de Ã©tica nos negÃ³cios.";
-		mes "Meu Ãºnico objetivo na vida Ã© destruir Hugh.";
+		mes "Hugh é um comerciante corrupto, sem senso de ética nos negócios.";
+		mes "Meu único objetivo na vida é destruir Hugh.";
 		next;
 		mes "[Morrer. Jas]";
 		mes "Ah, eu bebi demais ... (*hic*)";
-		mes "Isso Ã© apenas o Ã¡lcool falando.";
-		mes "Por favor, esqueÃ§a tudo o que eu disse.";
+		mes "Isso é apenas o álcool falando.";
+		mes "Por favor, esqueça tudo o que eu disse.";
 		close;
 	case 3:
 		mes "[Morrer. Jas]";
-		mes "Tudo bem, tudo bem! VocÃª nÃ£o precisa gritar.";
-		mes "Apenas me deixe em paz se vocÃª nÃ£o tiver negÃ³cios comigo.";
+		mes "Tudo bem, tudo bem! Você não precisa gritar.";
+		mes "Apenas me deixe em paz se você não tiver negócios comigo.";
 		close;
 	}
 }
@@ -103,41 +103,41 @@ que_job01,68,84,1	script	Black Marketeer#Buying	881,{
 //============================================================ 
 alberta_in,58,52,4	script	Purchasing Team#Buying	59,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 2400) {
-		mes "- VocÃª nÃ£o pode conversar ou executar a missÃ£o porque estÃ¡ carregando muitos itens. -";
+		mes "- Você não pode conversar ou executar a missão porque está carregando muitos itens. -";
 		close;
 	}
 	mes "[Senhor. Hugh]";
 	if (BaseClass == Job_Merchant && getskilllv("Mc_vending") >= 1) {
 		if (getskilllv("All_buying_store") == 1) {
 			mes "Eu sou Hugh da equipe de compras.";
-			mes "Como posso ajudÃ¡ -lo hoje?";
+			mes "Como posso ajudá -lo hoje?";
 			next;
-			if(select("Compre licenÃ§a de loja de compras em massa: Saia") == 2) {
+			if(select("Compre licença de loja de compras em massa: Saia") == 2) {
 				mes "[Senhor. Hugh]";
-				mes "Sinta -se Ã  vontade para me perguntar se vocÃª precisa de alguma licenÃ§a de loja de compradores em massa.";
+				mes "Sinta -se à vontade para me perguntar se você precisa de alguma licença de loja de compradores em massa.";
 				mes "Venha de novo ~";
 				close;
 			}
 			mes "[Senhor. Hugh]";
-			mes "SÃ£o 200 zeny para cada licenÃ§a de loja de compradores em massa e vocÃª pode comprar atÃ© 50 por vez.";
-			mes "Quantas licenÃ§as vocÃª precisa?";
+			mes "São 200 zeny para cada licença de loja de compradores em massa e você pode comprar até 50 por vez.";
+			mes "Quantas licenças você precisa?";
 			next;
 			while(1) {
 				input .@input;
 				mes "[Senhor. Hugh]";
 				if (.@input == 0) {
-					mes "VocÃª cancelou o comÃ©rcio.";
+					mes "Você cancelou o comércio.";
 					mes "Tenha um bom dia.";
 					close;
 				} else if (.@input > 50) {
 					mes "Por favor, insira um valor de 50 ou menos.";
 					next;
 				} else {
-					mes "Vai custar"+(.@input*200)+"Zeny para"+.@input+"licenÃ§as.";
+					mes "Vai custar"+(.@input*200)+"Zeny para"+.@input+"licenças.";
 					if (Zeny < (.@input*200)) {
-						mes "Mas vocÃª parece nÃ£o ter dinheiro suficiente.";
+						mes "Mas você parece não ter dinheiro suficiente.";
 					} else {
-						mes "Obrigado pelo seu patrocÃ­nio.";
+						mes "Obrigado pelo seu patrocínio.";
 						getitem 6377,.@input; //Buy_Market_Permit
 						set Zeny,Zeny-(.@input*200);
 					}
@@ -146,98 +146,98 @@ alberta_in,58,52,4	script	Purchasing Team#Buying	59,{
 			}
 		} else {
 			mes "Sou Hugh da equipe de compras da Alberta Merchant Guild.";
-			mes "VocÃª Ã©...";
+			mes "Você é...";
 			next;
 			mes "[Senhor. Hugh]";
-			mes "VocÃª sabia? Nossa guilda emitiu uma licenÃ§a para permitir que os indivÃ­duos comprem mercadorias de outras pessoas.";
+			mes "Você sabia? Nossa guilda emitiu uma licença para permitir que os indivíduos comprem mercadorias de outras pessoas.";
 			next;
 			select("Eu nunca tive problemas para comprar itens ...");
 			mes "[Senhor. Hugh]";
-			mes "VocÃª estÃ¡ certo, mas pense nisso:";
-			mes "VocÃª nÃ£o teve dificuldade em comprar a granel?";
-			mes "VocÃª teria que encontrar e conversar com todos que tÃªm um item que vocÃª deseja.";
-			mes "Muito inconveniente, nÃ£o Ã©?";
+			mes "Você está certo, mas pense nisso:";
+			mes "Você não teve dificuldade em comprar a granel?";
+			mes "Você teria que encontrar e conversar com todos que têm um item que você deseja.";
+			mes "Muito inconveniente, não é?";
 			next;
 			mes "[Senhor. Hugh]";
-			mes "Como comprar em massa Ã© uma questÃ£o importante para os comerciantes dos EUA,";
-			mes "Eu propus um plano inovador Ã  nossa guilda, com base nos meus 10 anos de experiÃªncia em fazer compras.";
+			mes "Como comprar em massa é uma questão importante para os comerciantes dos EUA,";
+			mes "Eu propus um plano inovador à nossa guilda, com base nos meus 10 anos de experiência em fazer compras.";
 			next;
 			mes "[Senhor. Hugh]";
-			mes "'Deixe os indivÃ­duos abrirem";
+			mes "'Deixe os indivíduos abrirem";
 			mes "Uma loja de compradores a granel! '";
-			mes "Esse Ã© o tÃ­tulo da minha proposta.";
-			mes "VocÃª verÃ¡, quando lÃª ...";
+			mes "Esse é o título da minha proposta.";
+			mes "Você verá, quando lê ...";
 			next;
 			mes "[Senhor. Hugh]";
 			mes "...";
 			mes "... (Sr. Hugh Yammers sem parar com todos os detalhes.)";
 			next;
-			select("Tudo bem, qual Ã© o seu ponto?");
+			select("Tudo bem, qual é o seu ponto?");
 			mes "[Senhor. Hugh]";
 			mes "Oh sim. Resumindo,";
-			mes "VocÃª pode comprar certos itens a granel atravÃ©s de vendas.";
+			mes "Você pode comprar certos itens a granel através de vendas.";
 			next;
 			mes "[Senhor. Hugh]";
-			mes "Para abrir uma loja de compradores em massa, vocÃª precisa de uma licenÃ§a emitida da Merchant Guild.";
+			mes "Para abrir uma loja de compradores em massa, você precisa de uma licença emitida da Merchant Guild.";
 			next;
 			mes "[Senhor. Hugh]";
-			mes "VocÃª precisa disso toda vez que abrir a loja. Esperamos um aumento significativo nos lucros com esse novo tipo de licenciamento.";
+			mes "Você precisa disso toda vez que abrir a loja. Esperamos um aumento significativo nos lucros com esse novo tipo de licenciamento.";
 			next;
 			mes "[Senhor. Hugh]";
-			mes "Esse Ã© o ponto da minha proposta!";
-			mes "Nosso presidente ficou tÃ£o feliz em saber que vamos ganhar muito dinheiro!";
+			mes "Esse é o ponto da minha proposta!";
+			mes "Nosso presidente ficou tão feliz em saber que vamos ganhar muito dinheiro!";
 			next;
 			mes "["+strcharinfo(0)+"]";
-			mes "Por favor, atÃ© o ponto jÃ¡!";
+			mes "Por favor, até o ponto já!";
 			next;
 			mes "[Senhor. Hugh]";
-			mes "NÃ£o seja tÃ£o impaciente, tudo bem?";
-			mes "O que quero dizer Ã© que podemos deixar vocÃª abrir a loja de compradores em massa se vocÃª aprendeu as vendas.";
+			mes "Não seja tão impaciente, tudo bem?";
+			mes "O que quero dizer é que podemos deixar você abrir a loja de compradores em massa se você aprendeu as vendas.";
 			next;
 			mes "[Senhor. Hugh]";
-			mes "Obviamente, cobramos 10.000 Zeny como uma taxa de inscriÃ§Ã£o Ãºnica.";
-			mes "VocÃª precisarÃ¡ da licenÃ§a de loja de compras ^4A4ffbulk ^000000 toda vez que abrir a loja.";
+			mes "Obviamente, cobramos 10.000 Zeny como uma taxa de inscrição única.";
+			mes "Você precisará da licença de loja de compras ^4A4ffbulk ^000000 toda vez que abrir a loja.";
 			next;
 			mes "[Senhor. Hugh]";
-			mes "Diga, vocÃª gostaria de se registrar agora?";
+			mes "Diga, você gostaria de se registrar agora?";
 			mes "Se o fizer, eu vou te ensinar como abrir a loja de compradores em massa.";
 			next;
 			if(select("Aprenda a abrir o comprador em massa: Cancelar") == 2) {
 				mes "[Senhor. Hugh]";
-				mes "Cara, isso Ã© decepcionante!";
-				mes "O uso dessa opÃ§Ã£o de comprador em massa pode beneficiar seus negÃ³cios de vÃ¡rias maneiras, mas Ã© a sua chamada.";
+				mes "Cara, isso é decepcionante!";
+				mes "O uso dessa opção de comprador em massa pode beneficiar seus negócios de várias maneiras, mas é a sua chamada.";
 				mes "Estou sempre aberto para consulta!";
 				close;
 			}
 			mes "[Senhor. Hugh]";
 			if (Zeny < 10000) {
-				mes "A taxa de inscriÃ§Ã£o Ã© de 10.000 Zeny.";
+				mes "A taxa de inscrição é de 10.000 Zeny.";
 				mes "Por favor, tenha a taxa pronta primeiro.";
 				close;
 			} else {
-				mes "VocÃª tomou uma boa decisÃ£o.";
-				mes "Por favor, me dÃª a taxa de inscriÃ§Ã£o e assine aqui ....";
+				mes "Você tomou uma boa decisão.";
+				mes "Por favor, me dê a taxa de inscrição e assine aqui ....";
 				next;
 				input .@name$;
 				mes "[Senhor. Hugh]";
 				mes .@name$+"....";
 				mes "Eu gosto da sua caligrafia.";
-				mes "Ok, agora vocÃª estÃ¡ aprovado para abrir a loja de compradores em massa.";
+				mes "Ok, agora você está aprovado para abrir a loja de compradores em massa.";
 				set Zeny,Zeny-10000;
 				getitem 6377,5; //Buy_Stall_Permit
 				skill "All_buying_store",1,SKILL_PERM_GRANT;
 				next;
 				mes "[Senhor. Hugh]";
-				mes "Atualmente, apenas itens normais ^8C2121Except ^000000 Equipamentos, certos poÃ§Ãµes e itens artesanais podem ser adquiridos a granel, mas isso ainda pode ser muito benÃ©fico para vocÃª, dependendo de como vocÃª o usa.";
+				mes "Atualmente, apenas itens normais ^8C2121Except ^000000 Equipamentos, certos poções e itens artesanais podem ser adquiridos a granel, mas isso ainda pode ser muito benéfico para você, dependendo de como você o usa.";
 				next;
 				mes "[Senhor. Hugh]";
-				mes "Ah, e vocÃª precisa de pelo menos um dos itens que deseja comprar em seu inventÃ¡rio, porque precisa mostrÃ¡ -lo a outros atravÃ©s de sua loja.";
+				mes "Ah, e você precisa de pelo menos um dos itens que deseja comprar em seu inventário, porque precisa mostrá -lo a outros através de sua loja.";
 				next;
 				mes "[Senhor. Hugh]";
-				mes "Sua habilidade agora deve ser registrada em sua janela de habilidades. Se vocÃª nÃ£o pode vÃª -lo, provavelmente precisarÃ¡ minimizar sua lista de habilidades e verificar a 3Âª guia de trabalho.";
+				mes "Sua habilidade agora deve ser registrada em sua janela de habilidades. Se você não pode vê -lo, provavelmente precisará minimizar sua lista de habilidades e verificar a 3ª guia de trabalho.";
 				next;
 				mes "[Senhor. Hugh]";
-				mes "Dei a vocÃª 5 licenÃ§as de lojas de compras em massa para o seu teste.";
+				mes "Dei a você 5 licenças de lojas de compras em massa para o seu teste.";
 				mes "Aproveite as compras!";
 				close;
 			}
@@ -247,6 +247,6 @@ alberta_in,58,52,4	script	Purchasing Team#Buying	59,{
 	mes "Eu adoraria conversar, mas estou muito ocupado no momento.";
 	next;
 	mes "[Senhor. Hugh]";
-	mes "Meu tempo Ã© dedicado exclusivamente aos nossos clientes no setor de comerciantes.";
+	mes "Meu tempo é dedicado exclusivamente aos nossos clientes no setor de comerciantes.";
 	close;
 }

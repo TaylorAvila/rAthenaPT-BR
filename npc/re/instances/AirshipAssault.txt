@@ -14,10 +14,10 @@
 
 dali02,136,79,3	script	Adventurer Leon#air1	4_M_DST_GRAND,{
 	mes "[Aventureiro Leon]";
-	mes "HM ... Ap√≥s v√°rios dias de observa√ß√£o, este lugar parece ser um dispositivo impresso com as mem√≥rias de um dirig√≠vel.";
+	mes "HM ... ApÛs v·rios dias de observaÁ„o, este lugar parece ser um dispositivo impresso com as memÛrias de um dirigÌvel.";
 	next;
 	mes "[Aventureiro Leon]";
-	mes "... isso √© diferente. Eu n√£o tenho mais informa√ß√µes ...";
+	mes "... isso È diferente. Eu n„o tenho mais informaÁıes ...";
 	close;
 }
 
@@ -27,28 +27,28 @@ dali02,142,81,3	script	Dimensional Device#air1	PORTAL,{
 		erasequest 15051;
 	}
 	else if (checkquest(15051,PLAYTIME) == 2) {// Memorial Dungeon: Airship Assault
-		mes "^FF0000MEMORIAL Dungeon n√£o pode ser reentrado dentro de 23 horas ap√≥s sua √∫ltima entrada.^000000";
+		mes "^FF0000MEMORIAL Dungeon n„o pode ser reentrado dentro de 23 horas apÛs sua ˙ltima entrada.^000000";
 		close;
 	}
 	.@party_id = getcharid(1);
 	.@p_name$ = getpartyname(.@party_id);
-	.@md_name$ = "Assalto ao dirig√≠vel";
+	.@md_name$ = "Assalto ao dirigÌvel";
 
 	if (BaseLevel < 125) {
-		mes "^FF0000USERS APENAS O N√≠vel 125 n√£o pode entrar nesta masmorra^000000";
+		mes "^FF0000USERS APENAS O NÌvel 125 n„o pode entrar nesta masmorra^000000";
 		close;
 	}
 	if (.@party_id < 1) {
-		mes "^ff0000 para entrar, voc√™ deve criar ou ingressar em uma parte de 1 ou mais membros.^000000";
+		mes "^ff0000 para entrar, vocÍ deve criar ou ingressar em uma parte de 1 ou mais membros.^000000";
 		close;
 	}
 	if (is_party_leader() == false) {
-		mes "^FF0000Este Memorial Masmory √© apenas para 1 pessoa. Somente o l√≠der do partido pode entrar.^000000";
+		mes "^FF0000Este Memorial Masmory È apenas para 1 pessoa. Somente o lÌder do partido pode entrar.^000000";
 		close;
 	}
 	.@s = select( "Ligue o dispositivo", "Use o dispositivo", "Cancelar" );
 	if (is_party_leader(.@party_id) == false) {
-		mes "^FF0000Este Memorial Masmory √© apenas para 1 pessoa. Somente o l√≠der do partido pode entrar.^000000";
+		mes "^FF0000Este Memorial Masmory È apenas para 1 pessoa. Somente o lÌder do partido pode entrar.^000000";
 		close;
 	}
 	switch(.@s) {
@@ -56,7 +56,7 @@ dali02,142,81,3	script	Dimensional Device#air1	PORTAL,{
 		if (instance_create(.@md_name$) < 0) {
 			mes "Nome da festa:" + getpartyname( getcharid(1) );
 			mes "Nome do personagem:" + strcharinfo(0);
-			mes "^0000FF" + .@md_name$ + "^000000 - A cria√ß√£o falhou!";
+			mes "^0000FF" + .@md_name$ + "^000000 - A criaÁ„o falhou!";
 			close;
 		}
 		mes "^FF0000AFter Dimension Disposit";
@@ -69,15 +69,15 @@ dali02,142,81,3	script	Dimensional Device#air1	PORTAL,{
 				setquest 15050;// Memorial Dungeon: Airship Assault
 				setquest 15051;// Memorial Dungeon: Airship Assault
 			}
-			mapannounce "dali02", "" + strcharinfo(0) + ", membro do partido" + getpartyname( getcharid(1) ) + "entrou na inst√¢ncia" + .@md_name$ + ".", bc_map,"0 buceta 00";
+			mapannounce "dali02", "" + strcharinfo(0) + ", membro do partido" + getpartyname( getcharid(1) ) + "entrou na inst‚ncia" + .@md_name$ + ".", bc_map,"0 buceta 00";
 			specialeffect2 EF_WARP;
 			// warp "1@air1",244,73;
 			end;
 		case IE_NOMEMBER:
-			mes "^ff0000 para entrar, voc√™ deve criar ou ingressar em uma parte de 1 ou mais membros.^000000";
+			mes "^ff0000 para entrar, vocÍ deve criar ou ingressar em uma parte de 1 ou mais membros.^000000";
 			close;
 		case IE_NOINSTANCE:
-			mes "^ff0000 O l√≠der do partido n√£o usou o dispositivo.^000000";
+			mes "^ff0000 O lÌder do partido n„o usou o dispositivo.^000000";
 			close;
 		case IE_OTHER:
 			mes "Um erro desconhecido ocorreu.";// Custom
@@ -102,12 +102,12 @@ dali02,142,81,3	script	Dimensional Device#air1	PORTAL,{
 	if ('airship_status == 0) {
 		cutin "ep14_roki02",2;
 		mes "[Loki]";
-		mes "... Que bom que n√£o h√° nenhuma dessas coisas irritantes aqui ...";
+		mes "... Que bom que n„o h· nenhuma dessas coisas irritantes aqui ...";
 		close3;
 	}
 	cutin "ep14_roki02",2;
 	mes "[Loki]";
-	mes "... Vou defender este lugar, n√£o importa o qu√™. Des√ßa no dirig√≠vel ... !!";
+	mes "... Vou defender este lugar, n„o importa o quÍ. DesÁa no dirigÌvel ... !!";
 	close3;
 }
 
@@ -115,15 +115,15 @@ dali02,142,81,3	script	Dimensional Device#air1	PORTAL,{
 	if ('airship_status == 0) {
 		cutin "fenrir_a",2;
 		mes "[Fenrir]";
-		mes "Voando no ar com a for√ßa das m√°quinas ... o desenvolvimento da tecnologia √© realmente maravilhoso.";
+		mes "Voando no ar com a forÁa das m·quinas ... o desenvolvimento da tecnologia È realmente maravilhoso.";
 		next;
 		mes "[Fenrir]";
-		mes "Mas sinto que h√° algum tipo de poder ... acho que esse dirig√≠vel n√£o ser√° capaz de voar apenas apenas pela tecnologia.";
+		mes "Mas sinto que h· algum tipo de poder ... acho que esse dirigÌvel n„o ser· capaz de voar apenas apenas pela tecnologia.";
 		close3;
 	}
 	cutin "fenrir_b",2;
 	mes "[Fenrir]";
-	mes "Vou enfrent√° -los aqui. Caos, des√ßa at√© o andar inferior do dirig√≠vel com a √≠ris!";
+	mes "Vou enfrent· -los aqui. Caos, desÁa atÈ o andar inferior do dirigÌvel com a Ìris!";
 	close3;
 }
 
@@ -133,19 +133,19 @@ dali02,142,81,3	script	Dimensional Device#air1	PORTAL,{
 1@air1,217,67,3	script	Captain Ferlock#air1	4_M_REINDEER,{
 	if ('airship_status == 0) {
 		cutin "h_iris02",2;
-		mes "[√çris]";
-		mes "Uau ~ isso √© √≥timo !! O vento √© t√£o legal ~ !!";
-		mes "Hooray ~ estamos voando pelo c√©u! De gra√ßa em cima disso!";
+		mes "[Õris]";
+		mes "Uau ~ isso È Ûtimo !! O vento È t„o legal ~ !!";
+		mes "Hooray ~ estamos voando pelo cÈu! De graÁa em cima disso!";
 		next;
-		mes "[√çris]";
-		mes "N√£o √© maravilhoso como esse enorme navio pode voar sem o uso da magia? Caos?";
+		mes "[Õris]";
+		mes "N„o È maravilhoso como esse enorme navio pode voar sem o uso da magia? Caos?";
 		next;
 		cutin "h_chaos02",2;
 		mes "[Caos]";
 		mes "......";
 		next;
 		cutin "h_iris02",2;
-		mes "[√çris]";
+		mes "[Õris]";
 		mes "... ?? Caos?";
 		next;
 		cutin "h_chaos02",2;
@@ -153,77 +153,77 @@ dali02,142,81,3	script	Dimensional Device#air1	PORTAL,{
 		mes "..... Sez degraus ..";
 		next;
 		cutin "h_iris01",2;
-		mes "[√çris]";
-		mes "O que voc√™ est√° fazendo em vez de me ouvir !!!!";
+		mes "[Õris]";
+		mes "O que vocÍ est· fazendo em vez de me ouvir !!!!";
 		next;
 		cutin "h_chaos03",2;
 		mes "[Caos]";
 		mes "Argh! Aaah ~ !!";
 		next;
 		cutin "h_iris01",2;
-		mes "[√çris]";
-		mes "Humph! Isso √© o que voc√™ ganha por ser distra√≠do!";
+		mes "[Õris]";
+		mes "Humph! Isso È o que vocÍ ganha por ser distraÌdo!";
 		next;
 		cutin "h_chaos03",2;
 		mes "[Caos]";
-		mes "Ah ... Iris !! Voc√™ est√° tentando me matar ~ !!";
+		mes "Ah ... Iris !! VocÍ est· tentando me matar ~ !!";
 		next;
 		cutin "h_iris01",2;
-		mes "[√çris]";
-		mes "Humph! Eu n√£o me importo se voc√™ morrer ou n√£o ...";
+		mes "[Õris]";
+		mes "Humph! Eu n„o me importo se vocÍ morrer ou n„o ...";
 		next;
 		cutin "fly_felrock2",2;
-		mes "[Capit√£o Ferlock]";
+		mes "[Capit„o Ferlock]";
 		mes "Ei!! Sem cavalgar no navio !!";
-		mes "Isso √© o que h√° de errado com os jovens humanos. Eles n√£o t√™m maneiras! Se voc√™ agir, vou jogar todos voc√™s!";
+		mes "Isso È o que h· de errado com os jovens humanos. Eles n„o tÍm maneiras! Se vocÍ agir, vou jogar todos vocÍs!";
 		next;
 		cutin "h_iris02",2;
-		mes "[√çris]";
-		mes "Opa ... A prop√≥sito, capit√£o, como esse grande dirig√≠vel voa pelo c√©u? √â t√£o maravilhoso!";
+		mes "[Õris]";
+		mes "Opa ... A propÛsito, capit„o, como esse grande dirigÌvel voa pelo cÈu? … t„o maravilhoso!";
 		next;
 		cutin "fly_felrock2",2;
-		mes "[Capit√£o Ferlock]";
-		mes "Huh? Essa √© uma boa pergunta.";
-		mes "Como voc√™ pode ver, aquecemos a caldeira grande para ferver a √°gua e depois usar a press√£o do vapor para mover os pist√µes que giram a roda dentada e move a turbina para girar a h√©lice.";
+		mes "[Capit„o Ferlock]";
+		mes "Huh? Essa È uma boa pergunta.";
+		mes "Como vocÍ pode ver, aquecemos a caldeira grande para ferver a ·gua e depois usar a press„o do vapor para mover os pistıes que giram a roda dentada e move a turbina para girar a hÈlice.";
 		next;
 		cutin "h_iris02",2;
-		mes "[√çris]";
-		mes "Eh ... Ent√£o √© assim que esse grande navio flutua ... mas agora a sensa√ß√£o do mist√©rio se foi. Eu pensei que haveria algum dispositivo m√≠stico ... um pouco decepcionado ...";
+		mes "[Õris]";
+		mes "Eh ... Ent„o È assim que esse grande navio flutua ... mas agora a sensaÁ„o do mistÈrio se foi. Eu pensei que haveria algum dispositivo mÌstico ... um pouco decepcionado ...";
 		next;
 		cutin "fly_felrock2",2;
-		mes "[Capit√£o Ferlock]";
-		mes "Isso mesmo. Este grande navio n√£o pode estar no c√©u com apenas vapor. Por isso, ele usa um amplificador chamado 'motor de runa'.";
+		mes "[Capit„o Ferlock]";
+		mes "Isso mesmo. Este grande navio n„o pode estar no cÈu com apenas vapor. Por isso, ele usa um amplificador chamado 'motor de runa'.";
 		next;
 		cutin "h_iris01",2;
-		mes "[√çris]";
-		mes "Engine Rune? O que √© aquilo?";
+		mes "[Õris]";
+		mes "Engine Rune? O que È aquilo?";
 		next;
 		cutin "fly_felrock2",2;
-		mes "[Capit√£o Ferlock]";
-		mes "√â um dispositivo que usa uma pedra m√°gica.";
-		mes "Algo sobre fragmentos ca√≠dos de um cora√ß√£o partido de acordo com as lendas ... uma lenda rid√≠cula, mas isso n√£o importa ...";
+		mes "[Capit„o Ferlock]";
+		mes "… um dispositivo que usa uma pedra m·gica.";
+		mes "Algo sobre fragmentos caÌdos de um coraÁ„o partido de acordo com as lendas ... uma lenda ridÌcula, mas isso n„o importa ...";
 		next;
-		mes "[Capit√£o Ferlock]";
-		mes "A pedra √© a chamada 'l√°grima de Ymir'. Se colocado em jun√ß√£o com motores locomotivos como motores a vapor, a runa exalou a partir da pedra amplifica a energia.";
+		mes "[Capit„o Ferlock]";
+		mes "A pedra È a chamada 'l·grima de Ymir'. Se colocado em junÁ„o com motores locomotivos como motores a vapor, a runa exalou a partir da pedra amplifica a energia.";
 		next;
-		mes "[Capit√£o Ferlock]";
-		mes "Com toda a honestidade, n√£o √© um exagero dizer uma rocha do tamanho de um polegar est√° movendo este navio. Possui um poder incr√≠vel.";
+		mes "[Capit„o Ferlock]";
+		mes "Com toda a honestidade, n„o È um exagero dizer uma rocha do tamanho de um polegar est· movendo este navio. Possui um poder incrÌvel.";
 		next;
 		cutin "h_iris01",2;
-		mes "[√çris]";
+		mes "[Õris]";
 		mes "Aquela coisinha ... !!!";
 		next;
 		cutin "ep14_roki02",2;
 		mes "[Loki]";
 		mes "......huh?";
-		mes "Algo est√° chegando assim ...";
+		mes "Algo est· chegando assim ...";
 		next;
 		cutin "",255;
 		mes "[Guarda]";
-		mes "Alerta!! Alerta!! Uma grande unidade Wyvern √†s 7 horas !!";
+		mes "Alerta!! Alerta!! Uma grande unidade Wyvern ‡s 7 horas !!";
 		next;
 		cutin "fly_felrock2",2;
-		mes "[Capit√£o Ferlock]";
+		mes "[Capit„o Ferlock]";
 		mes "O que?!";
 		next;
 		cutin "",255;
@@ -242,11 +242,11 @@ dali02,142,81,3	script	Dimensional Device#air1	PORTAL,{
 	if ('airship_status == 1) {
 		cutin "h_chaos01",2;
 		mes "[Caos]";
-		mes "HM ... O que √© isso agora?";
+		mes "HM ... O que È isso agora?";
 		next;
 		cutin "h_arcana02",2;
 		mes "[Arcana]";
-		mes "Hahahaha ~ voc√™ esperou muito !!";
+		mes "Hahahaha ~ vocÍ esperou muito !!";
 		mes "Belo show de monstros aerotransportado da Forceress Arcana !!";
 		next;
 		cutin "h_chaos03",2;
@@ -255,53 +255,53 @@ dali02,142,81,3	script	Dimensional Device#air1	PORTAL,{
 		next;
 		cutin "h_arcana02",2;
 		mes "[Arcana]";
-		mes "Agora ... vamos come√ßar! Gremlins ~ !!";
-		mes "√â hora da festa ~ !!";
+		mes "Agora ... vamos comeÁar! Gremlins ~ !!";
+		mes "… hora da festa ~ !!";
 		next;
 		cutin "",255;
 		mes "[Guarda]";
-		mes "Cap .. Capit√£o! Isso √© s√©rio!";
-		mes "Gremlins est√° em todo o navio !!";
+		mes "Cap .. Capit„o! Isso È sÈrio!";
+		mes "Gremlins est· em todo o navio !!";
 		next;
 		cutin "fly_felrock2",2;
-		mes "[Capit√£o Ferlock]";
-		mes "O que?! Estes s√£o Gremlins?!";
-		mes "Voc√™s bastardos !! Des√ßa a partir da√≠ agora !!";
+		mes "[Capit„o Ferlock]";
+		mes "O que?! Estes s„o Gremlins?!";
+		mes "VocÍs bastardos !! DesÁa a partir daÌ agora !!";
 		next;
 		cutin "h_iris01",2;
-		mes "[√çris]";
-		mes "Capit√£o. N√£o h√° necessidade de ficar t√£o agitado.";
-		mes "Gremlins s√£o apenas monstros que mexem com m√°quinas. Em vez de...";
+		mes "[Õris]";
+		mes "Capit„o. N„o h· necessidade de ficar t„o agitado.";
+		mes "Gremlins s„o apenas monstros que mexem com m·quinas. Em vez de...";
 		next;
 		cutin "fly_felrock2",2;
-		mes "[Capit√£o Ferlock]";
-		mes "Voc√™ n√£o sabe do que est√° falando !!";
+		mes "[Capit„o Ferlock]";
+		mes "VocÍ n„o sabe do que est· falando !!";
 		mes "Estamos a uma altitude de 8000 !! Mesmo um mau funcionamento pode levar a um acidente mortal!";
 		next;
 		cutin "",255;
 		mes "[Guarda]";
-		mes "Argh !! Motor traseiro n√∫mero 1 !!";
-		mes "... isso √© s√©rio! Eles est√£o indo em dire√ß√£o √† sala de m√°quinas! Temos que proteger o motor Rune !!";
+		mes "Argh !! Motor traseiro n˙mero 1 !!";
+		mes "... isso È sÈrio! Eles est„o indo em direÁ„o ‡ sala de m·quinas! Temos que proteger o motor Rune !!";
 		next;
 		cutin "fly_felrock2",2;
-		mes "[Capit√£o Ferlock]";
+		mes "[Capit„o Ferlock]";
 		mes "Caramba ... onde eu coloquei minha arma ...";
-		mes "Ei humanos !! Bloqueie esse inc√¥modo enquanto eu vou ao quarto do capit√£o para procurar minha arma !!";
+		mes "Ei humanos !! Bloqueie esse incÙmodo enquanto eu vou ao quarto do capit„o para procurar minha arma !!";
 		next;
-		mes "[Capit√£o Ferlock]";
-		mes "Temos que impedi -los especialmente de chegar ao mecanismo Rune !! Se isso for destru√≠do, o navio n√£o pode mais voar !!";
+		mes "[Capit„o Ferlock]";
+		mes "Temos que impedi -los especialmente de chegar ao mecanismo Rune !! Se isso for destruÌdo, o navio n„o pode mais voar !!";
 		next;
-		mes "[Capit√£o Ferlock]";
+		mes "[Capit„o Ferlock]";
 		mes "Droga ... se eu tivesse minha arma ...";
 		next;
 		disablenpc instance_npcname("Captain Ferlock#air1");
 		cutin "h_chaos02",2;
 		mes "[Caos]";
-		mes "√çris!! Vamos at√© a sala de m√°quinas! Loki e Fenrir, mantenha este lugar!";
+		mes "Õris!! Vamos atÈ a sala de m·quinas! Loki e Fenrir, mantenha este lugar!";
 		next;
 		cutin "h_iris01",2;
-		mes "[√çris]";
-		mes "Oh, tudo bem! Tudo bem ... vamos l√° !!";
+		mes "[Õris]";
+		mes "Oh, tudo bem! Tudo bem ... vamos l· !!";
 		close2;
 		cutin "",255;
 		if ('airship_status == 1)
@@ -341,7 +341,7 @@ OnStart:
 OnTimer500:
 	disablenpc instance_npcname("Iris#air1");
 	disablenpc instance_npcname("Chaos#air1");
-	mapannounce 'map_air1$, "Os inimigos apareceram de repente e est√£o tentando destruir o dirig√≠vel.", bc_map,"0xffff00";
+	mapannounce 'map_air1$, "Os inimigos apareceram de repente e est„o tentando destruir o dirigÌvel.", bc_map,"0xffff00";
 	
 	enablenpc instance_npcname("warp1#air1");
 	.@label$ = instance_npcname("#airshipputmob1") + "::OnMyMobDead";
@@ -378,7 +378,7 @@ OnTimer500:
 	monster 'map_air1$, 84,45, "Gire o Zairo",3175,1, .@label$;
 	end;
 OnTimer1500:
-	mapannounce 'map_air1$, "V√° para o fundo do dirig√≠vel e derrote o inimigo.", bc_map,"0xffff00";
+	mapannounce 'map_air1$, "V· para o fundo do dirigÌvel e derrote o inimigo.", bc_map,"0xffff00";
 	end;
 OnTimer2500:
 	mapannounce 'map_air1$, "Todos os inimigos em um andar devem ser derrotados para progredir.", bc_map,"0xffff00";
@@ -386,7 +386,7 @@ OnTimer2500:
 	end;
 OnMyMobDead:
 	if (mobcount( 'map_air1$, instance_npcname("#airshipputmob1") + "::OnMyMobDead" ) < 1) {
-		mapannounce 'map_air1$, "Todos os inimigos neste andar foram derrotados. Des√ßa para o pr√≥ximo andar.", bc_map,"0xffff00";
+		mapannounce 'map_air1$, "Todos os inimigos neste andar foram derrotados. DesÁa para o prÛximo andar.", bc_map,"0xffff00";
 		disablenpc instance_npcname("#airshipputmob1");
 		donpcevent instance_npcname("#airshipputmob2") + "::OnStart";
 		'airship_status = 3;
@@ -396,16 +396,16 @@ OnMyMobDead:
 
 1@air1,120,62,3	script	Traveling Knight#air1	4_M_JOB_KNIGHT1,{
 	mes "[Cavaleiro viajante]";
-	mes "O que s√£o essas coisas?";
-	mes "Devo cort√° -los todos? ... N√£o, n√£o √© dinheiro suficiente para eu estar envolvido ...";
+	mes "O que s„o essas coisas?";
+	mes "Devo cort· -los todos? ... N„o, n„o È dinheiro suficiente para eu estar envolvido ...";
 	close2;
 	emotion ET_OHNO;
 	end;
 }
 
 1@air1,95,47,3	script	Passed out Drunkard#air1	4_M_LIEMAN,{
-	mes "[Desmaiado b√™bado]";
-	mes "Ugh ... ficando b√™bado ... Solu√ßo";
+	mes "[Desmaiado bÍbado]";
+	mes "Ugh ... ficando bÍbado ... SoluÁo";
 	mes ".... roncar ... Zzz";
 	close2;
 	emotion ET_CONFUSE;
@@ -413,23 +413,23 @@ OnMyMobDead:
 }
 
 1@air1,75,71,5	script	Wealthy man at a meal#a	1_M_JOBTESTER,{
-	mes "[Homem rico em uma refei√ß√£o]";
-	mes "O que ... O que s√£o esses monstros?!";
-	mes "Como voc√™ se atreve a interromper meu precioso tempo de refei√ß√£o! Guarda! Onde voc√™ est√°!";
+	mes "[Homem rico em uma refeiÁ„o]";
+	mes "O que ... O que s„o esses monstros?!";
+	mes "Como vocÍ se atreve a interromper meu precioso tempo de refeiÁ„o! Guarda! Onde vocÍ est·!";
 	close;
 }
 
 1@air1,61,88,5	script	Free Riding Bard#air1	1_M_BARD,{
-	mes "[Bardo de equita√ß√£o gr√°tis]";
-	mes "Uau ... lindo ~ fant√°stico ~";
-	mes "At√© o navio explos√£o √© incr√≠vel ~ uau ~";
+	mes "[Bardo de equitaÁ„o gr·tis]";
+	mes "Uau ... lindo ~ fant·stico ~";
+	mes "AtÈ o navio explos„o È incrÌvel ~ uau ~";
 	close;
 }
 
 1@air1,46,61,5	script	Airship Cafeteria Manager#air1	1_M_PUBMASTER,{
 	mes "[Gerente de cafeteria de aeronave]";
-	mes "Eles podem parecer amea√ßadores, mas esses monstros tamb√©m s√£o clientes da minha cafeteria.";
-	mes "O que voc√™ gostaria do cliente monstro?";
+	mes "Eles podem parecer ameaÁadores, mas esses monstros tambÈm s„o clientes da minha cafeteria.";
+	mes "O que vocÍ gostaria do cliente monstro?";
 	next;
 	mes "[Gerente de cafeteria de aeronave]";
 	mes "Ah ... argh! Me ajude!!";
@@ -437,13 +437,13 @@ OnMyMobDead:
 }
 
 1@air1,28,67,5	script	Gambling Spirit#air1	4_M_YURI,{
-	mes "[Esp√≠rito de jogo]";
-	mes "Ei! N√£o toque em minhas cartas!";
-	mes "Desligado com as m√£os e o pesco√ßo!";
+	mes "[EspÌrito de jogo]";
+	mes "Ei! N„o toque em minhas cartas!";
+	mes "Desligado com as m„os e o pescoÁo!";
 	next;
-	mes "[Esp√≠rito de jogo]";
+	mes "[EspÌrito de jogo]";
 	mes "Huh..?!";
-	mes "Eu estava apenas sentindo isso e esses monstros aparecem?! Voc√™ est√° tentando roubar meu dinheiro porque ganhei um pouco? Huh?!";
+	mes "Eu estava apenas sentindo isso e esses monstros aparecem?! VocÍ est· tentando roubar meu dinheiro porque ganhei um pouco? Huh?!";
 	close;
 }
 
@@ -497,7 +497,7 @@ OnStart:
 	end;
 OnMyMobDead:
 	if (mobcount( 'map_air1$, instance_npcname("#airshipputmob2") + "::OnMyMobDead" ) < 1) {
-		mapannounce 'map_air1$, "Todos os inimigos neste andar foram derrotados. V√° para a entrada da sala de m√°quinas.", bc_map,"0xffff00";
+		mapannounce 'map_air1$, "Todos os inimigos neste andar foram derrotados. V· para a entrada da sala de m·quinas.", bc_map,"0xffff00";
 		enablenpc instance_npcname("Iris#2air1");
 		enablenpc instance_npcname("Chaos#2air1");
 		enablenpc instance_npcname("Gremlin#2aair1");
@@ -508,20 +508,20 @@ OnMyMobDead:
 }
 
 1@air1,93,193,3	script	Airship Crew#1air1	4_M_EIN_SOLDIER,{
-	mes "[Tripula√ß√£o de aeronave]";
-	mes "Esta √© a entrada da sala de m√°quinas. Pare de entrar!";
+	mes "[TripulaÁ„o de aeronave]";
+	mes "Esta È a entrada da sala de m·quinas. Pare de entrar!";
 	close;
 }
 
 1@air1,22,182,7	script	Airship Crew#2air1	4_M_EIN_SOLDIER,{
-	mes "[Tripula√ß√£o de aeronave]";
-	mes "Droga ... existem muitos deles! A sala de m√°quinas pode ser invadida !!";
+	mes "[TripulaÁ„o de aeronave]";
+	mes "Droga ... existem muitos deles! A sala de m·quinas pode ser invadida !!";
 	close;
 }
 
 1@air1,43,191,4	script	King's Escort#1air1	8W_SOLDIER,{
 	mes "[Escorta do rei]";
-	mes "N√£o devemos acordar nosso rei adormecido, n√£o importa o que aconte√ßa!";
+	mes "N„o devemos acordar nosso rei adormecido, n„o importa o que aconteÁa!";
 	close;
 }
 1@air1,39,191,4	duplicate(King's Escort#1air1)	King's Escort#2air1	8W_SOLDIER
@@ -541,15 +541,15 @@ OnMyMobDead:
 	if ('airship_status == 4) {
 		cutin "h_chaos02",2;
 		mes "[Caos]";
-		mes "Droga ... eles j√° chegaram at√© aqui! Gra√ßas a voc√™, o motor Rune foi defendido.";
+		mes "Droga ... eles j· chegaram atÈ aqui! GraÁas a vocÍ, o motor Rune foi defendido.";
 		next;
 		cutin "h_iris01",2;
-		mes "[√çris]";
-		mes "Uh ... oh !! H√° um Gremlin indo em dire√ß√£o √† sala de m√°quinas !!";
+		mes "[Õris]";
+		mes "Uh ... oh !! H· um Gremlin indo em direÁ„o ‡ sala de m·quinas !!";
 		next;
 		cutin "h_chaos03",2;
 		mes "[Caos]";
-		mes "..... !! Temos que det√™ -lo !!";
+		mes "..... !! Temos que detÍ -lo !!";
 		next;
 		cutin "",255;
 		mes "[Gremlin]";
@@ -567,16 +567,16 @@ OnMyMobDead:
 		mes "- POP! Pop pop!";
 		next;
 		cutin "h_iris01",2;
-		mes "[√çris]";
-		mes "V√âSPERA !!";
+		mes "[Õris]";
+		mes "V…SPERA !!";
 		next;
 		cutin "",255;
-		mes "[Membro da tripula√ß√£o]";
-		mes "Argh! O motor Rune !! A sala de m√°quinas explodiu !! Equipe de supress√£o de inc√™ndio! Coloque o fogo !!";
+		mes "[Membro da tripulaÁ„o]";
+		mes "Argh! O motor Rune !! A sala de m·quinas explodiu !! Equipe de supress„o de incÍndio! Coloque o fogo !!";
 		next;
 		cutin "h_chaos02",2;
 		mes "[Caos]";
-		mes "Caramba!! √â perigoso aqui! Vamos sair daqui primeiro! Iris, apresse !!";
+		mes "Caramba!! … perigoso aqui! Vamos sair daqui primeiro! Iris, apresse !!";
 		close2;
 		// 'airship_status = 6;// no consequence
 		cutin "",255;
@@ -586,7 +586,7 @@ OnMyMobDead:
 	}
 	end;
 OnTimer1000:
-	mapannounce 'map_air1$, "Voc√™ deve subir ao conv√©s do dirig√≠vel enquanto derrota o inimigo.", bc_map,"0xffff00";
+	mapannounce 'map_air1$, "VocÍ deve subir ao convÈs do dirigÌvel enquanto derrota o inimigo.", bc_map,"0xffff00";
 	stopnpctimer;
 	end;
 }
@@ -640,7 +640,7 @@ OnStart:
 	end;
 OnMyMobDead:
 	if (mobcount( 'map_air2$, instance_npcname("#airshipputmob3") + "::OnMyMobDead" ) < 1) {
-		mapannounce 'map_air2$, "Todos os inimigos neste andar foram derrotados. V√° at√© o conv√©s.", bc_map,"0xffff00";
+		mapannounce 'map_air2$, "Todos os inimigos neste andar foram derrotados. V· atÈ o convÈs.", bc_map,"0xffff00";
 		enablenpc instance_npcname("warp4a#air2");
 		enablenpc instance_npcname("Iris#air2");
 		enablenpc instance_npcname("Fenrir#air2");
@@ -664,27 +664,27 @@ OnMyMobDead:
 1@air2,120,62,3	script	Traveling Knight#air2	4_M_JOB_KNIGHT1,{
 	mes "[Cavaleiro viajante]";
 	mes "Ah .. argh !!";
-	mes "Vai explodir! Tenho que ir at√© ... eu tenho que ir at√© aquele dirig√≠vel do outro lado !!";
+	mes "Vai explodir! Tenho que ir atÈ ... eu tenho que ir atÈ aquele dirigÌvel do outro lado !!";
 	close;
 }
 
 1@air2,61,88,5	script	Free Riding Bard#air2	1_M_BARD,{
-	mes "[Bardo de equita√ß√£o gr√°tis]";
-	mes "Uau ... lindo ~ fant√°stico ~";
-	mes "At√© o navio explos√£o √© incr√≠vel ~ uau ~";
+	mes "[Bardo de equitaÁ„o gr·tis]";
+	mes "Uau ... lindo ~ fant·stico ~";
+	mes "AtÈ o navio explos„o È incrÌvel ~ uau ~";
 	close;
 }
 
 1@air2,28,67,5	script	Gambling Spirit#air2	4_M_YURI,{
-	mes "[Esp√≠rito de jogo]";
-	mes "O que √© isso? Fogo?";
+	mes "[EspÌrito de jogo]";
+	mes "O que È isso? Fogo?";
 	mes "AHHHHHH ~";
 	close;
 }
 
 1@air2,46,61,5	script	Airship Cafeteria Manager#air2	1_M_PUBMASTER,{
 	mes "[Gerente de cafeteria de aeronave]";
-	mes "√â este navio .. vai cair ..";
+	mes "… este navio .. vai cair ..";
 	mes "No entanto, vou compartilhar o destino com este navio. Este navio e eu somos um!";
 	next;
 	mes "[Gerente de cafeteria de aeronave]";
@@ -741,11 +741,11 @@ OnExplosion2:
 	next;
 	cutin "h_guardian2",1;
 	mes "[?????]";
-	mes "Como esperado. Nossa intui√ß√£o n√£o estava errada. Era proveitoso ter seguido a onda do mal e chegou at√© aqui.";
+	mes "Como esperado. Nossa intuiÁ„o n„o estava errada. Era proveitoso ter seguido a onda do mal e chegou atÈ aqui.";
 	next;
 	cutin "h_iris01",2;
-	mes "[√çris]";
-	mes "... ?? Quem vai l√° !!";
+	mes "[Õris]";
+	mes "... ?? Quem vai l· !!";
 	next;
 	cutin "h_guardian2",1;
 	mes "[?????]";
@@ -753,11 +753,11 @@ OnExplosion2:
 	next;
 	mes "[?????]";
 	mes "Shiva! Basar! Luxmi!";
-	mes "N√≥s somos os Rangers Invenc√≠veis!";
+	mes "NÛs somos os Rangers InvencÌveis!";
 	next;
 	cutin "h_guardian1",1;
-	mes "[Hero√≠nas guardi√µes]";
-	mes "Hero√≠nas guardi√µes !!";
+	mes "[HeroÌnas guardiıes]";
+	mes "HeroÌnas guardiıes !!";
 	next;
 	cutin "h_chaos02",2;
 	mes "[Caos]";
@@ -769,43 +769,43 @@ OnExplosion2:
 	next;
 	cutin "h_guardian1",1;
 	mes "[Shiva]";
-	mes "HM? O que h√° com a rea√ß√£o? Todo mundo √© meio morno ... era demais?";
+	mes "HM? O que h· com a reaÁ„o? Todo mundo È meio morno ... era demais?";
 	next;
 	mes "[Basara]";
-	mes "HM, n√£o, n√£o. Todo mundo est√° apenas cativado por nossa grande entrada.";
+	mes "HM, n„o, n„o. Todo mundo est· apenas cativado por nossa grande entrada.";
 	next;
 	mes "[Laksmi]";
-	mes "Certo, certo. Muita produ√ß√£o para a entrada de um her√≥i √© um pouco demais !!";
+	mes "Certo, certo. Muita produÁ„o para a entrada de um herÛi È um pouco demais !!";
 	next;
 	cutin "h_iris02",2;
-	mes "[√çris]";
+	mes "[Õris]";
 	mes "Poderia....";
 	mes "Pryhahahahahahahahahah";
 	next;
-	mes "[√çris]";
-	mes "O que? Quem s√£o esses idiotas?!";
+	mes "[Õris]";
+	mes "O que? Quem s„o esses idiotas?!";
 	mes "Basta olhar para as roupas deles !!";
-	mes "S√£o trajes de palco? S√£o celebridades e n√£o her√≥is?";
+	mes "S„o trajes de palco? S„o celebridades e n„o herÛis?";
 	next;
 	cutin "h_guardian3",1;
 	mes "[Shiva]";
-	mes "Humph. Voc√™ n√£o sabe do que est√° falando!";
-	mes "Voc√™ sabe quanto custa essas roupas? Isso √© o que h√° de errado com pessoas que s√£o mon√≥tonas para a mais recente moda ~";
+	mes "Humph. VocÍ n„o sabe do que est· falando!";
+	mes "VocÍ sabe quanto custa essas roupas? Isso È o que h· de errado com pessoas que s„o monÛtonas para a mais recente moda ~";
 	next;
 	mes "[Basara]";
-	mes "Voc√™s! Esta n√£o √© hora de conversar assim! Vamos erradicar a onda do mal !!";
+	mes "VocÍs! Esta n„o È hora de conversar assim! Vamos erradicar a onda do mal !!";
 	next;
 	mes "[Shiva]";
-	mes "Roger, Basara! Vamos terminar com um ataque r√°pido !!";
-	mes "Huma metal come√ßa !! Hia:!";
+	mes "Roger, Basara! Vamos terminar com um ataque r·pido !!";
+	mes "Huma metal comeÁa !! Hia:!";
 	next;
 	cutin "",255;
 	mes "- POP! Pop pop!";
 	donpcevent instance_npcname("Gremlin#1air2") + "::OnExplosion1";
 	next;
 	cutin "h_iris01",2;
-	mes "[√çris]";
-	mes "O que eles s√£o ... idiotas absolutos ...";
+	mes "[Õris]";
+	mes "O que eles s„o ... idiotas absolutos ...";
 	next;
 	cutin "h_arcana02",2;
 	mes "[Arcana]";
@@ -816,21 +816,21 @@ OnExplosion2:
 	cutin "fenrir_a",2;
 	mes "[Fenrir]";
 	mes "Espere!";
-	mes "Seria melhor terminar esta festa agora ... o que √© isso? Freyja enviou voc√™?";
+	mes "Seria melhor terminar esta festa agora ... o que È isso? Freyja enviou vocÍ?";
 	next;
 	cutin "h_arcana02",2;
 	mes "[Arcana]";
-	mes "Oh. Voc√™ n√£o tem medo.";
-	mes "Qu√£o ousa um mero humilde humano dizer o nome de Freyja.";
+	mes "Oh. VocÍ n„o tem medo.";
+	mes "Qu„o ousa um mero humilde humano dizer o nome de Freyja.";
 	next;
 	cutin "fenrir_a",2;
 	mes "[Fenrir]";
-	mes "Como esperado. Voc√™ √© o pe√£o de Freyja?";
+	mes "Como esperado. VocÍ È o pe„o de Freyja?";
 	next;
 	cutin "h_arcana01",2;
 	mes "[Arcana]";
-	mes "...Cuidadoso. Se voc√™ continuar assim ...";
-	mes "Voc√™ receber√° um castigo divino!";
+	mes "...Cuidadoso. Se vocÍ continuar assim ...";
+	mes "VocÍ receber· um castigo divino!";
 	next;
 	donpcevent instance_npcname("Gremlin#1air2") + "::OnExplosion1";
 	cutin "fenrir_b",2;
@@ -839,11 +839,11 @@ OnExplosion2:
 	next;
 	cutin "h_arcana02",2;
 	mes "[Arcana]";
-	mes "Ok ~ vou te mostrar algo bom. Algo para esfriar suas cabe√ßas.";
+	mes "Ok ~ vou te mostrar algo bom. Algo para esfriar suas cabeÁas.";
 	next;
 	cutin "fenrir_b",2;
 	mes "[Fenrir]";
-	mes "Poderia ser ... a respira√ß√£o de Wyvern? !!";
+	mes "Poderia ser ... a respiraÁ„o de Wyvern? !!";
 	next;
 	cutin "h_arcana02",2;
 	mes "[Arcana]";
@@ -855,7 +855,7 @@ OnExplosion2:
 	next;
 	cutin "fenrir_b",2;
 	mes "[Fenrir]";
-	mes "N√£o ... n√£o !! O navio !!";
+	mes "N„o ... n„o !! O navio !!";
 	next;
 	enablenpc instance_npcname("Loki#air2");
 	specialeffect EF_SUI_EXPLOSION,AREA, instance_npcname("Loki#air2");
@@ -869,11 +869,11 @@ OnExplosion2:
 	cutin "ep14_roki02",2;
 	mes "[Loki]";
 	mes "HM ...";
-	mes "Minhas roupas novas est√£o arruinadas ...";
+	mes "Minhas roupas novas est„o arruinadas ...";
 	next;
 	cutin "h_arcana02",2;
 	mes "[Arcana]";
-	mes "Ooh .. voc√™ jogou a respira√ß√£o de Wyvern ... um resultado inesperado. Mas voc√™ pode suportar este?";
+	mes "Ooh .. vocÍ jogou a respiraÁ„o de Wyvern ... um resultado inesperado. Mas vocÍ pode suportar este?";
 	next;
 	cutin "",255;
 	mes "[Wyvern]";
@@ -881,8 +881,8 @@ OnExplosion2:
 	next;
 	cutin "ep14_roki02",2;
 	mes "[Loki]";
-	mes "Pragas inc√¥modas ...";
-	mes "Voc√™! Vou enfrentar um enquanto voc√™ enfrenta o outro ...";
+	mes "Pragas incÙmodas ...";
+	mes "VocÍ! Vou enfrentar um enquanto vocÍ enfrenta o outro ...";
 	close2;
 	cutin "",255;
 	if ('airship_status == 6)
@@ -922,26 +922,26 @@ OnMyMobDead:
 	mes "Squeak ... Kooar ~ !!";
 	next;
 	cutin "h_iris01",2;
-	mes "[√çris]";
-	mes "Eek! Ainda h√° mais deles !!";
+	mes "[Õris]";
+	mes "Eek! Ainda h· mais deles !!";
 	next;
 	cutin "fly_felrock2",2;
-	mes "[Capit√£o Felrock]";
+	mes "[Capit„o Felrock]";
 	mes "Encontrei! Minha arma! Hehehehe";
 	next;
-	mes "[Capit√£o Ferlock]";
-	mes "Vou mostrar o que acontece quando voc√™ atacar meu navio!";
+	mes "[Capit„o Ferlock]";
+	mes "Vou mostrar o que acontece quando vocÍ atacar meu navio!";
 	next;
-	mes "[Capit√£o Ferlock]";
-	mes "Vou terminar isso com meu rifle de doom de √™xodos do Exodus Joker XIII, especialmente fabricado!";
+	mes "[Capit„o Ferlock]";
+	mes "Vou terminar isso com meu rifle de doom de Íxodos do Exodus Joker XIII, especialmente fabricado!";
 	next;
 	cutin "h_iris01",2;
-	mes "[√çris]";
-	mes "S√≥ .. apenas um minuto ...";
-	mes "Voc√™ realmente vai demitir isso?!";
+	mes "[Õris]";
+	mes "SÛ .. apenas um minuto ...";
+	mes "VocÍ realmente vai demitir isso?!";
 	next;
 	cutin "fly_felrock2",2;
-	mes "[Capit√£o Ferlock]";
+	mes "[Capit„o Ferlock]";
 	mes "Claro!";
 	mes "Heheheze!";
 	next;
@@ -953,9 +953,9 @@ OnMyMobDead:
 	mes "Urrrk !!";
 	next;
 	cutin "fly_felrock2",2;
-	mes "[Capit√£o Ferlock]";
+	mes "[Capit„o Ferlock]";
 	mes "Muhahahaha!";
-	mes "Como voc√™ gosta disso !!";
+	mes "Como vocÍ gosta disso !!";
 	mes "Muhahahahahaha";
 	next;
 	donpcevent instance_npcname("Gremlin#1air2") + "::OnExplosion1";
@@ -966,28 +966,28 @@ OnMyMobDead:
 	mes "ARRGH ... O EN..ENGINE!";
 	next;
 	cutin "fly_felrock2",2;
-	mes "[Capit√£o Ferlock]";
-	mes "O que?! Esses bastardos est√£o quebrando mais o motor? !! Voc√™ est√° me deixando com raiva !!";
+	mes "[Capit„o Ferlock]";
+	mes "O que?! Esses bastardos est„o quebrando mais o motor? !! VocÍ est· me deixando com raiva !!";
 	next;
 	cutin "h_iris01",2;
-	mes "[√çris]";
-	mes "Voc√™ √© quem fez isso !!!";
+	mes "[Õris]";
+	mes "VocÍ È quem fez isso !!!";
 	next;
 	donpcevent instance_npcname("Gremlin#1air2") + "::OnExplosion1";
 	cutin "",255;
 	mes "- Bang! Babang! BANG!";
 	next;
 	cutin "fly_felrock2",2;
-	mes "[Capit√£o Ferlock]";
+	mes "[Capit„o Ferlock]";
 	mes "Bastardos! O! O!";
 	mes "Muhahahaha !!";
 	next;
 	cutin "h_iris01",2;
-	mes "[√çris]";
-	mes "A maneira como as coisas est√£o indo, o navio cair√° por causa daquele capit√£o de renas !! Pare com esse capit√£o !! Estou com medo ...";
+	mes "[Õris]";
+	mes "A maneira como as coisas est„o indo, o navio cair· por causa daquele capit„o de renas !! Pare com esse capit„o !! Estou com medo ...";
 	next;
-	mes "[√çris]";
-	mes "Como podemos det√™ -lo? ... Talvez ele recupere seus sentidos se voc√™ derrot√° -lo apenas o suficiente para n√£o morrer ... Contando com voc√™ !!";
+	mes "[Õris]";
+	mes "Como podemos detÍ -lo? ... Talvez ele recupere seus sentidos se vocÍ derrot· -lo apenas o suficiente para n„o morrer ... Contando com vocÍ !!";
 	close2;
 	cutin "",255;
 	if ('airship_status == 8)
@@ -1026,33 +1026,33 @@ OnTimer6000:
 	if ('airship_status > 10) {
 		cutin "h_chaos02",2;
 		mes "[Caos]";
-		mes "Voc√™ sai daqui agora !! Este navio est√° em perigo !!";
+		mes "VocÍ sai daqui agora !! Este navio est· em perigo !!";
 		close3;
 	}
 	cutin "fly_felrock2",2;
-	mes "[Capit√£o Ferlock]";
+	mes "[Capit„o Ferlock]";
 	mes "Opa .. eu estava atirando como um louco. Parece que muitos dos Gremlins se foram? Hehehehe";
 	next;
 	cutin "h_iris01",2;
-	mes "[√çris]";
-	mes "O navio est√° danificado por sua causa !!";
+	mes "[Õris]";
+	mes "O navio est· danificado por sua causa !!";
 	next;
 	cutin "h_arcana02",2;
 	mes "[Arcana]";
-	mes "Fazendo nosso trabalho para n√≥s. HM, acho que isso √© suficiente?";
+	mes "Fazendo nosso trabalho para nÛs. HM, acho que isso È suficiente?";
 	next;
 	mes "[Arcana]";
-	mes "Ent√£o √© hora de escaparmos ...";
+	mes "Ent„o È hora de escaparmos ...";
 	next;
 	cutin "h_guardian1",1;
 	mes "[Laksmi]";
-	mes "Oh? ... a√≠, Basara. Parece que eles est√£o se retirando.";
+	mes "Oh? ... aÌ, Basara. Parece que eles est„o se retirando.";
 	next;
 	mes "[Basara]";
-	mes "Claro!! Eles t√™m uma sensa√ß√£o de nossa habilidade !! Hohoho ~";
+	mes "Claro!! Eles tÍm uma sensaÁ„o de nossa habilidade !! Hohoho ~";
 	next;
 	mes "[Basara]";
-	mes "Nessa nota, um √∫ltimo huuma metal shuriken !!";
+	mes "Nessa nota, um ˙ltimo huuma metal shuriken !!";
 	next;
 	for ( .@i = 1; .@i < 4; .@i++ ) {
 		enablenpc instance_npcname("Gremlin#" + .@i + "air2");
@@ -1065,11 +1065,11 @@ OnTimer6000:
 	cutin "fenrir_b",2;
 	mes "[Fenrir]";
 	mes "Eek !! Parece que vamos cair !!";
-	mes "... muito curto ... n√£o posso alcan√ßar ...";
+	mes "... muito curto ... n„o posso alcanÁar ...";
 	next;
 	mes "[Fenrir]";
-	mes "... √© esse o fim?";
-	mes "... um lugar que eu n√£o posso alcan√ßar antes ...";
+	mes "... È esse o fim?";
+	mes "... um lugar que eu n„o posso alcanÁar antes ...";
 	mes "Caos...";
 	next;
 	cutin "ep14_roki02",2;
@@ -1082,7 +1082,7 @@ OnTimer6000:
 	next;
 	cutin "ep14_roki02",2;
 	mes "[Loki]";
-	mes "O que voc√™ est√° olhando? Aqui, venha ...";
+	mes "O que vocÍ est· olhando? Aqui, venha ...";
 	next;
 	cutin "",255;
 	mes "[Guarda]";
@@ -1090,85 +1090,85 @@ OnTimer6000:
 	mes "Temos que escapar rapidamente!";
 	next;
 	cutin "fly_felrock2",2;
-	mes "[Capit√£o Ferlock]";
+	mes "[Capit„o Ferlock]";
 	mes "Droga...";
 	mes "Todo mundo entra nos botes salva -vidas!";
-	mes "Embarque os botes salva -vidas com os passageiros sendo a primeira prioridade! Libere os botes salva -vidas que conclu√≠ram o embarque!";
+	mes "Embarque os botes salva -vidas com os passageiros sendo a primeira prioridade! Libere os botes salva -vidas que concluÌram o embarque!";
 	next;
 	cutin "h_chaos02",2;
 	mes "[Caos]";
-	mes "Espere!! Ainda h√° pessoas restantes !!";
+	mes "Espere!! Ainda h· pessoas restantes !!";
 	next;
 	cutin "fly_felrock2",2;
-	mes "[Capit√£o Ferlock]";
-	mes "N√£o h√° nada que possamos fazer!";
-	mes "Se continuarmos parando, o resto estar√° em perigo !! √â muito ruim, mas fizemos tudo o que podemos!";
+	mes "[Capit„o Ferlock]";
+	mes "N„o h· nada que possamos fazer!";
+	mes "Se continuarmos parando, o resto estar· em perigo !! … muito ruim, mas fizemos tudo o que podemos!";
 	next;
 	cutin "h_chaos03",2;
 	mes "[Caos]";
-	mes "Mas as pessoas restantes tamb√©m s√£o vidas preciosas! Voc√™ vai deix√° -los? !! Huh?!!";
+	mes "Mas as pessoas restantes tambÈm s„o vidas preciosas! VocÍ vai deix· -los? !! Huh?!!";
 	next;
 	cutin "fly_felrock2",2;
 	mes "[Captain Ferlock]";
-	mes "Sim, voc√™ est√° certo ...";
-	mes "Nessa nota, deixarei voc√™ cuidar das consequ√™ncias. Estou fora !!";
+	mes "Sim, vocÍ est· certo ...";
+	mes "Nessa nota, deixarei vocÍ cuidar das consequÍncias. Estou fora !!";
 	disablenpc instance_npcname("Captain Ferlock#2air2");
 	next;
 	cutin "h_chaos03",2;
 	mes "[Caos]";
-	mes "Ei! Onde voc√™ est√° indo! Argh !!";
+	mes "Ei! Onde vocÍ est· indo! Argh !!";
 	mes "Eu vou te pegar. Eu vou te matar!!";
 	next;
 	cutin "h_guardian1",1;
 	mes "[Basara]";
-	mes "N√£o √© a hora de enfrentarmos esses gremlins triviais.";
+	mes "N„o È a hora de enfrentarmos esses gremlins triviais.";
 	next;
 	mes "[Basara]";
 	mes "Eu posso sentir uma onda maior de mal.";
 	mes "Vamos deixar esses pequenos para eles. Vamos!";
 	next;
 	mes "[Nas contas].";
-	mes "Roger !! Formul√°rio de v√¥o Ranger !!";
+	mes "Roger !! Formul·rio de vÙo Ranger !!";
 	next;
 	cutin "h_iris01",2;
-	mes "[√çris]";
+	mes "[Õris]";
 	mes "Huh? Ei!!";
-	mes "Para onde voc√™ acha que est√° indo depois de destruir o navio?!";
+	mes "Para onde vocÍ acha que est· indo depois de destruir o navio?!";
 	next;
-	mes "[√çris]";
-	mes "Se eu te pegar da pr√≥xima vez, vou garantir que voc√™ morra !! Fique nervoso !! Voc√™ entendeu?! Esteja pronto, voc√™s Yokels !!";
+	mes "[Õris]";
+	mes "Se eu te pegar da prÛxima vez, vou garantir que vocÍ morra !! Fique nervoso !! VocÍ entendeu?! Esteja pronto, vocÍs Yokels !!";
 	next;
 	cutin "h_guardian3",1;
-	mes "[Hero√≠nas guardi√µes]";
+	mes "[HeroÌnas guardiıes]";
 	mes "... Yokels? (Raiva)";
 	next;
-	mes "[Hero√≠nas guardi√µes]";
-	mes "Aqueles que denegrem e condenam o caminho da justi√ßa ... devemos entregar sem piedade julgamento justo, certo?";
+	mes "[HeroÌnas guardiıes]";
+	mes "Aqueles que denegrem e condenam o caminho da justiÁa ... devemos entregar sem piedade julgamento justo, certo?";
 	next;
-	mes "[Hero√≠nas guardi√µes]";
-	mes "Dye Willines !! Huma metal come√ßa !!";
+	mes "[HeroÌnas guardiıes]";
+	mes "Dye Willines !! Huma metal comeÁa !!";
 	next;
 	donpcevent instance_npcname("Gremlin#1air2") + "::OnExplosion1";
 	cutin "",255;
 	mes "- Bang! Babang! BANG!";
 	next;
 	cutin "h_iris01",2;
-	mes "[√çris]";
-	mes "V√âSPERA !!";
+	mes "[Õris]";
+	mes "V…SPERA !!";
 	next;
 	cutin "h_guardian1",1;
-	mes "[Hero√≠nas guardi√µes]";
+	mes "[HeroÌnas guardiıes]";
 	mes "Ahahahahaha !!";
-	mes "Serve para voc√™ certo ~ !! Vamos!!";
+	mes "Serve para vocÍ certo ~ !! Vamos!!";
 	next;
 	cutin "h_chaos03",2;
 	mes "[Caos]";
-	mes "√çris!! Venha aqui!!";
+	mes "Õris!! Venha aqui!!";
 	mes "Vamos encontrar rapidamente Fenrir e Loki e sair daqui !!";
 	next;
 	cutin "h_chaos02",2;
 	mes "[Caos]";
-	mes "Voc√™ sai daqui agora !! Este navio est√° em perigo !!";
+	mes "VocÍ sai daqui agora !! Este navio est· em perigo !!";
 	close2;
 	if ('airship_status == 10){
 		'airship_status = 11;

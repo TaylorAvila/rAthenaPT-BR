@@ -11,23 +11,23 @@
 gef_tower,57,170,3	script	Marry Jay	4_F_JOB_BLACKSMITH,{
 	if (BaseLevel < 130) {
 		mes "[Case Jay]";
-		mes "Seu nÃ­vel base Ã© muito baixo, volte quando vocÃª atingir o nÃ­vel 130.";
+		mes "Seu nível base é muito baixo, volte quando você atingir o nível 130.";
 		close;
 	}
-	mes "^FF0000 Se vocÃª fizer qualquer processamento de monstros, como domesticaÃ§Ã£o de monstros dentro da masmorra, ele nÃ£o contarÃ¡ para o seu progresso. Tome nota.^000000";
+	mes "^FF0000 Se você fizer qualquer processamento de monstros, como domesticação de monstros dentro da masmorra, ele não contará para o seu progresso. Tome nota.^000000";
 	next;
 	.@day = gettime(DT_DAYOFWEEK);
 	if (.@day != FRIDAY) {
 		mes "[Case Jay]";
 		mes "Oh, um espectador curioso? Caso -me em Jay, a pessoa encarregada das sextas -feiras entre os dias da semana.";
 		next;
-		select( "Quando Ã© o horÃ¡rio de abertura?" );
+		select( "Quando é o horário de abertura?" );
 		mes "[Case Jay]";
-		mes "A masmorra estarÃ¡ aberta durante:";
+		mes "A masmorra estará aberta durante:";
 		mes "^0000fffriday 00:00 ~ sexta -feira 23: 59^000000";
 		next;
 		mes "[Case Jay]";
-		mes "Espero vÃª -lo quando a sexta -feira chegar ~";
+		mes "Espero vê -lo quando a sexta -feira chegar ~";
 		close;
 	}
 	.@md_name$ = "Dungeon de sexta -feira";
@@ -38,20 +38,20 @@ gef_tower,57,170,3	script	Marry Jay	4_F_JOB_BLACKSMITH,{
 	case 0:
 	case 1:
 		mes "[Case Jay]";
-		mes "Desculpe, mas o perÃ­odo de entrada para o" + .@md_name$ + "expirou.";
-		mes "Descanse enquanto espera que a masmorra esteja disponÃ­vel novamente.";
+		mes "Desculpe, mas o período de entrada para o" + .@md_name$ + "expirou.";
+		mes "Descanse enquanto espera que a masmorra esteja disponível novamente.";
 		close;
 	case 2:
 		erasequest 12379;
 		mes "[Case Jay]";
 		mes "A recarga expirou.";
-		mes "VocÃª pode entrar novamente na masmorra memorial.";
+		mes "Você pode entrar novamente na masmorra memorial.";
 		close;
 	}
 	mes "[Case Jay]";
-	mes "VocÃª veio bem a tempo.";
-	mes "A masmorra memorial estÃ¡ pronta para ser aberta.";
-	mes "VocÃª gostaria de entrar agora?";
+	mes "Você veio bem a tempo.";
+	mes "A masmorra memorial está pronta para ser aberta.";
+	mes "Você gostaria de entrar agora?";
 	next;
 
 	if (is_party_leader() == true)
@@ -62,7 +62,7 @@ gef_tower,57,170,3	script	Marry Jay	4_F_JOB_BLACKSMITH,{
 		instance_create(.@md_name$);
 		mes "[Case Jay]";
 		mes "A masmorra memorial foi criada.";
-		mes "Agora vocÃª pode entrar.";
+		mes "Agora você pode entrar.";
 		close;
 	case 2:
 		switch( instance_enter(.@md_name$) ) {
@@ -73,19 +73,19 @@ gef_tower,57,170,3	script	Marry Jay	4_F_JOB_BLACKSMITH,{
 			close;
 		case IE_NOINSTANCE:
 			if (is_party_leader() == true) {
-				mes "NÃ£o hÃ¡ masmorra memorial registrada.";
+				mes "Não há masmorra memorial registrada.";
 				close;
 			}
-			mes "A masmorra do Memorial de sexta -feira nÃ£o existe.";
-			mes "Seu lÃ­der do partido ainda nÃ£o criou a masmorra memorial.";
+			mes "A masmorra do Memorial de sexta -feira não existe.";
+			mes "Seu líder do partido ainda não criou a masmorra memorial.";
 			close;
 		case IE_OTHER:
 			mes "Ocorreu um erro desconhecido.";
 			close;
 		case IE_OK:
 			mes "[Case Jay]";
-			mes "VocÃª vai!";
-			mapannounce "gef_tower", "" + strcharinfo(0) + "da festa," + getpartyname( getcharid(1) ) + ", estÃ¡ entrando no" + .@md_name$ + ".", bc_map, 0xFF99;
+			mes "Você vai!";
+			mapannounce "gef_tower", "" + strcharinfo(0) + "da festa," + getpartyname( getcharid(1) ) + ", está entrando no" + .@md_name$ + ".", bc_map, 0xFF99;
 			if (isbegin_quest(12379) < 1)
 				setquest 12379;
 			end;
@@ -93,8 +93,8 @@ gef_tower,57,170,3	script	Marry Jay	4_F_JOB_BLACKSMITH,{
 		end;
 	case 3:
 		mes "[Case Jay]";
-		mes "VocÃª nÃ£o se preparou?";
-		mes "NÃ£o consigo evitar isso, eu acho";
+		mes "Você não se preparou?";
+		mes "Não consigo evitar isso, eu acho";
 		close;
 	}
 	end;
@@ -107,8 +107,8 @@ gef_tower,57,170,3	script	Marry Jay	4_F_JOB_BLACKSMITH,{
 	if (is_party_leader() == false)
 		end;
 	mes "[Case Jay]";
-	mes "Antes de comeÃ§armos a configurar o ambiente aqui, daremos a vocÃª a chance de escolher um nÃ­vel de dificuldade apropriado.";
-	mes "Eu poderia fazer minha prÃ³pria escolha, mas cada pessoa lida com isso de maneira diferente com base em suas habilidades.";
+	mes "Antes de começarmos a configurar o ambiente aqui, daremos a você a chance de escolher um nível de dificuldade apropriado.";
+	mes "Eu poderia fazer minha própria escolha, mas cada pessoa lida com isso de maneira diferente com base em suas habilidades.";
 	next;
 	switch( select( "Cancelar", "Lv130 ~ 199", "LV200 +" ) ) {
 	case 1:
@@ -121,7 +121,7 @@ gef_tower,57,170,3	script	Marry Jay	4_F_JOB_BLACKSMITH,{
 	case 3:
 		if (BaseLevel < 200) {
 			mes "[Case Jay]";
-			mes "VocÃª nÃ£o pode escolher essa dificuldade, porque seu nÃ­vel base estÃ¡ abaixo de 200.";
+			mes "Você não pode escolher essa dificuldade, porque seu nível base está abaixo de 200.";
 			close;
 		}
 		'hard = 1;
@@ -130,11 +130,11 @@ gef_tower,57,170,3	script	Marry Jay	4_F_JOB_BLACKSMITH,{
 	}
 	if (BaseLevel < 'mob[0]) {
 		mes "[Case Jay]";
-		mes "Seu nÃ­vel base Ã© muito baixo para selecionar isso, vocÃª precisa estar nivelado" + 'mob[0] + "ou acima.";
+		mes "Seu nível base é muito baixo para selecionar isso, você precisa estar nivelado" + 'mob[0] + "ou acima.";
 		close;
 	}
 	close2;
-	npctalk "Agora, este lugar estÃ¡ prestes a se tornar um campo de caÃ§a. Vou sair e fechar a porta da frente.";
+	npctalk "Agora, este lugar está prestes a se tornar um campo de caça. Vou sair e fechar a porta da frente.";
 	sleep 4000;
 	npctalk "Boa sorte ~";
 	sleep 3000;
@@ -193,42 +193,42 @@ OnInstanceInit:
 
 
 1@md_gef,110,129,6	script(DISABLED)	Mary Juj#0_2	4_F_JOB_BLACKSMITH,{
-	npctalk "OlÃ¡";
+	npctalk "Olá";
 	end;
 }
 
 1@md_gef,183,222,5	script(DISABLED)	The Stranger#cadaver	4_TOWER_11,{
-	mes "Ã‰ o cadÃ¡ver de um estranho.";
+	mes "É o cadáver de um estranho.";
 	mes "Talvez ele tenha morrido enquanto vagava neste lugar na busca de tesouros.";
 	next;
 	if (select( "Acalmar", "Investigue o corpo" ) == 1) {
-		mes "VocÃª respeita os mortos e decidiu deixar o corpo em paz.";
+		mes "Você respeita os mortos e decidiu deixar o corpo em paz.";
 		close;
 	}
-	mes "Olhando para uma nota rabiscada Ã s pressas no bolso, talvez o nome do aventureiro tenha sido Walter.";
+	mes "Olhando para uma nota rabiscada às pressas no bolso, talvez o nome do aventureiro tenha sido Walter.";
 	next;
 	mes "[Log do aventureiro]";
-	mes "Meu nome Ã© Walter. Para os aventureiros que visitarÃ£o este lugar no futuro, estou deixando isso para que vocÃª nÃ£o cometa o mesmo erro novamente.";
+	mes "Meu nome é Walter. Para os aventureiros que visitarão este lugar no futuro, estou deixando isso para que você não cometa o mesmo erro novamente.";
 	next;
 	mes "[Log do aventureiro]";
-	mes "No primeiro dia, curiosamente coloquei minha mÃ£o na laje de uma escultura estranha nas proximidades.";
-	mes "... e acordei algo que nÃ£o deveria ter.";
+	mes "No primeiro dia, curiosamente coloquei minha mão na laje de uma escultura estranha nas proximidades.";
+	mes "... e acordei algo que não deveria ter.";
 	next;
 	mes "[Log do aventureiro]";
-	mes "No momento, o rei antigo revivido estÃ¡ vagando na minha frente.";
-	mes "Talvez ele nÃ£o tenha lembranÃ§as de sua vida anterior.";
-	mes "Uma coisa Ã© certa, ele vai me matar.";
+	mes "No momento, o rei antigo revivido está vagando na minha frente.";
+	mes "Talvez ele não tenha lembranças de sua vida anterior.";
+	mes "Uma coisa é certa, ele vai me matar.";
 	next;
 	mes "[Log do aventureiro]";
-	mes "Para os aventureiros que visitarÃ£o este lugar no futuro, espero que vocÃª nÃ£o coma o mesmo erro que eu.";
-	mes "Se vocÃª vir uma laje suspeita, nÃ£o mostre nenhum interesse e passe por ela.";
+	mes "Para os aventureiros que visitarão este lugar no futuro, espero que você não coma o mesmo erro que eu.";
+	mes "Se você vir uma laje suspeita, não mostre nenhum interesse e passe por ela.";
 	next;
 	mes "[Log do aventureiro]";
-	mes "Novamente, nunca toque na laje. Qualquer que seja a tentaÃ§Ã£o que vocÃª possa ter.";
+	mes "Novamente, nunca toque na laje. Qualquer que seja a tentação que você possa ter.";
 	if ('freestones != 0)
 		close;
 	next;
-	mes "VÃ¡rias pedras artesanais caem de seu corpo. Eles provavelmente foram coletados enquanto exploravam este lugar.";
+	mes "Várias pedras artesanais caem de seu corpo. Eles provavelmente foram coletados enquanto exploravam este lugar.";
 	close2;
 	if ('freestones == 0) {
 		'freestones = 1;
@@ -244,33 +244,33 @@ OnInstanceInit:
 
 1@md_gef,199,73,0	script(DISABLED)	Bizzare Sculpture#boss	CLEAR_NPC,{
 	if ('count < 100) {
-		mes "Ã‰ uma escultura estranha com muita poeira empilhada. NÃ£o vejo nada suspeito.";
+		mes "É uma escultura estranha com muita poeira empilhada. Não vejo nada suspeito.";
 		close;
 	}
 	if ('boss_actv >= 1) {
-		mes "As pedras artesanais foram derretidas por uma forÃ§a poderosa nas tomadas.";
-		mes "Parece que os soquetes nÃ£o podem ser usados â€‹â€‹por um tempo.";
+		mes "As pedras artesanais foram derretidas por uma força poderosa nas tomadas.";
+		mes "Parece que os soquetes não podem ser usados por um tempo.";
 		close;
 	}
-	mes "Em algum momento, as dispersas de poeira acumuladas e 10 orifÃ­cios ocos sÃ£o visÃ­veis na laje sob a escultura.";
+	mes "Em algum momento, as dispersas de poeira acumuladas e 10 orifícios ocos são visíveis na laje sob a escultura.";
 	next;
 	mes "Cada um dos 10 soquetes oco parecem se encaixar perfeitamente em uma pedra artesanal.";
 	next;
 	if (select( "Ignorar", "Tente inserir pedras artesanais" ) == 1)
 		end;
 	if (countitem(25235) < 10) {
-		mes "As pedras artesanais foram derretidas por uma forÃ§a poderosa nas tomadas.";
-		mes "Parece que os soquetes nÃ£o podem ser usados â€‹â€‹por um tempo.";
+		mes "As pedras artesanais foram derretidas por uma força poderosa nas tomadas.";
+		mes "Parece que os soquetes não podem ser usados por um tempo.";
 		close;
 	}
-	mes "Quando vocÃª insere uma pedra artesanal em um buraco, ela emite uma luz brilhante e derrete.";
+	mes "Quando você insere uma pedra artesanal em um buraco, ela emite uma luz brilhante e derrete.";
 	next;
 	delitem 25235,10;
 	specialeffect EF_ANGELUS;
 
 	if (rand(1,10) == 10) {
 		mes "Algo parece ter mudado no ar ao meu redor.";
-		instance_announce 0, "Senhor dos mortos: quem me despertou? Vou te encontrar pessoalmente e perguntar o porquÃª.", bc_map, "0xffff00";
+		instance_announce 0, "Senhor dos mortos: quem me despertou? Vou te encontrar pessoalmente e perguntar o porquê.", bc_map, "0xffff00";
 		if ('boss_actv == 0) {
 			'boss_actv = 1;
 			monster 'map_md_gef$,210,110,"Lich King",'mob[1],1;
@@ -328,7 +328,7 @@ OnTimer300000:
 
 OnStart:
 	enablenpc();
-	instance_announce 0, "Um baÃº do tesouro apareceu em algum lugar da masmorra. Vai desaparecer depois de um tempo, entÃ£o vamos encontrÃ¡ -lo.", bc_map, "0xff5500";
+	instance_announce 0, "Um baú do tesouro apareceu em algum lugar da masmorra. Vai desaparecer depois de um tempo, então vamos encontrá -lo.", bc_map, "0xff5500";
 	initnpctimer;
 	end;
 OnTimer180000:	//3min before chest disappears
@@ -348,49 +348,49 @@ gef_tower,57,167,3	script	Amateur Collector#pa0829	1_F_01,{
 	function F_enchant;
 
 	if (checkweight(1201,1) == 0) {
-		mes "VocÃª tem muitos tipos de objetos. Limpe seu inventÃ¡rio.";
+		mes "Você tem muitos tipos de objetos. Limpe seu inventário.";
 		close;
 	}
 	if (MaxWeight - Weight < 10000) {
-		mes "NÃ£o posso continuar porque vocÃª tem muitos objetos pesados. Reduza seu peso total limpando seu inventÃ¡rio.";
+		mes "Não posso continuar porque você tem muitos objetos pesados. Reduza seu peso total limpando seu inventário.";
 		close;
 	}
 	mes "[Colecionador amador]";
-	mes "Se vocÃª me trazer um" + mesitemlink(25235, false) + ", Posso encantar um efeito maravilhoso no seu acessÃ³rio!";
+	mes "Se você me trazer um" + mesitemlink(25235, false) + ", Posso encantar um efeito maravilhoso no seu acessório!";
 	next;
-	switch( select( "O que vocÃª pode fazer com a pedra de artesanato?", "Encantamento de acessÃ³rios", "Redefinir encantador" ) ) {
+	switch( select( "O que você pode fazer com a pedra de artesanato?", "Encantamento de acessórios", "Redefinir encantador" ) ) {
 	case 1:
 		mes "[Colecionador amador]";
-		mes "Troquei pedras caras da masmorra em troca do meu artesanato. Ainda sou iniciante, mas minhas habilidades sÃ£o aceitÃ¡veis.";
+		mes "Troquei pedras caras da masmorra em troca do meu artesanato. Ainda sou iniciante, mas minhas habilidades são aceitáveis.";
 		mes "Por favor, cuide de mim.";
 		next;
-		if (select( "Eu jÃ¡ ouvi isso antes.", "Estou ouvindo." ) == 1) {
+		if (select( "Eu já ouvi isso antes.", "Estou ouvindo." ) == 1) {
 			mes "[Colecionador amador]";
-			mes "Ã‰ assim mesmo?";
+			mes "É assim mesmo?";
 			close;
 		}
 		mes "[Colecionador amador]";
-		mes "Ao usar a pedra artesanal, posso encantar um de seus acessÃ³rios com habilidades.";
+		mes "Ao usar a pedra artesanal, posso encantar um de seus acessórios com habilidades.";
 		next;
 		mes "[Colecionador amador]";
 		mes "Eu preciso de 10 x" + mesitemlink(25235, false) + "e 100.000 Zeny.";
-		mes "NÃ£o hÃ¡ falha no processo de encantamento.";
+		mes "Não há falha no processo de encantamento.";
 		next;
 		mes "[Colecionador amador]";
-		mes "No entanto, ^0000FFIF O acessÃ³rio tem uma opÃ§Ã£o aleatÃ³ria, a opÃ§Ã£o aleatÃ³ria serÃ¡ removida apÃ³s o encantamento. ^000000";
+		mes "No entanto, ^0000FFIF O acessório tem uma opção aleatória, a opção aleatória será removida após o encantamento. ^000000";
 		next;
 		select( "Algo mais?" );
 		mes "[Colecionador amador]";
-		mes "Os cartÃµes com o acessÃ³rio permanecerÃ£o apÃ³s o encantamento.";
+		mes "Os cartões com o acessório permanecerão após o encantamento.";
 		next;
 		mes "[Colecionador amador]";
-		mes "Uma redefiniÃ§Ã£o Ã© possÃ­vel, mas nÃ£o posso dizer que sou experiente.";
-		mes "Minha taxa de sucesso Ã©:";
+		mes "Uma redefinição é possível, mas não posso dizer que sou experiente.";
+		mes "Minha taxa de sucesso é:";
 		mes "Anel real: 80%";
-		mes "Outro acessÃ³rio: 20%";
+		mes "Outro acessório: 20%";
 		next;
 		mes "[Colecionador amador]";
-		mes "^0000FFIF O acessÃ³rio tem uma opÃ§Ã£o aleatÃ³ria, a opÃ§Ã£o aleatÃ³ria serÃ¡ removida apÃ³s a inicializaÃ§Ã£o.^000000";
+		mes "^0000FFIF O acessório tem uma opção aleatória, a opção aleatória será removida após a inicialização.^000000";
 		close;
 	case 2:
 		.@type = 1;
@@ -410,7 +410,7 @@ gef_tower,57,167,3	script	Amateur Collector#pa0829	1_F_01,{
 	switch( .@equip_id ) {
 	case 0:
 		mes "[Colecionador amador]";
-		mes "Equipe seu acessÃ³rio.";
+		mes "Equipe seu acessório.";
 		close;
 	case 28483:
 	case 2601:
@@ -537,7 +537,7 @@ gef_tower,57,167,3	script	Amateur Collector#pa0829	1_F_01,{
 		break;
 	default:
 		mes "[Colecionador amador]";
-		mes "Eu nÃ£o posso" + .@type_name$ + "esse" + mesitemlink(.@equip_id, false) + "acessÃ³rio.";
+		mes "Eu não posso" + .@type_name$ + "esse" + mesitemlink(.@equip_id, false) + "acessório.";
 		close;
 	}
 
@@ -546,15 +546,15 @@ gef_tower,57,167,3	script	Amateur Collector#pa0829	1_F_01,{
 		case 28483:	//Royal Ring Enchantment
 			if (.@equip_card[2] != 0) {
 				mes "[Colecionador amador]";
-				mes "O" + mesitemlink(.@equip_id, false) + "jÃ¡ tem o mÃ¡ximo encantamento.";
-				mes "NÃ£o posso trabalhar mais nisso.";
+				mes "O" + mesitemlink(.@equip_id, false) + "já tem o máximo encantamento.";
+				mes "Não posso trabalhar mais nisso.";
 				close;
 			}
 			.@pos = .@equip_card[3] != 0 ? 2 : 3;
 			mes "[Colecionador amador]";
 			mes "Selecione um tipo de encantamento ~";
 			next;
-			switch( select( "FÃ­sico", "MÃ¡gico", "A variou" ) ) {
+			switch( select( "Físico", "Mágico", "A variou" ) ) {
 			case 1:
 				if (.@pos == 2)
 					.@equip_card[2] = F_enchant(2);
@@ -576,8 +576,8 @@ gef_tower,57,167,3	script	Amateur Collector#pa0829	1_F_01,{
 			}
 			if (.@pos == 2) {
 				mes "[Colecionador amador]";
-				mes "VocÃª tem certeza de aprimorar o" + mesitemlink(.@equip_id, false) + "?";
-				mes "^0000fftH, nÃ£o hÃ¡ chance de falha^000000.";
+				mes "Você tem certeza de aprimorar o" + mesitemlink(.@equip_id, false) + "?";
+				mes "^0000fftH, não há chance de falha^000000.";
 				next;
 				if (select( "Sim, por favor prossiga", "Cancelar" ) == 2)
 					end;
@@ -609,13 +609,13 @@ gef_tower,57,167,3	script	Amateur Collector#pa0829	1_F_01,{
 		default:	// Normal Accessory Enchantment
 			if (.@equip_card[3] != 0) {
 				mes "[Colecionador amador]";
-				mes "O" + mesitemlink(.@equip_id, false) + "jÃ¡ tem um encantador.";
-				mes "NÃ£o posso trabalhar mais nisso.";
+				mes "O" + mesitemlink(.@equip_id, false) + "já tem um encantador.";
+				mes "Não posso trabalhar mais nisso.";
 				close;
 			}
 			mes "[Colecionador amador]";
 			mes "Tem certeza de que deseja aprimorar o" + mesitemlink(.@equip_id, false) + "?";
-			mes "^0000fftH, nÃ£o hÃ¡ chance de falha^000000.";
+			mes "^0000fftH, não há chance de falha^000000.";
 			next;
 			if (select( "Sim, por favor prossiga", "Cancelar") == 2)
 				end;
@@ -656,13 +656,13 @@ gef_tower,57,167,3	script	Amateur Collector#pa0829	1_F_01,{
 		}
 		if (.@equip_card[.@pos] == 0) {
 			mes "[Colecionador amador]";
-			mes "O" + mesitemlink(.@equip_id, false) + "nÃ£o estÃ¡ no seu mÃ¡ximo encantamento.";
-			mes "NÃ£o posso redefinir este acessÃ³rio.";
+			mes "O" + mesitemlink(.@equip_id, false) + "não está no seu máximo encantamento.";
+			mes "Não posso redefinir este acessório.";
 			close;
 		}
 		mes "[Colecionador amador]";
-		mes "Todos os efeitos encantados serÃ£o removidos do" + mesitemlink(.@equip_id, false) + "?";
-		mes "^Ff0000, hÃ¡ a" + .@success + "% chance de sucesso. O acessÃ³rio serÃ¡ destruÃ­do se a redefiniÃ§Ã£o falhar!^000000";
+		mes "Todos os efeitos encantados serão removidos do" + mesitemlink(.@equip_id, false) + "?";
+		mes "^Ff0000, há a" + .@success + "% chance de sucesso. O acessório será destruído se a redefinição falhar!^000000";
 		next;
 		if (select( "Volto mais tarde", "Por favor, prossiga") == 1)
 			end;
@@ -688,7 +688,7 @@ gef_tower,57,167,3	script	Amateur Collector#pa0829	1_F_01,{
 			specialeffect2 EF_SUI_EXPLOSION;
 			mes "[Colecionador amador]";
 			mes "Maldito ...";
-			mes "Eu falhei e o acessÃ³rio foi destruÃ­do. Eu sinto muito.";
+			mes "Eu falhei e o acessório foi destruído. Eu sinto muito.";
 			close;
 		}
 		specialeffect2 EF_REPAIRWEAPON;
@@ -703,7 +703,7 @@ gef_tower,57,167,3	script	Amateur Collector#pa0829	1_F_01,{
 function	F_equip_menu {
 	.@l$ = getitemname(getequipid(EQI_ACC_L));
 	.@r$ = getitemname(getequipid(EQI_ACC_R));
-	.@acc_l$ = .@l$ == "nulo" ? "" : "ACC Ã  esquerda -" + .@l$;
+	.@acc_l$ = .@l$ == "nulo" ? "" : "ACC à esquerda -" + .@l$;
 	.@acc_r$ = .@r$ == "nulo" ? "" : "ACC certo -" + .@r$;
 
 	switch( select( .@acc_l$, .@acc_r$ ) ) {

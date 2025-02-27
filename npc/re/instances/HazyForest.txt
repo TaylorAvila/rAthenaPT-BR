@@ -9,7 +9,7 @@
 //===== Description: ========================================= 
 //= [Official Conversion]
 //= Cross through the Hazy Forest to reach the Bifrost.
-//= Contains the "GuardiÃ£o errante" quest.
+//= Contains the "Guardião errante" quest.
 //===== Additional Comments: ================================= 
 //= 1.0 First version. [Euphy]
 //= 1.1 Instance system rewrite. [Euphy]
@@ -23,34 +23,34 @@ bif_fild01,158,340,5	script	Laphine Soldier#mist	447,{
 	set .@md_name$,"Mistwood Maze";
 
 	mes "[Soldado Laphine]";
-	mes "VocÃª vai para a floresta?";
+	mes "Você vai para a floresta?";
 	next;
 	if (!.@party_id) {
 		mes "[Soldado Laphine]";
-		mes "Bem, bem, bem, vocÃª nÃ£o estÃ¡ sendo muito precipitado?";
-		mes "Por que vocÃª nÃ£o organiza pelo menos uma festa?";
+		mes "Bem, bem, bem, você não está sendo muito precipitado?";
+		mes "Por que você não organiza pelo menos uma festa?";
 		close;
 	}
 	set .@playtime, checkquest(7211,PLAYTIME);
 	if (is_party_leader() == true) {
 		if (.@playtime == 0 || .@playtime == 1) {
 			mes "[Soldado Laphine]";
-			mes "... tem certeza de que nÃ£o estÃ¡ fazendo muito?";
-			mes "Eu acho que Ã© melhor vocÃª descansar um pouco.";
-			mes "VocÃª sÃ³ se desgastarÃ¡ tentando fazer muito";
+			mes "... tem certeza de que não está fazendo muito?";
+			mes "Eu acho que é melhor você descansar um pouco.";
+			mes "Você só se desgastará tentando fazer muito";
 			next;
 			mes "[Soldado Laphine]";
-			mes "Eu tambÃ©m nÃ£o acho que a autoridade lhe darÃ¡ permissÃ£o.";
-			mes "... AtÃ© um Sapha seria impedido de entrar na floresta.";
+			mes "Eu também não acho que a autoridade lhe dará permissão.";
+			mes "... Até um Sapha seria impedido de entrar na floresta.";
 			next;
-			select("VocÃª fala nossa lÃ­ngua muito bem, nÃ£o Ã©?");
+			select("Você fala nossa língua muito bem, não é?");
 			mes "[Soldado Laphine]";
 			mes "... eu?";
-			mes "Na verdade, nÃ£o estou falando do seu idioma.";
+			mes "Na verdade, não estou falando do seu idioma.";
 			mes "Estou falando da linguagem laphine.";
 			next;
 			mes "[Soldado Laphine]";
-			mes "Mas Ã© um dos mistÃ©rios de Bifrost.";
+			mes "Mas é um dos mistérios de Bifrost.";
 			mes "Que podemos nos entender, mesmo que falemos idiomas diferentes.";
 			next;
 			mes "[Soldado Laphine]";
@@ -59,69 +59,69 @@ bif_fild01,158,340,5	script	Laphine Soldier#mist	447,{
 			close;
 		} else if (.@playtime == 2) {
 			mes "[Soldado Laphine]";
-			mes "Ã“timo, Ã³timo.";
-			mes "Agora a floresta nÃ£o o rejeitarÃ¡.";
-			mes "O que vocÃª vai fazer agora?";
+			mes "Ótimo, ótimo.";
+			mes "Agora a floresta não o rejeitará.";
+			mes "O que você vai fazer agora?";
 			erasequest 7211;
 		} else {
 			mes "[Soldado Laphine]";
-			mes "Seus aventureiros humanos sÃ£o incrÃ­veis.";
-			mes "VocÃª estÃ¡ sempre entrando na floresta, onde ninguÃ©m mais ousa ir.";
+			mes "Seus aventureiros humanos são incríveis.";
+			mes "Você está sempre entrando na floresta, onde ninguém mais ousa ir.";
 			next;
 			mes "[Soldado Laphine]";
-			mes "Ufa. Mas eu tenho que relatar Ã  autoridade";
-			mes "Todo mundo que entra na floresta, apenas por precauÃ§Ã£o.";
+			mes "Ufa. Mas eu tenho que relatar à autoridade";
+			mes "Todo mundo que entra na floresta, apenas por precaução.";
 			next;
 			mes "[Soldado Laphine]";
-			mes "VocÃª terÃ¡ permissÃ£o";
+			mes "Você terá permissão";
 			mes "Depois de se registrar.";
-			mes "VocÃª vai se aventurar na floresta nebulosa?";
+			mes "Você vai se aventurar na floresta nebulosa?";
 		}
 		next;
 		switch(select("Aventure -se na floresta nebulosa.")) {
 		case 1:
 			mes "[Soldado Laphine]";
 			mes "Nome da festa"+getpartyname(.@party_id)+"...";
-			mes "LÃ­der do partido"+strcharinfo(0)+"...";
+			mes "Líder do partido"+strcharinfo(0)+"...";
 			if (instance_create(.@md_name$) < 0) {
 				mes "Hum...";
 				next;
 				mes "[Soldado Laphine]";
 				if (.@playtime == -1)
-					mes "Ã‰ perigoso na floresta.";
+					mes "É perigoso na floresta.";
 				else
-					mes "A atmosfera Ã© um pouco tensa na floresta.";
-				mes "... Por que vocÃª nÃ£o volta hoje?";
+					mes "A atmosfera é um pouco tensa na floresta.";
+				mes "... Por que você não volta hoje?";
 				close;
 			}
-			mes "Eu tenho isso. Eu os escrevi no relatÃ³rio aqui.";
+			mes "Eu tenho isso. Eu os escrevi no relatório aqui.";
 			next;
 			mes "[Soldado Laphine]";
-			mes "VocÃª terÃ¡ permissÃ£o em breve.";
-			mes "Agora vÃ¡ para o tÃºnel de toras, a Ãºnica maneira de entrar na floresta nebulosa.";
-			mes "VocÃª entende?";
+			mes "Você terá permissão em breve.";
+			mes "Agora vá para o túnel de toras, a única maneira de entrar na floresta nebulosa.";
+			mes "Você entende?";
 			next;
 			mes "[Soldado Laphine]";
-			mes "NÃ£o podemos ir contra a floresta,";
-			mes "Mas talvez vocÃªs seres humanos possam.";
+			mes "Não podemos ir contra a floresta,";
+			mes "Mas talvez vocês seres humanos possam.";
 			mes "Boa sorte!";
 			close;
 		case 2:
 			mes "[Soldado Laphine]";
-			mes "Bem, vocÃª tomou a decisÃ£o certa.";
+			mes "Bem, você tomou a decisão certa.";
 			if (.@playtime == -1)
-				mes "Isso Ã© bom para vocÃª.";
+				mes "Isso é bom para você.";
 			close;
 		}
 	} else {
 		mes "[Soldado Laphine]";
-		mes "Onde estÃ¡ seu lÃ­der do partido?";
-		mes "Ã‰ perigoso lÃ¡ dentro.";
+		mes "Onde está seu líder do partido?";
+		mes "É perigoso lá dentro.";
 		next;
 		if (.@playtime == 2) {
 			mes "[Soldado Laphine]";
-			mes "Vejo que vocÃª esteve na floresta antes.";
-			mes "Ok, pelo menos a floresta nÃ£o o rejeitarÃ¡.";
+			mes "Vejo que você esteve na floresta antes.";
+			mes "Ok, pelo menos a floresta não o rejeitará.";
 			mes "No entanto...";
 			erasequest 7211;
 			next;
@@ -134,36 +134,36 @@ bif_fild01,158,340,5	script	Laphine Soldier#mist	447,{
 }
 
 bif_fild01,161,355,0	script	Log Tunnel	844,{
-	mes "Eu vejo a floresta atravÃ©s do tÃºnel de toras.";
-	mes "Parece que posso entrar na floresta atravÃ©s do tÃºnel de toras.";
+	mes "Eu vejo a floresta através do túnel de toras.";
+	mes "Parece que posso entrar na floresta através do túnel de toras.";
 	next;
-	if(select("Entre no tÃºnel .: Give Up.") == 2)
+	if(select("Entre no túnel .: Give Up.") == 2)
 		close;
 	switch(instance_enter("Mistwood Maze")) {
 	case IE_OTHER:
 		mes "[Soldado Laphine]";
-		mes "Algo nÃ£o parece certo. Parece que algo perigoso estÃ¡ acontecendo, entÃ£o Ã© melhor vocÃª voltar hoje.";
+		mes "Algo não parece certo. Parece que algo perigoso está acontecendo, então é melhor você voltar hoje.";
 		close;
 	case IE_NOINSTANCE:
-		mes "VocÃª tenta rastejar para o tronco, mas algum poder misterioso o empurra de volta com um jorro de vento.";
-		mes "Parece que vocÃª nÃ£o pode forÃ§ar o seu caminho para a floresta.";
+		mes "Você tenta rastejar para o tronco, mas algum poder misterioso o empurra de volta com um jorro de vento.";
+		mes "Parece que você não pode forçar o seu caminho para a floresta.";
 		close;
 	case IE_NOMEMBER:
 		mes "[Soldado Laphine]";
 		mes "Ei, olhe!";
-		mes "VocÃª vai sozinho?";
-		mes "Isso Ã© impossÃ­vel. Muito precipitado.";
-		mes "Junte -se a alguns amigos e vÃ¡ juntos!";
+		mes "Você vai sozinho?";
+		mes "Isso é impossível. Muito precipitado.";
+		mes "Junte -se a alguns amigos e vá juntos!";
 		close;
 	case IE_OK:
 		if (checkquest(7211,PLAYTIME) == 2) erasequest 7211;
 		if (checkquest(7211,PLAYTIME) == -1) setquest 7211;
-		mapannounce "BIF_FILD01",getpartyname(getcharid(1))+"Partido"+strcharinfo(0)+"Membro estÃ¡ entrando no Mistwood Maze.",bc_map,"0 buceta 00"; //FW_NORMAL 12 0 0
+		mapannounce "BIF_FILD01",getpartyname(getcharid(1))+"Partido"+strcharinfo(0)+"Membro está entrando no Mistwood Maze.",bc_map,"0 buceta 00"; //FW_NORMAL 12 0 0
 		//warp "1@mist",89,29;
 		close;
 	default:
-		mes "O mundo alÃ©m do tÃºnel de toras parece sombrio e sufocante.";
-		mes "Seu instinto estÃ¡ gritando que essa floresta Ã© perigosa.";
+		mes "O mundo além do túnel de toras parece sombrio e sufocante.";
+		mes "Seu instinto está gritando que essa floresta é perigosa.";
 		close;
 	}
 }
@@ -199,12 +199,12 @@ OnTimer180000:
 function	script	F_Mora_Mist	{
 	set .@map$, instance_mapname("1@mist");
 	if (mobcount(.@map$,instance_npcname(strnpcinfo(0))+"::OnMyMobDead") == 0) {
-		mes "Obviamente, ninguÃ©m estÃ¡ cuidando disso.";
-		mes "Parece que vocÃª pode cortar a Ã¡rvore do jardim.";
+		mes "Obviamente, ninguém está cuidando disso.";
+		mes "Parece que você pode cortar a árvore do jardim.";
 		next;
-		if(select("Pique a Ã¡rvore do jardim.") == 2)
+		if(select("Pique a árvore do jardim.") == 2)
 			close;
-		mes "VocÃª corta a Ã¡rvore, que estava bloqueando o caminho do labirinto,"+((getarg(3,0))?"limpando a saÃ­da da floresta.":"EntÃ£o agora vocÃª pode continuar.");
+		mes "Você corta a árvore, que estava bloqueando o caminho do labirinto,"+((getarg(3,0))?"limpando a saída da floresta.":"Então agora você pode continuar.");
 		mapannounce .@map$,getarg(1),bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
 		enablenpc instance_npcname(getarg(0));
 		disablenpc();
@@ -212,7 +212,7 @@ function	script	F_Mora_Mist	{
 			initnpctimer;
 		close;
 	} else
-		mapannounce .@map$,((getarg(3,0))?getarg(2):getarg(2)+"Ã© chorar: hein? Quem estÃ¡ fazendo coisas ruins na minha Ã¡rvore?!"),bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
+		mapannounce .@map$,((getarg(3,0))?getarg(2):getarg(2)+"é chorar: hein? Quem está fazendo coisas ruins na minha árvore?!"),bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
 	end;
 }
 
@@ -220,7 +220,7 @@ function	script	F_Mora_Mist	{
 1@mist,247,123,0	script	Tom's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"A25_A18-1",
-		"ROOING CRY: Tom's Bolt estÃ¡ quebrado! Cuidado, Tomba! Cuidado, Tomba!",
+		"ROOING CRY: Tom's Bolt está quebrado! Cuidado, Tomba! Cuidado, Tomba!",
 		"Tom";
 	end;
 OnInstanceInit:
@@ -234,8 +234,8 @@ OnMyMobDead:
 1@mist,225,98,0	script	Tomba's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"A27-2_AF1-2",
-		"Rotando grito: a Ã¡rvore de jardim de Tomba se foi com Tomba. Remi, o que vocÃª vai fazer agora?",
-		"TÃºmulo";
+		"Rotando grito: a árvore de jardim de Tomba se foi com Tomba. Remi, o que você vai fazer agora?",
+		"Túmulo";
 	end;
 OnInstanceInit:
 	monster instance_mapname("1@mist"),200,64,"Tomba",2136,1,instance_npcname("Tomba's Garden Tree")+"::OnMyMobDead";
@@ -248,7 +248,7 @@ OnMyMobDead:
 1@mist,159,184,0	script	Remi's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"A15-2_AH-1",
-		"Cry Remi, Remi's Garden Tree foi cortada para baixo, Ã© a sua vez a seguir. Pobre Rem!",
+		"Cry Remi, Remi's Garden Tree foi cortada para baixo, é a sua vez a seguir. Pobre Rem!",
 		"Remi";
 	end;
 OnInstanceInit:
@@ -262,7 +262,7 @@ OnMyMobDead:
 1@mist,61,39,0	script	Tired Rem's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"A4-2_A11",
-		"O grito desesperado de Rem: argh ... REM vai dormir. Rem vai dormir agora e nÃ£o vai acordar para sempre!",
+		"O grito desesperado de Rem: argh ... REM vai dormir. Rem vai dormir agora e não vai acordar para sempre!",
 		"Rem",
 		0,1;
 	end;
@@ -287,7 +287,7 @@ OnMyMobDead:
 1@mist,230,179,0	script	Ron's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"B4-2_B2",
-		"Ron o grito do jardineiro: estou saindo do trabalho! NÃ£o procure Ron, o segundo jardineiro, mais !!",
+		"Ron o grito do jardineiro: estou saindo do trabalho! Não procure Ron, o segundo jardineiro, mais !!",
 		"Ron";
 	end;
 OnInstanceInit:
@@ -301,7 +301,7 @@ OnMyMobDead:
 1@mist,285,225,0	script	Rover's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"BT_BF1-2",
-		"Sussurro rugido: as Ã¡rvores de Ron, e as Ã¡rvores de Rover tambÃ©m foram cortadas. Quem estÃ¡ forÃ§ando seu caminho para a floresta? Quem Ã©?",
+		"Sussurro rugido: as árvores de Ron, e as árvores de Rover também foram cortadas. Quem está forçando seu caminho para a floresta? Quem é?",
 		"Rover";
 	end;
 OnInstanceInit:
@@ -315,7 +315,7 @@ OnMyMobDead:
 1@mist,161,316,0	script	Mona's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"B31_B16",
-		"Sussurro de clamoraÃ§Ã£o: Mona, a Ã¡rvore de jardim do vendedor de sementes se foi! Mona se foi tambÃ©m! Namon vai ficar bem, porque ele Ã© corajoso, certo? Namon, vocÃª estÃ¡ bem?",
+		"Sussurro de clamoração: Mona, a árvore de jardim do vendedor de sementes se foi! Mona se foi também! Namon vai ficar bem, porque ele é corajoso, certo? Namon, você está bem?",
 		"Mona";
 	end;
 OnInstanceInit:
@@ -329,8 +329,8 @@ OnMyMobDead:
 1@mist,204,299,0	script	Namon's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"B27-3_BN-1",
-		"Sussurro de clamoraÃ§Ã£o: Brave Namon encontrou seu destino nÃ£o tÃ£o bravamente ... *risando *",
-		"NÃ“S";
+		"Sussurro de clamoração: Brave Namon encontrou seu destino não tão bravamente ... *risando *",
+		"NÓS";
 	end;
 OnInstanceInit:
 	monster instance_mapname("1@mist"),89,173,"Brave Namon",2134,1,instance_npcname("Namon's Garden Tree")+"::OnMyMobDead";
@@ -343,7 +343,7 @@ OnMyMobDead:
 1@mist,221,236,0	script	Sad Neoron's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"B6-1_B33",
-		"Whisper Lamenting: Sad Neoron se tornou alegre! Spyder, a aranha superior, o que vocÃª vai fazer? O que vocÃª vai fazer agora?",
+		"Whisper Lamenting: Sad Neoron se tornou alegre! Spyder, a aranha superior, o que você vai fazer? O que você vai fazer agora?",
 		"Neoron";
 	end;
 OnInstanceInit:
@@ -357,7 +357,7 @@ OnMyMobDead:
 1@mist,206,200,0	script	Spyder's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"B5_B14",
-		"Whisper deprimido: Agora tudo acabou com a segunda floresta mais profunda. Jardineiros estÃ£o morrendo",
+		"Whisper deprimido: Agora tudo acabou com a segunda floresta mais profunda. Jardineiros estão morrendo",
 		"Spyder",
 		0,1;
 	end;
@@ -385,7 +385,7 @@ OnMyMobDead:
 1@mist,95,287,0	script	Tito's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"C1_C13-1",
-		"O choro de Tito: * SOB * * SOB * Tito se foi agora! Tito estÃ¡ feito para! Boo Hoo !!",
+		"O choro de Tito: * SOB * * SOB * Tito se foi agora! Tito está feito para! Boo Hoo !!",
 		"Tito";
 	end;
 OnInstanceInit:
@@ -399,7 +399,7 @@ OnMyMobDead:
 1@mist,324,325,0	script	Pumba's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"C13-3_C4",
-		"Sussurro rugido: Tito, o trabalhador, foi derrotado! Pare de brincar e vÃ¡ trabalhar, Tete! Comece a trabalhar!",
+		"Sussurro rugido: Tito, o trabalhador, foi derrotado! Pare de brincar e vá trabalhar, Tete! Comece a trabalhar!",
 		"Bombear";
 	end;
 OnInstanceInit:
@@ -413,7 +413,7 @@ OnMyMobDead:
 1@mist,280,344,0	script	Tete's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"C19_C4",
-		"Whisper: Eles sÃ£o fortes, fortes. O que vamos fazer agora? Restam algum jardineiro? Existe alguma?",
+		"Whisper: Eles são fortes, fortes. O que vamos fazer agora? Restam algum jardineiro? Existe alguma?",
 		"Aposta";
 	end;
 OnInstanceInit:
@@ -426,8 +426,8 @@ OnMyMobDead:
 1@mist,345,186,0	script	The Gardeners' Tree	527,{
 	callfunc "F_Mora_Mist",
 		"#to_bif02",
-		"Sussurro rugido: A floresta vai se lembrar de vocÃª! SerÃ¡ lembrado de vocÃª, aquele que quebrou o Clippers de todos os jardineiros!",
-		"Jardineiros: ainda nÃ£o estamos mortos !!!!",1;
+		"Sussurro rugido: A floresta vai se lembrar de você! Será lembrado de você, aquele que quebrou o Clippers de todos os jardineiros!",
+		"Jardineiros: ainda não estamos mortos !!!!",1;
 	end;
 OnInstanceInit:
 	set .@map$, instance_mapname("1@mist");
@@ -527,7 +527,7 @@ OnMyMobDead:
 		donpcevent instance_npcname("Collapsed Girl#mist")+"::OnEnable";
 		donpcevent instance_npcname("Mysterious Young Man#mis")+"::OnDisable";
 		donpcevent instance_npcname("Loki#mist")+"::OnEnable";
-		mapannounce .@map$,"The Dragon's Cry: Estou sendo punido ... por abandonar o caminho ... do guardiÃ£o ...?",bc_map,"0xffff00"; //FW_NORMAL 12 0 0
+		mapannounce .@map$,"The Dragon's Cry: Estou sendo punido ... por abandonar o caminho ... do guardião ...?",bc_map,"0xffff00"; //FW_NORMAL 12 0 0
 		disablenpc instance_npcname("#Dragon Herder");
 		initnpctimer;
 	}
@@ -541,37 +541,37 @@ OnTimer3000:
 1@mist,97,30,3	script	Mysterious Young Man#mis	512,{
 	if (BaseLevel < 98) {
 		mes "[Jovem misterioso]";
-		mes "Huh? VocÃª planeja passar por aqui?";
-		mes "..... Receio que esteja alÃ©m da sua capacidade, mas nÃ£o vou me intrometer em seus negÃ³cios.";
-		mes "Nos encontraremos novamente, se vocÃª sobreviver.";
+		mes "Huh? Você planeja passar por aqui?";
+		mes "..... Receio que esteja além da sua capacidade, mas não vou me intrometer em seus negócios.";
+		mes "Nos encontraremos novamente, se você sobreviver.";
 		close;
 	}
 	if (ep14_1_mistwoods == 0) {
 		if (ep13_3_secret > 23) {
 			mes "[Jovem misterioso]";
-			mes "VocÃª ... eu lembro de te ver no acampamento.";
-			mes "As informaÃ§Ãµes que vocÃª deu sobre o que foi Ãºtil.";
+			mes "Você ... eu lembro de te ver no acampamento.";
+			mes "As informações que você deu sobre o que foi útil.";
 			mes "Obrigado!";
 			next;
 			mes "[Jovem misterioso]";
-			mes "Mas vocÃª planeja passar por aqui?";
+			mes "Mas você planeja passar por aqui?";
 			mes "De que serve atravessar Bifrost?";
 			next;
 		} else {
 			mes "[Jovem misterioso]";
-			mes "VocÃª planeja passar por aqui?";
-			mes "Vou aconselhar contra isso se vocÃª estiver apenas curioso.";
-			mes "Isso sÃ³ trarÃ¡ sua morte prematura ...";
+			mes "Você planeja passar por aqui?";
+			mes "Vou aconselhar contra isso se você estiver apenas curioso.";
+			mes "Isso só trará sua morte prematura ...";
 			next;
 		}
 		mes "[Jovem misterioso]";
-		mes "Se vocÃª estÃ¡ determinado a passar por aqui,";
+		mes "Se você está determinado a passar por aqui,";
 		mes "Vou pedir sua ajuda com alguma coisa.";
 		next;
-		select("Quem Ã© vocÃª?");
+		select("Quem é você?");
 		mes "[Loki]";
 		mes "Loki ... da guilda do assassino.";
-		mes "Esse Ã© o meu nome.";
+		mes "Esse é o meu nome.";
 		mes "E o seu?";
 		next;
 		mes "["+strcharinfo(0)+"]";
@@ -581,19 +581,19 @@ OnTimer3000:
 		mes "[Loki]";
 		mes "Eu vejo."+strcharinfo(0)+".";
 		mes "Estou perguntando de novo.";
-		mes "VocÃª planeja passar por esta floresta?";
+		mes "Você planeja passar por esta floresta?";
 		next;
-		switch(select("Sim, eu faÃ§o.")) {
+		switch(select("Sim, eu faço.")) {
 		case 1:
 			mes "[Loki]";
-			mes "EntÃ£o eu vou te fazer uma pergunta.";
-			mes "VocÃª jÃ¡ viu um guarda ... uma garota com cabelos roxos?";
+			mes "Então eu vou te fazer uma pergunta.";
+			mes "Você já viu um guarda ... uma garota com cabelos roxos?";
 			next;
-			switch(select("NÃ£o, eu nÃ£o tenho .: Sim, eu posso ter ...")) {
+			switch(select("Não, eu não tenho .: Sim, eu posso ter ...")) {
 			case 1:
 				mes "[Loki]";
-				mes "EntÃ£o vocÃª nÃ£o tem.";
-				mes "VocÃª estÃ¡ dizendo a verdade.";
+				mes "Então você não tem.";
+				mes "Você está dizendo a verdade.";
 				next;
 				break;
 			case 2:
@@ -601,45 +601,45 @@ OnTimer3000:
 				mes "Espere.";
 				mes "(Loki se aproxima.)";
 				mes "... No.";
-				mes "VocÃª estÃ¡ dizendo a verdade.";
+				mes "Você está dizendo a verdade.";
 				next;
 				break;
 			}
 			mes "[Loki]";
 			mes "Agora temos que dizer adeus aqui.";
-			mes "Se vocÃª sobreviver a esta floresta, Ã© claro.";
+			mes "Se você sobreviver a esta floresta, é claro.";
 			set ep14_1_mistwoods,2;
 			setquest 7212;
 			close;
 		case 2:
 			mes "[Loki]";
 			mes "Eu entendo.";
-			mes "DÃª um passo atrÃ¡s se nÃ£o estiver pronto.";
-			mes "Esta floresta nÃ£o gosta de estranhos.";
+			mes "Dê um passo atrás se não estiver pronto.";
+			mes "Esta floresta não gosta de estranhos.";
 			set ep14_1_mistwoods,1;
 			close;
 		}
 	} else if (ep14_1_mistwoods == 1) {
 		mes "[Loki]";
-		mes "Eu te disse - dÃª um passo atrÃ¡s se vocÃª nÃ£o quiser morrer.";
-		mes "NÃ£o Ã© fÃ¡cil passar pela floresta.";
+		mes "Eu te disse - dê um passo atrás se você não quiser morrer.";
+		mes "Não é fácil passar pela floresta.";
 		mes "Pode custar -lhe sua vida.";
 		next;
-		switch(select("Ok .: O que vocÃª quer?")) {
+		switch(select("Ok .: O que você quer?")) {
 		case 1:
-			mes "- Quando vocÃª dÃ¡ um passo atrÃ¡s,";
+			mes "- Quando você dá um passo atrás,";
 			mes "Loki assente um pouco e depois desvia o olhar. -";
 			close;
 		case 2:
 			mes "[Loki]";
-			mes "Estou procurando alguÃ©m.";
-			mes "VocÃª jÃ¡ viu um guarda ... uma garota com cabelos roxos?";
+			mes "Estou procurando alguém.";
+			mes "Você já viu um guarda ... uma garota com cabelos roxos?";
 			next;
-			switch(select("NÃ£o, eu nÃ£o tenho .: Sim, eu posso ter ...")) {
+			switch(select("Não, eu não tenho .: Sim, eu posso ter ...")) {
 			case 1:
 				mes "[Loki]";
-				mes "EntÃ£o vocÃª nÃ£o tem.";
-				mes "VocÃª estÃ¡ dizendo a verdade.";
+				mes "Então você não tem.";
+				mes "Você está dizendo a verdade.";
 				next;
 				break;
 			case 2:
@@ -647,7 +647,7 @@ OnTimer3000:
 				mes "Espere.";
 				mes "(Loki se aproxima.)";
 				mes "... No.";
-				mes "VocÃª estÃ¡ dizendo a verdade.";
+				mes "Você está dizendo a verdade.";
 				next;
 				break;
 			}
@@ -660,21 +660,21 @@ OnTimer3000:
 		}
 	} else if (ep14_1_mistwoods == 2) {
 		mes "[Loki]";
-		mes "Eu nÃ£o quero ir com vocÃª.";
+		mes "Eu não quero ir com você.";
 		mes "Felizmente, nos veremos novamente em Mora.";
 		close;
 	} else if (ep14_1_mistwoods == 3) {
 		mes "[Loki]";
-		mes "EntÃ£o nos encontramos novamente.";
-		mes "VocÃª estÃ¡ acostumado a este lugar?";
+		mes "Então nos encontramos novamente.";
+		mes "Você está acostumado a este lugar?";
 		mes "Venha para a pousada em Mora.";
-		mes "Eu tenho algo a dar a vocÃª.";
+		mes "Eu tenho algo a dar a você.";
 		close;
 	} else {
 		mes "[Loki]";
 		mes "Hoje em dia, estamos vendo muito um ao outro.";
-		mes "Parece que vocÃª estÃ¡ completamente confortÃ¡vel com o local.";
-		mes "Ã‰ melhor vocÃª nÃ£o ficar muito orgulhoso de si mesmo.";
+		mes "Parece que você está completamente confortável com o local.";
+		mes "É melhor você não ficar muito orgulhoso de si mesmo.";
 		close;
 	}
 	end;
@@ -691,43 +691,43 @@ OnDisable:
 		mes "[Loki]";
 		mes "Um aventureiro na floresta.";
 		mes ".....";
-		mes "VocÃª pode ir para Mora atravÃ©s desta floresta.";
+		mes "Você pode ir para Mora através desta floresta.";
 		close;
 	} else if (ep14_1_mistwoods == 2) {
 		mes "[Loki]";
-		mes "Ã‰ vocÃª que cuidou dessa garota indisciplinada?";
+		mes "É você que cuidou dessa garota indisciplinada?";
 		mes "Acho que tenho que agradecer.";
-		mes "VocÃª a acalmou.";
+		mes "Você a acalmou.";
 		next;
-		select("O que estÃ¡ acontecendo ?: essa garota ...?");
+		select("O que está acontecendo ?: essa garota ...?");
 		mes "[Loki]";
-		mes "VocÃª pode mudar sua aparÃªncia, mas nÃ£o pode mudar sua luz Ãºnica e inata.";
+		mes "Você pode mudar sua aparência, mas não pode mudar sua luz única e inata.";
 		mes "Um perfume forte o suficiente para queimar o nariz.";
 		next;
 		mes "[Loki]";
-		mes "Este Ã© Nydhogg, o guardiÃ£o de Yggdrasil,";
+		mes "Este é Nydhogg, o guardião de Yggdrasil,";
 		mes "quem eu estava procurando.";
-		mes "Agora ela nÃ£o vai mais louco.";
+		mes "Agora ela não vai mais louco.";
 		next;
-		select("O que vocÃª vai fazer agora?");
+		select("O que você vai fazer agora?");
 		mes "[Loki]";
 		mes "Vou esperar que ela acorde e saia desta floresta.";
-		mes "Eu posso gerenciÃ¡ -lo sozinho.";
-		mes "Vejo vocÃª em Mora.";
+		mes "Eu posso gerenciá -lo sozinho.";
+		mes "Vejo você em Mora.";
 		set ep14_1_mistwoods,3;
 		erasequest 7212;
 		setquest 7213;
 		close;
 	} else if (ep14_1_mistwoods == 3) {
 		mes "[Loki]";
-		mes "Eu nÃ£o quero ir com vocÃª.";
-		mes "Eu posso administrÃ¡ -la sozinha.";
-		mes "Se vocÃª tem algo a dizer, diga depois que saÃ­mos da floresta.";
+		mes "Eu não quero ir com você.";
+		mes "Eu posso administrá -la sozinha.";
+		mes "Se você tem algo a dizer, diga depois que saímos da floresta.";
 		close;
 	} else {
 		mes "[Loki]";
-		mes "Eu nÃ£o quero ir com vocÃª.";
-		mes "Se vocÃª tem algo a dizer, diga depois que saÃ­mos da floresta.";
+		mes "Eu não quero ir com você.";
+		mes "Se você tem algo a dizer, diga depois que saímos da floresta.";
 		close;
 	}
 	end;
@@ -741,8 +741,8 @@ OnEnable:
 }
 
 1@mist,181,303,3	script	Collapsed Girl#mist	511,{
-	mes "VocÃª vÃª uma garota com cabelos misteriosos desabando no chÃ£o.";
-	mes "Quando vocÃª se aproxima dela, vocÃª sente o cheiro de flores tÃ£o forte que o deixa tonto.";
+	mes "Você vê uma garota com cabelos misteriosos desabando no chão.";
+	mes "Quando você se aproxima dela, você sente o cheiro de flores tão forte que o deixa tonto.";
 	close;
 OnInstanceInit:
 OnDisable:
@@ -758,36 +758,36 @@ mora,46,152,5	script	Flower Smelling Lady	510,{
 	if (ep14_1_mistwoods < 3) {
 		mes "[Flor Smell Lady]";
 		mes "Eu preciso de descanso.";
-		mes "Estou cansado demais para falar com vocÃª.";
+		mes "Estou cansado demais para falar com você.";
 		mes "Desculpe.";
 		close;
 	} else if (ep14_1_mistwoods == 3) {
 		mes "[Nydhogg, o Guardian]";
-		mes "Eu estive esperando por vocÃª.";
+		mes "Eu estive esperando por você.";
 		mes "Ainda estou confuso, mas sei o que fiz de errado.";
 		next;
 		mes "[Nydhogg, o Guardian]";
-		mes "Se nÃ£o fosse por vocÃª, eu ainda estaria vagando na escuridÃ£o abissal.";
-		mes "AgradeÃ§o, do fundo do meu coraÃ§Ã£o.";
+		mes "Se não fosse por você, eu ainda estaria vagando na escuridão abissal.";
+		mes "Agradeço, do fundo do meu coração.";
 		next;
 		mes "[Nydhogg, o Guardian]";
-		mes "Estou com vergonha de mim mesmo, me apaixonando pelas palavras doces, mas vazias, que me vieram na minha solidÃ£o.";
+		mes "Estou com vergonha de mim mesmo, me apaixonando pelas palavras doces, mas vazias, que me vieram na minha solidão.";
 		mes "....";
 		next;
 		mes "[Nydhogg, o Guardian]";
-		mes "Eu nÃ£o mereÃ§o mais ser um guardiÃ£o.";
-		mes "Um dragÃ£o enlouquecido nÃ£o Ã© mais um guardiÃ£o.";
+		mes "Eu não mereço mais ser um guardião.";
+		mes "Um dragão enlouquecido não é mais um guardião.";
 		next;
 		mes "[Loki]";
-		mes "Yggdrasil nÃ£o pensa assim.";
-		mes "Nidi, nÃ£o esqueÃ§a seus deveres.";
+		mes "Yggdrasil não pensa assim.";
+		mes "Nidi, não esqueça seus deveres.";
 		next;
 		mes "[Nydhogg, o Guardian]";
-		mes "VocÃª Ã©...?";
+		mes "Você é...?";
 		mes "Eu vejo...";
 		mes "Eu pensei que estava abandonado ...";
 		next;
-		mes "O guardiÃ£o desviou o olhar lentamente como se estivesse profundamente em pensamento.";
+		mes "O guardião desviou o olhar lentamente como se estivesse profundamente em pensamento.";
 		set ep14_1_mistwoods,4;
 		close2;
 	} else if (ep14_1_mistwoods == 4) {
@@ -795,13 +795,13 @@ mora,46,152,5	script	Flower Smelling Lady	510,{
 		close;
 	} else {
 		mes "[Nydhogg, o Guardian]";
-		mes "Eu nÃ£o recebi todos os meus poderes de volta.";
-		mes "Lamento nÃ£o poder proteger vocÃª.";
+		mes "Eu não recebi todos os meus poderes de volta.";
+		mes "Lamento não poder proteger você.";
 		next;
 		mes "[Nydhogg, o Guardian]";
 		mes "Loki disse ...";
-		mes "que nÃ£o vou chorar de solidÃ£o novamente,";
-		mes "Que sempre terei novos amigos como vocÃª ...";
+		mes "que não vou chorar de solidão novamente,";
+		mes "Que sempre terei novos amigos como você ...";
 		next;
 		mes "[Nydhogg, o Guardian]";
 		mes "... eu perdi tudo, mas estou feliz agora.";
@@ -811,106 +811,106 @@ mora,46,152,5	script	Flower Smelling Lady	510,{
 
 mora,48,152,3	script	Sharp Eyed Man	512,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 1000) {
-		mes "- VocÃª tem muitos itens para fazer essa missÃ£o. -";
+		mes "- Você tem muitos itens para fazer essa missão. -";
 		close;
 	}
 	if (ep14_1_mistwoods < 3) {
-		mes "Ele nÃ£o vai olhar para vocÃª. Ã‰ como se ele nÃ£o estivesse interessado.";
+		mes "Ele não vai olhar para você. É como se ele não estivesse interessado.";
 		close;
 	} else if (ep14_1_mistwoods == 3) {
 		mes "[Loki]";
-		mes "EntÃ£o vocÃª passou pela floresta.";
-		mes "Parece que Niddy tem algo a dizer a vocÃª.";
+		mes "Então você passou pela floresta.";
+		mes "Parece que Niddy tem algo a dizer a você.";
 		close;
 	} else if (ep14_1_mistwoods == 4) {
 		mes "[Loki]";
-		mes "Nydhogg era um dos guardiÃµes da Ã¡rvore mundial.";
-		mes "Mas ele abandonou seus deveres como guardiÃ£o quando cedeu Ã  tentaÃ§Ã£o de Morocc.";
+		mes "Nydhogg era um dos guardiões da árvore mundial.";
+		mes "Mas ele abandonou seus deveres como guardião quando cedeu à tentação de Morocc.";
 		next;
 		mes "[Loki]";
 		mes "Alguns tolos fizeram um ritual para quebrar o selo que segurava Morocc.";
-		mes "Mas o ritual nÃ£o funcionou certo. O servo de Marrocc nÃ£o quebrou o selo.";
+		mes "Mas o ritual não funcionou certo. O servo de Marrocc não quebrou o selo.";
 		next;
 		mes "[Loki]";
-		mes "Mas o selo Ã© tÃ£o fraco que pode se abrir a qualquer momento.";
-		mes "Ã‰ Yggdrasil a vontade da Ã¡rvore mundial que impediu o selo de quebrar.";
+		mes "Mas o selo é tão fraco que pode se abrir a qualquer momento.";
+		mes "É Yggdrasil a vontade da árvore mundial que impediu o selo de quebrar.";
 		next;
 		mes "[Nydhogg, o Guardian]";
-		mes "Isso mesmo. O poder da Ã¡rvore mundial estÃ¡ ligado ao mundo inteiro.";
-		mes "Quando o vÃ­nculo entre os GuardiÃµes e Yggdrasil quebrou, Yggdrasil se tornou instÃ¡vel.";
+		mes "Isso mesmo. O poder da árvore mundial está ligado ao mundo inteiro.";
+		mes "Quando o vínculo entre os Guardiões e Yggdrasil quebrou, Yggdrasil se tornou instável.";
 		next;
 		mes "[Nydhogg, o Guardian]";
-		mes "Ã‰ por isso que todos esses desastres aconteceram com Yggdrasil.";
-		mes "Ã€ medida que a Ã¡rvore mundial se tornou instÃ¡vel, a influÃªncia que ela teve no selo ficou fraca.";
+		mes "É por isso que todos esses desastres aconteceram com Yggdrasil.";
+		mes "À medida que a árvore mundial se tornou instável, a influência que ela teve no selo ficou fraca.";
 		next;
 		mes "[Loki]";
 		mes "E Morocc se libertou do selo.";
-		mes "Embora pareÃ§a que ele usou a maioria de seus poderes apenas para quebrar o selo ...";
+		mes "Embora pareça que ele usou a maioria de seus poderes apenas para quebrar o selo ...";
 		next;
 		mes "[Nydhogg, o Guardian]";
-		mes "Ã‰ tudo culpa minha.";
-		mes "Eu nÃ£o conseguia me libertar da tentaÃ§Ã£o de Morocc.";
+		mes "É tudo culpa minha.";
+		mes "Eu não conseguia me libertar da tentação de Morocc.";
 		mes "Por muito ... muito tempo ...";
 		next;
 		mes "[Nydhogg, o Guardian]";
-		mes "... Eu queria ser dispensado dos milhares de anos de solidÃ£o.";
-		mes "Eu nÃ£o estava em minha mente certa entÃ£o.";
-		mes "NÃ£o foi outro senÃ£o eu que quebrei meu vÃ­nculo com Yggdrasil.";
+		mes "... Eu queria ser dispensado dos milhares de anos de solidão.";
+		mes "Eu não estava em minha mente certa então.";
+		mes "Não foi outro senão eu que quebrei meu vínculo com Yggdrasil.";
 		next;
 		mes "[Nydhogg, o Guardian]";
-		mes "Perdi o controle de mim mesmo e fiz o que nÃ£o deveria ter feito.";
+		mes "Perdi o controle de mim mesmo e fiz o que não deveria ter feito.";
 		mes "O outro lado de mim se tornou uma sombra e um tirano imprudente.";
 		next;
 		mes "[Nydhogg, o Guardian]";
 		mes "Enfrentando o mundo, percebi ...";
-		mes "Eu me senti muito grande de perda ... era muito mais doloroso do que a solidÃ£o que eu havia sofrido por milhares de anos.";
+		mes "Eu me senti muito grande de perda ... era muito mais doloroso do que a solidão que eu havia sofrido por milhares de anos.";
 		next;
 		mes "[Nydhogg, o Guardian]";
 		mes "Foi assim que me deixei em paz.";
-		mes "Eu me senti muito grande de perda ... era muito mais doloroso do que a solidÃ£o que eu havia sofrido por milhares de anos.";
+		mes "Eu me senti muito grande de perda ... era muito mais doloroso do que a solidão que eu havia sofrido por milhares de anos.";
 		next;
 		mes "[Nydhogg, o Guardian]";
-		mes "EntÃ£o me tornei um pecador, esquecido do mundo.";
+		mes "Então me tornei um pecador, esquecido do mundo.";
 		next;
 		mes "[Loki]";
-		mes "NÃ£o Ã© tarde demais.";
-		mes "VocÃª ainda Ã© um guardiÃ£o.";
-		mes "VocÃª ainda tem coisas para fazer.";
+		mes "Não é tarde demais.";
+		mes "Você ainda é um guardião.";
+		mes "Você ainda tem coisas para fazer.";
 		next;
 		mes "[Nydhogg, o Guardian]";
-		mes "...Oh sim. Ã‰ tarde, mas tenho que cumprir meus deveres como guardiÃ£o.";
-		mes "Agora eu sei. Vou destruir Morocc com minhas prÃ³prias mÃ£os.";
+		mes "...Oh sim. É tarde, mas tenho que cumprir meus deveres como guardião.";
+		mes "Agora eu sei. Vou destruir Morocc com minhas próprias mãos.";
 		mes "Vou cumprir meus deveres como tutor.";
 		next;
-		switch(select("VocÃª nÃ£o estÃ¡ sozinho .: Esses sÃ£o deveres muito importantes.")) {
+		switch(select("Você não está sozinho .: Esses são deveres muito importantes.")) {
 		case 1:
 			mes "[Nydhogg, o Guardian]";
-			mes "VocÃª tem razÃ£o.";
-			mes "Pode ser por isso que nÃ£o fui abandonado - perceber que nÃ£o estou sozinho.";
-			mes "VocÃª Ã© uma alma gentil.";
+			mes "Você tem razão.";
+			mes "Pode ser por isso que não fui abandonado - perceber que não estou sozinho.";
+			mes "Você é uma alma gentil.";
 			next;
 			break;
 		case 2:
 			mes "[Nydhogg, o Guardian]";
-			mes "Mas esta Ã© a minha expiaÃ§Ã£o.";
+			mes "Mas esta é a minha expiação.";
 			mes "Estou feliz, no entanto.";
-			mes "NÃ£o tenho mais que lutar contra a solidÃ£o.";
+			mes "Não tenho mais que lutar contra a solidão.";
 			next;
 			break;
 		}
 		mes "[Nydhogg, o Guardian]";
 		mes strcharinfo(0)+"...";
-		mes "Obrigado por ouvir minha longa histÃ³ria.";
+		mes "Obrigado por ouvir minha longa história.";
 		next;
 		mes "[Nydhogg, o Guardian]";
-		mes "Ã‰ o que eu sempre tenho comigo.";
-		mes "Tenho certeza que isso o protegerÃ¡ algum dia.";
+		mes "É o que eu sempre tenho comigo.";
+		mes "Tenho certeza que isso o protegerá algum dia.";
 		next;
 		mes "[Loki]";
-		mes "(Remove o lenÃ§o do pescoÃ§o e entrega a vocÃª.)";
+		mes "(Remove o lenço do pescoço e entrega a você.)";
 		next;
 		mes "[Nydhogg, o Guardian]";
-		mes "Que a bÃªnÃ§Ã£o da mÃ£e yggdrasil esteja com vocÃª ...";
+		mes "Que a bênção da mãe yggdrasil esteja com você ...";
 		set ep14_1_mistwoods,10;
 		completequest 7213;
 		getitem 2568,1; //Muffler_Of_Roki
@@ -923,7 +923,7 @@ mora,48,152,3	script	Sharp Eyed Man	512,{
 		mes "Podemos nos encontrar novamente.";
 		next;
 		mes "[Loki]";
-		mes "O dia em que Morocc revela sua natureza desprezÃ­vel ...";
+		mes "O dia em que Morocc revela sua natureza desprezível ...";
 		mes "Eu estarei esperando por ele.";
 		close;
 	}
@@ -1007,25 +1007,25 @@ OnInstanceInit:
 // Warp Portals :: md_mist_in_link
 //============================================================
 bif_fild01,38,374,0	script	Mysterious Flower#ep14_1	844,{
-	mes "Ã‰ uma flor gigante com energia misteriosa.";
+	mes "É uma flor gigante com energia misteriosa.";
 	if (countitem(12561)) {
-		mes "EstÃ¡ reagindo Ã s misteriosas sementes de flores que vocÃª tem com vocÃª.";
+		mes "Está reagindo às misteriosas sementes de flores que você tem com você.";
 		next;
-		switch(select("Observe a reaÃ§Ã£o.: Pare a reaÃ§Ã£o.")) {
+		switch(select("Observe a reação.: Pare a reação.")) {
 		case 1:
-			mes "A flor comeÃ§ou a sacudir violentamente";
-			mes "E balance para frente como se estivesse tentando enviar as sementes o mais longe possÃ­vel !!!";
+			mes "A flor começou a sacudir violentamente";
+			mes "E balance para frente como se estivesse tentando enviar as sementes o mais longe possível !!!";
 			close2;
 			delitem 12561,1; //Mysterious_Seed
 			warp "bif_fild02",160,230;
 			end;
 		case 2:
-			mes "Enquanto vocÃª segura as sementes de flores misteriosas, com forÃ§a,";
+			mes "Enquanto você segura as sementes de flores misteriosas, com força,";
 			mes "A flor tremia violentamente e depois ficou calma novamente.";
 			close;
 		}
 	}
-	mes "Parece que tem algum uso especial, mas vocÃª nÃ£o tem certeza do quÃª.";
+	mes "Parece que tem algum uso especial, mas você não tem certeza do quê.";
 	close;
 }
 

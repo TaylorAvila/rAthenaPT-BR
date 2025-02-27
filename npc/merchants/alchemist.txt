@@ -23,38 +23,38 @@
 alde_alche,24,188,3	script	Guild Dealer	740,{
 	if (checkweight(1201,1) == 0) {
 		mes "- Espere um minuto! -";
-		mes "- Atualmente vocÃª estÃ¡ carregando -";
-		mes "- Muitos itens com vocÃª. -";
+		mes "- Atualmente você está carregando -";
+		mes "- Muitos itens com você. -";
 		mes "- Por favor, volte de novo -";
 		mes "- Depois de armazenar alguns itens no armazenamento da Kafra. -";
 		close;
 	}
 	mes "[Gever al Sharp]";
 	mes "Bem -vindo ao";
-	mes "UniÃ£o Alquimista.";
-	mes "Como posso ajudÃ¡ -lo hoje?";
+	mes "União Alquimista.";
+	mes "Como posso ajudá -lo hoje?";
 	next;
 	switch(select("Material de compra.")) {
 	case 1:
 		mes "[Gever al Sharp]";
-		mes "O que vocÃª gostaria?";
+		mes "O que você gostaria?";
 		next;
 		if (select("Medicine Bowl - 8 Zeny: Cancelar.") == 1) {
 			mes "[Gever al Sharp]";
-			mes "Quantos vocÃª quer?";
-			mes "Digite '0' se vocÃª quiser sair.";
+			mes "Quantos você quer?";
+			mes "Digite '0' se você quiser sair.";
 			next;
 			while(1) {
 				input .@input,0,2001;
 				if (.@input == 0) {
 					mes "[Gever al Sharp]";
 					mes "O acordo foi cancelado.";
-					mes "Venha de novo na prÃ³xima vez.";
+					mes "Venha de novo na próxima vez.";
 					close;
 				}
 				else if (.@input < 1 || .@input > 2000) {
 					mes "[Gever al Sharp]";
-					mes "O nÃºmero deve";
+					mes "O número deve";
 					mes "ser menor que 2000.";
 					next;
 				}
@@ -66,18 +66,18 @@ alde_alche,24,188,3	script	Guild Dealer	740,{
 			set .@item_weight,.@input * 10;
 			if (Zeny < .@sell) {
 				mes "[Gever al Sharp]";
-				mes "VocÃª nÃ£o";
+				mes "Você não";
 				mes "tem zeny suficiente.";
 				mes "Verifique quanto Zeny";
-				mes "vocÃª tem primeiro.";
+				mes "você tem primeiro.";
 				close;
 			}
 			if ((MaxWeight - Weight) < .@item_weight) {
 				mes "[Gever al Sharp]";
-				mes "NÃ£o parece";
-				mes "VocÃª pode carregar tudo.";
-				mes "Por favor, verifique o espaÃ§o";
-				mes "em seu inventÃ¡rio.";
+				mes "Não parece";
+				mes "Você pode carregar tudo.";
+				mes "Por favor, verifique o espaço";
+				mes "em seu inventário.";
 				close;
 			}
 			set Zeny, Zeny-.@sell;
@@ -88,18 +88,18 @@ alde_alche,24,188,3	script	Guild Dealer	740,{
 			close;
 		}
 		mes "[Gever al Sharp]";
-		mes "Bem entÃ£o,";
+		mes "Bem então,";
 		mes "Venha de novo quando";
-		mes "vocÃª precisa comprar";
+		mes "você precisa comprar";
 		mes "Materiais relacionados a";
 		mes "Alquimia, tudo bem?";
 		close;
 	case 2:
 		mes "[Gever al Sharp]";
-		mes "O que vocÃª precisa?";
-		mes "Os manuais geralmente sÃ£o 100.000 Zeny. Mas existem alguns manuais especiais que custarÃ£o mais.";
+		mes "O que você precisa?";
+		mes "Os manuais geralmente são 100.000 Zeny. Mas existem alguns manuais especiais que custarão mais.";
 		next;
-		switch(select("Guia da criaÃ§Ã£o de poÃ§Ãµes: Guia de criaÃ§Ã£o de Ã¡lcool: Guia de criaÃ§Ã£o de granadas de garrafa: Guia de criaÃ§Ã£o de garrafas Ã¡cidas: Guia de criaÃ§Ã£o de garrafas de planta: Guia de criaÃ§Ã£o de garrafas da esfera marinha: Guia de criaÃ§Ã£o de casaco brilhante: Guia de criaÃ§Ã£o de poÃ§Ã£o condensada: cancelamento de acordo.")) {
+		switch(select("Guia da criação de poções: Guia de criação de álcool: Guia de criação de granadas de garrafa: Guia de criação de garrafas ácidas: Guia de criação de garrafas de planta: Guia de criação de garrafas da esfera marinha: Guia de criação de casaco brilhante: Guia de criação de poção condensada: cancelamento de acordo.")) {
 		case 1:
 			callsub S_SellManual,7144,100000; //Normal_Potion_Book
 			break;
@@ -126,15 +126,15 @@ alde_alche,24,188,3	script	Guild Dealer	740,{
 			break;
 		case 9:
 			mes "[Gever al Sharp]";
-			mes "Bem entÃ£o ...";
-			mes "Volte se vocÃª";
+			mes "Bem então ...";
+			mes "Volte se você";
 			mes "sempre preciso comprar";
-			mes "um manual de produÃ§Ã£o.";
+			mes "um manual de produção.";
 			close;
 		}
 	case 3:
 		mes "[Gever al Sharp]";
-		mes "Tudo bem entÃ£o,";
+		mes "Tudo bem então,";
 		mes "Tenha um bom dia.";
 		close;
 	}
@@ -145,26 +145,26 @@ S_SellManual:
 
 	if (Zeny < .@zeny_req) {
 		mes "[Gever al Sharp]";
-		mes "VocÃª nÃ£o";
+		mes "Você não";
 		mes "tem zeny suficiente.";
 		mes "Verifique quanto Zeny";
-		mes "vocÃª tem primeiro.";
+		mes "você tem primeiro.";
 		close;
 	}
 	mes "[Gever al Sharp]";
 	mes getitemname(.@item_id) +"?";
-	mes "Isso serÃ¡"+ .@zeny_req +"mulheres.";
+	mes "Isso será"+ .@zeny_req +"mulheres.";
 	next;
 	if (select("Compra.:Quit.") == 1) {
 		Zeny = Zeny - .@zeny_req;
 		getitem .@item_id,1;
 		mes "[Gever al Sharp]";
 		mes "Obrigado por";
-		mes "Seu patrocÃ­nio.";
+		mes "Seu patrocínio.";
 		close;
 	}
 	mes "[Gever al Sharp]";
 	mes "Venha de novo";
-	mes "prÃ³xima vez.";
+	mes "próxima vez.";
 	close;
 }

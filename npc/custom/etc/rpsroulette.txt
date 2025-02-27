@@ -15,7 +15,7 @@
 
 cmd_in02,182,126,2	script	Crazy Boris	85,{
 	set .@counter,1;
-	mes "Ei vocÃª! Roleta de tesoura de rock?";
+	mes "Ei você! Roleta de tesoura de rock?";
 	next;
 	menu "Deixe -me jogar.",PLAY,"Explique as regras.",RULES,"Deixar",LEAVE;
 SAME:
@@ -56,7 +56,7 @@ PAPER:
 	goto SAME;
 
 WIN:
-	mes "Droga, vocÃª ganha!";
+	mes "Droga, você ganha!";
 	emotion ET_PROFUSELY_SWEAT;
 	next;
 	set .@win, 1;
@@ -64,14 +64,14 @@ WIN:
 
 LOSE:
 	emotion ET_SMILE;
-	mes "Boorah! VocÃª perde!";
+	mes "Boorah! Você perde!";
 	next;
 	set .@win, 0;
 
 YOUPULL:
 	mes .@counter +"de 6";
 	if ( .@counter == 6 )
-		mes "Diga suas oraÃ§Ãµes";
+		mes "Diga suas orações";
 	set .@pull, rand( 1,( 7 -.@counter ) );
 	set .@counter, .@counter +1;
 	next;
@@ -81,7 +81,7 @@ YOUPULL:
 		emotion ET_KIK;
 		percentheal -100,-100;
 		mes "*^0000FFCLICK^000000**^FF0000BANG^000000*";
-		mes "VocÃª estÃ¡ morto!";
+		mes "Você está morto!";
 		close;
 	}
 	emotion ET_HNG;
@@ -89,12 +89,12 @@ YOUPULL:
 	goto PLAY;
 
 RULES:
-	mes "Ok, aqui estÃ£o as regras:";
-	mes "Estou comigo a ^ff00006 ^000000 pistola de cÃ¢mara com ^ff00001 ^000000 rodada. Primeiro, tocamos ^ff0000SCISSORS ^00FF00PAPER ^0000FFROCK ^000000. O perdedor puxa o gatilho. O vencedor Ã© quem sai melhor.";
-	mes "Bata -me para ganhar um prÃªmio.";
+	mes "Ok, aqui estão as regras:";
+	mes "Estou comigo a ^ff00006 ^000000 pistola de câmara com ^ff00001 ^000000 rodada. Primeiro, tocamos ^ff0000SCISSORS ^00FF00PAPER ^0000FFROCK ^000000. O perdedor puxa o gatilho. O vencedor é quem sai melhor.";
+	mes "Bata -me para ganhar um prêmio.";
 	next;
-	menu "Deixe -me jogar.",-,"NÃ£o, obrigado.",LEAVE;
-	mes "Ok, aqui vamos nÃ³s ...";
+	menu "Deixe -me jogar.",-,"Não, obrigado.",LEAVE;
+	mes "Ok, aqui vamos nós ...";
 	next;
 	goto PLAY;
 
@@ -104,7 +104,7 @@ KILL:
 	mes "*^0000FFCLICK^000000**^FF0000BANG^000000*";
 	mes "OWWW @#$%^!! Isso doeu como o inferno !!";
 	next;
-	mes "ParabÃ©ns! VocÃª ganhou ...";
+	mes "Parabéns! Você ganhou ...";
 	switch( rand( 1,10 ) ) {
 		case 1: setarray .@reward[0], 10,984; break;
 		case 3: setarray .@reward[0],100,601; break;	// 100x Fly Wings

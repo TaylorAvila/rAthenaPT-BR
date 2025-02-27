@@ -32,13 +32,13 @@ OnStart:
 
 	// delay before match begins
 	sleep 6000;
-	mapannounce "Conversa_ 01", "As regras sÃ£o simples. O primeiro time a quebrar o Emperium do oponente vence!", bc_map;
+	mapannounce "Conversa_ 01", "As regras são simples. O primeiro time a quebrar o Emperium do oponente vence!", bc_map;
 	sleep 3000;
 	for ( .@i = 5; .@i > 0; --.@i ) {
 		mapannounce "Conversa_ 01", "["+ .@i +"]", bc_map;
 		sleep 1000;
 	}
-	mapannounce "Conversa_ 01", "ComeÃ§ar!", bc_map;
+	mapannounce "Conversa_ 01", "Começar!", bc_map;
 
 	// spawn Emperiums
 	bg_monster .red,"Conversa_ 01",171,346, "--- e--",1915, strnpcinfo(3)+":: Onreddown";
@@ -53,7 +53,7 @@ OnStart:
 	killmonster "bat_a01", strnpcinfo(3)+"::OnRedDown";
 	killmonster "bat_a01", strnpcinfo(3)+"::OnBlueDown";
 	if ( .winside ) {
-		mapannounce "Conversa_ 01", "-"+( (.winside == .red)? "Vermelho" : "Azul" )+"A equipe Ã© vitoriosa! -", bc_map;
+		mapannounce "Conversa_ 01", "-"+( (.winside == .red)? "Vermelho" : "Azul" )+"A equipe é vitoriosa! -", bc_map;
 		bg_get_data .winside, 1;
 		for ( .@i = 0; .@i < $@arenamemberscount; ++.@i )
 			getitem .rewarditem[0], .rewarditem[1], $@arenamembers[.@i];

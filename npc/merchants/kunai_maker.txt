@@ -21,10 +21,10 @@
 que_ng,72,29,3	script	Kunai Merchant Kashin	83,{
 	if(BaseClass == Job_Ninja) {
 		mes "[S)]";
-		mes "Eu sou os cordÃµes, distribuidor";
+		mes "Eu sou os cordões, distribuidor";
 		mes "de Kunai para Ninjas. Pegar";
 		mes "uma olhada em volta e me deixe";
-		mes "Saiba se vocÃª estÃ¡ interessado";
+		mes "Saiba se você está interessado";
 		mes "em qualquer um dos meus produtos.";
 		next;
 		switch(select("10 Fell Poison Kunai: 10 Icicle Kunai: 10 Wind Wind Kunai: 10 Black Earth Kunai: 10 Onda de calor Kunai: Cancelar")) {
@@ -35,19 +35,19 @@ que_ng,72,29,3	script	Kunai Merchant Kashin	83,{
 		case 5: callfunc "Kunai_Trade",13254,1,7521,2,13258; break;
 		case 6:
 			mes "[S)]";
-			mes "Bem entÃ£o, obrigado";
+			mes "Bem então, obrigado";
 			mes "para visitar minha loja.";
 			mes "Por favor, venha para mim quando";
-			mes "vocÃª precisa comprar alguns";
+			mes "você precisa comprar alguns";
 			mes "Para o ISIS. Adeus por enquanto ~";
 			close;
 		}
 	}
 	mes "[S)]";
-	mes "Eu sou os cordÃµes, distribuidor";
-	mes "de Kunai para Ninjas. Se vocÃª";
-	mes "tem algum amigo que Ã©";
-	mes "Ninjas, entÃ£o vocÃª pode";
+	mes "Eu sou os cordões, distribuidor";
+	mes "de Kunai para Ninjas. Se você";
+	mes "tem algum amigo que é";
+	mes "Ninjas, então você pode";
 	mes "quero contar a eles sobre mim.";
 	close;
 }
@@ -58,28 +58,28 @@ function	script	Kunai_Trade	{
 	.@item_id = getarg(4);
 
 	mes "[S)]";
-	mes "VocÃª pode trocar";
+	mes "Você pode trocar";
 	mes .@req_amount[0] +""+ getitemname(.@item_req[0]) +"e";
 	mes .@req_amount[1] +""+ getitemname(.@item_req[1]) +"para todo";
 	mes "conjunto de 10"+ getitemname(.@item_id) +".";
 	next;
 	mes "[S)]";
-	mes "SÃ³ posso lhe dar um mÃ¡ximo de 500 conjuntos de kunais por vez.";
-	mes "Se vocÃª deseja cancelar a negociaÃ§Ã£o, digite '' '' 'quantos";
-	mes "Kunai sets de vocÃª gostaria?";
+	mes "Só posso lhe dar um máximo de 500 conjuntos de kunais por vez.";
+	mes "Se você deseja cancelar a negociação, digite '' '' 'quantos";
+	mes "Kunai sets de você gostaria?";
 	next;
 	input .@amount;
 	if(.@amount < 1 || .@amount > 500) {
 		mes "[S)]";
 		mes "Eh? Sinto muito, mas";
-		mes "Eu nÃ£o posso te dar isso";
+		mes "Eu não posso te dar isso";
 		mes "Muitos conjuntos de Kunai. Por favor";
 		mes "Digite um valor menor que 500.";
 		close;
 	}
 	if (countitem(.@item_req[0]) < .@amount*.@req_amount[0] || countitem(.@item_req[1]) < .@amount*.@req_amount[1]) {
 		mes "[S)]";
-		mes "Hmm, vocÃª nÃ£o tem";
+		mes "Hmm, você não tem";
 		mes "itens suficientes para isso";
 		mes "Kunai Exchange. Por favor";
 		mes "Verifique seus itens novamente.";
@@ -88,19 +88,19 @@ function	script	Kunai_Trade	{
 	if (checkweight(.@item_id, .@amount*10) == 0) {
 		mes "[S)]";
 		mes "Hmm, parece que o seu";
-		mes "InventÃ¡rio nÃ£o tem";
-		mes "espaÃ§o suficiente para armazenar";
-		mes "mais itens. VocÃª Ã© melhor";
-		mes "Liberte um pouco de espaÃ§o primeiro.";
+		mes "Inventário não tem";
+		mes "espaço suficiente para armazenar";
+		mes "mais itens. Você é melhor";
+		mes "Liberte um pouco de espaço primeiro.";
 		close;
 	}
 	mes "[S)]";
-	mes "Ã“timo, tudo estÃ¡ em";
-	mes "Ordem, entÃ£o vamos em frente";
-	mes "e complete este comÃ©rcio.";
-	mes "Tenho certeza de que vocÃª serÃ¡";
+	mes "Ótimo, tudo está em";
+	mes "Ordem, então vamos em frente";
+	mes "e complete este comércio.";
+	mes "Tenho certeza de que você será";
 	mes "bastante satisfeito com";
-	mes "Tema para Ã¢nus.";
+	mes "Tema para ânus.";
 	delitem .@item_req[0],.@req_amount[0]*.@amount;
 	delitem .@item_req[1],.@req_amount[1]*.@amount;
 	getitem .@item_id,10*.@amount;

@@ -26,7 +26,7 @@
 -	shop	Herb_Seller	HIDDEN_NPC,no,7932:4000,7933:4000,7934:4000,7935:4000,7936:4000,7937:4000,7931:5000
 
 -	script	::phs	HIDDEN_NPC,{
-	npctalk "VocÃª precisa de veneno?", "", bc_self;
+	npctalk "Você precisa de veneno?", "", bc_self;
 	callshop "Herb_seller",1;
 	end;
 }
@@ -40,7 +40,7 @@ lhz_in02,16,205,4	duplicate(phs)	Poison Herb Merchant#lhz	4_F_YUNYANG
 -	shop	Runes_Seller	HIDDEN_NPC,no,12737:1000,12734:2500,12738:7500,12735:18000,12736:50000,7939:20000,7938:10000
 
 -	script	::runesale	HIDDEN_NPC,{
-	npctalk "Existem vÃ¡rios tipos de runas.", "", bc_self;
+	npctalk "Existem vários tipos de runas.", "", bc_self;
 	callshop "Runes_seller",1;
 	end;
 }
@@ -53,23 +53,23 @@ prontera,168,228,3	duplicate(runesale)	Rune Merchant#prt	4W_M_01
 job3_guil01,91,93,3	script	Rare Herb Collector	1_M_03,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 2000) {
 		mes "- Espere um minuto !! -";
-		mes "- Atualmente vocÃª estÃ¡ carregando -";
-		mes "- Muitos itens com vocÃª. -";
+		mes "- Atualmente você está carregando -";
+		mes "- Muitos itens com você. -";
 		mes "- Por favor, tente novamente -";
 		mes "- Depois de perder algum peso. -";
 		close;
 	}
 	if (Class == Job_Guillotine_Cross || Class == Job_Guillotine_Cross_T || Class == Job_Baby_Guillotine_Cross) {
 		mes "[Colecionador de ervas venenosas raras]";
-		mes "Eu passeio pelo mundo e coleco ervas raras de veneno. Recentemente, comecei a lidar com a erva chamada Izidor. Se vocÃª estiver interessado, pode comprÃ¡ -los.";
+		mes "Eu passeio pelo mundo e coleco ervas raras de veneno. Recentemente, comecei a lidar com a erva chamada Izidor. Se você estiver interessado, pode comprá -los.";
 		next;
-		.@i = select("Como posso comprÃ¡ -los ?: Trocar por sangue animal: trocar por uma erva amarga: trocar por uma erva nociva mortal: troque por uma rosa congelada: trocÃ¡ -lo por ment: trocÃ¡ -lo por Hinalle")-2;
+		.@i = select("Como posso comprá -los ?: Trocar por sangue animal: trocar por uma erva amarga: trocar por uma erva nociva mortal: troque por uma rosa congelada: trocá -lo por ment: trocá -lo por Hinalle")-2;
 		if (.@i == -1) {
 			mes "[Colecionador de ervas venenosas raras]";
-			mes "VocÃª pode comprÃ¡ -los por 10.000 Zeny e um desses itens raros, sangue animal, erva amarga, erva nociva mortal, rosa congelada, ment ou uma hinal.";
+			mes "Você pode comprá -los por 10.000 Zeny e um desses itens raros, sangue animal, erva amarga, erva nociva mortal, rosa congelada, ment ou uma hinal.";
 			next;
 			mes "[Colecionador de ervas venenosas raras]";
-			mes "Por que eu pergunto dinheiro? Isso Ã© apenas para prestar um pouco de respeito a um colecionador como eu. Ha ha ha ...";
+			mes "Por que eu pergunto dinheiro? Isso é apenas para prestar um pouco de respeito a um colecionador como eu. Ha ha ha ...";
 			close;
 		} else {
 			setarray .@exchange[0],702,621,631,749,605,703;
@@ -77,19 +77,19 @@ job3_guil01,91,93,3	script	Rare Herb Collector	1_M_03,{
 			.@price = 10000;
 
 			mes "[Colecionador de ervas venenosas raras]";
-			mes "Quantos vocÃª quer?";
-			mes "VocÃª sÃ³ pode comprar um mÃ¡ximo de '2000' EA.";
-			mes "Digite '0' se vocÃª deseja cancelar.";
+			mes "Quantos você quer?";
+			mes "Você só pode comprar um máximo de '2000' EA.";
+			mes "Digite '0' se você deseja cancelar.";
 			next;
 			input .@amount;
 			if (.@amount == 0) {
 				mes "[Colecionador de ervas venenosas raras]";
-				mes "VocÃª cancelou o comÃ©rcio.";
+				mes "Você cancelou o comércio.";
 				close;
 			}
 			if (.@amount > 2000) {
 				mes "[Colecionador de ervas venenosas raras]";
-				mes "O nÃºmero deve ser inferior a 2.000!";
+				mes "O número deve ser inferior a 2.000!";
 				close;
 			}
 			.@total = .@amount * .@price;
@@ -107,7 +107,7 @@ job3_guil01,91,93,3	script	Rare Herb Collector	1_M_03,{
 		}
 	}
 	mes "[Colecionador de ervas venenosas raras]";
-	mes "Eu passeio pelo mundo e coleco ervas raras de veneno. Mas nÃ£o sinto vontade de vender minhas ervas para uma pessoa como vocÃª ... ha ha ha ...";
+	mes "Eu passeio pelo mundo e coleco ervas raras de veneno. Mas não sinto vontade de vender minhas ervas para uma pessoa como você ... ha ha ha ...";
 	close;
 }
 
@@ -116,7 +116,7 @@ job3_guil01,91,93,3	script	Rare Herb Collector	1_M_03,{
 -	shop	Shard_Seller	HIDDEN_NPC,no,6360:200,6363:200,6361:200,6362:200
 
 -	script	::pss	HIDDEN_NPC,{
-	npctalk "VocÃª tem um elemento para cada propriedade?", "", bc_self;
+	npctalk "Você tem um elemento para cada propriedade?", "", bc_self;
 	callshop "Shard_seller",1;
 	end;
 }

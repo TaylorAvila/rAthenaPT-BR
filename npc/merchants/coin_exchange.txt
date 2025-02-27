@@ -22,28 +22,28 @@
 	mes .@n$;
 	if (isequipped(2782) && ep13_2_rhea == 100) {
 		if (!checkweight(1201,1)) {
-			mes "Parece que vocÃª estÃ¡ carregando muitas coisas.";
-			mes "Por que nÃ£o colocar alguns dos seus itens em armazenamento e voltar?";
+			mes "Parece que você está carregando muitas coisas.";
+			mes "Por que não colocar alguns dos seus itens em armazenamento e voltar?";
 			close;
 		}
-		mes "OlÃ¡.";
-		mes "O que vocÃª estÃ¡ procurando?";
+		mes "Olá.";
+		mes "O que você está procurando?";
 		next;
 		if (strnpcinfo(1) == "Mercador de Manuk") {
 			setarray .@Items[2],12342,12343,12348;
 			set .@Book,11019; //Manuk_Selling_Item
 			set .@Coin,6080; //Manuk_Coin
-			set .@i, select("Ver Item DescriÃ§Ã£o: Oportunidade de Manuk: Coragem de Manuk: FÃ© de Manuk: Cancelar");
+			set .@i, select("Ver Item Descrição: Oportunidade de Manuk: Coragem de Manuk: Fé de Manuk: Cancelar");
 		}
 		else {
 			setarray .@Items[2],12344,12345,12349;
 			set .@Book,11018; //Splendide_Selling_Item
 			set .@Coin,6081; //Splendide_Coin
-			set .@i, select("Ver Item DescriÃ§Ã£o: Compre o congestionamento de frutas de Pinguicula: Compre Luciola's Honey Jam: Compre Cornus 'Tears: NÃ£o faÃ§a nada");
+			set .@i, select("Ver Item Descrição: Compre o congestionamento de frutas de Pinguicula: Compre Luciola's Honey Jam: Compre Cornus 'Tears: Não faça nada");
 		}
 		mes .@n$;
 		if (.@i == 1) {
-			mes "Aqui estÃ£o as descriÃ§Ãµes do item.";
+			mes "Aqui estão as descrições do item.";
 			close2;
 			readbook .@Book,1;
 			end;
@@ -51,7 +51,7 @@
 		else if (.@i < 5) {
 			mes "Eu posso te vender 3"+getitemname(.@Items[.@i])+"para ^3131ff1 Coin ^000000.";
 			next;
-			switch(select("Compra: NÃ£o compre")) {
+			switch(select("Compra: Não compre")) {
 			case 1:
 				if (countitem(.@Coin)) {
 					mes .@n$;
@@ -62,7 +62,7 @@
 				}
 				else {
 					mes .@n$;
-					mes "VocÃª nÃ£o tem moedas suficientes.";
+					mes "Você não tem moedas suficientes.";
 					close;
 				}
 			case 2:
@@ -70,13 +70,13 @@
 				break;
 			}
 		}
-		mes "Venha novamente se vocÃª mudar de idÃ©ia.";
+		mes "Venha novamente se você mudar de idéia.";
 		close;
 	}
 	else {
 		if (strnpcinfo(1) == "Mercador de Manuk") {
 			mes "Rtt de d";
-			mes "Qwo hd Ã© drr";
+			mes "Qwo hd é drr";
 		}
 		else {
 			mes "Burwehala";

@@ -26,10 +26,10 @@ function	script	F_CoolEventCorp	{
 	cutin "zonda_01",2;
 	mes "[Equipe Cool Event Corp.]";
 	mes "Bem -vindo ao Cool Event Corp.";
-	mes "Nossa equipe est√° sempre trabalhando";
+	mes "Nossa equipe est· sempre trabalhando";
 	mes "para superar suas expectativas";
-	mes "para servi√ßo de qualidade. Ent√£o, como";
-	mes "Posso ajud√° -lo hoje?";
+	mes "para serviÁo de qualidade. Ent„o, como";
+	mes "Posso ajud· -lo hoje?";
 	next;
 	switch(select(getarg(0))) {
 	case 1:
@@ -38,34 +38,34 @@ function	script	F_CoolEventCorp	{
 		mes "foi salvo aqui";
 		mes getarg(1)+".";
 		mes "Obrigado por usar o";
-		mes "Servi√ßo Cool Event Corp. ~";
+		mes "ServiÁo Cool Event Corp. ~";
 		savepoint getarg(2),getarg(3),getarg(4),1,1;
 		close2;
 		break;
 	case 2:
 		mes "[Equipe Cool Event Corp.]";
 		if(!callfunc("F_CanOpenStorage")){
-			mes "Sinto muito, mas voc√™";
+			mes "Sinto muito, mas vocÍ";
 			mes "Precisa do novato";
-			mes "Habilidade b√°sica N√≠vel 6 para";
-			mes "use o servi√ßo de armazenamento.";
+			mes "Habilidade b·sica NÌvel 6 para";
+			mes "use o serviÁo de armazenamento.";
 			close2;
 			break;
 		}
 		if(Zeny < 40){
-			mes "Sinto muito, mas voc√™ n√£o";
+			mes "Sinto muito, mas vocÍ n„o";
 			mes "tem zeny suficiente para usar";
-			mes "o servi√ßo de armazenamento. Nosso";
-			mes "A taxa de acesso ao armazenamento √© 40 Zeny.";
+			mes "o serviÁo de armazenamento. Nosso";
+			mes "A taxa de acesso ao armazenamento È 40 Zeny.";
 			close2;
 			break;
 		}
 		set Zeny, Zeny - 40;
 		mes "Deixe -me abrir seu pessoal";
-		mes "armazenamento para voc√™ imediatamente.";
+		mes "armazenamento para vocÍ imediatamente.";
 		mes "Obrigado por apoiar legal";
 		mes "Event Corp. usando nosso";
-		mes "servi√ßos. Tenha um bom dia ~";
+		mes "serviÁos. Tenha um bom dia ~";
 		callfunc("F_CheckKafCode");	//check your storage password, if set
 		close2;
 		openstorage;
@@ -94,10 +94,10 @@ function	script	F_CoolEventCorp	{
 			}
 			else {
 				mes "[Equipe Cool Event Corp.]";
-				mes "Sinto muito, mas voc√™ n√£o tem";
+				mes "Sinto muito, mas vocÍ n„o tem";
 				mes "Zeny suficiente para o teleporte";
-				mes "Servi√ßo. A taxa para se teletransportar";
-				mes "para"+ .@destination$ +"√©"+.@cost+"mulheres.";
+				mes "ServiÁo. A taxa para se teletransportar";
+				mes "para"+ .@destination$ +"È"+.@cost+"mulheres.";
 			}
 		}
 		close2;
@@ -106,11 +106,11 @@ function	script	F_CoolEventCorp	{
 		mes "[Equipe Cool Event Corp.]";
 		if(BaseClass != Job_Merchant){
 			mes "Sinto muito, mas o";
-			mes "Servi√ßo de aluguel de carrinhos de press√£o";
+			mes "ServiÁo de aluguel de carrinhos de press„o";
 			if (checkre(0))
-				mes "est√° dispon√≠vel apenas para classes de comerciantes.";
+				mes "est· disponÌvel apenas para classes de comerciantes.";
 			else {
-				mes "est√° dispon√≠vel apenas para comerciantes,";
+				mes "est· disponÌvel apenas para comerciantes,";
 				mes "Blacksmiths, Smiths brancos,";
 				mes "Alquimistas e criadores.";
 			}
@@ -118,15 +118,15 @@ function	script	F_CoolEventCorp	{
 			break;
 		}
 		if(getskilllv("MC_PUSHCART") == 0){
-			mes "Voc√™ s√≥ pode alugar um carrinho depois";
-			mes "Aprendendo a habilidade do carrinho de press√£o.";
+			mes "VocÍ sÛ pode alugar um carrinho depois";
+			mes "Aprendendo a habilidade do carrinho de press„o.";
 			close2;
 			break;
 		}
 		if(checkcart() == 1){
-			mes "Voc√™ j√° tem";
-			mes "um carrinho de press√£o equipado.";
-			mes "Infelizmente, n√£o podemos";
+			mes "VocÍ j· tem";
+			mes "um carrinho de press„o equipado.";
+			mes "Infelizmente, n„o podemos";
 			mes "alugar mais de um para";
 			mes "cada cliente de cada vez.";
 			close2;
@@ -139,14 +139,14 @@ function	script	F_CoolEventCorp	{
 			break;
 		}
 		mes "O aluguel do carrinho";
-		mes "A taxa √© 800 Zeny. Seria";
-		mes "Voc√™ gosta de alugar um carrinho de press√£o?";
+		mes "A taxa È 800 Zeny. Seria";
+		mes "VocÍ gosta de alugar um carrinho de press„o?";
 		next;
-		if(select("Alugue um carrinho de press√£o: Cancelar") == 1){
+		if(select("Alugue um carrinho de press„o: Cancelar") == 1){
 			if(Zeny < 800){
 				mes "[Equipe Cool Event Corp.]";
-				mes "Sinto muito, mas voc√™";
-				mes "n√£o tem o suficiente";
+				mes "Sinto muito, mas vocÍ";
+				mes "n„o tem o suficiente";
 				mes "Zeny para pagar o carrinho";
 				mes "Taxa de aluguel de 800 Zeny.";
 			} else {
@@ -162,11 +162,11 @@ function	script	F_CoolEventCorp	{
 	case 6:
 	default:
 		mes "[Equipe Cool Event Corp.]";
-		mes "Cool Event Corp. √© sempre";
-		mes "esfor√ßando -se para fornecer o melhor";
-		mes "Servi√ßos para nossos clientes.";
+		mes "Cool Event Corp. È sempre";
+		mes "esforÁando -se para fornecer o melhor";
+		mes "ServiÁos para nossos clientes.";
 		mes "Ajude -nos a se tornar o melhor de";
-		mes "fornecendo -nos suas opini√µes";
+		mes "fornecendo -nos suas opiniıes";
 		mes "e feedback honesto. Obrigado.";
 		close2;
 	}
@@ -190,14 +190,14 @@ hugel,88,168,4	script	Cool Event Corp. Staff::CoolEventCorpStaffHugel	4_M_ZONDAM
 
 rachel,109,138,5	script	Cool Event Corp. Staff::CoolEventCorpStaffRachel	4_M_ZONDAMAN,{
 	callfunc "F_CoolEventCorp",
-		"Salvar: Use Armazenamento: Servi√ßo de Teleporte: Alugue um CARRO: Servi√ßo de Senha de Armazenamento: Cancelar",
+		"Salvar: Use Armazenamento: ServiÁo de Teleporte: Alugue um CARRO: ServiÁo de Senha de Armazenamento: Cancelar",
 		"Na cidade de Rachel","Rachel",113,137,"Veias";
 	end;
 }
 
 veins,208,128,5	script	Cool Event Corp. Staff::CoolEventCorpStaffVeins	4_M_ZONDAMAN,{
 	callfunc "F_CoolEventCorp",
-		"Salvar: Use Armazenamento: Servi√ßo de Teleporte: Alugue um CARRO: Servi√ßo de Senha de Armazenamento: Cancelar",
+		"Salvar: Use Armazenamento: ServiÁo de Teleporte: Alugue um CARRO: ServiÁo de Senha de Armazenamento: Cancelar",
 		"na cidade de veias","veias",204,103,"Rachel";
 	end;
 }

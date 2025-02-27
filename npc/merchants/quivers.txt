@@ -27,12 +27,12 @@
 payon_in01,5,134,5	script	Inventor Jaax	89,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 2000) {
 		mes "[Inventor Jaax]";
-		mes "Ei, vocÃª estÃ¡ carregando";
-		mes "coisas demais. Por que vocÃª nÃ£o o esconde no armazenamento de kafra? Podemos conversar depois que vocÃª faz isso, certo?";
+		mes "Ei, você está carregando";
+		mes "coisas demais. Por que você não o esconde no armazenamento de kafra? Podemos conversar depois que você faz isso, certo?";
 		close;
 	}
 	mes "[Inventor Jaax]";
-	mes "Meu nome Ã© Jaxx.";
+	mes "Meu nome é Jaxx.";
 	mes "Sem ego, eu posso";
 	mes "diga que eu talvez sou o";
 	mes "^663300Greatest Inventor do nosso tempo^000000.";
@@ -40,17 +40,17 @@ payon_in01,5,134,5	script	Inventor Jaax	89,{
 	mes "[Inventor Jaxx]";
 	mes "Desta vez, eu tenho";
 	mes "criou algo";
-	mes "verdadeiramente extraordinÃ¡rio. Eu os chamo de ... ^663300 Magic Afiadores ^000000 !! Isso serÃ¡ lembrado na histÃ³ria como um";
-	mes "RevoluÃ§Ã£o da Arrow!";
+	mes "verdadeiramente extraordinário. Eu os chamo de ... ^663300 Magic Afiadores ^000000 !! Isso será lembrado na história como um";
+	mes "Revolução da Arrow!";
 	emotion ET_BEST;
 	next;
 	mes "[Inventor Jaax]";
-	mes "Estudei mÃ¡gica e altividores hÃ¡ anos, trabalhando noite e dia atÃ© finalmente imaginei como condensar flechas com magia! Com alertas mÃ¡gicas, vocÃª estarÃ¡ carregando mais flechas, mas com menos peso!";
+	mes "Estudei mágica e altividores há anos, trabalhando noite e dia até finalmente imaginei como condensar flechas com magia! Com alertas mágicas, você estará carregando mais flechas, mas com menos peso!";
 	next;
 	mes "[Inventor Jaax]";
-	mes "Gostaria de tentar usar um dos meus altinÃ¡rios de flechas? NÃ£o tenho dÃºvidas de que alguÃ©m como vocÃª pode apreciar meu gÃªnio!";
+	mes "Gostaria de tentar usar um dos meus altinários de flechas? Não tenho dúvidas de que alguém como você pode apreciar meu gênio!";
 	next;
-	switch(select("Almonte: AljÃºgria de seta de ferro: aljava de seta de aÃ§o: OrideCon Arrow Quiver: Fire Arrow Quiver: Silver Arronc")) {
+	switch(select("Almonte: Aljúgria de seta de ferro: aljava de seta de aço: OrideCon Arrow Quiver: Fire Arrow Quiver: Silver Arronc")) {
 	case 1: callsub S_BuyQuiver,1750,500,500,12004;
 	case 2: callsub S_BuyQuiver,1770,500,500,12005;
 	case 3: callsub S_BuyQuiver,1753,500,500,12006;
@@ -67,7 +67,7 @@ payon_in01,5,134,5	script	Inventor Jaax	89,{
 	//This doesn't seem to be accessable...
 	//mes "[Inventor Jaax]";
 	//mes "Existe";
-	//mes "Algo que vocÃª quer?";
+	//mes "Algo que você quer?";
 	//close;
 
 S_BuyQuiver:
@@ -78,98 +78,98 @@ S_BuyQuiver:
 	if (countitem(.@item_id) >= .@amount) {
 		mes "[Inventor Jaax]";
 		mes "Excelente!";
-		mes "VocÃª estÃ¡ carregando flechas com vocÃª? Vou fornecer uma aljava que pode levar"+ .@amount +"do seu"+ getitemname(.@item_id) +"s apenas ^ff3131"+ .@zeny_req +"Mulheres^000000.";
+		mes "Você está carregando flechas com você? Vou fornecer uma aljava que pode levar"+ .@amount +"do seu"+ getitemname(.@item_id) +"s apenas ^ff3131"+ .@zeny_req +"Mulheres^000000.";
 		next;
-		switch(select("Armazene o maior nÃºmero possÃ­vel de flechas em afiadores: Compre 1 aljava: Cancelar")) {
+		switch(select("Armazene o maior número possível de flechas em afiadores: Compre 1 aljava: Cancelar")) {
 		case 1:
 			.@arrows = countitem(.@item_id);
 			set .@quiver,.@arrows / .@amount;
 			set .@arrows_used,.@quiver * .@amount;
 			.@arrow_zeny01 = .@quiver * .@zeny_req;
-			mes "NÃºmero de";
+			mes "Número de";
 			mes "Setas: ^3131ff"+.@arrows+"^000000";
-			mes "NÃºmero mÃ¡ximo";
+			mes "Número máximo";
 			mes "de compras";
 			mes "Afiadores: ^3131ff"+.@quiver+"^000000";
-			mes "Zeny necessÃ¡rio: ^3131ff"+.@arrow_zeny01+"Mulheres^000000";
+			mes "Zeny necessário: ^3131ff"+.@arrow_zeny01+"Mulheres^000000";
 			next;
 			mes "[Inventor Jaax]";
-			mes "VocÃª gostaria de";
+			mes "Você gostaria de";
 			mes "compre tantos afiadores";
-			mes "Como vocÃª pode para as flechas";
-			mes "VocÃª estÃ¡ carregando atualmente?";
+			mes "Como você pode para as flechas";
+			mes "Você está carregando atualmente?";
 			next;
 			if (select("Sim: Cancelar") == 1) {
 				if (.@arrow_zeny01 < Zeny) {
 					mes "[Inventor Jaax]";
-					mes "LÃ¡ vai vocÃª!";
-					mes "Lembre -se, ^ff0000 VocÃª nÃ£o poderÃ¡ usar a aljava quando o seu peso transportado for 90% do seu limite mÃ¡ximo de peso ^000000.";
+					mes "Lá vai você!";
+					mes "Lembre -se, ^ff0000 Você não poderá usar a aljava quando o seu peso transportado for 90% do seu limite máximo de peso ^000000.";
 					set Zeny, Zeny-.@arrow_zeny01;
 					delitem .@item_id,.@arrows_used;// Arrow
 					getitem getarg(3),.@quiver; //Quiver
 					next;
 					mes "[Inventor Jaax]";
-					mes "EntÃ£o...";
+					mes "Então...";
 					mes "Apenas mantenha o controle";
-					mes "de quanto vocÃª Ã©";
+					mes "de quanto você é";
 					mes "carregando do tempo";
-					mes "para o tempo e vocÃª deveria";
+					mes "para o tempo e você deveria";
 					mes "Esteja bem.";
 					close;
 				}
 				else {
 					mes "[Inventor Jaax]";
-					mes "Sinto muito, mas vocÃª nÃ£o tem Zeny o suficiente. Eu nÃ£o posso simplesmente doar isso depois dos anos de trabalho";
-					mes "Para desenvolver essa tecnologia revolucionÃ¡ria!";
+					mes "Sinto muito, mas você não tem Zeny o suficiente. Eu não posso simplesmente doar isso depois dos anos de trabalho";
+					mes "Para desenvolver essa tecnologia revolucionária!";
 					close;
 				}
 			}
 			mes "[Inventor Jaax]";
-			mes "VocÃª mudou de idÃ©ia?";
-			mes "Quando a glÃ³ria de possuir";
-			mes "Uma aljava estÃ¡ tÃ£o perto?";
+			mes "Você mudou de idéia?";
+			mes "Quando a glória de possuir";
+			mes "Uma aljava está tão perto?";
 			close;
 		case 2:
 			if (Zeny > .@zeny_req) {
 				mes "[Inventor Jaax]";
-				mes "LÃ¡ vai vocÃª!";
-				mes "Lembre -se, ^ff0000 VocÃª nÃ£o poderÃ¡ usar a aljava quando o seu peso transportado for 90% do seu limite mÃ¡ximo de peso ^000000.";
+				mes "Lá vai você!";
+				mes "Lembre -se, ^ff0000 Você não poderá usar a aljava quando o seu peso transportado for 90% do seu limite máximo de peso ^000000.";
 				Zeny = Zeny -.@zeny_req;
 				delitem .@item_id,.@amount;// Arrow
 				getitem getarg(3),1; //Quiver
 				next;
 				mes "[Inventor Jaax]";
-				mes "EntÃ£o...";
+				mes "Então...";
 				mes "Apenas mantenha o controle";
-				mes "de quanto vocÃª Ã©";
+				mes "de quanto você é";
 				mes "carregando do tempo";
-				mes "para o tempo e vocÃª deveria";
+				mes "para o tempo e você deveria";
 				mes "Esteja bem.";
 				close;
 			}
 			else {
 				mes "[Inventor Jaax]";
-				mes "VocÃª nem mesmo";
+				mes "Você nem mesmo";
 				mes "ter"+ .@zeny_req +"Zeny?";
-				mes "Eu sinto muito. Eu nÃ£o tinha";
-				mes "ideia de que vocÃª era tÃ£o ...";
+				mes "Eu sinto muito. Eu não tinha";
+				mes "ideia de que você era tão ...";
 				mes "^Eu subi^000.";
 				close;
 			}
 		case 3:
 			mes "[Inventor Jaax]";
 			mes "O que...?";
-			mes "VocÃª nÃ£o vÃª que esta invenÃ§Ã£o pode mudar para sempre a maneira como as setas sÃ£o transportadas?! O futuro Ã© agora!";
+			mes "Você não vê que esta invenção pode mudar para sempre a maneira como as setas são transportadas?! O futuro é agora!";
 			close;
 		}
 	}
 	else {
 		mes "[Inventor Jaax]";
-		mes "VocÃª pode carregar um mÃ¡ximo de"+ .@amount +"Setas dentro desta aljava. Foi feito usando meu mÃ©todo secreto,";
-		mes "Portanto, o peso total das setas e aljava Ã© menor do que carregar as setas sozinhas.";
+		mes "Você pode carregar um máximo de"+ .@amount +"Setas dentro desta aljava. Foi feito usando meu método secreto,";
+		mes "Portanto, o peso total das setas e aljava é menor do que carregar as setas sozinhas.";
 		next;
 		mes "[Inventor Jaax]";
-		mes "Ã‰ um milagre da ciÃªncia! Um que vocÃª pode experimentar por si mesmo se me traga pelo menos"+ .@amount +"Setas e"+ .@zeny_req +"Zeny para cada aljava.";
+		mes "É um milagre da ciência! Um que você pode experimentar por si mesmo se me traga pelo menos"+ .@amount +"Setas e"+ .@zeny_req +"Zeny para cada aljava.";
 		close;
 	}
 }

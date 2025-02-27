@@ -27,116 +27,116 @@
 //============================================================
 prontera,164,174,4	script	Trader#Val09	58,{
 	mes "[Marco Bassinio]";
-	mes "Ei, pessoal! Aqui estÃ¡ algo que vocÃª nÃ£o vÃª todos os dias!";
-	mes "Algo que vocÃª nunca pode encontrar em Rune-Midgarts!";
+	mes "Ei, pessoal! Aqui está algo que você não vê todos os dias!";
+	mes "Algo que você nunca pode encontrar em Rune-Midgarts!";
 	mes "Algo que te faz feliz com apenas uma mordida!";
 	next;
 	mes "[Marco Bassinio]";
-	mes "Ã‰ a sobremesa perfeita e o presente perfeito para os entes queridos.";
+	mes "É a sobremesa perfeita e o presente perfeito para os entes queridos.";
 	mes "Chocolate caseiro tradicional e de alta qualidade apenas 5000z cada!";
 	next;
 	switch(select("Vou aceitar, por favor !: Eu quero embrulhar o chocolate!: Termily Trading.")) {
 		case 1:
 			mes "[Marco Bassinio]";
 			mes "Ahaha, minha querida.";
-			mes "Este chocolate nÃ£o Ã© nada como os outros.";
-			mes "Cada peÃ§a leva a devoÃ§Ã£o da pessoa que fez isso!";
+			mes "Este chocolate não é nada como os outros.";
+			mes "Cada peça leva a devoção da pessoa que fez isso!";
 			next;
 			mes "[Marco Bassinio]";
-			mes "EntÃ£o, Ã© por isso que nÃ£o posso vender mais de 5 deles de cada vez.";
-			mes "Se vocÃª realmente quer mais, fale comigo novamente.";
-			mes "Quantos vocÃª quer, afinal?";
+			mes "Então, é por isso que não posso vender mais de 5 deles de cada vez.";
+			mes "Se você realmente quer mais, fale comigo novamente.";
+			mes "Quantos você quer, afinal?";
 			next;
 			while(.@input <= 0 || .@input > 5) {
 				input .@input;
 				if (.@input < 1) {
 					mes "[Marco Bassinio]";
-					mes "Oh, Ã© uma pena!";
-					mes "Tenho certeza de que vocÃª perderÃ¡ essa oportunidade e se arrepende de nÃ£o ter comprado.";
+					mes "Oh, é uma pena!";
+					mes "Tenho certeza de que você perderá essa oportunidade e se arrepende de não ter comprado.";
 					next;
 					mes "[Marco Bassinio]";
-					mes "Lembre -se, vocÃª nunca pode encontrar isso em qualquer outro lugar!";
-					mes "Volte a qualquer momento, quando vocÃª mudar de idÃ©ia.";
+					mes "Lembre -se, você nunca pode encontrar isso em qualquer outro lugar!";
+					mes "Volte a qualquer momento, quando você mudar de idéia.";
 					close;
 				}
 				if (.@input > 5) {
 					mes "[Marco Bassinio]";
-					mes "Ugh .. eu nÃ£o te disse?";
-					mes "5 Ã© o mÃ¡ximo!";
-					mes "NÃ£o posso vender mais do que isso para a mesma pessoa.";
+					mes "Ugh .. eu não te disse?";
+					mes "5 é o máximo!";
+					mes "Não posso vender mais do que isso para a mesma pessoa.";
 					next;
 					mes "[Marco Bassinio]";
-					mes "E vocÃª sabe que nÃ£o Ã© como uma refeiÃ§Ã£o diÃ¡ria.";
-					mes "Comer demais nÃ£o Ã© realmente bom para vocÃª.";
+					mes "E você sabe que não é como uma refeição diária.";
+					mes "Comer demais não é realmente bom para você.";
 					next;
 				}
 			}
 			if (!checkweight(558, .@input)) {
 				mes "[Marco Bassinio]";
-				mes "VocÃª estÃ¡ carregando muitos itens.";
-				mes "Por favor, use os serviÃ§os Kafra.";
+				mes "Você está carregando muitos itens.";
+				mes "Por favor, use os serviços Kafra.";
 				close;
 			}
 			set .@price, .@input * 5000;
 			if (Zeny < .@price) {
 				mes "[Marco Bassinio]";
-				mes "Parece que vocÃª nÃ£o tem Zeny o suficiente com vocÃª.";
-				mes "Talvez vocÃª deva pegar emprestado um pouco de Zeny de um amigo.";
-				mes "Porque, eu nÃ£o vou estar aqui todos os dias.";
+				mes "Parece que você não tem Zeny o suficiente com você.";
+				mes "Talvez você deva pegar emprestado um pouco de Zeny de um amigo.";
+				mes "Porque, eu não vou estar aqui todos os dias.";
 				close;
 			} else {
 				mes "[Marco Bassinio]";
-				mes "Bom para vocÃª!";
-				mes "TambÃ©m Ã© perfeito como um presente!";
-				mes "VocÃª sabe que nÃ£o pode obter esse tipo de chocolate normalmente.";
+				mes "Bom para você!";
+				mes "Também é perfeito como um presente!";
+				mes "Você sabe que não pode obter esse tipo de chocolate normalmente.";
 				next;
 				mes "[Marco Bassinio]";
-				mes "Se vocÃª quiser mais, vocÃª deve voltar.";
-				mes "Pode ser uma boa ideia comprar um pouco mais enquanto vocÃª tem uma chance ...!";
+				mes "Se você quiser mais, você deve voltar.";
+				mes "Pode ser uma boa ideia comprar um pouco mais enquanto você tem uma chance ...!";
 				set Zeny,Zeny - .@price;
 				getitem 558,.@input;
 				close;
 			}
 		case 2:
 			mes "[Marco Bassinio]";
-			mes "Se vocÃª deseja embrulhar o chocolate, Ã© claro, precisa de chocolate, alÃ©m de papel de embrulho, alÃ§a de embrulho e uma caixa.";
+			mes "Se você deseja embrulhar o chocolate, é claro, precisa de chocolate, além de papel de embrulho, alça de embrulho e uma caixa.";
 			next;
 			mes "[Marco Bassinio]";
-			mes "VocÃª tambÃ©m precisa pagar 500 Zeny para esculpir seu nome na caixa.";
-			mes "VocÃªs estÃ£o todos preparados ...?";
+			mes "Você também precisa pagar 500 Zeny para esculpir seu nome na caixa.";
+			mes "Vocês estão todos preparados ...?";
 			next;
 			if (countitem(7175) < 1 || countitem(7174) < 1 || countitem(7948) < 1 || Zeny < 500) {
 				mes "[Marco Bassinio]";
-				mes "Hmm .. parece que vocÃª nÃ£o tem materiais suficientes para decorar a caixa de presente ..";
-				mes "VocÃª nÃ£o pode simplesmente colocar seu presente em uma caixa de aparÃªncia simples ..";
-				mes "VocÃª nÃ£o acha?";
+				mes "Hmm .. parece que você não tem materiais suficientes para decorar a caixa de presente ..";
+				mes "Você não pode simplesmente colocar seu presente em uma caixa de aparência simples ..";
+				mes "Você não acha?";
 				next;
 				mes "[Marco Bassinio]";
-				mes "VocÃª precisa trazer algum papel de embrulho, alÃ§a de embrulho e uma caixa.";
-				mes "Oh, tambÃ©m traga 500 Zeny e nÃ£o se esqueÃ§a de trazer seu verdadeiro coraÃ§Ã£o amoroso com vocÃª !!";
+				mes "Você precisa trazer algum papel de embrulho, alça de embrulho e uma caixa.";
+				mes "Oh, também traga 500 Zeny e não se esqueça de trazer seu verdadeiro coração amoroso com você !!";
 				close;
 			}
 			if (countitem(558) < 1) {
 				mes "[Marco Bassinio]";
 				mes "Ei, olhe, aventureiro!";
-				mes "NÃ£o posso criar algo imediatamente!";
-				mes "VocÃª sabe que eu nÃ£o sou um alquimista nem nada.";
+				mes "Não posso criar algo imediatamente!";
+				mes "Você sabe que eu não sou um alquimista nem nada.";
 				next;
 				mes "[Marco Bassinio]";
-				mes "VocÃª nÃ£o estÃ¡ dizendo que quer uma caixa de chocolate vazia sem chocolate nela, estou certo?";
+				mes "Você não está dizendo que quer uma caixa de chocolate vazia sem chocolate nela, estou certo?";
 				close;
 			}
 			if (!checkweight(12744,1)) {
 				mes "[Marco Bassinio]";
-				mes "VocÃª estÃ¡ carregando muitos itens.";
-				mes "Por favor, use os serviÃ§os Kafra.";
+				mes "Você está carregando muitos itens.";
+				mes "Por favor, use os serviços Kafra.";
 				close;
 			}
 			mes "[Marco Bassinio]";
 			mes "Aqui, olhe!";
-			mes "Ã‰ a sua caixa de chocolate com seu nome.";
-			mes "NÃ£o Ã© fabuloso?";
-			mes "Veja, seu nome fica Ã³timo na caixa!";
+			mes "É a sua caixa de chocolate com seu nome.";
+			mes "Não é fabuloso?";
+			mes "Veja, seu nome fica ótimo na caixa!";
 			next;
 			delitem 558,1;
 			delitem 7175,1;
@@ -146,16 +146,16 @@ prontera,164,174,4	script	Trader#Val09	58,{
 			getnameditem 12744,strcharinfo(0);
 			mes "[Marco Bassinio]";
 			mes "Feliz Dia dos Namorados!";
-			mes "Valentine Ã© a razÃ£o pela qual voltei.";
+			mes "Valentine é a razão pela qual voltei.";
 			close;
 		case 3:
 			mes "[Marco Bassinio]";
-			mes "Oh, Ã© uma pena!";
-			mes "Tenho certeza de que vocÃª perderÃ¡ essa oportunidade e se arrepende de nÃ£o ter comprado.";
+			mes "Oh, é uma pena!";
+			mes "Tenho certeza de que você perderá essa oportunidade e se arrepende de não ter comprado.";
 			next;
 			mes "[Marco Bassinio]";
-			mes "Lembre -se, vocÃª nunca pode encontrar isso em qualquer outro lugar!";
-			mes "Volte a qualquer momento, quando vocÃª mudar de idÃ©ia.";
+			mes "Lembre -se, você nunca pode encontrar isso em qualquer outro lugar!";
+			mes "Volte a qualquer momento, quando você mudar de idéia.";
 			close;
 	}
 }
@@ -164,19 +164,19 @@ prontera,164,174,4	script	Trader#Val09	58,{
 //============================================================
 prontera,147,171,5	script	Packs Trader#Val09	58,{
 	mes "[Packs Trader]";
-	mes "OlÃ¡.";
+	mes "Olá.";
 	mes "Sou comerciante de pacotes, vendo caixas de papel e suprimentos para os presentes de embalagem.";
 	next;
 	while(1) {
 		mes "[Packs Trader]";
-		mes "VocÃª tem algo para comprar?";
+		mes "Você tem algo para comprar?";
 		next;
 		switch(select("Papel de embalagem: Fita de embalagem: Caixa: Cancelar.")) {
 			case 1:
 				mes "[Packs Trader]";
-				mes "Ã‰ 200 Zeny para 1 papel de embalagem.";
-				mes "Quantos vocÃª quer?";
-				mes "VocÃª nÃ£o pode comprar mais de 10 itens de uma sÃ³ vez.";
+				mes "É 200 Zeny para 1 papel de embalagem.";
+				mes "Quantos você quer?";
+				mes "Você não pode comprar mais de 10 itens de uma só vez.";
 				next;
 				input .@input;
 				if (.@input <= 0) {
@@ -187,27 +187,27 @@ prontera,147,171,5	script	Packs Trader#Val09	58,{
 				}
 				if (.@input > 10) {
 					mes "[Packs Trader]";
-					mes "Eu te disse para nÃ£o comprar mais de 10 ...";
+					mes "Eu te disse para não comprar mais de 10 ...";
 					next;
 					break;
 				}
 				if (!checkweight(7175,.@input)) {
 					mes "[Packs Trader]";
-					mes "VocÃª estÃ¡ carregando muitos itens.";
-					mes "Por favor, use os serviÃ§os Kafra.";
+					mes "Você está carregando muitos itens.";
+					mes "Por favor, use os serviços Kafra.";
 					close;
 				}
 				set .@price, .@input * 200;
 				if (Zeny < .@price) {
 					mes "[Packs Trader]";
-					mes "VocÃª nÃ£o tem dinheiro suficiente.";
+					mes "Você não tem dinheiro suficiente.";
 					mes "Por favor, verifique sua carteira.";
 					next;
 					break;
 				} else {
 					mes "[Packs Trader]";
-					mes "Aqui estÃ£o eles.";
-					mes "Espero que isso torne o seu dia dos namorados mais agradÃ¡vel!";
+					mes "Aqui estão eles.";
+					mes "Espero que isso torne o seu dia dos namorados mais agradável!";
 					set Zeny,Zeny-.@price;
 					getitem 7175,.@input;
 					next;
@@ -215,9 +215,9 @@ prontera,147,171,5	script	Packs Trader#Val09	58,{
 				}
 			case 2:
 				mes "[Packs Trader]";
-				mes "Ã‰ 200 Zeny para 1 fita de embalagem.";
-				mes "Quantos vocÃª quer?";
-				mes "VocÃª nÃ£o pode comprar mais de 10 itens de uma sÃ³ vez.";
+				mes "É 200 Zeny para 1 fita de embalagem.";
+				mes "Quantos você quer?";
+				mes "Você não pode comprar mais de 10 itens de uma só vez.";
 				next;
 				input .@input;
 				if (.@input <= 0) {
@@ -228,27 +228,27 @@ prontera,147,171,5	script	Packs Trader#Val09	58,{
 				}
 				if (.@input > 10) {
 					mes "[Packs Trader]";
-					mes "Eu te disse para nÃ£o comprar mais de 10 ...";
+					mes "Eu te disse para não comprar mais de 10 ...";
 					next;
 					break;
 				}
 				if (!checkweight(7174,.@input)) {
 					mes "[Packs Trader]";
-					mes "VocÃª estÃ¡ carregando muitos itens.";
-					mes "Por favor, use os serviÃ§os Kafra.";
+					mes "Você está carregando muitos itens.";
+					mes "Por favor, use os serviços Kafra.";
 					close;
 				}
 				set .@price, .@input * 200;
 				if (Zeny < .@price) {
 					mes "[Packs Trader]";
-					mes "VocÃª nÃ£o tem dinheiro suficiente.";
+					mes "Você não tem dinheiro suficiente.";
 					mes "Por favor, verifique sua carteira.";
 					next;
 					break;
 				} else {
 					mes "[Packs Trader]";
-					mes "Aqui estÃ£o eles.";
-					mes "Espero que isso torne o seu dia dos namorados mais agradÃ¡vel!";
+					mes "Aqui estão eles.";
+					mes "Espero que isso torne o seu dia dos namorados mais agradável!";
 					set Zeny,Zeny-.@price;
 					getitem 7174,.@input;
 					next;
@@ -256,9 +256,9 @@ prontera,147,171,5	script	Packs Trader#Val09	58,{
 				}
 			case 3:
 				mes "[Packs Trader]";
-				mes "Ã‰ 600 Zeny para 1 caixa.";
-				mes "Quantos vocÃª quer?";
-				mes "VocÃª nÃ£o pode comprar mais de 10 itens de uma sÃ³ vez.";
+				mes "É 600 Zeny para 1 caixa.";
+				mes "Quantos você quer?";
+				mes "Você não pode comprar mais de 10 itens de uma só vez.";
 				next;
 				input .@input;
 				if (.@input <= 0) {
@@ -269,27 +269,27 @@ prontera,147,171,5	script	Packs Trader#Val09	58,{
 				}
 				if (.@input > 10) {
 					mes "[Packs Trader]";
-					mes "Eu te disse para nÃ£o comprar mais de 10 ...";
+					mes "Eu te disse para não comprar mais de 10 ...";
 					next;
 					break;
 				}
 				if (!checkweight(7948,.@input)) {
 					mes "[Packs Trader]";
-					mes "VocÃª estÃ¡ carregando muitos itens.";
-					mes "Por favor, use os serviÃ§os Kafra.";
+					mes "Você está carregando muitos itens.";
+					mes "Por favor, use os serviços Kafra.";
 					close;
 				}
 				set .@price, .@input * 600;
 				if (Zeny < .@price) {
 					mes "[Packs Trader]";
-					mes "VocÃª nÃ£o tem dinheiro suficiente.";
+					mes "Você não tem dinheiro suficiente.";
 					mes "Por favor, verifique sua carteira.";
 					next;
 					break;
 				} else {
 					mes "[Packs Trader]";
-					mes "Aqui estÃ£o eles.";
-					mes "Espero que isso torne o seu dia dos namorados mais agradÃ¡vel!";
+					mes "Aqui estão eles.";
+					mes "Espero que isso torne o seu dia dos namorados mais agradável!";
 					set Zeny,Zeny-.@price;
 					getitem 7948,.@input;
 					next;
@@ -308,70 +308,70 @@ prontera,147,171,5	script	Packs Trader#Val09	58,{
 //============================================================
 prontera,154,185,5	script	Event Ring Maker#Val09	721,{
 	if (BaseLevel < 75) {
-		mes "[Maker de anÃ©is de evento]";
-		mes "OlÃ¡, eu sÃ³ faÃ§o os anÃ©is dos namorados para os experientes nÃ­vel de aventureiro 75 ou acima.";
+		mes "[Maker de anéis de evento]";
+		mes "Olá, eu só faço os anéis dos namorados para os experientes nível de aventureiro 75 ou acima.";
 		next;
-		mes "[Maker de anÃ©is de evento]";
-		mes "VocÃª nÃ£o estÃ¡ totalmente experiente ainda.";
-		mes "Volte quando vocÃª tiver experiÃªncia o suficiente para lidar com as missÃµes.";
+		mes "[Maker de anéis de evento]";
+		mes "Você não está totalmente experiente ainda.";
+		mes "Volte quando você tiver experiência o suficiente para lidar com as missões.";
 		close;
 	}
 	
 	if (iROval09ring >= 1) {
-		mes "[Maker de anÃ©is de evento]";
-		mes "A caixa com o anel, esculpida com seu nome, Ã© para quem vocÃª ama.";
+		mes "[Maker de anéis de evento]";
+		mes "A caixa com o anel, esculpida com seu nome, é para quem você ama.";
 		next;
-		mes "[Maker de anÃ©is de evento]";
-		mes "Quanto aos anÃ©is que vocÃª recebe de outras pessoas, todos devem ser registrados no gerente de votos.";
-		mes "Ela estÃ¡ de pÃ© perto da fonte pronÃºncia.";
+		mes "[Maker de anéis de evento]";
+		mes "Quanto aos anéis que você recebe de outras pessoas, todos devem ser registrados no gerente de votos.";
+		mes "Ela está de pé perto da fonte pronúncia.";
 		next;
-		mes "[Maker de anÃ©is de evento]";
-		mes "Somente o homem e a mulher mais populares sÃ£o submetidos a obter recompensas.";
+		mes "[Maker de anéis de evento]";
+		mes "Somente o homem e a mulher mais populares são submetidos a obter recompensas.";
 		mes "Esteja ciente e sempre tente permanecer popular!";
 		close;
 	}
 	
-	mes "[Maker de anÃ©is de evento]";
-	mes "Oi, aÃ­, como vocÃª estÃ¡?";
-	mes "Venha para mim se vocÃª estiver interessado no evento: 'Quem Ã© o mais quente dos namorados?'";
+	mes "[Maker de anéis de evento]";
+	mes "Oi, aí, como você está?";
+	mes "Venha para mim se você estiver interessado no evento: 'Quem é o mais quente dos namorados?'";
 	next;
-	mes "[Maker de anÃ©is de evento]";
-	mes "Eu faÃ§o os anÃ©is mais preciosos que vocÃª pode dar aos seus namorados.";
-	mes "Esses anÃ©is sÃ£o muito especiais porque eu esculho seus nomes neles!";
+	mes "[Maker de anéis de evento]";
+	mes "Eu faço os anéis mais preciosos que você pode dar aos seus namorados.";
+	mes "Esses anéis são muito especiais porque eu esculho seus nomes neles!";
 	next;
-	mes "[Maker de anÃ©is de evento]";
-	mes "NÃ£o Ã© emocionante?";
-	mes "NÃ£o Ã© uma ideia tÃ£o brilhante?";
-	mes "DÃª esses anÃ©is especiais aos seus namorados!";
+	mes "[Maker de anéis de evento]";
+	mes "Não é emocionante?";
+	mes "Não é uma ideia tão brilhante?";
+	mes "Dê esses anéis especiais aos seus namorados!";
 	next;
-	mes "[Maker de anÃ©is de evento]";
-	mes "VocÃª deve se apressar, porque este evento durarÃ¡ apenas duas semanas.";
-	mes "DÃª a alguÃ©m especial um presente do anel de um dia dos namorados.";
+	mes "[Maker de anéis de evento]";
+	mes "Você deve se apressar, porque este evento durará apenas duas semanas.";
+	mes "Dê a alguém especial um presente do anel de um dia dos namorados.";
 	next;
-	mes "[Maker de anÃ©is de evento]";
-	mes "Lembre -se, vocÃª sÃ³ pode gerar o anel uma vez.";
-	mes "VocÃª tambÃ©m precisa de papel de embrulho, alÃ§a de embrulho e uma caixa para fazer o anel.";
+	mes "[Maker de anéis de evento]";
+	mes "Lembre -se, você só pode gerar o anel uma vez.";
+	mes "Você também precisa de papel de embrulho, alça de embrulho e uma caixa para fazer o anel.";
 	next;
-	mes "[Maker de anÃ©is de evento]";
-	mes "EntÃ£o Ã© melhor vocÃª ter certeza de quem vocÃª dÃ¡ isso.";
-	mes "A propÃ³sito, custa 1.000 Zeny.";
-	mes "VocÃª gostaria de fazer um?";
+	mes "[Maker de anéis de evento]";
+	mes "Então é melhor você ter certeza de quem você dá isso.";
+	mes "A propósito, custa 1.000 Zeny.";
+	mes "Você gostaria de fazer um?";
 	next;
 	if(select("Hmm .. eu tenho que pensar segundo ...: claro.") == 1) {
-		mes "[Maker de anÃ©is de evento]";
+		mes "[Maker de anéis de evento]";
 		mes "Tudo bem!";
-		mes "VocÃª nÃ£o pode colocar uma pressa em uma coisa assim.";
-		mes "Pense no que vocÃª realmente quer.";
-		mes "Basta seguir seu coraÃ§Ã£o!";
+		mes "Você não pode colocar uma pressa em uma coisa assim.";
+		mes "Pense no que você realmente quer.";
+		mes "Basta seguir seu coração!";
 		close;
 	}
 	if (countitem(7175) < 1 || countitem(7174) < 1 || countitem(7948) < 1 || Zeny < 1000) {
-		mes "[Maker de anÃ©is de evento]";
-		mes "Bem, vocÃª nÃ£o tem materiais suficientes para fazer uma caixa de presente.";
-		mes "Verifique o que vocÃª tem e volte mais tarde com todos os materiais.";
+		mes "[Maker de anéis de evento]";
+		mes "Bem, você não tem materiais suficientes para fazer uma caixa de presente.";
+		mes "Verifique o que você tem e volte mais tarde com todos os materiais.";
 		close;
 	}
-	mes "[Maker de anÃ©is de evento]";
+	mes "[Maker de anéis de evento]";
 	mes "Okie Dokie!";
 	mes "Vou fazer isso imediatamente.";
 	next;
@@ -385,15 +385,15 @@ prontera,154,185,5	script	Event Ring Maker#Val09	721,{
 	} else {
 		getnameditem 12743,strcharinfo(0);
 	}
-	mes "[Maker de anÃ©is de evento]";
+	mes "[Maker de anéis de evento]";
 	mes "Aqui, o anel mais precioso do mundo!";
-	mes "NÃ£o se esqueÃ§a, vocÃª nunca pode fazer esse anel novamente.";
+	mes "Não se esqueça, você nunca pode fazer esse anel novamente.";
 	next;
-	mes "[Maker de anÃ©is de evento]";
-	mes "VocÃª deve escolher o que realmente ama e dar esse anel a essa pessoa.";
+	mes "[Maker de anéis de evento]";
+	mes "Você deve escolher o que realmente ama e dar esse anel a essa pessoa.";
 	next;
-	mes "[Maker de anÃ©is de evento]";
-	mes "Claro, vocÃª precisa obter anÃ©is de outras pessoas, Ã© assim que vocÃª pode participar da votaÃ§Ã£o, certo?";
+	mes "[Maker de anéis de evento]";
+	mes "Claro, você precisa obter anéis de outras pessoas, é assim que você pode participar da votação, certo?";
 	mes "Desafie -se a se tornar o mais quente dos namorados!";
 	close;
 }
@@ -402,38 +402,38 @@ prontera,154,185,5	script	Event Ring Maker#Val09	721,{
 //============================================================
 prontera,157,185,4	script	Valentine Vote Manager#v	113,{
 	mes "[Gerente de voto dos namorados]";
-	mes "OlÃ¡, eu sou o gerente de votos dos namorados.";
-	mes "Estou encarregado de coletar anÃ©is para este evento!";
+	mes "Olá, eu sou o gerente de votos dos namorados.";
+	mes "Estou encarregado de coletar anéis para este evento!";
 	next;
 	mes "[Gerente de voto dos namorados]";
-	mes "Registro os anÃ©is que vocÃª recebe de outras pessoas e calcule o nÃºmero total de anÃ©is.";
+	mes "Registro os anéis que você recebe de outras pessoas e calcule o número total de anéis.";
 	next;
 	mes "[Gerente de voto dos namorados]";
-	mes "VocÃª sabe o que eu faÃ§o alÃ©m de contar esses anÃ©is?";
-	mes "Posso lhe dizer o nome do aventureiro que tem o maior nÃºmero de votos.";
+	mes "Você sabe o que eu faço além de contar esses anéis?";
+	mes "Posso lhe dizer o nome do aventureiro que tem o maior número de votos.";
 	next;
 	mes "[Gerente de voto dos namorados]";
-	mes "AlÃ©m disso, vocÃª tambÃ©m pode descobrir quantos votos ele/ela recebeu.";
+	mes "Além disso, você também pode descobrir quantos votos ele/ela recebeu.";
 	next;
 	while (1) {
 		mes "[Gerente de voto dos namorados]";
-		mes "EntÃ£o, o que vocÃª quer?";
+		mes "Então, o que você quer?";
 		next;
-		switch(select("Por favor, registre meus anÃ©is .: Coure meus votos.")) {
+		switch(select("Por favor, registre meus anéis .: Coure meus votos.")) {
 			case 1:
 				mes "[Gerente de voto dos namorados]";
-				mes "Por favor, diga -me quantos anÃ©is vocÃª deseja se registrar.";
+				mes "Por favor, diga -me quantos anéis você deseja se registrar.";
 				next;
 				mes "[Gerente de voto dos namorados]";
-				mes "Quando vocÃª escreve o nÃºmero de anÃ©is, o nÃºmero nÃ£o deve ser maior que o nÃºmero de anÃ©is que vocÃª realmente tem.";
+				mes "Quando você escreve o número de anéis, o número não deve ser maior que o número de anéis que você realmente tem.";
 				mes "'0', cancela tudo.";
 				next;
 				input .@input;
 
 				if (.@input <= 0) {
 					mes "[Gerente de voto dos namorados]";
-					mes "VocÃª entrou 0.";
-					mes "As inscriÃ§Ãµes sÃ£o canceladas.";
+					mes "Você entrou 0.";
+					mes "As inscrições são canceladas.";
 					next;
 					break;
 				}
@@ -441,22 +441,22 @@ prontera,157,185,4	script	Valentine Vote Manager#v	113,{
 				if (Sex == SEX_MALE) {
 					if (countitem(7947) > .@input) {
 						mes "[Gerente de voto dos namorados]";
-						mes "Parece que o valor que vocÃª entrou Ã© muito pequeno.";
-						mes "Eu sei que vocÃª tem mais. Seja honesto, querida.";
+						mes "Parece que o valor que você entrou é muito pequeno.";
+						mes "Eu sei que você tem mais. Seja honesto, querida.";
 						next;
 						break;
 					}
 					
 					if (countitem(7947) < .@input) {
 						mes "[Gerente de voto dos namorados]";
-						mes "Parece que o valor que vocÃª entrou Ã© muito grande.";
-						mes "Eu sei que vocÃª tem menos. Seja honesto, querida.";
+						mes "Parece que o valor que você entrou é muito grande.";
+						mes "Eu sei que você tem menos. Seja honesto, querida.";
 						next;
 						break;
 					}
 					
 					mes "[Gerente de voto dos namorados]";
-					mes "Vou pegar esses anÃ©is de prata e contar os votos para vocÃª.";
+					mes "Vou pegar esses anéis de prata e contar os votos para você.";
 					mes "Obrigado por participar.";
 					delitem 7947,.@input;
 					set Val09Rings,Val09Rings+.@input;
@@ -469,22 +469,22 @@ prontera,157,185,4	script	Valentine Vote Manager#v	113,{
 				} else {
 					if (countitem(7946) > .@input) {
 						mes "[Gerente de voto dos namorados]";
-						mes "Parece que o valor que vocÃª entrou Ã© muito pequeno.";
-						mes "Eu sei que vocÃª tem mais. Seja honesto, querida.";
+						mes "Parece que o valor que você entrou é muito pequeno.";
+						mes "Eu sei que você tem mais. Seja honesto, querida.";
 						next;
 						break;
 					}
 					
 					if (countitem(7946) < .@input) {
 						mes "[Gerente de voto dos namorados]";
-						mes "Parece que o valor que vocÃª entrou Ã© muito grande.";
-						mes "Eu sei que vocÃª tem menos. Seja honesto, querida.";
+						mes "Parece que o valor que você entrou é muito grande.";
+						mes "Eu sei que você tem menos. Seja honesto, querida.";
 						next;
 						break;
 					}
 					
 					mes "[Gerente de voto dos namorados]";
-					mes "Vou pegar esses anÃ©is de ouro e contar os votos para vocÃª.";
+					mes "Vou pegar esses anéis de ouro e contar os votos para você.";
 					mes "Obrigado por participar.";
 					delitem 7946,.@input;
 					set Val09Rings,Val09Rings+.@input;
@@ -498,22 +498,22 @@ prontera,157,185,4	script	Valentine Vote Manager#v	113,{
 			case 2:
 				mes "[Gerente de voto dos namorados]";
 				mes "Vamos ver ...";
-				mes "VocÃª se registrou ...."+Val09Rings+"anÃ©is atÃ© agora.";
+				mes "Você se registrou ...."+Val09Rings+"anéis até agora.";
 				mes "e...";
 				next;
 				mes "[Gerente de voto dos namorados]";
-				mes "O registro atual mostra ..."+$Val09name_M$+"Ã© o lÃ­der de voto masculino que registrou o total de"+$Val09votes_M+"anÃ©is.";
+				mes "O registro atual mostra ..."+$Val09name_M$+"é o líder de voto masculino que registrou o total de"+$Val09votes_M+"anéis.";
 				next;
 				mes "[Gerente de voto dos namorados]";
-				mes "O registro atual mostra ..."+$Val09name_F$+"Ã© o lÃ­der de voto feminino que registrou o total de"+$Val09votes_F+"anÃ©is.";
+				mes "O registro atual mostra ..."+$Val09name_F$+"é o líder de voto feminino que registrou o total de"+$Val09votes_F+"anéis.";
 				next;
 				break;
 
 			case 3:
 				mes "[Gerente de voto dos namorados]";
-				mes "Ei, vocÃª pode ser popular tambÃ©m!";
+				mes "Ei, você pode ser popular também!";
 				mes "Qualquer um pode ... realmente!";
-				mes "Embora vocÃª tenha que se esforÃ§ar muito mais, mas ainda ~ hahaha!";
+				mes "Embora você tenha que se esforçar muito mais, mas ainda ~ hahaha!";
 				close;
 		}
 	}
@@ -524,111 +524,111 @@ prontera,157,185,4	script	Valentine Vote Manager#v	113,{
 prt_castle,42,35,3	script	Dessert Manager#Val09	47,{
 	if (Sex == SEX_MALE) {
 		mes "[Charles Orleans]";
-		mes "Monsieur ~! O que o leva ao meu lindo ateliÃª?";
-		mes "O que vocÃª quer?";
-		mes "Bem, meus olhos brilhantes ficam secos e perdem o brilho, se nÃ£o fosse a pequena dama.";
+		mes "Monsieur ~! O que o leva ao meu lindo ateliê?";
+		mes "O que você quer?";
+		mes "Bem, meus olhos brilhantes ficam secos e perdem o brilho, se não fosse a pequena dama.";
 		next;
 		mes "[Charles Orleans]";
-		mes "Por favor, deixe -me em paz, a menos que vocÃª tenha negÃ³cios comigo.";
+		mes "Por favor, deixe -me em paz, a menos que você tenha negócios comigo.";
 		mes "Haaaa ~ Eu sou uma pessoa ocupada.";
-		mes "NÃ£o me incomode ....";
+		mes "Não me incomode ....";
 		mes "Irritante, irritante, irritante ~~!";
 		close;
 	}
 	
 	mes "[Charles Orleans]";
 	mes "Oh, mademoiselle!";
-	mes "Este pequeno espaÃ§o insignificante parecia o cÃ©u no minuto em que vocÃª entrou!";
-	mes "Posso ajudÃ¡ -lo com alguma coisa, se estiver tudo bem?";
+	mes "Este pequeno espaço insignificante parecia o céu no minuto em que você entrou!";
+	mes "Posso ajudá -lo com alguma coisa, se estiver tudo bem?";
 	next;
-	if(select("Por favor, faÃ§a -me um pouco de chocolate .: NÃ£o se preocupe. Estou apenas passando.") == 2) {
+	if(select("Por favor, faça -me um pouco de chocolate .: Não se preocupe. Estou apenas passando.") == 2) {
 		mes "[Charles Orleans]";
-		mes "Ahhh, isso Ã© tÃ£o doloroso.";
-		mes "Como vocÃª poderia dizer isso?";
-		mes "VocÃª Ã© tÃ£o mau.";
-		mes "NÃ£o se preocupa? Apenas passando?";
+		mes "Ahhh, isso é tão doloroso.";
+		mes "Como você poderia dizer isso?";
+		mes "Você é tão mau.";
+		mes "Não se preocupa? Apenas passando?";
 		next;
 		mes "[Charles Orleans]";
-		mes "O que posso fazer para fazer vocÃª";
-		mes "Preste um pouco de atenÃ§Ã£o para mim?";
-		mes "Por favor .. eu sinto que minha alma estÃ¡ perdida ..";
+		mes "O que posso fazer para fazer você";
+		mes "Preste um pouco de atenção para mim?";
+		mes "Por favor .. eu sinto que minha alma está perdida ..";
 		close;
 	}
 	if (countitem(558) < 3) {
 		mes "[Charles Orleans]";
 		mes "Ahhh, mademoiselle.";
-		mes "Eu nÃ£o sou um alquimista ou um mÃ¡gico.";
-		mes "Eu nÃ£o apenas faÃ§o chocolate com nada.";
+		mes "Eu não sou um alquimista ou um mágico.";
+		mes "Eu não apenas faço chocolate com nada.";
 		next;
 		mes "[Charles Orleans]";
-		mes "Eu sempre penso em fazer chocolate como trabalho artÃ­stico.";
-		mes "Veja bem, eu nÃ£o sou cozinheiro comum ...";
-		mes "Eu faÃ§o chocolate com sentimentos ..";
-		mes "mensagens de coraÃ§Ãµes amorosos ..";
+		mes "Eu sempre penso em fazer chocolate como trabalho artístico.";
+		mes "Veja bem, eu não sou cozinheiro comum ...";
+		mes "Eu faço chocolate com sentimentos ..";
+		mes "mensagens de corações amorosos ..";
 		next;
 		mes "[Charles Orleans]";
-		mes "Eu faÃ§o obras -primas.";
-		mes "NinguÃ©m pode imitar a aparÃªncia e o sabor.";
-		mes "Sim, nÃ£o Ã© nada como chocolate comum!";
+		mes "Eu faço obras -primas.";
+		mes "Ninguém pode imitar a aparência e o sabor.";
+		mes "Sim, não é nada como chocolate comum!";
 		next;
 		mes "[Charles Orleans]";
-		mes "Receio nÃ£o poder conseguir e provar isso agora.";
-		mes "Isso Ã© realmente uma pena!";
+		mes "Receio não poder conseguir e provar isso agora.";
+		mes "Isso é realmente uma pena!";
 		next;
 		mes "[Charles Orleans]";
-		mes "Eu realmente quero agradecer por me visitar e se vocÃª apenas trazer ^3152FF3 Chocolates ^000000, farei de chocolate como vocÃª nunca viu ...";
+		mes "Eu realmente quero agradecer por me visitar e se você apenas trazer ^3152FF3 Chocolates ^000000, farei de chocolate como você nunca viu ...";
 		next;
 		mes "[Charles Orleans]";
 		mes "nunca provou antes ...";
-		mes "Mademoiselle, com seu espÃ­rito, tenho certeza que vocÃª pode trazer 3 pedaÃ§os de chocolate.";
-		mes "NÃ£o tenho dÃºvidas.";
+		mes "Mademoiselle, com seu espírito, tenho certeza que você pode trazer 3 pedaços de chocolate.";
+		mes "Não tenho dúvidas.";
 		next;
 		mes "[Charles Orleans]";
-		mes "EntÃ£o ... o que vocÃª acha?";
-		mes "VocÃª pode trazer ^3152FF3 Chocolates ^000000?";
-		mes "Eu poderia pegÃ¡ -los sozinho, mas estou amarrado com tanto trabalho quanto vocÃª vÃª agora.";
+		mes "Então ... o que você acha?";
+		mes "Você pode trazer ^3152FF3 Chocolates ^000000?";
+		mes "Eu poderia pegá -los sozinho, mas estou amarrado com tanto trabalho quanto você vê agora.";
 		next;
 		mes "[Charles Orleans]";
 		mes "Adios, mademoiselle .....";
-		mes "Eu estarei esperando por vocÃª.";
+		mes "Eu estarei esperando por você.";
 		close;
 	} else {
 		if (!checkweight(559,1)) {
 			mes "[Charles Orleans]";
-			mes "VocÃª estÃ¡ carregando muitos itens.";
-			mes "Por favor, use os serviÃ§os Kafra.";
+			mes "Você está carregando muitos itens.";
+			mes "Por favor, use os serviços Kafra.";
 			close;
 		}
 		mes "[Charles Orleans]";
 		mes "Oh, mademoiselle!";
-		mes "Vou fazer o melhor chocolate com as peÃ§as que vocÃª trouxe.";
-		mes "Vou colocar a luz dos seus olhos nesse chocolate que ninguÃ©m pode resistir.";
+		mes "Vou fazer o melhor chocolate com as peças que você trouxe.";
+		mes "Vou colocar a luz dos seus olhos nesse chocolate que ninguém pode resistir.";
 		next;
 		mes "[Charles Orleans]";
-		mes "Vai ser mais forte do que uma doce poÃ§Ã£o doce do amor .....";
+		mes "Vai ser mais forte do que uma doce poção doce do amor .....";
 		next;
 		mes "[Charles Orleans]";
-		mes "Um, dois, trÃªs, quatro .....";
+		mes "Um, dois, três, quatro .....";
 		mes "Assim como o patinho feio que se virou para um belo cisne-";
-		mes "PeÃ§as de chocolate comuns estÃ£o se tornando uma obra de arte!";
+		mes "Peças de chocolate comuns estão se tornando uma obra de arte!";
 		next;
 		mes "[Charles Orleans]";
-		mes "Eles estÃ£o mudando!";
-		mes "Eles estÃ£o aquecendo, mudando suavemente a forma, ficando mais fortes novamente!";
-		mes "Oh, Ã© uma obra -prima ou";
+		mes "Eles estão mudando!";
+		mes "Eles estão aquecendo, mudando suavemente a forma, ficando mais fortes novamente!";
+		mes "Oh, é uma obra -prima ou";
 		mes "o que...!!";
 		next;
 		mes "[Charles Orleans]";
-		mes "Aqui estÃ¡, Mademoiselle!";
+		mes "Aqui está, Mademoiselle!";
 		mes "Ahahahaha, apenas olhe para isso!";
-		mes "NÃ£o acredito que fiz isso.";
-		mes "Oh, eu nÃ£o posso tirar meus olhos .. !!";
+		mes "Não acredito que fiz isso.";
+		mes "Oh, eu não posso tirar meus olhos .. !!";
 		delitem 558,3;
 		getitem 559,1;
 		next;
 		mes "[Charles Orleans]";
 		mes "Tudo bem. Mademoiselle,";
-		mes "Espero que seja exatamente isso que vocÃª queria, pois leva seu lindo coraÃ§Ã£o por dentro.";
+		mes "Espero que seja exatamente isso que você queria, pois leva seu lindo coração por dentro.";
 		close;
 	}
 	

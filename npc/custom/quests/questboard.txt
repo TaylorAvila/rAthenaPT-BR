@@ -37,7 +37,7 @@ prontera,129,215,5	script	Questboard	4_BOARD3,{
 		next;
 		if(select("Acabamento: abortar") == 2){
 			mes "[^Ff7700Questboard^000000]";
-			mes "Miss√£o abortada.";
+			mes "Miss„o abortada.";
 			set currentquest$, "";
 			set c_run, false;
 			close;
@@ -63,7 +63,7 @@ prontera,129,215,5	script	Questboard	4_BOARD3,{
 		next;
 		if(select("Acabamento: abortar") == 2){
 			mes "[^Ff7700Questboard^000000]";
-			mes "Miss√£o abortada.";
+			mes "Miss„o abortada.";
 			for(set .@x, 1; .@x < .@size; set .@x,.@x+2){
 				set .@currentmob, getd("."+currentquest$+"_huntingMob ["+(.@x-1)+"]");
 				setd(currentquest$+"_"+.@currentmob+"_"+.@x+"_killcount", 0);
@@ -79,9 +79,9 @@ prontera,129,215,5	script	Questboard	4_BOARD3,{
 	mes "Selecionar categoria:";
 	next;
 
-	switch(select((.collection)?"Miss√µes de cole√ß√£o":"",
-				  (.hunting)?"Miss√µes de ca√ßa":"",
-				  "Sa√≠da")) {
+	switch(select((.collection)?"Missıes de coleÁ„o":"",
+				  (.hunting)?"Missıes de caÁa":"",
+				  "SaÌda")) {
 
 	case 1:
 		set .@collectmenu$, "";
@@ -93,14 +93,14 @@ prontera,129,215,5	script	Questboard	4_BOARD3,{
 		if(.quest_repeat == true){
 			if(gettimetick(2) < getd(.@selection + "_collection_delay")){
 				mes "[^Ff7700Questboard^000000]";
-				mes "Voc√™ tem que esperar ^0000ff"+Time2Str(getd(.@selection + "_collection_delay"))+"^000000 para fazer essa miss√£o novamente.";
+				mes "VocÍ tem que esperar ^0000ff"+Time2Str(getd(.@selection + "_collection_delay"))+"^000000 para fazer essa miss„o novamente.";
 				close;
 			}
 		}
 		else{
 			if(getd(.@selection + "_collection_repeat") == true){
 				mes "[^Ff7700Questboard^000000]";
-				mes "Voc√™ j√° fez essa miss√£o.";
+				mes "VocÍ j· fez essa miss„o.";
 				mes "Escolha outro.";
 				close;
 			}
@@ -119,20 +119,20 @@ prontera,129,215,5	script	Questboard	4_BOARD3,{
 		mes "EXP BASE: ^0000FF"+getd("." +.@selection+"_collectionExp ["+0+"]")+"^000000";
 		mes "EXP: ^0000FF"+getd("." +.@selection+"_collectionExp ["+1+"]")+"^000000";
 		next;
-		if(select("Aceitar: decl√≠nio") == 2){
+		if(select("Aceitar: declÌnio") == 2){
 			close;
 		}
 		if(BaseLevel >= getd("." +.@selection+"_collectionMin") && BaseLevel <= getd("." +.@selection+"_collectionMax")){
 			mes "[^Ff7700Questboard^000000]";
-			mes "Miss√£o aceita.";
+			mes "Miss„o aceita.";
 			set c_run, true;
 			set currentquest$, .@selection;
 			close;
 		}
 		else{
 			mes "[^Ff7700Questboard^000000]";
-			mes "Voc√™ n√£o tem o necess√°rio";
-			mes "n√≠vel para fazer essa miss√£o.";
+			mes "VocÍ n„o tem o necess·rio";
+			mes "nÌvel para fazer essa miss„o.";
 			close;
 		}
 
@@ -146,14 +146,14 @@ prontera,129,215,5	script	Questboard	4_BOARD3,{
 		if(.quest_repeat == true){
 			if(gettimetick(2) < getd(.@selection + "_hunting_delay")){
 				mes "[^Ff7700Questboard^000000]";
-				mes "Voc√™ tem que esperar ^0000ff"+Time2Str(getd(.@selection + "_hunting_delay"))+"^000000 para fazer essa miss√£o novamente.";
+				mes "VocÍ tem que esperar ^0000ff"+Time2Str(getd(.@selection + "_hunting_delay"))+"^000000 para fazer essa miss„o novamente.";
 				close;
 			}
 		}
 		else{
 			if(getd(.@selection + "_hunting_repeat") == true){
 				mes "[^Ff7700Questboard^000000]";
-				mes "Voc√™ j√° fez essa miss√£o.";
+				mes "VocÍ j· fez essa miss„o.";
 				mes "Escolha outro.";
 				close;
 			}
@@ -172,20 +172,20 @@ prontera,129,215,5	script	Questboard	4_BOARD3,{
 		mes "EXP BASE: ^0000FF"+getd("." +.@selection+"_huntingExp ["+0+"]")+"^000000";
 		mes "EXP: ^0000FF"+getd("." +.@selection+"_huntingExp ["+1+"]")+"^000000";
 		next;
-		if(select("Aceitar: decl√≠nio") == 2){
+		if(select("Aceitar: declÌnio") == 2){
 			close;
 		}
 		if(BaseLevel >= getd("." +.@selection+"_huntingMin") && BaseLevel <= getd("." +.@selection+"_HuntingMax")){
 			mes "[^Ff7700Questboard^000000]";
-			mes "Miss√£o aceita.";
+			mes "Miss„o aceita.";
 			set h_run, true;
 			set currentquest$, .@selection;
 			close;
 		}
 		else{
 			mes "[^Ff7700Questboard^000000]";
-			mes "Voc√™ n√£o tem o necess√°rio";
-			mes "n√≠vel para fazer essa miss√£o.";
+			mes "VocÍ n„o tem o necess·rio";
+			mes "nÌvel para fazer essa miss„o.";
 			close;
 		}
 
@@ -202,14 +202,14 @@ L_checkitems:
 	}
 	if(.@checkitem<.@size){
 		mes "[^Ff7700Questboard^000000]";
-		mes "Voc√™ n√£o tem tudo.";
+		mes "VocÍ n„o tem tudo.";
 		close;
 	}
 	for( set .@delcount,0; .@delcount < .@size; set .@delcount,.@delcount+2){
 		delitem getd("."+currentquest$+"_CollectionItem ["+.@delcount+"]"),getd("."+currentquest$+"_CollectionItem ["+(.@delcount+1)+"]");
 	}
 	mes "[^Ff7700Questboard^000000]";
-	mes "Parab√©ns! Aqui est√° a sua recompensa.";
+	mes "ParabÈns! Aqui est· a sua recompensa.";
 	if(getd("." +currentquest$+"_collectionPrize")!=0) getitem(getd("." +currentquest$+"_collectionPrize"),getd("." +currentquest$+"_CollectionAmount"));
 	set Zeny,Zeny+getd("." +currentquest$+"_CollectionZeny");
 	getexp getd("." +currentquest$+"_collectionExp ["+0+"]"),getd("." +currentquest$+"_collectionExp ["+1+"]");
@@ -237,11 +237,11 @@ L_checkmobs:
 L_checkmobs2:
 	if(.@checkmonster<.@goal){
 		mes "[^Ff7700Questboard^000000]";
-		mes "Voc√™ n√£o matou tudo.";
+		mes "VocÍ n„o matou tudo.";
 		close;
 	}
 	mes "[^Ff7700Questboard^000000]";
-	mes "Parab√©ns! Aqui est√° a sua recompensa.";
+	mes "ParabÈns! Aqui est· a sua recompensa.";
 	set .@size, getarraysize(getd("."+currentquest$+"_HuntingMob"));
 	for(set .@x, 1; .@x < .@size; set .@x,.@x+2){
 		set .@currentmob, getd("."+currentquest$+"_huntingMob ["+(.@x-1)+"]");
@@ -321,11 +321,11 @@ OnInit:
 	set .questsloaded, true;
 
 	//Add Collection Quests here (You can add as many required items as you want)
-	//AddCollection("<Nome da miss√£o>",<Min Lvl>,<Max Lvl>,<Reward|Item ID>,<Reward|Item Amount>,<Zeny Reward>,<Base EXP>,<Job EXP>,<Item ID>,<Item Amount>,...);
+	//AddCollection("<Nome da miss„o>",<Min Lvl>,<Max Lvl>,<Reward|Item ID>,<Reward|Item Amount>,<Zeny Reward>,<Base EXP>,<Job EXP>,<Item ID>,<Item Amount>,...);
 
 
 	//Add Hunting Quests here (You can add as many required mobs as you want)
-	//AddHunting("<Nome da miss√£o>",<Min Lvl>,<Max Lvl>,<Reward|Item ID>,<Reward|Item Amount>,<Zeny Reward>,<Base EXP>,<Job EXP>,<Monster ID>,<Monster Amount>,...);
+	//AddHunting("<Nome da miss„o>",<Min Lvl>,<Max Lvl>,<Reward|Item ID>,<Reward|Item Amount>,<Zeny Reward>,<Base EXP>,<Job EXP>,<Monster ID>,<Monster Amount>,...);
 	end;
 
 

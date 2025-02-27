@@ -20,58 +20,58 @@ ecl_hub01,132,12,3	script	Chief of Staff#tl02	435,{
 
 	if (.@party_id == 0 || is_party_leader() == false){
 		mes "-! Aviso !-";
-		mes "Esta busca atual serÃ¡ realizada no Memorial Dungeon.";
-		mes "Somente o lÃ­der do partido entrarÃ¡. Por favor, crie sua festa.";
+		mes "Esta busca atual será realizada no Memorial Dungeon.";
+		mes "Somente o líder do partido entrará. Por favor, crie sua festa.";
 		close;
 	}
 	if (ep14_2_mylord == 29) {
 		mes "[Notas]";
-		mes "Este lugar Ã© configurado com iluminaÃ§Ã£o para Orb.";
-		mes "Se vocÃª favorecer o prefeito, deve ser cauteloso aqui.";
+		mes "Este lugar é configurado com iluminação para Orb.";
+		mes "Se você favorecer o prefeito, deve ser cauteloso aqui.";
 		next;
 		switch (select("Digite.")) {
 		case 1:
 			if (instance_create(.@md_name$) < 0) {
 				mes "[Notas]";
-				mes "Existem alguns soldados despachados pelo prefeito hÃ¡ pouco tempo.";
-				mes "Eu tenho certeza de que vocÃª nÃ£o Ã© o perturbaÃ§Ã£o que eles estÃ£o procurando, certo?";
+				mes "Existem alguns soldados despachados pelo prefeito há pouco tempo.";
+				mes "Eu tenho certeza de que você não é o perturbação que eles estão procurando, certo?";
 				close;
 			}
 			ecl_interior_time = gettimetick(2) + 20 * 60;
 			mes "[Notas]";
-			mes "Dada a seguranÃ§a interna apertada, vocÃª deve se preparar.";
+			mes "Dada a segurança interna apertada, você deve se preparar.";
 			mes "Espere aqui por um minuto.";
 			close;
 		case 2:
 			mes "[Notas]";
-			mes "NÃ£o Ã© uma tarefa fÃ¡cil.";
+			mes "Não é uma tarefa fácil.";
 			close;
 		}
 	}
-	mes "[Laphine's de alto nÃ­vel]";
+	mes "[Laphine's de alto nível]";
 	mes "Hum? Esta sala?";
-	mes "Deixa para lÃ¡. NÃ£o se preocupe com isso.";
+	mes "Deixa para lá. Não se preocupe com isso.";
 	close;
 }
 
 ecl_hub01,130,15,0	script	It is closed shut.	844,{
 	if (ep14_2_mylord == 29) {
-		mes "Esta porta se conecta ao teto da praÃ§a.";
-		mes "Ã‰ tambÃ©m um lugar onde a iluminaÃ§Ã£o Ã© configurada para fazer Orb parecer mais bonito.";
+		mes "Esta porta se conecta ao teto da praça.";
+		mes "É também um lugar onde a iluminação é configurada para fazer Orb parecer mais bonito.";
 		next;
 		if (select("Digite.") == 1) {
 			.@party_id = getcharid(1);
 			.@md_name$ = "Eclage Interior";
 			if (.@party_id == 0 || is_party_leader() == false) {
 				mes "-! Aviso !-";
-				mes "Esta busca atual serÃ¡ realizada no Memorial Dungeon.";
-				mes "Somente o lÃ­der do partido entrarÃ¡. Por favor, crie sua festa.";
+				mes "Esta busca atual será realizada no Memorial Dungeon.";
+				mes "Somente o líder do partido entrará. Por favor, crie sua festa.";
 				close;
 			}
 			if (gettimetick(2) >= ecl_interior_time){
 				mes "[Notas]";
-				mes "Parece que os soldados internos estÃ£o realmente tensos.";
-				mes "Ã‰ muito difÃ­cil guiar um estranho como vocÃª.";
+				mes "Parece que os soldados internos estão realmente tensos.";
+				mes "É muito difícil guiar um estranho como você.";
 				close;
 			}
 			switch (instance_enter(.@md_name$)) {
@@ -79,33 +79,33 @@ ecl_hub01,130,15,0	script	It is closed shut.	844,{
 				mes "Um erro desconhecido ocorreu.";
 				close;
 			case IE_NOINSTANCE:
-				mes "EstÃ¡ fechado.";
+				mes "Está fechado.";
 				close;
 			case IE_OK:
-				mapannounce "ECL_HUB01",getpartyname(.@party_id) + "LÃ­der do partido" + strcharinfo(0) + "estÃ¡ entrando" + .@md_name$,bc_map,"0 buceta 00";
+				mapannounce "ECL_HUB01",getpartyname(.@party_id) + "Líder do partido" + strcharinfo(0) + "está entrando" + .@md_name$,bc_map,"0 buceta 00";
 				end;
 			default:
 			}
 		} else
 			close;
 	}
-	mes "Esta porta se conecta ao teto da praÃ§a.";
-	mes "Ã‰ tambÃ©m um lugar onde a iluminaÃ§Ã£o Ã© configurada para fazer Orb parecer mais bonito.";
-	mes "EstÃ¡ fechado.";
+	mes "Esta porta se conecta ao teto da praça.";
+	mes "É também um lugar onde a iluminação é configurada para fazer Orb parecer mais bonito.";
+	mes "Está fechado.";
 	close;
 }
 
 1@ecl,58,69,3	script	Shenime#ecl01	435,{
 	mes "[Notas]";
-	mes "Oh, o que estÃ¡ acontecendo aqui?";
-	mes "Eles destruÃ­ram tropas adicionais que o prefeito enviou?";
+	mes "Oh, o que está acontecendo aqui?";
+	mes "Eles destruíram tropas adicionais que o prefeito enviou?";
 	next;
 	select("O que ... ?: Eu lutei com monstros!");
 	mes "[Notas]";
-	mes "NÃ£o importa.";
+	mes "Não importa.";
 	mes "Seu trabalho termina aqui.";
-	mes "Agora vocÃª se tornou um traidor.";
-	mes "Adeus, entÃ£o!";
+	mes "Agora você se tornou um traidor.";
+	mes "Adeus, então!";
 	specialeffect EF_BEGINSPELL3;
 	next;
 	mes "[" + strcharinfo(0) + "]";
@@ -174,21 +174,21 @@ OnMyMobDead:
 
 OnTouch:
 	if ('mob_summoned > 1) end;
-    mes "Ao eliminar os intrusos perto da esfera, outras criaturas de aparÃªncia estranha apareceram.";
+    mes "Ao eliminar os intrusos perto da esfera, outras criaturas de aparência estranha apareceram.";
     next;
-    mes "TambÃ©m nÃ£o podÃ­amos nos comunicar com eles, e um deles parecia furioso depois de olhar em volta e descobrir que seus companheiros sÃ£o derrotados.";
+    mes "Também não podíamos nos comunicar com eles, e um deles parecia furioso depois de olhar em volta e descobrir que seus companheiros são derrotados.";
     next;
     mes "[" + strcharinfo(0) + "]";
-    mes "Eles parecem como se fossem encarnaÃ§Ã£o de marrocc.";
-    mes "O rei dos domÃ­nios Ã© apÃ³s o orbe?";
-    mes "Ou Ã© apenas uma coincidÃªncia?";
+    mes "Eles parecem como se fossem encarnação de marrocc.";
+    mes "O rei dos domínios é após o orbe?";
+    mes "Ou é apenas uma coincidência?";
     next;
-    mes "[Subordinado do rei dos demÃ´nios]";
+    mes "[Subordinado do rei dos demônios]";
     mes "Kyar ... gemido !!!";
-    mes "K â†’ A!";
+    mes "K  A!";
     next;
-    mes "Uma batalha nÃ£o pode ser evitada!";
-    mes "Eles vÃ£o me matar!";
+    mes "Uma batalha não pode ser evitada!";
+    mes "Eles vão me matar!";
 	close2;
 	hideonnpc instance_npcname("Suspicious Creature#5");
 	hideonnpc instance_npcname("Suspicious Creature#6");
@@ -200,14 +200,14 @@ OnTouch:
 	disablenpc instance_npcname("Suspicious Creature#8");
 	.@eclmap$ = instance_mapname("1@ecl");
 	.@sndmaster$ = instance_npcname("#sndmaster");
-	monster .@eclmap$,42,80,"Subordinado do rei dos demÃ´nios",2376,1,.@sndmaster$+":: onmymobdead";
-	monster .@eclmap$,48,86,"Subordinado do rei dos demÃ´nios",2376,1,.@sndmaster$+":: onmymobdead";
-	monster .@eclmap$,59,82,"Subordinado do rei dos demÃ´nios",2376,1,.@sndmaster$+":: onmymobdead";
-	monster .@eclmap$,56,88,"Subordinado do rei dos demÃ´nios",2376,1,.@sndmaster$+":: onmymobdead";
-	monster .@eclmap$,39,72,"Subordinado do rei dos demÃ´nios",2376,1,.@sndmaster$+":: onmymobdead";
-	monster .@eclmap$,42,69,"Subordinado do rei dos demÃ´nios",2376,1,.@sndmaster$+":: onmymobdead";
-	monster .@eclmap$,47,64,"Subordinado do rei dos demÃ´nios",2376,1,.@sndmaster$+":: onmymobdead";
-	monster .@eclmap$,50,60,"Subordinado do rei dos demÃ´nios",2376,1,.@sndmaster$+":: onmymobdead";
+	monster .@eclmap$,42,80,"Subordinado do rei dos demônios",2376,1,.@sndmaster$+":: onmymobdead";
+	monster .@eclmap$,48,86,"Subordinado do rei dos demônios",2376,1,.@sndmaster$+":: onmymobdead";
+	monster .@eclmap$,59,82,"Subordinado do rei dos demônios",2376,1,.@sndmaster$+":: onmymobdead";
+	monster .@eclmap$,56,88,"Subordinado do rei dos demônios",2376,1,.@sndmaster$+":: onmymobdead";
+	monster .@eclmap$,39,72,"Subordinado do rei dos demônios",2376,1,.@sndmaster$+":: onmymobdead";
+	monster .@eclmap$,42,69,"Subordinado do rei dos demônios",2376,1,.@sndmaster$+":: onmymobdead";
+	monster .@eclmap$,47,64,"Subordinado do rei dos demônios",2376,1,.@sndmaster$+":: onmymobdead";
+	monster .@eclmap$,50,60,"Subordinado do rei dos demônios",2376,1,.@sndmaster$+":: onmymobdead";
 	'mob_summoned = 2;
     end;
 }
@@ -219,19 +219,19 @@ OnTouch:
 	.@eclmap$ = instance_mapname("1@ecl");
 	.@eventname$ = instance_npcname("#event");
 	mes "Uma sala vazia sem nada por dentro.";
-	mes "Uma luz estÃ¡ saindo de um equipamento circular no meio da sala.";
+	mes "Uma luz está saindo de um equipamento circular no meio da sala.";
 	next;
 	mes "[Criatura suspeita]";
 	mes "Heloheheha ......";
 	next;
-	mes "Um grupo de criaturas nÃ£o identificÃ¡veis â€‹â€‹estÃ¡ se aproximando ameaÃ§adoramente.";
-	mes "Eles pareciam surpresos e, embora o Bifrost ainda se mantenha, Ã© difÃ­cil se comunicar.";
+	mes "Um grupo de criaturas não identificáveis está se aproximando ameaçadoramente.";
+	mes "Eles pareciam surpresos e, embora o Bifrost ainda se mantenha, é difícil se comunicar.";
 	next;
 	mes "[Criatura suspeita]";
 	mes "Kyar ... K ... Curry !!";
 	next;
-	mes "Parece que eles vÃ£o comeÃ§ar a atacar a qualquer minuto.";
-	mes "NÃ£o podemos deixar de combatÃª -los!";
+	mes "Parece que eles vão começar a atacar a qualquer minuto.";
+	mes "Não podemos deixar de combatê -los!";
 	close2;
 	hideonnpc instance_npcname("Suspicious Creature#1");
 	hideonnpc instance_npcname("Suspicious Creature#2");
@@ -258,86 +258,86 @@ OnMyMobDead:
 
 1@ecl,148,97,3	script	Avant#	618,{
 	mes "[Antes]";
-	mes "Ei, olhe quem estÃ¡ aqui!";
-	mes "VocÃª Ã© um amigo do meu filho, certo?";
-	mes "Que chance estranha Ã© que nos uniu aqui!";
+	mes "Ei, olhe quem está aqui!";
+	mes "Você é um amigo do meu filho, certo?";
+	mes "Que chance estranha é que nos uniu aqui!";
 	cutin "avant01",1;
 	next;
 	mes "[Antes]";
-	mes "Algo aconteceu com vocÃª?";
-	mes "Havia um eco sutil e mÃ¡gico nisso.";
-	mes "Imediatamente depois disso, vocÃª foi jogado aqui.";
+	mes "Algo aconteceu com você?";
+	mes "Havia um eco sutil e mágico nisso.";
+	mes "Imediatamente depois disso, você foi jogado aqui.";
 	next;
-	if (select("Ã‰ tudo por sua causa !: Shenime disse ...") == 1) {
+	if (select("É tudo por sua causa !: Shenime disse ...") == 1) {
 		mes "[Antes]";
-		mes "NÃ£o entendo uma palavra que vocÃª estÃ¡ dizendo.";
-		mes "VocÃª nÃ£o pode organizar sua histÃ³ria? VocÃª nÃ£o sabe 'cinco w's e uma regra?";
+		mes "Não entendo uma palavra que você está dizendo.";
+		mes "Você não pode organizar sua história? Você não sabe 'cinco w's e uma regra?";
 		next;
 	}
 	mes "[Antes]";
-	mes "Ooh ... EntÃ£o foi isso que aconteceu.";
-	mes "EntÃ£o vocÃª estÃ¡ dizendo que Shenime estava atrÃ¡s do Orb?";
+	mes "Ooh ... Então foi isso que aconteceu.";
+	mes "Então você está dizendo que Shenime estava atrás do Orb?";
 	next;
 	mes "[Antes]";
 	mes "Hehehe ... hahahhaha ahahakhahha";
-	mes "Bem, bem ... ele tambÃ©m me pegou?";
+	mes "Bem, bem ... ele também me pegou?";
 	mes "Eu, Avant, de todas as pessoas?! Hahahaha!";
 	cutin "avant02",1;
 	next;
-	select("O que vocÃª quer dizer?");
+	select("O que você quer dizer?");
 	mes "[Antes]";
-	mes "Eu estava fazendo uma pesquisa sobre o poder da esfera por conta prÃ³pria.";
+	mes "Eu estava fazendo uma pesquisa sobre o poder da esfera por conta própria.";
 	mes "Mas Shenime apenas me pediu persistentemente.";
 	cutin "avant01",1;
 	next;
 	mes "[Antes]";
-	mes "Comecei por pensar na beleza da esfera e continuei imaginando que tipo de poder Ã© acumulado dentro da esfera ...";
-	mes "E comecei a questionar o princÃ­pio do poder do Orb, pois todos nos beneficiamos dele.";
+	mes "Comecei por pensar na beleza da esfera e continuei imaginando que tipo de poder é acumulado dentro da esfera ...";
+	mes "E comecei a questionar o princípio do poder do Orb, pois todos nos beneficiamos dele.";
 	next;
 	mes "[Antes]";
-	mes "Todos os Laphines consideram o Orbe algo natural como ar e Ã¡gua, mas ele foi o primeiro a me fazer percebÃª -lo de maneira diferente e investigar sua origem.";
-	mes "Certo ... Shenime. Ele excitou minha curiosidade de propÃ³sito.";
+	mes "Todos os Laphines consideram o Orbe algo natural como ar e água, mas ele foi o primeiro a me fazer percebê -lo de maneira diferente e investigar sua origem.";
+	mes "Certo ... Shenime. Ele excitou minha curiosidade de propósito.";
 	next;
 	mes "[Antes]";
-	mes "Estimule uma pessoa que nÃ£o estava ciente do ar e da Ã¡gua e faÃ§a -a reconhecer e continuar investigando!";
-	mes "Bem, bem ... isso nÃ£o Ã© interessante!";
+	mes "Estimule uma pessoa que não estava ciente do ar e da água e faça -a reconhecer e continuar investigando!";
+	mes "Bem, bem ... isso não é interessante!";
 	cutin "avant02",1;
 	next;
 	mes "[Antes]";
 	mes "Ha ... hahaha ...";
-	mes "... Estou tÃ£o zangado com o fato de acabei de perceber como ele me usou, mas o que Ã© ainda pior Ã© que fiz algo horrÃ­vel para o nosso povo.";
+	mes "... Estou tão zangado com o fato de acabei de perceber como ele me usou, mas o que é ainda pior é que fiz algo horrível para o nosso povo.";
 	mes "Eu acho que estou muito irritado agora.";
 	next;
-	select("VocÃª tinha uma consciÃªncia?");
+	select("Você tinha uma consciência?");
 	mes "[Antes]";
-	mes "Que tipo de pessoa vocÃª acha que eu sou, sÃ©rio!";
-	mes "Ã‰ por causa dos meus filhos?";
-	mes "Bem, entÃ£o, nÃ£o posso te culpar muito.";
+	mes "Que tipo de pessoa você acha que eu sou, sério!";
+	mes "É por causa dos meus filhos?";
+	mes "Bem, então, não posso te culpar muito.";
 	cutin "avant01",1;
 	next;
 	mes "[Antes]";
 	mes "... bah.";
-	mes "NÃ£o Ã© divertido.";
-	mes "NÃ£o Ã© mais divertido. NÃ£o estou mais interessado em vocÃª.";
+	mes "Não é divertido.";
+	mes "Não é mais divertido. Não estou mais interessado em você.";
 	next;
 	mes "[Antes]";
 	mes "......";
-	mes "Parece que hÃ¡ um visitante.";
+	mes "Parece que há um visitante.";
 	next;
 	cutin "minuel01",4;
 	mes "[Minuel]";
 	mes "" + strcharinfo(0) + "Senhor,";
-	mes "Embora vocÃª esteja detido por suspeita de ser responsÃ¡vel pelo recente incidente na sala de iluminaÃ§Ã£o,";
-	mes "Existem algumas testemunhas para provar sua inocÃªncia.";
+	mes "Embora você esteja detido por suspeita de ser responsável pelo recente incidente na sala de iluminação,";
+	mes "Existem algumas testemunhas para provar sua inocência.";
 	next;
 	mes "[Minuel]";
-	mes "Eu nÃ£o conheÃ§o os detalhes,";
-	mes "Mas tambÃ©m acredito que vocÃª nÃ£o Ã© culpado.";
-	mes "Vou movÃª -lo para a sala de tratamento, pois isso parece uma ferida grave.";
+	mes "Eu não conheço os detalhes,";
+	mes "Mas também acredito que você não é culpado.";
+	mes "Vou movê -lo para a sala de tratamento, pois isso parece uma ferida grave.";
 	next;
 	mes "[Minuel]";
-	mes "Eu nÃ£o acho que seja um grande negÃ³cio.";
-	mes "...esperanÃ§osamente.";
+	mes "Eu não acho que seja um grande negócio.";
+	mes "...esperançosamente.";
 	mes "Vamos. Vou te guiar.";
 	close2;
 	cutin "",255;
@@ -348,115 +348,115 @@ OnMyMobDead:
 1@ecl,148,29,3	script	Loki#ecl01	512,{
 	mes "[Loki]";
 	mes "Parece que esse cara ao meu lado tem muito mais a dizer do que eu.";
-	mes "Por que vocÃª nÃ£o explica a ele primeiro?";
+	mes "Por que você não explica a ele primeiro?";
 	close;
 }	
 	
 1@ecl,147,30,3	script	Nydhog#ecl01	510,{
 	mes "[Guardian Nydhog]";
-	mes "Eu acho que vocÃª deveria falar com Hisie primeiro.";
+	mes "Eu acho que você deveria falar com Hisie primeiro.";
 	close;
 }
 	
 1@ecl,144,27,5	script	Hisie#ecl01	623,{
 	cutin "hisie01",0;
 	mes "[Histers]";
-	mes "VocÃª pode me dizer exatamente o que aconteceu?";
+	mes "Você pode me dizer exatamente o que aconteceu?";
 	next;
 	select("Eu lutei com monstros.");
 	cutin "hisie03",0;
 	mes "[Histers]";
 	mes "Monstros? Subordinados de Marrocos?";
-	mes "O que vocÃª estava tentando matar foram nossos soldados, os Laphines !!";
-	mes "O que aconteceu com a Terra lÃ¡?";
+	mes "O que você estava tentando matar foram nossos soldados, os Laphines !!";
+	mes "O que aconteceu com a Terra lá?";
 	npcskill "Al_heal",9,99,80;
 	next;
 	cutin "",255;
 	mes "[Loki]";
-	mes "Ã‰ por causa disso.";
+	mes "É por causa disso.";
 	mes "" + strcharinfo(0) + "Estava dentro do corpo de -";
-	mes "Ã‰ assim que o poderoso Shenime Ã©.";
+	mes "É assim que o poderoso Shenime é.";
 	next;
-	mes "Na palma da mÃ£o de Loki, descansava um pedaÃ§o de espinho pequeno, fino e seco.";
+	mes "Na palma da mão de Loki, descansava um pedaço de espinho pequeno, fino e seco.";
 	next;
 	cutin "hisie03",0;
 	mes "[Histers]";
 	mes "Shenime, o chefe de gabinete?";
-	mes "Por que ele estÃ¡ relacionado a isso?";
+	mes "Por que ele está relacionado a isso?";
 	npcskill "Al_heal",9,99,80;
 	next;
 	cutin "",255;
 	mes "[Loki]";
-	mes "Shenime Ã© um dos subordinados do Marrocos.";
-	mes "Seu poder permite que ele controla outra pessoa, influencie direta ou mentalmente essa pessoa indiretamente atravÃ©s de uma parte de seu corpo.";
+	mes "Shenime é um dos subordinados do Marrocos.";
+	mes "Seu poder permite que ele controla outra pessoa, influencie direta ou mentalmente essa pessoa indiretamente através de uma parte de seu corpo.";
 	next;
 	select("Agora que penso nisso ...");
 	mes "[" + strcharinfo(0) + "]";
-	mes "Pouco antes de vir aqui, Shenime alcanÃ§ou sua mÃ£o para mim e senti uma faÃ­sca quando segurei sua mÃ£o.";
-	mes "Eu pensei que era apenas a minha imaginaÃ§Ã£o e a ignorei ... talvez seja quando ele ...";
+	mes "Pouco antes de vir aqui, Shenime alcançou sua mão para mim e senti uma faísca quando segurei sua mão.";
+	mes "Eu pensei que era apenas a minha imaginação e a ignorei ... talvez seja quando ele ...";
 	next;
 	mes "[Nydhog]";
-	mes "VocÃª provavelmente estÃ¡ certo.";
+	mes "Você provavelmente está certo.";
 	mes "Eles usam truques perversos.";
 	mes "Este espinho aqui provavelmente obscureceu seu julgamento.";
 	next;
 	cutin "hisie03",0;
 	mes "[Histers]";
-	mes "EntÃ£o vocÃª estÃ¡ dizendo que ele enganou todos nÃ³s?";
-	mes "O chefe de gabinete Ã© um laphine que ficou conosco por um longo tempo! Ele nÃ£o pode ser ...";
+	mes "Então você está dizendo que ele enganou todos nós?";
+	mes "O chefe de gabinete é um laphine que ficou conosco por um longo tempo! Ele não pode ser ...";
 	npcskill "Al_heal",9,99,80;
 	next;
 	cutin "",255;
 	mes "[Loki]";
-	mes "Ele pode estar sob a influÃªncia hÃ¡ um bom tempo.";
-	mes "De qualquer forma, esse cara nÃ£o Ã© culpado.";
+	mes "Ele pode estar sob a influência há um bom tempo.";
+	mes "De qualquer forma, esse cara não é culpado.";
 	mes "Eu posso provar isso.";
 	next;
 	mes "[Nydhog]";
-	mes "Juro pelo nome do guardiÃ£o de Yggdrasil tambÃ©m.";
-	mes "" + strcharinfo(0) + "- farÃ¡ de modo algum fazer isso.";
+	mes "Juro pelo nome do guardião de Yggdrasil também.";
+	mes "" + strcharinfo(0) + "- fará de modo algum fazer isso.";
 	next;
 	cutin "hisie02",0;
 	mes "[Histers]";
 	mes "Hah ...";
 	mes "Mas as coisas ficaram fora de controle.";
-	mes "Eu nÃ£o esperava isso.";
+	mes "Eu não esperava isso.";
 	next;
 	select("O que aconteceu com o Orb?");
 	mes "[Histers]";
-	mes "O nÃºcleo interno Ã© roubado.";
-	mes "NinguÃ©m sabe que o nÃºcleo interno do Orb se foi,";
-	mes "E Ã© por isso que Karr nÃ£o chegou aqui.";
+	mes "O núcleo interno é roubado.";
+	mes "Ninguém sabe que o núcleo interno do Orb se foi,";
+	mes "E é por isso que Karr não chegou aqui.";
 	npcskill "Al_heal",9,99,80;
 	next;
 	mes "[Histers]";
-	mes "E alÃ©m do mais, vÃ¡rios soldados estÃ£o feridos por causa de vocÃª.";
-	mes "Felizmente, nenhum deles morreu, mas a maioria deles Ã© ferida severamente.";
-	mes "A situaÃ§Ã£o nÃ£o Ã© muito boa agora.";
+	mes "E além do mais, vários soldados estão feridos por causa de você.";
+	mes "Felizmente, nenhum deles morreu, mas a maioria deles é ferida severamente.";
+	mes "A situação não é muito boa agora.";
 	next;
 	cutin "",255;
 	mes "[Loki]";
-	mes "AlguÃ©m tem que assumir a responsabilidade aqui entÃ£o.";
-	mes "Com toda a probabilidade," + strcharinfo(0) + "SerÃ¡ vocÃª.";
+	mes "Alguém tem que assumir a responsabilidade aqui então.";
+	mes "Com toda a probabilidade," + strcharinfo(0) + "Será você.";
 	next;
 	cutin "hisie02",0;
 	mes "[Histers]";
-	mes "...... Esses dois cavalheiros aqui limparam todas as cobranÃ§as relacionadas Ã  Orb,";
-	mes "Mas vocÃª e Karr nÃ£o serÃ£o capazes de evitar sua responsabilidade.";
-	mes "VocÃª terÃ¡ que pegar Shenime.";
+	mes "...... Esses dois cavalheiros aqui limparam todas as cobranças relacionadas à Orb,";
+	mes "Mas você e Karr não serão capazes de evitar sua responsabilidade.";
+	mes "Você terá que pegar Shenime.";
 	npcskill "Al_heal",9,99,80;
 	next;
 	cutin "hisie01",0;
 	mes "[Histers]";
-	mes "Parece que vocÃª descansou o suficiente. Vamos ir.";
-	mes "Karr estÃ¡ esperando por vocÃª.";
-	mes "O que vocÃªs dois farÃ£o?";
+	mes "Parece que você descansou o suficiente. Vamos ir.";
+	mes "Karr está esperando por você.";
+	mes "O que vocês dois farão?";
 	next;
 	cutin "",255;
 	mes "[Loki]";
-	mes "NÃ£o se preocupe conosco.";
-	mes "Nosso alvo Ã© marrocc, o rei dos demÃ´nios.";
-	mes "Ã‰ bom o suficiente para termos encontrado uma evidÃªncia aqui.";
+	mes "Não se preocupe conosco.";
+	mes "Nosso alvo é marrocc, o rei dos demônios.";
+	mes "É bom o suficiente para termos encontrado uma evidência aqui.";
 	next;
 	cutin "hisie01",0;
 	mes "[Histers]";

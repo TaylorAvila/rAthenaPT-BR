@@ -15,76 +15,76 @@
 gonryun,180,118,4	script	Iron man#gnp	85,{
 	if (checkweight(1201,1) == 0) {
 		mes "- Espere um minuto !! -";
-		mes "- Atualmente vocÃª estÃ¡ carregando -";
-		mes "- Muitos itens com vocÃª. -";
+		mes "- Atualmente você está carregando -";
+		mes "- Muitos itens com você. -";
 		mes "- Por favor, tente novamente -";
 		mes "- Depois de perder algum peso. -";
 		close;
 	}
 	if (BaseJob == Job_Novice) {
 		mes "[Songmoodoo]";
-		mes "As crianÃ§as nÃ£o sÃ£o permitidas aqui.";
+		mes "As crianças não são permitidas aqui.";
 		close;
 	}
 	if (in_battle == 3) set in_battle,1;
 	if (in_battle < 1) {
 		mes "[Songmoodoo]";
-		mes "Ei ei ~ isso nÃ£o Ã© algo";
-		mes "VocÃª pode ver todos os dias.";
-		mes "Oh ~ vocÃª parece forte!";
+		mes "Ei ei ~ isso não é algo";
+		mes "Você pode ver todos os dias.";
+		mes "Oh ~ você parece forte!";
 		mes "Quer tentar?";
 		next;
-		switch(select("Por que nÃ£o?: ?????: NÃ£o, obrigado.")){
+		switch(select("Por que não?: ?????: Não, obrigado.")){
 		case 1:
 			mes "[Songmoodoo]";
-			mes "Haha ~ eu sabia que vocÃª tentaria.";
-			mes "Se vocÃª pudesse levantar isso,";
+			mes "Haha ~ eu sabia que você tentaria.";
+			mes "Se você pudesse levantar isso,";
 			mes "Vou te dizer algo interessante.";
 			mes "Preparar?";
 			next;
 			mes "^0000ffsongmoodoo aponta para uma rocha";
-			mes "e pede que vocÃª levante.";
+			mes "e pede que você levante.";
 			if (BaseJob < Job_Knight) callsub L_Lifting,690;
 			else if (BaseClass == Job_Swordman || BaseClass == Job_Thief || BaseClass == Job_Merchant || BaseJob == Job_Monk) callsub L_Lifting,1100;
 			else callsub L_Lifting,730;
 			break;
 		case 2:
 			mes "[Songmoodoo]";
-			mes "Isso nÃ£o Ã© grande coisa.";
-			mes "Se vocÃª acredita que Ã© forte,";
+			mes "Isso não é grande coisa.";
+			mes "Se você acredita que é forte,";
 			mes "Esta pode ser uma boa chance de experimentar";
 			mes "algo novo. Quero tentar ??";
 			break;
 		case 3:
 			mes "[Songmoodoo]";
-			mes "Eu acho que nÃ£o ...";
+			mes "Eu acho que não ...";
 			emotion ET_HNG;
 			break;
 		}
 	} else if (in_battle == 1) {
 		mes "[Songmoodoo]";
-		mes "Ã‰ bom ver vocÃª de novo!";
+		mes "É bom ver você de novo!";
 		mes "Quer ir ??";
 		next;
-		if (select("Claro: talvez da prÃ³xima vez") == 1) {
+		if (select("Claro: talvez da próxima vez") == 1) {
 			mes "[Songmoodoo]";
 			mes "Bom! Haha.";
-			mes "Eu gosto da sua confianÃ§a.";
-			mes "Boa sorte para vocÃª ~";
+			mes "Eu gosto da sua confiança.";
+			mes "Boa sorte para você ~";
 			close2;
 			warp "gon_test",53,6;
 			end;
 		} else {
 			mes "[Songmoodoo]";
 			mes "Bem ... tudo bem.";
-			mes "Vejo vocÃª na prÃ³xima vez entÃ£o.";
+			mes "Vejo você na próxima vez então.";
 		}
 	} else {
 		mes "[Songmoodoo]";
-		mes "VocÃª fugiu de lÃ¡?";
-		mes "Acho que vocÃª nÃ£o Ã© forte o suficiente!";
+		mes "Você fugiu de lá?";
+		mes "Acho que você não é forte o suficiente!";
 		mes "Vou te dar outra chance.";
-		mes "Vejo vocÃª de novo.";
+		mes "Vejo você de novo.";
 		emotion ET_HNG;
 		set in_battle,1;
 	}
@@ -92,22 +92,22 @@ gonryun,180,118,4	script	Iron man#gnp	85,{
 
 L_Lifting:
 	if (checkweight(7049,getarg(0))) {
-		mes "VocÃª levantou a pedra levemente.^000000";
+		mes "Você levantou a pedra levemente.^000000";
 		set in_battle,1;
 		getitem 7049, getarg(0); // Stone
 		next;
 		emotion ET_BEST;
 		mes "[Songmoodoo]";
 		mes "Uau ~ excelente ~";
-		mes "Vou levÃ¡ -lo para algum lugar legal";
-		mes "Da prÃ³xima vez que te vejo.";
+		mes "Vou levá -lo para algum lugar legal";
+		mes "Da próxima vez que te vejo.";
 		mes "Ver de ~";
 	} else {
-		mes "Parece muito pesado para vocÃª.^000000";
+		mes "Parece muito pesado para você.^000000";
 		next;
 		mes "[Songmoodoo]";
-		mes "VocÃª nÃ£o tem treinamento.";
-		mes "Volte depois de mais prÃ¡tica.";
+		mes "Você não tem treinamento.";
+		mes "Volte depois de mais prática.";
 	}
 	return;
 }
@@ -115,28 +115,28 @@ L_Lifting:
 gon_test,50,14,4	script	Administrator#gnp	780,{
 	mes "[Administrador]";
 	if (BaseJob == Job_Novice) {
-		mes "As crianÃ§as nÃ£o sÃ£o permitidas aqui.";
+		mes "As crianças não são permitidas aqui.";
 		close;
 	}
 	if ($@in_battle) {
 		mes "Desculpe o campo da luta";
-		mes "estÃ¡ ocupado agora.";
+		mes "está ocupado agora.";
 		mes "Tente novamente mais tarde.";
 		close;
 	}
-	mes "VocÃª estÃ¡ pronto?";
+	mes "Você está pronto?";
 	mes "";
-	mes "Lembre -se, vocÃª tem que pagar";
+	mes "Lembre -se, você tem que pagar";
 	mes "500Z para lutar.";
 	next;
 	if (select("Sim, deixe -me lutar !: Um momento, por favor.") == 2) {
 		mes "[Administrador]";
-		mes "Ok, vejo vocÃª mais tarde.";
+		mes "Ok, vejo você mais tarde.";
 		close;
 	}
 	if (Zeny < 500) {
 		mes "[Administrador]";
-		mes "Sinto muito, mas vocÃª nÃ£o tem Zeny suficiente.";
+		mes "Sinto muito, mas você não tem Zeny suficiente.";
 		close;
 	}
 	set Zeny,Zeny - 500;
@@ -151,17 +151,17 @@ gon_test,50,14,4	script	Administrator#gnp	780,{
 gon_test,42,89,4	script	Summoner#gnp	774,{
 	mes "[Songkeyiewoo]";
 	if (in_battle == 3) {
-		mes "Por favor, volte apÃ³s o registro.";
+		mes "Por favor, volte após o registro.";
 		close;
 	} else if (in_battle == 2) {
-		mes "VocÃª jÃ¡ tinha uma Ãºnica partida.";
-		mes "VocÃª pode ter uma partida uma vez de cada vez.";
-		mes "Por favor, volte a entrar se quiser uma combinaÃ§Ã£o";
+		mes "Você já tinha uma única partida.";
+		mes "Você pode ter uma partida uma vez de cada vez.";
+		mes "Por favor, volte a entrar se quiser uma combinação";
 		mes "com outros monstros.";
 		close;
 	}
 	mes "Bem-vindo.";
-	mes "Qual monstro vocÃª vai se lembrar?";
+	mes "Qual monstro você vai se lembrar?";
 	next;
 	set .@gnpGroup, select("Grupo 1: Grupo 2: Grupo 3: Grupo 4: Grupo 5: Grupo 6: Grupo 7: Grupo 8: Grupo 9: Grupo 10: Grupo 11");
 	set .@gnpGroupMob$,.gnpMobsName$[(.@gnpGroup-1)*6];
@@ -169,7 +169,7 @@ gon_test,42,89,4	script	Summoner#gnp	774,{
 		set .@gnpGroupMob$, .@gnpGroupMob$ + ":" + .gnpMobsName$[(.@gnpGroup-1)*6 + .@i];
 	set .@gnpMob, select(.@gnpGroupMob$);
 	mes "[Songkeyiewoo]";
-	mes "Deixe a luta comeÃ§ar!";
+	mes "Deixe a luta começar!";
 	close2;
 	set in_battle,2;
 	if (getnpctimer(0) < 180000) monster "gon_test",56,86,.gnpMobsName$[(.@gnpGroup-1)*6 + .@gnpMob - 1],.gnpMobsId[(.@gnpGroup-1)*6 + .@gnpMob - 1],1,"Summoner#gnp::OnGnpMobDead";
@@ -177,27 +177,27 @@ gon_test,42,89,4	script	Summoner#gnp	774,{
 OnInit:
 	initnpctimer;
 	stopnpctimer;
-	setarray .gnpMobsName$[0],"Fita de couro","Sitotoxismo","Certificado de doaÃ§Ã£o de sangue","Tarantulla","Dang Ran Gk Me N","Molar do deserto";
+	setarray .gnpMobsName$[0],"Fita de couro","Sitotoxismo","Certificado de doação de sangue","Tarantulla","Dang Ran Gk Me N","Molar do deserto";
 	setarray .gnpMobsId[0],1419,1428,1434,1430,1457,1432;
-	setarray .gnpMobsName$[6],"Esqueleto de porco","Urso canibal","Mineiro","Cachorro lutando","Princesa de sereia","Ãšnico filho";
+	setarray .gnpMobsName$[6],"Esqueleto de porco","Urso canibal","Mineiro","Cachorro lutando","Princesa de sereia","Único filho";
 	setarray .gnpMobsId[6],1462,1442,1469,1460,1425,1472;
-	setarray .gnpMobsName$[12],"Samyeupchoom","CÃ£o de caÃ§a","Quebra -nozes","Ser cavalos","Jaqueta","CadÃ¡ver";
+	setarray .gnpMobsName$[12],"Samyeupchoom","Cão de caça","Quebra -nozes","Ser cavalos","Jaqueta","Cadáver";
 	setarray .gnpMobsId[12],1454,1455,1443,1426,1436,1423;
-	setarray .gnpMobsName$[18],"Marduk","Caule de cebola","Minhoca","Autodoll","Garota com fÃ³sforos","Red mal";
+	setarray .gnpMobsName$[18],"Marduk","Caule de cebola","Minhoca","Autodoll","Garota com fósforos","Red mal";
 	setarray .gnpMobsId[18],1458,1440,1429,1459,1444,1422;
-	setarray .gnpMobsName$[24],"Naga","Mofo","Rastreamento de mÃ­sseis","Aryong","Abiryong","BactÃ©ria";
+	setarray .gnpMobsName$[24],"Naga","Mofo","Rastreamento de mísseis","Aryong","Abiryong","Bactéria";
 	setarray .gnpMobsId[24],1421,1481,1424,1465,1466,1433;
 	setarray .gnpMobsName$[30],"Sistema vencedor","Arqueiro gordo","Pequena cabra preta","Pervertido","Caixa de tesouro","Greenhorn";
 	setarray .gnpMobsId[30],1427,1473,1431,1446,1474,1471;
-	setarray .gnpMobsName$[36],"FuracÃ£o","Porco externo","ProprietÃ¡rio de labirinto","Cavaleiro de Grudge","Arqueiro de Grudge","Papillon";
+	setarray .gnpMobsName$[36],"Furacão","Porco externo","Proprietário de labirinto","Cavaleiro de Grudge","Arqueiro de Grudge","Papillon";
 	setarray .gnpMobsId[36],1450,1439,1461,1467,1453,1479;
-	setarray .gnpMobsName$[42],"LÃ¡bio","Wendigo","E cartÃ£o","Tentacle Monster","Alarme muscular","Cruz de diabo";
+	setarray .gnpMobsName$[42],"Lábio","Wendigo","E cartão","Tentacle Monster","Alarme muscular","Cruz de diabo";
 	setarray .gnpMobsId[42],1451,1475,1437,1441,1476,1435;
 	setarray .gnpMobsName$[48],"Larva","Quadro grande","Temporada de leitura","Dedos brilhantes","Bolsa","Major Knight of Grudge";
 	setarray .gnpMobsId[48],1477,1448,1478,1489,1488,1438;
-	setarray .gnpMobsName$[54],"Rainha","Homem de Fogo","Espada do Executor","DragÃ£o mutante","Sopa mista","Grande espada";
+	setarray .gnpMobsName$[54],"Rainha","Homem de Fogo","Espada do Executor","Dragão mutante","Sopa mista","Grande espada";
 	setarray .gnpMobsId[54],1482,1464,1487,1449,1456,1486;
-	setarray .gnpMobsName$[60],"Monstro pÃ¡ssaro","Torturador","Guerreiro","Vice-Tortador","Espada enorme";
+	setarray .gnpMobsName$[60],"Monstro pássaro","Torturador","Guerreiro","Vice-Tortador","Espada enorme";
 	setarray .gnpMobsId[60],1447,1483,1490,1484,1485;
 	end;
 
@@ -228,25 +228,25 @@ OnTimer184000:
 gon_test,46,14,3	script	Guide of field of fight	770,{
 	mes "[Songheeyeon]";
 	mes ".....";
-	mes "Oi, aÃ­ ~";
-	mes "Este Ã© um campo de luta.";
-	mes "Tem alguma dÃºvida?";
+	mes "Oi, aí ~";
+	mes "Este é um campo de luta.";
+	mes "Tem alguma dúvida?";
 	next;
-	switch(select("Um campo de luta ?: VocÃª tem uma senhora minuciosa ?: Entre.")){
+	switch(select("Um campo de luta ?: Você tem uma senhora minuciosa ?: Entre.")){
 	case 1:
 		mes "[Songheeyeon]";
 		mes "Assim como o nome deste lugar,";
-		mes "Ã‰ um campo para partidas.";
-		mes "Temos vÃ¡rios monstros";
-		mes "em diferentes nÃ­veis.";
+		mes "É um campo para partidas.";
+		mes "Temos vários monstros";
+		mes "em diferentes níveis.";
 		next;
 		mes "[Songheeyeon]";
-		mes "Os monstros chefes da 1Âª classe estÃ£o no meio da preparaÃ§Ã£o ainda.";
-		mes "NÃ³s cobramos uma pequena taxa para entrar aqui.";
+		mes "Os monstros chefes da 1ª classe estão no meio da preparação ainda.";
+		mes "Nós cobramos uma pequena taxa para entrar aqui.";
 		break;
 	case 2:
 		mes "[Songheeyeon]";
-		mes "Eh .... com licenÃ§a?";
+		mes "Eh .... com licença?";
 		mes "Ah, receio ter que trabalhar agora ...";
 		mes "Desculpe...";
 		break;

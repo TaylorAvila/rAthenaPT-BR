@@ -18,16 +18,16 @@
 prontera,132,217,5	script	Banker	109,{
 	set @cost,500;
 	mes "[Banqueiro]";
-	mes "Bem -vindo ao Primeiro Banco de Protera. Como posso ajudÃ¡ -lo hoje?";
+	mes "Bem -vindo ao Primeiro Banco de Protera. Como posso ajudá -lo hoje?";
 	next;
-	switch(select("Eu gostaria de fazer um depÃ³sito.")) {
+	switch(select("Eu gostaria de fazer um depósito.")) {
 	case 1:
 		mes "[Banqueiro]";
-		mes "Muito bem ... quanto vocÃª gostaria de depositar? O mÃ¡ximo que vocÃª pode depositar imediatamente Ã© 999.999 Zeny.";
+		mes "Muito bem ... quanto você gostaria de depositar? O máximo que você pode depositar imediatamente é 999.999 Zeny.";
 		next;
 		if (@cost > 0) {
 			mes "[Banqueiro]";
-			mes "Ah, e percebe que hÃ¡ um" +@cost + "Zeny cobra em todas as transaÃ§Ãµes!";
+			mes "Ah, e percebe que há um" +@cost + "Zeny cobra em todas as transações!";
 			next;
 		}
 		input @deposit;
@@ -36,11 +36,11 @@ prontera,132,217,5	script	Banker	109,{
 			close;
 		}
 		else if (@deposit > Zeny) {
-			mes "NÃ£o parece que vocÃª tenha a quantidade de Zeny que estÃ¡ tentando depositar!";
+			mes "Não parece que você tenha a quantidade de Zeny que está tentando depositar!";
 			close;
 		}
 		else if (@deposit > (Zeny - @cost)) {
-			mes "VocÃª precisa" + @cost + "Zeny para cobrir a taxa de transaÃ§Ã£o!";
+			mes "Você precisa" + @cost + "Zeny para cobrir a taxa de transação!";
 			close;
 		}
 		else {
@@ -48,21 +48,21 @@ prontera,132,217,5	script	Banker	109,{
 			set Zeny,Zeny - @cost;
 			set #bankstorage,#bankstorage + @deposit;
 			mes "[Banqueiro]";
-			mes "Muito obrigado ... seu Zeny estÃ¡ em boas mÃ£os.";
+			mes "Muito obrigado ... seu Zeny está em boas mãos.";
 			close;
 		}
 	case 2:
 		mes "[Banqueiro]";
-		mes "Muito bem ... quanto vocÃª gostaria de se retirar? O mÃ¡ximo que vocÃª pode retirar ao mesmo tempo Ã© 999.999 Zeny";
+		mes "Muito bem ... quanto você gostaria de se retirar? O máximo que você pode retirar ao mesmo tempo é 999.999 Zeny";
 		next;
 		if (@cost > 0) {
 			mes "[Banqueiro]";
-			mes "Ah, e percebe que hÃ¡ um" +@cost + "Zeny cobra em todas as transaÃ§Ãµes!";
+			mes "Ah, e percebe que há um" +@cost + "Zeny cobra em todas as transações!";
 			next;
 		}
 		input @withdrawl;
 		if (@withdrawl < 1) {
-			mes "Por favor, nÃ£o jogue. Eu preciso de uma quantia real para retirar.";
+			mes "Por favor, não jogue. Eu preciso de uma quantia real para retirar.";
 			close;
 		}
 		else if (@withdrawl > #bankstorage) {
@@ -71,12 +71,12 @@ prontera,132,217,5	script	Banker	109,{
 		}
 		else if ((@cost > Zeny) && ((Zeny + @withdrawl) > @cost)) {
 			mes "[Banqueiro]";
-			mes "VocÃª nÃ£o tem o Zeny para a taxa de transaÃ§Ã£o agora. VocÃª gostaria que eu recebesse a taxa diretamente da sua retirada?";
+			mes "Você não tem o Zeny para a taxa de transação agora. Você gostaria que eu recebesse a taxa diretamente da sua retirada?";
 			next;
 			switch(select("Sim, por favor")){
 			case 1:
 				mes "[Banqueiro]";
-				mes "Removendo" + @cost + "da sua retirada para cobrir a taxa de depÃ³sito ...";
+				mes "Removendo" + @cost + "da sua retirada para cobrir a taxa de depósito ...";
 				set @withdrawl,@withdrawl - @cost;
 				set #bankstorage,#bankstorage - @cost;
 				set @cost,0;
@@ -85,7 +85,7 @@ prontera,132,217,5	script	Banker	109,{
 				set Zeny,Zeny + @withdrawl;
 				set #bankstorage,#bankstorage - @withdrawl;
 				mes "[Banqueiro]";
-				mes "AÃ­ estÃ¡ o seu Zeny. Tenha um bom dia.";
+				mes "Aí está o seu Zeny. Tenha um bom dia.";
 				close;
 			case 2:
 				mes "[Banqueiro]";
@@ -98,7 +98,7 @@ prontera,132,217,5	script	Banker	109,{
 			set Zeny,Zeny + @withdrawl;
 			set #bankstorage,#bankstorage - @withdrawl;
 			mes "[Banqueiro]";
-			mes "AÃ­ estÃ¡ o seu Zeny. Tenha um bom dia.";
+			mes "Aí está o seu Zeny. Tenha um bom dia.";
 			close;
 		}
 	case 3:

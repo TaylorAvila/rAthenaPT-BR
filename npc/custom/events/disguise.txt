@@ -25,39 +25,39 @@ prontera,160,155,4	script	Disguise Event	795,{
 
 	if (getgmlevel()>=.@GMLevel) {
 		mes .@n$;
-		mes "Selecione uma opÃ§Ã£o.";
+		mes "Selecione uma opção.";
 		next;
-		switch(select("LIGUE ON/OFF Evento: ConfiguraÃ§Ãµes do evento")) {
+		switch(select("LIGUE ON/OFF Evento: Configurações do evento")) {
 		case 1:
 			mes .@n$;
 			if (.EventON) {
-				mes "O evento Ã© atualmente: [^0000FFON^000000]";
-				mes "VocÃª gostaria de desligÃ¡ -lo?";
+				mes "O evento é atualmente: [^0000FFON^000000]";
+				mes "Você gostaria de desligá -lo?";
 			} else {
-				mes "O evento Ã© atualmente: [^ff0000OFF^000000]";
-				mes "VocÃª gostaria de ativÃ¡ -lo?";
+				mes "O evento é atualmente: [^ff0000OFF^000000]";
+				mes "Você gostaria de ativá -lo?";
 			}
-			if(select("Sim: NÃ£o")==2) close;
+			if(select("Sim: Não")==2) close;
 			if (.EventON) {
 				set .EventON,0; set .Timer,0;
 				setnpctimer 0; stopnpctimer;
-				announce "Um GM decidiu desligar o evento disfarce. Como resultado, nÃ£o serÃ£o fornecidos outros prÃªmios.",bc_map | bc_blue;
+				announce "Um GM decidiu desligar o evento disfarce. Como resultado, não serão fornecidos outros prêmios.",bc_map | bc_blue;
 				deletepset 1;
 				setnpcdisplay "Evento de disfarce",795;
 				close;
 			}
 			set .EventON,1; set .Timer,1; setnpctimer 0; initnpctimer;
 			set .ResetCounter,.ResetCounter+1;
-			announce "O evento Disguise comeÃ§arÃ¡ em 3 minutos.",bc_all | bc_blue;
-			announce "O evento estÃ¡ sendo realizado em Protera.",bc_all | bc_blue;
+			announce "O evento Disguise começará em 3 minutos.",bc_all | bc_blue;
+			announce "O evento está sendo realizado em Protera.",bc_all | bc_blue;
 			close;
 		case 2:
 			mes .@n$;
-			mes "Escolha uma configuraÃ§Ã£o para modificar.";
+			mes "Escolha uma configuração para modificar.";
 			next;
-			switch(select("Display de monstros: NÃºmero de rodadas: ConfiguraÃ§Ãµes do prÃªmio")) {
+			switch(select("Display de monstros: Número de rodadas: Configurações do prêmio")) {
 			case 1:
-				setarray .@r$[0],"DisfarÃ§ar como todos os monstros.","DisfarÃ§ar apenas MVPs.";
+				setarray .@r$[0],"Disfarçar como todos os monstros.","Disfarçar apenas MVPs.";
 				mes .@n$;
 				mes "Escolha uma regra de disfarce.";
 				next;
@@ -68,23 +68,23 @@ prontera,160,155,4	script	Disguise Event	795,{
 				close;
 			case 2:
 				mes .@n$;
-				mes "Insira o nÃºmero de rodadas que vocÃª deseja que o evento dure.";
-				mes "NÃºmero atual: [^0000FF"+.Rounds+"^000000]";
+				mes "Insira o número de rodadas que você deseja que o evento dure.";
+				mes "Número atual: [^0000FF"+.Rounds+"^000000]";
 				next;
 				input .@Rounds;
 				set .Rounds,.@Rounds;
 				mes .@n$;
-				mes "O nÃºmero de rodadas foi alterado para"+.Rounds+".";
+				mes "O número de rodadas foi alterado para"+.Rounds+".";
 				close;
 			case 3:
 				mes .@n$;
-				mes "Insira o ID do item do prÃªmio dado a cada rodada.";
+				mes "Insira o ID do item do prêmio dado a cada rodada.";
 				mes "Item atual: [^0000FF"+getitemname(.Prize)+"^000000] (ID #"+.Prize+")";
 				next;
 				input .@Prize;
 				mes .@n$;
 				if (getitemname(.@Prize)=="" || getitemname(.@Prize)=="nulo") {
-					mes "Esse item nÃ£o existe. Por favor, tente novamente.";
+					mes "Esse item não existe. Por favor, tente novamente.";
 					close;
 				}
 				set .Prize,.@Prize;
@@ -93,14 +93,14 @@ prontera,160,155,4	script	Disguise Event	795,{
 				input .@amount;
 				mes .@n$;
 				if (.@amount<=0 || .@amount>=10000) {
-					mes "Esse valor Ã© invÃ¡lido. Usando o valor padrÃ£o de 1.";
+					mes "Esse valor é inválido. Usando o valor padrão de 1.";
 					set .@amount,1;
 					next;
 					mes .@n$;
 				}
 				set .PrizeAmt,.@amount;
-				mes "O prÃªmio foi alterado com sucesso.";
-				mes "PrÃªmio:"+.PrizeAmt+"x [^0000ff"+getitemname(.Prize)+"^000000]";
+				mes "O prêmio foi alterado com sucesso.";
+				mes "Prêmio:"+.PrizeAmt+"x [^0000ff"+getitemname(.Prize)+"^000000]";
 				close;
 			}
 		}
@@ -109,18 +109,18 @@ prontera,160,155,4	script	Disguise Event	795,{
 	mes .@n$;
 	mes "Bem-vindo.";
 	mes "Como posso ajudar?";
-	if(select("InformaÃ§Ã£o: nada, apenas passando.")==2) close;
+	if(select("Informação: nada, apenas passando.")==2) close;
 	next;
 	mes .@n$;
-	mes "Este evento Ã© bastante simples.";
-	mes "No inÃ­cio do evento, eu irei";
-	mes "DisfarÃ§ar -me como aleatÃ³rio";
-	mes "monstro. VocÃª tem que gritar";
+	mes "Este evento é bastante simples.";
+	mes "No início do evento, eu irei";
+	mes "Disfarçar -me como aleatório";
+	mes "monstro. Você tem que gritar";
 	mes "O nome desse monstro em voz alta.";
 	next;
-	mes "Se vocÃª estiver correto, vocÃª receberÃ¡";
-	mes "um prÃªmio. Caso contrÃ¡rio, continue tentando!";
-	mes "Isso Ã© tudo o que existe neste evento.";
+	mes "Se você estiver correto, você receberá";
+	mes "um prêmio. Caso contrário, continue tentando!";
+	mes "Isso é tudo o que existe neste evento.";
 	close;
 
 OnInit:
@@ -163,8 +163,8 @@ OnClock2200:
 	set .EventON,1;
 	set .Timer,1;
 	set .Wait,1;
-	announce "O evento Disguise comeÃ§arÃ¡ em 3 minutos.",bc_all | bc_blue;
-	announce "O evento estÃ¡ sendo realizado em Protera.",bc_all | bc_blue;
+	announce "O evento Disguise começará em 3 minutos.",bc_all | bc_blue;
+	announce "O evento está sendo realizado em Protera.",bc_all | bc_blue;
 	setnpctimer 0;
 	initnpctimer;
 	end;
@@ -177,7 +177,7 @@ OnTimer30000:
 	if (.Timer) end;
 	set .Change,0;
 	setnpcdisplay "Evento de disfarce",795;
-	npctalk "Evento Disguise: VocÃª demorou muito para adivinhar o que eu era. Aguarde 10 segundos enquanto disfarÃ§o novamente.";
+	npctalk "Evento Disguise: Você demorou muito para adivinhar o que eu era. Aguarde 10 segundos enquanto disfarço novamente.";
 	specialeffect EF_DETECT2;
 	set $MonsterName$,"";
 	deletepset 1;
@@ -187,18 +187,18 @@ OnTimer30000:
 	end;
 OnTimer60000:
 	if (.Timer!=1) end;
-	announce "O evento disfarce comeÃ§arÃ¡ em 2 minutos.",bc_all | bc_blue;
-	announce "O evento estÃ¡ sendo realizado em Protera.",bc_all | bc_blue;
+	announce "O evento disfarce começará em 2 minutos.",bc_all | bc_blue;
+	announce "O evento está sendo realizado em Protera.",bc_all | bc_blue;
 	end;
 OnTimer120000:
 	if (.Timer!=1) end;
-	announce "O evento Disguise comeÃ§arÃ¡ 1 minuto.",bc_all | bc_blue;
-	announce "O evento estÃ¡ sendo realizado em Protera.",bc_all | bc_blue;
+	announce "O evento Disguise começará 1 minuto.",bc_all | bc_blue;
+	announce "O evento está sendo realizado em Protera.",bc_all | bc_blue;
 	end;
 OnTimer180000:
 	if (.Timer!=1) end;
-	announce "O evento Disguise comeÃ§ou!",bc_all | bc_blue;
-	announce "O evento estÃ¡ sendo realizado em Protera.",bc_all | bc_blue;
+	announce "O evento Disguise começou!",bc_all | bc_blue;
+	announce "O evento está sendo realizado em Protera.",bc_all | bc_blue;
 	set .Timer,0; stopnpctimer;
 	setnpctimer 0; initnpctimer;
 iDisguise:
@@ -225,7 +225,7 @@ iDisguise:
 	end;
 iCorrect:
 	if (.Winner) {
-		dispbottom "AlguÃ©m jÃ¡ venceu nesta rodada.";
+		dispbottom "Alguém já venceu nesta rodada.";
 		end;
 	}
 	set .Winner,1;
@@ -233,12 +233,12 @@ iCorrect:
 	deletepset 1;
 	activatepset 1;
 	getitem .Prize,.PrizeAmt;
-	announce strcharinfo(0)+"estÃ¡ correto! Eu estava disfarÃ§ado de:"+$MonsterName$+"",bc_map | bc_blue;
+	announce strcharinfo(0)+"está correto! Eu estava disfarçado de:"+$MonsterName$+"",bc_map | bc_blue;
 	if (.RoundCount>=.Rounds) {
 		setnpcdisplay "Evento de disfarce",795;
 		set .RoundCount,0; set .Change,0; set .EventON,0;
 		setnpctimer 0; stopnpctimer;
-		npctalk "Evento de disfarce: obrigado a todos por jogar. Essa foi a Ãºltima rodada do evento Disguise. Venha brincar novamente mais tarde.";
+		npctalk "Evento de disfarce: obrigado a todos por jogar. Essa foi a última rodada do evento Disguise. Venha brincar novamente mais tarde.";
 		end;
 	}
 	setnpcdisplay "Evento de disfarce",795;

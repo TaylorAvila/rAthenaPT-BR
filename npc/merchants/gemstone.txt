@@ -21,10 +21,10 @@
 
 payon,173,238,5	script	Jade#pay	754,{
 	if (checkweight(1201,1) == 0) {
-		mes "^3355ffwait um segundo! No momento, vocÃª estÃ¡ carregando muitos itens com vocÃª. Por favor, volte depois de colocar algumas de suas coisas no armazenamento Kafra.^000000";
+		mes "^3355ffwait um segundo! No momento, você está carregando muitos itens com você. Por favor, volte depois de colocar algumas de suas coisas no armazenamento Kafra.^000000";
 		close;
 	}
-	mes "[SaÃ­da]";
+	mes "[Saída]";
 	mes "Traga -me dois";
 	mes "Pedras preciosas do";
 	mes "a mesma cor, e eu vou";
@@ -42,59 +42,59 @@ S_TradeGems:
 	.@item_id = getarg(1);
 
 	if (countitem(.@item_req) < 2) {
-		mes "[SaÃ­da]";
+		mes "[Saída]";
 		mes "Hah ...!";
-		mes "VocÃª estÃ¡ brincando comigo, certo?";
-		mes "Eu nÃ£o posso te fornecer isso";
-		mes "serviÃ§o se vocÃª nÃ£o";
-		mes "me dÃª pelo menos";
+		mes "Você está brincando comigo, certo?";
+		mes "Eu não posso te fornecer isso";
+		mes "serviço se você não";
+		mes "me dê pelo menos";
 		mes "2"+ getitemname(.@item_req) +"S!";
 		close;
 	}
 	else {
 		.@gems = countitem(.@item_req) /2;
-		mes "[SaÃ­da]";
+		mes "[Saída]";
 		mes "Eu acredito que posso criar";
 		mes "um total de"+ .@gems +""+ getitemname(.@item_id) +"s";
 		mes "usando o"+ getitemname(.@item_req) +"s";
-		mes "que vocÃª tem atualmente.";
-		mes "O que vocÃª quer fazer?";
+		mes "que você tem atualmente.";
+		mes "O que você quer fazer?";
 		next;
-		switch(select("DÃª -me o mÃ¡ximo que puder.")) {
+		switch(select("Dê -me o máximo que puder.")) {
 		case 1:
 			delitem .@item_req,.@gems * 2;
 			getitem .@item_id,.@gems;
 			break;
 		case 2:
-			mes "[SaÃ­da]";
-			mes "EntÃ£o, quantos";
-			mes "vocÃª quer?";
-			mes "O nÃºmero mÃ¡ximo";
-			mes "que vocÃª pode entrar Ã© 100.";
+			mes "[Saída]";
+			mes "Então, quantos";
+			mes "você quer?";
+			mes "O número máximo";
+			mes "que você pode entrar é 100.";
 			next;
 			while(1) {
 				input .@input,0,101;
 				if (.@input == 0) {
-					mes "[SaÃ­da]";
+					mes "[Saída]";
 					mes "Nenhum?";
-					mes "Eu acho que vocÃª";
-					mes "mudou de idÃ©ia ...";
+					mes "Eu acho que você";
+					mes "mudou de idéia ...";
 					close;
 				}
 				else if (.@input > 100) {
-					mes "[SaÃ­da]";
+					mes "[Saída]";
 					mes "Errm ...";
-					mes "Eu pedi para vocÃª entrar";
-					mes "Uma quantidade nÃ£o maior";
+					mes "Eu pedi para você entrar";
+					mes "Uma quantidade não maior";
 					mes "do que 100, lembra ...?";
 					next;
 				}
 				else if (.@gems < .@input) {
 					// Custom dialogue
-					mes "[SaÃ­da]";
+					mes "[Saída]";
 					mes "Errm ...";
-					mes "VocÃª nÃ£o tem isso";
-					mes "Muitas jÃ³ias para negociar ...";
+					mes "Você não tem isso";
+					mes "Muitas jóias para negociar ...";
 					next;
 				}
 				else break;
@@ -103,17 +103,17 @@ S_TradeGems:
 			getitem .@item_id,.@input;
 			break;
 		case 3:
-			mes "[SaÃ­da]";
-			mes "Claro, nÃ£o hÃ¡ problema.";
+			mes "[Saída]";
+			mes "Claro, não há problema.";
 			mes "Volte a qualquer momento.";
 			close;
 		}
-		mes "[SaÃ­da]";
-		mes "LÃ¡ vai vocÃª.";
-		mes "Sinta -se Ã  vontade para vir";
+		mes "[Saída]";
+		mes "Lá vai você.";
+		mes "Sinta -se à vontade para vir";
 		mes "de volta a qualquer momento.";
-		mes "HM, o que Ã© essa procura?";
-		mes "HÃ¡ algo no meu rosto?";
+		mes "HM, o que é essa procura?";
+		mes "Há algo no meu rosto?";
 		close;
 	}
 }

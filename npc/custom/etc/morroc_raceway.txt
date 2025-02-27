@@ -23,7 +23,7 @@
 //Warps you into race way
 morocc,166,105,6	script	Race Girl#01	116,{
 	mes "[Race Girl]";
-	mes "VocÃª gostaria de visitar ^0000ffMorocc Raceway ^000000?";
+	mes "Você gostaria de visitar ^0000ffMorocc Raceway ^000000?";
 	next;
 	menu "Sim",L_Warp,"No",-;
 	mes "[Race Girl]";
@@ -39,15 +39,15 @@ pvp_y_1-5,169,265,5	script	Race Girl#02	116,{
 	mes "[Race Girl]";
 	mes "Bem -vindo ao Morocc Raceway!";
 	next;
-	menu "InformaÃ§Ã£o",-,"Deixar",L_Warp,"Cancelar",L_Cancel;
+	menu "Informação",-,"Deixar",L_Warp,"Cancelar",L_Cancel;
 	mes "[Race Girl]";
-	mes "AlguÃ©m deve clicar no NPC inicial para iniciar a corrida.";
+	mes "Alguém deve clicar no NPC inicial para iniciar a corrida.";
 	next;
 	mes "[Race Girl]";
-	mes "Depois que a corrida Ã© iniciada, corra em torno do horÃ¡rio anti-horÃ¡rio.";
+	mes "Depois que a corrida é iniciada, corra em torno do horário anti-horário.";
 	next;
 	mes "[Race Girl]";
-	mes "VocÃª deve alcanÃ§ar todos os pontos de verificaÃ§Ã£o - sem trapaÃ§a!";
+	mes "Você deve alcançar todos os pontos de verificação - sem trapaça!";
 	close;
 L_Warp:
 	warp "morocc",165,101;
@@ -101,7 +101,7 @@ L_Started:
 	if ((getmapusers("pvp_y_1-5") < 3) && ($@position > 0)) goto L_Menu;
 	if ($@position > 2) goto L_Menu;
 	mes "[Iniciante]";
-	mes "RaÃ§a em andamento";
+	mes "Raça em andamento";
 	close;
 
 OnInit:
@@ -118,14 +118,14 @@ OnTouch:
 	if (@raceid != $@raceid) goto L_Started;
 	if (@race == 6) goto L_Finished;
 	if ($@race == 1) goto L_Started;
-	mes "A corrida nÃ£o comeÃ§ou, por favor volte.";
+	mes "A corrida não começou, por favor volte.";
 	close;
 L_Started:
 	set @race,1;
 	set @raceid,$@raceid;
 	end;
 L_Finished:
-	mes "VocÃª jÃ¡ completou a corrida.";
+	mes "Você já completou a corrida.";
 	close;
 }
 
@@ -135,10 +135,10 @@ pvp_y_1-5,73,247,5	script	Check Point 2	111,6,6,{
 OnTouch:
 	if (@race != 1) goto L_Miss;
 	set @race,2;
-	announce "[" + strcharinfo(0) +"] atingiu o ponto de verificaÃ§Ã£o [1]",1;
+	announce "[" + strcharinfo(0) +"] atingiu o ponto de verificação [1]",1;
 	end;
 L_Miss:
-	mes "VocÃª perdeu um ponto de verificaÃ§Ã£o. Por favor, volte.";
+	mes "Você perdeu um ponto de verificação. Por favor, volte.";
 	close;
 }
 
@@ -148,10 +148,10 @@ pvp_y_1-5,77,44,5	script	Check Point 3	111,6,6,{
 OnTouch:
 	if (@race != 2) goto L_Miss;
 	set @race,3;
-	announce "[" + strcharinfo(0) +"] atingiu o ponto de verificaÃ§Ã£o [2]",1;
+	announce "[" + strcharinfo(0) +"] atingiu o ponto de verificação [2]",1;
 	end;
 L_Miss:
-	mes "VocÃª perdeu um ponto de verificaÃ§Ã£o. Por favor, volte.";
+	mes "Você perdeu um ponto de verificação. Por favor, volte.";
 	close;
 }
 
@@ -161,10 +161,10 @@ pvp_y_1-5,249,60,5	script	Check Point 4	111,6,6,{
 OnTouch:
 	if (@race != 3) goto L_Miss;
 	set @race,4;
-	announce "[" + strcharinfo(0) +"] atingiu o ponto de verificaÃ§Ã£o [3]",1;
+	announce "[" + strcharinfo(0) +"] atingiu o ponto de verificação [3]",1;
 	end;
 L_Miss:
-	mes "VocÃª perdeu um ponto de verificaÃ§Ã£o. Por favor, volte.";
+	mes "Você perdeu um ponto de verificação. Por favor, volte.";
 	close;
 }
 
@@ -174,10 +174,10 @@ pvp_y_1-5,255,256,5	script	Check Point 5	111,6,6,{
 OnTouch:
 	if (@race != 4) goto L_Miss;
 	set @race,5;
-	announce "[" + strcharinfo(0) +"] atingiu o ponto de verificaÃ§Ã£o [4]",1;
+	announce "[" + strcharinfo(0) +"] atingiu o ponto de verificação [4]",1;
 	end;
 L_Miss:
-	mes "VocÃª perdeu um ponto de verificaÃ§Ã£o. Por favor, volte.";
+	mes "Você perdeu um ponto de verificação. Por favor, volte.";
 	close;
 }
 
@@ -189,13 +189,13 @@ OnTouch:
 	if (@race != 5) goto L_Miss;
 	set @race,6;
 	set $@position,$@position+1;
-	announce "[" + strcharinfo(0) +"] chegou Ã  linha de chegada! [PosiÃ§Ã£o:" + $@position + "]",1;
+	announce "[" + strcharinfo(0) +"] chegou à linha de chegada! [Posição:" + $@position + "]",1;
 	end;
 L_Miss:
-	mes "VocÃª perdeu um ponto de verificaÃ§Ã£o. Por favor, volte.";
+	mes "Você perdeu um ponto de verificação. Por favor, volte.";
 	close;
 L_WrongRace:
-	mes "VocÃª nÃ£o estÃ¡ nesta corrida.";
+	mes "Você não está nesta corrida.";
 	close;
 }
 

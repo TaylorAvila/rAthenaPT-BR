@@ -13,97 +13,97 @@ prontera,82,108,5	script	Heart Merchant#life01	4_M_NFDEADMAN2,5,5,{
 	.@new_item_name$ = getitemname(.@new_item);
 
 	if (!checkweight(1201,1) || (MaxWeight - Weight) < 500) {
-		mes "VocÃª nÃ£o pode prosseguir com a conversa porque tem uma grande quantidade de itens.";
+		mes "Você não pode prosseguir com a conversa porque tem uma grande quantidade de itens.";
 		mes "Por favor, organize seus itens e tente novamente.";
 		close;
 	}
-	mes "[Mercador do coraÃ§Ã£o]";
-	mes "OlÃ¡! Vejo que vocÃª Ã© um aventureiro que dÃ¡ seu coraÃ§Ã£o a viajar, usa um barco para navegar pelo continente e desfruta da emoÃ§Ã£o do perigo!";
+	mes "[Mercador do coração]";
+	mes "Olá! Vejo que você é um aventureiro que dá seu coração a viajar, usa um barco para navegar pelo continente e desfruta da emoção do perigo!";
 	next;
 	if(!countitem(.@old_item)){
-		mes "[Mercador do coraÃ§Ã£o]";
-		mes "VocÃª tem algum" + mesitemlink( .@old_item ) + "em seu armazenamento?";
+		mes "[Mercador do coração]";
+		mes "Você tem algum" + mesitemlink( .@old_item ) + "em seu armazenamento?";
 		next;
-		mes "[Mercador do coraÃ§Ã£o]";
-		mes "Se vocÃª me trazer um" + .@old_item_name$ + ", Vou trocar para" + mesitemlink( .@new_item ) + ". O que vocÃª acha? VocÃª tem alguma ideia do que Ã© este item?";
+		mes "[Mercador do coração]";
+		mes "Se você me trazer um" + .@old_item_name$ + ", Vou trocar para" + mesitemlink( .@new_item ) + ". O que você acha? Você tem alguma ideia do que é este item?";
 	} else {
-		mes "[Mercador do coraÃ§Ã£o]";
-		mes "VocÃª jÃ¡ pensou em substituir o seu" + mesitemlink( .@old_item ) + "Para algo melhor? Por exemplo..." + mesitemlink( .@new_item ) + ". O que vocÃª acha?";
+		mes "[Mercador do coração]";
+		mes "Você já pensou em substituir o seu" + mesitemlink( .@old_item ) + "Para algo melhor? Por exemplo..." + mesitemlink( .@new_item ) + ". O que você acha?";
 	}
 	next;
-	switch(select("O que Ã©?",(countitem(.@old_item)?"Troque por favor!":""),"NÃ£o estou interessado")) {
+	switch(select("O que é?",(countitem(.@old_item)?"Troque por favor!":""),"Não estou interessado")) {
 	case 1:
-		mes "[Mercador do coraÃ§Ã£o]";
-		mes mesitemlink( .@old_item ) + "Ã© um item que impede que vocÃª perca a experiÃªncia na morte uma vez dentro da duraÃ§Ã£o de 30 minutos apÃ³s o uso.";
+		mes "[Mercador do coração]";
+		mes mesitemlink( .@old_item ) + "é um item que impede que você perca a experiência na morte uma vez dentro da duração de 30 minutos após o uso.";
 		next;
-		mes "[Mercador do coraÃ§Ã£o]";
-		mes "Mas muitas pessoas estÃ£o tristes com o prazo, certo? EntÃ£o eu olhei para ele e preparei o" + mesitemlink( .@new_item ) + ".";
+		mes "[Mercador do coração]";
+		mes "Mas muitas pessoas estão tristes com o prazo, certo? Então eu olhei para ele e preparei o" + mesitemlink( .@new_item ) + ".";
 		next;
-		mes "[Mercador do coraÃ§Ã£o]";
-		mes mesitemlink( .@new_item ) + "Ã© um item que impedirÃ¡ a perda de experiÃªncia na morte uma vez, apenas com ele, e0000, sem a duraÃ§Ã£o ^000000. Claro, apÃ³s a morte, o"+.@new_item_name$+"Ã© consumido.";
+		mes "[Mercador do coração]";
+		mes mesitemlink( .@new_item ) + "é um item que impedirá a perda de experiência na morte uma vez, apenas com ele, e0000, sem a duração ^000000. Claro, após a morte, o"+.@new_item_name$+"é consumido.";
 		next;
-		select("Por que vocÃª estÃ¡ trocando isso?");
-		mes "[Mercador do coraÃ§Ã£o]";
-		mes "VocÃª estÃ¡ curioso sobre isso? Eu sou um comerciante. Comprar e vender coisas Ã© o meu destino, esteja relacionado Ã  vida ou Ã  morte de alguÃ©m. VocÃª acha que vou perder esta oportunidade de ganhar dinheiro? Eu ganho dinheiro, e os vivos recebem uma margem de manobra da dor da morte. NÃ£o Ã© um bom negÃ³cio?";
+		select("Por que você está trocando isso?");
+		mes "[Mercador do coração]";
+		mes "Você está curioso sobre isso? Eu sou um comerciante. Comprar e vender coisas é o meu destino, esteja relacionado à vida ou à morte de alguém. Você acha que vou perder esta oportunidade de ganhar dinheiro? Eu ganho dinheiro, e os vivos recebem uma margem de manobra da dor da morte. Não é um bom negócio?";
 		next;
-		mes "[Mercador do coraÃ§Ã£o]";
-		mes "A taxa de cÃ¢mbio Ã© 5" + mesitemlink( .@old_item ) + "para 1" + mesitemlink( .@new_item ) + ". VocÃª tem alguma dÃºvida?";
+		mes "[Mercador do coração]";
+		mes "A taxa de câmbio é 5" + mesitemlink( .@old_item ) + "para 1" + mesitemlink( .@new_item ) + ". Você tem alguma dúvida?";
 		next;
-		mes "[Mercador do coraÃ§Ã£o]";
-		mes "Hm ~ o que vocÃª acha? NÃ£o Ã© um comÃ©rcio justo? VocÃª quer sempre se preocupar com o tempo? Ã‰ um item obrigatÃ³rio para os aventureiros que gostam de aventuras de tirar o fÃ´lego.";
+		mes "[Mercador do coração]";
+		mes "Hm ~ o que você acha? Não é um comércio justo? Você quer sempre se preocupar com o tempo? É um item obrigatório para os aventureiros que gostam de aventuras de tirar o fôlego.";
 		close;
 		
 	case 2:	
-		mes "[Mercador do coraÃ§Ã£o]";
-		mes "Yeah, yeah. Boa decisÃ£o. Ã‰ melhor trocÃ¡ -lo por um melhor, nÃ£o Ã©?";
+		mes "[Mercador do coração]";
+		mes "Yeah, yeah. Boa decisão. É melhor trocá -lo por um melhor, não é?";
 		next;
-		mes "[Mercador do coraÃ§Ã£o]";
+		mes "[Mercador do coração]";
 		mes "Eu posso trocar seu ^0000cd5"+.@old_item_name$+"a 1"+.@new_item_name$+".";
 		next;
-		mes "[Mercador do coraÃ§Ã£o]";
-		mes "No entanto, ^ee0000 [nÃ£o Ã  venda]" + .@old_item_name$ + "nÃ£o Ã© elegÃ­vel para o Exchange^000000, por isso Ã© inÃºtil trazÃª -lo aqui e pedir que ele seja trocado.";
+		mes "[Mercador do coração]";
+		mes "No entanto, ^ee0000 [não à venda]" + .@old_item_name$ + "não é elegível para o Exchange^000000, por isso é inútil trazê -lo aqui e pedir que ele seja trocado.";
 		next;
-		mes "[Mercador do coraÃ§Ã£o]";
+		mes "[Mercador do coração]";
 		mes "Devemos trocar agora?";
 		next;
-		if (select("Troque por favor!: Eu nÃ£o quero trocar.") == 2)
+		if (select("Troque por favor!: Eu não quero trocar.") == 2)
 			break;
-		mes "[Mercador do coraÃ§Ã£o]";
-		mes "Quantos vocÃª quer trocar? ^0000cdyou pode trocar atÃ© 10"+.@new_item_name$+"Em um tempo^000000.";
+		mes "[Mercador do coração]";
+		mes "Quantos você quer trocar? ^0000cdyou pode trocar até 10"+.@new_item_name$+"Em um tempo^000000.";
 		next;
 		input .@amount;
 		if (.@amount == 0) {
-			mes "[Mercador do coraÃ§Ã£o]";
-			mes "HM? VocÃª nÃ£o estÃ¡ interessado? Este Ã© um Ã³timo produto, e Ã© muito bom para alguÃ©m como vocÃª. Mas se vocÃª nÃ£o quiser proteger sua vida, tambÃ©m nÃ£o o forÃ§arei.";
+			mes "[Mercador do coração]";
+			mes "HM? Você não está interessado? Este é um ótimo produto, e é muito bom para alguém como você. Mas se você não quiser proteger sua vida, também não o forçarei.";
 			close;
 		}
 		if (.@amount > 10) {
-			mes "[Mercador do coraÃ§Ã£o]";
-			mes "Como eu disse, ^0000cdyou sÃ³ pode trocar atÃ© 10 ^000000 por vez. Verifique a quantidade novamente.";
+			mes "[Mercador do coração]";
+			mes "Como eu disse, ^0000cdyou só pode trocar até 10 ^000000 por vez. Verifique a quantidade novamente.";
 			close;
 		}
 		if (countitem(.@old_item) < (.@amount*5)) {
-			mes "[Mercador do coraÃ§Ã£o]";
-			mes "Hum, com licenÃ§a, mas ... vocÃª nÃ£o tem o suficiente" +.@old_item_name$+ ", nÃ£o? SÃ£o 5" + mesitemlink( .@old_item ) + "para 1" + mesitemlink( .@new_item ) + ". Por favor, verifique a quantidade.";
+			mes "[Mercador do coração]";
+			mes "Hum, com licença, mas ... você não tem o suficiente" +.@old_item_name$+ ", não? São 5" + mesitemlink( .@old_item ) + "para 1" + mesitemlink( .@new_item ) + ". Por favor, verifique a quantidade.";
 			close;
 		}
-		mes "[Mercador do coraÃ§Ã£o]";
-		mes "Agora, com isso, eu trocei seu ^0000CD" + .@old_item_name$ + "^000000 para o ^EE0000" + .@new_item_name$ + "^000000 !! Isso foi um bom negÃ³cio, nÃ£o foi? Da prÃ³xima vez que vocÃª colocar suas mÃ£os em um"+.@old_item_name$+", venha me ver de novo!";
+		mes "[Mercador do coração]";
+		mes "Agora, com isso, eu trocei seu ^0000CD" + .@old_item_name$ + "^000000 para o ^EE0000" + .@new_item_name$ + "^000000 !! Isso foi um bom negócio, não foi? Da próxima vez que você colocar suas mãos em um"+.@old_item_name$+", venha me ver de novo!";
 		delitem .@old_item,.@amount*5;
 		getitem .@new_item,.@amount;
 		close;
 	case 3:
 		break;
 	}
-	mes "[Mercador do coraÃ§Ã£o]";
-	mes "Isso Ã© muito! Aventureiro, Ã© um item obrigatÃ³rio para pessoas como vocÃª que se aventuram em lugares perigosos!";
+	mes "[Mercador do coração]";
+	mes "Isso é muito! Aventureiro, é um item obrigatório para pessoas como você que se aventuram em lugares perigosos!";
 	next;
-	mes "[Mercador do coraÃ§Ã£o]";
-	mes "Se vocÃª se interessar, nÃ£o deixe de voltar para a troca. OK?";
+	mes "[Mercador do coração]";
+	mes "Se você se interessar, não deixe de voltar para a troca. OK?";
 	close;
 	
 OnTouch:
 	if(countitem(12209))
-		npctalk "VocÃª tem algo bom. VocÃª gostaria de substituir o seu" + getitemname(12209) + " with a better one?", "", bc_self;
+		npctalk "Você tem algo bom. Você gostaria de substituir o seu" + getitemname(12209) + " with a better one?", "", bc_self;
 	end;
 }

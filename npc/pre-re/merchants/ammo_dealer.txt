@@ -19,12 +19,12 @@ alberta,118,160,3	script	Bullet Dealer Tony#alb::bdt	4_M_04,{
 	mes "[Tony]";
 	if (BaseClass == Job_Gunslinger) {
 		mes "Eu sou Tony, o revendedor de balas.";
-		mes "Venha atÃ© mim sempre que vocÃª estiver";
-		mes "curto em muniÃ§Ã£o. Apenas me traga";
+		mes "Venha até mim sempre que você estiver";
+		mes "curto em munição. Apenas me traga";
 		mes "os materiais, e eu vou fazer";
-		mes "VocÃªs as balas que vocÃª precisa.";
+		mes "Vocês as balas que você precisa.";
 		next;
-		switch(select("Esfera de veneno: Flare Sphere: IluminaÃ§Ã£o Esfera: Esfera cega: Esfera congelante: Cancelar")) {
+		switch(select("Esfera de veneno: Flare Sphere: Iluminação Esfera: Esfera cega: Esfera congelante: Cancelar")) {
 		case 1: callsub S_BulletTrade,937,10,13205;// <item required>, <amount req>, <bullet id>
 		case 2: callsub S_BulletTrade,7097,2,13203;
 		case 3: callsub S_BulletTrade,7053,3,13204;
@@ -32,26 +32,26 @@ alberta,118,160,3	script	Bullet Dealer Tony#alb::bdt	4_M_04,{
 		case 5: callsub S_BulletTrade,7054,2,13207;
 		case 6:
 			mes "[Tony]";
-			mes "Mudou de idÃ©ia?";
-			mes "Bem, se vocÃª precisar";
+			mes "Mudou de idéia?";
+			mes "Bem, se você precisar";
 			mes "Quaisquer balas, eu estarei certo";
 			mes "aqui. Volte sempre que";
-			mes "VocÃª acha que vocÃª precisarÃ¡ de mais";
-			mes "muniÃ§Ã£o, pistoleiro.";
+			mes "Você acha que você precisará de mais";
+			mes "munição, pistoleiro.";
 			close;
 		}
 	}
 	mes "Ei, eu sou Tony. Estou dentro";
-	mes "acusaÃ§Ã£o de distribuiÃ§Ã£o";
+	mes "acusação de distribuição";
 	mes "e fazendo balas para";
-	mes "Pistoleiros. Ã‰ apenas";
+	mes "Pistoleiros. É apenas";
 	mes "Como nossa guilda gosta";
 	mes "fazer coisas.";
 	next;
 	mes "[Tony]";
-	mes "Sinto muito se vocÃª veio";
+	mes "Sinto muito se você veio";
 	mes "Aqui para comprar algumas balas.";
-	mes "Eu sÃ³ posso fazer negÃ³cios com";
+	mes "Eu só posso fazer negócios com";
 	mes "Gunslingers totalmente fugidos.";
 	close;
 
@@ -63,55 +63,55 @@ S_BulletTrade:
 	mes "[Tony]";
 	mes "Para cada conjunto de";
 	mes callfunc("F_InsertPlural",30,getitemname(.@bullet_id))+",";
-	mes "vocÃª deve me dar";
-	mes "1 Ãªnfasecon,";
+	mes "você deve me dar";
+	mes "1 ênfasecon,";
 	mes "1 phracon, e";
 	mes callfunc("F_InsertPlural",.@required_amount,getitemname(.@required_id))+".";
 	next;
 	mes "[Tony]";
 	mes "Lembre -se de que posso dar";
-	mes "um mÃ¡ximo de 500 conjuntos de";
+	mes "um máximo de 500 conjuntos de";
 	mes "30 balas por vez. Por favor";
-	mes "Digite o nÃºmero de conjuntos de balas";
-	mes "isso que vocÃª gostaria. Se vocÃª quiser";
+	mes "Digite o número de conjuntos de balas";
+	mes "isso que você gostaria. Se você quiser";
 	mes "Cancelar e depois digitar '' '' ''";
 	next;
 	input .@amount;
 	mes "[Tony]";
 	if (.@amount < 1 || .@amount > 500) {
-		mes "Ei, eu nÃ£o posso te dar";
-		mes "tantas balas. NÃ£o";
-		mes "esqueÃ§a de entrar em um nÃºmero";
-		mes "Isso nÃ£o Ã© superior a 500";
-		mes "Se vocÃª quiser trocar seu";
+		mes "Ei, eu não posso te dar";
+		mes "tantas balas. Não";
+		mes "esqueça de entrar em um número";
+		mes "Isso não é superior a 500";
+		mes "Se você quiser trocar seu";
 		mes "itens para algumas balas.";
 	}
 	else if (countitem(1010) >= .@amount && countitem(1011) >= .@amount && countitem(.@required_id) >= (.@amount*.@required_amount)) {
 		if (checkweight(.@bullet_id,.@amount * 30) == 0) {
-			mes "Eh? Seu inventÃ¡rio nÃ£o";
-			mes "tem espaÃ§o suficiente para isso";
+			mes "Eh? Seu inventário não";
+			mes "tem espaço suficiente para isso";
 			mes "muitas balas. Volte mais tarde";
-			mes "Depois de fazer mais espaÃ§o";
-			mes "disponÃ­vel. Tente colocar um pouco de";
+			mes "Depois de fazer mais espaço";
+			mes "disponível. Tente colocar um pouco de";
 			mes "Suas coisas no armazenamento de kafra.";
 		} else {
-			mes "Ã“timo, tudo parece";
+			mes "Ótimo, tudo parece";
 			mes "estar em ordem. Deixe -me levar";
-			mes "esses materiais, e aqui estÃ£o";
-			mes "suas balas. Ã‰ um prazer";
-			mes "Para fazer negÃ³cios com vocÃª ~";
+			mes "esses materiais, e aqui estão";
+			mes "suas balas. É um prazer";
+			mes "Para fazer negócios com você ~";
 			delitem 1010,.@amount; //Phracon
 			delitem 1011,.@amount; //Emveretarcon
 			delitem .@required_id,.@amount * .@required_amount;
 			getitem .@bullet_id,.@amount * 30;
 		}
 	} else {
-		mes "Huh. Parece vocÃª";
-		mes "NÃ£o tem materiais suficientes";
+		mes "Huh. Parece você";
+		mes "Não tem materiais suficientes";
 		mes "por tantas balas. Bem,";
-		mes "NÃ£o Ã© problema. Apenas venha";
+		mes "Não é problema. Apenas venha";
 		mes "de volta depois de reunir tudo";
-		mes "que vocÃª precisa, ok?";
+		mes "que você precisa, ok?";
 	}
 	close;
 }

@@ -20,31 +20,31 @@
 //============================================================
 comodo,148,306,4	script	Card Vendor Machine#pa08	562,{
 	if (checkweight(1201,1) == 0) {
-		mes "VocÃª tem muitos itens, reduza -o e volte mais tarde!";
+		mes "Você tem muitos itens, reduza -o e volte mais tarde!";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "VocÃª estÃ¡ acima do peso agora, reduza -o e volte mais tarde!";
+		mes "Você está acima do peso agora, reduza -o e volte mais tarde!";
 		close;
 	}
 	mes "[Terminator RX1]";
-	mes "A explicaÃ§Ã£o de texto comeÃ§a:";
+	mes "A explicação de texto começa:";
 	mes "Pressione 1 para cancelar,";
-	mes "Pressione 2 para explicaÃ§Ã£o,";
+	mes "Pressione 2 para explicação,";
 	mes "Pressione 3 para troca de moedas,";
-	mes "Pressione 4 para troca de cartÃµes.";
+	mes "Pressione 4 para troca de cartões.";
 	next;
-	switch(select("1. CANCEL: 2. ExplicaÃ§Ã£o: 3.Change Card Into Coin: 4.Change Coin in Card:^ffffff5.Start Security System^000000")) {
+	switch(select("1. CANCEL: 2. Explicação: 3.Change Card Into Coin: 4.Change Coin in Card:^ffffff5.Start Security System^000000")) {
 	case 1:
 		mes "[Terminator RX1]";
 		mes "De nada!";
 		close;
 	case 2:
 		mes "[Terminator RX1]";
-		mes "No.3, quando vocÃª escolhe a troca de moedas, o sistema coletarÃ¡ um cartÃ£o do seu inventÃ¡rio aleatoriamente para trocar em uma moeda.";
+		mes "No.3, quando você escolhe a troca de moedas, o sistema coletará um cartão do seu inventário aleatoriamente para trocar em uma moeda.";
 		next;
 		mes "[Terminator RX1]";
-		mes "No.4, quando vocÃª escolhe a troca de cartÃµes, o sistema coletarÃ¡ cinco moedas do seu inventÃ¡rio para trocar em um cartÃ£o aleatoriamente.";
+		mes "No.4, quando você escolhe a troca de cartões, o sistema coletará cinco moedas do seu inventário para trocar em um cartão aleatoriamente.";
 		next;
 		mes "[Terminator RX1]";
 		mes "De nada!";
@@ -95,7 +95,7 @@ comodo,148,306,4	script	Card Vendor Machine#pa08	562,{
 		progressbar "0xffff00",3;
 		if (countitem(6379) < 5) {
 			mes "[Terminator RX1]";
-			mes "VocÃª nÃ£o tem moedas suficientes.";
+			mes "Você não tem moedas suficientes.";
 			close;
 		}
 		delitem 6379,5; //Card_Coin
@@ -465,14 +465,14 @@ comodo,148,306,4	script	Card Vendor Machine#pa08	562,{
 				getitem 4092,1; //Skel_Worker_Card
 		}
 		mes "[Terminator RX1]";
-		mes "Todos os cartÃµes terminaram.";
+		mes "Todos os cartões terminaram.";
 		next;
 		mes "[Terminator RX1]";
 		mes "Obrigado por vir!";
 		close;
 	case 5:
 		mes "[Terminator RX1]";
-		mes "Encontrado sinal nÃ£o autorizado, sistema de seguranÃ§a inicial ...";
+		mes "Encontrado sinal não autorizado, sistema de segurança inicial ...";
 		close2;
 		warp "comodo",263,286;
 		end;
@@ -485,14 +485,14 @@ L_Exchange:
 	for (.@i = 0; .@i < .@args; .@i++) {
 		if (countitem(getarg(.@i))) {
 			mes "Encontrado ^980078" + getitemname(getarg(.@i)) + "^000000,";
-			mes "VocÃª quer trocar um cartÃ£o em uma moeda?";
+			mes "Você quer trocar um cartão em uma moeda?";
 			next;
-			switch(select("NÃ£o: sim")) {
+			switch(select("Não: sim")) {
 			case 1:
-				mes "^980078 VocÃª deseja pesquisar outros cartÃµes?^000000";
+				mes "^980078 Você deseja pesquisar outros cartões?^000000";
 				next;
-				if(select("NÃ£o: sim") == 1) {
-					mes "^980078CARD A pesquisa Ã© interrompida^000000";
+				if(select("Não: sim") == 1) {
+					mes "^980078CARD A pesquisa é interrompida^000000";
 					close;
 				}
 				break;
@@ -503,7 +503,7 @@ L_Exchange:
 					mes "^980078" + getitemname(getarg(.@i)) + "trocou em moeda.^000000";
 					next;
 				} else {
-					mes "^980078 Seu inventÃ¡rio nÃ£o contÃ©m o cartÃ£o para troca.^000000";
+					mes "^980078 Seu inventário não contém o cartão para troca.^000000";
 					next;
 				}
 				break;

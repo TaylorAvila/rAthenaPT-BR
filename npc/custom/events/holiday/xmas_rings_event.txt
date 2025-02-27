@@ -17,60 +17,60 @@
 prontera,156,174,4	script	Snower	713,{
 	mes "[Sdower]";
 	if (Q_XMSRINGS == 2) {
-		mes "Oh ... isso Ã© verdade? VocÃª ajudou minha irmÃ£ Sneewy? Obrigado.";
+		mes "Oh ... isso é verdade? Você ajudou minha irmã Sneewy? Obrigado.";
 	} else if (Q_XMSRINGS == 3) {
-		mes "Snoowy me enviou um pÃ¡ssaro com uma mensagem. Ela me contou sobre sua ajuda ...";
-		mes "Vou te contar um segredo dos anÃ©is mÃ¡gicos.";
+		mes "Snoowy me enviou um pássaro com uma mensagem. Ela me contou sobre sua ajuda ...";
+		mes "Vou te contar um segredo dos anéis mágicos.";
 		emotion ET_BEST;
 		next;
 		mes "[Sdower]";
-		mes "Eles tÃªm poder mÃ¡gico apenas de 8 a 8 de janeiro.";
+		mes "Eles têm poder mágico apenas de 8 a 8 de janeiro.";
 		next;
 		mes "[Sdower]";
-		mes "A propÃ³sito, basta colocar o chapÃ©u do Papai Noel para descobrir seu verdadeiro poder.";
+		mes "A propósito, basta colocar o chapéu do Papai Noel para descobrir seu verdadeiro poder.";
 		next;
 		mes "[Sdower]";
-		mes "Se vocÃª colocar os dois anÃ©is, o poder deles seria dobrado.";
+		mes "Se você colocar os dois anéis, o poder deles seria dobrado.";
 		mes "Tenha um bom dia!";
 		close;
 	} else {
-		mes "Oi! Duas minhas irmÃ£s e eu estamos preparando presentes para todos os trÃªs feriados!";
+		mes "Oi! Duas minhas irmãs e eu estamos preparando presentes para todos os três feriados!";
 	}
 	emotion ET_CRY;
 	next;
-	menu "Onde estÃ£o suas irmÃ£s?",-, "Quais fÃ©rias?",M_PR,"Que presentes?",M_WRAP,"Posso te ajudar?",M_QUEST;
+	menu "Onde estão suas irmãs?",-, "Quais férias?",M_PR,"Que presentes?",M_WRAP,"Posso te ajudar?",M_QUEST;
 
 	mes "[Sdower]";
-	mes "Minha irmÃ£ mais nova Sneewy deixou para algumas terras distantes para preparar presentes para seus pobres filhos ... NÃ£o sei onde. VocÃª deve perguntar Ã  minha irmÃ£ mais velha e seus passarinhos.";
+	mes "Minha irmã mais nova Sneewy deixou para algumas terras distantes para preparar presentes para seus pobres filhos ... Não sei onde. Você deve perguntar à minha irmã mais velha e seus passarinhos.";
 	next;
 	mes "[Sdower]";
-	mes "Minha irmÃ£ mais velha? O nome dela Ã© Snoowy. Ela navegou para alguma ilha verde ... ela estÃ¡ falando sobre alguns presentes para golfinhos ou algo assim ...";
+	mes "Minha irmã mais velha? O nome dela é Snoowy. Ela navegou para alguma ilha verde ... ela está falando sobre alguns presentes para golfinhos ou algo assim ...";
 	close;
 
 M_PR:
 	mes "[Sdower]";
-	mes "As trÃªs fÃ©rias inteiras? Bem, eles vÃªm um apÃ³s o outro!";
+	mes "As três férias inteiras? Bem, eles vêm um após o outro!";
 	mes "^000080 O Natal^000000,^FF0000 KARACHUN^000000 E^008000 VEIA DE ANO NOVO^000000!";
 	next;
 	mes "[Sdower]";
-	mes "^Ff0000KARACHUN^000000? Heh ... este Ã© um festival de pagÃ£os antigos. Eles costumavam celebrar antes do aparecimento de HNY e Natal, vocÃª sabe.";
+	mes "^Ff0000KARACHUN^000000? Heh ... este é um festival de pagãos antigos. Eles costumavam celebrar antes do aparecimento de HNY e Natal, você sabe.";
 	next;
 	goto M_QUEST;
 
 M_WRAP:
 	mes "[Sdower]";
-	mes "Minhas irmÃ£s dizem que todos os presentes devem parecer da mesma maneira. Ou entÃ£o, algumas crianÃ§as podem lutar por fantasmas!";
+	mes "Minhas irmãs dizem que todos os presentes devem parecer da mesma maneira. Ou então, algumas crianças podem lutar por fantasmas!";
 	next;
 	mes "[Sdower]";
-	mes "VocÃª gostaria que eu embrulhe suas caixas de presente sofisticadas com um papel cinza?";
+	mes "Você gostaria que eu embrulhe suas caixas de presente sofisticadas com um papel cinza?";
 	next;
-	menu "Enrole -os, por favor!",-, "NÃ£o, obrigado.",M_QUEST;
+	menu "Enrole -os, por favor!",-, "Não, obrigado.",M_QUEST;
 
 	set @prizes, countitem(664)+countitem(665)+countitem(666)+countitem(667);
 	if (@prizes == 0) {
 		mes "[Sdower]";
-		mes "NÃ£o vejo presentes em caixas sofisticadas em vocÃª ...";
-		if(countitem(644))mes "VocÃª tem apenas caixas cinzentas.";
+		mes "Não vejo presentes em caixas sofisticadas em você ...";
+		if(countitem(644))mes "Você tem apenas caixas cinzentas.";
 		close;
 	}
 	delitem 664,countitem(664);
@@ -80,44 +80,44 @@ M_WRAP:
 	getitem 644,@prizes;
 
 	mes "[Sdower]";
-	mes "* Shuffle* aqui estÃ¡.";
+	mes "* Shuffle* aqui está.";
 	next;
 
 M_QUEST:
 	mes "[Sdower]";
-	mes "Eu gostaria que vocÃª encontre minhas irmÃ£s o mais rÃ¡pido possÃ­vel ... elas precisam de ajuda.";
+	mes "Eu gostaria que você encontre minhas irmãs o mais rápido possível ... elas precisam de ajuda.";
 	if (Q_XMSRINGS == 0) set Q_XMSRINGS,1;
 	close;
 
 OnInit:
 //Santa's Hat
-	setitemscript 2236,"{bÃ´nus bmdef, 1; bÃ´nus bluk, 1; if (isOkiped (2636.2637)) {if (@xmr == getTime (dt_minute)) end; set @xmr, gettime (dt_minute); efetuar ef_rainbow; end;} if (isOQuiped (2636)) {if (@xmr == getTime (dt_minute)) end; set @xmr, gettime (dt_minute); Misceffect ef_sphere;} if (isOkiped (2637)) {if (@xmr == gettime (dt_minute)) end; set @xmr, gettime (dt_minute); efetuar ef_angel2;}}";
+	setitemscript 2236,"{bônus bmdef, 1; bônus bluk, 1; if (isOkiped (2636.2637)) {if (@xmr == getTime (dt_minute)) end; set @xmr, gettime (dt_minute); efetuar ef_rainbow; end;} if (isOQuiped (2636)) {if (@xmr == getTime (dt_minute)) end; set @xmr, gettime (dt_minute); Misceffect ef_sphere;} if (isOkiped (2637)) {if (@xmr == gettime (dt_minute)) end; set @xmr, gettime (dt_minute); efetuar ef_angel2;}}";
 //Gold Xmas Ring
-	setitemscript 2636,"{bÃ´nus bosespwhenuneQuip, 30; if (isOkiped (2236) == 0) end; if (getskilllv (\"AL_HEAL\")){habilidade \"TF_HIDING\", 4+isOkipped (2637);} else {Skill \"AL_HEAL\", 1+4*ISEQUIPED (2637);}}";
+	setitemscript 2636,"{bônus bosespwhenuneQuip, 30; if (isOkiped (2236) == 0) end; if (getskilllv (\"AL_HEAL\")){habilidade \"TF_HIDING\", 4+isOkipped (2637);} else {Skill \"AL_HEAL\", 1+4*ISEQUIPED (2637);}}";
 //Silver Xmas Ring
-	setitemscript 2637,"{bÃ´nus bdamagewhenunequip, 40; if (isOkiped (2236) == 0) end; if (getskilllv (\"AL_TELEPORT\")){habilidade \"MC_IDENTIFY\", 1;} else {Skill \"AL_TELEPORT\", 1+isOkippiped (2636);}}";
+	setitemscript 2637,"{bônus bdamagewhenunequip, 40; if (isOkiped (2236) == 0) end; if (getskilllv (\"AL_TELEPORT\")){habilidade \"MC_IDENTIFY\", 1;} else {Skill \"AL_TELEPORT\", 1+isOkippiped (2636);}}";
 	end;
 }
 
 louyang,224,249,4	script	Sneewy	717,{
 	mes "[Sneewy]";
 	if (Q_XMSRINGS == 0) {
-		mes "Oi! Estou esperando o aniversÃ¡rio da minha irmÃ£ com correio ...";
+		mes "Oi! Estou esperando o aniversário da minha irmã com correio ...";
 		emotion ET_CRY;
 		close;
 	}
 	if (Q_XMSRINGS == 1) {
-		mes "Eu gostaria de ter mais 4 caixas de presente cinza para crianÃ§as nativas ...";
+		mes "Eu gostaria de ter mais 4 caixas de presente cinza para crianças nativas ...";
 		emotion ET_CRY;
 		next;
 		mes "[Sneewy]";
-		mes "Oh, olÃ¡. Meu irmÃ£o informou, informou tudo?";
+		mes "Oh, olá. Meu irmão informou, informou tudo?";
 		next;
-		menu "Aqui estÃ£o suas 4 caixas de presente",-, "Eu nÃ£o conheÃ§o nenhum snowhainha ...",M_END;
+		menu "Aqui estão suas 4 caixas de presente",-, "Eu não conheço nenhum snowhainha ...",M_END;
 
 		mes "[Sneewy]";
 		if (countitem(644) < 4) {
-			mes "Gimme 4 presentes para crianÃ§as pobres ... espere, vocÃª nÃ£o tem 4 deles!";
+			mes "Gimme 4 presentes para crianças pobres ... espere, você não tem 4 deles!";
 			emotion ET_SORRY;
 			close;
 		}
@@ -125,19 +125,19 @@ louyang,224,249,4	script	Sneewy	717,{
 		delitem 644,4;
 		getnameditem 2637,strcharinfo(0);
 		emotion ET_CHUPCHUP;
-		mes "Obrigado! Aqui estÃ¡ o meu li'l algo para vocÃª!";
+		mes "Obrigado! Aqui está o meu li'l algo para você!";
 		next;
 		mes "[Sneewy]";
-		mes "A propÃ³sito, se vocÃª colocar 2 anÃ©is diferentes, seu nivelamento de fÃ©rias seria mais fÃ¡cil!";
+		mes "A propósito, se você colocar 2 anéis diferentes, seu nivelamento de férias seria mais fácil!";
 		close;
 	}
 	emotion ET_THANKS;
-	mes "Obrigado novamente! Nenhuma crianÃ§a encontrarÃ¡ as fÃ©rias sem os presentes!";
+	mes "Obrigado novamente! Nenhuma criança encontrará as férias sem os presentes!";
 	close;
 
 M_END:
 	mes "[Sneewy]";
-	mes "Pena ... eu tenho um anel de Papai Noel mÃ¡gico ... eu trocaria por 4 caixas de presente ...";
+	mes "Pena ... eu tenho um anel de Papai Noel mágico ... eu trocaria por 4 caixas de presente ...";
 	emotion ET_SWEAT;
 	close;
 }
@@ -145,31 +145,31 @@ M_END:
 izlu2dun,133,160,2	script	Snoowy	714,{
 	mes "[Snowy]";
 	if (Q_XMSRINGS == 0) {
-		mes "Helloooou! VocÃª conhece meu irmÃ£o e irmÃ£? Como assim? Meu irmÃ£o calou bem conhecido em Prontera !! Basta perguntar a qualquer crianÃ§a lÃ¡.";
+		mes "Helloooou! Você conhece meu irmão e irmã? Como assim? Meu irmão calou bem conhecido em Prontera !! Basta perguntar a qualquer criança lá.";
 		emotion ET_SCRATCH;
 		close;
 	}
 	if (Q_XMSRINGS == 1) {
-		mes "Droga ... como as crianÃ§as pobres podem ser mais importantes que as fuzileiros navais .. estou errado?";
+		mes "Droga ... como as crianças pobres podem ser mais importantes que as fuzileiros navais .. estou errado?";
 		next;
 		mes "[Snowy]";
-		mes "Errr. OlÃ¡. Minha irmÃ£ Sneewy me enviou uma mensagem de passarinho. A carta estava molhada e eu nÃ£o conseguia ler nada alÃ©m de algumas letras finais de seu endereÃ§o ...";
+		mes "Errr. Olá. Minha irmã Sneewy me enviou uma mensagem de passarinho. A carta estava molhada e eu não conseguia ler nada além de algumas letras finais de seu endereço ...";
 		next;
 		mes "[Snowy]";
-		mes "Olha, Ã© algo como 'yang' no final ... hmm ... ela deve ser errada 'Al doo boryang' ...";
+		mes "Olha, é algo como 'yang' no final ... hmm ... ela deve ser errada 'Al doo boryang' ...";
 		close;
 	}
 	if (Q_XMSRINGS == 2) {
-		mes "VocÃª ajudou minha irmÃ£? Ã‰ Ã³timo!";
+		mes "Você ajudou minha irmã? É ótimo!";
 		next;
 		mes "[Snowy]";
-		mes "Mas eu tambÃ©m preciso de mais trÃªs presentes para meus amigos folclÃ³ricos marinhos ...";
+		mes "Mas eu também preciso de mais três presentes para meus amigos folclóricos marinhos ...";
 		next;
 		menu "Tem esses presentes!",-, "Eu preciso de algo em troca",M_END;
 
 		mes "[Snowy]";
 		if (countitem(644) < 3) {
-			mes "Opa !! VocÃª nÃ£o tem 3 caixas de presente cinza em vocÃª.";
+			mes "Opa !! Você não tem 3 caixas de presente cinza em você.";
 			emotion ET_SORRY;
 			close;
 		}
@@ -177,18 +177,18 @@ izlu2dun,133,160,2	script	Snoowy	714,{
 		delitem 644,3;
 		getnameditem 2636,strcharinfo(0);
 		emotion ET_CHUP;
-		mes "Obrigado! Tenha este anel mÃ¡gico!";
+		mes "Obrigado! Tenha este anel mágico!";
 		close;
 	}
 	emotion ET_THANKS;
-	mes "Oh ... todo o povo marinho envia a vocÃª seus agradecimentos! Eles amam tanto os presentes !!!";
+	mes "Oh ... todo o povo marinho envia a você seus agradecimentos! Eles amam tanto os presentes !!!";
 	if (rand(2))
-		mes "VocÃª nÃ£o sabia que o chapÃ©u do Papai Noel revela o poder real dos anÃ©is?";
+		mes "Você não sabia que o chapéu do Papai Noel revela o poder real dos anéis?";
 	close;
 
 M_END:
 	mes "[Snowy]";
-	mes "Eu trocaria um anel mÃ¡gico de ouro por 3 caixas de presente ...";
+	mes "Eu trocaria um anel mágico de ouro por 3 caixas de presente ...";
 	emotion ET_SWEAT;
 	close;
 }

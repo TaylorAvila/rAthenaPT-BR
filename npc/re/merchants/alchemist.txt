@@ -23,20 +23,20 @@ alde_alche,31,186,3	script	Craft Book Merchant#alde	883,{
 	mes "^0000ffspecial Craft Books^000000 para geneticistas.";
 	next;
 	mes "[Comerciante de livros de artesanato]";
-	mes "Os geneticistas tÃªm algumas habilidades";
+	mes "Os geneticistas têm algumas habilidades";
 	mes "que requerem livros de artesanato para ativar.";
 	next;
 	mes "[Comerciante de livros de artesanato]";
-	mes "Quanto mais livros de artesanato vocÃª tiver,";
-	mes "Quanto mais habilidades vocÃª pode usar.";
+	mes "Quanto mais livros de artesanato você tiver,";
+	mes "Quanto mais habilidades você pode usar.";
 	next;
 	mes "[Comerciante de livros de artesanato]";
 	mes "Por favor, entenda isso";
 	mes "Eu me especializo na venda desses livros especiais e";
-	mes "Eu nÃ£o vendo outros itens ^000000.";
+	mes "Eu não vendo outros itens ^000000.";
 	next;
 	mes "[Comerciante de livros de artesanato]";
-	mes "VocÃª gostaria de dar uma olhada nos meus livros de artesanato?";
+	mes "Você gostaria de dar uma olhada nos meus livros de artesanato?";
 	next;
 	if(select("Claro.:no.") == 2) {
 		mes "[Comerciante de livros de artesanato]";
@@ -46,19 +46,19 @@ alde_alche,31,186,3	script	Craft Book Merchant#alde	883,{
 	}
 	if (checkweight(1201,1) == 0) {
 		mes "[Comerciante de livros de artesanato]";
-		mes "Sinto muito, mas seu inventÃ¡rio estÃ¡ quase cheio.";
-		mes "Esvazie seu inventÃ¡rio primeiro.";
+		mes "Sinto muito, mas seu inventário está quase cheio.";
+		mes "Esvazie seu inventário primeiro.";
 		close;
 	}
 	if (MaxWeight - Weight < 2500) {
 		mes "[Comerciante de livros de artesanato]";
-		mes "Esvazie seu inventÃ¡rio primeiro.";
+		mes "Esvazie seu inventário primeiro.";
 		close;
 	}
 	mes "[Comerciante de livros de artesanato]";
-	mes "Ok, entÃ£o, aqui estÃ¡ a lista de livros de artesanato disponÃ­veis.";
+	mes "Ok, então, aqui está a lista de livros de artesanato disponíveis.";
 	next;
-	switch(select("[Livro da Apple Bomb Craft] 100.000 Zeny: [Livro de Artesanato de Bomba de Abacaxi] 100.000 Zeny: [Coconut Bomb Craft Book] 100.000 Zeny: [Melon Bomb Craft Book] 100.000 Zeny: [Banana Bomb Craft Book] 100.000 Zeny: [MÃ©todo de cultivo de genes de plantas ] 100.000 Zeny: [Manual de Artesanato de PoÃ§Ã£o Superior] 100.000 Zeny: [Mix Cooking Book] 100.000 Zeny: [Livro de Pesquisa em Melhoria da SaÃºde] 100.000 Zeny: [Receita de bebida Vigor] 100.000 Zeny: Fechar")){
+	switch(select("[Livro da Apple Bomb Craft] 100.000 Zeny: [Livro de Artesanato de Bomba de Abacaxi] 100.000 Zeny: [Coconut Bomb Craft Book] 100.000 Zeny: [Melon Bomb Craft Book] 100.000 Zeny: [Banana Bomb Craft Book] 100.000 Zeny: [Método de cultivo de genes de plantas ] 100.000 Zeny: [Manual de Artesanato de Poção Superior] 100.000 Zeny: [Mix Cooking Book] 100.000 Zeny: [Livro de Pesquisa em Melhoria da Saúde] 100.000 Zeny: [Receita de bebida Vigor] 100.000 Zeny: Fechar")){
 	case 1: set .@item,6279; break;
 	case 2: set .@item,6280; break;
 	case 3: set .@item,6281; break;
@@ -71,51 +71,51 @@ alde_alche,31,186,3	script	Craft Book Merchant#alde	883,{
 	case 10: set .@item,11024; break;
 	case 11:
 		mes "[Comerciante de livros de artesanato]";
-		mes "Obrigado pelo seu patrocÃ­nio.";
+		mes "Obrigado pelo seu patrocínio.";
 		mes "Por favor, venha novamente.";
 		close;
 	}
 	mes "[Comerciante de livros de artesanato]";
 	mes "^0000ff ["+getitemname(.@item)+"] custos";
 	mes "100.000 mulheres.";
-	mes "Quantos vocÃª gostaria de comprar?";
+	mes "Quantos você gostaria de comprar?";
 	next;
 	input .@amount;
 	if (.@amount == 0) {
 		mes "[Comerciante de livros de artesanato]";
-		mes "VocÃª gostaria de ver alguns livros diferentes?";
+		mes "Você gostaria de ver alguns livros diferentes?";
 		close;
 	}
 	if (.@amount < 1 || .@amount > 99 ){
 		mes "[Comerciante de livros de artesanato]";
-		mes "VocÃª nÃ£o pode comprar mais de 100 por vez.";
+		mes "Você não pode comprar mais de 100 por vez.";
 		close;
 	}
 	mes "[Comerciante de livros de artesanato]";
-	mes "VocÃª entrou"+.@amount+"X ^0000FF ["+getitemname(.@item)+"]^000000 a ser comprado.";
-	mes "VocÃª gostaria de continuar?";
+	mes "Você entrou"+.@amount+"X ^0000FF ["+getitemname(.@item)+"]^000000 a ser comprado.";
+	mes "Você gostaria de continuar?";
 	next;
-	if (select("Sim: NÃ£o") == 1) {
+	if (select("Sim: Não") == 1) {
 		set .@total, .@amount * 100000;
 		if (Zeny < .@total) {
 			mes "[Comerciante de livros de artesanato]";
-			mes "Sinto muito, mas vocÃª nÃ£o tem dinheiro suficiente.";
+			mes "Sinto muito, mas você não tem dinheiro suficiente.";
 			close;
 		}
 		if (checkweight(.@item,.@amount) == 0){
 			mes "[Comerciante de livros de artesanato]";
-			mes "NÃ£o parece que vocÃª possa carregar tudo.";
-			mes "Por favor, verifique o espaÃ§o em seu inventÃ¡rio.";
+			mes "Não parece que você possa carregar tudo.";
+			mes "Por favor, verifique o espaço em seu inventário.";
 			close;
 		}
 		mes "[Comerciante de livros de artesanato]";
-		mes "Obrigado pelo seu patrocÃ­nio.";
+		mes "Obrigado pelo seu patrocínio.";
 		set Zeny,Zeny - .@total;
 		getitem .@item,.@amount;
 		close;
 	}
 	mes "[Comerciante de livros de artesanato]";
 	mes "Por favor, tenha seu tempo";
-	mes "Antes de tomar sua decisÃ£o.";
+	mes "Antes de tomar sua decisão.";
 	close;
 }

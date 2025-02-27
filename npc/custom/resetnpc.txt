@@ -24,13 +24,13 @@ prontera,150,193,4	script	Reset Girl	124,{
 	mes "Reset Skills: "+ callfunc("F_InsertComma",.@Reset[0]) +"z";
 	mes "Reset Both: "+ callfunc("F_InsertComma",.@Reset[2]) +"z";
 	if(.@Reset[3]) mes "You may only reset "+callfunc("F_InsertPlural",.@Reset[3],"time")+", so use "+((.@Reset[3]>1)?"them":"it")+" wisely.";
-	mes "Selecione o serviÃ§o que vocÃª deseja:";
+	mes "Selecione o serviço que você deseja:";
 	next;
-	set .@i,(select("^FF3355RESET HABILIDADES: Redefinir estatÃ­sticas: Redefinir ambos^000000: Cancelar"));
+	set .@i,(select("^FF3355RESET HABILIDADES: Redefinir estatísticas: Redefinir ambos^000000: Cancelar"));
 	if(.@i > 3) close;
 	mes "[Redefinir garota]";
 	if (Zeny < .@Reset[.@i-1]) {
-		mes "Desculpe, vocÃª nÃ£o tem Zeny suficiente.";
+		mes "Desculpe, você não tem Zeny suficiente.";
 		close;
 	}
 	if(.@Reset[3]){
@@ -43,7 +43,7 @@ prontera,150,193,4	script	Reset Girl	124,{
 		ResetSkill;
 	}
 	if(.@i&2) ResetStatus;
-	mes "LÃ¡ vai vocÃª!";
+	mes "Lá vai você!";
 	if(.@Reset[3]) set reset_limit,reset_limit + 1;
 	close;
 }

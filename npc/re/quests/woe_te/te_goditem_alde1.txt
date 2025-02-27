@@ -9,7 +9,7 @@
 
 te_aldecas1,226,34,3	script	Blacksmith Cano#tegod01	4_M_RACHMAN1,{
 	if (checkweight(1201,1) == 0) {
-		mes "VocÃª tem muitos itens para prosseguir com a missÃ£o.";
+		mes "Você tem muitos itens para prosseguir com a missão.";
 		mes "Por favor, alivie sua carga e tente novamente.";
 		close;
 	}
@@ -20,55 +20,55 @@ te_aldecas1,226,34,3	script	Blacksmith Cano#tegod01	4_M_RACHMAN1,{
 
 	mes "["+ .@npc_name$ +"]";
 	if (.@guild_id != getcharid(2)) {
-		mes "VocÃª ... nÃ£o parece familiar para mim ...?";
-		mes "VocÃª vai me ameaÃ§ar?";
-		mes "NÃ£o, certo?";
+		mes "Você ... não parece familiar para mim ...?";
+		mes "Você vai me ameaçar?";
+		mes "Não, certo?";
 		next;
 		mes "["+ .@npc_name$ +"]";
-		mes "Eu tenho minhas razÃµes.";
-		mes "Por favor, finja nÃ£o me ver.";
+		mes "Eu tenho minhas razões.";
+		mes "Por favor, finja não me ver.";
 		close;
 	}
 	if (WoeTETimeStart(14400) == 1 || agitcheck3() == 1) {// cannot start the quest 4 hours before and during WOE TE
-		mes "A partir de agora, vou ficar aqui em silÃªncio e nÃ£o interromper ninguÃ©m atÃ© que o cerco termine.";
-		mes "NÃ£o se preocupe comigo.";
+		mes "A partir de agora, vou ficar aqui em silêncio e não interromper ninguém até que o cerco termine.";
+		mes "Não se preocupe comigo.";
 		close;
 	}
 	if (is_guild_leader() == false) {
-		mes "Sinto -me muito grato o tempo todo por vocÃª me deixar ficar aqui.";
-		mes "NÃ£o Ã© nada de especial ... mas se vocÃª quiser, farei com que vocÃª possa ser Ãºtil.";
+		mes "Sinto -me muito grato o tempo todo por você me deixar ficar aqui.";
+		mes "Não é nada de especial ... mas se você quiser, farei com que você possa ser útil.";
 		next;
 		mes "["+ .@npc_name$ +"]";
 		mes "Quero dizer, se o mestre da guilda quiser.";
-		mes "Eu tambÃ©m sou um mestre que persegue da maneira final.";
+		mes "Eu também sou um mestre que persegue da maneira final.";
 		mes "Espero poder encontrar assim aqui.";
 		close;
 	}
 	if ($2012_tegod_kafra == 0) {// event status
 		mes "Ah ... Mestre.";
-		mes "Sinto -me tÃ£o grato o tempo todo.";
-		mes "Como devo muito a vocÃª, vou ajudÃ¡ -lo com qualquer coisa a qualquer momento.";
+		mes "Sinto -me tão grato o tempo todo.";
+		mes "Como devo muito a você, vou ajudá -lo com qualquer coisa a qualquer momento.";
 		next;
-		switch( select( "FaÃ§a Zoramungand.","Materiais de fusÃ­vel.","Relaxar." ) ) {
+		switch( select( "Faça Zoramungand.","Materiais de fusível.","Relaxar." ) ) {
 		case 1:
 			if (.@economy > 29) {
 				if (countitem(6603) > 3 && countitem(6599) > 0 && countitem(6598) > 0 && countitem(6601) > 3 && countitem(6600) > 0 && countitem(6605) > 0 && countitem(6604) > 0 && countitem(1473) > 0) {
-					mes "^FF0000Wizardry Staff Ã© necessÃ¡rio no processo de fabricaÃ§Ã£o de Jormungand.";
-					mes "VocÃª nÃ£o deve possuir outros itens, exceto para equipes de mago para prosseguir com a missÃ£o.^FF0000";
+					mes "^FF0000Wizardry Staff é necessário no processo de fabricação de Jormungand.";
+					mes "Você não deve possuir outros itens, exceto para equipes de mago para prosseguir com a missão.^FF0000";
 					next;
-					mes "^FF0000E, mesmo que o nÃ­vel de refinamento e os cartÃµes tenham sido aplicados, o processo exige qualquer uma das equipes de mago que vocÃª possa ter.";
+					mes "^FF0000E, mesmo que o nível de refinamento e os cartões tenham sido aplicados, o processo exige qualquer uma das equipes de mago que você possa ter.";
 					mes "Tente novamente depois de organizar seus bens.^000000";
 					next;
-					if (select( "Organizar posses.","Continue como Ã©." ) == 1) {
-						mes "VocÃª decidiu manter apenas os funcionÃ¡rios da bruxa.";
+					if (select( "Organizar posses.","Continue como é." ) == 1) {
+						mes "Você decidiu manter apenas os funcionários da bruxa.";
 						close;
 					}
 					mes "["+ .@npc_name$ +"]";
-					mes "Vejo que vocÃª desenvolveu a fortaleza como prometeu.";
-					mes "AlÃ©m disso, vocÃª encontrou o crepÃºsculo da trilha ...";
+					mes "Vejo que você desenvolveu a fortaleza como prometeu.";
+					mes "Além disso, você encontrou o crepúsculo da trilha ...";
 					next;
 					mes "["+ .@npc_name$ +"]";
-					mes "... entÃ£o ... vamos fazer o trabalho.";
+					mes "... então ... vamos fazer o trabalho.";
 					mes "Antes que as meninas nos encontrem ...";
 					next;
 					mes "[" + strcharinfo(0) + "]";
@@ -78,157 +78,157 @@ te_aldecas1,226,34,3	script	Blacksmith Cano#tegod01	4_M_RACHMAN1,{
 					mes "... sim, havia algumas garotas ..";
 					mes "Eu tive que fugir por causa deles ...";
 					donpcevent "#tequest_master_alde01::OnCommandOn";
-					mapannounce "te_aldecas1","A voz de uma garota: Ei, vocÃª estava falando sobre nÃ³s? Isso Ã©"+ .@npc_name$ +", certo? NÃ£o acredito que vocÃª fugiu para um lugar como este.",bc_map,"0x00FF00",FW_BOLD,20,0,40;
+					mapannounce "te_aldecas1","A voz de uma garota: Ei, você estava falando sobre nós? Isso é"+ .@npc_name$ +", certo? Não acredito que você fugiu para um lugar como este.",bc_map,"0x00FF00",FW_BOLD,20,0,40;
 					next;
 					mes "["+ .@npc_name$ +"]";
-					mes "Oh nÃ£o ...!";
-					mes "Eles estÃ£o aqui .. !!";
+					mes "Oh não ...!";
+					mes "Eles estão aqui .. !!";
 					next;
 					mes "[" + strcharinfo(0) + "]";
 					mes "Deixe isso para mim.";
 					next;
-					mes "^4d4dff! - InstruÃ§Ã£o -!";
-					mes "Em breve, 7 meninas que estÃ£o depois"+ .@npc_name$ +"Vou tentar invadir a fortaleza.";
-					mes "VocÃª tem que proteger"+ .@npc_name$ +"por 1 hora.^000000";
+					mes "^4d4dff! - Instrução -!";
+					mes "Em breve, 7 meninas que estão depois"+ .@npc_name$ +"Vou tentar invadir a fortaleza.";
+					mes "Você tem que proteger"+ .@npc_name$ +"por 1 hora.^000000";
 					next;
-					mes "^4d4dff! - InstruÃ§Ã£o -!";
-					mes "Quando o ataque real comeÃ§a, a porta da regiÃ£o de Empeio serÃ¡ bloqueada para proteÃ§Ã£o.^000000";
+					mes "^4d4dff! - Instrução -!";
+					mes "Quando o ataque real começa, a porta da região de Empeio será bloqueada para proteção.^000000";
 					close;
 				}
 				mes "["+ .@npc_name$ +"]";
-				mes "Jormungand Ã© uma equipe modelada em Jormungand, o filho de Deus que abraÃ§a o mundo.";
-				mes "TambÃ©m se refere a Ragnarok, o crepÃºsculo dos deuses.";
+				mes "Jormungand é uma equipe modelada em Jormungand, o filho de Deus que abraça o mundo.";
+				mes "Também se refere a Ragnarok, o crepúsculo dos deuses.";
 				next;
 				mes "["+ .@npc_name$ +"]";
-				mes "Mas aqui temos itens que simbolizam o crepÃºsculo dos deuses ...";
-				mes "E nÃ£o posso acreditar que vou usÃ¡ -los para fazer Jormungand ... com minhas prÃ³prias mÃ£os!";
+				mes "Mas aqui temos itens que simbolizam o crepúsculo dos deuses ...";
+				mes "E não posso acreditar que vou usá -los para fazer Jormungand ... com minhas próprias mãos!";
 				next;
 				mes "["+ .@npc_name$ +"]";
 				mes "No entanto, parece que precisamos de mais materiais.";
-				mes "VocÃª poderia verificar novamente? Vou te dar a lista do que precisamos.";
+				mes "Você poderia verificar novamente? Vou te dar a lista do que precisamos.";
 				callsub S_Material, .@npc_name$,1,"Como Jormungand tem um grande poder.";
 			}
 			mes "["+ .@npc_name$ +"]";
 			mes "No entanto, seria bom se eu dissesse alguma coisa?";
-			mes "Jormungand Ã© um dos mais poderosos, que eu faÃ§o e vocÃª merece receber algo assim de mim ...";
+			mes "Jormungand é um dos mais poderosos, que eu faço e você merece receber algo assim de mim ...";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "Mas eu gostaria que vocÃª tivesse pelo menos a qualificaÃ§Ã£o mÃ­nima.";
-			mes "Gerencie bem essa fortaleza e aumente o nÃ­vel do comÃ©rcio de 4d4dfffs em 30 ou mais ^000000.";
+			mes "Mas eu gostaria que você tivesse pelo menos a qualificação mínima.";
+			mes "Gerencie bem essa fortaleza e aumente o nível do comércio de 4d4dfffs em 30 ou mais ^000000.";
 			next;
 			mes "["+ .@npc_name$ +"]";
 			mes "Com grande poder, vem grande responsabilidade e dever.";
-			mes "Eu gostaria que vocÃª domine o bÃ¡sico primeiro.";
+			mes "Eu gostaria que você domine o básico primeiro.";
 			next;
 			mes "["+ .@npc_name$ +"]";
 			mes "Vou fazer Jormungand depois.";
-			mes "Deixe -me dar a vocÃª a lista de materiais, se quiser.";
+			mes "Deixe -me dar a você a lista de materiais, se quiser.";
 			callsub S_Material, .@npc_name$,0,"Como Jormungand tem um grande poder.";
 		case 2:
 			callsub S_Fuse, .@npc_name$, "Zoramungand";
 		case 3:
 			mes "["+ .@npc_name$ +"]";
-			mes "Ã‰ tÃ£o gentil da sua parte dizer isso.";
-			mes "A propÃ³sito, eu me pergunto como meu irmÃ£o mais velho Kai estÃ¡?";
+			mes "É tão gentil da sua parte dizer isso.";
+			mes "A propósito, eu me pergunto como meu irmão mais velho Kai está?";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "Tenho certeza que ele estÃ¡ bem como eu.";
-			mes "... Espero que as coisas permaneÃ§am tÃ£o pacÃ­ficas quanto agora.";
+			mes "Tenho certeza que ele está bem como eu.";
+			mes "... Espero que as coisas permaneçam tão pacíficas quanto agora.";
 			close;
 		}
 	}
 	if ($2012_tegod_kafra == 1) {// event started
-		mes "VocÃª ouviu as notÃ­cias?";
-		mes "As meninas estÃ£o chegando.";
+		mes "Você ouviu as notícias?";
+		mes "As meninas estão chegando.";
 		mes "As meninas impiedosas !!!";
 		next;
 		mes "["+ .@npc_name$ +"]";
-		mes "Eles chegarÃ£o aqui a qualquer minuto, jÃ¡ que jÃ¡ declararam guerra.";
-		mes "Tenho certeza de que eles estÃ£o vindo para pegar Jormungand.";
+		mes "Eles chegarão aqui a qualquer minuto, já que já declararam guerra.";
+		mes "Tenho certeza de que eles estão vindo para pegar Jormungand.";
 		next;
 		mes "["+ .@npc_name$ +"]";
 		mes "Pare -os. Por favor!";
 		next;
-		switch( select( "Deixe isso para mim.","O que vocÃª quer dizer com 'as meninas?'" ) ) {
+		switch( select( "Deixe isso para mim.","O que você quer dizer com 'as meninas?'" ) ) {
 		case 1:
 			mes "["+ .@npc_name$ +"]";
 			mes "Obrigado...";
-			mes "Lamento estar causando problemas, mas minhas mÃ£os estÃ£o ligadas.";
+			mes "Lamento estar causando problemas, mas minhas mãos estão ligadas.";
 			next;
 			mes "["+ .@npc_name$ +"]";
 			mes "Por favor, pare -os para mim!";
 			close;
 		case 2:
 			mes "["+ .@npc_name$ +"]";
-			mes "... Eles sÃ£o as meninas que querem ser valquÃ­rias ...";
+			mes "... Eles são as meninas que querem ser valquírias ...";
 			mes "E eles sempre andam em grupos de sete.";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "O que eles querem Ã© um poderosogelete de batalha ...";
-			mes "Eles sempre ameaÃ§aram meu irmÃ£o mais velho Kai e eu.";
+			mes "O que eles querem é um poderosogelete de batalha ...";
+			mes "Eles sempre ameaçaram meu irmão mais velho Kai e eu.";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "Eles ficaram satisfeitos com armas bÃ¡sicas no comeÃ§o, mas";
-			mes "Logo eles comeÃ§aram a nos ameaÃ§ar dizendo que precisam de algo mais poderoso para se tornar valquÃ­rios.";
+			mes "Eles ficaram satisfeitos com armas básicas no começo, mas";
+			mes "Logo eles começaram a nos ameaçar dizendo que precisam de algo mais poderoso para se tornar valquírios.";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "Eu nÃ£o aguentava, entÃ£o fui embora ... mas eles estÃ£o aqui ...";
-			mes "VocÃª precisa ter cuidado, pois eles descobriram que os materiais para Jormungand estÃ£o aqui.";
+			mes "Eu não aguentava, então fui embora ... mas eles estão aqui ...";
+			mes "Você precisa ter cuidado, pois eles descobriram que os materiais para Jormungand estão aqui.";
 			close;
 		}
 	}
 	if ($2012_tegod_kafra == 2) {// after 10 minutes delay
 		mes "Ah, pare de me seguir!";
-		mes "Se vocÃª pudesse se livrar deles ... Jormungand, estÃ¡ certo! Vou fazer vocÃª Jormungand!";
+		mes "Se você pudesse se livrar deles ... Jormungand, está certo! Vou fazer você Jormungand!";
 		next;
 		mes "["+ .@npc_name$ +"]";
-		mes "Quando eles vÃ£o parar de me seguir ...";
+		mes "Quando eles vão parar de me seguir ...";
 		mes "Agora estou com medo de meninas em geral ... e estou com muito medo de fazer qualquer coisa ...";
 		next;
-		mes "Ele estÃ¡ balbuciando agora.";
+		mes "Ele está balbuciando agora.";
 		mes "Apenas espere e ele se acalma.";
-		mes "VocÃª tem que se livrar dessas garotas primeiro.";
+		mes "Você tem que se livrar dessas garotas primeiro.";
 		close;
 	}
 	if ($2012_tegod_kafra == 3) {// event failed
 		mes "... embora eu tenha conseguido escapar deles novamente ...";
-		mes "Ã‰ difÃ­cil.";
-		mes "A vida Ã© ... tÃ£o difÃ­cil.";
+		mes "É difícil.";
+		mes "A vida é ... tão difícil.";
 		next;
 		mes "["+ .@npc_name$ +"]";
-		mes "Estou tÃ£o exausto que nÃ£o posso fazer nada.";
-		mes "... Eu nÃ£o acho que posso fazer nada por um tempo, seja produzindo ou fervendo ou o que quer que seja.";
+		mes "Estou tão exausto que não posso fazer nada.";
+		mes "... Eu não acho que posso fazer nada por um tempo, seja produzindo ou fervendo ou o que quer que seja.";
 		mes "Desculpe. Vou fazer uma pausa.";
 		close;
 	}
 	if ($2012_tegod_kafra == 4) {
 		mes "Eu posso finalmente respirar agora.";
-		mes "Vou comeÃ§ar a fazer Jormungand como prometido.";
+		mes "Vou começar a fazer Jormungand como prometido.";
 		next;
-		switch( select( "FaÃ§a Zoramungand.","Materiais de fusÃ­vel.","Agora nÃ£o." ) ) {
+		switch( select( "Faça Zoramungand.","Materiais de fusível.","Agora não." ) ) {
 		case 1:
 			if (countitem(6603) > 3 && countitem(6599) > 0 && countitem(6598) > 0 && countitem(6601) > 3 && countitem(6600) > 0 && countitem(6605) > 0 && countitem(6604) > 0 && countitem(1473) > 0) {
-				mes "^FF0000Wizardry Staff Ã© necessÃ¡rio no processo de fabricaÃ§Ã£o de Jormungand.";
-				mes "VocÃª nÃ£o deve possuir outros itens, exceto para equipes de mago para prosseguir com a missÃ£o.^FF0000";
+				mes "^FF0000Wizardry Staff é necessário no processo de fabricação de Jormungand.";
+				mes "Você não deve possuir outros itens, exceto para equipes de mago para prosseguir com a missão.^FF0000";
 				next;
-				mes "^FF0000E, mesmo que o nÃ­vel de refinamento e os cartÃµes tenham sido aplicados, o processo exige qualquer uma das equipes de mago que vocÃª possa ter.";
+				mes "^FF0000E, mesmo que o nível de refinamento e os cartões tenham sido aplicados, o processo exige qualquer uma das equipes de mago que você possa ter.";
 				mes "Tente novamente depois de organizar seus bens.^000000";
 				next;
-				if (select( "Organizar posses.","Continue como Ã©." ) == 1) {
-					mes "VocÃª decidiu manter apenas os funcionÃ¡rios da bruxa.";
+				if (select( "Organizar posses.","Continue como é." ) == 1) {
+					mes "Você decidiu manter apenas os funcionários da bruxa.";
 					close;
 				}
 				mes "["+ .@npc_name$ +"]";
 				mes "Oh ... obrigado.";
-				mes "Eu nÃ£o posso acreditar que finalmente estou tocando esses materiais ...";
+				mes "Eu não posso acreditar que finalmente estou tocando esses materiais ...";
 				next;
 				mes "["+ .@npc_name$ +"]";
-				mes "Aqui estÃ¡.";
-				mes "NÃ£o foi rÃ¡pido, embora tivÃ©ssemos que seguir muitos passos?";
-				mes "Fiquei tÃ£o impressionado que parecia tÃ£o curto quanto um momento.";
+				mes "Aqui está.";
+				mes "Não foi rápido, embora tivéssemos que seguir muitos passos?";
+				mes "Fiquei tão impressionado que parecia tão curto quanto um momento.";
 				next;
-				mes "Jormungand, uma arma poderosa e uma coleÃ§Ã£o de todos os traÃ§os nos mitos, Ã© finalmente feita";
-				mes "nas mÃ£os de"+ .@npc_name$ +".";
+				mes "Jormungand, uma arma poderosa e uma coleção de todos os traços nos mitos, é finalmente feita";
+				mes "nas mãos de"+ .@npc_name$ +".";
 				delitem 6603,4;// Skin_Of_Hraesvelg
 				delitem 6599,1;// Spirit_Of_Hugin
 				delitem 6598,1;// Rib_Of_Jormungand
@@ -239,30 +239,30 @@ te_aldecas1,226,34,3	script	Blacksmith Cano#tegod01	4_M_RACHMAN1,{
 				delitem 1473,1;// Wizardy_Staff
 				$2012_tegod_kafra = 5;
 				getitem 2020,1;// Jormungand
-				announce "Twilight of Trail [Jormungand] Ã© apresentado a este mundo por ["+ strcharinfo(0) +"] de ["+ getguildname(.@guild_id) +"] Guild.",bc_all,"0x70dbdb",FW_NORMAL,12;
+				announce "Twilight of Trail [Jormungand] é apresentado a este mundo por ["+ strcharinfo(0) +"] de ["+ getguildname(.@guild_id) +"] Guild.",bc_all,"0x70dbdb",FW_NORMAL,12;
 				if (.@economy > 20)
 					setcastledata "te_aldecas1",2,(.@economy -20);
 				else
 					setcastledata "te_aldecas1",2,1;// min is 1 for WOE TE
 				next;
 				mes "["+ .@npc_name$ +"]";
-				mes "Ufa .. Acho que nÃ£o posso trabalhar por um tempo.";
+				mes "Ufa .. Acho que não posso trabalhar por um tempo.";
 				mes "Estou todo exausto. Hahaha ...";
 				close;
 			}
 			mes "["+ .@npc_name$ +"]";
 			mes "No entanto, parece que precisamos de mais materiais.";
-			mes "VocÃª poderia verificar novamente? Vou te dar a lista do que precisamos.";
+			mes "Você poderia verificar novamente? Vou te dar a lista do que precisamos.";
 			callsub S_Material, .@npc_name$,1;
 		case 2:
 			callsub S_Fuse, .@npc_name$, "Zoramungand";
 		case 3:
 			mes "["+ .@npc_name$ +"]";
-			mes "Agora Ã© realmente o momento certo para fazÃª -lo.";
-			mes "Quando o prÃ³ximo Empeio aparecer, nÃ£o haverÃ¡ nenhuma chance.";
+			mes "Agora é realmente o momento certo para fazê -lo.";
+			mes "Quando o próximo Empeio aparecer, não haverá nenhuma chance.";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "AlÃ©m disso, lembre -se do fato de que eu sÃ³ posso fazer isso uma vez por semana.";
+			mes "Além disso, lembre -se do fato de que eu só posso fazer isso uma vez por semana.";
 			close;
 		}
 	}
@@ -272,10 +272,10 @@ te_aldecas1,226,34,3	script	Blacksmith Cano#tegod01	4_M_RACHMAN1,{
 		mes "Posso parecer bem, mas estava mentalmente muito cansado.";
 		close;
 	}
-	mes "Ã‰ estranho.";
-	mes "NÃ£o sei dizer como me sinto.";
-	mes "Estou tendo algum tipo de problema de saÃºde?";
-	mes "Ã‰ algo incurÃ¡vel?";
+	mes "É estranho.";
+	mes "Não sei dizer como me sinto.";
+	mes "Estou tendo algum tipo de problema de saúde?";
+	mes "É algo incurável?";
 	close;
 
 S_Material:
@@ -283,50 +283,50 @@ S_Material:
 	next;
 	mes "["+ .@npc_name$ +"]";
 	mes "^4d4dff4 couro de Presberk";
-	mes "1 espÃ­rito de abraÃ§ar";
-	mes "1 espÃ­rito de Munin";
+	mes "1 espírito de abraçar";
+	mes "1 espírito de Munin";
 	mes "4 cinzel de gigante";
 	mes "1 Costela de Jormungand";
 	mes "1 pessoal da bruxa";
-	mes "1 Muspellium e essÃªncia de Rune, respectivamente^000000";
+	mes "1 Muspellium e essência de Rune, respectivamente^000000";
 	next;
 	mes "["+ .@npc_name$ +"]";
 	mes "Precisamos de tantos materiais quanto estes";
 	mes getarg(2,"");
-	mes "A propÃ³sito, o Muspellium e a essÃªncia de Rune precisam ser feitos separadamente com materiais adicionais.";
+	mes "A propósito, o Muspellium e a essência de Rune precisam ser feitos separadamente com materiais adicionais.";
 	next;
 	mes "["+ .@npc_name$ +"]";
-	mes "Para fazer muspellium, vocÃª precisa ^4d4dffcombine 50 eluniums e 50 orideCons ^000000.";
-	mes "Para a essÃªncia de Rune, vocÃª precisa ^4d4dffcombine 200 rupas antigas e 100 mÃ­sticas ruins ^000000.";
+	mes "Para fazer muspellium, você precisa ^4d4dffcombine 50 eluniums e 50 orideCons ^000000.";
+	mes "Para a essência de Rune, você precisa ^4d4dffcombine 200 rupas antigas e 100 místicas ruins ^000000.";
 	next;
 	mes "["+ .@npc_name$ +"]";
-	mes "Vou fazer muspellium e essÃªncia de runa a qualquer momento, mediante sua solicitaÃ§Ã£o,";
-	mes "E, Ã© claro, farei Jormungand assim que reunirmos todos os materiais necessÃ¡rios.";
+	mes "Vou fazer muspellium e essência de runa a qualquer momento, mediante sua solicitação,";
+	mes "E, é claro, farei Jormungand assim que reunirmos todos os materiais necessários.";
 	next;
 	mes "["+ .@npc_name$ +"]";
 	if (getarg(1))
-		mes "O que estou fazendo nunca Ã© suficiente em comparaÃ§Ã£o com o que vocÃª fez por mim.";
+		mes "O que estou fazendo nunca é suficiente em comparação com o que você fez por mim.";
 	else {
-		mes "No entanto, vocÃª nÃ£o poderÃ¡ encontrar o crepÃºsculo da trilha.";
-		mes "... Mas as pessoas dizem que isso definitivamente parece para aqueles que realmente o querem. Desejo a vocÃª toda a sorte.";
+		mes "No entanto, você não poderá encontrar o crepúsculo da trilha.";
+		mes "... Mas as pessoas dizem que isso definitivamente parece para aqueles que realmente o querem. Desejo a você toda a sorte.";
 	}
 	close;
 
 S_Fuse:
 	.@npc_name$ = getarg(0);
 	mes "["+ .@npc_name$ +"]";
-	mes "Qual material vocÃª deseja fazer?";
+	mes "Qual material você deseja fazer?";
 	next;
-	switch( select( "Muspellium","EssÃªncia de Rune","EsqueÃ§a." ) ) {
+	switch( select( "Muspellium","Essência de Rune","Esqueça." ) ) {
 	case 1:
 		mes "["+ .@npc_name$ +"]";
 		if (countitem(985) > 49 && countitem(984) > 49) {
-			mes "Vou fazer muspellium com os materiais que vocÃª preparou.";
+			mes "Vou fazer muspellium com os materiais que você preparou.";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "NÃ£o deve demorar muito.";
-			mes "Aqui estÃ¡.";
-			mes "Ã‰ um material essencial para fazer Hervor e Jormungand.";
+			mes "Não deve demorar muito.";
+			mes "Aqui está.";
+			mes "É um material essencial para fazer Hervor e Jormungand.";
 			delitem 985,50;// Elunium
 			delitem 984,50;// Oridecon
 			getitem 6605,1;// Muspellium
@@ -336,36 +336,36 @@ S_Fuse:
 		mes "^4d4dffyou precisam de 50 eluniums e 50 oridEcons.^000000";
 		next;
 		mes "["+ .@npc_name$ +"]";
-		mes "DeverÃ­amos ter todos os materiais prontos, certo?";
+		mes "Deveríamos ter todos os materiais prontos, certo?";
 		close;
 	case 2:
 		mes "["+ .@npc_name$ +"]";
 		if (countitem(12735) > 199 && countitem(12736) > 99) {
-			mes "Vou fazer a essÃªncia de Rune com os materiais que vocÃª preparou.";
+			mes "Vou fazer a essência de Rune com os materiais que você preparou.";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "NÃ£o deve demorar muito.";
-			mes "Aqui estÃ¡.";
-			mes "Ã‰ um material essencial para fazer Hervor e Jormungand.";
+			mes "Não deve demorar muito.";
+			mes "Aqui está.";
+			mes "É um material essencial para fazer Hervor e Jormungand.";
 			delitem 12735,200;// Runstone_Ancient
 			delitem 12736,100;// Runstone_Mystic
 			getitem 6604,1;// Essence_Of_Rune
 			close;
 		}
-		mes "Por essÃªncia de Rune,";
-		mes "^4d4dffffyou precisando de 200 runstones antigas e 100 rupras mÃ­sticas.^000000";
+		mes "Por essência de Rune,";
+		mes "^4d4dffffyou precisando de 200 runstones antigas e 100 rupras místicas.^000000";
 		next;
 		mes "["+ .@npc_name$ +"]";
-		mes "Certamente, Ã© preciso muito ...";
+		mes "Certamente, é preciso muito ...";
 		close;
 	case 3:
 		mes "["+ .@npc_name$ +"]";
 		mes "Diga -me sempre que precisar.";
-		mes "Estou feliz por poder pelo menos fazer isso por vocÃª.";
+		mes "Estou feliz por poder pelo menos fazer isso por você.";
 		next;
 		mes "["+ .@npc_name$ +"]";
-		mes "AlÃ©m disso, um lugar onde vocÃª pode encontrar materiais para"+ getarg(1) +"...";
-		mes "Isso Ã© como um lugar de sonho para mim tambÃ©m.";
+		mes "Além disso, um lugar onde você pode encontrar materiais para"+ getarg(1) +"...";
+		mes "Isso é como um lugar de sonho para mim também.";
 		close;
 	}
 
@@ -381,21 +381,21 @@ te_aldecas1,3,2,0	script	#tequest_master_alde01	CLEAR_NPC,{
 	mes "senha?";
 	next;
 	if ( callfunc( "F_GM_NPC", 1854,0, 0,9999 ) < 1 ) {
-		mes "VÃ¡ embora";
+		mes "Vá embora";
 		close;
 	}
 	.@map$ = "te_aldecas1";
 	mes "Status atual:" + $2012_tegod_kafra;
-	mes "0: capaz de prosseguir com a missÃ£o";
-	mes "1: prossiga com a missÃ£o. Espera de 10 minutos";
+	mes "0: capaz de prosseguir com a missão";
+	mes "1: prossiga com a missão. Espera de 10 minutos";
 	mes "2: Quest em andamento";
-	mes "3: A missÃ£o falhou";
+	mes "3: A missão falhou";
 	mes "4: Capaz de produzir itens, 5: itens produzidos com sucesso.";
 	next;
 	mes "Status da princesa:" + $@2012_tegirls_alde01;
-	mes "NÃ­vel de comÃ©rcio atual da fortaleza:" + getcastledata(.@map$,2);
+	mes "Nível de comércio atual da fortaleza:" + getcastledata(.@map$,2);
 	next;
-	switch( select( "NÃ£o prossiga","InicializaÃ§Ã£o","Aumentar o nÃ­vel de comÃ©rcio","NÃ­vel de comÃ©rcio mais baixo" ) ) {
+	switch( select( "Não prossiga","Inicialização","Aumentar o nível de comércio","Nível de comércio mais baixo" ) ) {
 	case 1:
 		end;
 	case 2:
@@ -406,21 +406,21 @@ te_aldecas1,3,2,0	script	#tequest_master_alde01	CLEAR_NPC,{
 		.@economy = getcastledata(.@map$,2) +30;
 		.@economy = .@economy > 100 ? 100 : .@economy;
 		setcastledata .@map$,2,.@economy;
-		mes "Aumentar o nÃ­vel de comÃ©rcio atÃ© 30";
-		mes "NÃ­vel de comÃ©rcio modificado:" + .@economy;
+		mes "Aumentar o nível de comércio até 30";
+		mes "Nível de comércio modificado:" + .@economy;
 		close;
 	case 4:
 		.@economy1 = getcastledata(.@map$,2);
 		.@economy2 = .@economy1 > 30 ? (.@economy1 -30) : 1;
 		if (.@economy1 > 30) {
-			mes "NÃ­vel de comÃ©rcio mais baixo atÃ© 30";
+			mes "Nível de comércio mais baixo até 30";
 			setcastledata .@map$,2,.@economy2;
 		}
 		else {
-			mes "O nÃ­vel de comÃ©rcio diminui para 0, pois o nÃ­vel de corrente Ã© inferior a 30.";
+			mes "O nível de comércio diminui para 0, pois o nível de corrente é inferior a 30.";
 			setcastledata .@map$,2,1;// min is 1 for WOE TE
 		}
-		mes "NÃ­vel de comÃ©rcio modificado:" + .@economy2;
+		mes "Nível de comércio modificado:" + .@economy2;
 		close;
 	}
 
@@ -442,16 +442,16 @@ OnCommandOn:
 	end;
 
 OnTimer10000:
-	announce "Vozes das meninas: Cano ~ JÃ¡ sabemos onde vocÃª estÃ¡. Acabou!",bc_all,"0xff0000",FW_NORMAL,10;
+	announce "Vozes das meninas: Cano ~ Já sabemos onde você está. Acabou!",bc_all,"0xff0000",FW_NORMAL,10;
 	end;
 OnTimer15000:
-	announce "Vozes das meninas: Vamos esperar apenas 10 minutos. Se vocÃª nÃ£o aparecer nesse meio tempo, invadiremos a fortaleza!",bc_all,"0xff0000",FW_NORMAL,10;
+	announce "Vozes das meninas: Vamos esperar apenas 10 minutos. Se você não aparecer nesse meio tempo, invadiremos a fortaleza!",bc_all,"0xff0000",FW_NORMAL,10;
 	end;
 OnTimer595000:
-	mapannounce "te_aldecas1","A voz de uma garota: Cano! Como vocÃª ousa ignorar nosso aviso! EntÃ£o, vocÃª tem companhia lÃ¡, hein? Mas quanto tempo vocÃª acha que eles vÃ£o ficar com vocÃª?!",bc_map,"0x00FF00",FW_NORMAL,12;
+	mapannounce "te_aldecas1","A voz de uma garota: Cano! Como você ousa ignorar nosso aviso! Então, você tem companhia lá, hein? Mas quanto tempo você acha que eles vão ficar com você?!",bc_map,"0x00FF00",FW_NORMAL,12;
 	end;
 OnTimer598000:
-	mapannounce "te_aldecas1","VocÃª Ã© forÃ§ado a sair da fortaleza por poder desconhecido.",bc_map,"0x00FF00",FW_NORMAL,12;
+	mapannounce "te_aldecas1","Você é forçado a sair da fortaleza por poder desconhecido.",bc_map,"0x00FF00",FW_NORMAL,12;
 	end;
 
 OnTimer600000:
@@ -469,7 +469,7 @@ OnTimer600000:
 	end;
 
 OnTimer602000:
-	announce "Glaris, na regiÃ£o de Kafragarten, estÃ¡ sendo atacado por um grupo de seres nÃ£o identificados.",bc_all,"0xff0000",FW_NORMAL,10;
+	announce "Glaris, na região de Kafragarten, está sendo atacado por um grupo de seres não identificados.",bc_all,"0xff0000",FW_NORMAL,10;
 	monster "te_aldecas1",0,0,"Raydric",1163,15, .npc_name$ +":: onmymobdead";
 	monster "te_aldecas1",0,0,"Khalitzburg",1132,10, .npc_name$ +":: onmymobdead";
 	monster "te_aldecas1",0,0,"Cavaleiro abismal",1219,5, .npc_name$ +":: onmymobdead";
@@ -509,13 +509,13 @@ OnTimer4200000:
 	mapannounce "te_aldecas1","Meninas: ... Quanto tempo temos que esperar?",bc_map,"0x00FF00",FW_NORMAL,12;
 	end;
 OnTimer4205000:
-	mapannounce "te_aldecas1","Meninas: Jormungand deve ser feito para nÃ³s!",bc_map,"0x00FF00",FW_NORMAL,12;
+	mapannounce "te_aldecas1","Meninas: Jormungand deve ser feito para nós!",bc_map,"0x00FF00",FW_NORMAL,12;
 	end;
 OnTimer4210000:
-	mapannounce "te_aldecas1","Meninas: Vamos, corte se fora! VocÃªs sÃ£o tÃ£o persistentes !!",bc_map,"0x00FF00",FW_NORMAL,12;
+	mapannounce "te_aldecas1","Meninas: Vamos, corte se fora! Vocês são tão persistentes !!",bc_map,"0x00FF00",FW_NORMAL,12;
 	end;
 OnTimer4220000:
-	mapannounce "te_aldecas1","Aira: Ah! Eu nÃ£o aguento mais! Meninas, venha aqui!",bc_map,"0x00FF00",FW_NORMAL,12;
+	mapannounce "te_aldecas1","Aira: Ah! Eu não aguento mais! Meninas, venha aqui!",bc_map,"0x00FF00",FW_NORMAL,12;
 
 	$2012_tegod_kafra = 3;// quest off until someone break the emp
 	callsub S_EventReset;
@@ -534,27 +534,27 @@ OnTimer4225000:
 	end;
 
 OnTimer4227000:
-	npctalk "Cano: Oh ... nÃ£o! O que vocÃª vai fazer comigo?!", "Blacksmith Cano#tegod01";
+	npctalk "Cano: Oh ... não! O que você vai fazer comigo?!", "Blacksmith Cano#tegod01";
 	end;
 OnTimer4230000:
-	npctalk "Aira: MM? Ei Cano. VocÃª estÃ¡ indo para casa.", "#end_aira_alde01";
+	npctalk "Aira: MM? Ei Cano. Você está indo para casa.", "#end_aira_alde01";
 	end;
 OnTimer4233000:
-	npctalk "Kuluna: sim ~ vocÃª tem que consertar minha varinha quebrada e fazer armas poderosas para mim quando voltar!", "#end_kuluna_alde01";
+	npctalk "Kuluna: sim ~ você tem que consertar minha varinha quebrada e fazer armas poderosas para mim quando voltar!", "#end_kuluna_alde01";
 	end;
 OnTimer4236000:
-	npctalk "Ezella: Tente fugir novamente. VocÃª vai se arrepender, entende?", "#end_ezella_alde01";
+	npctalk "Ezella: Tente fugir novamente. Você vai se arrepender, entende?", "#end_ezella_alde01";
 	end;
 OnTimer4237000:
-	npctalk "Nasarin: ... apenas leve -o. Por que vocÃªs estÃ£o conversando tanto com ele?", "#end_nasarin_alde01";
+	npctalk "Nasarin: ... apenas leve -o. Por que vocês estão conversando tanto com ele?", "#end_nasarin_alde01";
 	end;
 OnTimer4240000:
-	npctalk "Aira: VocÃª estÃ¡ certo! Tudo bem entÃ£o!", "#end_aira_alde01";
+	npctalk "Aira: Você está certo! Tudo bem então!", "#end_aira_alde01";
 	npctalk "Cano: Oh... No... Noooo!!!!!", "Blacksmith Cano#tegod01";
 	end;
 
 OnTimer4243000:
-	mapannounce "te_aldecas1","VocÃª nÃ£o conseguiu recuperar a fortaleza. Cano agora se foi.",bc_map,"0x00FF00",FW_NORMAL,12;
+	mapannounce "te_aldecas1","Você não conseguiu recuperar a fortaleza. Cano agora se foi.",bc_map,"0x00FF00",FW_NORMAL,12;
 	disablenpc "Blacksmith Cano#tegod01";
 	callsub S_EventOff;// clear setnpcdisplay
 	.npc_name$ = ]";
@@ -620,7 +620,7 @@ OnCommandOn:
 OnMyMobDead:
 	if (mobcount( "te_aldecas1","Aira#Fake01_alde01 :: onMyMobdead" )) end;
 	donpcevent "#aira_real_alde01::OnCommandOn";
-	npctalk "Aira: My Summo Water Balls! Eu vou te pegar! Com minhas prÃ³prias mÃ£os !!";
+	npctalk "Aira: My Summo Water Balls! Eu vou te pegar! Com minhas próprias mãos !!";
 OnReset:
 	stopnpctimer;
 	killmonster "te_aldecas1", "Aira#fake01_alde01::OnMyMobDead";
@@ -656,7 +656,7 @@ OnCommandOn:
 OnMyMobDead:
 	if (mobcount( "te_aldecas1","Custo#Fake01_alde01 :: onMyMobdead" )) end;
 	donpcevent "#kuluna_real_alde01::OnCommandOn";
-	npctalk "Kuluna: hmm? EntÃ£o vocÃª vai ser assim? Ã‰ melhor vocÃª estar pronto!";
+	npctalk "Kuluna: hmm? Então você vai ser assim? É melhor você estar pronto!";
 OnReset:
 	stopnpctimer;
 	killmonster "te_aldecas1", "Kuluna#fake01_alde01::OnMyMobDead";
@@ -666,17 +666,17 @@ OnInit:
 	end;
 
 OnTimer1000:
-	monster "te_aldecas1",24,199,"GuardiÃ£o",1143,10, "Custo#Fake01_alde01 :: onMyMobdead";// MARIONETTE
+	monster "te_aldecas1",24,199,"Guardião",1143,10, "Custo#Fake01_alde01 :: onMyMobdead";// MARIONETTE
 	end;
 OnTimer2000:
-	monster "te_aldecas1",24,199,"GuardiÃ£o",1693,10, "Custo#Fake01_alde01 :: onMyMobdead";// PLASMA_Y
+	monster "te_aldecas1",24,199,"Guardião",1693,10, "Custo#Fake01_alde01 :: onMyMobdead";// PLASMA_Y
 	end;
 OnTimer3000:
-	monster "te_aldecas1",24,199,"GuardiÃ£o",1869,5, "Custo#Fake01_alde01 :: onMyMobdead";// FLAME_SKULL
-	monster "te_aldecas1",24,199,"GuardiÃ£o",1704,1, "Custo#Fake01_alde01 :: onMyMobdead";// THA_ODIUM
-	monster "te_aldecas1",24,199,"GuardiÃ£o",1705,1, "Custo#Fake01_alde01 :: onMyMobdead";// THA_DESPERO
-	monster "te_aldecas1",24,199,"GuardiÃ£o",1706,1, "Custo#Fake01_alde01 :: onMyMobdead";// THA_MAERO
-	monster "te_aldecas1",24,199,"GuardiÃ£o",1707,1, "Custo#Fake01_alde01 :: onMyMobdead";// THA_DOLOR
+	monster "te_aldecas1",24,199,"Guardião",1869,5, "Custo#Fake01_alde01 :: onMyMobdead";// FLAME_SKULL
+	monster "te_aldecas1",24,199,"Guardião",1704,1, "Custo#Fake01_alde01 :: onMyMobdead";// THA_ODIUM
+	monster "te_aldecas1",24,199,"Guardião",1705,1, "Custo#Fake01_alde01 :: onMyMobdead";// THA_DESPERO
+	monster "te_aldecas1",24,199,"Guardião",1706,1, "Custo#Fake01_alde01 :: onMyMobdead";// THA_MAERO
+	monster "te_aldecas1",24,199,"Guardião",1707,1, "Custo#Fake01_alde01 :: onMyMobdead";// THA_DOLOR
 	stopnpctimer;
 	end;
 }
@@ -731,7 +731,7 @@ OnCommandOn:
 OnMyMobDead:
 	if (mobcount( "te_aldecas1","Ezella#Fake01_alde01 :: OnMyMobdead" )) end;
 	donpcevent "#ezella_real_alde01::OnCommandOn";
-	npctalk "Ezella: Ahh ... isso sÃ³ deixa os dois mais cansados â€‹â€‹...";
+	npctalk "Ezella: Ahh ... isso só deixa os dois mais cansados ...";
 OnReset:
 	stopnpctimer;
 	killmonster "te_aldecas1", "Ezella#fake01_alde01::OnMyMobDead";
@@ -768,7 +768,7 @@ OnCommandOn:
 OnMyMobDead:
 	if (mobcount( "te_aldecas1","Lune#Fake01_alde01 :: onMyMobdead" )) end;
 	donpcevent "#lune_real_alde01::OnCommandOn";
-	npctalk "Lune: .. VocÃª quer ser afogado no fundo do mar? Huh?";
+	npctalk "Lune: .. Você quer ser afogado no fundo do mar? Huh?";
 OnReset:
 	stopnpctimer;
 	killmonster "te_aldecas1", "Lune#fake01_alde01::OnMyMobDead";
@@ -851,18 +851,18 @@ te_aldecas1,214,176,3	script	Nasarin#fake01_alde01	CLEAR_NPC,{
 	end;
 OnCommandOn:
 	enablenpc "Nasarin#fake01_alde01";
-	setnpcdisplay "VÃ­timas # Fake01_alde01",2449;// NASARIN
+	setnpcdisplay "Vítimas # Fake01_alde01",2449;// NASARIN
 	initnpctimer;
 	end;
 
 OnMyMobDead:
 	if (mobcount( "te_aldecas1","Nasarin#Fake01_alde01 :: onMyMobdead" )) end;
 	donpcevent "#nasarin_real_alde01::OnCommandOn";
-	npctalk "Nasarin: ..ahh .. Ã‰ tÃ£o difÃ­cil se tornar uma ValquÃ­ria!";
+	npctalk "Nasarin: ..ahh .. É tão difícil se tornar uma Valquíria!";
 OnReset:
 	stopnpctimer;
 	killmonster "te_aldecas1", "Nasarin#fake01_alde01::OnMyMobDead";
-	setnpcdisplay "VÃ­timas # Fake01_alde01",CLEAR_NPC;
+	setnpcdisplay "Vítimas # Fake01_alde01",CLEAR_NPC;
 OnInit:
 	disablenpc "Nasarin#fake01_alde01";
 	end;
@@ -885,7 +885,7 @@ OnTimer3000:
 OnCommandOn:
 	.@npc_name$ = strnpcinfo(0);
 	if (.@npc_name$ == "#aira_real_alde01")
-		monster "te_aldecas1",26,224,"Aira em um incÃªndio",2443,1, .@npc_name$ +":: onmymobdead";
+		monster "te_aldecas1",26,224,"Aira em um incêndio",2443,1, .@npc_name$ +":: onmymobdead";
 	else if (.@npc_name$ == "#kuluna_real_alde01")
 		monster "te_aldecas1",24,199,"Apaixonado pelo hittle",2444,1, .@npc_name$ +":: onmymobdead";
 	else if (.@npc_name$ == "#model_real_alde01")
@@ -914,25 +914,25 @@ OnTimer1000:
 	if (mobcount( "te_aldecas1",strnpcinfo(0) +":: onmymobdead" ) == 0) {
 		$@2012_tegirls_alde01++;
 		if ($@2012_tegirls_alde01 == 7) {
-			mapannounce "te_aldecas1","Cano: aaahh !! As meninas quebraram os escudos e entraram em onde estÃ¡ o Empeium !!!!",bc_map,"0x00FF00",FW_NORMAL,12;
+			mapannounce "te_aldecas1","Cano: aaahh !! As meninas quebraram os escudos e entraram em onde está o Empeium !!!!",bc_map,"0x00FF00",FW_NORMAL,12;
 			donpcevent "#eproom_girls_alde01::OnCommandOn";
 		}
 		else {
 			.@npc_name$ = strnpcinfo(0);
 			if (.@npc_name$ == "#aira_real_alde01")
-				mapannounce "te_aldecas1","Aira: VocÃª acha que eu perdi? VocÃª estÃ¡ errado! NÃ³s forÃ§amos o caminho para onde Cano estÃ¡ !!",bc_map,"0x00FF00",FW_NORMAL,12;
+				mapannounce "te_aldecas1","Aira: Você acha que eu perdi? Você está errado! Nós forçamos o caminho para onde Cano está !!",bc_map,"0x00FF00",FW_NORMAL,12;
 			else if (.@npc_name$ == "#kuluna_real_alde01")
-				mapannounce "te_aldecas1","Kuluna: ... isso Ã© chamado de retiro estratÃ©gico.",bc_map,"0x00FF00",FW_NORMAL,12;
+				mapannounce "te_aldecas1","Kuluna: ... isso é chamado de retiro estratégico.",bc_map,"0x00FF00",FW_NORMAL,12;
 			else if (.@npc_name$ == "#model_real_alde01")
-				mapannounce "te_aldecas1","Mallina: ... por que vocÃª estÃ¡ nos perturbando tanto? Mas a vitÃ³ria serÃ¡ nossa no final !!",bc_map,"0x00FF00",FW_NORMAL,12;
+				mapannounce "te_aldecas1","Mallina: ... por que você está nos perturbando tanto? Mas a vitória será nossa no final !!",bc_map,"0x00FF00",FW_NORMAL,12;
 			else if (.@npc_name$ == "#ezella_real_alde01")
-				mapannounce "te_aldecas1","Ezella: Oh vocÃª, um fraco que desapareceria como o vento ... !!!",bc_map,"0x00FF00",FW_NORMAL,12;
+				mapannounce "te_aldecas1","Ezella: Oh você, um fraco que desapareceria como o vento ... !!!",bc_map,"0x00FF00",FW_NORMAL,12;
 			else if (.@npc_name$ == "#lune_real_alde01")
-				mapannounce "te_aldecas1","Lune: .. Tudo bem. Deixe a batalha comeÃ§ar!",bc_map,"0x00FF00",FW_NORMAL,12;
+				mapannounce "te_aldecas1","Lune: .. Tudo bem. Deixe a batalha começar!",bc_map,"0x00FF00",FW_NORMAL,12;
 			else if (.@npc_name$ == "#morin_real_alde01")
-				mapannounce "te_aldecas1","Morin: NÃ£o Ã© mais ... interessante.",bc_map,"0x00FF00",FW_NORMAL,12;
+				mapannounce "te_aldecas1","Morin: Não é mais ... interessante.",bc_map,"0x00FF00",FW_NORMAL,12;
 			else if (.@npc_name$ == "#nasarin_real_alde")
-				mapannounce "te_aldecas1","Nasarin: .. eu perdi meu tempo. Cano estÃ¡ no centro desta fortaleza?",bc_map,"0x00FF00",FW_NORMAL,12;
+				mapannounce "te_aldecas1","Nasarin: .. eu perdi meu tempo. Cano está no centro desta fortaleza?",bc_map,"0x00FF00",FW_NORMAL,12;
 		}
 	}
 	stopnpctimer;
@@ -957,7 +957,7 @@ OnCommandOn:
 	monster "te_aldecas1",215,34,"Ezella de Verdure",2446,1, "#EPROOM_GIRLS_ALDE01 :: OnMyMobdead";
 	monster "te_aldecas1",226,24,"Mallina da terra",2445,1, "#EPROOM_GIRLS_ALDE01 :: OnMyMobdead";
 	monster "te_aldecas1",213,46,"Apaixonado pelo hittle",2444,1, "#EPROOM_GIRLS_ALDE01 :: OnMyMobdead";
-	monster "te_aldecas1",218,46,"Aira em um incÃªndio",2443,1, "#EPROOM_GIRLS_ALDE01 :: OnMyMobdead";
+	monster "te_aldecas1",218,46,"Aira em um incêndio",2443,1, "#EPROOM_GIRLS_ALDE01 :: OnMyMobdead";
 	end;
 
 OnReset:
@@ -974,7 +974,7 @@ OnTimer3000:
 	if (mobcount( "te_aldecas1","#EPROOM_GIRLS_ALDE01 :: OnMyMobdead" ) == 0) {
 		donpcevent "#tequest_master_alde01::OnStop";
 		$2012_tegod_kafra = 4;
-		mapannounce "te_aldecas1","VocÃª derrotou as meninas e recuperou a fortaleza com sucesso.",bc_map,"0x00FF00",FW_NORMAL,12;
+		mapannounce "te_aldecas1","Você derrotou as meninas e recuperou a fortaleza com sucesso.",bc_map,"0x00FF00",FW_NORMAL,12;
 	}
 	stopnpctimer;
 	end;

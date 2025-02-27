@@ -18,18 +18,18 @@
 //============================================================
 que_ng,21,72,6	script	Master Armor Craftsman	4_M_RASWORD,{
 	mes "[REIT]";
-	mes "Como vocÃª definiria a vitÃ³ria?";
+	mes "Como você definiria a vitória?";
 	mes "Para cair o inimigo ...";
-	mes "No entanto, o mais importante Ã© ...";
+	mes "No entanto, o mais importante é ...";
 	mes "Nunca se cair!";
 	next;
 	mes "[REIT]";
-	mes "Para isso, vocÃª deve se proteger melhor.";
-	mes "VocÃª nÃ£o pode proteger 'outros' enquanto impede sua proteÃ§Ã£o 'prÃ³pria'.";
+	mes "Para isso, você deve se proteger melhor.";
+	mes "Você não pode proteger 'outros' enquanto impede sua proteção 'própria'.";
 	next;
-	if(select("Combine armadura.: ConversaÃ§Ã£o.") == 2) {
+	if(select("Combine armadura.: Conversação.") == 2) {
 		mes "[REIT]";
-		mes "A prudÃªncia tambÃ©m Ã© uma virtude importante na batalha.";
+		mes "A prudência também é uma virtude importante na batalha.";
 		close;
 	}
 	switch(select("Wolf Armguard [1]: Crescent Armguard [1]: armadura de escala ninja [1]: escuro [1] desiste.")) {
@@ -43,14 +43,14 @@ que_ng,21,72,6	script	Master Armor Craftsman	4_M_RASWORD,{
 			delitem 6252,10; //Wolf_Blood
 			getitem 2172,1; //Wolf_Armguard
 			mes "[REIT]";
-			mes "VocÃª sente a natureza do lobo?";
+			mes "Você sente a natureza do lobo?";
 			mes "Selvagem e charmosa ...";
 			close;
 		}
 		break;
 	case 2:
 		mes "[REIT]";
-		mes "Crescent Armguard ... uma coisa de beleza e forÃ§a ... com ninguÃ©m menor.";
+		mes "Crescent Armguard ... uma coisa de beleza e força ... com ninguém menor.";
 		next;
 		callsub L_Select,2173;
 		if (countitem(2171) > 0 && countitem(7321) > 99) {  //custom translation
@@ -65,7 +65,7 @@ que_ng,21,72,6	script	Master Armor Craftsman	4_M_RASWORD,{
 		break;
 	case 3:
 		mes "[REIT]";
-		mes "Armadura de escala ninja ... diz que um ninja lendÃ¡rio uma vez o usava.";
+		mes "Armadura de escala ninja ... diz que um ninja lendário uma vez o usava.";
 		next;
 		callsub L_Select,15054;
 		if (countitem(7451) > 29 && countitem(7562) > 29 && countitem(6091) > 29) {  //custom translation
@@ -74,8 +74,8 @@ que_ng,21,72,6	script	Master Armor Craftsman	4_M_RASWORD,{
 			delitem 6091,30; //Dark_Red_Scale
 			getitem 15054,1; //Ninja_Scale_Armor
 			mes "[REIT]";
-			mes "Esta Ã© realmente uma armadura lendÃ¡ria ...";
-			mes "Mesmo se eu nÃ£o acreditar em lendas ...";
+			mes "Esta é realmente uma armadura lendária ...";
+			mes "Mesmo se eu não acreditar em lendas ...";
 			close;
 		}
 		break;
@@ -89,8 +89,8 @@ que_ng,21,72,6	script	Master Armor Craftsman	4_M_RASWORD,{
 			delitem 6089,10; //Piece_Of_Darkness
 			getitem 15055,1; //Tenebris_Latitantes
 			mes "[REIT]";
-			mes "Como Ã©?";
-			mes "A armadura nÃ£o parece que hÃ¡ dois?";
+			mes "Como é?";
+			mes "A armadura não parece que há dois?";
 			close;
 		}
 		break;
@@ -98,13 +98,13 @@ que_ng,21,72,6	script	Master Armor Craftsman	4_M_RASWORD,{
 		close;
 	}
 	mes "[REIT]";
-	mes "VocÃª nÃ£o tem ingredientes suficientes.";
+	mes "Você não tem ingredientes suficientes.";
 	mes "Olhe de novo ...";
 	close;
 
 L_Select:
 	.@string1$ = "Verifique os ingredientes.";
-	.@string2$ = "Verifique as estatÃ­sticas.";
+	.@string2$ = "Verifique as estatísticas.";
 	while(1) {
 		switch(select(.@string1$,.@string2$,"Combinar.","Desistir.")) {
 		case 1:
@@ -120,7 +120,7 @@ L_Select:
 			return;
 		case 4:
 			mes "[REIT]";
-			mes "Parece que vocÃª precisa de mais tempo para decidir.";
+			mes "Parece que você precisa de mais tempo para decidir.";
 			close;
 		}
 	}
@@ -129,20 +129,20 @@ L_Ingredients:
 	mes "[REIT]";
 	switch (getarg(0)) {
 	case 2172:	//Wolf_Armguard
-		mes "Para fazer uma guarda de braÃ§o ^ff0000wolf, vocÃª precisa de 1 braÃ§o de raposa e 10 sangue de lobo ^000000.";
-		mes "VocÃª pode sentir isso? A pulsaÃ§Ã£o do sangue do lobo ...";
+		mes "Para fazer uma guarda de braço ^ff0000wolf, você precisa de 1 braço de raposa e 10 sangue de lobo ^000000.";
+		mes "Você pode sentir isso? A pulsação do sangue do lobo ...";
 		break;
 	case 2173:	//Crescent_Armguard
-		mes "Para fazer um guarda -braÃ§o de gorjeta, vocÃª precisa de 1 braÃ§o de raposa e 100 fragmentos de cristal ^000000.";
-		mes "Um crescente tÃ£o bonito e claro quanto um cristal serÃ¡ gravado nele.";
+		mes "Para fazer um guarda -braço de gorjeta, você precisa de 1 braço de raposa e 100 fragmentos de cristal ^000000.";
+		mes "Um crescente tão bonito e claro quanto um cristal será gravado nele.";
 		break;
 	case 15054:	//Ninja_Scale_Armor
-		mes "Para fazer uma armadura de escala ^ff0000ninja, vocÃª precisa de 30 escalas de dragÃ£o de fogo, 30 escamas de gelo e 30 peÃ§as de escala escura ^000000.";
-		mes "VocÃª pode sentir seus poderes lendÃ¡rios.";
+		mes "Para fazer uma armadura de escala ^ff0000ninja, você precisa de 30 escalas de dragão de fogo, 30 escamas de gelo e 30 peças de escala escura ^000000.";
+		mes "Você pode sentir seus poderes lendários.";
 		break;
 	case 15055:	//Tenebris_Latitantes
-		mes "Para fazer uma armadura do rei, vocÃª precisarÃ¡ de um terno ninja especial com um slot e 10 pedaÃ§os escuros ^000000.";
-		mes "Com a escuridÃ£o, ele apaga a prÃ³pria existÃªncia ...";
+		mes "Para fazer uma armadura do rei, você precisará de um terno ninja especial com um slot e 10 pedaços escuros ^000000.";
+		mes "Com a escuridão, ele apaga a própria existência ...";
 		break;
 	}
 	next;
@@ -154,22 +154,22 @@ L_Stats:
 	case 2172:	//Wolf_Armguard
 		mes "Chance de ter 5 seg. de ATK+100, fuja -50 no ataque corpo a corpo.";
 		mes "Tipo de escudo, defesa 45, slot 1";
-		mes "NÃ­vel 100 necessÃ¡rio apenas tipo ninja";
+		mes "Nível 100 necessário apenas tipo ninja";
 		break;
 	case 2173:	//Crescent_Armguard
-		mes "Diminui o atraso pÃ³s -habilidade para 2% para cada aprimoramento.";
+		mes "Diminui o atraso pós -habilidade para 2% para cada aprimoramento.";
 		mes "Tipo de escudo, defesa 70, slot 1";
-		mes "NÃ­vel 100 necessÃ¡rio apenas tipo ninja";
+		mes "Nível 100 necessário apenas tipo ninja";
 		break;
 	case 15054:	//Ninja_Scale_Armor
 		mes "MHP+15%, MSP-30%";
 		mes "Tipo de armadura, defesa 90, slot 1";
-		mes "NÃ­vel 100 necessÃ¡rio apenas tipo ninja";
+		mes "Nível 100 necessário apenas tipo ninja";
 		break;
 	case 15055:	//Tenebris_Latitantes
-		mes "Chance de ativar o LVL. 1 IlusÃ£o - Shadow quando atacado por ataques corpo a corpo.";
+		mes "Chance de ativar o LVL. 1 Ilusão - Shadow quando atacado por ataques corpo a corpo.";
 		mes "Tipo de armadura, defesa 60, slot 1";
-		mes "NÃ­vel 100 necessÃ¡rio apenas tipo ninja";
+		mes "Nível 100 necessário apenas tipo ninja";
 		break;
 	}
 	next;
@@ -177,15 +177,15 @@ L_Stats:
 
 L_Combine:
 	mes "[REIT]";
-	mes "Certifique -se de que ^ff0000 vocÃª tenha os ingredientes e equipamentos corretos em mÃ£os ^000000.";
-	mes "NÃ£o adianta chorar mais tarde.";
+	mes "Certifique -se de que ^ff0000 você tenha os ingredientes e equipamentos corretos em mãos ^000000.";
+	mes "Não adianta chorar mais tarde.";
 	next;
 	switch(select("Combine.: Quit.")) {
 	case 1:
 		if (checkweight(1201,1) == 0 || MaxWeight - Weight < 2000) {
 			mes "- Aguentar!! -";
-			mes "- VocÃª nÃ£o pode receber itens -";
-			mes "- Porque vocÃª carrega demais. -";
+			mes "- Você não pode receber itens -";
+			mes "- Porque você carrega demais. -";
 			mes "- Por favor, tente novamente -";
 			mes "- depois de iluminar seu fardo. -";
 			close;
@@ -193,7 +193,7 @@ L_Combine:
 		return;
 	case 2:
 		mes "[REIT]";
-		mes "Parece que vocÃª precisa de mais tempo para decidir.";
+		mes "Parece que você precisa de mais tempo para decidir.";
 		close;
 	}
 	end;
@@ -201,21 +201,21 @@ L_Combine:
 
 que_ng,23,70,3	script	Master Weapon Craftsman	4_DST_SOLDIER,{
 	mes "[Para]";
-	mes "Atacar Ã© o melhor meio de defesa.";
-	mes "Uma arma poderosa vou fazer vocÃª realmente completar.";
+	mes "Atacar é o melhor meio de defesa.";
+	mes "Uma arma poderosa vou fazer você realmente completar.";
 	next;
 	mes "[Para]";
-	mes "Claro, seria melhor ter algo especial Ã  mÃ£o.";
+	mes "Claro, seria melhor ter algo especial à mão.";
 	next;
-	if(select("Combine a arma.: ConversaÃ§Ã£o.") == 2) {
+	if(select("Combine a arma.: Conversação.") == 2) {
 		mes "[Para]";
-		mes "Ser muito cuidadoso Ã s vezes pode ser letal.";
+		mes "Ser muito cuidadoso às vezes pode ser letal.";
 		close;
 	}
-	switch(select("Dagger gigante [1]: Mikatsuki [1]: Huuma em rumor pÃ©tala [2]: Saia.")) {
+	switch(select("Dagger gigante [1]: Mikatsuki [1]: Huuma em rumor pétala [2]: Saia.")) {
 	case 1:
 		mes "[Para]";
-		mes "Raksasa Dagger sÃ³ pode ser usada apÃ³s bastante treinamento.";
+		mes "Raksasa Dagger só pode ser usada após bastante treinamento.";
 		next;
 		callsub L_Select,13076;
 		if (countitem(13013) > 0 && countitem(718) > 0) {  //custom translation
@@ -228,12 +228,12 @@ que_ng,23,70,3	script	Master Weapon Craftsman	4_DST_SOLDIER,{
 			close;
 		}
 		mes "[Para]";
-		mes "Hmm ... vocÃª nÃ£o tem o suficiente para fazer uma adaga Raksasa.";
+		mes "Hmm ... você não tem o suficiente para fazer uma adaga Raksasa.";
 		break;
 	case 2:
 		mes "[Para]";
 		mes "Mikatsuki ... uma bela curva como a lua crescente ...";
-		mes "NÃ£o hÃ¡ muitos que possam fazÃª -los.";
+		mes "Não há muitos que possam fazê -los.";
 		next;
 		callsub L_Select,13078;
 		if (countitem(13015) > 0 && countitem(727) > 0) {  //custom translation
@@ -242,15 +242,15 @@ que_ng,23,70,3	script	Master Weapon Craftsman	4_DST_SOLDIER,{
 			getitem 13078,1; //Mikatsuki
 			mes "[Para]";
 			mes "Verdadeiramente lindo ...";
-			mes "Tenho a sorte de poder ver uma adaga tÃ£o magnÃ­fica.";
+			mes "Tenho a sorte de poder ver uma adaga tão magnífica.";
 			close;
 		}
 		mes "[Para]";
-		mes "Hmm ... vocÃª nÃ£o tem o suficiente para fazer um Mikatsuki.";
+		mes "Hmm ... você não tem o suficiente para fazer um Mikatsuki.";
 		break;
 	case 3:
 		mes "[Para]";
-		mes "Huuma rodopia de pÃ©tala ... vocÃª jÃ¡ viu pÃ©talas girar?";
+		mes "Huuma rodopia de pétala ... você já viu pétalas girar?";
 		next;
 		callsub L_Select,13313;
 		if (countitem(13304) > 0 && countitem(7156) > 99) {  //custom translation
@@ -258,22 +258,22 @@ que_ng,23,70,3	script	Master Weapon Craftsman	4_DST_SOLDIER,{
 			delitem 7156,100; //Broken_Shuriken
 			getitem 13313,1; //Huuma_Swirling_Petal
 			mes "[Para]";
-			mes "Voando ... pÃ©talas !!";
+			mes "Voando ... pétalas !!";
 			close;
 		}
 		mes "[Para]";
-		mes "Hmm ... vocÃª nÃ£o tem o suficiente para fazer uma pÃ©tala de Huuma em giro.";
+		mes "Hmm ... você não tem o suficiente para fazer uma pétala de Huuma em giro.";
 		break;
 	case 4:
 		close;
 	}
-	mes "Por que vocÃª nÃ£o verifica novamente?";
-	mes "Alguns simplesmente nÃ£o podem desistir do que seguram.";
+	mes "Por que você não verifica novamente?";
+	mes "Alguns simplesmente não podem desistir do que seguram.";
 	close;
 
 L_Select:
 	.@string1$ = "Verifique os ingredientes.";
-	.@string2$ = "Verifique as estatÃ­sticas.";
+	.@string2$ = "Verifique as estatísticas.";
 	while(1) {
 		switch(select(.@string1$,.@string2$,"Combinar.","Desistir.")) {
 		case 1:
@@ -298,16 +298,16 @@ L_Ingredients:
 	mes "[Para]";
 	switch (getarg(0)) {
 	case 13076:	//Raksasa_Dagger
-		mes "Para uma adaga A ^ff0000raksasa, vocÃª precisa de 1 Murasame com 2 soquetes e 1 granada ^000000.";
-		mes "O Garnet dÃ¡ Ã  adaga Raksasa sua cor Ãºnica.";
+		mes "Para uma adaga A ^ff0000raksasa, você precisa de 1 Murasame com 2 soquetes e 1 granada ^000000.";
+		mes "O Garnet dá à adaga Raksasa sua cor única.";
 		break;
 	case 13078:	//Mikatsuki
-		mes "Para um ^ff0000mikatsuki, vocÃª precisa de um hakujin com um slot e uma opala ^000000.";
-		mes "A OPAL Ã© o que dÃ¡ o brilho translÃºcido.";
+		mes "Para um ^ff0000mikatsuki, você precisa de um hakujin com um slot e uma opala ^000000.";
+		mes "A OPAL é o que dá o brilho translúcido.";
 		break;
 	case 13313:	//Huuma_Swirling_Petal
-		mes "Para uma pÃ©tala em giro, vocÃª precisa de um shuriken calmo de Huuma e 100 shurikens quebrados ^000000.";
-		mes "Pode parecer que muitos shurikens sÃ£o necessÃ¡rios ... mas Ã© essencial para o belo efeito flutuante.";
+		mes "Para uma pétala em giro, você precisa de um shuriken calmo de Huuma e 100 shurikens quebrados ^000000.";
+		mes "Pode parecer que muitos shurikens são necessários ... mas é essencial para o belo efeito flutuante.";
 		break;
 	}
 	next;
@@ -319,18 +319,18 @@ L_Stats:
 	case 13076:	//Raksasa_Dagger
 		mes "Int+3 caminhada+100.";
 		mes "Tipo de adaga, ATK 120, slot 1";
-		mes "NÃ­vel 110 necessÃ¡rio, apenas tipo ninja";
+		mes "Nível 110 necessário, apenas tipo ninja";
 		break;
 	case 13078:	//Mikatsuki
-		mes "Mark + 120, elenco flutuante e o uso de SP diminuÃ­ram 5% apÃ³s o uso de habilidades.";
+		mes "Mark + 120, elenco flutuante e o uso de SP diminuíram 5% após o uso de habilidades.";
 		mes "Tipo de adaga, ATK 50, arma LVL. 4 slot 1";
-		mes "NÃ­vel 100 necessÃ¡rio apenas tipo ninja";
+		mes "Nível 100 necessário apenas tipo ninja";
 		break;
 	case 13313:	//Huuma_Swirling_Petal
-		mes "Mark + 50, Huuma em turbilhÃ£o de danos nas habilidades da pÃ©tala aumentou 20%.";
+		mes "Mark + 50, Huuma em turbilhão de danos nas habilidades da pétala aumentou 20%.";
 		mes "Tipo Shuriken, ATK 150";
 		mes "Arma lvl. 3, slot 2";
-		mes "NÃ­vel 110 necessÃ¡rio, apenas tipo ninja";
+		mes "Nível 110 necessário, apenas tipo ninja";
 		break;
 	}
 	next;
@@ -338,15 +338,15 @@ L_Stats:
 
 L_Combine:
 	mes "[Para]";
-	mes "Certifique -se de que ^ff0000 vocÃª tenha os ingredientes e equipamentos corretos em mÃ£os ^000000.";
-	mes "Uma vez feito, nÃ£o pode ser desfeito.";
+	mes "Certifique -se de que ^ff0000 você tenha os ingredientes e equipamentos corretos em mãos ^000000.";
+	mes "Uma vez feito, não pode ser desfeito.";
 	next;
 	switch(select("Combine.: Quit.")) {
 	case 1:
 		if (checkweight(1201,1) == 0 || MaxWeight - Weight < 2000) {
 			mes "- Aguentar!! -";
-			mes "- VocÃª nÃ£o pode receber itens -";
-			mes "- Porque vocÃª carrega demais. -";
+			mes "- Você não pode receber itens -";
+			mes "- Porque você carrega demais. -";
 			mes "- Por favor, tente novamente -";
 			mes "- depois de iluminar seu fardo. -";
 			close;

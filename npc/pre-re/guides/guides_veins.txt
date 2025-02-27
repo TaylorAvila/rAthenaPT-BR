@@ -18,51 +18,51 @@
 veins,210,345,5	script	Veins Guide#1::ve_guide	934,{
 	mes "[Guia das veias]";
 	mes "As veias da cidade deserta recebem aventureiros que buscam abrigo de tempestades de areia severas.";
-	mes "Se esta Ã© a primeira vez que vocÃª usa os ServiÃ§os do Guia, por que vocÃª nÃ£o verifica o ...";
+	mes "Se esta é a primeira vez que você usa os Serviços do Guia, por que você não verifica o ...";
 	set .@loop1,1;
 	while(.@loop1) {
 		next;
 		switch(select("Guia da vila: Remova as notas do Mini-mapa: Aviso: Cancelar")) {
 		case 1:
 			mes "[Guia das veias]";
-			mes "Eu posso lhe dizer qualquer local de construÃ§Ã£o, desde que esteja em veias.";
-			mes "EntÃ£o, para onde vocÃª quer ir?";
+			mes "Eu posso lhe dizer qualquer local de construção, desde que esteja em veias.";
+			mes "Então, para onde você quer ir?";
 			if (.@compass_check == 0) {
-				mes "VocÃª gostaria de mim";
+				mes "Você gostaria de mim";
 				mes "Para marcar locais";
 				mes "em seu mini-mapa?";
 				next;
-				if (select("Sim: NÃ£o") == 1) set .@compass_check,1;
+				if (select("Sim: Não") == 1) set .@compass_check,1;
 			}
 			set .@loop2,1;
 			while(.@loop2) {
 				if (.@wait_button_chk == 0) set .@wait_button_chk,1;
 				else next;
 
-				switch(select("Templo: Inn: Armas Shop: Ferramentas: Airsocipi: Taberna: Instituto de Pesquisa GeolÃ³gica: Cancelar")) {
+				switch(select("Templo: Inn: Armas Shop: Ferramentas: Airsocipi: Taberna: Instituto de Pesquisa Geológica: Cancelar")) {
 				case 1:
 					mes "[Guia das veias]";
-					mes "Nosso templo estÃ¡ localizado ao norte,";
+					mes "Nosso templo está localizado ao norte,";
 					mes "e sempre lotado de seguidores sinceros da deusa Freya.";
 					if (.@compass_check == 1) viewpoint 1,196,258,1,0xFF0000;
 					break;
 				case 2:
 					mes "[Guia das veias]";
-					mes "VocÃª pode descansar sua fadiga da jornada na pousada.";
-					mes "O prÃ©dio esquerdo ao meu lado Ã© a pousada das veias.";
+					mes "Você pode descansar sua fadiga da jornada na pousada.";
+					mes "O prédio esquerdo ao meu lado é a pousada das veias.";
 					if (.@compass_check == 1) viewpoint 1,128,266,2,0xFF00FF;
 					break;
 				case 3:
 					mes "[Guia das veias]";
-					mes "Sim, vocÃª deve se proteger do perigo por conta prÃ³pria.";
-					mes "Compre armas de alta qualidade a preÃ§os acessÃ­veis.";
-					mes "A loja de armas de veias estÃ¡ localizada a oeste.";
+					mes "Sim, você deve se proteger do perigo por conta própria.";
+					mes "Compre armas de alta qualidade a preços acessíveis.";
+					mes "A loja de armas de veias está localizada a oeste.";
 					if (.@compass_check == 1) viewpoint 1,150,175,3,0x99FFFF;
 					break;
 				case 4:
 					mes "[Guia das veias]";
-					mes "VocÃª lotou necessidades suficientes para sua aventura?";
-					mes "Caso contrÃ¡rio, sugiro que vocÃª verifique o que as veias do centro podem oferecer.";
+					mes "Você lotou necessidades suficientes para sua aventura?";
+					mes "Caso contrário, sugiro que você verifique o que as veias do centro podem oferecer.";
 					if (.@compass_check == 1) viewpoint 1,230,161,4,0x0000FF;
 					break;
 				case 5:
@@ -72,23 +72,23 @@ veins,210,345,5	script	Veins Guide#1::ve_guide	934,{
 					break;
 				case 6:
 					mes "[Guia das veias]";
-					mes "Se vocÃª quiser fazer amizade com";
-					mes "as pessoas da cidade, eu sugiro vocÃª";
-					mes "vÃ¡ tomar uma bebida na taberna para";
+					mes "Se você quiser fazer amizade com";
+					mes "as pessoas da cidade, eu sugiro você";
+					mes "vá tomar uma bebida na taberna para";
 					mes "o oeste.";
 					if (.@compass_check == 1) viewpoint 1,150,217,6,0x00FF00;
 					break;
 				case 7:
 					mes "[Guia das veias]";
-					mes "VocÃª estÃ¡ interessado em estudar geologia?";
-					mes "EntÃ£o Ã© melhor vocÃª verificar o";
-					mes "Instituto de Pesquisa GeolÃ³gica em";
-					mes "O 2Âº andar da loja de armas.";
+					mes "Você está interessado em estudar geologia?";
+					mes "Então é melhor você verificar o";
+					mes "Instituto de Pesquisa Geológica em";
+					mes "O 2º andar da loja de armas.";
 					if (.@compass_check == 1) viewpoint 1,150,175,7,0x00FF00;
 					break;
 				case 8:
 					mes "[Guia das veias]";
-					mes "Se vocÃª gosta de se livrar de todas as marcas de localizaÃ§Ã£o em seu mini-mapa,";
+					mes "Se você gosta de se livrar de todas as marcas de localização em seu mini-mapa,";
 					mes "Apenas me pergunte novamente e escolha o menu 'Remover marcas do mini-mapa'.";
 					set .@loop2,0;
 					break;
@@ -105,15 +105,15 @@ veins,210,345,5	script	Veins Guide#1::ve_guide	934,{
 			viewpoint 2,150,217,6,0x00FF00;
 			viewpoint 2,150,175,7,0x00FF00;
 			mes "[Guia das veias]";
-			mes "Ok, eles se foram agora. Se vocÃª tiver mais locais para perguntar, me avise.";
+			mes "Ok, eles se foram agora. Se você tiver mais locais para perguntar, me avise.";
 			mes "Aproveite a sua estadia em veias.";
 			break;
 		case 3:
 			mes "[Guia das veias]";
-			mes "Quando vocÃª estÃ¡ usando o menu  \"village\",";
-			mes "Verifique se os locais de construÃ§Ã£o serÃ£o marcados no seu mini-mapa no lado superior direito da tela.";
-			mes "Se vocÃª nÃ£o puder ver seu mini-mapa, use a tecla de atalho '' Ctrl+Tab '' ou pressione o botÃ£o '' '' '' nas suas janelas de informaÃ§Ãµes bÃ¡sicas, ok?";
-			mes "E vocÃª tambÃ©m pode ampliar seu mini-mapa usando o botÃ£o ''-'', caso nÃ£o possa visualizar o mapa inteiro da vila.";
+			mes "Quando você está usando o menu  \"village\",";
+			mes "Verifique se os locais de construção serão marcados no seu mini-mapa no lado superior direito da tela.";
+			mes "Se você não puder ver seu mini-mapa, use a tecla de atalho '' Ctrl+Tab '' ou pressione o botão '' '' '' nas suas janelas de informações básicas, ok?";
+			mes "E você também pode ampliar seu mini-mapa usando o botão ''-'', caso não possa visualizar o mapa inteiro da vila.";
 			break;
 		case 4:
 			mes "[Guia das veias]";

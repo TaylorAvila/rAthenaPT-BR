@@ -25,13 +25,13 @@
 
 prontera,152,187,6	script	Hunting Missions	4_F_EDEN_MASTER,{
 function Chk;
-	mes "[MissÃµes de caÃ§a]";
-	mes "OlÃ¡," + strcharinfo(0) + "!";
+	mes "[Missões de caça]";
+	mes "Olá," + strcharinfo(0) + "!";
 	if (!#Mission_Delay) {
 		next;
-		mes "[MissÃµes de caÃ§a]";
-		mes "NÃ£o consigo encontrar nenhum registro ...";
-		mes "VocÃª deve ser novo aqui!";
+		mes "[Missões de caça]";
+		mes "Não consigo encontrar nenhum registro ...";
+		mes "Você deve ser novo aqui!";
 		emotion ET_HUK;
 		next;
 		callsub Mission_Info;
@@ -39,27 +39,27 @@ function Chk;
 		#Mission_Delay = 1;
 		close;
 	}
-	mes F_Rand("Trabalhando duro, como sempre ...", "NÃ£o estou relaxando, espero ...");
-	mes "HÃ¡ algo que eu possa ajudar";
-	mes "vocÃª estÃ¡ com?";
+	mes F_Rand("Trabalhando duro, como sempre ...", "Não estou relaxando, espero ...");
+	mes "Há algo que eu possa ajudar";
+	mes "você está com?";
 	mes "";
-	mes "^777777 ~ VocÃª concluiu" + F_InsertPlural(Mission_Total,"missÃ£o",0,"^0055ff %d^777777 %s") + ". ~^000000";
+	mes "^777777 ~ Você concluiu" + F_InsertPlural(Mission_Total,"missão",0,"^0055ff %d^777777 %s") + ". ~^000000";
 	next;
 	switch(select(
-		((!Mission0) ? "~ Nova missÃ£o ::" : ": ~ Status da missÃ£o: ~ abandonar a missÃ£o") +
-		": ~ InformaÃ§Ã£o: ~ Mission Shop: ~ Ver os principais caÃ§adores: ~ ^777777Cancel ^000000"
+		((!Mission0) ? "~ Nova missão ::" : ": ~ Status da missão: ~ abandonar a missão") +
+		": ~ Informação: ~ Mission Shop: ~ Ver os principais caçadores: ~ ^777777Cancel ^000000"
 	)) {
 	case 1:
-		mes "[MissÃµes de caÃ§a]";
+		mes "[Missões de caça]";
 		if (#Mission_Count) {
-			mes "VocÃª comeÃ§ou uma missÃ£o";
+			mes "Você começou uma missão";
 			mes "em outro personagem.";
 			if (!@hm_char_del_check) {  // check for deleted character
 				query_sql("SELECT 1 FROM `char_reg_num` WHERE `key` = 'Mission0' AND `char_id` IN(SELECT `char_id` FROM `char` WHERE `account_id` = " + getcharid(3) + ")", .@i);
 				if (!.@i) {
 					next;
-					mes "[MissÃµes de caÃ§a]";
-					mes "NÃ£o consigo encontrar nenhum registro";
+					mes "[Missões de caça]";
+					mes "Não consigo encontrar nenhum registro";
 					mes "Para esse personagem, embora ...";
 					mes "Um momento, por favor.";
 					emotion ET_SCRATCH;
@@ -70,33 +70,33 @@ function Chk;
 			close;
 		}
 		if (#Mission_Delay > gettimetick(2) && .Delay) {
-			mes "Receio que vocÃª tenha que esperar" + Time2Str(#Mission_Delay) + "antes de tomar outra missÃ£o.";
+			mes "Receio que você tenha que esperar" + Time2Str(#Mission_Delay) + "antes de tomar outra missão.";
 			close;
 		}
-		mes "VocÃª deve caÃ§ar:";
+		mes "Você deve caçar:";
 		query_sql("SELECT ID FROM `" + .mob_db$ + "` WHERE left(name_aegis, 4) != 'meta' AND left(name_aegis, 2) != 'E_' AND base_exp > 0 AND job_exp > 0 AND (class != 'boss' OR class is null) AND (drop3_item like '%_card' OR drop4_item like '%_card' OR drop5_item like '%_card' OR drop6_item like '%_card' OR drop7_item like '%_card' OR drop8_item like '%_card' OR drop9_item like '%_card' OR drop10_item like '%_card') AND ID < 2000 AND instr('"+.Blacklist$+"',ID) = 0 ORDER BY rand() LIMIT " + .Quests, .@mob);
 		
 		for (.@i = 0; .@i < .Quests; .@i++) {
-			setd "MissÃ£o" + .@i, .@mob[.@i];
-			setd "MissÃ£o" + .@i +"_", 0;
+			setd "Missão" + .@i, .@mob[.@i];
+			setd "Missão" + .@i +"_", 0;
 		}
 		#Mission_Count = rand(.Count[0], .Count[1]);
 		callsub Mission_Status;
 		next;
-		mes "[MissÃµes de caÃ§a]";
+		mes "[Missões de caça]";
 		mes "Relate quando";
-		mes "vocÃª terminou.";
+		mes "você terminou.";
 		mes "Boa sorte!";
 		close;
 	case 2:
-		mes "[MissÃµes de caÃ§a]";
-		mes "Status da missÃ£o:";
+		mes "[Missões de caça]";
+		mes "Status da missão:";
 		callsub Mission_Status;
 		close;
 	case 3:
-		mes "[MissÃµes de caÃ§a]";
-		mes "VocÃª realmente quer";
-		mes "abandonar sua missÃ£o?";
+		mes "[Missões de caça]";
+		mes "Você realmente quer";
+		mes "abandonar sua missão?";
 		if (.Reset < 0 && .Delay)
 			mes "Your delay time will not be reset.";
 		else if (.Reset > 0)
@@ -106,30 +106,30 @@ function Chk;
 		case 1:
 			if (.Reset > 0) {
 				if (Zeny < .Reset) {
-					mes "[MissÃµes de caÃ§a]";
-					mes "VocÃª nÃ£o tem o suficiente";
-					mes "Zeny para abandonar esta missÃ£o.";
+					mes "[Missões de caça]";
+					mes "Você não tem o suficiente";
+					mes "Zeny para abandonar esta missão.";
 					emotion ET_SORRY;
 					close;
 				}
 				Zeny -= .Reset;
 				emotion ET_MONEY;
 			}
-			mes "[MissÃµes de caÃ§a]";
-			mes "Tudo bem, eu caÃ­";
-			mes "Sua missÃ£o atual.";
+			mes "[Missões de caça]";
+			mes "Tudo bem, eu caí";
+			mes "Sua missão atual.";
 			specialeffect2 EF_STORMKICK4;
 			for (.@i = 0; .@i < .Quests; .@i++) {
-				setd "MissÃ£o"+.@i, 0;
-				setd "MissÃ£o"+.@i+"_", 0;
+				setd "Missão"+.@i, 0;
+				setd "Missão"+.@i+"_", 0;
 			}
 			#Mission_Count = 0;
 			if (.Reset < 0 && .Delay)
 				#Mission_Delay = gettimetick(2) + (.Delay * 3600);
 			close;
 		case 2:
-			mes "[MissÃµes de caÃ§a]";
-			mes "Eu sabia que vocÃª estava brincando!";
+			mes "[Missões de caça]";
+			mes "Eu sabia que você estava brincando!";
 			mes "Continue com o bom trabalho.";
 			emotion ET_SMILE;
 			close;
@@ -138,21 +138,21 @@ function Chk;
 		callsub Mission_Info;
 		close;
 	case 5:
-		mes "[MissÃµes de caÃ§a]";
-		mes "VocÃª tem ^0055ff" + #Mission_Points + "^000000 Pontos de missÃ£o.";
+		mes "[Missões de caça]";
+		mes "Você tem ^0055ff" + #Mission_Points + "^000000 Pontos de missão.";
 		mes "Use -os bem!";
 		callshop "mission_shop",1;
 		npcshopattach "mission_shop";
 		end;
 	case 6:
-		mes "[MissÃµes de caÃ§a]";
-		mes "Os principais caÃ§adores sÃ£o:";
+		mes "[Missões de caça]";
+		mes "Os principais caçadores são:";
 		query_sql("SELECT char_id AS id, (SELECT `name` FROM `char` WHERE char_id = id),`value` FROM `char_reg_num` WHERE `key` = 'Mission_Total' ORDER BY CAST(`value` AS SIGNED) DESC LIMIT 5", .@id, .@name$, .@val);
 		for (.@i = 0; .@i < 5; .@i++)
 			mes "[Rank" + (.@i+1) + "]" + ((.@name$[.@i] == "") ? "^Hahnan" : "^0055ff" + .@name$[.@i]+"^000000: ^FF0000" + .@val[.@i] + "pt.") + "^000000";
 		close;
 	case 7:
-		mes "[MissÃµes de caÃ§a]";
+		mes "[Missões de caça]";
 		mes "Nada? OK...";
 		emotion ET_SCRATCH;
 		close;
@@ -163,11 +163,11 @@ Mission_Status:
 	@f = false;
 	deletearray .@j[0], getarraysize(.@j);
 	for (.@i = 0; .@i < .Quests; .@i++) {
-		.@j[.@i] = getd("MissÃ£o" + .@i);
+		.@j[.@i] = getd("Missão" + .@i);
 		.@j[.Quests] = .@j[.Quests] + strmobinfo(3,.@j[.@i]);
 		.@j[.Quests+1] = .@j[.Quests+1] + (strmobinfo(6,.@j[.@i]) / (getbattleflag("base_exp_rate") / 100) * .Modifier[0]);
 		.@j[.Quests+2] = .@j[.Quests+2] + (strmobinfo(7,.@j[.@i]) / (getbattleflag("JOB_EXP_RATE") / 100) * .Modifier[1]);
-		mes ">"+Chk(getd("MissÃ£o"+.@i+"_"),#Mission_Count) + strmobinfo(1,.@j[.@i]) + "(" + getd("MissÃ£o"+.@i+"_") + "/" + #Mission_Count + ")^000000";
+		mes ">"+Chk(getd("Missão"+.@i+"_"),#Mission_Count) + strmobinfo(1,.@j[.@i]) + "(" + getd("Missão"+.@i+"_") + "/" + #Mission_Count + ")^000000";
 	}
 
 	// Reward formulas:
@@ -177,21 +177,21 @@ Mission_Status:
 	.@Zeny = #Mission_Count * .Quests * .@j[.@i] * .Modifier[2];
 
 	next;
-	mes "[MissÃµes de caÃ§a]";
-	mes "Recompensas da missÃ£o:";
-	mes "> Pontos de missÃ£o: ^0055ff" + .@Mission_Points + "^000000";
-	mes "> ExperiÃªncia base: ^0055ff" + F_InsertComma(.@Base_Exp) + "^000000";
-	mes "> ExperiÃªncia no trabalho: ^0055ff" + F_InsertComma(.@Job_Exp) + "^000000";
+	mes "[Missões de caça]";
+	mes "Recompensas da missão:";
+	mes "> Pontos de missão: ^0055ff" + .@Mission_Points + "^000000";
+	mes "> Experiência base: ^0055ff" + F_InsertComma(.@Base_Exp) + "^000000";
+	mes "> Experiência no trabalho: ^0055ff" + F_InsertComma(.@Job_Exp) + "^000000";
 	mes "> Mulheres: ^0055ff" + F_InsertComma(.@Zeny) + "^000000";
 	if (@f) {
 		@f = false;
 		return;
 	}
 	next;
-	mes "[MissÃµes de caÃ§a]";
-	mes "Oh, vocÃª terminou!";
+	mes "[Missões de caça]";
+	mes "Oh, você terminou!";
 	mes "Bom trabalho.";
-	mes "Aqui estÃ¡ a sua recompensa.";
+	mes "Aqui está a sua recompensa.";
 	emotion ET_BEST;
 	specialeffect2 EF_ANGEL;
 	specialeffect2 EF_TRUESIGHT;
@@ -200,8 +200,8 @@ Mission_Status:
 	JobExp += .@Job_Exp;
 	Zeny += .@Zeny;
 	for (.@i = 0; .@i < .Quests; .@i++) {
-		setd "MissÃ£o" + .@i, 0;
-		setd "MissÃ£o" + .@i+"_", 0;
+		setd "Missão" + .@i, 0;
+		setd "Missão" + .@i+"_", 0;
 	}
 	#Mission_Count = 0;
 	if (.Delay)
@@ -214,24 +214,24 @@ Mission_Status:
 	close;
 
 Mission_Info:
-	mes "[MissÃµes de caÃ§a]";
-	mes "Se vocÃª escolher, eu posso atribuir";
-	mes "VocÃª Ã© uma busca de caÃ§a aleatÃ³ria.";
-	mes "Alguns sÃ£o mais fÃ¡ceis que outros, mas";
+	mes "[Missões de caça]";
+	mes "Se você escolher, eu posso atribuir";
+	mes "Você é uma busca de caça aleatória.";
+	mes "Alguns são mais fáceis que outros, mas";
 	mes "As recompensas aumentam com dificuldade.";
 	next;
-	mes "[MissÃµes de caÃ§a]";
-	mes "Os pontos de missÃµes sÃ£o compartilhados";
+	mes "[Missões de caça]";
+	mes "Os pontos de missões são compartilhados";
 	mes "entre todos os seus personagens.";
 	if (.Delay)
-		mes "O tempo de atraso tambÃ©m Ã©.";
-	mes "VocÃª nÃ£o pode levar missÃµes em";
-	mes "vÃ¡rios caracteres de uma sÃ³ vez.";
+		mes "O tempo de atraso também é.";
+	mes "Você não pode levar missões em";
+	mes "vários caracteres de uma só vez.";
 	next;
-	mes "[MissÃµes de caÃ§a]";
-	mes "VocÃª pode comeÃ§ar uma missÃ£o";
-	mes (.Delay ? "todo" + ((.Delay == 1) ? "hora." : .Delay + "horas.") : "sempre que vocÃª quiser.");
-	mes "Isso Ã© tudo ~";
+	mes "[Missões de caça]";
+	mes "Você pode começar uma missão";
+	mes (.Delay ? "todo" + ((.Delay == 1) ? "hora." : .Delay + "horas.") : "sempre que você quiser.");
+	mes "Isso é tudo ~";
 	return;
 
 function Chk {
@@ -248,16 +248,16 @@ OnBuyItem:
 		.@j = inarray(.Shop, @bought_nameid[.@i]);
 		.@cost += (.Shop[.@j+1] * @bought_quantity[.@i]);
 	}
-	mes "[MissÃµes de caÃ§a]";
+	mes "[Missões de caça]";
 	if (.@cost > #Mission_Points)
-		mes "VocÃª nÃ£o tem pontos de missÃ£o suficientes.";
+		mes "Você não tem pontos de missão suficientes.";
 	else {
 		for (.@i = 0; .@i < .@size; .@i++) {
 			getitem @bought_nameid[.@i], @bought_quantity[.@i];
 			dispbottom "Comprado" + @bought_quantity[.@i] + "x" + getitemname(@bought_nameid[.@i]) + ".";
 		}
 		#Mission_Points -= .@cost;
-		mes "Acordo concluÃ­do.";
+		mes "Acordo concluído.";
 		emotion ET_MONEY;
 	}
 	deletearray @bought_nameid[0], .@size;
@@ -268,9 +268,9 @@ OnNPCKillEvent:
 	if (!getcharid(1) || !.Party) {
 		if (!#Mission_Count || !Mission0) end;
 		for (.@i = 0; .@i < .Quests; .@i++) {
-			if (strmobinfo(1,killedrid) == strmobinfo(1,getd("MissÃ£o" + .@i))) {
-				if (getd("MissÃ£o" + .@i + "_") < #Mission_Count) {
-					dispbottom "[MissÃ£o de caÃ§a] Morto" + (set(getd("MissÃ£o" + .@i + "_"),getd("MissÃ£o" + .@i + "_") + 1)) +
+			if (strmobinfo(1,killedrid) == strmobinfo(1,getd("Missão" + .@i))) {
+				if (getd("Missão" + .@i + "_") < #Mission_Count) {
+					dispbottom "[Missão de caça] Morto" + (set(getd("Missão" + .@i + "_"),getd("Missão" + .@i + "_") + 1)) +
 					           "de" + #Mission_Count + "" + strmobinfo(1,killedrid) + ".";
 					end;
 				}
@@ -295,8 +295,8 @@ OnNPCKillEvent:
 							.@my_count = getvar( getd("Mission"+.@j+"_"), $@partymembercid[.@i] );
 							if (strmobinfo(1,.@mob) == strmobinfo(1,.@my_mob_id)) {
 								if (.@my_count < .@Mission_Count) {
-									setd "MissÃ£o"+.@j+"_", (.@my_count+1), $@partymembercid[.@i];
-									dispbottom "[MissÃ£o de caÃ§a] Morto" + (.@my_count+1) + "de" + .@Mission_Count + "" + strmobinfo(1,.@mob) + ".", 0x777777, $@partymembercid[.@i];
+									setd "Missão"+.@j+"_", (.@my_count+1), $@partymembercid[.@i];
+									dispbottom "[Missão de caça] Morto" + (.@my_count+1) + "de" + .@Mission_Count + "" + strmobinfo(1,.@mob) + ".", 0x777777, $@partymembercid[.@i];
 									break;
 								}
 							}
